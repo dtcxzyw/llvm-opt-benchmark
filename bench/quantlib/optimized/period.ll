@@ -859,11 +859,13 @@ if.else:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.else
   %rem = srem i32 %0, 12
+  %div = sdiv i32 %0, 12
   %cmp4 = icmp eq i32 %rem, 0
   br i1 %cmp4, label %if.end46.sink.split.sink.split, label %if.end46
 
 sw.bb8:                                           ; preds = %if.else
   %rem10 = srem i32 %0, 7
+  %div14 = sdiv i32 %0, 7
   %cmp11 = icmp eq i32 %rem10, 0
   br i1 %cmp11, label %if.end46.sink.split.sink.split, label %if.end46
 
@@ -1033,10 +1035,9 @@ ehcleanup44:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 if.end46.sink.split.sink.split:                   ; preds = %sw.bb8, %sw.bb
-  %.sink41 = phi i32 [ 12, %sw.bb ], [ 7, %sw.bb8 ]
+  %div14.sink = phi i32 [ %div, %sw.bb ], [ %div14, %sw.bb8 ]
   %.sink.ph = phi i32 [ 3, %sw.bb ], [ 1, %sw.bb8 ]
-  %div14 = sdiv i32 %0, %.sink41
-  store i32 %div14, ptr %this, align 4, !tbaa !3
+  store i32 %div14.sink, ptr %this, align 4, !tbaa !3
   br label %if.end46.sink.split
 
 if.end46.sink.split:                              ; preds = %if.end46.sink.split.sink.split, %entry

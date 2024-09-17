@@ -175,139 +175,153 @@ define hidden noundef zeroext i1 @_ZN17JfrEventThrottler6acceptE10JfrEventIdl(i3
 declare noundef zeroext i1 @_ZN18JfrAdaptiveSampler6sampleEl(ptr noundef nonnull align 8 dereferenceable(76), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(142) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(142) %0, ptr nocapture readnone %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, -2
   %6 = getelementptr inbounds i8, ptr %0, i64 140
   %7 = zext i1 %5 to i8
   store i8 %7, ptr %6, align 4
-  br i1 %5, label %54, label %8
+  br i1 %5, label %60, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 120
   %10 = load i64, ptr %9, align 8
-  switch i64 %10, label %15 [
+  switch i64 %10, label %19 [
     i64 1000, label %_Z9normalizePlS_.exit
     i64 60000, label %11
-    i64 3600000, label %13
+    i64 3600000, label %15
   ]
 
 11:                                               ; preds = %8
   %12 = icmp sgt i64 %4, 599
-  br i1 %12, label %_Z9normalizePlS_.exit.thread, label %_Z9normalizePlS_.exit
+  br i1 %12, label %13, label %_Z9normalizePlS_.exit
 
-13:                                               ; preds = %8
-  %14 = icmp sgt i64 %4, 35999
-  br i1 %14, label %_Z9normalizePlS_.exit.thread, label %_Z9normalizePlS_.exit
+13:                                               ; preds = %11
+  %14 = udiv i64 %4, 60
+  store i64 %14, ptr %3, align 8
+  br label %_Z9normalizePlS_.exit.thread
 
 15:                                               ; preds = %8
-  %16 = icmp sgt i64 %4, 863999
-  br i1 %16, label %_Z9normalizePlS_.exit.thread, label %_Z9normalizePlS_.exit
+  %16 = icmp sgt i64 %4, 35999
+  br i1 %16, label %17, label %_Z9normalizePlS_.exit
 
-_Z9normalizePlS_.exit.thread:                     ; preds = %15, %13, %11
-  %.sink = phi i64 [ 60, %11 ], [ 3600, %13 ], [ 86400, %15 ]
-  %17 = udiv i64 %4, %.sink
-  store i64 %17, ptr %3, align 8
-  %18 = sdiv i64 %10, %.sink
-  store i64 %18, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
-  br label %23
+17:                                               ; preds = %15
+  %18 = udiv i64 %4, 3600
+  store i64 %18, ptr %3, align 8
+  br label %_Z9normalizePlS_.exit.thread
 
-_Z9normalizePlS_.exit:                            ; preds = %8, %11, %13, %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
-  %21 = icmp slt i64 %4, 10
-  br i1 %21, label %22, label %23
+19:                                               ; preds = %8
+  %20 = icmp sgt i64 %4, 863999
+  br i1 %20, label %21, label %_Z9normalizePlS_.exit
 
-22:                                               ; preds = %_Z9normalizePlS_.exit
-  store i64 %4, ptr %20, align 8
+21:                                               ; preds = %19
+  %22 = udiv i64 %4, 86400
+  store i64 %22, ptr %3, align 8
+  %23 = sdiv i64 %10, 86400
+  br label %_Z9normalizePlS_.exit.thread
+
+_Z9normalizePlS_.exit.thread:                     ; preds = %13, %17, %21
+  %24 = phi i64 [ %18, %17 ], [ %14, %13 ], [ %22, %21 ]
+  %.sink.i = phi i64 [ 1000, %17 ], [ 1000, %13 ], [ %23, %21 ]
+  store i64 %.sink.i, ptr %9, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  br label %29
+
+_Z9normalizePlS_.exit:                            ; preds = %8, %11, %15, %19
+  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = icmp slt i64 %4, 10
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %_Z9normalizePlS_.exit
+  store i64 %4, ptr %26, align 8
   br label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit
 
-23:                                               ; preds = %_Z9normalizePlS_.exit.thread, %_Z9normalizePlS_.exit
-  %24 = phi i64 [ %18, %_Z9normalizePlS_.exit.thread ], [ %10, %_Z9normalizePlS_.exit ]
-  %25 = phi ptr [ %19, %_Z9normalizePlS_.exit.thread ], [ %20, %_Z9normalizePlS_.exit ]
-  %26 = phi i64 [ %17, %_Z9normalizePlS_.exit.thread ], [ %4, %_Z9normalizePlS_.exit ]
-  %27 = icmp eq i64 %24, 60000
-  %28 = icmp ult i64 %26, 600
-  %or.cond.i = and i1 %27, %28
-  br i1 %or.cond.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, label %29
+29:                                               ; preds = %_Z9normalizePlS_.exit.thread, %_Z9normalizePlS_.exit
+  %30 = phi ptr [ %25, %_Z9normalizePlS_.exit.thread ], [ %26, %_Z9normalizePlS_.exit ]
+  %31 = phi i64 [ %24, %_Z9normalizePlS_.exit.thread ], [ %4, %_Z9normalizePlS_.exit ]
+  %32 = phi i64 [ %.sink.i, %_Z9normalizePlS_.exit.thread ], [ %10, %_Z9normalizePlS_.exit ]
+  %33 = icmp eq i64 %32, 60000
+  %34 = icmp ult i64 %31, 600
+  %or.cond.i = and i1 %34, %33
+  br i1 %or.cond.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, label %35
 
-29:                                               ; preds = %23
-  %30 = icmp eq i64 %24, 3600000
-  %31 = icmp ult i64 %26, 36000
-  %or.cond3.i = and i1 %30, %31
-  br i1 %or.cond3.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, label %32
+35:                                               ; preds = %29
+  %36 = icmp eq i64 %32, 3600000
+  %37 = icmp ult i64 %31, 36000
+  %or.cond3.i = and i1 %37, %36
+  br i1 %or.cond3.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, label %38
 
-32:                                               ; preds = %29
-  %33 = icmp eq i64 %24, 86400000
-  %34 = icmp ult i64 %26, 864000
-  %or.cond5.i = and i1 %33, %34
-  br i1 %or.cond5.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, label %35
+38:                                               ; preds = %35
+  %39 = icmp eq i64 %32, 86400000
+  %40 = icmp ult i64 %31, 864000
+  %or.cond5.i = and i1 %40, %39
+  br i1 %or.cond5.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, label %41
 
-35:                                               ; preds = %32
-  %36 = udiv i64 %26, 5
-  store i64 %36, ptr %25, align 8
-  %37 = udiv i64 %24, 5
+41:                                               ; preds = %38
+  %42 = udiv i64 %31, 5
+  store i64 %42, ptr %30, align 8
+  %43 = udiv i64 %32, 5
   br label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit
 
-_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread: ; preds = %32, %29, %23
-  %.sink.i2.ph = phi i64 [ 60000, %23 ], [ 3600000, %29 ], [ 86400000, %32 ]
-  store i64 %26, ptr %25, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %.sink.i2.ph, ptr %38, align 8
-  br label %44
+_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread: ; preds = %38, %35, %29
+  %.sink.i2.ph = phi i64 [ 60000, %29 ], [ 3600000, %35 ], [ 86400000, %38 ]
+  store i64 %31, ptr %30, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %.sink.i2.ph, ptr %44, align 8
+  br label %50
 
-_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit: ; preds = %22, %35
-  %39 = phi ptr [ %25, %35 ], [ %20, %22 ]
-  %.sink.i2 = phi i64 [ %37, %35 ], [ %10, %22 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
-  store i64 %.sink.i2, ptr %40, align 8
-  %41 = icmp ult i64 %.sink.i2, 1001
-  br i1 %41, label %42, label %44
+_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit: ; preds = %28, %41
+  %45 = phi ptr [ %30, %41 ], [ %26, %28 ]
+  %.sink.i2 = phi i64 [ %43, %41 ], [ %10, %28 ]
+  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %.sink.i2, ptr %46, align 8
+  %47 = icmp ult i64 %.sink.i2, 1001
+  br i1 %47, label %48, label %50
 
-42:                                               ; preds = %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit
-  %43 = getelementptr inbounds i8, ptr %39, i64 16
-  store i64 25, ptr %43, align 8
+48:                                               ; preds = %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit
+  %49 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 25, ptr %49, align 8
   br label %_Z19set_window_lookbackR16JfrSamplerParams.exit
 
-44:                                               ; preds = %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit
+50:                                               ; preds = %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit
+  %51 = phi ptr [ %30, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread ], [ %45, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit ]
   %.sink.i24 = phi i64 [ %.sink.i2.ph, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread ], [ %.sink.i2, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit ]
-  %45 = phi ptr [ %25, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread ], [ %39, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit ]
-  %46 = icmp eq i64 %.sink.i24, 60000
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
-  br i1 %46, label %48, label %49
+  %52 = icmp eq i64 %.sink.i24, 60000
+  %53 = getelementptr inbounds i8, ptr %0, i64 96
+  br i1 %52, label %54, label %55
 
-48:                                               ; preds = %44
-  store i64 5, ptr %47, align 8
+54:                                               ; preds = %50
+  store i64 5, ptr %53, align 8
   br label %_Z19set_window_lookbackR16JfrSamplerParams.exit
 
-49:                                               ; preds = %44
-  store i64 1, ptr %47, align 8
+55:                                               ; preds = %50
+  store i64 1, ptr %53, align 8
   br label %_Z19set_window_lookbackR16JfrSamplerParams.exit
 
-_Z19set_window_lookbackR16JfrSamplerParams.exit:  ; preds = %42, %48, %49
-  %50 = phi ptr [ %39, %42 ], [ %45, %48 ], [ %45, %49 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 128
-  store double 0.000000e+00, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 104
-  store i8 1, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 141
-  store i8 0, ptr %53, align 1
-  br label %54
+_Z19set_window_lookbackR16JfrSamplerParams.exit:  ; preds = %48, %54, %55
+  %56 = phi ptr [ %45, %48 ], [ %51, %54 ], [ %51, %55 ]
+  %57 = getelementptr inbounds i8, ptr %0, i64 128
+  store double 0.000000e+00, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 104
+  store i8 1, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 141
+  store i8 0, ptr %59, align 1
+  br label %60
 
-54:                                               ; preds = %2, %_Z19set_window_lookbackR16JfrSamplerParams.exit
-  %.0 = phi ptr [ %50, %_Z19set_window_lookbackR16JfrSamplerParams.exit ], [ @_ZL16_disabled_params, %2 ]
+60:                                               ; preds = %2, %_Z19set_window_lookbackR16JfrSamplerParams.exit
+  %.0 = phi ptr [ %56, %_Z19set_window_lookbackR16JfrSamplerParams.exit ], [ @_ZL16_disabled_params, %2 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThrottler18next_window_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(142) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %_ZL3logPK16JfrSamplerWindowPd.exit, label %5
+  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %_ZL3logPK16JfrSamplerWindowPd.exit, label %4
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %0, i64 128
   %6 = tail call noundef i64 @_ZNK16JfrSamplerWindow11sample_sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #9
   %7 = uitofp i64 %6 to double
   %8 = getelementptr inbounds i8, ptr %1, i64 16
@@ -316,16 +330,16 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThro
   %11 = uitofp i64 %9 to double
   %12 = fdiv double 1.000000e+00, %11
   %13 = select i1 %10, double 1.000000e+00, double %12
-  %14 = load double, ptr %3, align 8
+  %14 = load double, ptr %5, align 8
   %15 = fsub double 1.000000e+00, %13
   %16 = fmul double %14, %15
   %17 = tail call noundef double @llvm.fmuladd.f64(double %13, double %7, double %16)
-  store double %17, ptr %3, align 8
+  store double %17, ptr %5, align 8
   %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not12.i = icmp eq ptr %18, null
   br i1 %.not12.i, label %_ZL3logPK16JfrSamplerWindowPd.exit, label %19
 
-19:                                               ; preds = %5
+19:                                               ; preds = %4
   %20 = load i64, ptr %1, align 8
   %21 = tail call noundef i64 @_ZNK16JfrSamplerWindow11sample_sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #9
   %22 = tail call noundef i64 @_ZNK16JfrSamplerWindow15population_sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #9
@@ -348,140 +362,26 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThro
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str, double noundef %17, i64 noundef %20, i64 noundef %21, i64 noundef %22, double noundef %32, i64 noundef %34)
   br label %_ZL3logPK16JfrSamplerWindowPd.exit
 
-_ZL3logPK16JfrSamplerWindowPd.exit:               ; preds = %2, %5, %31
+_ZL3logPK16JfrSamplerWindowPd.exit:               ; preds = %2, %4, %31
   %35 = getelementptr inbounds i8, ptr %0, i64 141
   %36 = load i8, ptr %35, align 1
   %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %88
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %_ZL3logPK16JfrSamplerWindowPd.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
-  %40 = load i64, ptr %39, align 8
-  %41 = icmp eq i64 %40, -2
-  %42 = getelementptr inbounds i8, ptr %0, i64 140
-  %43 = zext i1 %41 to i8
-  store i8 %43, ptr %42, align 4
-  br i1 %41, label %_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow.exit, label %44
+  %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(142) %0, ptr poison)
+  br label %46
 
-44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 120
-  %46 = load i64, ptr %45, align 8
-  switch i64 %46, label %51 [
-    i64 1000, label %_Z9normalizePlS_.exit.i
-    i64 60000, label %47
-    i64 3600000, label %49
-  ]
+40:                                               ; preds = %_ZL3logPK16JfrSamplerWindowPd.exit
+  %41 = getelementptr inbounds i8, ptr %0, i64 140
+  %42 = load i8, ptr %41, align 4
+  %43 = trunc i8 %42 to i1
+  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = select i1 %43, ptr @_ZL16_disabled_params, ptr %44
+  br label %46
 
-47:                                               ; preds = %44
-  %48 = icmp sgt i64 %40, 599
-  br i1 %48, label %_Z9normalizePlS_.exit.thread.i, label %_Z9normalizePlS_.exit.i
-
-49:                                               ; preds = %44
-  %50 = icmp sgt i64 %40, 35999
-  br i1 %50, label %_Z9normalizePlS_.exit.thread.i, label %_Z9normalizePlS_.exit.i
-
-51:                                               ; preds = %44
-  %52 = icmp sgt i64 %40, 863999
-  br i1 %52, label %_Z9normalizePlS_.exit.thread.i, label %_Z9normalizePlS_.exit.i
-
-_Z9normalizePlS_.exit.thread.i:                   ; preds = %51, %49, %47
-  %.sink.i = phi i64 [ 60, %47 ], [ 3600, %49 ], [ 86400, %51 ]
-  %53 = udiv i64 %40, %.sink.i
-  store i64 %53, ptr %39, align 8
-  %54 = sdiv i64 %46, %.sink.i
-  store i64 %54, ptr %45, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 80
-  br label %59
-
-_Z9normalizePlS_.exit.i:                          ; preds = %51, %49, %47, %44
-  %56 = getelementptr inbounds i8, ptr %0, i64 80
-  %57 = icmp slt i64 %40, 10
-  br i1 %57, label %58, label %59
-
-58:                                               ; preds = %_Z9normalizePlS_.exit.i
-  store i64 %40, ptr %56, align 8
-  br label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.i
-
-59:                                               ; preds = %_Z9normalizePlS_.exit.i, %_Z9normalizePlS_.exit.thread.i
-  %60 = phi i64 [ %54, %_Z9normalizePlS_.exit.thread.i ], [ %46, %_Z9normalizePlS_.exit.i ]
-  %61 = phi ptr [ %55, %_Z9normalizePlS_.exit.thread.i ], [ %56, %_Z9normalizePlS_.exit.i ]
-  %62 = phi i64 [ %53, %_Z9normalizePlS_.exit.thread.i ], [ %40, %_Z9normalizePlS_.exit.i ]
-  %63 = icmp eq i64 %60, 60000
-  %64 = icmp ult i64 %62, 600
-  %or.cond.i.i = and i1 %63, %64
-  br i1 %or.cond.i.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread.i, label %65
-
-65:                                               ; preds = %59
-  %66 = icmp eq i64 %60, 3600000
-  %67 = icmp ult i64 %62, 36000
-  %or.cond3.i.i = and i1 %66, %67
-  br i1 %or.cond3.i.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread.i, label %68
-
-68:                                               ; preds = %65
-  %69 = icmp eq i64 %60, 86400000
-  %70 = icmp ult i64 %62, 864000
-  %or.cond5.i.i = and i1 %69, %70
-  br i1 %or.cond5.i.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread.i, label %71
-
-71:                                               ; preds = %68
-  %72 = udiv i64 %62, 5
-  store i64 %72, ptr %61, align 8
-  %73 = udiv i64 %60, 5
-  br label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.i
-
-_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread.i: ; preds = %68, %65, %59
-  %.sink.i2.ph.i = phi i64 [ 60000, %59 ], [ 3600000, %65 ], [ 86400000, %68 ]
-  store i64 %62, ptr %61, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %.sink.i2.ph.i, ptr %74, align 8
-  br label %80
-
-_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.i: ; preds = %71, %58
-  %75 = phi ptr [ %61, %71 ], [ %56, %58 ]
-  %.sink.i2.i = phi i64 [ %73, %71 ], [ %46, %58 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
-  store i64 %.sink.i2.i, ptr %76, align 8
-  %77 = icmp ult i64 %.sink.i2.i, 1001
-  br i1 %77, label %78, label %80
-
-78:                                               ; preds = %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.i
-  %79 = getelementptr inbounds i8, ptr %75, i64 16
-  store i64 25, ptr %79, align 8
-  br label %_Z19set_window_lookbackR16JfrSamplerParams.exit.i
-
-80:                                               ; preds = %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.i, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread.i
-  %.sink.i24.i = phi i64 [ %.sink.i2.ph.i, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread.i ], [ %.sink.i2.i, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.i ]
-  %81 = phi ptr [ %61, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread.i ], [ %75, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.i ]
-  %82 = icmp eq i64 %.sink.i24.i, 60000
-  %83 = getelementptr inbounds i8, ptr %81, i64 16
-  br i1 %82, label %84, label %85
-
-84:                                               ; preds = %80
-  store i64 5, ptr %83, align 8
-  br label %_Z19set_window_lookbackR16JfrSamplerParams.exit.i
-
-85:                                               ; preds = %80
-  store i64 1, ptr %83, align 8
-  br label %_Z19set_window_lookbackR16JfrSamplerParams.exit.i
-
-_Z19set_window_lookbackR16JfrSamplerParams.exit.i: ; preds = %85, %84, %78
-  %86 = phi ptr [ %75, %78 ], [ %81, %84 ], [ %81, %85 ]
-  store double 0.000000e+00, ptr %3, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 104
-  store i8 1, ptr %87, align 8
-  store i8 0, ptr %35, align 1
-  br label %_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow.exit
-
-88:                                               ; preds = %_ZL3logPK16JfrSamplerWindowPd.exit
-  %89 = getelementptr inbounds i8, ptr %0, i64 140
-  %90 = load i8, ptr %89, align 4
-  %91 = trunc i8 %90 to i1
-  %92 = getelementptr inbounds i8, ptr %0, i64 80
-  %93 = select i1 %91, ptr @_ZL16_disabled_params, ptr %92
-  br label %_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow.exit
-
-_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow.exit: ; preds = %_Z19set_window_lookbackR16JfrSamplerParams.exit.i, %38, %88
-  %.0 = phi ptr [ %93, %88 ], [ %86, %_Z19set_window_lookbackR16JfrSamplerParams.exit.i ], [ @_ZL16_disabled_params, %38 ]
+46:                                               ; preds = %40, %38
+  %.0 = phi ptr [ %39, %38 ], [ %45, %40 ]
   ret ptr %.0
 }
 

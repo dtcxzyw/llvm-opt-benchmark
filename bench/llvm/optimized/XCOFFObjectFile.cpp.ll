@@ -3643,9 +3643,19 @@ define dso_local noundef range(i64 -230584300921369394, 230584300921369397) i64 
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = sub i64 %1, %9
-  %. = select i1 %6, i64 72, i64 40
-  %11 = sdiv exact i64 %10, %.
-  %.0 = add nsw i64 %11, 1
+  br i1 %6, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = sdiv exact i64 %10, 72
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = sdiv exact i64 %10, 40
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %.0.in = phi i64 [ %12, %11 ], [ %14, %13 ]
+  %.0 = add nsw i64 %.0.in, 1
   ret i64 %.0
 }
 

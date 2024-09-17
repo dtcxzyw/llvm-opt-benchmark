@@ -9,19 +9,33 @@ entry:
   %tobool.not = icmp eq i8 %isCompressible, 0
   %shr2 = lshr i32 %basePrimary, 16
   %and3 = and i32 %shr2, 255
-  %. = select i1 %tobool.not, i32 -2, i32 -4
-  %.13 = select i1 %tobool.not, i32 254, i32 251
-  %.14 = select i1 %tobool.not, i32 131072, i32 262144
-  %sub4 = add nsw i32 %and3, %.
+  br i1 %tobool.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
+  %sub = add nsw i32 %and3, -4
+  %add = add nsw i32 %sub, %offset
+  %rem = srem i32 %add, 251
+  %add1 = shl nsw i32 %rem, 16
+  %shl = add nsw i32 %add1, 262144
+  %div = sdiv i32 %add, 251
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %sub4 = add nsw i32 %and3, -2
   %add5 = add nsw i32 %sub4, %offset
-  %rem6 = srem i32 %add5, %.13
+  %rem6 = srem i32 %add5, 254
   %add7 = shl nsw i32 %rem6, 16
-  %shl8 = add nsw i32 %add7, %.14
-  %div9 = sdiv i32 %add5, %.13
+  %shl8 = add nsw i32 %add7, 131072
+  %div9 = sdiv i32 %add5, 254
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  %offset.addr.0 = phi i32 [ %div, %if.then ], [ %div9, %if.else ]
+  %primary.0 = phi i32 [ %shl, %if.then ], [ %shl8, %if.else ]
   %and10 = and i32 %basePrimary, -16777216
-  %shl11 = shl i32 %div9, 24
+  %shl11 = shl i32 %offset.addr.0, 24
   %add12 = add i32 %shl11, %and10
-  %or = or i32 %add12, %shl8
+  %or = or i32 %add12, %primary.0
   ret i32 %or
 }
 
@@ -33,24 +47,38 @@ entry:
   %sub = add nsw i32 %and, -2
   %add = add nsw i32 %sub, %offset
   %div = sdiv i32 %add, 254
+  %rem = srem i32 %add, 254
   %tobool.not = icmp eq i8 %isCompressible, 0
   %shr10 = lshr i32 %basePrimary, 16
   %and11 = and i32 %shr10, 255
-  %. = select i1 %tobool.not, i32 -2, i32 -4
-  %.19 = select i1 %tobool.not, i32 254, i32 251
-  %.20 = select i1 %tobool.not, i32 131072, i32 262144
-  %sub12 = add nsw i32 %and11, %.
+  br i1 %tobool.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
+  %sub4 = add nsw i32 %and11, -4
+  %add5 = add nsw i32 %sub4, %div
+  %rem6 = srem i32 %add5, 251
+  %add7 = shl nsw i32 %rem6, 16
+  %shl8 = add nsw i32 %add7, 262144
+  %div9 = sdiv i32 %add5, 251
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %sub12 = add nsw i32 %and11, -2
   %add13 = add nsw i32 %sub12, %div
-  %rem14 = srem i32 %add13, %.19
+  %rem14 = srem i32 %add13, 254
   %add15 = shl nsw i32 %rem14, 16
-  %shl16 = add nsw i32 %add15, %.20
-  %div18 = sdiv i32 %add13, %.19
-  %rem = srem i32 %add, 254
+  %shl16 = add nsw i32 %add15, 131072
+  %div18 = sdiv i32 %add13, 254
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  %offset.addr.0 = phi i32 [ %div9, %if.then ], [ %div18, %if.else ]
+  %shl8.pn = phi i32 [ %shl8, %if.then ], [ %shl16, %if.else ]
   %add1 = shl nsw i32 %rem, 8
   %shl = add nsw i32 %add1, 512
-  %primary.0 = or i32 %shl16, %shl
+  %primary.0 = or i32 %shl8.pn, %shl
   %and19 = and i32 %basePrimary, -16777216
-  %shl20 = shl i32 %div18, 24
+  %shl20 = shl i32 %offset.addr.0, 24
   %add21 = add i32 %shl20, %and19
   %or22 = or i32 %primary.0, %add21
   ret i32 %or22
@@ -148,23 +176,36 @@ entry:
   %sub.i = add nsw i32 %and.i, -2
   %add.i = add nsw i32 %sub.i, %mul
   %div.i = sdiv i32 %add.i, 254
+  %rem.i = srem i32 %add.i, 254
   %shr10.i = lshr i32 %conv, 16
   %and11.i = and i32 %shr10.i, 255
-  %..i = select i1 %cmp.not, i32 -2, i32 -4
-  %.19.i = select i1 %cmp.not, i32 254, i32 251
-  %.20.i = select i1 %cmp.not, i32 131072, i32 262144
-  %sub12.i = add nsw i32 %and11.i, %..i
-  %add13.i = add nsw i32 %sub12.i, %div.i
-  %rem14.i = srem i32 %add13.i, %.19.i
+  %sub12.i = add nsw i32 %div.i, %and11.i
+  br i1 %cmp.not, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %entry
+  %add5.i = add nsw i32 %sub12.i, -4
+  %rem6.i = srem i32 %add5.i, 251
+  %add7.i = shl nsw i32 %rem6.i, 16
+  %shl8.i = add nsw i32 %add7.i, 262144
+  %div9.i = sdiv i32 %add5.i, 251
+  br label %_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai.exit
+
+if.else.i:                                        ; preds = %entry
+  %add13.i = add nsw i32 %sub12.i, -2
+  %rem14.i = srem i32 %add13.i, 254
   %add15.i = shl nsw i32 %rem14.i, 16
-  %shl16.i = add nsw i32 %add15.i, %.20.i
-  %div18.i = sdiv i32 %add13.i, %.19.i
-  %rem.i = srem i32 %add.i, 254
+  %shl16.i = add nsw i32 %add15.i, 131072
+  %div18.i = sdiv i32 %add13.i, 254
+  br label %_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai.exit
+
+_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai.exit: ; preds = %if.then.i, %if.else.i
+  %offset.addr.0.i = phi i32 [ %div9.i, %if.then.i ], [ %div18.i, %if.else.i ]
+  %shl8.pn.i = phi i32 [ %shl8.i, %if.then.i ], [ %shl16.i, %if.else.i ]
   %add1.i = shl nsw i32 %rem.i, 8
   %shl.i = add nsw i32 %add1.i, 512
-  %primary.0.i = or i32 %shl16.i, %shl.i
+  %primary.0.i = or i32 %shl8.pn.i, %shl.i
   %and19.i = and i32 %conv, -16777216
-  %shl20.i = shl i32 %div18.i, 24
+  %shl20.i = shl i32 %offset.addr.0.i, 24
   %add21.i = add i32 %shl20.i, %and19.i
   %or22.i = or i32 %primary.0.i, %add21.i
   ret i32 %or22.i

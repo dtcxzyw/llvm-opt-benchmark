@@ -6079,17 +6079,21 @@ sw.bb212:                                         ; preds = %if.end23
   %cond.i.le702 = select i1 %cmp.i.i.le815, i32 %6, i32 %shr.i.i.le759
   %cond217 = tail call i32 @llvm.smin.i32(i32 %count, i32 3)
   switch i32 %count, label %if.end225 [
-    i32 1, label %if.end225.thread
+    i32 1, label %if.then219
     i32 2, label %if.then222
   ]
 
-if.then222:                                       ; preds = %sw.bb212
+if.then219:                                       ; preds = %sw.bb212
+  %div = sdiv i32 %value.0, 100
   br label %if.end225.thread
 
-if.end225.thread:                                 ; preds = %sw.bb212, %if.then222
-  %.sink = phi i32 [ 10, %if.then222 ], [ 100, %sw.bb212 ]
-  %div223 = sdiv i32 %value.0, %.sink
-  tail call void @_ZNK6icu_7516SimpleDateFormat17zeroPaddingNumberEPKNS_12NumberFormatERNS_13UnicodeStringEiii(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull %retval.0.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo, i32 noundef %div223, i32 noundef %cond217, i32 noundef 10)
+if.then222:                                       ; preds = %sw.bb212
+  %div223 = sdiv i32 %value.0, 10
+  br label %if.end225.thread
+
+if.end225.thread:                                 ; preds = %if.then222, %if.then219
+  %value.4.ph = phi i32 [ %div223, %if.then222 ], [ %div, %if.then219 ]
+  tail call void @_ZNK6icu_7516SimpleDateFormat17zeroPaddingNumberEPKNS_12NumberFormatERNS_13UnicodeStringEiii(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull %retval.0.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo, i32 noundef %value.4.ph, i32 noundef %cond217, i32 noundef 10)
   br label %sw.epilog717
 
 if.end225:                                        ; preds = %sw.bb212
