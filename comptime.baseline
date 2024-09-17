@@ -8177,7 +8177,7 @@ graphviz/sfcvt.c.ll 177195724
 graphviz/sfdpinit.c.ll 179619357
 graphviz/sfprint.c.ll 915916764
 graphviz/sfscanf.c.ll 37032302
-graphviz/sftable.c.ll 43545081
+graphviz/sftable.c.ll 43588707
 graphviz/sfvscanf.c.ll 493401701
 graphviz/sgd.c.ll 340683215
 graphviz/sgraph.c.ll 106846655
@@ -8978,7 +8978,7 @@ gromacs/pbcmethods.cpp.ll 312007459
 gromacs/pdb2gmx.cpp.ll 7097101698
 gromacs/pdb2top.cpp.ll 3775677544
 gromacs/pdbio.cpp.ll 820441002
-gromacs/perf_est.cpp.ll 207218287
+gromacs/perf_est.cpp.ll 207425725
 gromacs/pgutil.cpp.ll 219073859
 gromacs/physicalnodecommunicator.cpp.ll 70442477
 gromacs/pleasecite.cpp.ll 102380189
@@ -13580,7 +13580,7 @@ linux/i915_gem_ttm_move.ll 226023689
 linux/i915_gem_userptr.ll 170832000
 linux/i915_gem_wait.ll 121871768
 linux/i915_gem_ww.ll 76782493
-linux/i915_getparam.ll 66120464
+linux/i915_getparam.ll 66186748
 linux/i915_gpu_error.ll 886764974
 linux/i915_hwmon.ll 199258118
 linux/i915_ioctl.ll 65653441
@@ -15869,7 +15869,7 @@ llvm/InstrProfiling.cpp.ll 6963402985
 llvm/InstrRefBasedImpl.cpp.ll 34315875421
 llvm/Instruction.cpp.ll 2740135272
 llvm/InstructionCombining.cpp.ll 17439620804
-llvm/InstructionCost.cpp.ll 49836484
+llvm/InstructionCost.cpp.ll 49886322
 llvm/InstructionNamer.cpp.ll 173586692
 llvm/InstructionPrecedenceTracking.cpp.ll 445483487
 llvm/InstructionSelect.cpp.ll 1787670699
@@ -30982,7 +30982,7 @@ postgres/ecpg_keywords.ll 49390374
 postgres/elog.ll 1003359743
 postgres/encnames.ll 77654731
 postgres/encnames_shlib.ll 77593758
-postgres/encnames_srv.ll 77578333
+postgres/encnames_srv.ll 77655912
 postgres/encode.ll 206739269
 postgres/enum.ll 134929959
 postgres/equalfuncs.ll 2089895222
@@ -31860,7 +31860,7 @@ proj/dmstor.cpp.ll 80749054
 proj/eck1.cpp.ll 44627803
 proj/eck2.cpp.ll 48528774
 proj/eck3.cpp.ll 75032687
-proj/eck4.cpp.ll 57282502
+proj/eck4.cpp.ll 57339801
 proj/eck5.cpp.ll 44366606
 proj/ell_set.cpp.ll 277972919
 proj/ellps.cpp.ll 41405232
@@ -33117,7 +33117,7 @@ qemu/stubs_fw_cfg.c.ll 34947874
 qemu/stubs_get-vm-name.c.ll 34759397
 qemu/stubs_icount.c.ll 41632300
 qemu/stubs_io_uring.c.ll 37699211
-qemu/stubs_iothread-lock.c.ll 36241936
+qemu/stubs_iothread-lock.c.ll 36278220
 qemu/stubs_is-daemonized.c.ll 34766600
 qemu/stubs_isa-bus.c.ll 35719070
 qemu/stubs_memory_device.c.ll 36665093
