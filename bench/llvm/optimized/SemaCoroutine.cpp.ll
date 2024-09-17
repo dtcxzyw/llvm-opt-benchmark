@@ -706,8 +706,7 @@ _ZNK5clang13CXXMethodDecl30getFunctionObjectParameterTypeEv.exit.i: ; preds = %_
 
 170:                                              ; preds = %141
   %171 = load ptr, ptr %152, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %171, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i74.i = load i64, ptr %171, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i74.i = load i64, ptr %171, align 1
   %172 = and i64 %.0.copyload.i.i.i.i.i.i.i.i74.i, -8
   %173 = inttoptr i64 %172 to ptr
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 28
@@ -3453,8 +3452,7 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit49:     ; preds = %_ZN5clang8CallExpr1
   br i1 %.not.i.i.i51, label %136, label %145
 
 136:                                              ; preds = %134
-  call void @llvm.assume(i1 true) [ "align"(ptr %.pre.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.pre.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.pre.i.i, align 1
   %137 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
   %138 = inttoptr i64 %137 to ptr
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 28
@@ -3483,8 +3481,7 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit.i.i.i: ; preds = %142, %136
 145:                                              ; preds = %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i.i.i, %134
   store i8 0, ptr %123, align 1
   store i8 0, ptr %124, align 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %.pre.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.pre.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.pre.i.i, align 1
   %146 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %147 = inttoptr i64 %146 to ptr
   %148 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5160,8 +5157,7 @@ define dso_local noundef zeroext i1 @_ZN5clang20CoroutineStmtBuilder17makeOnFall
   %80 = load ptr, ptr %9, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 8
   %82 = load ptr, ptr %20, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %82, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %82, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %82, align 1
   %83 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %84 = inttoptr i64 %83 to ptr
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
@@ -5174,8 +5170,7 @@ define dso_local noundef zeroext i1 @_ZN5clang20CoroutineStmtBuilder17makeOnFall
   %87 = load ptr, ptr %9, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load ptr, ptr %50, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i13 = load i64, ptr %89, align 8
+  %.0.copyload.i.i.i.i.i.i.i13 = load i64, ptr %89, align 1
   %90 = and i64 %.0.copyload.i.i.i.i.i.i.i13, -8
   %91 = inttoptr i64 %90 to ptr
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
@@ -5693,8 +5688,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclENS1_9ValueDeclEEEDaPT0_.exit.t
   %93 = load ptr, ptr %12, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 8
   %95 = load ptr, ptr %22, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %95, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %95, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %95, align 1
   %96 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %97 = inttoptr i64 %96 to ptr
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 28
@@ -6352,8 +6346,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %.thread, %274
   br i1 %.not.i.i88, label %313, label %323
 
 313:                                              ; preds = %311
-  call void @llvm.assume(i1 true) [ "align"(ptr %.pre.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.pre.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.pre.i, align 1
   %314 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %315 = inttoptr i64 %314 to ptr
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 28
@@ -6383,8 +6376,7 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit.i.i: ; preds = %319, %313
 323:                                              ; preds = %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i.i, %311
   store i8 0, ptr %301, align 1
   store i8 0, ptr %302, align 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %.pre.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.pre.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.pre.i, align 1
   %324 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %325 = inttoptr i64 %324 to ptr
   %326 = getelementptr inbounds i8, ptr %284, i64 8
@@ -8523,8 +8515,7 @@ define dso_local noundef ptr @_ZN5clang4Sema21lookupCoroutineTraitsENS_14SourceL
   br i1 %.not.i, label %38, label %47
 
 38:                                               ; preds = %36
-  call void @llvm.assume(i1 true) [ "align"(ptr %.pre, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.pre, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.pre, align 1
   %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 28
@@ -8558,8 +8549,7 @@ _ZNK5clang12LookupResult11getAsSingleINS_17ClassTemplateDeclEEEPT_v.exit: ; pred
   store ptr null, ptr %7, align 8
   store i8 0, ptr %26, align 1
   store i8 0, ptr %27, align 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %.pre, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.pre, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.pre, align 1
   %48 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %49 = inttoptr i64 %48 to ptr
   %50 = getelementptr inbounds i8, ptr %0, i64 8

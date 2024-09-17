@@ -7623,7 +7623,6 @@ define internal fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
 30:                                               ; preds = %20
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 1) ]
   %.0.copyload.i.i = load i64, ptr %.0, align 1
   %31 = call i64 @llvm.bswap.i64(i64 %.0.copyload.i.i)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i64 %.0.copyload.i.i, i64 %31
@@ -11198,7 +11197,6 @@ _ZNSt6vectorIN4llvm20NamedInstrProfRecordESaIS1_EE5clearEv.exit: ; preds = %13, 
   br i1 %.not24, label %32, label %_ZNSt6vectorIN4llvm20NamedInstrProfRecordESaIS1_EE5clearEv.exit44
 
 32:                                               ; preds = %30
-  call void @llvm.assume(i1 true) [ "align"(ptr %.08796, i64 1) ]
   %.0.copyload.i.i.i = load i64, ptr %.08796, align 1
   store i64 %.0.copyload.i.i.i, ptr %10, align 8
   %33 = load i32, ptr %22, align 4
@@ -11211,7 +11209,6 @@ _ZNSt6vectorIN4llvm20NamedInstrProfRecordESaIS1_EE5clearEv.exit: ; preds = %13, 
   br i1 %36, label %_ZNSt6vectorIN4llvm20NamedInstrProfRecordESaIS1_EE5clearEv.exit44, label %37
 
 37:                                               ; preds = %34
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   %.0.copyload.i.i.i26 = load i64, ptr %31, align 1
   br label %38
 
@@ -11290,7 +11287,6 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %49
   %64 = phi ptr [ %93, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %.ph110, %.lr.ph.preheader ]
   %.02091 = phi i64 [ %94, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ 0, %.lr.ph.preheader ]
   %.290 = phi ptr [ %65, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %.1, %.lr.ph.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.290, i64 1) ]
   %.0.copyload.i.i.i28 = load i64, ptr %.290, align 1
   %65 = getelementptr inbounds i8, ptr %.290, i64 8
   %66 = load ptr, ptr %24, align 8
@@ -11377,7 +11373,6 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %67, %_ZNSt6vectorIm
   br i1 %99, label %_ZNSt6vectorIN4llvm20NamedInstrProfRecordESaIS1_EE5clearEv.exit44, label %100
 
 100:                                              ; preds = %97
-  call void @llvm.assume(i1 true) [ "align"(ptr %.2.lcssa, i64 1) ]
   %.0.copyload.i.i.i30 = load i64, ptr %.2.lcssa, align 1
   %101 = getelementptr inbounds i8, ptr %98, i64 %.0.copyload.i.i.i30
   %102 = icmp ugt ptr %101, %18
@@ -11449,7 +11444,6 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %110
   %124 = phi ptr [ %151, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %.ph, %.lr.ph94.preheader ]
   %.093 = phi i64 [ %152, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ 0, %.lr.ph94.preheader ]
   %.492 = phi ptr [ %125, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %98, %.lr.ph94.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.492, i64 1) ]
   %.0.copyload.i.i.i33 = load i64, ptr %.492, align 1
   %125 = getelementptr inbounds i8, ptr %.492, i64 8
   %126 = trunc i64 %.0.copyload.i.i.i33 to i8
@@ -12110,16 +12104,13 @@ define dso_local void @_ZN4llvm20IndexedMemProfReader15deserializeV012EPKhS2_m(p
   %8 = alloca %"class.llvm::memprof::RecordLookupTrait", align 8
   %9 = load i64, ptr %1, align 8
   %10 = icmp eq i64 %9, 0
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %.0.copyload.i.i.i1528 = load i64, ptr %3, align 1
   %11 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   %.0.copyload.i.i.i1629 = load i64, ptr %11, align 1
   %12 = getelementptr inbounds i8, ptr %3, i64 16
   br i1 %10, label %.sink.split, label %13
 
 13:                                               ; preds = %5
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %.0.copyload.i.i.i16 = load i64, ptr %12, align 1
   %14 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %14, ptr %6, align 8
@@ -12127,10 +12118,8 @@ define dso_local void @_ZN4llvm20IndexedMemProfReader15deserializeV012EPKhS2_m(p
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %13
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i17 = load i64, ptr %14, align 1
   %16 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
   %.0.copyload.i.i.i18 = load i64, ptr %16, align 1
   %17 = getelementptr inbounds i8, ptr %3, i64 40
   br label %.sink.split
@@ -12191,11 +12180,9 @@ _ZN4llvm7memprof17RecordLookupTraitC2ENS0_14IndexedVersionERKNS_11SmallVectorINS
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 576
   %42 = getelementptr inbounds i8, ptr %8, i64 592
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull %42, i64 noundef 6) #21
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %29, align 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %29, align 1
   %43 = getelementptr inbounds i8, ptr %29, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
-  %.0.copyload.i.i.i2.i.i = load i64, ptr %43, align 8
+  %.0.copyload.i.i.i2.i.i = load i64, ptr %43, align 1
   %44 = getelementptr inbounds i8, ptr %29, i64 16
   %45 = call noalias noundef nonnull dereferenceable(680) ptr @_Znwm(i64 noundef 680) #22
   store i64 %.0.copyload.i.i.i.i.i, ptr %45, align 8
@@ -12261,11 +12248,9 @@ _ZN4llvm7memprof17RecordLookupTraitD2Ev.exit:     ; preds = %_ZNSt10unique_ptrIN
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %72 = getelementptr inbounds i8, ptr %2, i64 %.0.copyload.i.i.i1631
   %73 = getelementptr inbounds i8, ptr %2, i64 %.0.copyload.i.i.i1530
-  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 8) ]
-  %.0.copyload.i.i.i.i.i19 = load i64, ptr %72, align 8
+  %.0.copyload.i.i.i.i.i19 = load i64, ptr %72, align 1
   %74 = getelementptr inbounds i8, ptr %72, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %74, i64 8) ]
-  %.0.copyload.i.i.i2.i.i20 = load i64, ptr %74, align 8
+  %.0.copyload.i.i.i2.i.i20 = load i64, ptr %74, align 1
   %75 = getelementptr inbounds i8, ptr %72, i64 16
   %76 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   store i64 %.0.copyload.i.i.i.i.i19, ptr %76, align 8
@@ -12295,11 +12280,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableINS0_7memprof16FrameLook
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %86 = getelementptr inbounds i8, ptr %2, i64 %.0
   %87 = getelementptr inbounds i8, ptr %2, i64 %.014
-  call void @llvm.assume(i1 true) [ "align"(ptr %86, i64 8) ]
-  %.0.copyload.i.i.i.i.i22 = load i64, ptr %86, align 8
+  %.0.copyload.i.i.i.i.i22 = load i64, ptr %86, align 1
   %88 = getelementptr inbounds i8, ptr %86, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 8) ]
-  %.0.copyload.i.i.i2.i.i23 = load i64, ptr %88, align 8
+  %.0.copyload.i.i.i2.i.i23 = load i64, ptr %88, align 1
   %89 = getelementptr inbounds i8, ptr %86, i64 16
   %90 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   store i64 %.0.copyload.i.i.i.i.i22, ptr %90, align 8
@@ -12361,13 +12344,10 @@ define dso_local void @_ZN4llvm20IndexedMemProfReader13deserializeV3EPKhS2_(ptr 
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::Expected.238", align 8
   %7 = alloca %"class.llvm::memprof::RecordLookupTrait", align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %.0.copyload.i.i.i = load i64, ptr %3, align 1
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i7 = load i64, ptr %8, align 1
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i8 = load i64, ptr %9, align 1
   %10 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %10, ptr %5, align 8
@@ -12416,11 +12396,9 @@ _ZN4llvm7memprof17RecordLookupTraitC2ENS0_14IndexedVersionERKNS_11SmallVectorINS
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %36 = getelementptr inbounds i8, ptr %7, i64 592
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull %36, i64 noundef 6) #21
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %24, align 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %24, align 1
   %37 = getelementptr inbounds i8, ptr %24, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
-  %.0.copyload.i.i.i2.i.i = load i64, ptr %37, align 8
+  %.0.copyload.i.i.i2.i.i = load i64, ptr %37, align 1
   %38 = getelementptr inbounds i8, ptr %24, i64 16
   %39 = call noalias noundef nonnull dereferenceable(680) ptr @_Znwm(i64 noundef 680) #22
   store i64 %.0.copyload.i.i.i.i.i, ptr %39, align 8
@@ -12522,7 +12500,6 @@ define dso_local void @_ZN4llvm20IndexedMemProfReader11deserializeEPKhm(ptr dead
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::formatv_object", align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 %3
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i = load i64, ptr %8, align 1
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.0.copyload.i.i.i, ptr %6, align 8
@@ -12750,11 +12727,9 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 48
   store i64 %81, ptr %84, align 8, !noalias !1223
   %85 = trunc i64 %81 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %79, align 8, !noalias !1223
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %79, align 1, !noalias !1223
   %86 = getelementptr inbounds i8, ptr %79, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %86, i64 8) ]
-  %.0.copyload.i.i.i2.i.i.i.i = load i64, ptr %86, align 8, !noalias !1223
+  %.0.copyload.i.i.i2.i.i.i.i = load i64, ptr %86, align 1, !noalias !1223
   %87 = getelementptr inbounds i8, ptr %79, i64 16
   %88 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !1223
   store i64 %.0.copyload.i.i.i.i.i.i.i, ptr %88, align 8, !noalias !1223
@@ -12808,7 +12783,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %99, %96, %76
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %108 = load i64, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %27, i64 %108
-  call void @llvm.assume(i1 true) [ "align"(ptr %109, i64 1) ]
   %.0.copyload.i.i.i = load i64, ptr %109, align 1
   %110 = and i64 %.0.copyload.i.i.i, 7
   %.not47 = icmp eq i64 %110, 0
@@ -12868,7 +12842,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %99, %96, %76
   %133 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %134 = load i64, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %27, i64 %134
-  call void @llvm.assume(i1 true) [ "align"(ptr %135, i64 1) ]
   %136 = getelementptr inbounds i8, ptr %135, i64 8
   %137 = load ptr, ptr %24, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
@@ -12917,10 +12890,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %99, %96, %76
   br label %_ZNKSt14default_deleteIN4llvm20InstrProfReaderIndexINS0_30OnDiskIterableChainedHashTableINS0_20InstrProfLookupTraitEEEEEEclEPS5_.exit.i
 
 158:                                              ; preds = %148
-  call void @llvm.assume(i1 true) [ "align"(ptr %151, i64 1) ]
   %.0.copyload.i.i.i55 = load i64, ptr %151, align 1
   %159 = getelementptr inbounds i8, ptr %151, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %159, i64 1) ]
   %.0.copyload.i.i.i56 = load i64, ptr %159, align 1
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.0.copyload.i.i.i56, ptr %160, align 8
@@ -12962,11 +12933,9 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %99, %96, %76
 _ZN4llvm19TemporalProfTraceTyC2ESt16initializer_listImEm.exit: ; preds = %173
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   store i64 1, ptr %163, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0106117, i64 1) ]
   %.0.copyload.i.i.i57 = load i64, ptr %.0106117, align 1
   %177 = getelementptr inbounds i8, ptr %.0106117, i64 8
   store i64 %.0.copyload.i.i.i57, ptr %163, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %177, i64 1) ]
   %.0.copyload.i.i.i58 = load i64, ptr %177, align 1
   %178 = shl i64 %.0.copyload.i.i.i58, 3
   %179 = getelementptr inbounds i8, ptr %174, i64 %178
@@ -13005,7 +12974,6 @@ _ZN4llvm19TemporalProfTraceTyC2ESt16initializer_listImEm.exit: ; preds = %173
   %186 = phi ptr [ %215, %_ZNSt6vectorImSaImEE9push_backERKm.exit ], [ null, %.preheader ]
   %.039116 = phi i32 [ %216, %_ZNSt6vectorImSaImEE9push_backERKm.exit ], [ 0, %.preheader ]
   %.2115 = phi ptr [ %187, %_ZNSt6vectorImSaImEE9push_backERKm.exit ], [ %174, %.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.2115, i64 1) ]
   %.0.copyload.i.i.i60 = load i64, ptr %.2115, align 1
   %187 = getelementptr inbounds i8, ptr %.2115, i64 8
   %188 = load ptr, ptr %161, align 8
@@ -13982,8 +13950,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %36 = load ptr, ptr %35, align 8, !noalias !1348
   %37 = shl i64 %34, 3
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %38, align 8, !noalias !1348
+  %.0.copyload.i.i.i.i.i = load i64, ptr %38, align 1, !noalias !1348
   %39 = icmp eq i64 %.0.copyload.i.i.i.i.i, 0
   br i1 %39, label %_ZN4llvm22OnDiskChainedHashTableINS_7memprof17RecordLookupTraitEE4findERKmPS2_.exit.thread, label %40
 
@@ -13991,7 +13958,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %42 = load ptr, ptr %41, align 8, !noalias !1348
   %43 = getelementptr inbounds i8, ptr %42, i64 %.0.copyload.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 1) ]
   %.0.copyload.i.i.i30.i.i = load i16, ptr %43, align 1, !noalias !1348
   %44 = zext i16 %.0.copyload.i.i.i30.i.i to i32
   %.not40.i.i = icmp eq i16 %.0.copyload.i.i.i30.i.i, 0
@@ -14004,20 +13970,16 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
 46:                                               ; preds = %52, %.lr.ph.i.i
   %.02239.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %54, %52 ]
   %.038.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %storemerge.i.i, %52 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.038.i.i, i64 1) ]
   %.0.copyload.i.i.i31.i.i = load i64, ptr %.038.i.i, align 1, !noalias !1348
   %47 = getelementptr inbounds i8, ptr %.038.i.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %47, align 1, !noalias !1348
   %48 = getelementptr inbounds i8, ptr %.038.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   %.0.copyload.i.i.i2.i.i.i = load i64, ptr %48, align 1, !noalias !1348
   %49 = getelementptr inbounds i8, ptr %.038.i.i, i64 24
   %.not29.i.i = icmp eq i64 %.0.copyload.i.i.i31.i.i, %2
   br i1 %.not29.i.i, label %50, label %52
 
 50:                                               ; preds = %46
-  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 1) ]
   %.0.copyload.i.i.i.i32.i.i = load i64, ptr %49, align 1, !noalias !1348
   %51 = icmp eq i64 %.0.copyload.i.i.i.i32.i.i, %2
   br i1 %51, label %_ZN4llvm22OnDiskChainedHashTableINS_7memprof17RecordLookupTraitEE4findERKmPS2_.exit, label %52
@@ -23872,8 +23834,7 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFKNS_7memprof5FrameEmEE1
   %11 = load ptr, ptr %10, align 8, !noalias !1691
   %12 = shl i64 %9, 3
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %13, align 8, !noalias !1691
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %13, align 1, !noalias !1691
   %14 = icmp eq i64 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %14, label %_ZN4llvm22OnDiskChainedHashTableINS_7memprof16FrameLookupTraitEE4findERKmPS2_.exit.thread.i, label %15
 
@@ -23881,7 +23842,6 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFKNS_7memprof5FrameEmEE1
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !1691
   %18 = getelementptr inbounds i8, ptr %17, i64 %.0.copyload.i.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
   %.0.copyload.i.i.i30.i.i.i = load i16, ptr %18, align 1, !noalias !1691
   %19 = zext i16 %.0.copyload.i.i.i30.i.i.i to i32
   %.not40.i.i.i = icmp eq i16 %.0.copyload.i.i.i30.i.i.i, 0
@@ -23894,20 +23854,16 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFKNS_7memprof5FrameEmEE1
 21:                                               ; preds = %27, %.lr.ph.i.i.i
   %.02239.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %29, %27 ]
   %.038.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %storemerge.i.i.i, %27 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.038.i.i.i, i64 1) ]
   %.0.copyload.i.i.i31.i.i.i = load i64, ptr %.038.i.i.i, align 1, !noalias !1691
   %22 = getelementptr inbounds i8, ptr %.038.i.i.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %22, align 1, !noalias !1691
   %23 = getelementptr inbounds i8, ptr %.038.i.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
   %.0.copyload.i.i.i2.i.i.i.i = load i64, ptr %23, align 1, !noalias !1691
   %24 = getelementptr inbounds i8, ptr %.038.i.i.i, i64 24
   %.not29.i.i.i = icmp eq i64 %.0.copyload.i.i.i31.i.i.i, %2
   br i1 %.not29.i.i.i, label %25, label %27
 
 25:                                               ; preds = %21
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   %.0.copyload.i.i.i.i32.i.i.i = load i64, ptr %24, align 1, !noalias !1691
   %26 = icmp eq i64 %.0.copyload.i.i.i.i32.i.i.i, %2
   br i1 %26, label %_ZN4llvm22OnDiskChainedHashTableINS_7memprof16FrameLookupTraitEE4findERKmPS2_.exit.i, label %27
@@ -23932,16 +23888,12 @@ _ZN4llvm22OnDiskChainedHashTableINS_7memprof16FrameLookupTraitEE4findERKmPS2_.ex
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1700)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1703)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1706)
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %30, align 1, !noalias !1709
   %31 = getelementptr inbounds i8, ptr %30, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   %.0.copyload.i.i.i4.i.i.i.i.i = load i32, ptr %31, align 1, !noalias !1709
   %32 = getelementptr inbounds i8, ptr %30, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
   %.0.copyload.i.i.i5.i.i.i.i.i = load i32, ptr %32, align 1, !noalias !1709
   %33 = getelementptr inbounds i8, ptr %30, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %.0.copyload.i.i.i6.i.i.i.i.i = load i8, ptr %33, align 1, !noalias !1709
   %34 = and i8 %.0.copyload.i.i.i6.i.i.i.i.i, 1
   store i64 %.0.copyload.i.i.i.i.i.i.i.i, ptr %0, align 8, !alias.scope !1709
@@ -26010,8 +25962,7 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFNS_7memprof5FrameEmEE11
   %11 = load ptr, ptr %10, align 8, !noalias !1736
   %12 = shl i64 %9, 3
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %13, align 8, !noalias !1736
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %13, align 1, !noalias !1736
   %14 = icmp eq i64 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %14, label %_ZN4llvm22OnDiskChainedHashTableINS_7memprof16FrameLookupTraitEE4findERKmPS2_.exit.thread.i, label %15
 
@@ -26019,7 +25970,6 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFNS_7memprof5FrameEmEE11
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !1736
   %18 = getelementptr inbounds i8, ptr %17, i64 %.0.copyload.i.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
   %.0.copyload.i.i.i30.i.i.i = load i16, ptr %18, align 1, !noalias !1736
   %19 = zext i16 %.0.copyload.i.i.i30.i.i.i to i32
   %.not40.i.i.i = icmp eq i16 %.0.copyload.i.i.i30.i.i.i, 0
@@ -26032,20 +25982,16 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFNS_7memprof5FrameEmEE11
 21:                                               ; preds = %27, %.lr.ph.i.i.i
   %.02239.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %29, %27 ]
   %.038.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %storemerge.i.i.i, %27 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.038.i.i.i, i64 1) ]
   %.0.copyload.i.i.i31.i.i.i = load i64, ptr %.038.i.i.i, align 1, !noalias !1736
   %22 = getelementptr inbounds i8, ptr %.038.i.i.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %22, align 1, !noalias !1736
   %23 = getelementptr inbounds i8, ptr %.038.i.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
   %.0.copyload.i.i.i2.i.i.i.i = load i64, ptr %23, align 1, !noalias !1736
   %24 = getelementptr inbounds i8, ptr %.038.i.i.i, i64 24
   %.not29.i.i.i = icmp eq i64 %.0.copyload.i.i.i31.i.i.i, %2
   br i1 %.not29.i.i.i, label %25, label %27
 
 25:                                               ; preds = %21
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   %.0.copyload.i.i.i.i32.i.i.i = load i64, ptr %24, align 1, !noalias !1736
   %26 = icmp eq i64 %.0.copyload.i.i.i.i32.i.i.i, %2
   br i1 %26, label %_ZN4llvm22OnDiskChainedHashTableINS_7memprof16FrameLookupTraitEE4findERKmPS2_.exit.i, label %27
@@ -26070,16 +26016,12 @@ _ZN4llvm22OnDiskChainedHashTableINS_7memprof16FrameLookupTraitEE4findERKmPS2_.ex
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1744)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1747)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1750)
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %30, align 1, !noalias !1753
   %31 = getelementptr inbounds i8, ptr %30, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   %.0.copyload.i.i.i4.i.i.i.i.i = load i32, ptr %31, align 1, !noalias !1753
   %32 = getelementptr inbounds i8, ptr %30, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
   %.0.copyload.i.i.i5.i.i.i.i.i = load i32, ptr %32, align 1, !noalias !1753
   %33 = getelementptr inbounds i8, ptr %30, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %.0.copyload.i.i.i6.i.i.i.i.i = load i8, ptr %33, align 1, !noalias !1753
   %34 = and i8 %.0.copyload.i.i.i6.i.i.i.i.i, 1
   store i64 %.0.copyload.i.i.i.i.i.i.i.i, ptr %0, align 8, !alias.scope !1753
@@ -26119,8 +26061,7 @@ define linkonce_odr hidden void @_ZN4llvm7memprof20CallStackIdConverterINS_30OnD
   %13 = load ptr, ptr %12, align 8, !noalias !1754
   %14 = shl i64 %11, 3
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %15, align 8, !noalias !1754
+  %.0.copyload.i.i.i.i.i = load i64, ptr %15, align 1, !noalias !1754
   %16 = icmp eq i64 %.0.copyload.i.i.i.i.i, 0
   br i1 %16, label %_ZN4llvm22OnDiskChainedHashTableINS_7memprof20CallStackLookupTraitEE4findERKmPS2_.exit.thread, label %17
 
@@ -26128,7 +26069,6 @@ define linkonce_odr hidden void @_ZN4llvm7memprof20CallStackIdConverterINS_30OnD
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !1754
   %20 = getelementptr inbounds i8, ptr %19, i64 %.0.copyload.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
   %.0.copyload.i.i.i30.i.i = load i16, ptr %20, align 1, !noalias !1754
   %21 = zext i16 %.0.copyload.i.i.i30.i.i to i32
   %.not41.i.i = icmp eq i16 %.0.copyload.i.i.i30.i.i, 0
@@ -26141,17 +26081,14 @@ define linkonce_odr hidden void @_ZN4llvm7memprof20CallStackIdConverterINS_30OnD
 23:                                               ; preds = %28, %.lr.ph.i.i
   %.02240.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %30, %28 ]
   %.039.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %storemerge.i.i, %28 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.039.i.i, i64 1) ]
   %.0.copyload.i.i.i31.i.i = load i64, ptr %.039.i.i, align 1, !noalias !1754
   %24 = getelementptr inbounds i8, ptr %.039.i.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %24, align 1, !noalias !1754
   %.not29.i.i = icmp eq i64 %.0.copyload.i.i.i31.i.i, %2
   br i1 %.not29.i.i, label %25, label %28
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %.039.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %.0.copyload.i.i.i.i32.i.i = load i64, ptr %26, align 1, !noalias !1754
   %27 = icmp eq i64 %.0.copyload.i.i.i.i32.i.i, %2
   br i1 %27, label %_ZN4llvm22OnDiskChainedHashTableINS_7memprof20CallStackLookupTraitEE4findERKmPS2_.exit, label %28
@@ -26321,7 +26258,6 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit:      ; preds = %5, %10
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit
   %.09 = phi i64 [ %21, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit ], [ 0, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit ]
   %.068 = phi ptr [ %11, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit ], [ %3, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.068, i64 1) ]
   %.0.copyload.i.i.i = load i64, ptr %.068, align 1
   %11 = getelementptr inbounds i8, ptr %.068, i64 8
   %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
@@ -26722,16 +26658,12 @@ define linkonce_odr hidden void @_ZNSt17_Function_handlerIFN4llvm7memprof5FrameE
   %7 = load ptr, ptr %1, align 8, !noalias !1789
   %8 = getelementptr inbounds i8, ptr %7, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1790)
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %8, align 1, !noalias !1793
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i4.i.i.i.i = load i32, ptr %9, align 1, !noalias !1793
   %10 = getelementptr inbounds i8, ptr %8, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i5.i.i.i.i = load i32, ptr %10, align 1, !noalias !1793
   %11 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   %.0.copyload.i.i.i6.i.i.i.i = load i8, ptr %11, align 1, !noalias !1793
   %12 = and i8 %.0.copyload.i.i.i6.i.i.i.i, 1
   store i64 %.0.copyload.i.i.i.i.i.i.i, ptr %0, align 8, !alias.scope !1793
@@ -26788,7 +26720,6 @@ define linkonce_odr hidden void @_ZN4llvm7memprof26LinearCallStackIdConverterclE
   %7 = zext i32 %2 to i64
   %8 = shl nuw nsw i64 %7, 2
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %9, align 1
   %10 = zext i32 %.0.copyload.i.i.i to i64
   tail call void @_ZNSt6vectorIN4llvm7memprof5FrameESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %10)
@@ -30241,10 +30172,8 @@ define linkonce_odr void @_ZN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChai
   %21 = select i1 %.not.i.i, i64 2, i64 0
   %22 = getelementptr inbounds i8, ptr %18, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %23, align 1
   %24 = getelementptr inbounds i8, ptr %22, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   %.0.copyload.i.i.i2.i.i = load i64, ptr %24, align 1
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30362,7 +30291,6 @@ define linkonce_odr hidden void @_ZN4llvm20InstrProfReaderIndexINS_30OnDiskItera
   br i1 %.not.i.i.i, label %5, label %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE13data_iteratorppEi.exit
 
 5:                                                ; preds = %1
-  call void @llvm.assume(i1 true) [ "align"(ptr %.pre.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i16, ptr %.pre.i.i.i, align 1, !noalias !1868
   %6 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 2
   %7 = zext i16 %.0.copyload.i.i.i.i.i.i to i64
@@ -30374,11 +30302,9 @@ _ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE13data_itera
   %9 = phi ptr [ %6, %5 ], [ %.pre.i.i.i, %1 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %10, ptr %2, align 8, !noalias !1868
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %10, align 1, !noalias !1868
   %11 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %11, ptr %2, align 8, !noalias !1868
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   %.0.copyload.i.i.i2.i.i.i.i = load i64, ptr %11, align 1, !noalias !1868
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   %13 = getelementptr i8, ptr %12, i64 %.0.copyload.i.i.i.i.i.i.i
@@ -30516,48 +30442,42 @@ _ZN4llvm5ErrorD2Ev.exit.i.preheader:              ; preds = %3
   br label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit.i.preheader, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i
-  %.sroa.10.018.i = phi i64 [ %28, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i ], [ %7, %_ZN4llvm5ErrorD2Ev.exit.i.preheader ]
-  %.sroa.6.017.i = phi i64 [ %27, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i ], [ 0, %_ZN4llvm5ErrorD2Ev.exit.i.preheader ]
-  %.sroa.011.016.i = phi ptr [ %26, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i ], [ %9, %_ZN4llvm5ErrorD2Ev.exit.i.preheader ]
+  %.sroa.10.018.i = phi i64 [ %27, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i ], [ %7, %_ZN4llvm5ErrorD2Ev.exit.i.preheader ]
+  %.sroa.6.017.i = phi i64 [ %26, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i ], [ 0, %_ZN4llvm5ErrorD2Ev.exit.i.preheader ]
+  %.sroa.011.016.i = phi ptr [ %25, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i ], [ %9, %_ZN4llvm5ErrorD2Ev.exit.i.preheader ]
   %.not.i.i.i.i = icmp eq i64 %.sroa.6.017.i, 0
   %10 = select i1 %.not.i.i.i.i, i64 2, i64 0
   %11 = getelementptr inbounds i8, ptr %.sroa.011.016.i, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
-  tail call void @_ZN4llvm15InstrProfSymtab13addSymbolNameENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(385) %2, ptr nonnull %14, i64 %.0.copyload.i.i.i.i.i.i.i)
-  %15 = load ptr, ptr %0, align 8, !alias.scope !1876
-  %.not14.i = icmp eq ptr %15, null
-  br i1 %.not14.i, label %16, label %_ZN4llvm15InstrProfSymtab6createINS_14iterator_rangeINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorEEEEENS_5ErrorERKT_.exit
+  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  tail call void @_ZN4llvm15InstrProfSymtab13addSymbolNameENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(385) %2, ptr nonnull %13, i64 %.0.copyload.i.i.i.i.i.i.i)
+  %14 = load ptr, ptr %0, align 8, !alias.scope !1876
+  %.not14.i = icmp eq ptr %14, null
+  br i1 %.not14.i, label %15, label %_ZN4llvm15InstrProfSymtab6createINS_14iterator_rangeINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorEEEEENS_5ErrorERKT_.exit
 
-16:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  br i1 %.not.i.i.i.i, label %17, label %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i
+15:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
+  br i1 %.not.i.i.i.i, label %16, label %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i
 
-17:                                               ; preds = %16
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.011.016.i, i64 1) ]
+16:                                               ; preds = %15
   %.0.copyload.i.i.i.i.i.i = load i16, ptr %.sroa.011.016.i, align 1
-  %18 = getelementptr inbounds i8, ptr %.sroa.011.016.i, i64 2
-  %19 = zext i16 %.0.copyload.i.i.i.i.i.i to i64
+  %17 = getelementptr inbounds i8, ptr %.sroa.011.016.i, i64 2
+  %18 = zext i16 %.0.copyload.i.i.i.i.i.i to i64
   br label %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i
 
-_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i: ; preds = %17, %16
-  %20 = phi i64 [ %19, %17 ], [ %.sroa.6.017.i, %16 ]
-  %21 = phi ptr [ %18, %17 ], [ %.sroa.011.016.i, %16 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
-  %.0.copyload.i.i.i2.i.i.i.i = load i64, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
-  %25 = getelementptr i8, ptr %24, i64 %.0.copyload.i.i.i.i.i.i8.i
-  %26 = getelementptr i8, ptr %25, i64 %.0.copyload.i.i.i2.i.i.i.i
-  %27 = add i64 %20, -1
-  %28 = add i64 %.sroa.10.018.i, -1
-  %.not.i = icmp eq i64 %28, 0
+_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i: ; preds = %16, %15
+  %19 = phi i64 [ %18, %16 ], [ %.sroa.6.017.i, %15 ]
+  %20 = phi ptr [ %17, %16 ], [ %.sroa.011.016.i, %15 ]
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %21, align 1
+  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %.0.copyload.i.i.i2.i.i.i.i = load i64, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %24 = getelementptr i8, ptr %23, i64 %.0.copyload.i.i.i.i.i.i8.i
+  %25 = getelementptr i8, ptr %24, i64 %.0.copyload.i.i.i2.i.i.i.i
+  %26 = add i64 %19, -1
+  %27 = add i64 %.sroa.10.018.i, -1
+  %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm12ErrorSuccessD2Ev.exit.i:                ; preds = %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit.i, %3
@@ -30597,8 +30517,7 @@ define linkonce_odr hidden void @_ZN4llvm22OnDiskChainedHashTableINS_20InstrProf
   %12 = load ptr, ptr %11, align 8, !noalias !1879
   %13 = shl i64 %10, 3
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
-  %.0.copyload.i.i.i.i = load i64, ptr %14, align 8, !noalias !1879
+  %.0.copyload.i.i.i.i = load i64, ptr %14, align 1, !noalias !1879
   %15 = icmp eq i64 %.0.copyload.i.i.i.i, 0
   br i1 %15, label %16, label %17
 
@@ -30610,7 +30529,6 @@ define linkonce_odr hidden void @_ZN4llvm22OnDiskChainedHashTableINS_20InstrProf
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !1879
   %20 = getelementptr inbounds i8, ptr %19, i64 %.0.copyload.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
   %.0.copyload.i.i.i35.i = load i16, ptr %20, align 1, !noalias !1879
   %21 = zext i16 %.0.copyload.i.i.i35.i to i32
   %.not47.i = icmp eq i16 %.0.copyload.i.i.i35.i, 0
@@ -30624,13 +30542,10 @@ define linkonce_odr hidden void @_ZN4llvm22OnDiskChainedHashTableINS_20InstrProf
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvm20InstrProfLookupTrait8EqualKeyENS_9StringRefES1_.exit.thread43.i.us
   %.02646.i.us = phi i32 [ %28, %_ZN4llvm20InstrProfLookupTrait8EqualKeyENS_9StringRefES1_.exit.thread43.i.us ], [ 0, %.lr.ph.i ]
   %.045.i.us = phi ptr [ %storemerge.i.us, %_ZN4llvm20InstrProfLookupTrait8EqualKeyENS_9StringRefES1_.exit.thread43.i.us ], [ %22, %.lr.ph.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.045.i.us, i64 1) ]
   %.0.copyload.i.i.i36.i.us = load i64, ptr %.045.i.us, align 1, !noalias !1879
   %24 = getelementptr inbounds i8, ptr %.045.i.us, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   %.0.copyload.i.i.i.i.i.us = load i64, ptr %24, align 1, !noalias !1879
   %25 = getelementptr inbounds i8, ptr %.045.i.us, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   %.0.copyload.i.i.i2.i.i.us = load i64, ptr %25, align 1, !noalias !1879
   %26 = getelementptr inbounds i8, ptr %.045.i.us, i64 24
   %.not34.i.us = icmp eq i64 %.0.copyload.i.i.i36.i.us, %.0.copyload.i.i.i.i.i.i.i.i
@@ -30648,13 +30563,10 @@ _ZN4llvm20InstrProfLookupTrait8EqualKeyENS_9StringRefES1_.exit.thread43.i.us: ; 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvm20InstrProfLookupTrait8EqualKeyENS_9StringRefES1_.exit.thread43.i
   %.02646.i = phi i32 [ %38, %_ZN4llvm20InstrProfLookupTrait8EqualKeyENS_9StringRefES1_.exit.thread43.i ], [ 0, %.lr.ph.i ]
   %.045.i = phi ptr [ %storemerge.i, %_ZN4llvm20InstrProfLookupTrait8EqualKeyENS_9StringRefES1_.exit.thread43.i ], [ %22, %.lr.ph.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.045.i, i64 1) ]
   %.0.copyload.i.i.i36.i = load i64, ptr %.045.i, align 1, !noalias !1879
   %29 = getelementptr inbounds i8, ptr %.045.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %29, align 1, !noalias !1879
   %30 = getelementptr inbounds i8, ptr %.045.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   %.0.copyload.i.i.i2.i.i = load i64, ptr %30, align 1, !noalias !1879
   %31 = getelementptr inbounds i8, ptr %.045.i, i64 24
   %.not34.i = icmp eq i64 %.0.copyload.i.i.i36.i, %.0.copyload.i.i.i.i.i.i.i.i
@@ -30767,7 +30679,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   tail call void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   %8 = load ptr, ptr %0, align 8
   %.not25 = icmp eq ptr %8, null
-  br i1 %.not25, label %9, label %86
+  br i1 %.not25, label %9, label %85
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -30792,51 +30704,48 @@ _ZN4llvm5ErrorD2Ev.exit:
   br label %22
 
 22:                                               ; preds = %.lr.ph, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit
-  %.sroa.10.032 = phi i64 [ %15, %.lr.ph ], [ %85, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit ]
-  %.sroa.6.031 = phi i64 [ 0, %.lr.ph ], [ %84, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit ]
-  %.sroa.018.030 = phi ptr [ %17, %.lr.ph ], [ %83, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit ]
+  %.sroa.10.032 = phi i64 [ %15, %.lr.ph ], [ %84, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit ]
+  %.sroa.6.031 = phi i64 [ 0, %.lr.ph ], [ %83, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit ]
+  %.sroa.018.030 = phi ptr [ %17, %.lr.ph ], [ %82, %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit ]
   %.not.i.i.i = icmp eq i64 %.sroa.6.031, 0
   %23 = select i1 %.not.i.i.i, i64 2, i64 0
   %24 = getelementptr inbounds i8, ptr %.sroa.018.030, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
-  %27 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = getelementptr inbounds i8, ptr %24, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store ptr %27, ptr %18, align 8
+  store ptr %26, ptr %18, align 8
   store i64 %.0.copyload.i.i.i.i.i.i, ptr %.sroa.311.0..sroa_idx.i, align 8
-  br label %28
+  br label %27
 
-28:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread14.i, %22
+27:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread14.i, %22
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 59, ptr %2, align 1, !noalias !1888
-  %29 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr nonnull %2, i64 1, i64 noundef 0) #21, !noalias !1891
-  %30 = icmp eq i64 %29, -1
-  br i1 %30, label %31, label %32
+  %28 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr nonnull %2, i64 1, i64 noundef 0) #21, !noalias !1891
+  %29 = icmp eq i64 %28, -1
+  br i1 %29, label %30, label %31
 
-31:                                               ; preds = %28
+30:                                               ; preds = %27
   %.sroa.04.0.copyload.i = load ptr, ptr %18, align 8
   %.sroa.3.0.copyload7.i = load i64, ptr %.sroa.311.0..sroa_idx.i, align 8
   br label %_ZNK4llvm9StringRef5splitEc.exit.i
 
-32:                                               ; preds = %28
-  %33 = load i64, ptr %.sroa.311.0..sroa_idx.i, align 8, !noalias !1891
-  %34 = call i64 @llvm.umin.i64(i64 %29, i64 %33)
-  %35 = load ptr, ptr %18, align 8, !noalias !1891
-  %36 = add nuw i64 %29, 1
-  %.sroa.speculated5.i.i.i.i = call i64 @llvm.umin.i64(i64 %33, i64 %36)
-  %37 = getelementptr inbounds i8, ptr %35, i64 %.sroa.speculated5.i.i.i.i
-  %38 = sub i64 %33, %.sroa.speculated5.i.i.i.i
+31:                                               ; preds = %27
+  %32 = load i64, ptr %.sroa.311.0..sroa_idx.i, align 8, !noalias !1891
+  %33 = call i64 @llvm.umin.i64(i64 %28, i64 %32)
+  %34 = load ptr, ptr %18, align 8, !noalias !1891
+  %35 = add nuw i64 %28, 1
+  %.sroa.speculated5.i.i.i.i = call i64 @llvm.umin.i64(i64 %32, i64 %35)
+  %36 = getelementptr inbounds i8, ptr %34, i64 %.sroa.speculated5.i.i.i.i
+  %37 = sub i64 %32, %.sroa.speculated5.i.i.i.i
   br label %_ZNK4llvm9StringRef5splitEc.exit.i
 
-_ZNK4llvm9StringRef5splitEc.exit.i:               ; preds = %32, %31
-  %.sroa.3.013.i = phi i64 [ %.sroa.3.0.copyload7.i, %31 ], [ %34, %32 ]
-  %.sroa.04.0.i = phi ptr [ %.sroa.04.0.copyload.i, %31 ], [ %35, %32 ]
-  %.sroa.7.1.i = phi i64 [ 0, %31 ], [ %38, %32 ]
-  %.sroa.4.1.i = phi ptr [ null, %31 ], [ %37, %32 ]
+_ZNK4llvm9StringRef5splitEc.exit.i:               ; preds = %31, %30
+  %.sroa.3.013.i = phi i64 [ %.sroa.3.0.copyload7.i, %30 ], [ %33, %31 ]
+  %.sroa.04.0.i = phi ptr [ %.sroa.04.0.copyload.i, %30 ], [ %34, %31 ]
+  %.sroa.7.1.i = phi i64 [ 0, %30 ], [ %37, %31 ]
+  %.sroa.4.1.i = phi ptr [ null, %30 ], [ %36, %31 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   store ptr %.sroa.04.0.i, ptr %3, align 8
   store i64 %.sroa.3.013.i, ptr %.sroa.3.0..sroa_idx8.i, align 8
@@ -30847,112 +30756,109 @@ _ZNK4llvm9StringRef5splitEc.exit.i:               ; preds = %32, %31
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %_ZNK4llvm9StringRef5splitEc.exit.i
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.sroa.04.0.i, ptr noundef nonnull dereferenceable(2) @.str.68, i64 2)
-  %39 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %39, label %_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEE11extractNameENS_9StringRefE.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread14.i
+  %38 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %38, label %_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEE11extractNameENS_9StringRefE.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread14.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread14.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef5splitEc.exit.i
-  %40 = icmp eq i64 %.sroa.7.1.i, 0
-  br i1 %40, label %_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEE11extractNameENS_9StringRefE.exit, label %28, !llvm.loop !1894
+  %39 = icmp eq i64 %.sroa.7.1.i, 0
+  br i1 %39, label %_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEE11extractNameENS_9StringRefE.exit, label %27, !llvm.loop !1894
 
 _ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEE11extractNameENS_9StringRefE.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread14.i
   %.sroa.3.0.i = phi i64 [ %.sroa.3.013.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.0.copyload.i.i.i.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread14.i ]
-  %.sroa.0.0.in.sroa.speculated.i = phi ptr [ %.sroa.04.0.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread14.i ]
+  %.sroa.0.0.in.sroa.speculated.i = phi ptr [ %.sroa.04.0.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %26, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread14.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %41 = call noundef i64 @_ZN4llvm28ItaniumManglingCanonicalizer12canonicalizeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %.sroa.0.0.in.sroa.speculated.i, i64 %.sroa.3.0.i) #21
-  %.not = icmp eq i64 %41, 0
-  br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit, label %42
+  %40 = call noundef i64 @_ZN4llvm28ItaniumManglingCanonicalizer12canonicalizeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %.sroa.0.0.in.sroa.speculated.i, i64 %.sroa.3.0.i) #21
+  %.not = icmp eq i64 %40, 0
+  br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit, label %41
 
-42:                                               ; preds = %_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEE11extractNameENS_9StringRefE.exit
-  store i64 %41, ptr %4, align 8
+41:                                               ; preds = %_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEE11extractNameENS_9StringRefE.exit
+  store i64 %40, ptr %4, align 8
   store ptr %.sroa.0.0.in.sroa.speculated.i, ptr %20, align 8
   store i64 %.sroa.3.0.i, ptr %.sroa.214.0..sroa_idx, align 8
-  %43 = load ptr, ptr %19, align 8, !noalias !1895
-  %44 = load i32, ptr %21, align 8, !noalias !1895
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %70, label %46
+  %42 = load ptr, ptr %19, align 8, !noalias !1895
+  %43 = load i32, ptr %21, align 8, !noalias !1895
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %69, label %45
 
-46:                                               ; preds = %42
-  %47 = mul i64 %41, -4658895280553007687
-  %48 = lshr i64 %47, 31
-  %49 = xor i64 %48, %47
-  %50 = trunc i64 %49 to i32
-  %51 = add i32 %44, -1
-  %.02532.i.i.i.i = and i32 %51, %50
-  %52 = zext i32 %.02532.i.i.i.i to i64
-  %53 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.523", ptr %43, i64 %52
-  %54 = load i64, ptr %53, align 8, !noalias !1895
-  %55 = icmp eq i64 %41, %54
-  br i1 %55, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit, label %.lr.ph.i.i.i.i
+45:                                               ; preds = %41
+  %46 = mul i64 %40, -4658895280553007687
+  %47 = lshr i64 %46, 31
+  %48 = xor i64 %47, %46
+  %49 = trunc i64 %48 to i32
+  %50 = add i32 %43, -1
+  %.02532.i.i.i.i = and i32 %50, %49
+  %51 = zext i32 %.02532.i.i.i.i to i64
+  %52 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.523", ptr %42, i64 %51
+  %53 = load i64, ptr %52, align 8, !noalias !1895
+  %54 = icmp eq i64 %40, %53
+  br i1 %54, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %46, %61
-  %56 = phi i64 [ %68, %61 ], [ %54, %46 ]
-  %57 = phi ptr [ %67, %61 ], [ %53, %46 ]
-  %.02535.i.i.i.i = phi i32 [ %.025.i.i.i.i, %61 ], [ %.02532.i.i.i.i, %46 ]
-  %.02434.i.i.i.i = phi i32 [ %64, %61 ], [ 1, %46 ]
-  %.02633.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %61 ], [ null, %46 ]
-  %58 = icmp eq i64 %56, -1
-  br i1 %58, label %59, label %61
+.lr.ph.i.i.i.i:                                   ; preds = %45, %60
+  %55 = phi i64 [ %67, %60 ], [ %53, %45 ]
+  %56 = phi ptr [ %66, %60 ], [ %52, %45 ]
+  %.02535.i.i.i.i = phi i32 [ %.025.i.i.i.i, %60 ], [ %.02532.i.i.i.i, %45 ]
+  %.02434.i.i.i.i = phi i32 [ %63, %60 ], [ 1, %45 ]
+  %.02633.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %60 ], [ null, %45 ]
+  %57 = icmp eq i64 %55, -1
+  br i1 %57, label %58, label %60
 
-59:                                               ; preds = %.lr.ph.i.i.i.i
+58:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.02633.i.i.i.i, null
-  %60 = select i1 %.not.i.i.i.i, ptr %57, ptr %.02633.i.i.i.i
-  br label %70
+  %59 = select i1 %.not.i.i.i.i, ptr %56, ptr %.02633.i.i.i.i
+  br label %69
 
-61:                                               ; preds = %.lr.ph.i.i.i.i
-  %62 = icmp eq i64 %56, -2
-  %63 = icmp eq ptr %.02633.i.i.i.i, null
-  %or.cond.not.i.i.i.i = select i1 %62, i1 %63, i1 false
-  %spec.select.i.i.i.i = select i1 %or.cond.not.i.i.i.i, ptr %57, ptr %.02633.i.i.i.i
-  %64 = add i32 %.02434.i.i.i.i, 1
-  %65 = add i32 %.02434.i.i.i.i, %.02535.i.i.i.i
-  %.025.i.i.i.i = and i32 %65, %51
-  %66 = zext i32 %.025.i.i.i.i to i64
-  %67 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.523", ptr %43, i64 %66
-  %68 = load i64, ptr %67, align 8, !noalias !1895
-  %69 = icmp eq i64 %41, %68
-  br i1 %69, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1900
+60:                                               ; preds = %.lr.ph.i.i.i.i
+  %61 = icmp eq i64 %55, -2
+  %62 = icmp eq ptr %.02633.i.i.i.i, null
+  %or.cond.not.i.i.i.i = select i1 %61, i1 %62, i1 false
+  %spec.select.i.i.i.i = select i1 %or.cond.not.i.i.i.i, ptr %56, ptr %.02633.i.i.i.i
+  %63 = add i32 %.02434.i.i.i.i, 1
+  %64 = add i32 %.02434.i.i.i.i, %.02535.i.i.i.i
+  %.025.i.i.i.i = and i32 %64, %50
+  %65 = zext i32 %.025.i.i.i.i to i64
+  %66 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.523", ptr %42, i64 %65
+  %67 = load i64, ptr %66, align 8, !noalias !1895
+  %68 = icmp eq i64 %40, %67
+  br i1 %68, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1900
 
-70:                                               ; preds = %59, %42
-  %.sink.i.i.i.i = phi ptr [ %60, %59 ], [ null, %42 ]
-  %71 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E20InsertIntoBucketImplImEEPS7_RKmRKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !1895
-  %72 = load i64, ptr %4, align 8, !noalias !1895
-  store i64 %72, ptr %71, align 8, !noalias !1895
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !noalias !1895
+69:                                               ; preds = %58, %41
+  %.sink.i.i.i.i = phi ptr [ %59, %58 ], [ null, %41 ]
+  %70 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E20InsertIntoBucketImplImEEPS7_RKmRKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !1895
+  %71 = load i64, ptr %4, align 8, !noalias !1895
+  store i64 %71, ptr %70, align 8, !noalias !1895
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !noalias !1895
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit: ; preds = %61, %70, %46, %_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEE11extractNameENS_9StringRefE.exit
-  br i1 %.not.i.i.i, label %74, label %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit
+_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit: ; preds = %60, %69, %45, %_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEE11extractNameENS_9StringRefE.exit
+  br i1 %.not.i.i.i, label %73, label %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit
 
-74:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.018.030, i64 1) ]
+73:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit
   %.0.copyload.i.i.i.i.i = load i16, ptr %.sroa.018.030, align 1
-  %75 = getelementptr inbounds i8, ptr %.sroa.018.030, i64 2
-  %76 = zext i16 %.0.copyload.i.i.i.i.i to i64
+  %74 = getelementptr inbounds i8, ptr %.sroa.018.030, i64 2
+  %75 = zext i16 %.0.copyload.i.i.i.i.i to i64
   br label %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit
 
-_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit, %74
-  %77 = phi i64 [ %76, %74 ], [ %.sroa.6.031, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ]
-  %78 = phi ptr [ %75, %74 ], [ %.sroa.018.030, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ]
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i10 = load i64, ptr %79, align 1
-  %80 = getelementptr inbounds i8, ptr %78, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 1) ]
-  %.0.copyload.i.i.i2.i.i.i = load i64, ptr %80, align 1
-  %81 = getelementptr inbounds i8, ptr %78, i64 24
-  %82 = getelementptr i8, ptr %81, i64 %.0.copyload.i.i.i.i.i.i10
-  %83 = getelementptr i8, ptr %82, i64 %.0.copyload.i.i.i2.i.i.i
-  %84 = add i64 %77, -1
-  %85 = add i64 %.sroa.10.032, -1
-  %.not26 = icmp eq i64 %85, 0
+_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit, %73
+  %76 = phi i64 [ %75, %73 ], [ %.sroa.6.031, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ]
+  %77 = phi ptr [ %74, %73 ], [ %.sroa.018.030, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ]
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %.0.copyload.i.i.i.i.i.i10 = load i64, ptr %78, align 1
+  %79 = getelementptr inbounds i8, ptr %77, i64 16
+  %.0.copyload.i.i.i2.i.i.i = load i64, ptr %79, align 1
+  %80 = getelementptr inbounds i8, ptr %77, i64 24
+  %81 = getelementptr i8, ptr %80, i64 %.0.copyload.i.i.i.i.i.i10
+  %82 = getelementptr i8, ptr %81, i64 %.0.copyload.i.i.i2.i.i.i
+  %83 = add i64 %76, -1
+  %84 = add i64 %.sroa.10.032, -1
+  %.not26 = icmp eq i64 %84, 0
   br i1 %.not26, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %22
 
 _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZN4llvm30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEE12key_iteratorppEv.exit, %9
   store ptr null, ptr %0, align 8
-  br label %86
+  br label %85
 
-86:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm12ErrorSuccessD2Ev.exit
+85:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm12ErrorSuccessD2Ev.exit
   ret void
 }
 

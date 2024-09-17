@@ -1762,8 +1762,7 @@ define dso_local void @_ZN5clang12LookupResult11resolveKindEv(ptr noundef nonnul
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %8, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %12, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %12, align 1
   %13 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
@@ -1959,8 +1958,7 @@ _ZNK4llvm9BitVector5countEv.exit:                 ; preds = %.lr.ph.i, %60
 
 .lr.ph:                                           ; preds = %88, %_ZL10canHideTagPKN5clang9NamedDeclE.exit
   %.sroa.0149.0223 = phi ptr [ %150, %_ZL10canHideTagPKN5clang9NamedDeclE.exit ], [ %89, %88 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0149.0223, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i79 = load i64, ptr %.sroa.0149.0223, align 8
+  %.0.copyload.i.i.i.i.i.i79 = load i64, ptr %.sroa.0149.0223, align 1
   %92 = and i64 %.0.copyload.i.i.i.i.i.i79, -8
   %93 = inttoptr i64 %92 to ptr
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 28
@@ -3340,8 +3338,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %49, %47, %_ZN4llvm1
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit14
 
 _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %61, %63
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.015.020, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.015.020, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.015.020, align 1
   %66 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %67 = inttoptr i64 %66 to ptr
   tail call void @_ZNK5clang4Decl5printERN4llvm11raw_ostreamEjb(ptr noundef nonnull align 8 dereferenceable(33) %67, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 2, i1 noundef zeroext false) #24
@@ -3422,8 +3419,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %30, %32
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit6, %.lr.ph
   %.sroa.07.011 = phi ptr [ %41, %.lr.ph ], [ %36, %_ZN4llvm11raw_ostreamlsEPKc.exit6 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.07.011, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.07.011, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.07.011, align 1
   %39 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %40 = inttoptr i64 %39 to ptr
   call void @_ZNK5clang4Decl4dumpEv(ptr noundef nonnull align 8 dereferenceable(33) %40) #24
@@ -13073,8 +13069,7 @@ define dso_local void @_ZN5clang4Sema30LookupNecessaryTypesForBuiltinEPNS_5Scope
 
 36:                                               ; preds = %6
   %37 = load ptr, ptr %14, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %37, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %37, align 1
   %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
@@ -15770,8 +15765,7 @@ _ZN4llvm21iterator_adaptor_baseIN5clang11DeclContext13udir_iteratorENS1_12DeclLi
   %.val = load ptr, ptr %149, align 8
   %.val220 = load ptr, ptr %111, align 8
   %170 = select i1 %160, ptr %.val, ptr %.val220
-  call void @llvm.assume(i1 true) [ "align"(ptr %170, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %170, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %170, align 1
   %171 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %172 = inttoptr i64 %171 to ptr
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 28
@@ -18460,8 +18454,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema28shouldLinkPossiblyHiddenDec
 
 .lr.ph:                                           ; preds = %3, %8
   %.sroa.08.012 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.08.012, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.08.012, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.08.012, align 1
   %10 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -20105,8 +20098,7 @@ _ZNK5clang13CXXRecordDecl14conversion_endEv.exit: ; preds = %_ZNK5clang13CXXReco
 161:                                              ; preds = %.lr.ph142, %238
   %.2141 = phi i8 [ %.049.lcssa150, %.lr.ph142 ], [ %.3, %238 ]
   %.sroa.0103.0140 = phi ptr [ %121, %.lr.ph142 ], [ %239, %238 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0103.0140, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i82 = load i64, ptr %.sroa.0103.0140, align 8
+  %.0.copyload.i.i.i.i.i.i82 = load i64, ptr %.sroa.0103.0140, align 1
   %162 = and i64 %.0.copyload.i.i.i.i.i.i82, -8
   %163 = inttoptr i64 %162 to ptr
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 28
@@ -20812,8 +20804,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %59, %67
 
 87:                                               ; preds = %.lr.ph, %_ZN5clang12LookupResult7addDeclEPNS_9NamedDeclENS_15AccessSpecifierE.exit
   %.sroa.022.030 = phi ptr [ %83, %.lr.ph ], [ %109, %_ZN5clang12LookupResult7addDeclEPNS_9NamedDeclENS_15AccessSpecifierE.exit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.022.030, i64 8) ]
-  %.0.copyload.i.i.i.i.i19 = load i64, ptr %.sroa.022.030, align 8
+  %.0.copyload.i.i.i.i.i19 = load i64, ptr %.sroa.022.030, align 1
   %88 = and i64 %.0.copyload.i.i.i.i.i19, -8
   %89 = load i8, ptr %86, align 4
   %90 = lshr i8 %89, 2
@@ -20822,7 +20813,6 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %59, %67
   %93 = and i8 %89, 2
   %.0.in.i = select i1 %92, i8 %93, i8 %91
   %.0.i = zext nneg i8 %.0.in.i to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.022.030, i64 8) ]
   %94 = trunc i64 %.0.copyload.i.i.i.i.i19 to i32
   %95 = and i32 %94, 3
   %96 = icmp eq i32 %95, 2
@@ -21451,8 +21441,7 @@ _ZNSt3setIPKN5clang9NamedDeclESt4lessIS3_ESaIS3_EE6insertERKS3_.exit: ; preds = 
 
 .lr.ph184:                                        ; preds = %157, %196
   %.sroa.0135.0183 = phi ptr [ %197, %196 ], [ %167, %157 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0135.0183, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0135.0183, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0135.0183, align 1
   %170 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %171 = inttoptr i64 %170 to ptr
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 28
@@ -21524,8 +21513,7 @@ _ZN4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE6insertES3_.exit: ; preds = %.lr.p
 
 .lr.ph188:                                        ; preds = %._crit_edge, %210
   %.sroa.0130.0186 = phi ptr [ %211, %210 ], [ %198, %._crit_edge ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0130.0186, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i98 = load i64, ptr %.sroa.0130.0186, align 8
+  %.0.copyload.i.i.i.i.i.i98 = load i64, ptr %.sroa.0130.0186, align 1
   %201 = and i64 %.0.copyload.i.i.i.i.i.i98, -8
   %202 = inttoptr i64 %201 to ptr
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 28
@@ -21557,8 +21545,7 @@ _ZN4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE6insertES3_.exit: ; preds = %.lr.p
   %.sroa.4.0192 = phi ptr [ %.sroa.4.1, %_ZN5clang12LookupResult6Filter5eraseEv.exit ], [ %212, %._crit_edge189 ]
   %.sroa.10.0191 = phi i1 [ %.sroa.10.1, %_ZN5clang12LookupResult6Filter5eraseEv.exit ], [ false, %._crit_edge189 ]
   %214 = getelementptr inbounds i8, ptr %.sroa.4.0192, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.4.0192, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0192, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0192, align 1
   %215 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %216 = inttoptr i64 %215 to ptr
   %217 = load ptr, ptr %162, align 8
@@ -21682,8 +21669,7 @@ _ZN5clang12LookupResult6Filter4doneEv.exit:       ; preds = %._crit_edge189, %._
 .lr.ph181:                                        ; preds = %261, %_ZN5clang4Decl14getDeclContextEv.exit114
   %.0180 = phi ptr [ %.0.i113, %_ZN5clang4Decl14getDeclContextEv.exit114 ], [ null, %261 ]
   %.sroa.0121.0179 = phi ptr [ %283, %_ZN5clang4Decl14getDeclContextEv.exit114 ], [ %266, %261 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0121.0179, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i109 = load i64, ptr %.sroa.0121.0179, align 8
+  %.0.copyload.i.i.i.i.i.i109 = load i64, ptr %.sroa.0121.0179, align 1
   %269 = and i64 %.0.copyload.i.i.i.i.i.i109, -8
   %270 = inttoptr i64 %269 to ptr
   store ptr %270, ptr %21, align 8
@@ -21749,8 +21735,7 @@ _ZN5clang4Decl14getDeclContextEv.exit114:         ; preds = %279, %281
 
 .lr.ph:                                           ; preds = %284, %.lr.ph
   %.sroa.0117.0177 = phi ptr [ %296, %.lr.ph ], [ %289, %284 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0117.0177, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i115 = load i64, ptr %.sroa.0117.0177, align 8
+  %.0.copyload.i.i.i.i.i.i115 = load i64, ptr %.sroa.0117.0177, align 1
   %292 = and i64 %.0.copyload.i.i.i.i.i.i115, -8
   %293 = inttoptr i64 %292 to ptr
   store ptr %293, ptr %24, align 8
@@ -22752,8 +22737,7 @@ _ZN5clang12OverloadExpr4findEPNS_4ExprE.exit:     ; preds = %65, %69
 
 .lr.ph:                                           ; preds = %_ZN5clang12OverloadExpr4findEPNS_4ExprE.exit, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit
   %.sroa.034.045 = phi ptr [ %89, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit ], [ %.0.i.i.i.i, %_ZN5clang12OverloadExpr4findEPNS_4ExprE.exit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.034.045, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.034.045, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.034.045, align 1
   %80 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %81 = inttoptr i64 %80 to ptr
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 28
@@ -24009,8 +23993,7 @@ define dso_local noundef ptr @_ZN5clang4Sema16LookupSingleNameEPNS_5ScopeENS_15D
 
 36:                                               ; preds = %6
   %37 = load ptr, ptr %9, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %37, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %37, align 1
   %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
@@ -25225,12 +25208,11 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN5clang4Sema21LookupLiteralOpera
   %.088.ph226 = phi i8 [ 0, %.lr.ph208.lr.ph ], [ %.189, %_ZN5clang12LookupResult6Filter5eraseEv.exit131 ]
   %.sroa.20.0.ph225 = phi i1 [ false, %.lr.ph208.lr.ph ], [ %.sroa.20.1, %_ZN5clang12LookupResult6Filter5eraseEv.exit131 ]
   %.sroa.8.0.ph223 = phi ptr [ %27, %.lr.ph208.lr.ph ], [ %.sroa.8.1, %_ZN5clang12LookupResult6Filter5eraseEv.exit131 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0.ph223, i64 8) ]
   br label %43
 
 43:                                               ; preds = %.lr.ph208, %.backedge
   %.sroa.20.0207 = phi i1 [ %.sroa.20.0.ph225, %.lr.ph208 ], [ true, %.backedge ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.8.0.ph223, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.8.0.ph223, align 1
   %44 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %45 = inttoptr i64 %44 to ptr
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
@@ -25647,8 +25629,7 @@ _ZN5clang12LookupResult6Filter4doneEv.exit:       ; preds = %10, %.outer._crit_e
 
 .lr.ph255:                                        ; preds = %236, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit
   %.sroa.0137.0253 = phi ptr [ %252, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit ], [ %241, %236 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0137.0253, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0137.0253, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0137.0253, align 1
   %244 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %245 = inttoptr i64 %244 to ptr
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 28
@@ -31879,8 +31860,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %335, label %336, label %_ZN5clang14TypoCorrection17addCorrectionDeclEPNS_9NamedDeclE.exit
 
 336:                                              ; preds = %332
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0144.0168, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0144.0168, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0144.0168, align 1
   %337 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %338 = inttoptr i64 %337 to ptr
   %.not.i45 = icmp eq i64 %337, 0
@@ -32672,8 +32652,7 @@ _ZN5clang12LookupResult5clearEv.exit.i.us:        ; preds = %_ZN5clang12LookupRe
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr %22, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.us = load i64, ptr %61, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.us = load i64, ptr %61, align 1
   %62 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.us, -8
   %63 = inttoptr i64 %62 to ptr
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
@@ -32907,8 +32886,7 @@ _ZL25LookupPotentialTypoResultRN5clang4SemaERNS_12LookupResultEPNS_14IdentifierI
 
 .lr.ph:                                           ; preds = %.split.us, %.lr.ph
   %.sroa.028.049 = phi ptr [ %160, %.lr.ph ], [ %155, %.split.us ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.028.049, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.028.049, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.028.049, align 1
   %158 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %159 = inttoptr i64 %158 to ptr
   call void @_ZN5clang14TypoCorrection17addCorrectionDeclEPNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %159)
@@ -42241,8 +42219,7 @@ define internal fastcc i64 @_ZL20getOpenCLTypedefTypeRN5clang4SemaEN4llvm9String
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %18, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %47, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %47, align 1
   %48 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %49 = inttoptr i64 %48 to ptr
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 28
@@ -42403,8 +42380,7 @@ define internal fastcc i64 @_ZL17getOpenCLEnumTypeRN5clang4SemaEN4llvm9StringRef
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %18, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %52, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %52, align 1
   %53 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %54 = inttoptr i64 %53 to ptr
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 28
