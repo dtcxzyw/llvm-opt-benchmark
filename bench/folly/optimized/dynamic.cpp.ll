@@ -6189,11 +6189,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.else11.i:                                      ; preds = %if.end
   %sub.i = add nsw i64 %shr.i.i.i, -1
-  %div.i = udiv i64 %sub.i, 12
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %div.i, i1 true), !range !234
-  %add.i.i = sub nuw nsw i64 64, %1
-  %mul.i47.i = shl nuw nsw i64 12, %add.i.i
-  %cmp32.i = icmp ugt i64 %mul.i47.i, 72057594037927935
+  %cmp32.i = icmp ugt i64 %sub.i, 54043195528445951
   br i1 %cmp32.i, label %if.then33.i, label %if.end34.i
 
 if.then33.i:                                      ; preds = %if.else11.i
@@ -6201,6 +6197,9 @@ if.then33.i:                                      ; preds = %if.else11.i
   unreachable
 
 if.end34.i:                                       ; preds = %if.else11.i
+  %div.i = udiv i64 %sub.i, 12
+  %1 = tail call i64 @llvm.ctlz.i64(i64 %div.i, i1 true), !range !234
+  %add.i.i = sub nuw nsw i64 64, %1
   %shl.i = shl nuw nsw i64 1, %add.i.i
   br label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit
 
@@ -12435,11 +12434,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 if.else11.i.i:                                    ; preds = %if.then.i
   %sub.i.i = add nsw i64 %.sroa.speculated.i, -1
-  %div.i.i = udiv i64 %sub.i.i, 12
-  %13 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !234
-  %add.i.i.i = sub nuw nsw i64 64, %13
-  %mul.i47.i.i = shl nuw nsw i64 12, %add.i.i.i
-  %cmp32.i.i = icmp ugt i64 %mul.i47.i.i, 72057594037927935
+  %cmp32.i.i = icmp ugt i64 %sub.i.i, 54043195528445951
   br i1 %cmp32.i.i, label %if.then33.i.i, label %if.end34.i.i
 
 if.then33.i.i:                                    ; preds = %if.else11.i.i
@@ -12447,6 +12442,9 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 if.end34.i.i:                                     ; preds = %if.else11.i.i
+  %div.i.i = udiv i64 %sub.i.i, 12
+  %13 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !234
+  %add.i.i.i = sub nuw nsw i64 64, %13
   %shl.i.i = shl nuw nsw i64 1, %add.i.i.i
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit
 

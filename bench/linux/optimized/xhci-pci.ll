@@ -1844,7 +1844,7 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #10, !srcloc !26
   %5 = tail call i32 @usb_hcd_pci_probe(ptr noundef %0, ptr noundef nonnull @xhci_pci_hc_driver) #10
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %85
+  br i1 %6, label %7, label %82
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 304
@@ -1878,12 +1878,12 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
   %27 = getelementptr inbounds i8, ptr %16, i64 616
   store ptr %26, ptr %27, align 8
   %28 = icmp eq ptr %26, null
-  br i1 %28, label %83, label %29
+  br i1 %28, label %80, label %29
 
 29:                                               ; preds = %24
   %30 = tail call i32 @xhci_ext_cap_init(ptr noundef %17) #10
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %80
+  br i1 %31, label %32, label %77
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %27, align 8
@@ -1891,116 +1891,114 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
   %35 = load i32, ptr %34, align 4
   %36 = tail call i32 @usb_add_hcd(ptr noundef %33, i32 noundef %35, i64 noundef 128) #10
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %80
+  br i1 %37, label %38, label %77
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds i8, ptr %16, i64 3096
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 524288
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %55
+  br i1 %42, label %43, label %52
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %16, i64 668
   %45 = load i32, ptr %44, align 4
-  %46 = lshr i32 %45, 12
-  %47 = and i32 %46, 15
-  %48 = shl nuw nsw i32 2, %47
-  %49 = icmp ugt i32 %48, 3
-  br i1 %49, label %50, label %55
+  %46 = and i32 %45, 61440
+  %.not = icmp eq i32 %46, 0
+  br i1 %.not, label %52, label %47
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %27, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 340
-  %53 = load i16, ptr %52, align 4
-  %54 = or i16 %53, 256
-  store i16 %54, ptr %52, align 4
-  br label %55
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %27, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 340
+  %50 = load i16, ptr %49, align 4
+  %51 = or i16 %50, 256
+  store i16 %51, ptr %49, align 4
+  br label %52
 
-55:                                               ; preds = %50, %43, %38
-  %56 = load volatile i32, ptr %4, align 4
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.thread, label %.lr.ph, !prof !27
+52:                                               ; preds = %47, %43, %38
+  %53 = load volatile i32, ptr %4, align 4
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.thread, label %.lr.ph, !prof !27
 
-.lr.ph:                                           ; preds = %55, %64
-  %58 = phi i32 [ %65, %64 ], [ %56, %55 ]
-  %59 = add i32 %58, -1
-  %60 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %59, ptr elementtype(i32) %4, i32 %58) #10, !srcloc !28
-  %61 = extractvalue { i8, i32 } %60, 0
-  %62 = icmp ult i8 %61, 2
-  tail call void @llvm.assume(i1 %62)
-  %63 = icmp eq i8 %61, 0
-  br i1 %63, label %64, label %.thread, !prof !29
+.lr.ph:                                           ; preds = %52, %61
+  %55 = phi i32 [ %62, %61 ], [ %53, %52 ]
+  %56 = add i32 %55, -1
+  %57 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %56, ptr elementtype(i32) %4, i32 %55) #10, !srcloc !28
+  %58 = extractvalue { i8, i32 } %57, 0
+  %59 = icmp ult i8 %58, 2
+  tail call void @llvm.assume(i1 %59)
+  %60 = icmp eq i8 %58, 0
+  br i1 %60, label %61, label %.thread, !prof !29
 
-64:                                               ; preds = %.lr.ph
-  %65 = extractvalue { i8, i32 } %60, 1
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.thread, label %.lr.ph, !prof !30, !llvm.loop !31
+61:                                               ; preds = %.lr.ph
+  %62 = extractvalue { i8, i32 } %57, 1
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %.thread, label %.lr.ph, !prof !30, !llvm.loop !31
 
-.thread:                                          ; preds = %64, %.lr.ph, %55
-  %67 = tail call i32 @pci_choose_state(ptr noundef %0, i32 2) #10
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %70
+.thread:                                          ; preds = %61, %.lr.ph, %52
+  %64 = tail call i32 @pci_choose_state(ptr noundef %0, i32 2) #10
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %67
 
-69:                                               ; preds = %.thread
+66:                                               ; preds = %.thread
   tail call void @pm_runtime_forbid(ptr noundef %3) #10
-  br label %75
+  br label %72
 
-70:                                               ; preds = %.thread
-  %71 = load i64, ptr %39, align 8
-  %72 = and i64 %71, 8589934592
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %75, label %74
+67:                                               ; preds = %.thread
+  %68 = load i64, ptr %39, align 8
+  %69 = and i64 %68, 8589934592
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %72, label %71
 
-74:                                               ; preds = %70
+71:                                               ; preds = %67
   tail call void @pm_runtime_allow(ptr noundef %3) #10
-  br label %75
+  br label %72
 
-75:                                               ; preds = %74, %70, %69
-  %76 = getelementptr inbounds i8, ptr %0, i64 776
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %.thread7, label %79
+72:                                               ; preds = %71, %67, %66
+  %73 = getelementptr inbounds i8, ptr %0, i64 776
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %.thread7, label %76
 
-79:                                               ; preds = %75
-  store i32 -1, ptr %77, align 8
+76:                                               ; preds = %72
+  store i32 -1, ptr %74, align 8
   br label %.thread7
 
-80:                                               ; preds = %32, %29
-  %81 = phi i32 [ %30, %29 ], [ %36, %32 ]
-  %82 = load ptr, ptr %27, align 8
-  tail call void @usb_put_hcd(ptr noundef %82) #10
-  br label %83
+77:                                               ; preds = %32, %29
+  %78 = phi i32 [ %30, %29 ], [ %36, %32 ]
+  %79 = load ptr, ptr %27, align 8
+  tail call void @usb_put_hcd(ptr noundef %79) #10
+  br label %80
 
-83:                                               ; preds = %80, %24
-  %84 = phi i32 [ %81, %80 ], [ -12, %24 ]
+80:                                               ; preds = %77, %24
+  %81 = phi i32 [ %78, %77 ], [ -12, %24 ]
   tail call void @usb_hcd_pci_remove(ptr noundef %0) #10
-  br label %85
+  br label %82
 
-85:                                               ; preds = %83, %2
-  %86 = phi i32 [ %5, %2 ], [ %84, %83 ]
-  %87 = load volatile i32, ptr %4, align 4
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.thread7, label %.lr.ph9, !prof !27
+82:                                               ; preds = %80, %2
+  %83 = phi i32 [ %5, %2 ], [ %81, %80 ]
+  %84 = load volatile i32, ptr %4, align 4
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %.thread7, label %.lr.ph9, !prof !27
 
-.lr.ph9:                                          ; preds = %85, %95
-  %89 = phi i32 [ %96, %95 ], [ %87, %85 ]
-  %90 = add i32 %89, -1
-  %91 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %90, ptr elementtype(i32) %4, i32 %89) #10, !srcloc !28
-  %92 = extractvalue { i8, i32 } %91, 0
-  %93 = icmp ult i8 %92, 2
-  tail call void @llvm.assume(i1 %93)
-  %94 = icmp eq i8 %92, 0
-  br i1 %94, label %95, label %.thread7, !prof !29
+.lr.ph9:                                          ; preds = %82, %92
+  %86 = phi i32 [ %93, %92 ], [ %84, %82 ]
+  %87 = add i32 %86, -1
+  %88 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %87, ptr elementtype(i32) %4, i32 %86) #10, !srcloc !28
+  %89 = extractvalue { i8, i32 } %88, 0
+  %90 = icmp ult i8 %89, 2
+  tail call void @llvm.assume(i1 %90)
+  %91 = icmp eq i8 %89, 0
+  br i1 %91, label %92, label %.thread7, !prof !29
 
-95:                                               ; preds = %.lr.ph9
-  %96 = extractvalue { i8, i32 } %91, 1
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %.thread7, label %.lr.ph9, !prof !30, !llvm.loop !31
+92:                                               ; preds = %.lr.ph9
+  %93 = extractvalue { i8, i32 } %88, 1
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %.thread7, label %.lr.ph9, !prof !30, !llvm.loop !31
 
-.thread7:                                         ; preds = %95, %.lr.ph9, %85, %79, %75
-  %98 = phi i32 [ 0, %75 ], [ 0, %79 ], [ %86, %85 ], [ %86, %.lr.ph9 ], [ %86, %95 ]
-  ret i32 %98
+.thread7:                                         ; preds = %92, %.lr.ph9, %82, %76, %72
+  %95 = phi i32 [ 0, %72 ], [ 0, %76 ], [ %83, %82 ], [ %83, %.lr.ph9 ], [ %83, %92 ]
+  ret i32 %95
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
