@@ -4988,7 +4988,7 @@ cpython/gcmodule.ll 805831793
 cpython/genericaliasobject.ll 552122866
 cpython/genobject.ll 664832210
 cpython/getargs.ll 233900245
-cpython/getbuildinfo.ll 39602434
+cpython/getbuildinfo.ll 39642218
 cpython/getcompiler.ll 34806752
 cpython/getcopyright.ll 34846065
 cpython/getpath.ll 287239970
