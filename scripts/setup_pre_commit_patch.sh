@@ -2,7 +2,7 @@
 set -euo pipefail
 shopt -s inherit_errexit
 
-export GITHUB_PATCH_ID="<user_name>/llvm-project/commit/<commit_hash>"
+export GITHUB_PATCH_ID=https://github.com/llvm/llvm-project/pull/104696
 
 # Please rebase manually
 # git fetch origin
