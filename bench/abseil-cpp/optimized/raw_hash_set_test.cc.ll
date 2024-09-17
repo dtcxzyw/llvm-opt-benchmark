@@ -27084,8 +27084,8 @@ invoke.cont24:                                    ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont24, %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit134
-  %__begin2.sroa.0.0.idx259 = phi i64 [ 0, %invoke.cont24 ], [ %__begin2.sroa.0.0.add, %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit134 ]
-  %__begin2.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin2.sroa.0.0.idx259
+  %__begin2.sroa.0.0.idx213 = phi i64 [ 0, %invoke.cont24 ], [ %__begin2.sroa.0.0.add, %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit134 ]
+  %__begin2.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin2.sroa.0.0.idx213
   %1 = load i8, ptr %__begin2.sroa.0.0.ptr, align 1
   %2 = zext i8 %1 to i128
   %3 = shl nuw nsw i128 %2, 8
@@ -27211,20 +27211,20 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   br label %for.body59
 
 for.body59:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit126
-  %__begin3.sroa.0.0.idx258 = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit ], [ %__begin3.sroa.0.0.add, %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit126 ]
-  %__begin3.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i19, i64 %__begin3.sroa.0.0.idx258
+  %__begin3.sroa.0.0.idx212 = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit ], [ %__begin3.sroa.0.0.add, %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit126 ]
+  %__begin3.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i19, i64 %__begin3.sroa.0.0.idx212
   %26 = load i8, ptr %__begin3.sroa.0.0.ptr, align 1
   store i64 0, ptr %i, align 8
   br label %for.body62
 
 for.body62:                                       ; preds = %for.body59, %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit
-  %storemerge256 = phi i64 [ 0, %for.body59 ], [ %inc, %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit ]
+  %storemerge211 = phi i64 [ 0, %for.body59 ], [ %inc, %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit ]
   %call5.i.i.i.i1.i.i43 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
           to label %invoke.cont74 unwind label %lpad64
 
 invoke.cont74:                                    ; preds = %for.body62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i1.i.i43, i8 %1, i64 16, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i43, i64 %storemerge256
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i43, i64 %storemerge211
   store i8 %26, ptr %add.ptr.i, align 1
   %27 = load <16 x i8>, ptr %call5.i.i.i.i1.i.i43, align 1
   %cmp.i.i.i45 = icmp slt <16 x i8> %27, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
@@ -27234,7 +27234,7 @@ invoke.cont74:                                    ; preds = %for.body62
   %30 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %add.i46, i1 true)
   store i32 %30, ptr %ref.tmp69, align 4
   %conv.i.i47 = zext nneg i32 %30 to i64
-  %cmp.i.i48 = icmp eq i64 %storemerge256, %conv.i.i47
+  %cmp.i.i48 = icmp eq i64 %storemerge211, %conv.i.i47
   br i1 %cmp.i.i48, label %if.then.i.i50, label %if.end.i.i49
 
 if.then.i.i50:                                    ; preds = %invoke.cont74
@@ -27505,7 +27505,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit126: ; preds = %if.end127, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i121
   store ptr null, ptr %message_.i.i103, align 8
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i89) #41
-  %__begin3.sroa.0.0.add = add nuw nsw i64 %__begin3.sroa.0.0.idx258, 1
+  %__begin3.sroa.0.0.add = add nuw nsw i64 %__begin3.sroa.0.0.idx212, 1
   %cmp.i38.not = icmp eq i64 %__begin3.sroa.0.0.add, 8
   br i1 %cmp.i38.not, label %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit134, label %for.body59
 
@@ -27520,7 +27520,7 @@ _ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit130: ; preds = %
   br label %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit151
 
 _ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit134: ; preds = %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit126
-  %__begin2.sroa.0.0.add = add nuw nsw i64 %__begin2.sroa.0.0.idx259, 1
+  %__begin2.sroa.0.0.add = add nuw nsw i64 %__begin2.sroa.0.0.idx213, 1
   %cmp.i.not = icmp eq i64 %__begin2.sroa.0.0.add, 2
   br i1 %cmp.i.not, label %_ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit147, label %for.body
 

@@ -10533,9 +10533,9 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %30), !noalias !1552
   %86 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %2, i64 %3
   %87 = icmp eq i64 %3, 0
-  br i1 %87, label %._crit_edge477, label %.lr.ph476
+  br i1 %87, label %._crit_edge466, label %.lr.ph465
 
-.lr.ph476:                                        ; preds = %83
+.lr.ph465:                                        ; preds = %83
   %88 = getelementptr inbounds i8, ptr %1, i64 32
   %89 = load i64, ptr %88, align 8, !noundef !62
   %90 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10665,27 +10665,27 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da5671b31171a2d3975d53f4ba34dcb5.73) #23
   unreachable
 
-._crit_edge477:                                   ; preds = %315, %83
+._crit_edge466:                                   ; preds = %315, %83
   %.0.lcssa = phi i64 [ %5, %83 ], [ %317, %315 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %50)
   ret i64 %.0.lcssa
 
-165:                                              ; preds = %.lr.ph476, %315
-  %.0474 = phi i64 [ %5, %.lr.ph476 ], [ %317, %315 ]
-  %.0110473 = phi i64 [ 0, %.lr.ph476 ], [ %.1, %315 ]
-  %.1112472 = phi i32 [ %.0111, %.lr.ph476 ], [ %.2, %315 ]
-  %.0113471 = phi i64 [ 0, %.lr.ph476 ], [ %.1114, %315 ]
-  %.1116470 = phi i32 [ %.0115, %.lr.ph476 ], [ %.2117, %315 ]
-  %.0119469 = phi i64 [ %92, %.lr.ph476 ], [ %.4, %315 ]
-  %.0122468 = phi i64 [ 0, %.lr.ph476 ], [ %.1123, %315 ]
-  %.1126467 = phi i32 [ %.0125, %.lr.ph476 ], [ %.2127, %315 ]
-  %.sroa.0.0466 = phi ptr [ %2, %.lr.ph476 ], [ %166, %315 ]
-  %166 = getelementptr inbounds i8, ptr %.sroa.0.0466, i64 16
+165:                                              ; preds = %.lr.ph465, %315
+  %.0463 = phi i64 [ %5, %.lr.ph465 ], [ %317, %315 ]
+  %.0110462 = phi i64 [ 0, %.lr.ph465 ], [ %.1, %315 ]
+  %.1112461 = phi i32 [ %.0111, %.lr.ph465 ], [ %.2, %315 ]
+  %.0113460 = phi i64 [ 0, %.lr.ph465 ], [ %.1114, %315 ]
+  %.1116459 = phi i32 [ %.0115, %.lr.ph465 ], [ %.2117, %315 ]
+  %.0119458 = phi i64 [ %92, %.lr.ph465 ], [ %.4, %315 ]
+  %.0122457 = phi i64 [ 0, %.lr.ph465 ], [ %.1123, %315 ]
+  %.1126456 = phi i32 [ %.0125, %.lr.ph465 ], [ %.2127, %315 ]
+  %.sroa.0.0455 = phi ptr [ %2, %.lr.ph465 ], [ %166, %315 ]
+  %166 = getelementptr inbounds i8, ptr %.sroa.0.0455, i64 16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %47)
-  %167 = load i32, ptr %.sroa.0.0466, align 4, !noundef !62
+  %167 = load i32, ptr %.sroa.0.0455, align 4, !noundef !62
   %168 = zext i32 %167 to i64
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %168, i64 %.0119469)
+  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %168, i64 %.0119458)
   call void @_ZN6brotli3enc10input_pair9InputPair8split_at17h28dbd7e0d6e8cbcbE(ptr noalias nocapture noundef nonnull sret({ { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 } } }) align 8 dereferenceable(96) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %50, i64 noundef %.0.sroa.speculated.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   %.sroa.07.0.copyload = load ptr, ptr %47, align 8
@@ -10697,8 +10697,8 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull align 8 dereferenceable(48) %93, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %47)
   %169 = add i64 %.sroa.714.0.copyload, %.sroa.4.0.copyload
-  %170 = add i64 %169, %.0474
-  %171 = getelementptr inbounds i8, ptr %.sroa.0.0466, i64 4
+  %170 = add i64 %169, %.0463
+  %171 = getelementptr inbounds i8, ptr %.sroa.0.0455, i64 4
   %172 = load i32, ptr %171, align 4, !noundef !62
   %173 = lshr i32 %172, 25
   %174 = shl nuw nsw i32 %173, 1
@@ -10708,7 +10708,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   %177 = ashr exact i32 %sext, 24
   %178 = and i32 %172, 33554431
   %179 = add nsw i32 %177, %178
-  %180 = call { i64, i64 } @_ZN6brotli3enc7command29CommandDistanceIndexAndOffset17hdf1e16ce82e3ebd4E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.0.0466, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %94)
+  %180 = call { i64, i64 } @_ZN6brotli3enc7command29CommandDistanceIndexAndOffset17hdf1e16ce82e3ebd4E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %.sroa.0.0455, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %94)
   %181 = extractvalue { i64, i64 } %180, 0
   %182 = extractvalue { i64, i64 } %180, 1
   %183 = icmp eq i64 %181, 0
@@ -10723,7 +10723,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   %.0118 = phi i64 [ %193, %189 ], [ %182, %165 ]
   %188 = zext i32 %179 to i64
   %.0.sroa.speculated.i163 = call noundef i64 @llvm.umin.i64(i64 %170, i64 %100)
-  %.not159 = icmp ugt i64 %169, %.0119469
+  %.not159 = icmp ugt i64 %169, %.0119458
   br i1 %.not159, label %195, label %196
 
 189:                                              ; preds = %184
@@ -10752,30 +10752,30 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)
   store i64 %.sroa.714.0.copyload, ptr %.sroa.714.0..sroa_idx15, align 8
   store i64 %.sroa.10.0.copyload, ptr %.sroa.10.0..sroa_idx19, align 8
-  %199 = zext i32 %.1126467 to i64
+  %199 = zext i32 %.1126456 to i64
   %200 = icmp ugt i64 %169, %199
   br i1 %200, label %.lr.ph, label %._crit_edge
 
 201:                                              ; preds = %196, %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit
-  %.2127 = phi i32 [ %.1126467, %196 ], [ %218, %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit ]
-  %.1123 = phi i64 [ %.0122468, %196 ], [ %.2124.lcssa, %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit ]
-  %.1120 = phi i64 [ %.0119469, %196 ], [ %216, %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit ]
+  %.2127 = phi i32 [ %.1126456, %196 ], [ %218, %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit ]
+  %.1123 = phi i64 [ %.0122457, %196 ], [ %.2124.lcssa, %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit ]
+  %.1120 = phi i64 [ %.0119458, %196 ], [ %216, %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit ]
   %202 = icmp ugt i64 %.0118, %.0.sroa.speculated.i163
   br i1 %202, label %231, label %229
 
 ._crit_edge:                                      ; preds = %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260", %198
-  %.lcssa405 = phi i64 [ %.sroa.714.0.copyload, %198 ], [ %.pr, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ]
-  %.3128.lcssa = phi i32 [ %.1126467, %198 ], [ %.5130, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ]
-  %.2124.lcssa = phi i64 [ %.0122468, %198 ], [ %341, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ]
-  %.2121.lcssa = phi i64 [ %.0119469, %198 ], [ %340, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ]
+  %.lcssa397 = phi i64 [ %.sroa.714.0.copyload, %198 ], [ %.pr, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ]
+  %.3128.lcssa = phi i32 [ %.1126456, %198 ], [ %.5130, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ]
+  %.2124.lcssa = phi i64 [ %.0122457, %198 ], [ %341, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ]
+  %.2121.lcssa = phi i64 [ %.0119458, %198 ], [ %340, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ]
   %.lcssa364 = phi i64 [ %.sroa.4.0.copyload, %198 ], [ %425, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ]
   %203 = icmp eq i64 %.lcssa364, 0
   br i1 %.not161, label %212, label %207
 
 .lr.ph:                                           ; preds = %198, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260"
   %204 = phi i64 [ %427, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ], [ %199, %198 ]
-  %.2121459 = phi i64 [ %340, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ], [ %.0119469, %198 ]
-  %.2124458 = phi i64 [ %341, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ], [ %.0122468, %198 ]
+  %.2121450 = phi i64 [ %340, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ], [ %.0119458, %198 ]
+  %.2124449 = phi i64 [ %341, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260" ], [ %.0122457, %198 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %44)
   call void @_ZN6brotli3enc10input_pair9InputPair8split_at17h28dbd7e0d6e8cbcbE(ptr noalias nocapture noundef nonnull sret({ { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 } } }) align 8 dereferenceable(96) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %46, i64 noundef %204)
   %.sroa.0261.0.copyload = load ptr, ptr %44, align 8
@@ -10803,7 +10803,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   br label %209
 
 209:                                              ; preds = %208, %207
-  %210 = icmp eq i64 %.lcssa405, 0
+  %210 = icmp eq i64 %.lcssa397, 0
   br i1 %210, label %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit, label %211
 
 211:                                              ; preds = %209
@@ -10841,7 +10841,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   br label %221
 
 221:                                              ; preds = %220, %219
-  %222 = icmp eq i64 %.lcssa405, 0
+  %222 = icmp eq i64 %.lcssa397, 0
   br i1 %222, label %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit, label %223
 
 223:                                              ; preds = %221
@@ -10866,7 +10866,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   br label %226
 
 226:                                              ; preds = %225, %224
-  %227 = icmp eq i64 %.lcssa405, 0
+  %227 = icmp eq i64 %.lcssa397, 0
   br i1 %227, label %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit, label %228
 
 228:                                              ; preds = %226
@@ -10914,7 +10914,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 242:                                              ; preds = %240, %236, %298
   %.4 = phi i64 [ %.5, %298 ], [ %237, %236 ], [ %237, %240 ]
   %.0109 = phi i64 [ %273, %298 ], [ %.0.sroa.speculated.i169, %236 ], [ %.0.sroa.speculated.i169, %240 ]
-  %243 = add i32 %.1116470, -1
+  %243 = add i32 %.1116459, -1
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %302, label %313
 
@@ -11091,7 +11091,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   br label %298
 
 302:                                              ; preds = %242
-  %303 = add i64 %.0113471, 1
+  %303 = add i64 %.0113460, 1
   %304 = icmp ugt i64 %145, %303
   br i1 %304, label %305, label %313
 
@@ -11117,13 +11117,13 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 313:                                              ; preds = %302, %307, %242
   %.2117 = phi i32 [ %309, %307 ], [ %243, %242 ], [ -2147483648, %302 ]
-  %.1114 = phi i64 [ %303, %307 ], [ %.0113471, %242 ], [ %303, %302 ]
+  %.1114 = phi i64 [ %303, %307 ], [ %.0113460, %242 ], [ %303, %302 ]
   %314 = icmp eq i32 %179, 0
   br i1 %314, label %315, label %319
 
 315:                                              ; preds = %326, %323, %331, %319, %313
-  %.2 = phi i32 [ %.1112472, %313 ], [ %333, %331 ], [ %324, %323 ], [ %.1112472, %319 ], [ -2147483648, %326 ]
-  %.1 = phi i64 [ %.0110473, %313 ], [ %327, %331 ], [ %.0110473, %323 ], [ %.0110473, %319 ], [ %327, %326 ]
+  %.2 = phi i32 [ %.1112461, %313 ], [ %333, %331 ], [ %324, %323 ], [ %.1112461, %319 ], [ -2147483648, %326 ]
+  %.1 = phi i64 [ %.0110462, %313 ], [ %327, %331 ], [ %.0110462, %323 ], [ %.0110462, %319 ], [ %327, %326 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %31)
   call void @_ZN6brotli3enc10input_pair9InputPair8split_at17h28dbd7e0d6e8cbcbE(ptr noalias nocapture noundef nonnull sret({ { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 } } }) align 8 dereferenceable(96) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %48, i64 noundef %.0109)
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
@@ -11135,21 +11135,21 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   %318 = icmp eq ptr %166, %86
-  br i1 %318, label %._crit_edge477, label %165
+  br i1 %318, label %._crit_edge466, label %165
 
 319:                                              ; preds = %313
-  %320 = getelementptr inbounds i8, ptr %.sroa.0.0466, i64 12
+  %320 = getelementptr inbounds i8, ptr %.sroa.0.0455, i64 12
   %321 = load i16, ptr %320, align 4, !noundef !62
   %322 = icmp ugt i16 %321, 127
   br i1 %322, label %323, label %315
 
 323:                                              ; preds = %319
-  %324 = add i32 %.1112472, -1
+  %324 = add i32 %.1112461, -1
   %325 = icmp eq i32 %324, 0
   br i1 %325, label %326, label %315
 
 326:                                              ; preds = %323
-  %327 = add i64 %.0110473, 1
+  %327 = add i64 %.0110462, 1
   %328 = icmp ugt i64 %153, %327
   br i1 %328, label %329, label %315
 
@@ -11179,9 +11179,9 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit178: ; preds = %404, %403, %422, %420, %417, %415, %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit222", %.lr.ph
   %339 = add i64 %.sroa.6.0.copyload, %.sroa.14.0.copyload
-  %340 = sub i64 %.2121459, %339
+  %340 = sub i64 %.2121450, %339
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %45, i64 48, i1 false)
-  %341 = add i64 %.2124458, 1
+  %341 = add i64 %.2124449, 1
   %342 = icmp ugt i64 %116, %341
   br i1 %342, label %423, label %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260"
 
@@ -11273,11 +11273,11 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   unreachable
 
 common.resume.sink.split:                         ; preds = %469, %409, %375
-  %.lcssa521.sink = phi i64 [ %354, %375 ], [ %389, %409 ], [ %451, %469 ]
-  %.lcssa522.sink = phi ptr [ %353, %375 ], [ %388, %409 ], [ %449, %469 ]
+  %.lcssa506.sink = phi i64 [ %354, %375 ], [ %389, %409 ], [ %451, %469 ]
+  %.lcssa507.sink = phi ptr [ %353, %375 ], [ %388, %409 ], [ %449, %469 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %376, %375 ], [ %410, %409 ], [ %470, %469 ]
-  %374 = mul nsw i64 %.lcssa521.sink, 40
-  call void @__rust_dealloc(ptr noundef nonnull %.lcssa522.sink, i64 noundef %374, i64 noundef 8) #20, !noalias !62
+  %374 = mul nsw i64 %.lcssa506.sink, 40
+  call void @__rust_dealloc(ptr noundef nonnull %.lcssa507.sink, i64 noundef %374, i64 noundef 8) #20, !noalias !62
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %469, %444, %409, %375

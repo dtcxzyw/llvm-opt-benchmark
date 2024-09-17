@@ -8791,7 +8791,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6Assimp11XFileParser17CheckForSeparatorEv.exit
   %0 = phi i32 [ %call, %for.body.lr.ph ], [ %23, %_ZN6Assimp11XFileParser17CheckForSeparatorEv.exit ]
-  %a.0188 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN6Assimp11XFileParser17CheckForSeparatorEv.exit ]
+  %a.0173 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN6Assimp11XFileParser17CheckForSeparatorEv.exit ]
   %call3 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb
@@ -9328,7 +9328,7 @@ if.end6.i:                                        ; preds = %land.lhs.true.i, %i
 
 _ZN6Assimp11XFileParser17CheckForSeparatorEv.exit: ; preds = %sw.epilog, %if.end6.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %token.i)
-  %inc = add nuw i32 %a.0188, 1
+  %inc = add nuw i32 %a.0173, 1
   %exitcond.not = icmp eq i32 %inc, %call2
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !69
 

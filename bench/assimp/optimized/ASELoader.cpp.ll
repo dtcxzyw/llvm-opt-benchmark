@@ -5131,11 +5131,11 @@ if.end:                                           ; preds = %if.then, %for.body
 if.then10:                                        ; preds = %if.end
   %call11 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call11, ptr noundef nonnull @.str.9)
-  %.pre214 = load ptr, ptr %i.sroa.0.0200, align 8
+  %.pre210 = load ptr, ptr %i.sroa.0.0200, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end
-  %6 = phi ptr [ %.pre214, %if.then10 ], [ %4, %if.end ]
+  %6 = phi ptr [ %.pre210, %if.then10 ], [ %4, %if.end ]
   %mScalingType = getelementptr inbounds i8, ptr %6, i64 164
   %7 = load i32, ptr %mScalingType, align 4
   %cmp15.not = icmp eq i32 %7, 0
@@ -5144,11 +5144,11 @@ if.end12:                                         ; preds = %if.then10, %if.end
 if.then16:                                        ; preds = %if.end12
   %call17 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call17, ptr noundef nonnull @.str.8)
-  %.pre215 = load ptr, ptr %i.sroa.0.0200, align 8
+  %.pre211 = load ptr, ptr %i.sroa.0.0200, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %if.end12
-  %8 = phi ptr [ %.pre215, %if.then16 ], [ %6, %if.end12 ]
+  %8 = phi ptr [ %.pre211, %if.then16 ], [ %6, %if.end12 ]
   %akeyPositions = getelementptr inbounds i8, ptr %8, i64 200
   %_M_finish.i59 = getelementptr inbounds i8, ptr %8, i64 208
   %9 = load ptr, ptr %_M_finish.i59, align 8
@@ -5268,13 +5268,13 @@ if.then44:                                        ; preds = %for.end
   store double %conv52, ptr %mTicksPerSecond.i, align 8
   %28 = load ptr, ptr %nodes, align 8
   %29 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i76.not208 = icmp eq ptr %28, %29
-  br i1 %cmp.i76.not208, label %if.end227, label %for.body61
+  %cmp.i76.not206 = icmp eq ptr %28, %29
+  br i1 %cmp.i76.not206, label %if.end227, label %for.body61
 
 for.body61:                                       ; preds = %if.then44, %for.inc224
-  %iNum.3212 = phi i32 [ %iNum.5, %for.inc224 ], [ 0, %if.then44 ]
-  %i.sroa.0.1211 = phi ptr [ %incdec.ptr.i159, %for.inc224 ], [ %28, %if.then44 ]
-  %30 = load ptr, ptr %i.sroa.0.1211, align 8
+  %iNum.3208 = phi i32 [ %iNum.5, %for.inc224 ], [ 0, %if.then44 ]
+  %i.sroa.0.1207 = phi ptr [ %incdec.ptr.i159, %for.inc224 ], [ %28, %if.then44 ]
+  %30 = load ptr, ptr %i.sroa.0.1207, align 8
   %akeyPositions64 = getelementptr inbounds i8, ptr %30, i64 288
   %_M_finish.i77 = getelementptr inbounds i8, ptr %30, i64 296
   %31 = load ptr, ptr %_M_finish.i77, align 8
@@ -5306,8 +5306,8 @@ if.then71:                                        ; preds = %land.lhs.true67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mNumPositionKeys.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mScalingKeys.i, i8 0, i64 16, i1 false)
   %35 = load ptr, ptr %mChannels.i, align 8
-  %inc74 = add i32 %iNum.3212, 1
-  %idxprom = zext i32 %iNum.3212 to i64
+  %inc74 = add i32 %iNum.3208, 1
+  %idxprom = zext i32 %iNum.3208 to i64
   %arrayidx75 = getelementptr inbounds ptr, ptr %35, i64 %idxprom
   store ptr %call72, ptr %arrayidx75, align 8
   %mName = getelementptr inbounds i8, ptr %30, i64 8
@@ -5373,7 +5373,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %_Z
   br label %if.end91
 
 if.end91:                                         ; preds = %arrayctor.cont, %land.lhs.true67, %for.body61
-  %iNum.4 = phi i32 [ %inc74, %arrayctor.cont ], [ %iNum.3212, %land.lhs.true67 ], [ %iNum.3212, %for.body61 ]
+  %iNum.4 = phi i32 [ %inc74, %arrayctor.cont ], [ %iNum.3208, %land.lhs.true67 ], [ %iNum.3208, %for.body61 ]
   %akeyPositions93 = getelementptr inbounds i8, ptr %30, i64 200
   %_M_finish.i90 = getelementptr inbounds i8, ptr %30, i64 208
   %42 = load ptr, ptr %_M_finish.i90, align 8
@@ -5675,7 +5675,7 @@ arrayctor.cont214:                                ; preds = %arrayctor.loop210, 
 
 for.inc224:                                       ; preds = %lor.lhs.false101, %arrayctor.cont214, %if.end194
   %iNum.5 = phi i32 [ %inc110, %arrayctor.cont214 ], [ %inc110, %if.end194 ], [ %iNum.4, %lor.lhs.false101 ]
-  %incdec.ptr.i159 = getelementptr inbounds i8, ptr %i.sroa.0.1211, i64 8
+  %incdec.ptr.i159 = getelementptr inbounds i8, ptr %i.sroa.0.1207, i64 8
   %88 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i76.not = icmp eq ptr %incdec.ptr.i159, %88
   br i1 %cmp.i76.not, label %if.end227, label %for.body61, !llvm.loop !75

@@ -7105,8 +7105,8 @@ _ZNK4pugi8xml_node8childrenEv.exit:               ; preds = %entry
   store ptr %2, ptr %__begin2, align 8
   %3 = getelementptr inbounds i8, ptr %__begin2, i64 8
   store ptr %0, ptr %3, align 8
-  %cmp.not.i270.not = icmp eq ptr %2, null
-  br i1 %cmp.not.i270.not, label %for.end142, label %for.body.lr.ph
+  %cmp.not.i258.not = icmp eq ptr %2, null
+  br i1 %cmp.not.i258.not, label %for.end142, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node8childrenEv.exit
   %4 = getelementptr inbounds i8, ptr %__begin4, i64 8
@@ -7189,8 +7189,8 @@ invoke.cont21:                                    ; preds = %invoke.cont18
   %9 = load ptr, ptr %first_child.i.i41, align 8, !noalias !97
   store ptr %9, ptr %__begin4, align 8
   store ptr %8, ptr %4, align 8
-  %cmp.not.i58267.not = icmp eq ptr %9, null
-  br i1 %cmp.not.i58267.not, label %for.end136, label %for.body29.lr.ph
+  %cmp.not.i58256.not = icmp eq ptr %9, null
+  br i1 %cmp.not.i58256.not, label %for.end136, label %for.body29.lr.ph
 
 for.body29.lr.ph:                                 ; preds = %invoke.cont21
   %scale = getelementptr inbounds i8, ptr %call12, i64 108
@@ -7321,18 +7321,18 @@ invoke.cont52:                                    ; preds = %if.then51
 invoke.cont55:                                    ; preds = %invoke.cont52
   %first_child.i.i85 = getelementptr inbounds i8, ptr %17, i64 32
   %18 = load ptr, ptr %first_child.i.i85, align 8, !noalias !100
-  %cmp.not.i102.not265 = icmp eq ptr %18, null
-  br i1 %cmp.not.i102.not265, label %if.end131, label %for.body63.lr.ph
+  %cmp.not.i102.not254 = icmp eq ptr %18, null
+  br i1 %cmp.not.i102.not254, label %if.end131, label %for.body63.lr.ph
 
 for.body63.lr.ph:                                 ; preds = %invoke.cont55
   %div.i = fmul float %call53, 5.000000e-01
   br label %for.body63
 
 for.body63:                                       ; preds = %for.body63.lr.ph, %invoke.cont86
-  %__begin7.sroa.0.0266 = phi ptr [ %18, %for.body63.lr.ph ], [ %24, %invoke.cont86 ]
-  %19 = ptrtoint ptr %__begin7.sroa.0.0266 to i64
+  %__begin7.sroa.0.0255 = phi ptr [ %18, %for.body63.lr.ph ], [ %24, %invoke.cont86 ]
+  %19 = ptrtoint ptr %__begin7.sroa.0.0255 to i64
   store i64 %19, ptr %currentChildChildNode, align 8
-  %name3.i108 = getelementptr inbounds i8, ptr %__begin7.sroa.0.0266, i64 8
+  %name3.i108 = getelementptr inbounds i8, ptr %__begin7.sroa.0.0255, i64 8
   %20 = load ptr, ptr %name3.i108, align 8
   %tobool4.not.i109 = icmp eq ptr %20, null
   %cond.i110 = select i1 %tobool4.not.i109, ptr @.str.7, ptr %20
@@ -7403,7 +7403,7 @@ invoke.cont86:                                    ; preds = %_ZN10aiVector3tIfEd
   store float %mul6.i, ptr %ref.tmp85.sroa.3.0.rotation.sroa_idx, align 4
   store float %mul8.i, ptr %ref.tmp85.sroa.4.0.rotation.sroa_idx, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66) #30
-  %next_sibling.i = getelementptr inbounds i8, ptr %__begin7.sroa.0.0266, i64 48
+  %next_sibling.i = getelementptr inbounds i8, ptr %__begin7.sroa.0.0255, i64 48
   %24 = load ptr, ptr %next_sibling.i, align 8
   %cmp.not.i102.not = icmp eq ptr %24, null
   br i1 %cmp.not.i102.not, label %if.end131, label %for.body63
@@ -7549,8 +7549,8 @@ sub_0235:                                         ; preds = %for.body.i.i154
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = sub nsw i32 121, %40
-  %.not274 = icmp eq i8 %39, 121
-  br i1 %.not274, label %sub_1236, label %land.lhs.true.i.i158.tail
+  %.not261 = icmp eq i8 %39, 121
+  br i1 %.not261, label %sub_1236, label %land.lhs.true.i.i158.tail
 
 sub_1236:                                         ; preds = %sub_0235
   %42 = getelementptr inbounds i8, ptr %38, i64 1
@@ -7595,8 +7595,8 @@ sub_0238:                                         ; preds = %for.body.i.i172
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = sub nsw i32 122, %49
-  %.not275 = icmp eq i8 %48, 122
-  br i1 %.not275, label %sub_1239, label %land.lhs.true.i.i176.tail
+  %.not262 = icmp eq i8 %48, 122
+  br i1 %.not262, label %sub_1239, label %land.lhs.true.i.i176.tail
 
 sub_1239:                                         ; preds = %sub_0238
   %51 = getelementptr inbounds i8, ptr %47, i64 1
@@ -7880,8 +7880,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN6Assimp4Ogre4BoneESt6vectorIS5_SaIS5
   %sub.ptr.rhs.cast.i = ptrtoint ptr %101 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp273.not = icmp eq ptr %100, %101
-  br i1 %cmp273.not, label %for.end172, label %for.body155
+  %cmp260.not = icmp eq ptr %100, %101
+  br i1 %cmp260.not, label %for.end172, label %for.body155
 
 for.body155:                                      ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN6Assimp4Ogre4BoneESt6vectorIS5_SaIS5_EEEEPFbS5_S5_EEvT_SD_T0_.exit, %for.inc171
   %102 = phi i64 [ %inc, %for.inc171 ], [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN6Assimp4Ogre4BoneESt6vectorIS5_SaIS5_EEEEPFbS5_S5_EEvT_SD_T0_.exit ]
@@ -8841,8 +8841,8 @@ _ZNK4pugi8xml_node8childrenEv.exit:               ; preds = %entry
   store ptr %1, ptr %__begin2, align 8
   %2 = getelementptr inbounds i8, ptr %__begin2, i64 8
   store ptr %0, ptr %2, align 8
-  %cmp.not.i181.not = icmp eq ptr %1, null
-  br i1 %cmp.not.i181.not, label %for.end117, label %for.body.lr.ph
+  %cmp.not.i157.not = icmp eq ptr %1, null
+  br i1 %cmp.not.i157.not, label %for.end117, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node8childrenEv.exit
   %3 = getelementptr inbounds i8, ptr %__begin4, i64 8
@@ -8924,8 +8924,8 @@ invoke.cont13:                                    ; preds = %invoke.cont10
   %9 = load ptr, ptr %first_child.i.i29, align 8, !noalias !126
   store ptr %9, ptr %__begin4, align 8
   store ptr %8, ptr %3, align 8
-  %cmp.not.i46177.not = icmp eq ptr %9, null
-  br i1 %cmp.not.i46177.not, label %if.end112, label %for.body21
+  %cmp.not.i46155.not = icmp eq ptr %9, null
+  br i1 %cmp.not.i46155.not, label %if.end112, label %for.body21
 
 for.body21:                                       ; preds = %invoke.cont13, %if.end107
   %10 = phi ptr [ %39, %if.end107 ], [ %9, %invoke.cont13 ]
@@ -9044,8 +9044,8 @@ invoke.cont47:                                    ; preds = %invoke.cont44
   %17 = load ptr, ptr %first_child.i.i73, align 8, !noalias !129
   store ptr %17, ptr %__begin7, align 8
   store ptr %16, ptr %4, align 8
-  %cmp.not.i90174.not = icmp eq ptr %17, null
-  br i1 %cmp.not.i90174.not, label %if.end107, label %for.body55.lr.ph
+  %cmp.not.i90153.not = icmp eq ptr %17, null
+  br i1 %cmp.not.i90153.not, label %if.end107, label %for.body55.lr.ph
 
 for.body55.lr.ph:                                 ; preds = %invoke.cont47
   %cmp = fcmp une float %call45, 0.000000e+00

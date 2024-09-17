@@ -11122,9 +11122,9 @@ _ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit: 
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds %"class.clang::CapturedStmt::Capture", ptr %55, i64 %58
   %.not221 = icmp eq ptr %54, %59
-  br i1 %.not221, label %._crit_edge228, label %.lr.ph227
+  br i1 %.not221, label %._crit_edge225, label %.lr.ph224
 
-.lr.ph227:                                        ; preds = %_ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit
+.lr.ph224:                                        ; preds = %_ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 3208
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 3224
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -11189,18 +11189,18 @@ _ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit: 
   %.sroa.9.0..sroa_idx.i118 = getelementptr inbounds i8, ptr %6, i64 128
   %66 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.sroa.19.4..sroa_idx237 = getelementptr inbounds i8, ptr %.sroa.19, i64 4
+  %.sroa.19.4..sroa_idx234 = getelementptr inbounds i8, ptr %.sroa.19, i64 4
   br label %68
 
-68:                                               ; preds = %.lr.ph227, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread
-  %.0226 = phi ptr [ %54, %.lr.ph227 ], [ %342, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ]
-  %.sroa.5.0222 = phi i8 [ undef, %.lr.ph227 ], [ %.sroa.5.1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ]
-  %69 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0226) #17
+68:                                               ; preds = %.lr.ph224, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread
+  %.0223 = phi ptr [ %54, %.lr.ph224 ], [ %342, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ]
+  %.sroa.5.0222 = phi i8 [ undef, %.lr.ph224 ], [ %.sroa.5.1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ]
+  %69 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0223) #17
   %70 = icmp eq i32 %69, 1
   br i1 %70, label %71, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread
 
 71:                                               ; preds = %68
-  %72 = call noundef ptr @_ZNK5clang12CapturedStmt7Capture14getCapturedVarEv(ptr noundef nonnull align 8 dereferenceable(12) %.0226) #17
+  %72 = call noundef ptr @_ZNK5clang12CapturedStmt7Capture14getCapturedVarEv(ptr noundef nonnull align 8 dereferenceable(12) %.0223) #17
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %73, align 8
   %74 = and i64 %.sroa.0.0.copyload.i, -16
@@ -11342,7 +11342,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit: ; pre
   %.sroa.3202.0..sroa_idx203 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 32
   %.sroa.3202.0.copyload204 = load i8, ptr %.sroa.3202.0..sroa_idx203, align 8
   %.sroa.4205.0..sroa_idx206 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.19.4..sroa_idx237, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.19.4..sroa_idx234, i8 0, i64 32, i1 false)
   %.sroa.0.0.copyload.i57 = load i64, ptr %73, align 8
   %146 = and i64 %.sroa.0.0.copyload.i57, -16
   %147 = inttoptr i64 %146 to ptr
@@ -11807,11 +11807,11 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %113, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit, %68, %._crit_edge
   %.sroa.5.1 = phi i8 [ %.sroa.5.0222, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ], [ %.sroa.5.2, %._crit_edge ], [ %.sroa.5.0222, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit ], [ %.sroa.5.0222, %68 ], [ %.sroa.5.0222, %113 ]
-  %342 = getelementptr inbounds i8, ptr %.0226, i64 16
+  %342 = getelementptr inbounds i8, ptr %.0223, i64 16
   %.not = icmp eq ptr %342, %59
-  br i1 %.not, label %._crit_edge228, label %68
+  br i1 %.not, label %._crit_edge225, label %68
 
-._crit_edge228:                                   ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit
+._crit_edge225:                                   ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit
   ret void
 }
 
@@ -17810,31 +17810,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %42, %44
   %62 = load i32, ptr %61, align 8
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds %"class.clang::CapturedStmt::Capture", ptr %60, i64 %63
-  %.not.i1343 = icmp eq ptr %59, %64
-  br i1 %.not.i1343, label %_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext23VisitOpenMPCapturedStmtEPKN5clang12CapturedStmtEN4llvm8ArrayRefIPNS1_9OMPClauseEEEb.exit, label %.lr.ph47
+  %.not.i1338 = icmp eq ptr %59, %64
+  br i1 %.not.i1338, label %_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext23VisitOpenMPCapturedStmtEPKN5clang12CapturedStmtEN4llvm8ArrayRefIPNS1_9OMPClauseEEEb.exit, label %.lr.ph40
 
-.lr.ph47:                                         ; preds = %57
+.lr.ph40:                                         ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 281
   %66 = getelementptr inbounds ptr, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i
-  br i1 %58, label %.lr.ph47.split.us, label %.lr.ph47.split
+  br i1 %58, label %.lr.ph40.split.us, label %.lr.ph40.split
 
-.lr.ph47.split.us:                                ; preds = %.lr.ph47
+.lr.ph40.split.us:                                ; preds = %.lr.ph40
   %.not43.i34 = icmp eq i64 %.sroa.3.0.i, 0
-  br i1 %.not43.i34, label %.lr.ph47.split.us.split.us, label %.lr.ph47.split.us.split
+  br i1 %.not43.i34, label %.lr.ph40.split.us.split.us, label %.lr.ph40.split.us.split
 
-.lr.ph47.split.us.split.us:                       ; preds = %.lr.ph47.split.us, %81
-  %.0.i46.us.us = phi ptr [ %82, %81 ], [ %59, %.lr.ph47.split.us ]
-  %67 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i46.us.us) #17
+.lr.ph40.split.us.split.us:                       ; preds = %.lr.ph40.split.us, %81
+  %.0.i39.us.us = phi ptr [ %82, %81 ], [ %59, %.lr.ph40.split.us ]
+  %67 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i39.us.us) #17
   %68 = icmp eq i32 %67, 1
   br i1 %68, label %69, label %81
 
-69:                                               ; preds = %.lr.ph47.split.us.split.us
-  %70 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i46.us.us) #17
+69:                                               ; preds = %.lr.ph40.split.us.split.us
+  %70 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i39.us.us) #17
   %71 = icmp eq i32 %70, 2
   br i1 %71, label %81, label %.loopexit31.us.us
 
 .loopexit31.us.us:                                ; preds = %69
-  %72 = call noundef ptr @_ZNK5clang12CapturedStmt7Capture14getCapturedVarEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i46.us.us) #17
+  %72 = call noundef ptr @_ZNK5clang12CapturedStmt7Capture14getCapturedVarEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i39.us.us) #17
   %73 = load i8, ptr %65, align 1
   %74 = and i8 %73, 1
   store i8 0, ptr %65, align 1
@@ -17853,32 +17853,32 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %42, %44
   store i8 %74, ptr %65, align 1
   br label %81
 
-81:                                               ; preds = %80, %69, %.lr.ph47.split.us.split.us
-  %82 = getelementptr inbounds i8, ptr %.0.i46.us.us, i64 16
+81:                                               ; preds = %80, %69, %.lr.ph40.split.us.split.us
+  %82 = getelementptr inbounds i8, ptr %.0.i39.us.us, i64 16
   %.not.i13.us.us = icmp eq ptr %82, %64
-  br i1 %.not.i13.us.us, label %_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext23VisitOpenMPCapturedStmtEPKN5clang12CapturedStmtEN4llvm8ArrayRefIPNS1_9OMPClauseEEEb.exit, label %.lr.ph47.split.us.split.us
+  br i1 %.not.i13.us.us, label %_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext23VisitOpenMPCapturedStmtEPKN5clang12CapturedStmtEN4llvm8ArrayRefIPNS1_9OMPClauseEEEb.exit, label %.lr.ph40.split.us.split.us
 
-.lr.ph47.split.us.split:                          ; preds = %.lr.ph47.split.us, %126
-  %.0.i46.us = phi ptr [ %127, %126 ], [ %59, %.lr.ph47.split.us ]
-  %83 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i46.us) #17
+.lr.ph40.split.us.split:                          ; preds = %.lr.ph40.split.us, %126
+  %.0.i39.us = phi ptr [ %127, %126 ], [ %59, %.lr.ph40.split.us ]
+  %83 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i39.us) #17
   %84 = icmp eq i32 %83, 1
   br i1 %84, label %85, label %126
 
-85:                                               ; preds = %.lr.ph47.split.us.split
-  %86 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i46.us) #17
+85:                                               ; preds = %.lr.ph40.split.us.split
+  %86 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i39.us) #17
   %87 = icmp eq i32 %86, 2
-  br i1 %87, label %126, label %.lr.ph38.us
+  br i1 %87, label %126, label %.lr.ph36.us
 
-.lr.ph38.us:                                      ; preds = %85
-  %88 = call noundef ptr @_ZNK5clang12CapturedStmt7Capture14getCapturedVarEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i46.us) #17
+.lr.ph36.us:                                      ; preds = %85
+  %88 = call noundef ptr @_ZNK5clang12CapturedStmt7Capture14getCapturedVarEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i39.us) #17
   %89 = load i8, ptr %65, align 1
   %90 = and i8 %89, 1
   store i8 0, ptr %65, align 1
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph38.us
-  %.039.i37.us = phi ptr [ %.sroa.0.0.i, %.lr.ph38.us ], [ %.039.i37.us.be, %.backedge.backedge ]
-  %91 = load ptr, ptr %.039.i37.us, align 8
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph36.us
+  %.039.i35.us = phi ptr [ %.sroa.0.0.i, %.lr.ph36.us ], [ %.039.i35.us.be, %.backedge.backedge ]
+  %91 = load ptr, ptr %.039.i35.us, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i32, ptr %92, align 4
   %94 = call noundef zeroext i1 @_ZN5clang15isOpenMPPrivateEN4llvm3omp6ClauseE(i32 noundef %93) #17
@@ -17942,18 +17942,18 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %42, %44
 .loopexit.us:                                     ; preds = %105, %103, %119
   %120 = load i8, ptr %65, align 1
   %121 = trunc i8 %120 to i1
-  %122 = getelementptr inbounds i8, ptr %.039.i37.us, i64 8
+  %122 = getelementptr inbounds i8, ptr %.039.i35.us, i64 8
   %.not43.i.us = icmp eq ptr %122, %66
   %or.cond = select i1 %121, i1 true, i1 %.not43.i.us
   br i1 %or.cond, label %.loopexit31.us, label %.backedge.backedge
 
 123:                                              ; preds = %95, %95, %95, %.backedge
-  %.old = getelementptr inbounds i8, ptr %.039.i37.us, i64 8
+  %.old = getelementptr inbounds i8, ptr %.039.i35.us, i64 8
   %.not43.i.us.old = icmp eq ptr %.old, %66
   br i1 %.not43.i.us.old, label %.loopexit31.us, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %123, %.loopexit.us
-  %.039.i37.us.be = phi ptr [ %.old, %123 ], [ %122, %.loopexit.us ]
+  %.039.i35.us.be = phi ptr [ %.old, %123 ], [ %122, %.loopexit.us ]
   br label %.backedge
 
 124:                                              ; preds = %.loopexit31.us
@@ -17964,10 +17964,10 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %42, %44
   store i8 %90, ptr %65, align 1
   br label %126
 
-126:                                              ; preds = %125, %85, %.lr.ph47.split.us.split
-  %127 = getelementptr inbounds i8, ptr %.0.i46.us, i64 16
+126:                                              ; preds = %125, %85, %.lr.ph40.split.us.split
+  %127 = getelementptr inbounds i8, ptr %.0.i39.us, i64 16
   %.not.i13.us = icmp eq ptr %127, %64
-  br i1 %.not.i13.us, label %_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext23VisitOpenMPCapturedStmtEPKN5clang12CapturedStmtEN4llvm8ArrayRefIPNS1_9OMPClauseEEEb.exit, label %.lr.ph47.split.us.split
+  br i1 %.not.i13.us, label %_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext23VisitOpenMPCapturedStmtEPKN5clang12CapturedStmtEN4llvm8ArrayRefIPNS1_9OMPClauseEEEb.exit, label %.lr.ph40.split.us.split
 
 .loopexit31.us:                                   ; preds = %.loopexit.us, %123
   call fastcc void @_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext13markAsEscapedEPKN5clang9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %88)
@@ -17977,19 +17977,19 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %42, %44
   %131 = icmp eq i32 %130, 41
   br i1 %131, label %124, label %125
 
-.lr.ph47.split:                                   ; preds = %.lr.ph47, %147
-  %.0.i46 = phi ptr [ %148, %147 ], [ %59, %.lr.ph47 ]
-  %132 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i46) #17
+.lr.ph40.split:                                   ; preds = %.lr.ph40, %147
+  %.0.i39 = phi ptr [ %148, %147 ], [ %59, %.lr.ph40 ]
+  %132 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i39) #17
   %133 = icmp eq i32 %132, 1
   br i1 %133, label %134, label %147
 
-134:                                              ; preds = %.lr.ph47.split
-  %135 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i46) #17
+134:                                              ; preds = %.lr.ph40.split
+  %135 = call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i39) #17
   %136 = icmp eq i32 %135, 2
   br i1 %136, label %147, label %137
 
 137:                                              ; preds = %134
-  %138 = call noundef ptr @_ZNK5clang12CapturedStmt7Capture14getCapturedVarEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i46) #17
+  %138 = call noundef ptr @_ZNK5clang12CapturedStmt7Capture14getCapturedVarEv(ptr noundef nonnull align 8 dereferenceable(12) %.0.i39) #17
   %139 = load i8, ptr %65, align 1
   %140 = and i8 %139, 1
   call fastcc void @_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext13markAsEscapedEPKN5clang9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %138)
@@ -18007,10 +18007,10 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %42, %44
   store i8 %140, ptr %65, align 1
   br label %147
 
-147:                                              ; preds = %146, %134, %.lr.ph47.split
-  %148 = getelementptr inbounds i8, ptr %.0.i46, i64 16
+147:                                              ; preds = %146, %134, %.lr.ph40.split
+  %148 = getelementptr inbounds i8, ptr %.0.i39, i64 16
   %.not.i13 = icmp eq ptr %148, %64
-  br i1 %.not.i13, label %_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext23VisitOpenMPCapturedStmtEPKN5clang12CapturedStmtEN4llvm8ArrayRefIPNS1_9OMPClauseEEEb.exit, label %.lr.ph47.split
+  br i1 %.not.i13, label %_ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext23VisitOpenMPCapturedStmtEPKN5clang12CapturedStmtEN4llvm8ArrayRefIPNS1_9OMPClauseEEEb.exit, label %.lr.ph40.split
 
 _ZN12_GLOBAL__N_128CheckVarsEscapingDeclContext23VisitOpenMPCapturedStmtEPKN5clang12CapturedStmtEN4llvm8ArrayRefIPNS1_9OMPClauseEEEb.exit: ; preds = %147, %126, %81, %57, %35
   %149 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17

@@ -9187,30 +9187,26 @@ define hidden noundef i32 @_ZN5Parse5Block12add_new_pathEv(ptr nocapture noundef
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread5.preheader.i.i, label %.loopexit
+  br i1 %43, label %.thread5.i.i, label %.loopexit
 
-.thread5.preheader.i.i:                           ; preds = %.lr.ph.i.i
-  %exitcond.not.not.i.not.i31 = icmp eq i32 %36, %35
-  br i1 %exitcond.not.not.i.not.i31, label %_ZN14MergeMemStream14next_non_emptyEv.exit, label %.thread.i.i, !llvm.loop !25
+.thread.i.i:                                      ; preds = %.thread5.i.i
+  %44 = add nsw i32 %51, 1
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds ptr, ptr %37, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %.thread5.i.i, label %.loopexit, !llvm.loop !25
 
-.thread.i.i:                                      ; preds = %.thread5.preheader.i.i, %.thread5.i.i
-  %44 = phi i32 [ %45, %.thread5.i.i ], [ %36, %.thread5.preheader.i.i ]
-  %45 = add nsw i32 %44, 1
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %37, i64 %46
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread5.i.i, label %.loopexit, !llvm.loop !25
-
-.thread5.i.i:                                     ; preds = %.thread.i.i
-  %exitcond.not.not.i.not.i = icmp eq i32 %45, %35
+.thread5.i.i:                                     ; preds = %.lr.ph.i.i, %.thread.i.i
+  %51 = phi i32 [ %44, %.thread.i.i ], [ %36, %.lr.ph.i.i ]
+  %exitcond.not.not.i.not.i = icmp eq i32 %51, %35
   br i1 %exitcond.not.not.i.not.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit, label %.thread.i.i, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.thread.i.i, %.lr.ph.i.i
-  %.sroa.4.1.ph = phi i32 [ %36, %.lr.ph.i.i ], [ %45, %.thread.i.i ]
-  %.sroa.10.4.ph = phi ptr [ %40, %.lr.ph.i.i ], [ %48, %.thread.i.i ]
+  %.sroa.4.1.ph = phi i32 [ %36, %.lr.ph.i.i ], [ %44, %.thread.i.i ]
+  %.sroa.10.4.ph = phi ptr [ %40, %.lr.ph.i.i ], [ %47, %.thread.i.i ]
   %52 = getelementptr inbounds i8, ptr %.sroa.10.4.ph, i64 44
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 15
@@ -9251,7 +9247,7 @@ define hidden noundef i32 @_ZN5Parse5Block12add_new_pathEv(ptr nocapture noundef
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %28, ptr noundef null) #14
   br label %_ZN14MergeMemStream14next_non_emptyEv.exit
 
-_ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %62, %.thread5.preheader.i.i, %.thread5.i.i, %30, %75, %70, %65
+_ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %62, %.thread5.i.i, %30, %75, %70, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %23, align 8
   %77 = zext i32 %76 to i64

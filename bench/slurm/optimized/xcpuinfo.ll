@@ -370,11 +370,11 @@ define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr nocapture noundef writeo
 20:                                               ; preds = %18
   %21 = call i32 @get_log_level() #11
   %22 = icmp sgt i32 %21, 4
-  br i1 %22, label %23, label %274
+  br i1 %22, label %23, label %268
 
 23:                                               ; preds = %20
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9) #11
-  br label %274
+  br label %268
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr @hwloc_xml_whole, align 8
@@ -399,7 +399,7 @@ define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr nocapture noundef writeo
   %36 = load ptr, ptr %9, align 8
   call void @hwloc_topology_destroy(ptr noundef %36) #11
   call void @slurm_xfree(ptr noundef nonnull @hwloc_xml_whole) #11
-  br label %274
+  br label %268
 
 37:                                               ; preds = %31
   store i32 1, ptr %10, align 4
@@ -753,19 +753,16 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
   %187 = getelementptr inbounds i8, ptr %11, i64 4
   %188 = getelementptr inbounds i8, ptr %11, i64 8
   %.not179 = icmp eq i32 %.fr178, 0
-  br i1 %.not179, label %.lr.ph170.split, label %.lr.ph170.split.us.preheader
+  %.pre194 = load ptr, ptr %12, align 8
+  br i1 %.not179, label %.lr.ph170.split, label %.lr.ph170.split.us
 
-.lr.ph170.split.us.preheader:                     ; preds = %.lr.ph170
-  %.pre193 = load ptr, ptr %12, align 8
-  br label %.lr.ph170.split.us
-
-.lr.ph170.split.us:                               ; preds = %.lr.ph170.split.us.preheader, %.loopexit.us
-  %189 = phi i32 [ %197, %.loopexit.us ], [ 0, %.lr.ph170.split.us.preheader ]
-  %.093169.us = phi i32 [ %.1.us, %.loopexit.us ], [ -1, %.lr.ph170.split.us.preheader ]
-  %.094168.us = phi i32 [ %.195.us, %.loopexit.us ], [ -1, %.lr.ph170.split.us.preheader ]
-  %storemerge167.us = phi i32 [ %196, %.loopexit.us ], [ 0, %.lr.ph170.split.us.preheader ]
+.lr.ph170.split.us:                               ; preds = %.lr.ph170, %.loopexit.us
+  %189 = phi i32 [ %197, %.loopexit.us ], [ 0, %.lr.ph170 ]
+  %.093169.us = phi i32 [ %.1.us, %.loopexit.us ], [ -1, %.lr.ph170 ]
+  %.094168.us = phi i32 [ %.195.us, %.loopexit.us ], [ -1, %.lr.ph170 ]
+  %storemerge167.us = phi i32 [ %196, %.loopexit.us ], [ 0, %.lr.ph170 ]
   %190 = zext i32 %storemerge167.us to i64
-  %191 = call i32 @bit_test(ptr noundef %.pre193, i64 noundef %190) #11
+  %191 = call i32 @bit_test(ptr noundef %.pre194, i64 noundef %190) #11
   %.not128.us = icmp eq i32 %191, 0
   br i1 %.not128.us, label %.loopexit.us, label %192
 
@@ -908,11 +905,6 @@ hwloc_get_obj_below_array_by_type.exit.thread.us.us: ; preds = %204, %235, %227,
   %247 = icmp ult i32 %245, %246
   br i1 %247, label %.lr.ph160.us.us, label %.loopexit.us, !llvm.loop !14
 
-.lr.ph170.split:                                  ; preds = %.lr.ph170
-  %.promoted176 = load i32, ptr %188, align 4
-  %.pre194 = load ptr, ptr %12, align 8
-  br label %253
-
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %.lr.ph156
   %indvars.iv187 = phi i64 [ 0, %.lr.ph156.preheader ], [ %indvars.iv.next188, %.lr.ph156 ]
   %248 = trunc i64 %indvars.iv187 to i16
@@ -926,59 +918,47 @@ hwloc_get_obj_below_array_by_type.exit.thread.us.us: ; preds = %204, %235, %227,
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
   br i1 %exitcond191.not, label %.preheader, label %.lr.ph156, !llvm.loop !15
 
-253:                                              ; preds = %.lr.ph170.split, %.loopexit
-  %254 = phi i32 [ %.promoted176, %.lr.ph170.split ], [ %261, %.loopexit ]
-  %255 = phi i32 [ 0, %.lr.ph170.split ], [ %263, %.loopexit ]
-  %.093169 = phi i32 [ -1, %.lr.ph170.split ], [ %.1, %.loopexit ]
-  %storemerge167 = phi i32 [ 0, %.lr.ph170.split ], [ %262, %.loopexit ]
-  %256 = zext i32 %storemerge167 to i64
-  %257 = call i32 @bit_test(ptr noundef %.pre194, i64 noundef %256) #11
-  %.not128 = icmp eq i32 %257, 0
-  br i1 %.not128, label %.loopexit, label %258
+.lr.ph170.split:                                  ; preds = %.lr.ph170, %.lr.ph170.split
+  %253 = phi i32 [ %257, %.lr.ph170.split ], [ 0, %.lr.ph170 ]
+  %.093169 = phi i32 [ %.1, %.lr.ph170.split ], [ -1, %.lr.ph170 ]
+  %storemerge167 = phi i32 [ %256, %.lr.ph170.split ], [ 0, %.lr.ph170 ]
+  %254 = zext i32 %storemerge167 to i64
+  %255 = call i32 @bit_test(ptr noundef %.pre194, i64 noundef %254) #11
+  %.not128 = icmp eq i32 %255, 0
+  %.1 = select i1 %.not128, i32 %.093169, i32 %253
+  %256 = add i32 %storemerge167, 1
+  %257 = add nsw i32 %.1, 1
+  %258 = icmp slt i32 %257, %.sroa.0.3
+  br i1 %258, label %.lr.ph170.split, label %.loopexit149, !llvm.loop !10
 
-258:                                              ; preds = %253
-  %259 = getelementptr inbounds i32, ptr %123, i64 %256
-  %260 = load i32, ptr %259, align 4
-  %.not180 = icmp eq i32 %260, 0
-  %spec.select198 = select i1 %.not180, i32 %254, i32 0
-  br label %.loopexit
+.loopexit149:                                     ; preds = %.loopexit.us, %.lr.ph170.split, %.preheader, %177
+  %259 = load ptr, ptr %12, align 8
+  %.not127 = icmp eq ptr %259, null
+  br i1 %.not127, label %261, label %260
 
-.loopexit:                                        ; preds = %258, %253
-  %261 = phi i32 [ %254, %253 ], [ %spec.select198, %258 ]
-  %.1 = phi i32 [ %.093169, %253 ], [ %255, %258 ]
-  %262 = add i32 %storemerge167, 1
-  %263 = add nsw i32 %.1, 1
-  %264 = icmp slt i32 %263, %.sroa.0.3
-  br i1 %264, label %253, label %.loopexit149, !llvm.loop !10
-
-.loopexit149:                                     ; preds = %.loopexit.us, %.loopexit, %.preheader, %177
-  %265 = load ptr, ptr %12, align 8
-  %.not127 = icmp eq ptr %265, null
-  br i1 %.not127, label %267, label %266
-
-266:                                              ; preds = %.loopexit149
+260:                                              ; preds = %.loopexit149
   call void @slurm_bit_free(ptr noundef nonnull %12) #11
-  br label %267
+  br label %261
 
-267:                                              ; preds = %266, %.loopexit149
+261:                                              ; preds = %260, %.loopexit149
   store ptr null, ptr %12, align 8
   call void @slurm_xfree(ptr noundef nonnull %13) #11
-  %268 = load ptr, ptr %9, align 8
-  call void @hwloc_topology_destroy(ptr noundef %268) #11
-  %269 = trunc i32 %.0.i138 to i16
-  store i16 %269, ptr %0, align 2
-  %270 = trunc i32 %.0100 to i16
-  store i16 %270, ptr %1, align 2
-  %271 = trunc i32 %.sroa.0.3 to i16
-  store i16 %271, ptr %2, align 2
-  %272 = trunc i32 %167 to i16
-  store i16 %272, ptr %3, align 2
-  %273 = trunc i32 %.fr178 to i16
-  store i16 %273, ptr %4, align 2
-  br label %274
+  %262 = load ptr, ptr %9, align 8
+  call void @hwloc_topology_destroy(ptr noundef %262) #11
+  %263 = trunc i32 %.0.i138 to i16
+  store i16 %263, ptr %0, align 2
+  %264 = trunc i32 %.0100 to i16
+  store i16 %264, ptr %1, align 2
+  %265 = trunc i32 %.sroa.0.3 to i16
+  store i16 %265, ptr %2, align 2
+  %266 = trunc i32 %167 to i16
+  store i16 %266, ptr %3, align 2
+  %267 = trunc i32 %.fr178 to i16
+  store i16 %267, ptr %4, align 2
+  br label %268
 
-274:                                              ; preds = %20, %23, %267, %35
-  %.0 = phi i32 [ 2, %35 ], [ 0, %267 ], [ 1, %23 ], [ 1, %20 ]
+268:                                              ; preds = %20, %23, %261, %35
+  %.0 = phi i32 [ 2, %35 ], [ 0, %261 ], [ 1, %23 ], [ 1, %20 ]
   ret i32 %.0
 }
 

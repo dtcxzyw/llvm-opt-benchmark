@@ -1105,8 +1105,8 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
 
 31:                                               ; preds = %.lr.ph, %cli_pcre_qoff.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %cli_pcre_qoff.exit ]
-  %.0100196 = phi i32 [ 0, %.lr.ph ], [ %.1, %cli_pcre_qoff.exit ]
-  %.0101195 = phi i32 [ 0, %.lr.ph ], [ %.1102, %cli_pcre_qoff.exit ]
+  %.0100194 = phi i32 [ 0, %.lr.ph ], [ %.1, %cli_pcre_qoff.exit ]
+  %.0101193 = phi i32 [ 0, %.lr.ph ], [ %.1102, %cli_pcre_qoff.exit ]
   %32 = load ptr, ptr %16, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
@@ -1216,11 +1216,11 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   %or.cond.not145 = select i1 %92, i1 %93, i1 false
   %94 = icmp ne i32 %.2176.fr, -1
   %or.cond3 = and i1 %94, %or.cond.not145
-  %95 = or i32 %.0100196, -2147483648
+  %95 = or i32 %.0100194, -2147483648
   %.2 = select i1 %or.cond3, i32 %95, i32 0
   %96 = icmp eq i32 %.2176.fr, -1
-  %spec.select214 = select i1 %96, i32 0, i32 %.2176.fr
-  %97 = icmp ult i32 %spec.select214, %1
+  %spec.select212 = select i1 %96, i32 0, i32 %.2176.fr
+  %97 = icmp ult i32 %spec.select212, %1
   br i1 %97, label %98, label %cli_pcre_qoff.exit
 
 98:                                               ; preds = %cli_pcre_qoff.exit.thread
@@ -1232,20 +1232,20 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   br i1 %or.cond7, label %103, label %107
 
 103:                                              ; preds = %98
-  %104 = add i32 %spec.select214, %.2172
+  %104 = add i32 %spec.select212, %.2172
   %105 = icmp ugt i32 %104, %1
-  %106 = sub i32 %1, %spec.select214
+  %106 = sub i32 %1, %spec.select212
   %spec.select158 = select i1 %105, i32 %106, i32 %.2172
   br label %109
 
 107:                                              ; preds = %98
-  %108 = sub i32 %1, %spec.select214
+  %108 = sub i32 %1, %spec.select212
   br label %109
 
 109:                                              ; preds = %103, %107
   %.0110 = phi i32 [ %108, %107 ], [ %spec.select158, %103 ]
   %110 = getelementptr inbounds i8, ptr %34, i64 104
-  %111 = zext i32 %spec.select214 to i64
+  %111 = zext i32 %spec.select212 to i64
   %112 = getelementptr inbounds i8, ptr %0, i64 %111
   %113 = zext i32 %.0110 to i64
   %114 = icmp eq i32 %67, 0
@@ -1257,7 +1257,7 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   br label %119
 
 119:                                              ; preds = %172, %109
-  %.2103 = phi i32 [ %.0101195, %109 ], [ %131, %172 ]
+  %.2103 = phi i32 [ %.0101193, %109 ], [ %131, %172 ]
   %.0 = phi i32 [ %70, %109 ], [ %173, %172 ]
   %120 = call i32 @cli_checktimelimit(ptr noundef %7) #12
   %.not146 = icmp eq i32 %120, 0
@@ -1298,15 +1298,15 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
 
 138:                                              ; preds = %136
   %139 = load i32, ptr %28, align 4
-  %140 = add i32 %139, %spec.select214
+  %140 = add i32 %139, %spec.select212
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.38, i32 noundef %140) #12
   %141 = load i32, ptr %28, align 4
   %142 = icmp ugt i32 %141, %.2172
-  %or.cond199 = select i1 %or.cond9, i1 %142, i1 false
-  br i1 %or.cond199, label %143, label %145
+  %or.cond197 = select i1 %or.cond9, i1 %142, i1 false
+  br i1 %or.cond197, label %143, label %145
 
 143:                                              ; preds = %138
-  %144 = add i32 %141, %spec.select214
+  %144 = add i32 %141, %spec.select212
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39, i32 noundef %144) #12
   br label %.critedge
 
@@ -1322,7 +1322,7 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   %150 = load i32, ptr %116, align 4
   %151 = load i32, ptr %117, align 8
   %152 = load i32, ptr %28, align 4
-  %153 = add i32 %152, %spec.select214
+  %153 = add i32 %152, %spec.select212
   %154 = call i32 @lsig_sub_matched(ptr noundef %4, ptr noundef %5, i32 noundef %150, i32 noundef %151, i32 noundef %153, i32 noundef 0) #12
   %.not154 = icmp eq i32 %154, 0
   br i1 %.not154, label %172, label %.critedge
@@ -1347,7 +1347,7 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   %162 = getelementptr inbounds i8, ptr %157, i64 24
   store ptr %161, ptr %162, align 8
   %163 = load i32, ptr %28, align 4
-  %164 = add i32 %163, %spec.select214
+  %164 = add i32 %163, %spec.select212
   %165 = zext i32 %164 to i64
   %166 = getelementptr inbounds i8, ptr %157, i64 16
   store i64 %165, ptr %166, align 8
@@ -1388,8 +1388,8 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   br i1 %.not155, label %cli_pcre_qoff.exit, label %.critedge._crit_edge
 
 cli_pcre_qoff.exit:                               ; preds = %71, %.critedge, %cli_pcre_qoff.exit.thread, %53, %42, %38
-  %.1102 = phi i32 [ %.3, %.critedge ], [ %.0101195, %cli_pcre_qoff.exit.thread ], [ %.0101195, %53 ], [ %.0101195, %42 ], [ %.0101195, %38 ], [ %.0101195, %71 ]
-  %.1 = phi i32 [ %.2, %.critedge ], [ %.2, %cli_pcre_qoff.exit.thread ], [ %.0100196, %53 ], [ %.0100196, %42 ], [ %.0100196, %38 ], [ %.0100196, %71 ]
+  %.1102 = phi i32 [ %.0101193, %38 ], [ %.0101193, %42 ], [ %.0101193, %53 ], [ %.3, %.critedge ], [ %.0101193, %cli_pcre_qoff.exit.thread ], [ %.0101193, %71 ]
+  %.1 = phi i32 [ %.0100194, %38 ], [ %.0100194, %42 ], [ %.0100194, %53 ], [ %.2, %.critedge ], [ %.2, %cli_pcre_qoff.exit.thread ], [ %.0100194, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %178 = load i32, ptr %12, align 4
   %179 = zext i32 %178 to i64

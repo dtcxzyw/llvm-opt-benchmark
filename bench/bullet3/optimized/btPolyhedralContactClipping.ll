@@ -726,8 +726,8 @@ entry:
   %sub14.i = fsub float %add14.i.i.i, %add14.i.i.i88
   %m_size.i = getelementptr inbounds i8, ptr %hullA, i64 44
   %43 = load i32, ptr %m_size.i, align 4
-  %cmp578 = icmp sgt i32 %43, 0
-  br i1 %cmp578, label %for.body.lr.ph, label %for.end
+  %cmp569 = icmp sgt i32 %43, 0
+  br i1 %cmp569, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_data.i = getelementptr inbounds i8, ptr %hullA, i64 56
@@ -746,7 +746,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %dmin.0580 = phi float [ 0x47EFFFFFE0000000, %for.body.lr.ph ], [ %dmin.1, %for.inc ]
+  %dmin.0571 = phi float [ 0x47EFFFFFE0000000, %for.body.lr.ph ], [ %dmin.1, %for.inc ]
   %45 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.btFace, ptr %45, i64 %indvars.iv
   %m_plane = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
@@ -876,7 +876,7 @@ land.lhs.true:                                    ; preds = %if.end
   %sub.i116 = fsub float %add.i, %72
   %cmp29.i = fcmp olt float %add28.i, %sub.i116
   %cond33.i = select i1 %cmp29.i, float %add28.i, float %sub.i116
-  %cmp34.i = fcmp ule float %cond33.i, %dmin.0580
+  %cmp34.i = fcmp ule float %cond33.i, %dmin.0571
   br i1 %cmp34.i, label %if.end27, label %for.inc
 
 if.end27:                                         ; preds = %land.lhs.true, %if.end
@@ -928,7 +928,7 @@ if.end31:                                         ; preds = %lor.lhs.false.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %witnesPtMaxA.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %witnesPtMinB.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %witnesPtMaxB.i)
-  %cmp32 = fcmp olt float %sub.sub2.i, %dmin.0580
+  %cmp32 = fcmp olt float %sub.sub2.i, %dmin.0571
   br i1 %cmp32, label %if.then33, label %for.inc
 
 if.then33:                                        ; preds = %if.end31
@@ -936,7 +936,7 @@ if.then33:                                        ; preds = %if.end31
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end31, %if.then33, %land.lhs.true
-  %dmin.1 = phi float [ %sub.sub2.i, %if.then33 ], [ %dmin.0580, %if.end31 ], [ %dmin.0580, %land.lhs.true ]
+  %dmin.1 = phi float [ %sub.sub2.i, %if.then33 ], [ %dmin.0571, %if.end31 ], [ %dmin.0571, %land.lhs.true ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
@@ -945,8 +945,8 @@ for.end:                                          ; preds = %for.inc, %entry
   %dmin.0.lcssa = phi float [ 0x47EFFFFFE0000000, %entry ], [ %dmin.1, %for.inc ]
   %m_size.i119 = getelementptr inbounds i8, ptr %hullB, i64 44
   %111 = load i32, ptr %m_size.i119, align 4
-  %cmp40581 = icmp sgt i32 %111, 0
-  br i1 %cmp40581, label %for.body41.lr.ph, label %for.cond90.preheader
+  %cmp40572 = icmp sgt i32 %111, 0
+  br i1 %cmp40572, label %for.body41.lr.ph, label %for.cond90.preheader
 
 for.body41.lr.ph:                                 ; preds = %for.end
   %m_data.i120 = getelementptr inbounds i8, ptr %hullB, i64 56
@@ -960,15 +960,15 @@ for.body41.lr.ph:                                 ; preds = %for.end
   %arrayidx17.i45.i208 = getelementptr inbounds i8, ptr %hullB, i64 128
   %m_radius.i213 = getelementptr inbounds i8, ptr %hullA, i64 136
   %m_radius21.i216 = getelementptr inbounds i8, ptr %hullB, i64 136
-  %wide.trip.count687 = zext nneg i32 %111 to i64
+  %wide.trip.count651 = zext nneg i32 %111 to i64
   br label %for.body41
 
 for.cond90.preheader:                             ; preds = %for.inc81, %for.end
   %dmin.2.lcssa = phi float [ %dmin.0.lcssa, %for.end ], [ %dmin.3, %for.inc81 ]
   %m_size.i251 = getelementptr inbounds i8, ptr %hullA, i64 76
   %113 = load i32, ptr %m_size.i251, align 4
-  %cmp92633 = icmp sgt i32 %113, 0
-  br i1 %cmp92633, label %for.body93.lr.ph, label %if.end164
+  %cmp92606 = icmp sgt i32 %113, 0
+  br i1 %cmp92606, label %for.body93.lr.ph, label %if.end164
 
 for.body93.lr.ph:                                 ; preds = %for.cond90.preheader
   %m_data.i252 = getelementptr inbounds i8, ptr %hullA, i64 88
@@ -989,10 +989,10 @@ for.body93.lr.ph:                                 ; preds = %for.cond90.preheade
   br i1 %116, label %for.body93, label %if.end164
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.inc81
-  %indvars.iv684 = phi i64 [ 0, %for.body41.lr.ph ], [ %indvars.iv.next685, %for.inc81 ]
-  %dmin.2583 = phi float [ %dmin.0.lcssa, %for.body41.lr.ph ], [ %dmin.3, %for.inc81 ]
+  %indvars.iv648 = phi i64 [ 0, %for.body41.lr.ph ], [ %indvars.iv.next649, %for.inc81 ]
+  %dmin.2574 = phi float [ %dmin.0.lcssa, %for.body41.lr.ph ], [ %dmin.3, %for.inc81 ]
   %117 = load ptr, ptr %m_data.i120, align 8
-  %arrayidx.i122 = getelementptr inbounds %struct.btFace, ptr %117, i64 %indvars.iv684
+  %arrayidx.i122 = getelementptr inbounds %struct.btFace, ptr %117, i64 %indvars.iv648
   %m_plane45 = getelementptr inbounds i8, ptr %arrayidx.i122, i64 32
   %arrayidx50 = getelementptr inbounds i8, ptr %arrayidx.i122, i64 36
   %arrayidx54 = getelementptr inbounds i8, ptr %arrayidx.i122, i64 40
@@ -1120,7 +1120,7 @@ land.lhs.true67:                                  ; preds = %if.end63
   %sub.i221 = fsub float %add.i219, %144
   %cmp29.i222 = fcmp olt float %add28.i220, %sub.i221
   %cond33.i223 = select i1 %cmp29.i222, float %add28.i220, float %sub.i221
-  %cmp34.i224 = fcmp ule float %cond33.i223, %dmin.2583
+  %cmp34.i224 = fcmp ule float %cond33.i223, %dmin.2574
   br i1 %cmp34.i224, label %if.end70, label %for.inc81
 
 if.end70:                                         ; preds = %land.lhs.true67, %if.end63
@@ -1172,7 +1172,7 @@ if.end77:                                         ; preds = %lor.lhs.false.i234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %witnesPtMaxA.i230)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %witnesPtMinB.i231)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %witnesPtMaxB.i232)
-  %cmp78 = fcmp olt float %sub.sub2.i240, %dmin.2583
+  %cmp78 = fcmp olt float %sub.sub2.i240, %dmin.2574
   br i1 %cmp78, label %if.then79, label %for.inc81
 
 if.then79:                                        ; preds = %if.end77
@@ -1180,30 +1180,30 @@ if.then79:                                        ; preds = %if.end77
   br label %for.inc81
 
 for.inc81:                                        ; preds = %if.end77, %if.then79, %land.lhs.true67
-  %dmin.3 = phi float [ %sub.sub2.i240, %if.then79 ], [ %dmin.2583, %if.end77 ], [ %dmin.2583, %land.lhs.true67 ]
-  %indvars.iv.next685 = add nuw nsw i64 %indvars.iv684, 1
-  %exitcond688.not = icmp eq i64 %indvars.iv.next685, %wide.trip.count687
-  br i1 %exitcond688.not, label %for.cond90.preheader, label %for.body41, !llvm.loop !9
+  %dmin.3 = phi float [ %sub.sub2.i240, %if.then79 ], [ %dmin.2574, %if.end77 ], [ %dmin.2574, %land.lhs.true67 ]
+  %indvars.iv.next649 = add nuw nsw i64 %indvars.iv648, 1
+  %exitcond652.not = icmp eq i64 %indvars.iv.next649, %wide.trip.count651
+  br i1 %exitcond652.not, label %for.cond90.preheader, label %for.body41, !llvm.loop !9
 
 for.body93:                                       ; preds = %for.body93.lr.ph, %for.inc140
   %183 = phi i32 [ %279, %for.inc140 ], [ %113, %for.body93.lr.ph ]
   %184 = phi i32 [ %280, %for.inc140 ], [ %115, %for.body93.lr.ph ]
-  %indvars.iv692 = phi i64 [ %indvars.iv.next693, %for.inc140 ], [ 0, %for.body93.lr.ph ]
-  %dmin.4657 = phi float [ %dmin.5.lcssa, %for.inc140 ], [ %dmin.2.lcssa, %for.body93.lr.ph ]
-  %edgeA.0656 = phi i32 [ %edgeA.1.lcssa, %for.inc140 ], [ -1, %for.body93.lr.ph ]
-  %edgeB.0655 = phi i32 [ %edgeB.1.lcssa, %for.inc140 ], [ -1, %for.body93.lr.ph ]
-  %worldEdgeA.sroa.2.0651 = phi <2 x float> [ %worldEdgeA.sroa.2.1.lcssa, %for.inc140 ], [ undef, %for.body93.lr.ph ]
-  %worldEdgeA.sroa.0.0650 = phi <2 x float> [ %worldEdgeA.sroa.0.1.lcssa, %for.inc140 ], [ undef, %for.body93.lr.ph ]
-  %worldEdgeB.sroa.2.0649 = phi <2 x float> [ %worldEdgeB.sroa.2.1.lcssa, %for.inc140 ], [ undef, %for.body93.lr.ph ]
-  %worldEdgeB.sroa.0.0648 = phi <2 x float> [ %worldEdgeB.sroa.0.1.lcssa, %for.inc140 ], [ undef, %for.body93.lr.ph ]
-  %witnessPointA.sroa.5.0643 = phi float [ %witnessPointA.sroa.5.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
-  %witnessPointA.sroa.3.0642 = phi float [ %witnessPointA.sroa.3.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
-  %witnessPointA.sroa.0.0641 = phi float [ %witnessPointA.sroa.0.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
-  %witnessPointB.sroa.0.0636 = phi float [ %witnessPointB.sroa.0.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
-  %witnessPointB.sroa.4.0635 = phi float [ %witnessPointB.sroa.4.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
-  %witnessPointB.sroa.7.0634 = phi float [ %witnessPointB.sroa.7.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
+  %indvars.iv656 = phi i64 [ %indvars.iv.next657, %for.inc140 ], [ 0, %for.body93.lr.ph ]
+  %dmin.4621 = phi float [ %dmin.5.lcssa, %for.inc140 ], [ %dmin.2.lcssa, %for.body93.lr.ph ]
+  %edgeA.0620 = phi i32 [ %edgeA.1.lcssa, %for.inc140 ], [ -1, %for.body93.lr.ph ]
+  %edgeB.0619 = phi i32 [ %edgeB.1.lcssa, %for.inc140 ], [ -1, %for.body93.lr.ph ]
+  %worldEdgeA.sroa.2.0616 = phi <2 x float> [ %worldEdgeA.sroa.2.1.lcssa, %for.inc140 ], [ undef, %for.body93.lr.ph ]
+  %worldEdgeA.sroa.0.0615 = phi <2 x float> [ %worldEdgeA.sroa.0.1.lcssa, %for.inc140 ], [ undef, %for.body93.lr.ph ]
+  %worldEdgeB.sroa.2.0614 = phi <2 x float> [ %worldEdgeB.sroa.2.1.lcssa, %for.inc140 ], [ undef, %for.body93.lr.ph ]
+  %worldEdgeB.sroa.0.0613 = phi <2 x float> [ %worldEdgeB.sroa.0.1.lcssa, %for.inc140 ], [ undef, %for.body93.lr.ph ]
+  %witnessPointA.sroa.5.0612 = phi float [ %witnessPointA.sroa.5.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
+  %witnessPointA.sroa.3.0611 = phi float [ %witnessPointA.sroa.3.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
+  %witnessPointA.sroa.0.0610 = phi float [ %witnessPointA.sroa.0.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
+  %witnessPointB.sroa.0.0609 = phi float [ %witnessPointB.sroa.0.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
+  %witnessPointB.sroa.4.0608 = phi float [ %witnessPointB.sroa.4.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
+  %witnessPointB.sroa.7.0607 = phi float [ %witnessPointB.sroa.7.1.lcssa, %for.inc140 ], [ 0.000000e+00, %for.body93.lr.ph ]
   %185 = load ptr, ptr %m_data.i252, align 8
-  %arrayidx.i254 = getelementptr inbounds %class.btVector3, ptr %185, i64 %indvars.iv692
+  %arrayidx.i254 = getelementptr inbounds %class.btVector3, ptr %185, i64 %indvars.iv656
   %edge0.sroa.0.0.copyload = load float, ptr %arrayidx.i254, align 4
   %edge0.sroa.2.0.arrayidx.i254.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i254, i64 4
   %edge0.sroa.2.0.copyload = load float, ptr %edge0.sroa.2.0.arrayidx.i254.sroa_idx, align 4
@@ -1230,30 +1230,30 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
   %retval.sroa.0.0.vec.insert.i268 = insertelement <2 x float> poison, float %190, i64 0
   %retval.sroa.0.4.vec.insert.i269 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i268, float %195, i64 1
   %retval.sroa.3.12.vec.insert.i270 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %200, i64 0
-  %cmp102585 = icmp sgt i32 %184, 0
-  br i1 %cmp102585, label %for.body103.preheader, label %for.inc140
+  %cmp102576 = icmp sgt i32 %184, 0
+  br i1 %cmp102576, label %for.body103.preheader, label %for.inc140
 
 for.body103.preheader:                            ; preds = %for.body93
-  %201 = trunc nuw nsw i64 %indvars.iv692 to i32
+  %201 = trunc nuw nsw i64 %indvars.iv656 to i32
   br label %for.body103
 
 for.body103:                                      ; preds = %for.body103.preheader, %for.inc137
-  %indvars.iv689 = phi i64 [ 0, %for.body103.preheader ], [ %indvars.iv.next690, %for.inc137 ]
-  %dmin.5609 = phi float [ %dmin.4657, %for.body103.preheader ], [ %dmin.6, %for.inc137 ]
-  %edgeA.1608 = phi i32 [ %edgeA.0656, %for.body103.preheader ], [ %edgeA.2, %for.inc137 ]
-  %edgeB.1607 = phi i32 [ %edgeB.0655, %for.body103.preheader ], [ %edgeB.2, %for.inc137 ]
-  %worldEdgeA.sroa.2.1603 = phi <2 x float> [ %worldEdgeA.sroa.2.0651, %for.body103.preheader ], [ %worldEdgeA.sroa.2.2, %for.inc137 ]
-  %worldEdgeA.sroa.0.1602 = phi <2 x float> [ %worldEdgeA.sroa.0.0650, %for.body103.preheader ], [ %worldEdgeA.sroa.0.2, %for.inc137 ]
-  %worldEdgeB.sroa.2.1601 = phi <2 x float> [ %worldEdgeB.sroa.2.0649, %for.body103.preheader ], [ %worldEdgeB.sroa.2.2, %for.inc137 ]
-  %worldEdgeB.sroa.0.1600 = phi <2 x float> [ %worldEdgeB.sroa.0.0648, %for.body103.preheader ], [ %worldEdgeB.sroa.0.2, %for.inc137 ]
-  %witnessPointA.sroa.5.1595 = phi float [ %witnessPointA.sroa.5.0643, %for.body103.preheader ], [ %witnessPointA.sroa.5.2, %for.inc137 ]
-  %witnessPointA.sroa.3.1594 = phi float [ %witnessPointA.sroa.3.0642, %for.body103.preheader ], [ %witnessPointA.sroa.3.2, %for.inc137 ]
-  %witnessPointA.sroa.0.1593 = phi float [ %witnessPointA.sroa.0.0641, %for.body103.preheader ], [ %witnessPointA.sroa.0.2, %for.inc137 ]
-  %witnessPointB.sroa.0.1588 = phi float [ %witnessPointB.sroa.0.0636, %for.body103.preheader ], [ %witnessPointB.sroa.0.2, %for.inc137 ]
-  %witnessPointB.sroa.4.1587 = phi float [ %witnessPointB.sroa.4.0635, %for.body103.preheader ], [ %witnessPointB.sroa.4.2, %for.inc137 ]
-  %witnessPointB.sroa.7.1586 = phi float [ %witnessPointB.sroa.7.0634, %for.body103.preheader ], [ %witnessPointB.sroa.7.2, %for.inc137 ]
+  %indvars.iv653 = phi i64 [ 0, %for.body103.preheader ], [ %indvars.iv.next654, %for.inc137 ]
+  %dmin.5591 = phi float [ %dmin.4621, %for.body103.preheader ], [ %dmin.6, %for.inc137 ]
+  %edgeA.1590 = phi i32 [ %edgeA.0620, %for.body103.preheader ], [ %edgeA.2, %for.inc137 ]
+  %edgeB.1589 = phi i32 [ %edgeB.0619, %for.body103.preheader ], [ %edgeB.2, %for.inc137 ]
+  %worldEdgeA.sroa.2.1586 = phi <2 x float> [ %worldEdgeA.sroa.2.0616, %for.body103.preheader ], [ %worldEdgeA.sroa.2.2, %for.inc137 ]
+  %worldEdgeA.sroa.0.1585 = phi <2 x float> [ %worldEdgeA.sroa.0.0615, %for.body103.preheader ], [ %worldEdgeA.sroa.0.2, %for.inc137 ]
+  %worldEdgeB.sroa.2.1584 = phi <2 x float> [ %worldEdgeB.sroa.2.0614, %for.body103.preheader ], [ %worldEdgeB.sroa.2.2, %for.inc137 ]
+  %worldEdgeB.sroa.0.1583 = phi <2 x float> [ %worldEdgeB.sroa.0.0613, %for.body103.preheader ], [ %worldEdgeB.sroa.0.2, %for.inc137 ]
+  %witnessPointA.sroa.5.1582 = phi float [ %witnessPointA.sroa.5.0612, %for.body103.preheader ], [ %witnessPointA.sroa.5.2, %for.inc137 ]
+  %witnessPointA.sroa.3.1581 = phi float [ %witnessPointA.sroa.3.0611, %for.body103.preheader ], [ %witnessPointA.sroa.3.2, %for.inc137 ]
+  %witnessPointA.sroa.0.1580 = phi float [ %witnessPointA.sroa.0.0610, %for.body103.preheader ], [ %witnessPointA.sroa.0.2, %for.inc137 ]
+  %witnessPointB.sroa.0.1579 = phi float [ %witnessPointB.sroa.0.0609, %for.body103.preheader ], [ %witnessPointB.sroa.0.2, %for.inc137 ]
+  %witnessPointB.sroa.4.1578 = phi float [ %witnessPointB.sroa.4.0608, %for.body103.preheader ], [ %witnessPointB.sroa.4.2, %for.inc137 ]
+  %witnessPointB.sroa.7.1577 = phi float [ %witnessPointB.sroa.7.0607, %for.body103.preheader ], [ %witnessPointB.sroa.7.2, %for.inc137 ]
   %202 = load ptr, ptr %m_data.i274, align 8
-  %arrayidx.i276 = getelementptr inbounds %class.btVector3, ptr %202, i64 %indvars.iv689
+  %arrayidx.i276 = getelementptr inbounds %class.btVector3, ptr %202, i64 %indvars.iv653
   %edge1.sroa.0.0.copyload = load float, ptr %arrayidx.i276, align 4
   %edge1.sroa.2.0.arrayidx.i276.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i276, i64 4
   %edge1.sroa.2.0.copyload = load float, ptr %edge1.sroa.2.0.arrayidx.i276.sroa_idx, align 4
@@ -1421,7 +1421,7 @@ land.lhs.true123:                                 ; preds = %if.end120
   %sub.i383 = fsub float %add.i381, %237
   %cmp29.i384 = fcmp olt float %add28.i382, %sub.i383
   %cond33.i385 = select i1 %cmp29.i384, float %add28.i382, float %sub.i383
-  %cmp34.i386 = fcmp ule float %cond33.i385, %dmin.5609
+  %cmp34.i386 = fcmp ule float %cond33.i385, %dmin.5591
   br i1 %cmp34.i386, label %if.end126, label %for.inc137
 
 if.end126:                                        ; preds = %land.lhs.true123, %if.end120
@@ -1489,34 +1489,34 @@ if.end132:                                        ; preds = %lor.lhs.false.i396
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %witnesPtMaxA.i392)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %witnesPtMinB.i393)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %witnesPtMaxB.i394)
-  %cmp133 = fcmp olt float %sub.sub2.i402, %dmin.5609
+  %cmp133 = fcmp olt float %sub.sub2.i402, %dmin.5591
   br i1 %cmp133, label %if.then134, label %for.inc137
 
 if.then134:                                       ; preds = %if.end132
   %wB129.sroa.0.sroa.0.0.copyload = select i1 %cmp3.i401, float %witnesPtMinB.i393.val, float %witnesPtMaxB.i394.val
   %wA128.sroa.0.sroa.0.0.copyload = select i1 %cmp3.i401, float %witnesPtMaxA.i392.val, float %witnesPtMinA.i391.val
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sep, ptr noundef nonnull align 8 dereferenceable(16) %Cross, i64 16, i1 false)
-  %276 = trunc nuw nsw i64 %indvars.iv689 to i32
+  %276 = trunc nuw nsw i64 %indvars.iv653 to i32
   br label %for.inc137
 
 for.inc137:                                       ; preds = %lor.lhs.false6.i, %if.then134, %if.end132, %land.lhs.true123
-  %witnessPointB.sroa.7.2 = phi float [ %wB129.sroa.0.sroa.3.0.copyload, %if.then134 ], [ %witnessPointB.sroa.7.1586, %if.end132 ], [ %witnessPointB.sroa.7.1586, %land.lhs.true123 ], [ %witnessPointB.sroa.7.1586, %lor.lhs.false6.i ]
-  %witnessPointB.sroa.4.2 = phi float [ %wB129.sroa.0.sroa.2.0.copyload, %if.then134 ], [ %witnessPointB.sroa.4.1587, %if.end132 ], [ %witnessPointB.sroa.4.1587, %land.lhs.true123 ], [ %witnessPointB.sroa.4.1587, %lor.lhs.false6.i ]
-  %witnessPointB.sroa.0.2 = phi float [ %wB129.sroa.0.sroa.0.0.copyload, %if.then134 ], [ %witnessPointB.sroa.0.1588, %if.end132 ], [ %witnessPointB.sroa.0.1588, %land.lhs.true123 ], [ %witnessPointB.sroa.0.1588, %lor.lhs.false6.i ]
-  %witnessPointA.sroa.0.2 = phi float [ %wA128.sroa.0.sroa.0.0.copyload, %if.then134 ], [ %witnessPointA.sroa.0.1593, %if.end132 ], [ %witnessPointA.sroa.0.1593, %land.lhs.true123 ], [ %witnessPointA.sroa.0.1593, %lor.lhs.false6.i ]
-  %witnessPointA.sroa.3.2 = phi float [ %wA128.sroa.0.sroa.2.0.copyload, %if.then134 ], [ %witnessPointA.sroa.3.1594, %if.end132 ], [ %witnessPointA.sroa.3.1594, %land.lhs.true123 ], [ %witnessPointA.sroa.3.1594, %lor.lhs.false6.i ]
-  %witnessPointA.sroa.5.2 = phi float [ %wA128.sroa.0.sroa.3.0.copyload, %if.then134 ], [ %witnessPointA.sroa.5.1595, %if.end132 ], [ %witnessPointA.sroa.5.1595, %land.lhs.true123 ], [ %witnessPointA.sroa.5.1595, %lor.lhs.false6.i ]
-  %worldEdgeB.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i291, %if.then134 ], [ %worldEdgeB.sroa.0.1600, %if.end132 ], [ %worldEdgeB.sroa.0.1600, %land.lhs.true123 ], [ %worldEdgeB.sroa.0.1600, %lor.lhs.false6.i ]
-  %worldEdgeB.sroa.2.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i292, %if.then134 ], [ %worldEdgeB.sroa.2.1601, %if.end132 ], [ %worldEdgeB.sroa.2.1601, %land.lhs.true123 ], [ %worldEdgeB.sroa.2.1601, %lor.lhs.false6.i ]
-  %worldEdgeA.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i269, %if.then134 ], [ %worldEdgeA.sroa.0.1602, %if.end132 ], [ %worldEdgeA.sroa.0.1602, %land.lhs.true123 ], [ %worldEdgeA.sroa.0.1602, %lor.lhs.false6.i ]
-  %worldEdgeA.sroa.2.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i270, %if.then134 ], [ %worldEdgeA.sroa.2.1603, %if.end132 ], [ %worldEdgeA.sroa.2.1603, %land.lhs.true123 ], [ %worldEdgeA.sroa.2.1603, %lor.lhs.false6.i ]
-  %edgeB.2 = phi i32 [ %276, %if.then134 ], [ %edgeB.1607, %if.end132 ], [ %edgeB.1607, %land.lhs.true123 ], [ %edgeB.1607, %lor.lhs.false6.i ]
-  %edgeA.2 = phi i32 [ %201, %if.then134 ], [ %edgeA.1608, %if.end132 ], [ %edgeA.1608, %land.lhs.true123 ], [ %edgeA.1608, %lor.lhs.false6.i ]
-  %dmin.6 = phi float [ %sub.sub2.i402, %if.then134 ], [ %dmin.5609, %if.end132 ], [ %dmin.5609, %land.lhs.true123 ], [ %dmin.5609, %lor.lhs.false6.i ]
-  %indvars.iv.next690 = add nuw nsw i64 %indvars.iv689, 1
+  %witnessPointB.sroa.7.2 = phi float [ %wB129.sroa.0.sroa.3.0.copyload, %if.then134 ], [ %witnessPointB.sroa.7.1577, %if.end132 ], [ %witnessPointB.sroa.7.1577, %land.lhs.true123 ], [ %witnessPointB.sroa.7.1577, %lor.lhs.false6.i ]
+  %witnessPointB.sroa.4.2 = phi float [ %wB129.sroa.0.sroa.2.0.copyload, %if.then134 ], [ %witnessPointB.sroa.4.1578, %if.end132 ], [ %witnessPointB.sroa.4.1578, %land.lhs.true123 ], [ %witnessPointB.sroa.4.1578, %lor.lhs.false6.i ]
+  %witnessPointB.sroa.0.2 = phi float [ %wB129.sroa.0.sroa.0.0.copyload, %if.then134 ], [ %witnessPointB.sroa.0.1579, %if.end132 ], [ %witnessPointB.sroa.0.1579, %land.lhs.true123 ], [ %witnessPointB.sroa.0.1579, %lor.lhs.false6.i ]
+  %witnessPointA.sroa.0.2 = phi float [ %wA128.sroa.0.sroa.0.0.copyload, %if.then134 ], [ %witnessPointA.sroa.0.1580, %if.end132 ], [ %witnessPointA.sroa.0.1580, %land.lhs.true123 ], [ %witnessPointA.sroa.0.1580, %lor.lhs.false6.i ]
+  %witnessPointA.sroa.3.2 = phi float [ %wA128.sroa.0.sroa.2.0.copyload, %if.then134 ], [ %witnessPointA.sroa.3.1581, %if.end132 ], [ %witnessPointA.sroa.3.1581, %land.lhs.true123 ], [ %witnessPointA.sroa.3.1581, %lor.lhs.false6.i ]
+  %witnessPointA.sroa.5.2 = phi float [ %wA128.sroa.0.sroa.3.0.copyload, %if.then134 ], [ %witnessPointA.sroa.5.1582, %if.end132 ], [ %witnessPointA.sroa.5.1582, %land.lhs.true123 ], [ %witnessPointA.sroa.5.1582, %lor.lhs.false6.i ]
+  %worldEdgeB.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i291, %if.then134 ], [ %worldEdgeB.sroa.0.1583, %if.end132 ], [ %worldEdgeB.sroa.0.1583, %land.lhs.true123 ], [ %worldEdgeB.sroa.0.1583, %lor.lhs.false6.i ]
+  %worldEdgeB.sroa.2.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i292, %if.then134 ], [ %worldEdgeB.sroa.2.1584, %if.end132 ], [ %worldEdgeB.sroa.2.1584, %land.lhs.true123 ], [ %worldEdgeB.sroa.2.1584, %lor.lhs.false6.i ]
+  %worldEdgeA.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i269, %if.then134 ], [ %worldEdgeA.sroa.0.1585, %if.end132 ], [ %worldEdgeA.sroa.0.1585, %land.lhs.true123 ], [ %worldEdgeA.sroa.0.1585, %lor.lhs.false6.i ]
+  %worldEdgeA.sroa.2.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i270, %if.then134 ], [ %worldEdgeA.sroa.2.1586, %if.end132 ], [ %worldEdgeA.sroa.2.1586, %land.lhs.true123 ], [ %worldEdgeA.sroa.2.1586, %lor.lhs.false6.i ]
+  %edgeB.2 = phi i32 [ %276, %if.then134 ], [ %edgeB.1589, %if.end132 ], [ %edgeB.1589, %land.lhs.true123 ], [ %edgeB.1589, %lor.lhs.false6.i ]
+  %edgeA.2 = phi i32 [ %201, %if.then134 ], [ %edgeA.1590, %if.end132 ], [ %edgeA.1590, %land.lhs.true123 ], [ %edgeA.1590, %lor.lhs.false6.i ]
+  %dmin.6 = phi float [ %sub.sub2.i402, %if.then134 ], [ %dmin.5591, %if.end132 ], [ %dmin.5591, %land.lhs.true123 ], [ %dmin.5591, %lor.lhs.false6.i ]
+  %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
   %277 = load i32, ptr %m_size.i273, align 4
   %278 = sext i32 %277 to i64
-  %cmp102 = icmp slt i64 %indvars.iv.next690, %278
+  %cmp102 = icmp slt i64 %indvars.iv.next654, %278
   br i1 %cmp102, label %for.body103, label %for.inc140.loopexit, !llvm.loop !10
 
 for.inc140.loopexit:                              ; preds = %for.inc137
@@ -1526,22 +1526,22 @@ for.inc140.loopexit:                              ; preds = %for.inc137
 for.inc140:                                       ; preds = %for.inc140.loopexit, %for.body93
   %279 = phi i32 [ %183, %for.body93 ], [ %.pre, %for.inc140.loopexit ]
   %280 = phi i32 [ %184, %for.body93 ], [ %277, %for.inc140.loopexit ]
-  %witnessPointB.sroa.7.1.lcssa = phi float [ %witnessPointB.sroa.7.0634, %for.body93 ], [ %witnessPointB.sroa.7.2, %for.inc140.loopexit ]
-  %witnessPointB.sroa.4.1.lcssa = phi float [ %witnessPointB.sroa.4.0635, %for.body93 ], [ %witnessPointB.sroa.4.2, %for.inc140.loopexit ]
-  %witnessPointB.sroa.0.1.lcssa = phi float [ %witnessPointB.sroa.0.0636, %for.body93 ], [ %witnessPointB.sroa.0.2, %for.inc140.loopexit ]
-  %witnessPointA.sroa.0.1.lcssa = phi float [ %witnessPointA.sroa.0.0641, %for.body93 ], [ %witnessPointA.sroa.0.2, %for.inc140.loopexit ]
-  %witnessPointA.sroa.3.1.lcssa = phi float [ %witnessPointA.sroa.3.0642, %for.body93 ], [ %witnessPointA.sroa.3.2, %for.inc140.loopexit ]
-  %witnessPointA.sroa.5.1.lcssa = phi float [ %witnessPointA.sroa.5.0643, %for.body93 ], [ %witnessPointA.sroa.5.2, %for.inc140.loopexit ]
-  %worldEdgeB.sroa.0.1.lcssa = phi <2 x float> [ %worldEdgeB.sroa.0.0648, %for.body93 ], [ %worldEdgeB.sroa.0.2, %for.inc140.loopexit ]
-  %worldEdgeB.sroa.2.1.lcssa = phi <2 x float> [ %worldEdgeB.sroa.2.0649, %for.body93 ], [ %worldEdgeB.sroa.2.2, %for.inc140.loopexit ]
-  %worldEdgeA.sroa.0.1.lcssa = phi <2 x float> [ %worldEdgeA.sroa.0.0650, %for.body93 ], [ %worldEdgeA.sroa.0.2, %for.inc140.loopexit ]
-  %worldEdgeA.sroa.2.1.lcssa = phi <2 x float> [ %worldEdgeA.sroa.2.0651, %for.body93 ], [ %worldEdgeA.sroa.2.2, %for.inc140.loopexit ]
-  %edgeB.1.lcssa = phi i32 [ %edgeB.0655, %for.body93 ], [ %edgeB.2, %for.inc140.loopexit ]
-  %edgeA.1.lcssa = phi i32 [ %edgeA.0656, %for.body93 ], [ %edgeA.2, %for.inc140.loopexit ]
-  %dmin.5.lcssa = phi float [ %dmin.4657, %for.body93 ], [ %dmin.6, %for.inc140.loopexit ]
-  %indvars.iv.next693 = add nuw nsw i64 %indvars.iv692, 1
+  %witnessPointB.sroa.7.1.lcssa = phi float [ %witnessPointB.sroa.7.0607, %for.body93 ], [ %witnessPointB.sroa.7.2, %for.inc140.loopexit ]
+  %witnessPointB.sroa.4.1.lcssa = phi float [ %witnessPointB.sroa.4.0608, %for.body93 ], [ %witnessPointB.sroa.4.2, %for.inc140.loopexit ]
+  %witnessPointB.sroa.0.1.lcssa = phi float [ %witnessPointB.sroa.0.0609, %for.body93 ], [ %witnessPointB.sroa.0.2, %for.inc140.loopexit ]
+  %witnessPointA.sroa.0.1.lcssa = phi float [ %witnessPointA.sroa.0.0610, %for.body93 ], [ %witnessPointA.sroa.0.2, %for.inc140.loopexit ]
+  %witnessPointA.sroa.3.1.lcssa = phi float [ %witnessPointA.sroa.3.0611, %for.body93 ], [ %witnessPointA.sroa.3.2, %for.inc140.loopexit ]
+  %witnessPointA.sroa.5.1.lcssa = phi float [ %witnessPointA.sroa.5.0612, %for.body93 ], [ %witnessPointA.sroa.5.2, %for.inc140.loopexit ]
+  %worldEdgeB.sroa.0.1.lcssa = phi <2 x float> [ %worldEdgeB.sroa.0.0613, %for.body93 ], [ %worldEdgeB.sroa.0.2, %for.inc140.loopexit ]
+  %worldEdgeB.sroa.2.1.lcssa = phi <2 x float> [ %worldEdgeB.sroa.2.0614, %for.body93 ], [ %worldEdgeB.sroa.2.2, %for.inc140.loopexit ]
+  %worldEdgeA.sroa.0.1.lcssa = phi <2 x float> [ %worldEdgeA.sroa.0.0615, %for.body93 ], [ %worldEdgeA.sroa.0.2, %for.inc140.loopexit ]
+  %worldEdgeA.sroa.2.1.lcssa = phi <2 x float> [ %worldEdgeA.sroa.2.0616, %for.body93 ], [ %worldEdgeA.sroa.2.2, %for.inc140.loopexit ]
+  %edgeB.1.lcssa = phi i32 [ %edgeB.0619, %for.body93 ], [ %edgeB.2, %for.inc140.loopexit ]
+  %edgeA.1.lcssa = phi i32 [ %edgeA.0620, %for.body93 ], [ %edgeA.2, %for.inc140.loopexit ]
+  %dmin.5.lcssa = phi float [ %dmin.4621, %for.body93 ], [ %dmin.6, %for.inc140.loopexit ]
+  %indvars.iv.next657 = add nuw nsw i64 %indvars.iv656, 1
   %281 = sext i32 %279 to i64
-  %cmp92 = icmp slt i64 %indvars.iv.next693, %281
+  %cmp92 = icmp slt i64 %indvars.iv.next657, %281
   br i1 %cmp92, label %for.body93, label %for.end142, !llvm.loop !11
 
 for.end142:                                       ; preds = %for.inc140

@@ -375423,17 +375423,17 @@ jsonBlobEdit.exit223:                             ; preds = %75, %102, %jsonBlob
   %133 = load i32, ptr %5, align 4
   %134 = add i32 %133, %132
   %135 = icmp ult i32 %126, %128
-  br i1 %135, label %.lr.ph260, label %._crit_edge261
+  br i1 %135, label %.lr.ph, label %._crit_edge
 
-.lr.ph260:                                        ; preds = %131
+.lr.ph:                                           ; preds = %131
   %136 = getelementptr inbounds i8, ptr %0, i64 52
   %137 = getelementptr inbounds i8, ptr %0, i64 47
   br label %138
 
-138:                                              ; preds = %.lr.ph260, %261
-  %.0181254 = phi i32 [ %126, %.lr.ph260 ], [ %158, %261 ]
+138:                                              ; preds = %.lr.ph, %261
+  %.0181242 = phi i32 [ %126, %.lr.ph ], [ %158, %261 ]
   %139 = load ptr, ptr %2, align 8
-  %140 = zext i32 %.0181254 to i64
+  %140 = zext i32 %.0181242 to i64
   %141 = getelementptr inbounds i8, ptr %139, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = and i8 %142, 15
@@ -375442,12 +375442,12 @@ jsonBlobEdit.exit223:                             ; preds = %75, %102, %jsonBlob
   br i1 %or.cond, label %.loopexit, label %145
 
 145:                                              ; preds = %138
-  %146 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %2, i32 noundef %.0181254, ptr noundef %8)
+  %146 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %2, i32 noundef %.0181242, ptr noundef %8)
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %.loopexit, label %148
 
 148:                                              ; preds = %145
-  %149 = add i32 %146, %.0181254
+  %149 = add i32 %146, %.0181242
   %150 = load i32, ptr %8, align 4
   %151 = add i32 %150, %149
   %.not201 = icmp ult i32 %151, %128
@@ -375468,98 +375468,94 @@ jsonBlobEdit.exit223:                             ; preds = %75, %102, %jsonBlob
 160:                                              ; preds = %155
   %161 = load i32, ptr %136, align 4
   %162 = add i32 %134, %161
-  %163 = icmp ult i32 %132, %162
-  br i1 %163, label %.lr.ph, label %._crit_edge
+  %163 = zext i32 %149 to i64
+  %164 = getelementptr inbounds i8, ptr %139, i64 %163
+  %165 = icmp eq i8 %143, 7
+  %166 = icmp eq i8 %143, 10
+  %167 = or i1 %165, %166
+  %168 = zext i1 %167 to i32
+  br label %169
 
-.lr.ph:                                           ; preds = %160
-  %164 = load ptr, ptr %0, align 8
-  %165 = zext i32 %149 to i64
-  %166 = getelementptr inbounds i8, ptr %139, i64 %165
-  %167 = icmp eq i8 %143, 7
-  %168 = icmp eq i8 %143, 10
-  %169 = or i1 %167, %168
-  %170 = zext i1 %169 to i32
-  br label %173
+169:                                              ; preds = %193, %160
+  %.0170 = phi i32 [ %132, %160 ], [ %191, %193 ]
+  %170 = icmp ult i32 %.0170, %162
+  br i1 %170, label %171, label %217
 
-171:                                              ; preds = %194
-  %172 = icmp ult i32 %192, %162
-  br i1 %172, label %173, label %._crit_edge, !llvm.loop !1421
+171:                                              ; preds = %169
+  %172 = load ptr, ptr %0, align 8
+  %173 = zext i32 %.0170 to i64
+  %174 = getelementptr inbounds i8, ptr %172, i64 %173
+  %175 = load i8, ptr %174, align 1
+  %176 = and i8 %175, 15
+  %177 = add nsw i8 %176, -11
+  %or.cond5 = icmp ult i8 %177, -4
+  br i1 %or.cond5, label %.loopexit, label %178
 
-173:                                              ; preds = %.lr.ph, %171
-  %.0170250 = phi i32 [ %132, %.lr.ph ], [ %192, %171 ]
-  %174 = zext i32 %.0170250 to i64
-  %175 = getelementptr inbounds i8, ptr %164, i64 %174
-  %176 = load i8, ptr %175, align 1
-  %177 = and i8 %176, 15
-  %178 = add nsw i8 %177, -11
-  %or.cond5 = icmp ult i8 %178, -4
-  br i1 %or.cond5, label %.loopexit, label %179
+178:                                              ; preds = %171
+  %179 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.0170, ptr noundef %6)
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %.loopexit, label %181
 
-179:                                              ; preds = %173
-  %180 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.0170250, ptr noundef %6)
-  %181 = icmp eq i32 %180, 0
-  br i1 %181, label %.loopexit, label %182
+181:                                              ; preds = %178
+  %182 = add i32 %179, %.0170
+  %183 = load i32, ptr %6, align 4
+  %184 = add i32 %183, %182
+  %.not202 = icmp ult i32 %184, %162
+  br i1 %.not202, label %185, label %.loopexit
 
-182:                                              ; preds = %179
-  %183 = add i32 %180, %.0170250
-  %184 = load i32, ptr %6, align 4
-  %185 = add i32 %184, %183
-  %.not202 = icmp ult i32 %185, %162
-  br i1 %.not202, label %186, label %.loopexit
+185:                                              ; preds = %181
+  %186 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %184, ptr noundef %7)
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %.loopexit, label %188
 
-186:                                              ; preds = %182
-  %187 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %185, ptr noundef %7)
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %.loopexit, label %189
+188:                                              ; preds = %185
+  %189 = add i32 %186, %184
+  %190 = load i32, ptr %7, align 4
+  %191 = add i32 %189, %190
+  %192 = icmp ugt i32 %191, %162
+  br i1 %192, label %.loopexit, label %193
 
-189:                                              ; preds = %186
-  %190 = add i32 %187, %185
-  %191 = load i32, ptr %7, align 4
-  %192 = add i32 %190, %191
-  %193 = icmp ugt i32 %192, %162
-  br i1 %193, label %.loopexit, label %194
+193:                                              ; preds = %188
+  %194 = zext i32 %182 to i64
+  %195 = getelementptr inbounds i8, ptr %172, i64 %194
+  %196 = icmp eq i8 %176, 7
+  %197 = icmp eq i8 %176, 10
+  %198 = or i1 %196, %197
+  %199 = zext i1 %198 to i32
+  %200 = tail call fastcc i32 @jsonLabelCompare(ptr noundef %164, i32 noundef %150, i32 noundef %168, ptr noundef %195, i32 noundef %183, i32 noundef %199)
+  %.not203 = icmp eq i32 %200, 0
+  br i1 %.not203, label %169, label %201, !llvm.loop !1421
 
-194:                                              ; preds = %189
-  %195 = zext i32 %183 to i64
-  %196 = getelementptr inbounds i8, ptr %164, i64 %195
-  %197 = icmp eq i8 %177, 7
-  %198 = icmp eq i8 %177, 10
-  %199 = or i1 %197, %198
-  %200 = zext i1 %199 to i32
-  %201 = tail call fastcc i32 @jsonLabelCompare(ptr noundef %166, i32 noundef %150, i32 noundef %170, ptr noundef %196, i32 noundef %184, i32 noundef %200)
-  %.not203 = icmp eq i32 %201, 0
-  br i1 %.not203, label %171, label %202, !llvm.loop !1421
+201:                                              ; preds = %193
+  %202 = zext i32 %151 to i64
+  %203 = getelementptr inbounds i8, ptr %139, i64 %202
+  %204 = load i8, ptr %203, align 1
+  %205 = and i8 %204, 15
+  %206 = icmp eq i8 %205, 0
+  br i1 %206, label %207, label %212
 
-202:                                              ; preds = %194
-  %203 = zext i32 %151 to i64
-  %204 = getelementptr inbounds i8, ptr %139, i64 %203
-  %205 = load i8, ptr %204, align 1
-  %206 = and i8 %205, 15
-  %207 = icmp eq i8 %206, 0
-  br i1 %207, label %208, label %213
-
-208:                                              ; preds = %202
-  %209 = add nuw nsw i32 %187, %180
-  %210 = add i32 %209, %184
-  %211 = add i32 %210, %191
-  tail call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %.0170250, i32 noundef %211, ptr noundef null, i32 noundef 0)
-  %212 = load i8, ptr %137, align 1
-  %.not210 = icmp eq i8 %212, 0
+207:                                              ; preds = %201
+  %208 = add nuw nsw i32 %186, %179
+  %209 = add i32 %208, %183
+  %210 = add i32 %209, %190
+  tail call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %.0170, i32 noundef %210, ptr noundef null, i32 noundef 0)
+  %211 = load i8, ptr %137, align 1
+  %.not210 = icmp eq i8 %211, 0
   br i1 %.not210, label %261, label %.loopexit
 
-213:                                              ; preds = %202
+212:                                              ; preds = %201
   store i32 0, ptr %136, align 4
-  %214 = tail call fastcc i32 @jsonMergePatch(ptr noundef %0, i32 noundef %185, ptr noundef %2, i32 noundef %151)
-  %.not209 = icmp eq i32 %214, 0
-  br i1 %.not209, label %215, label %.loopexit
+  %213 = tail call fastcc i32 @jsonMergePatch(ptr noundef %0, i32 noundef %184, ptr noundef %2, i32 noundef %151)
+  %.not209 = icmp eq i32 %213, 0
+  br i1 %.not209, label %214, label %.loopexit
 
-215:                                              ; preds = %213
-  %216 = load i32, ptr %136, align 4
-  %217 = add nsw i32 %216, %161
-  store i32 %217, ptr %136, align 4
+214:                                              ; preds = %212
+  %215 = load i32, ptr %136, align 4
+  %216 = add nsw i32 %215, %161
+  store i32 %216, ptr %136, align 4
   br label %261
 
-._crit_edge:                                      ; preds = %171, %160
+217:                                              ; preds = %169
   %218 = zext i32 %151 to i64
   %219 = getelementptr inbounds i8, ptr %139, i64 %218
   %220 = load i8, ptr %219, align 1
@@ -375567,7 +375563,7 @@ jsonBlobEdit.exit223:                             ; preds = %75, %102, %jsonBlob
   %.not204 = icmp eq i8 %221, 0
   br i1 %.not204, label %261, label %222
 
-222:                                              ; preds = %._crit_edge
+222:                                              ; preds = %217
   %223 = add i32 %150, %146
   %.not205 = icmp eq i8 %221, 12
   br i1 %.not205, label %242, label %224
@@ -375630,29 +375626,29 @@ jsonBlobEdit.exit223:                             ; preds = %75, %102, %jsonBlob
   store i32 %260, ptr %136, align 4
   br label %261
 
-261:                                              ; preds = %._crit_edge, %258, %228, %215, %208
+261:                                              ; preds = %217, %258, %228, %214, %207
   %262 = icmp ult i32 %158, %128
-  br i1 %262, label %138, label %._crit_edge261, !llvm.loop !1422
+  br i1 %262, label %138, label %._crit_edge, !llvm.loop !1422
 
-._crit_edge261:                                   ; preds = %261, %131
+._crit_edge:                                      ; preds = %261, %131
   %263 = getelementptr inbounds i8, ptr %0, i64 52
   %264 = load i32, ptr %263, align 4
   %.not199 = icmp eq i32 %264, 0
   br i1 %.not199, label %.loopexit.sink.split, label %265
 
-265:                                              ; preds = %._crit_edge261
+265:                                              ; preds = %._crit_edge
   tail call fastcc void @jsonAfterEditSizeAdjust(ptr noundef nonnull %0, i32 noundef %1)
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %._crit_edge261, %265, %65, %64, %jsonBlobExpand.exit.i, %jsonBlobExpand.exit.thread.i
+.loopexit.sink.split:                             ; preds = %._crit_edge, %265, %65, %64, %jsonBlobExpand.exit.i, %jsonBlobExpand.exit.thread.i
   %266 = getelementptr inbounds i8, ptr %0, i64 47
   %267 = load i8, ptr %266, align 1
   %.not200 = icmp eq i8 %267, 0
   %268 = select i1 %.not200, i32 0, i32 3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %245, %242, %224, %213, %208, %155, %152, %148, %145, %138, %189, %186, %182, %179, %173, %.loopexit.sink.split, %125, %122
-  %.0 = phi i32 [ 2, %122 ], [ 1, %125 ], [ %268, %.loopexit.sink.split ], [ 1, %173 ], [ 1, %179 ], [ 1, %182 ], [ 1, %186 ], [ 1, %189 ], [ %257, %245 ], [ 3, %242 ], [ 3, %224 ], [ %214, %213 ], [ 3, %208 ], [ 2, %155 ], [ 2, %152 ], [ 2, %148 ], [ 2, %145 ], [ 2, %138 ]
+.loopexit:                                        ; preds = %245, %242, %224, %212, %207, %155, %152, %148, %145, %138, %188, %185, %181, %178, %171, %.loopexit.sink.split, %125, %122
+  %.0 = phi i32 [ 2, %122 ], [ 1, %125 ], [ %268, %.loopexit.sink.split ], [ 1, %171 ], [ 1, %178 ], [ 1, %181 ], [ 1, %185 ], [ 1, %188 ], [ %257, %245 ], [ 3, %242 ], [ 3, %224 ], [ %213, %212 ], [ 3, %207 ], [ 2, %155 ], [ 2, %152 ], [ 2, %148 ], [ 2, %145 ], [ 2, %138 ]
   ret i32 %.0
 }
 

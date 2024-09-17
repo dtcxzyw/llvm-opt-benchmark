@@ -35377,11 +35377,11 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %lor.lhs.false.i, %i
   %inc.i = add i32 %7, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %8 = load ptr, ptr %m_todo, align 8
-  %cmp.i13142149 = icmp eq ptr %8, null
-  br i1 %cmp.i13142149, label %return, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
+  %cmp.i13136 = icmp eq ptr %8, null
+  br i1 %cmp.i13136, label %return, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
 
-_ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.backedge
-  %9 = phi ptr [ %.be, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.backedge ], [ %8, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ]
+_ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit, %while.cond.backedge
+  %9 = phi ptr [ %34, %while.cond.backedge ], [ %8, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ]
   %arrayidx.i14 = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i14, align 4
   %cmp3.i = icmp eq i32 %10, 0
@@ -35394,7 +35394,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   %13 = load ptr, ptr %arrayidx.i1.i, align 8
   store i32 %11, ptr %arrayidx.i14, align 4
   %call10 = tail call noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %m_mark, ptr noundef %13)
-  br i1 %call10, label %if.end48, label %if.then
+  br i1 %call10, label %while.cond.backedge, label %if.then
 
 if.then:                                          ; preds = %_ZN6vectorIP4exprLb0EjE4backEv.exit
   tail call void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_mark, ptr noundef %13, i1 noundef zeroext true)
@@ -35435,34 +35435,25 @@ if.then19:                                        ; preds = %land.lhs.true.i
   %arrayidx.i.i23 = getelementptr inbounds i8, ptr %13, i64 40
   %21 = load ptr, ptr %arrayidx.i.i23, align 8
   %call20 = tail call noundef zeroext i1 @_ZN3smt12utvpi_tester9linearizeEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %20, ptr noundef %21)
-  br i1 %call20, label %if.end48, label %return
+  br i1 %call20, label %while.cond.backedge, label %return
 
 _ZNK3app13get_family_idEv.exit:                   ; preds = %land.lhs.true.i, %_ZNK11ast_manager5is_eqEPK4expr.exit.i
   %22 = load i32, ptr %15, align 8
   %cmp = icmp eq i32 %22, 0
   br i1 %cmp, label %while.cond.backedge, label %_ZNK17arith_recognizers5is_leEPK4expr.exit.i
 
-while.cond.backedge:                              ; preds = %land.lhs.true.i101, %_ZNK3app13get_family_idEv.exit, %if.then, %land.lhs.true.i101.thread
-  %23 = load ptr, ptr %m_todo, align 8
-  %cmp.i13 = icmp eq ptr %23, null
-  br i1 %cmp.i13, label %return, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.backedge
-
-_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.backedge:   ; preds = %while.cond.backedge, %if.end48
-  %.be = phi ptr [ %23, %while.cond.backedge ], [ %35, %if.end48 ]
-  br label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !155
-
 _ZNK17arith_recognizers5is_leEPK4expr.exit.i:     ; preds = %_ZNK3app13get_family_idEv.exit
   %cmp.i.i.i.i.i.i34 = icmp eq i32 %22, 5
   %m_kind.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %15, i64 4
-  %24 = load i32, ptr %m_kind.i.i.i.i.i.i35, align 4
-  %cmp2.i.i.i.i.i.i36 = icmp eq i32 %24, 2
-  %25 = select i1 %cmp.i.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i.i36, i1 false
-  br i1 %25, label %land.lhs.true.i37, label %_ZNK17arith_recognizers5is_geEPK4expr.exit.i
+  %23 = load i32, ptr %m_kind.i.i.i.i.i.i35, align 4
+  %cmp2.i.i.i.i.i.i36 = icmp eq i32 %23, 2
+  %24 = select i1 %cmp.i.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i.i36, i1 false
+  br i1 %24, label %land.lhs.true.i37, label %_ZNK17arith_recognizers5is_geEPK4expr.exit.i
 
 land.lhs.true.i37:                                ; preds = %_ZNK17arith_recognizers5is_leEPK4expr.exit.i
   %m_num_args.i.i38 = getelementptr inbounds i8, ptr %13, i64 24
-  %26 = load i32, ptr %m_num_args.i.i38, align 8
-  %cmp.i39 = icmp eq i32 %26, 2
+  %25 = load i32, ptr %m_num_args.i.i38, align 8
+  %cmp.i39 = icmp eq i32 %25, 2
   br i1 %cmp.i39, label %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit, label %land.lhs.true.i101
 
 _ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i37
@@ -35471,14 +35462,14 @@ _ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i37
   br label %if.then37
 
 _ZNK17arith_recognizers5is_geEPK4expr.exit.i:     ; preds = %_ZNK17arith_recognizers5is_leEPK4expr.exit.i
-  %cmp2.i.i.i.i.i.i54 = icmp eq i32 %24, 3
-  %27 = select i1 %cmp.i.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i.i54, i1 false
-  br i1 %27, label %land.lhs.true.i55, label %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i
+  %cmp2.i.i.i.i.i.i54 = icmp eq i32 %23, 3
+  %26 = select i1 %cmp.i.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i.i54, i1 false
+  br i1 %26, label %land.lhs.true.i55, label %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i
 
 land.lhs.true.i55:                                ; preds = %_ZNK17arith_recognizers5is_geEPK4expr.exit.i
   %m_num_args.i.i56 = getelementptr inbounds i8, ptr %13, i64 24
-  %28 = load i32, ptr %m_num_args.i.i56, align 8
-  %cmp.i57 = icmp eq i32 %28, 2
+  %27 = load i32, ptr %m_num_args.i.i56, align 8
+  %cmp.i57 = icmp eq i32 %27, 2
   br i1 %cmp.i57, label %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit, label %land.lhs.true.i101
 
 _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i55
@@ -35487,14 +35478,14 @@ _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i55
   br label %if.then37
 
 _ZNK17arith_recognizers5is_ltEPK4expr.exit.i:     ; preds = %_ZNK17arith_recognizers5is_geEPK4expr.exit.i
-  %cmp2.i.i.i.i.i.i72 = icmp eq i32 %24, 4
-  %29 = select i1 %cmp.i.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i.i72, i1 false
-  br i1 %29, label %land.lhs.true.i73, label %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i
+  %cmp2.i.i.i.i.i.i72 = icmp eq i32 %23, 4
+  %28 = select i1 %cmp.i.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i.i72, i1 false
+  br i1 %28, label %land.lhs.true.i73, label %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i
 
 land.lhs.true.i73:                                ; preds = %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i
   %m_num_args.i.i74 = getelementptr inbounds i8, ptr %13, i64 24
-  %30 = load i32, ptr %m_num_args.i.i74, align 8
-  %cmp.i75 = icmp eq i32 %30, 2
+  %29 = load i32, ptr %m_num_args.i.i74, align 8
+  %cmp.i75 = icmp eq i32 %29, 2
   br i1 %cmp.i75, label %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit, label %land.lhs.true.i101
 
 _ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i73
@@ -35503,14 +35494,14 @@ _ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i73
   br label %if.then37
 
 _ZNK17arith_recognizers5is_gtEPK4expr.exit.i:     ; preds = %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i
-  %cmp2.i.i.i.i.i.i90 = icmp eq i32 %24, 5
-  %31 = select i1 %cmp.i.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i.i90, i1 false
-  br i1 %31, label %land.lhs.true.i91, label %land.lhs.true.i101
+  %cmp2.i.i.i.i.i.i90 = icmp eq i32 %23, 5
+  %30 = select i1 %cmp.i.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i.i90, i1 false
+  br i1 %30, label %land.lhs.true.i91, label %land.lhs.true.i101
 
 land.lhs.true.i91:                                ; preds = %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i
   %m_num_args.i.i92 = getelementptr inbounds i8, ptr %13, i64 24
-  %32 = load i32, ptr %m_num_args.i.i92, align 8
-  %cmp.i93 = icmp eq i32 %32, 2
+  %31 = load i32, ptr %m_num_args.i.i92, align 8
+  %cmp.i93 = icmp eq i32 %31, 2
   br i1 %cmp.i93, label %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit, label %return
 
 _ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i91
@@ -35524,30 +35515,30 @@ if.then37:                                        ; preds = %_ZNK17arith_recogni
   %e2.2 = load ptr, ptr %e2.2.in, align 8
   %e1.2 = load ptr, ptr %e1.2.in, align 8
   %call38 = tail call noundef zeroext i1 @_ZN3smt12utvpi_tester9linearizeEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %e1.2, ptr noundef %e2.2)
-  br i1 %call38, label %if.end48, label %return
+  br i1 %call38, label %while.cond.backedge, label %return
 
 land.lhs.true.i101:                               ; preds = %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i, %land.lhs.true.i73, %land.lhs.true.i55, %land.lhs.true.i37
   %m_num_args.i.i102.phi.trans.insert = getelementptr inbounds i8, ptr %13, i64 24
   %.pre = load i32, ptr %m_num_args.i.i102.phi.trans.insert, align 8
   %cmp3.i103 = icmp eq i32 %.pre, 0
-  %33 = icmp eq i32 %22, -1
-  %or.cond = and i1 %cmp3.i103, %33
+  %32 = icmp eq i32 %22, -1
+  %or.cond = and i1 %cmp3.i103, %32
   br i1 %or.cond, label %while.cond.backedge, label %return
 
 land.lhs.true.i101.thread:                        ; preds = %land.rhs.i.i.i
   %m_num_args.i.i102134 = getelementptr inbounds i8, ptr %13, i64 24
-  %34 = load i32, ptr %m_num_args.i.i102134, align 8
-  %cmp3.i103135 = icmp eq i32 %34, 0
+  %33 = load i32, ptr %m_num_args.i.i102134, align 8
+  %cmp3.i103135 = icmp eq i32 %33, 0
   br i1 %cmp3.i103135, label %while.cond.backedge, label %return
 
-if.end48:                                         ; preds = %_ZN6vectorIP4exprLb0EjE4backEv.exit, %if.then19, %if.then37
-  %35 = load ptr, ptr %m_todo, align 8
-  %cmp.i13142 = icmp eq ptr %35, null
-  br i1 %cmp.i13142, label %return, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.backedge
+while.cond.backedge:                              ; preds = %land.lhs.true.i101, %_ZN6vectorIP4exprLb0EjE4backEv.exit, %if.then37, %if.then19, %_ZNK3app13get_family_idEv.exit, %if.then, %land.lhs.true.i101.thread
+  %34 = load ptr, ptr %m_todo, align 8
+  %cmp.i13 = icmp eq ptr %34, null
+  br i1 %cmp.i13, label %return, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !155
 
-return:                                           ; preds = %if.then37, %if.then19, %if.end48, %land.lhs.true.i91, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %while.cond.backedge, %land.lhs.true.i101, %land.lhs.true.i101.thread, %if.then, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
-  %36 = phi i1 [ true, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ false, %land.lhs.true.i91 ], [ true, %if.end48 ], [ false, %if.then19 ], [ false, %if.then37 ], [ true, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ true, %while.cond.backedge ], [ false, %land.lhs.true.i101 ], [ false, %land.lhs.true.i101.thread ], [ false, %if.then ]
-  ret i1 %36
+return:                                           ; preds = %if.then19, %if.then37, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %while.cond.backedge, %land.lhs.true.i101, %land.lhs.true.i101.thread, %if.then, %land.lhs.true.i91, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
+  %35 = phi i1 [ true, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ false, %land.lhs.true.i91 ], [ false, %if.then ], [ false, %land.lhs.true.i101.thread ], [ false, %land.lhs.true.i101 ], [ true, %while.cond.backedge ], [ true, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ false, %if.then37 ], [ false, %if.then19 ]
+  ret i1 %35
 }
 
 declare void @_ZN8ast_mark5resetEv(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
@@ -36207,7 +36198,7 @@ lpad40:                                           ; preds = %if.then.i132
   br label %ehcleanup134
 
 if.else43:                                        ; preds = %land.rhs.i.i, %invoke.cont31.if.else43_crit_edge, %invoke.cont10, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %land.lhs.true.i
-  %bf.load.i.i.i.i145 = phi i32 [ %bf.load.i.i.i.i145.pre, %invoke.cont31.if.else43_crit_edge ], [ %bf.load.i.i.i47, %land.lhs.true.i ], [ %bf.load.i.i.i47, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ %bf.load.i.i.i47, %invoke.cont10 ], [ %bf.load.i.i.i47, %land.rhs.i.i ]
+  %bf.load.i.i.i.i145 = phi i32 [ %bf.load.i.i.i.i145.pre, %invoke.cont31.if.else43_crit_edge ], [ %bf.load.i.i.i47, %invoke.cont10 ], [ %bf.load.i.i.i47, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ %bf.load.i.i.i47, %land.lhs.true.i ], [ %bf.load.i.i.i47, %land.rhs.i.i ]
   %bf.clear.i.i.i.i146 = and i32 %bf.load.i.i.i.i145, 65535
   %cmp.i.i.i147 = icmp eq i32 %bf.clear.i.i.i.i146, 0
   br i1 %cmp.i.i.i147, label %land.rhs.i.i.i149, label %if.else63
@@ -36395,7 +36386,7 @@ lpad58:                                           ; preds = %if.then.i225
   br label %ehcleanup134
 
 if.else63:                                        ; preds = %invoke.cont49.if.else63_crit_edge, %land.rhs.i.i.i149, %if.else43, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i153, %land.lhs.true.i157
-  %bf.load.i.i.i.i241 = phi i32 [ %bf.load.i.i.i.i241.pre, %invoke.cont49.if.else63_crit_edge ], [ %bf.load.i.i.i.i145, %land.lhs.true.i157 ], [ %bf.load.i.i.i.i145, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i153 ], [ %bf.load.i.i.i.i145, %if.else43 ], [ %bf.load.i.i.i.i145, %land.rhs.i.i.i149 ]
+  %bf.load.i.i.i.i241 = phi i32 [ %bf.load.i.i.i.i241.pre, %invoke.cont49.if.else63_crit_edge ], [ %bf.load.i.i.i.i145, %land.rhs.i.i.i149 ], [ %bf.load.i.i.i.i145, %if.else43 ], [ %bf.load.i.i.i.i145, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i153 ], [ %bf.load.i.i.i.i145, %land.lhs.true.i157 ]
   %bf.clear.i.i.i.i242 = and i32 %bf.load.i.i.i.i241, 65535
   %cmp.i.i.i243 = icmp eq i32 %bf.clear.i.i.i.i242, 0
   br i1 %cmp.i.i.i243, label %land.rhs.i.i.i245, label %if.else102

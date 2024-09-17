@@ -5122,8 +5122,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow10TypeHolderD2Ev.exit
   %6 = phi ptr [ %5, %for.body.lr.ph ], [ %229, %_ZN5arrow10TypeHolderD2Ev.exit ]
-  %i.0878 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN5arrow10TypeHolderD2Ev.exit ]
-  %add.ptr.i = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %6, i64 %i.0878
+  %i.0872 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN5arrow10TypeHolderD2Ev.exit ]
+  %add.ptr.i = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %6, i64 %i.0872
   %7 = load ptr, ptr %add.ptr.i, align 8
   %id_.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load i32, ptr %id_.i.i, align 8
@@ -5366,7 +5366,7 @@ if.end8.sink.split.i.i.i.i116:                    ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit125: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i113, %if.end8.sink.split.i.i.i.i116
   %48 = load ptr, ptr %column_types, align 8
-  %add.ptr.i126 = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %48, i64 %i.0878
+  %add.ptr.i126 = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %48, i64 %i.0872
   %49 = load ptr, ptr %add.ptr.i126, align 8, !noalias !90
   %cmp.not.i127 = icmp eq ptr %49, null
   br i1 %cmp.not.i127, label %_ZN5arrow8internal20checked_pointer_castINS_13ExtensionTypeENS_8DataTypeEEESt10shared_ptrIT_ES4_IT0_E.exit154, label %cond.true.i128
@@ -5424,7 +5424,7 @@ _ZN5arrow8internal20checked_pointer_castINS_13ExtensionTypeENS_8DataTypeEEESt10s
   %agg.tmp35.sroa.3.2857 = phi ptr [ %50, %if.then.i.i.i.i.i.i.i151 ], [ %50, %if.else.i.i.i.i.i.i.i153 ], [ null, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit125 ]
   %agg.tmp35.sroa.0.2856 = phi ptr [ %55, %if.then.i.i.i.i.i.i.i151 ], [ %55, %if.else.i.i.i.i.i.i.i153 ], [ null, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit125 ]
   %59 = load ptr, ptr %extension_types_, align 8
-  %add.ptr.i155 = getelementptr inbounds %"class.std::shared_ptr.84", ptr %59, i64 %i.0878
+  %add.ptr.i155 = getelementptr inbounds %"class.std::shared_ptr.84", ptr %59, i64 %i.0872
   store ptr %agg.tmp35.sroa.0.2856, ptr %add.ptr.i155, align 8
   %_M_refcount3.i.i.i157 = getelementptr inbounds i8, ptr %add.ptr.i155, i64 8
   %60 = load ptr, ptr %_M_refcount3.i.i.i157, align 8
@@ -5626,7 +5626,7 @@ invoke.cont47:                                    ; preds = %if.then45
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i233, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal17BooleanKeyEncoderE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !104
   %83 = load ptr, ptr %encoders_, align 8
-  %add.ptr.i234 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %83, i64 %i.0878
+  %add.ptr.i234 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %83, i64 %i.0872
   store ptr %_M_impl.i.i.i.i.i.i, ptr %add.ptr.i234, align 8
   %_M_refcount3.i.i.i236 = getelementptr inbounds i8, ptr %add.ptr.i234, i64 8
   %84 = load ptr, ptr %_M_refcount3.i.i.i236, align 8
@@ -5767,7 +5767,7 @@ invoke.cont63:                                    ; preds = %call5.i.i.i3.i.noex
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i)
   %103 = load ptr, ptr %encoders_, align 8
-  %add.ptr.i320 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %103, i64 %i.0878
+  %add.ptr.i320 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %103, i64 %i.0872
   store ptr %_M_impl.i.i.i, ptr %add.ptr.i320, align 8
   %_M_refcount3.i.i.i322 = getelementptr inbounds i8, ptr %add.ptr.i320, i64 8
   %104 = load ptr, ptr %_M_refcount3.i.i.i322, align 8
@@ -5981,7 +5981,7 @@ invoke.cont78:                                    ; preds = %call5.i.i.i3.i.i.i.
   store i32 %div.i.i.i.i.i.i.i.i, ptr %byte_width_.i.i.i.i.i.i.i.i, align 8, !noalias !127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !127
   %134 = load ptr, ptr %encoders_, align 8
-  %add.ptr.i441 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %134, i64 %i.0878
+  %add.ptr.i441 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %134, i64 %i.0872
   store ptr %_M_impl.i.i.i.i.i.i438, ptr %add.ptr.i441, align 8
   %_M_refcount3.i.i.i443 = getelementptr inbounds i8, ptr %add.ptr.i441, i64 8
   %135 = load ptr, ptr %_M_refcount3.i.i.i443, align 8
@@ -6177,7 +6177,7 @@ invoke.cont93:                                    ; preds = %invoke.cont91
   %_M_refcount.i.i.i.i.i.i.i.i.i.i563 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i565, i64 32
   store ptr %162, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i563, align 8, !noalias !140
   %163 = load ptr, ptr %encoders_, align 8
-  %add.ptr.i566 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %163, i64 %i.0878
+  %add.ptr.i566 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %163, i64 %i.0872
   store ptr %_M_impl.i.i.i.i.i.i560, ptr %add.ptr.i566, align 8
   %_M_refcount3.i.i.i568 = getelementptr inbounds i8, ptr %add.ptr.i566, i64 8
   %164 = load ptr, ptr %_M_refcount3.i.i.i568, align 8
@@ -6369,7 +6369,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
   %_M_refcount.i.i.i.i.i.i.i.i.i.i689 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i691, i64 32
   store ptr %192, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i689, align 8, !noalias !153
   %193 = load ptr, ptr %encoders_, align 8
-  %add.ptr.i692 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %193, i64 %i.0878
+  %add.ptr.i692 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %193, i64 %i.0872
   store ptr %_M_impl.i.i.i.i.i.i686, ptr %add.ptr.i692, align 8
   %_M_refcount3.i.i.i694 = getelementptr inbounds i8, ptr %add.ptr.i692, i64 8
   %194 = load ptr, ptr %_M_refcount3.i.i.i694, align 8
@@ -6509,22 +6509,22 @@ lpad107:                                          ; preds = %invoke.cont106
 
 cleanup.sink.split.sink.split:                    ; preds = %if.then.i.i.i758, %if.then.i.i.i632, %if.then.i.i.i507, %if.then.i.i.i386, %if.then.i.i.i.i238
   %_M_use_count.i.i.i.i759.sink = phi ptr [ %_M_use_count.i.i.i.i.i239, %if.then.i.i.i.i238 ], [ %_M_use_count.i.i.i.i387, %if.then.i.i.i386 ], [ %_M_use_count.i.i.i.i508, %if.then.i.i.i507 ], [ %_M_use_count.i.i.i.i633, %if.then.i.i.i632 ], [ %_M_use_count.i.i.i.i759, %if.then.i.i.i758 ]
-  %.sink911 = phi ptr [ %84, %if.then.i.i.i.i238 ], [ %115, %if.then.i.i.i386 ], [ %146, %if.then.i.i.i507 ], [ %175, %if.then.i.i.i632 ], [ %205, %if.then.i.i.i758 ]
+  %.sink905 = phi ptr [ %84, %if.then.i.i.i.i238 ], [ %115, %if.then.i.i.i386 ], [ %146, %if.then.i.i.i507 ], [ %175, %if.then.i.i.i632 ], [ %205, %if.then.i.i.i758 ]
   store i32 0, ptr %_M_use_count.i.i.i.i759.sink, align 8
-  %_M_weak_count.i.i.i.i784 = getelementptr inbounds i8, ptr %.sink911, i64 12
+  %_M_weak_count.i.i.i.i784 = getelementptr inbounds i8, ptr %.sink905, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i784, align 4
-  %vtable.i.i.i.i785 = load ptr, ptr %.sink911, align 8
+  %vtable.i.i.i.i785 = load ptr, ptr %.sink905, align 8
   %vfn.i.i.i.i786 = getelementptr inbounds i8, ptr %vtable.i.i.i.i785, i64 16
   %215 = load ptr, ptr %vfn.i.i.i.i786, align 8
-  tail call void %215(ptr noundef nonnull align 8 dereferenceable(16) %.sink911) #23
+  tail call void %215(ptr noundef nonnull align 8 dereferenceable(16) %.sink905) #23
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i775, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i649, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i524, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i403, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i255
-  %.sink908 = phi ptr [ %84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i255 ], [ %115, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i403 ], [ %146, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i524 ], [ %175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i649 ], [ %205, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i775 ], [ %.sink911, %cleanup.sink.split.sink.split ]
-  %vtable2.i.i.i.i.i.i779 = load ptr, ptr %.sink908, align 8
+  %.sink902 = phi ptr [ %84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i255 ], [ %115, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i403 ], [ %146, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i524 ], [ %175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i649 ], [ %205, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i775 ], [ %.sink905, %cleanup.sink.split.sink.split ]
+  %vtable2.i.i.i.i.i.i779 = load ptr, ptr %.sink902, align 8
   %vfn3.i.i.i.i.i.i780 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i779, i64 24
   %216 = load ptr, ptr %vfn3.i.i.i.i.i.i780, align 8
-  tail call void %216(ptr noundef nonnull align 8 dereferenceable(16) %.sink908) #23
+  tail call void %216(ptr noundef nonnull align 8 dereferenceable(16) %.sink902) #23
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i775, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i765, %_ZNSt10shared_ptrIN5arrow7compute8internal19VarLengthKeyEncoderINS0_15LargeBinaryTypeEEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i649, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i639, %_ZNSt10shared_ptrIN5arrow7compute8internal19VarLengthKeyEncoderINS0_10BinaryTypeEEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i524, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i514, %_ZNSt10shared_ptrIN5arrow7compute8internal20FixedWidthKeyEncoderEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i403, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i393, %_ZNSt10shared_ptrIN5arrow7compute8internal20DictionaryKeyEncoderEED2Ev.exit, %invoke.cont47, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i245, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i255, %if.end98
@@ -6601,7 +6601,7 @@ if.end8.sink.split.i.i.i.i.i810:                  ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow10TypeHolderD2Ev.exit
 
 _ZN5arrow10TypeHolderD2Ev.exit:                   ; preds = %cleanup, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i797, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i807, %if.end8.sink.split.i.i.i.i.i810
-  %inc = add nuw i64 %i.0878, 1
+  %inc = add nuw i64 %i.0872, 1
   %228 = load ptr, ptr %_M_finish.i, align 8
   %229 = load ptr, ptr %column_types, align 8
   %sub.ptr.lhs.cast.i41 = ptrtoint ptr %228 to i64
@@ -6618,19 +6618,19 @@ ehcleanup117:                                     ; preds = %lpad37.loopexit, %l
 
 for.end:                                          ; preds = %_ZN5arrow10TypeHolderD2Ev.exit
   store i32 0, ptr %total_length, align 4
-  %cmp121883.not = icmp eq ptr %228, %229
-  br i1 %cmp121883.not, label %for.end128, label %for.body122
+  %cmp121877.not = icmp eq ptr %228, %229
+  br i1 %cmp121877.not, label %for.end128, label %for.body122
 
 for.body122:                                      ; preds = %for.end, %for.body122
-  %i118.0884 = phi i64 [ %inc127, %for.body122 ], [ 0, %for.end ]
+  %i118.0878 = phi i64 [ %inc127, %for.body122 ], [ 0, %for.end ]
   %230 = load ptr, ptr %encoders_, align 8
-  %add.ptr.i824 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %230, i64 %i118.0884
+  %add.ptr.i824 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %230, i64 %i118.0878
   %231 = load ptr, ptr %add.ptr.i824, align 8
   %vtable = load ptr, ptr %231, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %232 = load ptr, ptr %vfn, align 8
   call void %232(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef nonnull %total_length)
-  %inc127 = add nuw i64 %i118.0884, 1
+  %inc127 = add nuw i64 %i118.0878, 1
   %233 = load ptr, ptr %_M_finish.i, align 8
   %234 = load ptr, ptr %column_types, align 8
   %sub.ptr.lhs.cast.i820 = ptrtoint ptr %233 to i64
@@ -6653,19 +6653,19 @@ for.end128:                                       ; preds = %for.end.thread, %fo
   store ptr %236, ptr %buf_ptr, align 8
   %237 = load ptr, ptr %_M_finish.i, align 8
   %238 = load ptr, ptr %column_types, align 8
-  %cmp134889.not = icmp eq ptr %237, %238
-  br i1 %cmp134889.not, label %for.end143, label %for.body135
+  %cmp134883.not = icmp eq ptr %237, %238
+  br i1 %cmp134883.not, label %for.end143, label %for.body135
 
 for.body135:                                      ; preds = %for.end128, %for.body135
-  %i131.0890 = phi i64 [ %inc142, %for.body135 ], [ 0, %for.end128 ]
+  %i131.0884 = phi i64 [ %inc142, %for.body135 ], [ 0, %for.end128 ]
   %239 = load ptr, ptr %encoders_, align 8
-  %add.ptr.i830 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %239, i64 %i131.0890
+  %add.ptr.i830 = getelementptr inbounds %"class.std::shared_ptr.90", ptr %239, i64 %i131.0884
   %240 = load ptr, ptr %add.ptr.i830, align 8
   %vtable139 = load ptr, ptr %240, align 8
   %vfn140 = getelementptr inbounds i8, ptr %vtable139, i64 40
   %241 = load ptr, ptr %vfn140, align 8
   call void %241(ptr noundef nonnull align 8 dereferenceable(8) %240, ptr noundef nonnull %buf_ptr)
-  %inc142 = add nuw i64 %i131.0890, 1
+  %inc142 = add nuw i64 %i131.0884, 1
   %242 = load ptr, ptr %_M_finish.i, align 8
   %243 = load ptr, ptr %column_types, align 8
   %sub.ptr.lhs.cast.i826 = ptrtoint ptr %242 to i64

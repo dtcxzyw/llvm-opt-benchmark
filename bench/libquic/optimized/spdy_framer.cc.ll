@@ -6479,17 +6479,17 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit: ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
   %list_.i.i = getelementptr inbounds i8, ptr %headers, i64 56
-  %it.sroa.0.0330 = load ptr, ptr %list_.i.i, align 8
-  %cmp.i.not331 = icmp eq ptr %it.sroa.0.0330, %list_.i.i
-  br i1 %cmp.i.not331, label %if.end224, label %for.body.lr.ph
+  %it.sroa.0.0323 = load ptr, ptr %list_.i.i, align 8
+  %cmp.i.not324 = icmp eq ptr %it.sroa.0.0323, %list_.i.i
+  br i1 %cmp.i.not324, label %if.end224, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit
   %2 = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc211
-  %it.sroa.0.0335 = phi ptr [ %it.sroa.0.0330, %for.body.lr.ph ], [ %it.sroa.0.0, %for.inc211 ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0335, i64 16
+  %it.sroa.0.0325 = phi ptr [ %it.sroa.0.0323, %for.body.lr.ph ], [ %it.sroa.0.0, %for.inc211 ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0325, i64 16
   %call8 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i39)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i40)
@@ -6532,7 +6532,7 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit56: ; preds = %for.bo
   br i1 %call14, label %if.then, label %if.else132
 
 if.then:                                          ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit56
-  %second = getelementptr inbounds i8, ptr %it.sroa.0.0335, i64 32
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.0325, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, ptr noundef nonnull align 8 dereferenceable(16) %second, i64 16, i1 false)
   br label %for.cond16
 
@@ -7008,8 +7008,8 @@ call32.i.i128.noexc:                              ; preds = %call25.i.i125.noexc
 _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135: ; preds = %call32.i.i128.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i112)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i113)
-  %cmp76328.not = icmp eq ptr %cookie_values.sroa.14.1, %cookie_values.sroa.0.1
-  br i1 %cmp76328.not, label %for.end130, label %for.body77.lr.ph
+  %cmp76321.not = icmp eq ptr %cookie_values.sroa.14.1, %cookie_values.sroa.0.1
+  br i1 %cmp76321.not, label %for.end130, label %for.body77.lr.ph
 
 for.body77.lr.ph:                                 ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cookie_values.sroa.14.1 to i64
@@ -7022,9 +7022,9 @@ for.body77.lr.ph:                                 ; preds = %_ZN3netL12WriteLeng
   br label %for.body77
 
 for.body77:                                       ; preds = %for.body77.lr.ph, %invoke.cont126
-  %i73.0329 = phi i64 [ 0, %for.body77.lr.ph ], [ %inc129, %invoke.cont126 ]
+  %i73.0322 = phi i64 [ 0, %for.body77.lr.ph ], [ %inc129, %invoke.cont126 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cookie) #24
-  %cmp78 = icmp eq i64 %i73.0329, 0
+  %cmp78 = icmp eq i64 %i73.0322, 0
   br i1 %cmp78, label %land.lhs.true, label %if.else97
 
 land.lhs.true:                                    ; preds = %for.body77
@@ -7064,8 +7064,8 @@ lpad94:                                           ; preds = %invoke.cont93
   br label %ehcleanup127
 
 if.else97:                                        ; preds = %for.body77
-  %cmp100 = icmp ult i64 %i73.0329, %sub99
-  %add.ptr.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %cookie_values.sroa.0.1, i64 %i73.0329
+  %cmp100 = icmp ult i64 %i73.0322, %sub99
+  %add.ptr.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %cookie_values.sroa.0.1, i64 %i73.0322
   br i1 %cmp100, label %if.then101, label %if.else112
 
 if.then101:                                       ; preds = %if.else97
@@ -7162,7 +7162,7 @@ call32.i164.noexc:                                ; preds = %call25.i161.noexc
 
 invoke.cont126:                                   ; preds = %call32.i164.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cookie) #24
-  %inc129 = add nuw i64 %i73.0329, 1
+  %inc129 = add nuw i64 %i73.0322, 1
   %exitcond.not = icmp eq i64 %inc129, %umax
   br i1 %exitcond.not, label %for.end130, label %for.body77, !llvm.loop !24
 
@@ -7258,7 +7258,7 @@ lor.rhs191:                                       ; preds = %lor.lhs.false186
   br i1 %call195, label %if.then197, label %if.else203
 
 if.then197:                                       ; preds = %lor.lhs.false186, %lor.lhs.false181, %lor.lhs.false176, %lor.lhs.false171, %lor.lhs.false166, %lor.lhs.false161, %lor.lhs.false156, %lor.lhs.false151, %lor.lhs.false146, %lor.lhs.false141, %lor.lhs.false, %if.else132, %lor.rhs191
-  %second199 = getelementptr inbounds i8, ptr %it.sroa.0.0335, i64 32
+  %second199 = getelementptr inbounds i8, ptr %it.sroa.0.0325, i64 32
   %call200 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second199)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i192)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i193)
@@ -7299,14 +7299,14 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit210: ; preds = %for.b
   br label %for.inc211
 
 if.else203:                                       ; preds = %lor.rhs191
-  %second205 = getelementptr inbounds i8, ptr %it.sroa.0.0335, i64 32
+  %second205 = getelementptr inbounds i8, ptr %it.sroa.0.0325, i64 32
   %call206 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second205)
   call fastcc void @_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s(i64 noundef %call206, ptr noundef nonnull %z)
   call fastcc void @_ZN3netL6WriteZERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10ZDataClassEP10z_stream_s(ptr noundef nonnull align 8 dereferenceable(16) %second205, i32 noundef 2, ptr noundef nonnull %z)
   br label %for.inc211
 
 for.inc211:                                       ; preds = %if.then.i.i.i173, %for.end130, %if.else203, %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit210
-  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0335, align 8
+  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0325, align 8
   %cmp.i.not = icmp eq ptr %it.sroa.0.0, %list_.i.i
   br i1 %cmp.i.not, label %if.end224, label %for.body, !llvm.loop !25
 
