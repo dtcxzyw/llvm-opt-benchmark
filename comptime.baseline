@@ -29536,7 +29536,7 @@ openusd/materialParamUtils.cpp.ll 2821785761
 openusd/materialPrimvarTransferSceneIndex.cpp.ll 1474488113
 openusd/materialSchema.cpp.ll 395457184
 openusd/math.cpp.ll 39006019
-openusd/mathUtils.cpp.ll 112520030
+openusd/mathUtils.cpp.ll 112407509
 openusd/matrix2d.cpp.ll 161264567
 openusd/matrix2f.cpp.ll 152659507
 openusd/matrix3d.cpp.ll 340555025
