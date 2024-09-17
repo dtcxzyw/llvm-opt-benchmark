@@ -1,0 +1,64 @@
+name: Enqueue
+
+on:
+  issue_comment:
+    types: [created, edited]
+
+jobs:
+  build:
+    if: github.event.issue.number == 1312 && github.event.sender.type == 'User'
+    runs-on: self-hosted
+
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 0
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git submodule update --init llvm/llvm-project
+          git -C llvm/llvm-project checkout .
+          git -C llvm/llvm-project clean -fdx
+
+      - name: Set up pre-commit info
+        id: info
+        run: |
+          echo -e "> $PATCH_URL\n\n" > ${{ github.workspace }}/scripts/issue.md
+          python3 ${{ github.workspace }}/scripts/enqueue.py 2>&1 | tee -a ${{ github.workspace }}/scripts/issue.md
+        env:
+          PATCH_URL: ${{ github.event.comment.body }}
+          USER: ${{ github.event.sender.login }}
+
+      - name: Create PR
+        if: steps.info.outputs.SHOULD_OPEN_PR == '1'
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: "test-run${{ github.run_id }}"
+          commit-message: "pre-commit: PR${{ steps.info.outputs.PR_TITLE }}"
+          title: "pre-commit: PR${{ steps.info.outputs.PR_TITLE }}"
+          add-paths: scripts/setup_pre_commit_patch.sh
+          body: |
+            Link: ${{ github.event.comment.body }}
+            Requested by: @${{ github.event.sender.login }}
+
+      - name: Update report
+        if: ${{ steps.cpr.outputs.pull-request-number }}
+        run: 
+          echo -e "> $PATCH_URL\n\nSee ${{ steps.cpr.outputs.pull-request-url }}" > ${{ github.workspace }}/scripts/issue.md
+
+      - name: Comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body-path: ${{ github.workspace }}/scripts/issue.md
