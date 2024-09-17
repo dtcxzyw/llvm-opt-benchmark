@@ -2683,7 +2683,7 @@ ceres/thread_token_provider.cc.ll 237997761
 ceres/triplet_sparse_matrix.cc.ll 1178175247
 ceres/trust_region_minimizer.cc.ll 3266320657
 ceres/trust_region_preprocessor.cc.ll 1835190115
-ceres/trust_region_step_evaluator.cc.ll 48444917
+ceres/trust_region_step_evaluator.cc.ll 48396373
 ceres/types.cc.ll 196007685
 ceres/visibility.cc.ll 1381947054
 ceres/visibility_based_preconditioner.cc.ll 3595022595
@@ -11952,7 +11952,7 @@ libquic/modp_b64.cc.ll 99105891
 libquic/montgomery.c.ll 116761798
 libquic/mul.c.ll 272908912
 libquic/net_errors.cc.ll 228339199
-libquic/newhope.c.ll 77686768
+libquic/newhope.c.ll 77608671
 libquic/newhope_test.c.ll 78882576
 libquic/ntt.c.ll 83694785
 libquic/null_decrypter.cc.ll 95290044
@@ -14215,7 +14215,7 @@ linux/pci-label.ll 88145245
 linux/pci-me.ll 92204607
 linux/pci-quirks.ll 240369720
 linux/pci-sysfs.ll 404798355
-linux/pci.ll 1653351721
+linux/pci.ll 1651698346
 linux/pci_hotplug_core.ll 144173746
 linux/pci_iomap.ll 65863981
 linux/pci_irq.ll 115271132
@@ -14821,7 +14821,7 @@ linux/virtio_ring.ll 691959236
 linux/virtio_scsi.ll 242276886
 linux/vlv_dsi.ll 585477258
 linux/vlv_dsi_pll.ll 203949300
-linux/vlv_sideband.ll 81052707
+linux/vlv_sideband.ll 80971635
 linux/vlv_suspend.ll 132322369
 linux/vma.ll 111319731
 linux/vmalloc.ll 1650099722
@@ -16131,7 +16131,7 @@ llvm/MCWinEH.cpp.ll 36249650
 llvm/MCXCOFFObjectTargetWriter.cpp.ll 40974716
 llvm/MCXCOFFStreamer.cpp.ll 275512253
 llvm/MD5.cpp.ll 497686180
-llvm/MDBuilder.cpp.ll 603933737
+llvm/MDBuilder.cpp.ll 603329349
 llvm/MIGChecker.cpp.ll 3137010701
 llvm/MIRCanonicalizerPass.cpp.ll 2872900540
 llvm/MIRFSDiscriminator.cpp.ll 1440415351
@@ -29814,7 +29814,7 @@ openusd/schemaBase.cpp.ll 438564078
 openusd/schemaRegistry.cpp.ll 8281564795
 openusd/scope.cpp.ll 306565472
 openusd/scopeDescription.cpp.ll 1449979199
-openusd/screenWindowParameters.cpp.ll 54966449
+openusd/screenWindowParameters.cpp.ll 54911362
 openusd/sdfdump.cpp.ll 12902155322
 openusd/sdffilter.cpp.ll 15402845945
 openusd/seg_common.c.ll 54547967
@@ -30075,7 +30075,7 @@ openusd/triRefinement.cpp.ll 885736458
 openusd/tsTest_Evaluator.cpp.ll 42381929
 openusd/tsTest_Museum.cpp.ll 244004134
 openusd/tsTest_SampleBezier.cpp.ll 187228083
-openusd/tsTest_SampleTimes.cpp.ll 318253941
+openusd/tsTest_SampleTimes.cpp.ll 317935432
 openusd/tsTest_SplineData.cpp.ll 456890674
 openusd/tsTest_TsEvaluator.cpp.ll 622719377
 openusd/tsTest_Types.cpp.ll 39583959
@@ -34356,7 +34356,7 @@ recastnavigation/catch_amalgamated.cpp.ll 28131030192
 recastnavigation/fastlz.c.ll 379760850
 recastnavigation/imgui.cpp.ll 413706735
 recastnavigation/imguiRenderGL.cpp.ll 2782702878
-recastnavigation/main.cpp.ll 605379856
+recastnavigation/main.cpp.ll 604774382
 redis/acl.ll 1246623139
 redis/ae.ll 237319698
 redis/alloc.ll 38974000
@@ -38452,7 +38452,7 @@ velox/SsdFile.cpp.ll 3861798873
 velox/SsdFileTracker.cpp.ll 616779045
 velox/StackTrace.cpp.ll 915237302
 velox/StreamArena.cpp.ll 433850386
-velox/StringEncodingUtils.cpp.ll 148879008
+velox/StringEncodingUtils.cpp.ll 148730084
 velox/StringFunctions.cpp.ll 6997743552
 velox/StringIdMap.cpp.ll 1160877419
 velox/StringView.cpp.ll 236282328
@@ -38742,7 +38742,7 @@ wasmtime-rs/172zkh8zulcvpwf2.ll 82285182
 wasmtime-rs/175xipdsovv1dz4r.ll 57998346
 wasmtime-rs/176tode9f0xidq5a.ll 60663225
 wasmtime-rs/17cbpygq2z26d22m.ll 65391698
-wasmtime-rs/17evukb5bsx7fp0o.ll 43605458
+wasmtime-rs/17evukb5bsx7fp0o.ll 43561848
 wasmtime-rs/17poo9s8anpkt1t8.ll 1487616751
 wasmtime-rs/17r62b1yk14v1b3k.ll 37258201
 wasmtime-rs/1803ne9556em0dxf.ll 43638162
