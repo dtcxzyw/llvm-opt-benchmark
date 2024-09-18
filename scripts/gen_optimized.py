@@ -99,6 +99,6 @@ if __name__ == '__main__':
             for k,v in comptime_res:
                 f.write(f'{k} {v}\n')
         with open(comptime+'.stats', 'w') as f:
-            json.dump(stats_acc, f)
+            json.dump(stats_acc, f, indent = 2)
     
     exit(1 if fail else 0)
