@@ -1960,8 +1960,8 @@ define noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance3new17h82dd36
   %150 = getelementptr inbounds i8, ptr %148, i64 %149
   store ptr null, ptr %150, align 8, !noalias !266
   %151 = icmp eq ptr %106, null
-  %.sroa.0.0.i.i = select i1 %151, ptr undef, ptr %104
-  call fastcc void @_ZN16wasmtime_runtime8instance8Instance9set_store17h175de41ea7945e26E(ptr noundef nonnull align 16 %37, ptr %.sroa.0.0.i.i, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %106)
+  %spec.select1.i.i = select i1 %151, ptr undef, ptr %104
+  call fastcc void @_ZN16wasmtime_runtime8instance8Instance9set_store17h175de41ea7945e26E(ptr noundef nonnull align 16 %37, ptr %spec.select1.i.i, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %106)
   %152 = load ptr, ptr %37, align 16, !noalias !261, !nonnull !4, !noundef !4
   %153 = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !noalias !261, !nonnull !4, !align !82, !noundef !4
   %154 = getelementptr inbounds i8, ptr %153, i64 16

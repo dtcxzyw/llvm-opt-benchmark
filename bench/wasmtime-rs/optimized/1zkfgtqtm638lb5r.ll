@@ -434,6 +434,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 32:                                               ; preds = %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %30, i64 24
   %34 = load ptr, ptr %33, align 8, !noalias !23, !nonnull !5, !noundef !5
   %35 = getelementptr inbounds i8, ptr %0, i64 80
@@ -451,6 +452,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 41:                                               ; preds = %37
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 8) ]
   %42 = getelementptr inbounds i8, ptr %39, i64 24
   %43 = load ptr, ptr %42, align 8, !noalias !33, !nonnull !5, !noundef !5
   %44 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2737,6 +2739,7 @@ define hidden void @"_ZN4core3ptr476drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !878)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !881)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !884, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 120
@@ -2756,6 +2759,7 @@ define hidden void @"_ZN4core3ptr476drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr451drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..filesystem..FileOutputStream$u20$as$u20$wasmtime_wasi..stream..HostOutputStream$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hbabc940b856f6b07E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !895)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !898)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !901, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 120
@@ -2900,6 +2904,7 @@ define hidden void @"_ZN4core3ptr481drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !953)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !956)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !959, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 112
@@ -2919,6 +2924,7 @@ define hidden void @"_ZN4core3ptr481drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr456drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..filesystem..FileInputStream..read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h58cc89ca31080448E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !970)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !973)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !976, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 112
@@ -5097,6 +5103,7 @@ define hidden void @"_ZN4core3ptr558drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1876)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1879)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !1882, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 112
@@ -5116,6 +5123,7 @@ define hidden void @"_ZN4core3ptr558drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr533drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_write..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he044b58c0e8f73b3E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1893)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1896)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !1899, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 112
@@ -5360,6 +5368,7 @@ define hidden void @"_ZN4core3ptr576drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2002)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2005)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2008, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 96
@@ -5379,6 +5388,7 @@ define hidden void @"_ZN4core3ptr576drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr551drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h9373916d2a90573cE.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2019)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2022)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2025, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 96
@@ -5428,6 +5438,7 @@ define hidden void @"_ZN4core3ptr578drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2042)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2045)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2048, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5447,6 +5458,7 @@ define hidden void @"_ZN4core3ptr578drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr553drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..advise..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h7188b4abe494fd1bE.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2059)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2062)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2065, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5496,6 +5508,7 @@ define hidden void @"_ZN4core3ptr580drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2082)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2085)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2088, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 96
@@ -5515,6 +5528,7 @@ define hidden void @"_ZN4core3ptr580drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr555drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_size..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h6d2aaa221040894eE.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2099)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2102)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2105, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 96
@@ -5564,6 +5578,7 @@ define hidden void @"_ZN4core3ptr581drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2122)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2125)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2128, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5583,6 +5598,7 @@ define hidden void @"_ZN4core3ptr581drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he11c136b0cd3b547E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2139)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2142)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2145, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5632,6 +5648,7 @@ define hidden void @"_ZN4core3ptr581drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2162)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2165)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2168, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 96
@@ -5651,6 +5668,7 @@ define hidden void @"_ZN4core3ptr581drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h3d67ece4c3fbb20cE.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2179)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2182)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2185, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 96
@@ -5700,6 +5718,7 @@ define hidden void @"_ZN4core3ptr593drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2205)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2208, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5719,6 +5738,7 @@ define hidden void @"_ZN4core3ptr593drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr568drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he4792c8fe62c5c03E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2219)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2222)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2225, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5768,6 +5788,7 @@ define hidden void @"_ZN4core3ptr606drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2245)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2248, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 128
@@ -5787,6 +5808,7 @@ define hidden void @"_ZN4core3ptr606drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr581drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hd234d337f201f91bE.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2259)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2262)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2265, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 128
@@ -5853,6 +5875,7 @@ define hidden void @"_ZN4core3ptr608drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2288)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2291)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2294, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 128
@@ -5872,6 +5895,7 @@ define hidden void @"_ZN4core3ptr608drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha884f5ec8937501aE.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2305)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2308)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2311, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 128
@@ -5921,6 +5945,7 @@ define hidden void @"_ZN4core3ptr608drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2328)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2331)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2334, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5940,6 +5965,7 @@ define hidden void @"_ZN4core3ptr608drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hdbafafcf60da39f3E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2345)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2348)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2351, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 104
@@ -5989,6 +6015,7 @@ define hidden void @"_ZN4core3ptr609drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2368)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2371)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2374, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 120
@@ -6008,6 +6035,7 @@ define hidden void @"_ZN4core3ptr609drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr584drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h5e892feb9fa36f5cE.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2385)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2388)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2391, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 120
@@ -6074,6 +6102,7 @@ define hidden void @"_ZN4core3ptr611drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2414)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2417)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2420, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 128
@@ -6093,6 +6122,7 @@ define hidden void @"_ZN4core3ptr611drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h11c5a80c50a2cd55E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2431)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2434)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2437, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 128
@@ -6142,6 +6172,7 @@ define hidden void @"_ZN4core3ptr611drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2454)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2457)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2460, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 128
@@ -6161,6 +6192,7 @@ define hidden void @"_ZN4core3ptr611drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h281fd20d8debf9d0E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2471)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2474)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2477, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 128
@@ -6210,6 +6242,7 @@ define hidden void @"_ZN4core3ptr612drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2494)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2497)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2500, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 96
@@ -6229,6 +6262,7 @@ define hidden void @"_ZN4core3ptr612drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr587drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hf53a161cdaea5c6dE.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2511)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2514)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2517, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 96
@@ -6550,6 +6584,7 @@ define hidden void @"_ZN4core3ptr636drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 19:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2648)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2651)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %20 = getelementptr inbounds i8, ptr %17, i64 24
   %21 = load ptr, ptr %20, align 8, !noalias !2654, !nonnull !5, !noundef !5
   %22 = getelementptr inbounds i8, ptr %2, i64 256
@@ -6569,6 +6604,7 @@ define hidden void @"_ZN4core3ptr636drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 27:                                               ; preds = %"_ZN4core3ptr611drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h692d7fc393651103E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2665)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2668)
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %28 = getelementptr inbounds i8, ptr %25, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !2671, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds i8, ptr %2, i64 256
@@ -6639,6 +6675,7 @@ define hidden void @"_ZN4core3ptr636drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 19:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2704)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2707)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %20 = getelementptr inbounds i8, ptr %17, i64 24
   %21 = load ptr, ptr %20, align 8, !noalias !2710, !nonnull !5, !noundef !5
   %22 = getelementptr inbounds i8, ptr %2, i64 256
@@ -6658,6 +6695,7 @@ define hidden void @"_ZN4core3ptr636drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 27:                                               ; preds = %"_ZN4core3ptr611drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h754f05a555b39672E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2721)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2724)
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %28 = getelementptr inbounds i8, ptr %25, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !2727, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds i8, ptr %2, i64 256
@@ -6707,6 +6745,7 @@ define hidden void @"_ZN4core3ptr639drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2744)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2747)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2750, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 96
@@ -6726,6 +6765,7 @@ define hidden void @"_ZN4core3ptr639drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr614drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h85eae8ddbfd5d670E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2761)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2764)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2767, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 96
@@ -6796,6 +6836,7 @@ define hidden void @"_ZN4core3ptr645drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 19:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2800)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2803)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %20 = getelementptr inbounds i8, ptr %17, i64 24
   %21 = load ptr, ptr %20, align 8, !noalias !2806, !nonnull !5, !noundef !5
   %22 = getelementptr inbounds i8, ptr %2, i64 256
@@ -6815,6 +6856,7 @@ define hidden void @"_ZN4core3ptr645drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 27:                                               ; preds = %"_ZN4core3ptr620drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..metadata_hash_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h23ad27371b25372eE.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2817)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2820)
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %28 = getelementptr inbounds i8, ptr %25, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !2823, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds i8, ptr %2, i64 256
@@ -6864,6 +6906,7 @@ define hidden void @"_ZN4core3ptr695drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2840)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2843)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2846, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 96
@@ -6883,6 +6926,7 @@ define hidden void @"_ZN4core3ptr695drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr670drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h954918a11f677c22E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2857)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2860)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2863, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 96
@@ -6932,6 +6976,7 @@ define hidden void @"_ZN4core3ptr700drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2880)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2883)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2886, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 96
@@ -6951,6 +6996,7 @@ define hidden void @"_ZN4core3ptr700drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr675drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha2c11d4e62711fb7E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2897)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2900)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2903, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 96
@@ -7043,6 +7089,7 @@ define hidden void @"_ZN4core3ptr786drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2920)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2923)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !2926, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 128
@@ -7062,6 +7109,7 @@ define hidden void @"_ZN4core3ptr786drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr761drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h514f8a9c4c959b29E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2937)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2940)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !2943, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 128
@@ -7350,6 +7398,7 @@ define hidden void @"_ZN4core3ptr930drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3046)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3049)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !3052, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 96
@@ -7369,6 +7418,7 @@ define hidden void @"_ZN4core3ptr930drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 17:                                               ; preds = %"_ZN4core3ptr905drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h445c4689374020d6E.llvm.10377456559187600216.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3063)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3066)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !3069, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %2, i64 96
@@ -13742,6 +13792,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !3449, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3449
   %20 = load i64, ptr %9, align 8, !noalias !3459, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -13752,6 +13803,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !3456, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3456, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3456
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3461, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3461
@@ -13934,6 +13986,7 @@ _ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i: ; preds = %7
   %19 = icmp ne ptr %.sroa.11.047.i, null
   call void @llvm.assume(i1 %19)
   %20 = load i64, ptr %9, align 8, !noalias !3480, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.11.047.i, i64 8) ]
   br label %16
 
 21:                                               ; preds = %16
@@ -13944,6 +13997,7 @@ _ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i: ; preds = %7
   %24 = load ptr, ptr %2, align 8, !noalias !3481, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3481, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3481
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3485, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3485
@@ -14099,6 +14153,7 @@ default.unreachable17:                            ; preds = %62, %1
   %26 = load ptr, ptr %16, align 8, !noalias !3496, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !3496
   %27 = load i64, ptr %15, align 8, !noalias !3507, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   br label %21
 
 28:                                               ; preds = %21
@@ -14109,6 +14164,7 @@ default.unreachable17:                            ; preds = %62, %1
   %31 = load ptr, ptr %8, align 8, !noalias !3504, !nonnull !5, !align !3082
   %32 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3504, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !3504
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %33 = load ptr, ptr %32, align 8, !invariant.load !5, !noalias !3509, !nonnull !5
   invoke void %33(ptr noundef nonnull align 1 %31)
           to label %42 unwind label %34, !noalias !3509
@@ -14351,6 +14407,7 @@ _ZN3std9panicking3try17h68390cdce1ca6810E.exit.i: ; preds = %7
   call void @llvm.assume(i1 %20)
   %21 = inttoptr i64 %.sroa.10.028.i to ptr
   %22 = load i64, ptr %9, align 8, !noalias !3531, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   br label %18
 
 23:                                               ; preds = %18
@@ -14361,6 +14418,7 @@ _ZN3std9panicking3try17h68390cdce1ca6810E.exit.i: ; preds = %7
   %26 = load ptr, ptr %2, align 8, !noalias !3528, !nonnull !5, !align !3082
   %27 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3528, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3528
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   %28 = load ptr, ptr %27, align 8, !invariant.load !5, !noalias !3533, !nonnull !5
   invoke void %28(ptr noundef nonnull align 1 %26)
           to label %37 unwind label %29, !noalias !3533
@@ -14543,6 +14601,7 @@ _ZN3std9panicking3try17h83491d4c365e855dE.exit.i: ; preds = %7
   %19 = icmp ne ptr %.sroa.11.047.i, null
   call void @llvm.assume(i1 %19)
   %20 = load i64, ptr %9, align 8, !noalias !3552, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.11.047.i, i64 8) ]
   br label %16
 
 21:                                               ; preds = %16
@@ -14553,6 +14612,7 @@ _ZN3std9panicking3try17h83491d4c365e855dE.exit.i: ; preds = %7
   %24 = load ptr, ptr %2, align 8, !noalias !3553, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3553, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3553
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3557, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3557
@@ -14704,6 +14764,7 @@ default.unreachable10:                            ; preds = %45, %1
   %20 = load ptr, ptr %10, align 8, !noalias !3568, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3568
   %21 = load i64, ptr %9, align 8, !noalias !3579, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   br label %15
 
 22:                                               ; preds = %15
@@ -14714,6 +14775,7 @@ default.unreachable10:                            ; preds = %45, %1
   %25 = load ptr, ptr %2, align 8, !noalias !3576, !nonnull !5, !align !3082
   %26 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3576, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3576
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !3581, !nonnull !5
   invoke void %27(ptr noundef nonnull align 1 %25)
           to label %36 unwind label %28, !noalias !3581
@@ -14896,6 +14958,7 @@ _ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i: ; preds = %7
   %19 = icmp ne ptr %.sroa.11.047.i, null
   call void @llvm.assume(i1 %19)
   %20 = load i64, ptr %9, align 8, !noalias !3600, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.11.047.i, i64 8) ]
   br label %16
 
 21:                                               ; preds = %16
@@ -14906,6 +14969,7 @@ _ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i: ; preds = %7
   %24 = load ptr, ptr %2, align 8, !noalias !3601, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3601, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3601
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3605, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3605
@@ -15076,6 +15140,7 @@ _ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i: ; preds = %13
   call void @llvm.assume(i1 %26)
   %27 = inttoptr i64 %.sroa.10.028.i to ptr
   %28 = load i64, ptr %15, align 8, !noalias !3627, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   br label %24
 
 29:                                               ; preds = %24
@@ -15086,6 +15151,7 @@ _ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i: ; preds = %13
   %32 = load ptr, ptr %8, align 8, !noalias !3624, !nonnull !5, !align !3082
   %33 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3624, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !3624
+  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
   %34 = load ptr, ptr %33, align 8, !invariant.load !5, !noalias !3629, !nonnull !5
   invoke void %34(ptr noundef nonnull align 1 %32)
           to label %43 unwind label %35, !noalias !3629
@@ -15350,6 +15416,7 @@ _ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i: ; preds = %7
   %19 = icmp ne ptr %.sroa.11.047.i, null
   call void @llvm.assume(i1 %19)
   %20 = load i64, ptr %9, align 8, !noalias !3648, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.11.047.i, i64 8) ]
   br label %16
 
 21:                                               ; preds = %16
@@ -15360,6 +15427,7 @@ _ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i: ; preds = %7
   %24 = load ptr, ptr %2, align 8, !noalias !3649, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3649, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3649
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3653, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3653
@@ -15507,6 +15575,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !3664, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3664
   %20 = load i64, ptr %9, align 8, !noalias !3674, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -15517,6 +15586,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !3671, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3671, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3671
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3676, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3676
@@ -15693,6 +15763,7 @@ _ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i: ; preds = %13
   %25 = icmp ne ptr %.sroa.9.034.i, null
   call void @llvm.assume(i1 %25)
   %26 = load i64, ptr %15, align 8, !noalias !3695, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.034.i, i64 8) ]
   br label %22
 
 27:                                               ; preds = %22
@@ -15703,6 +15774,7 @@ _ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i: ; preds = %13
   %30 = load ptr, ptr %8, align 8, !noalias !3696, !nonnull !5, !align !3082
   %31 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3696, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !3696
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !noalias !3700, !nonnull !5
   invoke void %32(ptr noundef nonnull align 1 %30)
           to label %41 unwind label %33, !noalias !3700
@@ -15925,6 +15997,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3711
   %20 = getelementptr inbounds i8, ptr %5, i64 40
   %21 = load i64, ptr %20, align 8, !noalias !3721, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 22:                                               ; preds = %14
@@ -15935,6 +16008,7 @@ default.unreachable10:                            ; preds = %45, %1
   %25 = load ptr, ptr %2, align 8, !noalias !3718, !nonnull !5, !align !3082
   %26 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3718, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3718
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !3723, !nonnull !5
   invoke void %27(ptr noundef nonnull align 1 %25)
           to label %36 unwind label %28, !noalias !3723
@@ -16078,6 +16152,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !3734, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3734
   %20 = load i64, ptr %9, align 8, !noalias !3744, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -16088,6 +16163,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !3741, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3741, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3741
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3746, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3746
@@ -16270,6 +16346,7 @@ _ZN3std9panicking3try17hb388154b942b6822E.exit.i: ; preds = %7
   %19 = icmp ne ptr %.sroa.11.047.i, null
   call void @llvm.assume(i1 %19)
   %20 = load i64, ptr %9, align 8, !noalias !3765, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.11.047.i, i64 8) ]
   br label %16
 
 21:                                               ; preds = %16
@@ -16280,6 +16357,7 @@ _ZN3std9panicking3try17hb388154b942b6822E.exit.i: ; preds = %7
   %24 = load ptr, ptr %2, align 8, !noalias !3766, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3766, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3766
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3770, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3770
@@ -16427,6 +16505,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !3781, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3781
   %20 = load i64, ptr %9, align 8, !noalias !3791, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -16437,6 +16516,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !3788, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3788, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3788
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3793, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3793
@@ -16619,6 +16699,7 @@ _ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i: ; preds = %7
   %19 = icmp ne ptr %.sroa.11.047.i, null
   call void @llvm.assume(i1 %19)
   %20 = load i64, ptr %9, align 8, !noalias !3812, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.11.047.i, i64 8) ]
   br label %16
 
 21:                                               ; preds = %16
@@ -16629,6 +16710,7 @@ _ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i: ; preds = %7
   %24 = load ptr, ptr %2, align 8, !noalias !3813, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3813, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3813
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3817, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3817
@@ -16776,6 +16858,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !3828, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3828
   %20 = load i64, ptr %9, align 8, !noalias !3838, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -16786,6 +16869,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !3835, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3835, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3835
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3840, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3840
@@ -16929,6 +17013,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !3851, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3851
   %20 = load i64, ptr %9, align 8, !noalias !3861, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -16939,6 +17024,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !3858, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3858, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3858
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3863, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3863
@@ -17082,6 +17168,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !3874, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3874
   %20 = load i64, ptr %9, align 8, !noalias !3884, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -17092,6 +17179,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !3881, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3881, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3881
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3886, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3886
@@ -17258,6 +17346,7 @@ _ZN3std9panicking3try17haa6a62bc900c1641E.exit.i: ; preds = %13
   call void @llvm.assume(i1 %26)
   %27 = inttoptr i64 %.sroa.10.028.i to ptr
   %28 = load i64, ptr %15, align 8, !noalias !3908, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   br label %24
 
 29:                                               ; preds = %24
@@ -17268,6 +17357,7 @@ _ZN3std9panicking3try17haa6a62bc900c1641E.exit.i: ; preds = %13
   %32 = load ptr, ptr %8, align 8, !noalias !3905, !nonnull !5, !align !3082
   %33 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3905, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !3905
+  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
   %34 = load ptr, ptr %33, align 8, !invariant.load !5, !noalias !3910, !nonnull !5
   invoke void %34(ptr noundef nonnull align 1 %32)
           to label %43 unwind label %35, !noalias !3910
@@ -17494,6 +17584,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3921
   %20 = getelementptr inbounds i8, ptr %5, i64 40
   %21 = load i64, ptr %20, align 8, !noalias !3931, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 22:                                               ; preds = %14
@@ -17504,6 +17595,7 @@ default.unreachable10:                            ; preds = %45, %1
   %25 = load ptr, ptr %2, align 8, !noalias !3928, !nonnull !5, !align !3082
   %26 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3928, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3928
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !3933, !nonnull !5
   invoke void %27(ptr noundef nonnull align 1 %25)
           to label %36 unwind label %28, !noalias !3933
@@ -17647,6 +17739,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !3944, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3944
   %20 = load i64, ptr %9, align 8, !noalias !3954, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -17657,6 +17750,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !3951, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3951, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3951
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !3956, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !3956
@@ -17804,6 +17898,7 @@ default.unreachable10:                            ; preds = %45, %1
   %20 = load ptr, ptr %10, align 8, !noalias !3967, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3967
   %21 = load i64, ptr %9, align 8, !noalias !3978, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   br label %15
 
 22:                                               ; preds = %15
@@ -17814,6 +17909,7 @@ default.unreachable10:                            ; preds = %45, %1
   %25 = load ptr, ptr %2, align 8, !noalias !3975, !nonnull !5, !align !3082
   %26 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3975, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3975
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !3980, !nonnull !5
   invoke void %27(ptr noundef nonnull align 1 %25)
           to label %36 unwind label %28, !noalias !3980
@@ -17996,6 +18092,7 @@ _ZN3std9panicking3try17h090acf309411ee89E.exit.i: ; preds = %7
   %19 = icmp ne ptr %.sroa.11.047.i, null
   call void @llvm.assume(i1 %19)
   %20 = load i64, ptr %9, align 8, !noalias !3999, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.11.047.i, i64 8) ]
   br label %16
 
 21:                                               ; preds = %16
@@ -18006,6 +18103,7 @@ _ZN3std9panicking3try17h090acf309411ee89E.exit.i: ; preds = %7
   %24 = load ptr, ptr %2, align 8, !noalias !4000, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4000, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !4000
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4004, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4004
@@ -18153,6 +18251,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !4015, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4015
   %20 = load i64, ptr %9, align 8, !noalias !4025, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -18163,6 +18262,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !4022, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4022, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4022
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4027, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4027
@@ -18306,6 +18406,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !4038, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4038
   %20 = load i64, ptr %9, align 8, !noalias !4048, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -18316,6 +18417,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !4045, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4045, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4045
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4050, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4050
@@ -18459,6 +18561,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !4061, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4061
   %20 = load i64, ptr %9, align 8, !noalias !4071, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -18469,6 +18572,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !4068, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4068, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4068
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4073, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4073
@@ -18651,6 +18755,7 @@ _ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i: ; preds = %7
   %19 = icmp ne ptr %.sroa.11.047.i, null
   call void @llvm.assume(i1 %19)
   %20 = load i64, ptr %9, align 8, !noalias !4092, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.11.047.i, i64 8) ]
   br label %16
 
 21:                                               ; preds = %16
@@ -18661,6 +18766,7 @@ _ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i: ; preds = %7
   %24 = load ptr, ptr %2, align 8, !noalias !4093, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4093, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !4093
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4097, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4097
@@ -18808,6 +18914,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !4108, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4108
   %20 = load i64, ptr %9, align 8, !noalias !4118, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -18818,6 +18925,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !4115, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4115, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4115
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4120, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4120
@@ -18963,6 +19071,7 @@ default.unreachable10:                            ; preds = %45, %1
   %20 = load ptr, ptr %10, align 8, !noalias !4131, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4131
   %21 = load i64, ptr %9, align 8, !noalias !4142, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   br label %15
 
 22:                                               ; preds = %15
@@ -18973,6 +19082,7 @@ default.unreachable10:                            ; preds = %45, %1
   %25 = load ptr, ptr %2, align 8, !noalias !4139, !nonnull !5, !align !3082
   %26 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4139, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4139
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !4144, !nonnull !5
   invoke void %27(ptr noundef nonnull align 1 %25)
           to label %36 unwind label %28, !noalias !4144
@@ -19116,6 +19226,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !4155, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4155
   %20 = load i64, ptr %9, align 8, !noalias !4165, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -19126,6 +19237,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !4162, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4162, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4162
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4167, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4167
@@ -19269,6 +19381,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !4178, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4178
   %20 = load i64, ptr %9, align 8, !noalias !4188, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -19279,6 +19392,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !4185, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4185, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4185
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4190, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4190
@@ -19422,6 +19536,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !4201, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4201
   %20 = load i64, ptr %9, align 8, !noalias !4211, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -19432,6 +19547,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !4208, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4208, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4208
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4213, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4213
@@ -19575,6 +19691,7 @@ default.unreachable10:                            ; preds = %44, %1
   %19 = load ptr, ptr %10, align 8, !noalias !4224, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4224
   %20 = load i64, ptr %9, align 8, !noalias !4234, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   br label %14
 
 21:                                               ; preds = %14
@@ -19585,6 +19702,7 @@ default.unreachable10:                            ; preds = %44, %1
   %24 = load ptr, ptr %2, align 8, !noalias !4231, !nonnull !5, !align !3082
   %25 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4231, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4231
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %26 = load ptr, ptr %25, align 8, !invariant.load !5, !noalias !4236, !nonnull !5
   invoke void %26(ptr noundef nonnull align 1 %24)
           to label %35 unwind label %27, !noalias !4236
@@ -19730,6 +19848,7 @@ default.unreachable10:                            ; preds = %45, %1
   %20 = load ptr, ptr %10, align 8, !noalias !4247, !nonnull !5, !align !13, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4247
   %21 = load i64, ptr %9, align 8, !noalias !4258, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   br label %15
 
 22:                                               ; preds = %15
@@ -19740,6 +19859,7 @@ default.unreachable10:                            ; preds = %45, %1
   %25 = load ptr, ptr %2, align 8, !noalias !4255, !nonnull !5, !align !3082
   %26 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4255, !nonnull !5, !align !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4255
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !4260, !nonnull !5
   invoke void %27(ptr noundef nonnull align 1 %25)
           to label %36 unwind label %28, !noalias !4260
@@ -19879,6 +19999,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4293)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4296)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4299, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 96
@@ -19898,6 +20019,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr551drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h9373916d2a90573cE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4311)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4314)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4317, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 96
@@ -19953,6 +20075,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4338)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4341)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4344, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 128
@@ -19972,6 +20095,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr761drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h514f8a9c4c959b29E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4356)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4359)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4362, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 128
@@ -20027,6 +20151,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4383)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4386)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4389, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 120
@@ -20046,6 +20171,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr451drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..filesystem..FileOutputStream$u20$as$u20$wasmtime_wasi..stream..HostOutputStream$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hbabc940b856f6b07E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4401)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4404)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4407, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 120
@@ -20101,6 +20227,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4431)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4434, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 128
@@ -20120,6 +20247,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h281fd20d8debf9d0E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4446)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4449)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4452, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 128
@@ -20175,6 +20303,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4473)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4476)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4479, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20194,6 +20323,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr587drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hf53a161cdaea5c6dE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4491)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4494)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4497, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20249,6 +20379,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4518)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4521)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4524, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 104
@@ -20268,6 +20399,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he11c136b0cd3b547E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4536)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4539)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4542, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 104
@@ -20323,6 +20455,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4563)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4566)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4569, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20342,6 +20475,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr675drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha2c11d4e62711fb7E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4581)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4584)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4587, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20443,6 +20577,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4626)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4629)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4632, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20462,6 +20597,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr555drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_size..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h6d2aaa221040894eE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4644)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4647)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4650, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20517,6 +20653,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4671)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4674)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4677, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 128
@@ -20536,6 +20673,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h11c5a80c50a2cd55E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4689)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4692)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4695, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 128
@@ -20591,6 +20729,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4716)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4719)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4722, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20610,6 +20749,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr905drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h445c4689374020d6E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4734)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4737)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4740, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20665,6 +20805,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4761)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4764)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4767, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20684,6 +20825,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h3d67ece4c3fbb20cE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4779)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4782)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4785, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20756,6 +20898,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4806)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4809)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4812, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20775,6 +20918,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr614drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h85eae8ddbfd5d670E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4824)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4827)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4830, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20830,6 +20974,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4851)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4854)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4857, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20849,6 +20994,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr670drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h954918a11f677c22E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4869)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4872)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4875, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20950,6 +21096,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4914)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4917)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4920, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 128
@@ -20969,6 +21116,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha884f5ec8937501aE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4932)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4935)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4938, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 128
@@ -21024,6 +21172,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4959)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4962)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !4965, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 112
@@ -21043,6 +21192,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr456drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..filesystem..FileInputStream..read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h58cc89ca31080448E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4977)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4980)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !4983, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 112
@@ -21161,6 +21311,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5022)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5025)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !5028, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 104
@@ -21180,6 +21331,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hdbafafcf60da39f3E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5040)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5043)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !5046, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 104
@@ -21258,6 +21410,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5076)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5079)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !5082, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 112
@@ -21277,6 +21430,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr533drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_write..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he044b58c0e8f73b3E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5094)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5097)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !5100, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 112
@@ -21355,6 +21509,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5133)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !5136, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 120
@@ -21374,6 +21529,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr584drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h5e892feb9fa36f5cE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5148)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5151)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !5154, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 120
@@ -21452,6 +21608,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5184)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5187)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !5190, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 128
@@ -21471,6 +21628,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr581drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hd234d337f201f91bE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5205)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !5208, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 128
@@ -21549,6 +21707,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5238)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5241)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !5244, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 104
@@ -21568,6 +21727,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr553drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..advise..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h7188b4abe494fd1bE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5259)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !5262, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 104
@@ -21623,6 +21783,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 10:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5283)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5286)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !5289, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 104
@@ -21642,6 +21803,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
 18:                                               ; preds = %"_ZN4core3ptr568drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he4792c8fe62c5c03E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5301)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5304)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !5307, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %0, i64 104
@@ -27500,6 +27662,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6158)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6161)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6164, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 120
@@ -27519,6 +27682,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr584drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h5e892feb9fa36f5cE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6179)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6182, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 120
@@ -27594,6 +27758,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6203)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6206)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6209, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 96
@@ -27613,6 +27778,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr614drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h85eae8ddbfd5d670E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6224)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6227, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 96
@@ -27688,6 +27854,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6248)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6251)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6254, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 128
@@ -27707,6 +27874,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr581drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hd234d337f201f91bE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6266)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6269)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6272, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 128
@@ -27782,6 +27950,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6293)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6296)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6299, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 104
@@ -27801,6 +27970,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hdbafafcf60da39f3E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6311)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6314)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6317, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 104
@@ -27921,6 +28091,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6338)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6341)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6344, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 96
@@ -27940,6 +28111,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr555drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_size..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h6d2aaa221040894eE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6356)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6359)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6362, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 96
@@ -28015,6 +28187,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6383)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6386)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6389, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 96
@@ -28034,6 +28207,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr675drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha2c11d4e62711fb7E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6401)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6404)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6407, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 96
@@ -28109,6 +28283,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6431)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6434, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 112
@@ -28128,6 +28303,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr533drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_write..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he044b58c0e8f73b3E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6446)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6449)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6452, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 112
@@ -28263,6 +28439,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6485)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6488)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6491, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 96
@@ -28282,6 +28459,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr670drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h954918a11f677c22E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6503)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6506)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6509, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 96
@@ -28357,6 +28535,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6530)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6533)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6536, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 128
@@ -28376,6 +28555,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr761drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h514f8a9c4c959b29E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6548)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6551)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6554, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 128
@@ -28451,6 +28631,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6575)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6578)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6581, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 112
@@ -28470,6 +28651,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr456drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..filesystem..FileInputStream..read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h58cc89ca31080448E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6593)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6596)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6599, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 112
@@ -28545,6 +28727,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6620)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6623)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6626, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 96
@@ -28564,6 +28747,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h3d67ece4c3fbb20cE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6638)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6641)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6644, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 96
@@ -28759,6 +28943,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6689)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6692)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6695, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 96
@@ -28778,6 +28963,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr551drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h9373916d2a90573cE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6707)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6710)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6713, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 96
@@ -28853,6 +29039,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6734)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6737)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6740, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 128
@@ -28872,6 +29059,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h281fd20d8debf9d0E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6752)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6755)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6758, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 128
@@ -28947,6 +29135,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6779)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6782)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6785, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 128
@@ -28966,6 +29155,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h11c5a80c50a2cd55E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6797)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6800)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6803, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 128
@@ -29041,6 +29231,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6824)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6827)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6830, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 104
@@ -29060,6 +29251,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr553drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..advise..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h7188b4abe494fd1bE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6842)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6845)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6848, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 104
@@ -29375,6 +29567,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6917)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6920)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6923, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 104
@@ -29394,6 +29587,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he11c136b0cd3b547E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6935)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6938)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6941, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 104
@@ -29529,6 +29723,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6974)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6977)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !6980, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 128
@@ -29548,6 +29743,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha884f5ec8937501aE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6992)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6995)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !6998, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 128
@@ -29683,6 +29879,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7031)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7034)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !7037, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 96
@@ -29702,6 +29899,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr905drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h445c4689374020d6E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7049)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7052)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !7055, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 96
@@ -29822,6 +30020,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7076)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7079)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !7082, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 104
@@ -29841,6 +30040,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr568drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he4792c8fe62c5c03E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7094)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7097)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !7100, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 104
@@ -29976,6 +30176,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7136)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !7139, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 96
@@ -29995,6 +30196,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr587drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hf53a161cdaea5c6dE.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7151)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7154)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !7157, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30070,6 +30272,7 @@ default.unreachable4:                             ; preds = %1
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7178)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7181)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !7184, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %0, i64 120
@@ -30089,6 +30292,7 @@ default.unreachable4:                             ; preds = %1
 23:                                               ; preds = %"_ZN4core3ptr451drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..filesystem..FileOutputStream$u20$as$u20$wasmtime_wasi..stream..HostOutputStream$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hbabc940b856f6b07E.llvm.10377456559187600216.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7196)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7199)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !7202, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds i8, ptr %0, i64 120
@@ -30169,6 +30373,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7241)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7244)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7247, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30188,6 +30393,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr905drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h445c4689374020d6E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7259)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7262)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7265, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30262,6 +30468,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7295)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7298)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7301, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 128
@@ -30281,6 +30488,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr761drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h514f8a9c4c959b29E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7313)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7316)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7319, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 128
@@ -30329,6 +30537,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7340)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7343)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7346, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30348,6 +30557,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr670drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h954918a11f677c22E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7358)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7361)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7364, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30412,6 +30622,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7394)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7397)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7400, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 120
@@ -30431,6 +30642,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr584drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h5e892feb9fa36f5cE.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7412)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7415)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7418, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 120
@@ -30479,6 +30691,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7439)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7442)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7445, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30498,6 +30711,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr614drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h85eae8ddbfd5d670E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7457)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7460)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7463, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30546,6 +30760,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7484)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7487)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7490, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30565,6 +30780,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr675drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha2c11d4e62711fb7E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7502)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7505)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7508, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30613,6 +30829,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7529)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7532)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7535, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30632,6 +30849,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h3d67ece4c3fbb20cE.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7547)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7550)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7553, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30680,6 +30898,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7574)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7577)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7580, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30699,6 +30918,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr587drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hf53a161cdaea5c6dE.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7592)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7595)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7598, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30747,6 +30967,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7619)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7622)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7625, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30766,6 +30987,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr551drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h9373916d2a90573cE.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7637)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7640)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7643, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30814,6 +31036,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7664)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7667)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7670, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 104
@@ -30833,6 +31056,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he11c136b0cd3b547E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7682)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7685)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7688, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 104
@@ -30907,6 +31131,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7718)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7721)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7724, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 104
@@ -30926,6 +31151,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr568drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he4792c8fe62c5c03E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7736)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7739)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7742, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 104
@@ -30974,6 +31200,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7763)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7766)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7769, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 112
@@ -30993,6 +31220,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr456drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..filesystem..FileInputStream..read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h58cc89ca31080448E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7781)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7784)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7787, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 112
@@ -31041,6 +31269,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7808)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7811)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7814, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 128
@@ -31060,6 +31289,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h11c5a80c50a2cd55E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7826)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7829)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7832, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 128
@@ -31108,6 +31338,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7853)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7856)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7859, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 112
@@ -31127,6 +31358,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr533drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_write..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he044b58c0e8f73b3E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7871)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7874)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7877, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 112
@@ -31175,6 +31407,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7898)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7901)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7904, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 128
@@ -31194,6 +31427,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr581drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hd234d337f201f91bE.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7916)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7919)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7922, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 128
@@ -31242,6 +31476,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7943)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7946)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7949, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 120
@@ -31261,6 +31496,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr451drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..filesystem..FileOutputStream$u20$as$u20$wasmtime_wasi..stream..HostOutputStream$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hbabc940b856f6b07E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7961)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7964)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !7967, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 120
@@ -31309,6 +31545,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7988)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7991)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !7994, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 128
@@ -31328,6 +31565,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha884f5ec8937501aE.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8006)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8009)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !8012, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 128
@@ -31424,6 +31662,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8060)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8063)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !8066, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 104
@@ -31443,6 +31682,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hdbafafcf60da39f3E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8078)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8081)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !8084, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 104
@@ -31533,6 +31773,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8126)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !8129, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 128
@@ -31552,6 +31793,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h281fd20d8debf9d0E.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8141)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8144)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !8147, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 128
@@ -31600,6 +31842,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8171)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !8174, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -31619,6 +31862,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr555drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_size..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h6d2aaa221040894eE.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8186)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8189)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !8192, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 96
@@ -31683,6 +31927,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8225)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !8228, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 104
@@ -31702,6 +31947,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 16:                                               ; preds = %"_ZN4core3ptr553drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..advise..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h7188b4abe494fd1bE.llvm.10377456559187600216.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8243)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !8246, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 104
@@ -32287,6 +32533,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8354)
   call void @llvm.experimental.noalias.scope.decl(metadata !8357)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !8360, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 120
@@ -32306,6 +32553,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr451drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..filesystem..FileOutputStream$u20$as$u20$wasmtime_wasi..stream..HostOutputStream$GT$..write..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hbabc940b856f6b07E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !8372)
   call void @llvm.experimental.noalias.scope.decl(metadata !8375)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !8378, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 120
@@ -32513,6 +32761,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8429)
   call void @llvm.experimental.noalias.scope.decl(metadata !8432)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !8435, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 96
@@ -32532,6 +32781,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr587drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hf53a161cdaea5c6dE.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !8447)
   call void @llvm.experimental.noalias.scope.decl(metadata !8450)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !8453, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 96
@@ -32914,6 +33164,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8543)
   call void @llvm.experimental.noalias.scope.decl(metadata !8546)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !8549, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 104
@@ -32933,6 +33184,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hdbafafcf60da39f3E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !8561)
   call void @llvm.experimental.noalias.scope.decl(metadata !8564)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !8567, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 104
@@ -33056,6 +33308,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8603)
   call void @llvm.experimental.noalias.scope.decl(metadata !8606)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !8609, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 128
@@ -33075,6 +33328,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr581drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hd234d337f201f91bE.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !8621)
   call void @llvm.experimental.noalias.scope.decl(metadata !8624)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !8627, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 128
@@ -33289,6 +33543,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8687)
   call void @llvm.experimental.noalias.scope.decl(metadata !8690)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !8693, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 104
@@ -33308,6 +33563,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr553drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..advise..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h7188b4abe494fd1bE.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !8705)
   call void @llvm.experimental.noalias.scope.decl(metadata !8708)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !8711, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 104
@@ -33522,6 +33778,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8771)
   call void @llvm.experimental.noalias.scope.decl(metadata !8774)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !8777, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 96
@@ -33541,6 +33798,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr614drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h85eae8ddbfd5d670E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !8789)
   call void @llvm.experimental.noalias.scope.decl(metadata !8792)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !8795, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 96
@@ -33664,6 +33922,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8831)
   call void @llvm.experimental.noalias.scope.decl(metadata !8834)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !8837, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 96
@@ -33683,6 +33942,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr555drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_size..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h6d2aaa221040894eE.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !8849)
   call void @llvm.experimental.noalias.scope.decl(metadata !8852)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !8855, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 96
@@ -33897,6 +34157,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8915)
   call void @llvm.experimental.noalias.scope.decl(metadata !8918)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !8921, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 96
@@ -33916,6 +34177,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr670drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h954918a11f677c22E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !8933)
   call void @llvm.experimental.noalias.scope.decl(metadata !8936)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !8939, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 96
@@ -34039,6 +34301,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8975)
   call void @llvm.experimental.noalias.scope.decl(metadata !8978)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !8981, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 104
@@ -34058,6 +34321,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he11c136b0cd3b547E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !8993)
   call void @llvm.experimental.noalias.scope.decl(metadata !8996)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !8999, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 104
@@ -34181,6 +34445,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9035)
   call void @llvm.experimental.noalias.scope.decl(metadata !9038)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9041, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 96
@@ -34200,6 +34465,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h3d67ece4c3fbb20cE.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9053)
   call void @llvm.experimental.noalias.scope.decl(metadata !9056)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9059, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 96
@@ -34323,6 +34589,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9095)
   call void @llvm.experimental.noalias.scope.decl(metadata !9098)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9101, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 128
@@ -34342,6 +34609,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha884f5ec8937501aE.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9113)
   call void @llvm.experimental.noalias.scope.decl(metadata !9116)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9119, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 128
@@ -34465,6 +34733,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9155)
   call void @llvm.experimental.noalias.scope.decl(metadata !9158)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9161, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 128
@@ -34484,6 +34753,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h281fd20d8debf9d0E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9173)
   call void @llvm.experimental.noalias.scope.decl(metadata !9176)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9179, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 128
@@ -34607,6 +34877,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9215)
   call void @llvm.experimental.noalias.scope.decl(metadata !9218)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9221, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 112
@@ -34626,6 +34897,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr456drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..filesystem..FileInputStream..read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h58cc89ca31080448E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9233)
   call void @llvm.experimental.noalias.scope.decl(metadata !9236)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9239, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 112
@@ -34749,6 +35021,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9275)
   call void @llvm.experimental.noalias.scope.decl(metadata !9278)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9281, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 96
@@ -34768,6 +35041,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr675drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha2c11d4e62711fb7E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9293)
   call void @llvm.experimental.noalias.scope.decl(metadata !9296)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9299, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 96
@@ -34891,6 +35165,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9335)
   call void @llvm.experimental.noalias.scope.decl(metadata !9338)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9341, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 128
@@ -34910,6 +35185,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr761drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h514f8a9c4c959b29E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9353)
   call void @llvm.experimental.noalias.scope.decl(metadata !9356)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9359, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 128
@@ -35033,6 +35309,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9395)
   call void @llvm.experimental.noalias.scope.decl(metadata !9398)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9401, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 104
@@ -35052,6 +35329,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr568drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he4792c8fe62c5c03E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9413)
   call void @llvm.experimental.noalias.scope.decl(metadata !9416)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9419, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 104
@@ -35367,6 +35645,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9506)
   call void @llvm.experimental.noalias.scope.decl(metadata !9509)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9512, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 96
@@ -35386,6 +35665,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr551drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h9373916d2a90573cE.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9524)
   call void @llvm.experimental.noalias.scope.decl(metadata !9527)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9530, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 96
@@ -35509,6 +35789,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9566)
   call void @llvm.experimental.noalias.scope.decl(metadata !9569)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9572, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 120
@@ -35528,6 +35809,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr584drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h5e892feb9fa36f5cE.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9584)
   call void @llvm.experimental.noalias.scope.decl(metadata !9587)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9590, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 120
@@ -35651,6 +35933,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9626)
   call void @llvm.experimental.noalias.scope.decl(metadata !9629)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9632, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 96
@@ -35670,6 +35953,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr905drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h445c4689374020d6E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9644)
   call void @llvm.experimental.noalias.scope.decl(metadata !9647)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9650, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 96
@@ -35793,6 +36077,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9686)
   call void @llvm.experimental.noalias.scope.decl(metadata !9689)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9692, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 128
@@ -35812,6 +36097,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h11c5a80c50a2cd55E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9704)
   call void @llvm.experimental.noalias.scope.decl(metadata !9707)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9710, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 128
@@ -36127,6 +36413,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 38:                                               ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !9797)
   call void @llvm.experimental.noalias.scope.decl(metadata !9800)
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !noalias !9803, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds i8, ptr %31, i64 112
@@ -36146,6 +36433,7 @@ common.resume:                                    ; preds = %13, %"_ZN63_$LT$all
 46:                                               ; preds = %"_ZN4core3ptr533drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_write..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he044b58c0e8f73b3E.llvm.10377456559187600216.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !9815)
   call void @llvm.experimental.noalias.scope.decl(metadata !9818)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !noalias !9821, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds i8, ptr %31, i64 112

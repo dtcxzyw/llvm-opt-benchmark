@@ -632,6 +632,7 @@ define hidden void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$Alloc
   %41 = icmp ne ptr %40, null
   tail call void @llvm.assume(i1 %41)
   %42 = extractvalue { ptr, i64 } %39, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   store ptr %40, ptr %0, align 8
   store i64 %42, ptr %19, align 8
   %43 = icmp eq i64 %17, 0
@@ -1341,9 +1342,11 @@ define internal fastcc noundef i8 @_ZN4rand3rng3Rng3gen17hd738ee34d26a3c42E(ptr 
   %28 = load ptr, ptr %27, align 16, !alias.scope !187, !noalias !184, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1), !noalias !184
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !191
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ], !noalias !165
   store ptr %26, ptr %2, align 8, !noalias !191
   %29 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %28, ptr %29, align 8, !noalias !191
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ], !noalias !165
   %30 = load ptr, ptr %28, align 8, !invariant.load !4, !noalias !192, !nonnull !4
   invoke void %30(ptr noundef nonnull align 1 %26)
           to label %.thread.i.i.i.i.i unwind label %31, !noalias !192
@@ -3843,6 +3846,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03
 248:                                              ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i97", %238
   store ptr %239, ptr %242, align 8
   store i64 %241, ptr %243, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %239, i64 8) ]
   invoke void @_ZN6brotli3enc9histogram32BrotliBuildHistogramsWithContext17h2f5a3c0640e52612E(ptr noalias noundef nonnull readonly align 4 %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %52, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef %6, i8 noundef %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0150.1, i64 noundef %.sroa.10.1, ptr noalias noundef nonnull align 8 %205, i64 noundef %207, ptr noalias noundef nonnull align 8 %239, i64 noundef %241, ptr noalias noundef nonnull align 8 %222, i64 noundef %224)
           to label %249 unwind label %.thread261.loopexit.split-lp
 
@@ -3959,6 +3963,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03
 287:                                              ; preds = %277, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i112"
   store ptr %278, ptr %281, align 8
   store i64 %280, ptr %282, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %278, i64 8) ]
   %.val67 = load ptr, ptr %259, align 8, !nonnull !4, !align !7, !noundef !4
   %.val68 = load i64, ptr %260, align 8, !noundef !4
   invoke void @_ZN6brotli3enc7cluster23BrotliClusterHistograms17h6183d16ff49aa951E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 %205, i64 noundef %207, i64 noundef %193, i64 noundef 256, ptr noalias noundef nonnull align 1 %12, ptr noalias noundef nonnull align 8 %278, i64 noundef %280, ptr noalias noundef nonnull align 8 dereferenceable(8) %266, ptr noalias noundef nonnull align 4 %.val67, i64 noundef %.val68)
@@ -4097,6 +4102,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03
   store ptr %325, ptr %328, align 8
   store i64 %327, ptr %329, align 8
   %335 = load i64, ptr %296, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %325, i64 8) ]
   %.val65 = load ptr, ptr %306, align 8, !nonnull !4, !align !7, !noundef !4
   %.val66 = load i64, ptr %307, align 8, !noundef !4
   invoke void @_ZN6brotli3enc7cluster23BrotliClusterHistograms17h30f25034c312458eE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 %222, i64 noundef %224, i64 noundef %335, i64 noundef 256, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 8 %325, i64 noundef %327, ptr noalias noundef nonnull align 8 dereferenceable(8) %313, ptr noalias noundef nonnull align 4 %.val65, i64 noundef %.val66)
@@ -6860,6 +6866,7 @@ common.resume:                                    ; preds = %310, %339, %"_ZN63_
   br label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h46c1767d6835fc34E.exit.i"
 
 "_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h46c1767d6835fc34E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i54.i", %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he4b94d347c2cc2a4E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %86, i64 8) ]
   %.not25.i = icmp eq i64 %88, 0
   br i1 %.not25.i, label %109, label %_ZN6brotli3enc9metablock17InitBlockSplitter17h19674f15767ad67bE.exit, !prof !34
 
@@ -6930,7 +6937,7 @@ common.resume:                                    ; preds = %310, %339, %"_ZN63_
 
 _ZN6brotli3enc9metablock17InitBlockSplitter17h19674f15767ad67bE.exit: ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h46c1767d6835fc34E.exit.i"
   %116 = getelementptr inbounds i8, ptr %86, i64 1032
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1032) %86, i8 0, i64 1032, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %86, i8 0, i64 1032, i1 false)
   store float 0x47EFFE0460000000, ptr %116, align 8, !alias.scope !684
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.9.sroa.6, i8 0, i64 16, i1 false)
   br label %207
@@ -7157,6 +7164,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h19674f15767ad67bE.exit: ; preds = 
 "_ZN4core3ptr102drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli..enc..histogram..HistogramLiteral$GT$$GT$17ha0b1fb5210b18c59E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i69", %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he4b94d347c2cc2a4E.exit.i68"
   store ptr %164, ptr %118, align 8, !alias.scope !692, !noalias !733
   store i64 %166, ptr %167, align 8, !alias.scope !692, !noalias !733
+  call void @llvm.assume(i1 true) [ "align"(ptr %164, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !748)
   %186 = icmp ugt i64 %8, %166
   br i1 %186, label %187, label %.lr.ph8.i.i
@@ -7405,6 +7413,7 @@ _ZN6brotli3enc9metablock24InitContextBlockSplitter17hb2d66d2627967bceE.exit: ; p
   br label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17he19dcc28844539a8E.exit.i"
 
 "_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17he19dcc28844539a8E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i54.i97", %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h2adc2247d443895eE.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %246, i64 8) ]
   %.not25.i98 = icmp eq i64 %248, 0
   br i1 %.not25.i98, label %269, label %_ZN6brotli3enc9metablock17InitBlockSplitter17h4b5063fd3a1c0956E.exit, !prof !34
 
@@ -7475,7 +7484,7 @@ _ZN6brotli3enc9metablock24InitContextBlockSplitter17hb2d66d2627967bceE.exit: ; p
 
 _ZN6brotli3enc9metablock17InitBlockSplitter17h4b5063fd3a1c0956E.exit: ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17he19dcc28844539a8E.exit.i"
   %276 = getelementptr inbounds i8, ptr %246, i64 2824
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2824) %246, i8 0, i64 2824, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %246, i8 0, i64 2824, i1 false)
   store float 0x47EFFE0460000000, ptr %276, align 8, !alias.scope !847
   store <2 x i64> zeroinitializer, ptr %39, align 16
   %.sroa.5157.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 16
@@ -7639,6 +7648,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h4b5063fd3a1c0956E.exit: ; preds = 
   br label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h94ef054365d5118bE.exit.i"
 
 "_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h94ef054365d5118bE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i54.i130", %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h35f347833c59cdd1E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %315, i64 8) ]
   %.not25.i131 = icmp eq i64 %317, 0
   br i1 %.not25.i131, label %338, label %_ZN6brotli3enc9metablock17InitBlockSplitter17he5294770bb896e69E.exit, !prof !34
 
@@ -7709,7 +7719,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h4b5063fd3a1c0956E.exit: ; preds = 
 
 _ZN6brotli3enc9metablock17InitBlockSplitter17he5294770bb896e69E.exit: ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h94ef054365d5118bE.exit.i"
   %345 = getelementptr inbounds i8, ptr %315, i64 2184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2184) %315, i8 0, i64 2184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %315, i8 0, i64 2184, i1 false)
   store float 0x47EFFE0460000000, ptr %345, align 8, !alias.scope !920
   store <2 x i64> zeroinitializer, ptr %38, align 16
   %.sroa.5164.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 16

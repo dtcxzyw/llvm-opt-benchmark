@@ -100,7 +100,7 @@ define void @_ZN9uu_basenc6uu_app17h6299e21a26f3c87eE(ptr noalias nocapture noun
 
 32:                                               ; preds = %46, %33
   %.pn.i = phi { ptr, i32 } [ %47, %46 ], [ %34, %33 ]
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hf5fe19e3f9cc6ba1E"(ptr noalias noundef nonnull align 8 dereferenceable(592) %8) #6
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hf5fe19e3f9cc6ba1E"(ptr noalias noundef nonnull align 8 dereferenceable(592) %8) #7
           to label %77 unwind label %48, !noalias !25
 
 33:                                               ; preds = %27
@@ -156,7 +156,7 @@ define void @_ZN9uu_basenc6uu_app17h6299e21a26f3c87eE(ptr noalias nocapture noun
 48:                                               ; preds = %32
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7, !noalias !25
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8, !noalias !25
   unreachable
 
 50:                                               ; preds = %38, %"_ZN4core3ptr65drop_in_place$LT$clap_builder..builder..styled_str..StyledStr$GT$17hff67d7a771aaf351E.exit.i.i"
@@ -179,6 +179,7 @@ define void @_ZN9uu_basenc6uu_app17h6299e21a26f3c87eE(ptr noalias nocapture noun
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(3) %.sroa.7, i64 3, i1 false), !noalias !45
   %52 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8], { ptr, i64 } }, ptr @anon.a1574b64f2bb66bcf3f861060578e2db.22, i64 %.0.i8
   store ptr %52, ptr %16, align 8, !noalias !45
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
   %.val.i = load ptr, ptr %52, align 8, !noalias !45, !nonnull !4, !align !5, !noundef !4
   %53 = getelementptr i8, ptr %52, i64 8
   %.val15.i = load i64, ptr %53, align 8, !noalias !45, !noundef !4
@@ -190,7 +191,7 @@ define void @_ZN9uu_basenc6uu_app17h6299e21a26f3c87eE(ptr noalias nocapture noun
 57:                                               ; preds = %59
   %58 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hf5fe19e3f9cc6ba1E"(ptr noalias noundef nonnull align 8 dereferenceable(592) %3) #6
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hf5fe19e3f9cc6ba1E"(ptr noalias noundef nonnull align 8 dereferenceable(592) %3) #7
           to label %77 unwind label %60, !noalias !61
 
 59:                                               ; preds = %51
@@ -204,7 +205,7 @@ define void @_ZN9uu_basenc6uu_app17h6299e21a26f3c87eE(ptr noalias nocapture noun
 60:                                               ; preds = %57
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7, !noalias !61
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8, !noalias !61
   unreachable
 
 "_ZN9uu_basenc6uu_app28_$u7b$$u7b$closure$u7d$$u7d$17h7d3deb66e2428545E.exit.i": ; preds = %.noexc.i.i.i, %51
@@ -241,13 +242,13 @@ define void @_ZN9uu_basenc6uu_app17h6299e21a26f3c87eE(ptr noalias nocapture noun
 71:                                               ; preds = %70
   %72 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h79dd5d05bdadd5daE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %6) #6
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h79dd5d05bdadd5daE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %6) #7
           to label %.body unwind label %73, !noalias !75
 
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7, !noalias !75
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8, !noalias !75
   unreachable
 
 75:                                               ; preds = %70
@@ -263,13 +264,13 @@ define void @_ZN9uu_basenc6uu_app17h6299e21a26f3c87eE(ptr noalias nocapture noun
 
 77:                                               ; preds = %20, %32, %57
   %eh.lpad-body.ph = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i, %32 ], [ %58, %57 ]
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h79dd5d05bdadd5daE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %9) #6
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h79dd5d05bdadd5daE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %9) #7
           to label %.body unwind label %78
 
 78:                                               ; preds = %77
   %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 }
 
@@ -315,17 +316,21 @@ declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4803537508865358449"(ptr noalias noundef nonnull readonly align 1, ptr noundef nonnull, i64 noundef, i64 noundef) unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #5
+declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #6 = { cold }
-attributes #7 = { cold noreturn nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { cold }
+attributes #8 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

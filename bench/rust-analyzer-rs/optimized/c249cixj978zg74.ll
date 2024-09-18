@@ -1534,7 +1534,7 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hde738c3eb2630211E"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !10
@@ -1574,6 +1574,7 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   %.sroa.7.0.i = phi i64 [ %.sroa.5.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0a48f3f30253d69E.exit.i" ], [ 1, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h1bbd0ca45804ac08E.exit.thread.preheader" ]
   %.0.i15 = phi i64 [ %27, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0a48f3f30253d69E.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h1bbd0ca45804ac08E.exit.thread.preheader" ]
   %11 = getelementptr inbounds { { i32, [1 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i15
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %12 = getelementptr i8, ptr %11, i64 16
   %.val.i = load ptr, ptr %12, align 8, !noalias !506, !nonnull !10, !noundef !10
   %13 = getelementptr i8, ptr %11, i64 32
@@ -1616,6 +1617,7 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   %.sroa.7.0.i21 = phi i64 [ %.sroa.4.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17he8fc2005c85f098eE.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h1bbd0ca45804ac08E.exit" ]
   %.0.i22 = phi i64 [ %60, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17he8fc2005c85f098eE.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h1bbd0ca45804ac08E.exit" ]
   %30 = getelementptr inbounds { { i32, [1 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i22
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %.val2.i.i = load ptr, ptr %31, align 8, !alias.scope !510, !noalias !513, !nonnull !10, !noundef !10
   %32 = getelementptr inbounds i8, ptr %30, i64 32
@@ -1680,7 +1682,7 @@ _ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i: ; preds = %.preheader
   br i1 %61, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h942ea6f68fea48e9E.exit", label %.preheader
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef815e0cd21419baE"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !10
@@ -1720,6 +1722,7 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   %.sroa.7.0.i = phi i64 [ %.sroa.5.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h15d3f60861c88e2fE.exit.i" ], [ 1, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17ha19eb18665800f16E.exit.thread.preheader" ]
   %.0.i15 = phi i64 [ %27, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h15d3f60861c88e2fE.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17ha19eb18665800f16E.exit.thread.preheader" ]
   %11 = getelementptr inbounds { { i32, [15 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i15
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %12 = getelementptr i8, ptr %11, i64 72
   %.val.i = load ptr, ptr %12, align 8, !noalias !520, !nonnull !10, !noundef !10
   %13 = getelementptr i8, ptr %11, i64 88
@@ -1762,6 +1765,7 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   %.sroa.7.0.i21 = phi i64 [ %.sroa.4.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3c3859f42237cb78E.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17ha19eb18665800f16E.exit" ]
   %.0.i22 = phi i64 [ %60, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3c3859f42237cb78E.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17ha19eb18665800f16E.exit" ]
   %30 = getelementptr inbounds { { i32, [15 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i22
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %31 = getelementptr inbounds i8, ptr %30, i64 72
   %.val2.i.i = load ptr, ptr %31, align 8, !alias.scope !524, !noalias !527, !nonnull !10, !noundef !10
   %32 = getelementptr inbounds i8, ptr %30, i64 88
@@ -38243,6 +38247,8 @@ define hidden void @_ZN9itertools9Itertools4join17haf254e8969697e6dE(ptr noalias
   %72 = getelementptr inbounds i8, ptr %7, i64 32
   %73 = getelementptr inbounds i8, ptr %7, i64 16
   %74 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i, i64 4) ]
   br label %75
 
 75:                                               ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h063b9c263a2be412E.exit.i.i.i", %.lr.ph.i.i.i
@@ -56938,7 +56944,7 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { inlinehint noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

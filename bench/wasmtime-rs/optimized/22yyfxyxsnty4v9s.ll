@@ -4305,6 +4305,7 @@ common.ret:                                       ; preds = %23, %19, %4, %1
 14:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !606)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !609)
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %12, i64 24
   %16 = load ptr, ptr %15, align 8, !noalias !612, !nonnull !9, !noundef !9
   %17 = getelementptr inbounds i8, ptr %0, i64 64
@@ -4324,6 +4325,7 @@ common.ret:                                       ; preds = %23, %19, %4, %1
 23:                                               ; preds = %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !623)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !626)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8, !noalias !629, !nonnull !9, !noundef !9
   %26 = getelementptr inbounds i8, ptr %0, i64 64
@@ -6552,6 +6554,7 @@ common.ret:                                       ; preds = %20, %16, %1
 11:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1370)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1373)
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8, !noalias !1376, !nonnull !9, !noundef !9
   %14 = getelementptr inbounds i8, ptr %0, i64 56
@@ -6571,6 +6574,7 @@ common.ret:                                       ; preds = %20, %16, %1
 20:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1387)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1390)
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %21 = getelementptr inbounds i8, ptr %18, i64 24
   %22 = load ptr, ptr %21, align 8, !noalias !1393, !nonnull !9, !noundef !9
   %23 = getelementptr inbounds i8, ptr %0, i64 56
@@ -20943,6 +20947,7 @@ common.resume:                                    ; preds = %.body, %27
 87:                                               ; preds = %80, %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   br i1 %32, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i, label %88
 
 88:                                               ; preds = %87
@@ -21156,6 +21161,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1594
   %44 = load i64, ptr %43, align 8, !noundef !9
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !noundef !9
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %9, i64 32
   %48 = load i64, ptr %47, align 8, !noundef !9
   %49 = sub i64 %46, %48
@@ -21243,6 +21249,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1594
 82:                                               ; preds = %59
   store i64 %64, ptr %47, align 8, !alias.scope !3311, !noalias !3305
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !3310
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   br i1 %41, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i, label %83
 
 83:                                               ; preds = %82
@@ -21293,6 +21300,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
 
 101:                                              ; preds = %74
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   br i1 %41, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i16, label %102
 
 102:                                              ; preds = %101
@@ -23702,8 +23710,8 @@ define hidden noundef ptr @"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.sroa.5.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !3841
   %switch.i.i = icmp eq i32 %25, 0
-  %.sroa.2.0..sroa_idx..sroa.74.0.i.i = select i1 %switch.i.i, ptr %.sroa.2.0..sroa_idx.i.i, ptr %.sroa.5.0.copyload.i.i
-  %30 = invoke noundef ptr @_ZN14cap_primitives6rustix2fs5times28set_times_nofollow_unchecked17h08df2bb8eb73622aE(ptr noalias noundef readonly align 4 dereferenceable(4) %.sroa.2.0..sroa_idx..sroa.74.0.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload.i.i, i64 noundef %.sroa.713.0.copyload.i.i, i64 %.sroa.0.0, i32 noundef %9, i64 %.sroa.03.0, i32 noundef %14)
+  %spec.select.i.i = select i1 %switch.i.i, ptr %.sroa.2.0..sroa_idx.i.i, ptr %.sroa.5.0.copyload.i.i
+  %30 = invoke noundef ptr @_ZN14cap_primitives6rustix2fs5times28set_times_nofollow_unchecked17h08df2bb8eb73622aE(ptr noalias noundef readonly align 4 dereferenceable(4) %spec.select.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload.i.i, i64 noundef %.sroa.713.0.copyload.i.i, i64 %.sroa.0.0, i32 noundef %9, i64 %.sroa.03.0, i32 noundef %14)
           to label %35 unwind label %31, !noalias !3830
 
 31:                                               ; preds = %29
@@ -24436,6 +24444,7 @@ common.resume:                                    ; preds = %41, %22
   %29 = getelementptr inbounds i8, ptr %7, i64 40
   %30 = load i64, ptr %29, align 8, !noundef !9
   %31 = icmp eq i64 %30, 0
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46f037bee7f74039E.llvm.15947207822535676624.exit"
@@ -24483,6 +24492,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
 
 45:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   br i1 %27, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i2, label %46
 
 46:                                               ; preds = %45
@@ -24684,6 +24694,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..pipe..AsyncReadStream$u20$as$u20$wasmtime
 45:                                               ; preds = %43
   call void @llvm.experimental.noalias.scope.decl(metadata !4130)
   call void @llvm.experimental.noalias.scope.decl(metadata !4133)
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   %46 = getelementptr inbounds i8, ptr %44, i64 16
   %47 = load ptr, ptr %46, align 8, !noalias !4136, !nonnull !9, !noundef !9
   %48 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !4136, !noundef !9
@@ -24844,6 +24855,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..pipe..AsyncReadStream$u20$as$u20$wasmtime
 96:                                               ; preds = %94
   call void @llvm.experimental.noalias.scope.decl(metadata !4161)
   call void @llvm.experimental.noalias.scope.decl(metadata !4164)
+  call void @llvm.assume(i1 true) [ "align"(ptr %95, i64 8) ]
   %97 = getelementptr inbounds i8, ptr %95, i64 16
   %98 = load ptr, ptr %97, align 8, !noalias !4167, !nonnull !9, !noundef !9
   %99 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !4167, !noundef !9
@@ -25075,6 +25087,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr133dro
 47:                                               ; preds = %44
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4200)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4203)
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   %48 = getelementptr inbounds i8, ptr %46, i64 16
   %49 = load ptr, ptr %48, align 8, !noalias !4206, !nonnull !9, !noundef !9
   %50 = getelementptr inbounds i8, ptr %41, i64 32
@@ -25984,6 +25997,7 @@ default.unreachable20:                            ; preds = %15, %2
 47:                                               ; preds = %42
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4323)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4326)
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %48 = getelementptr inbounds i8, ptr %45, i64 24
   %49 = load ptr, ptr %48, align 8, !noalias !4329, !nonnull !9, !noundef !9
   %50 = getelementptr inbounds i8, ptr %0, i64 64
@@ -26003,6 +26017,7 @@ default.unreachable20:                            ; preds = %15, %2
 56:                                               ; preds = %52
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4340)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4343)
+  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 8) ]
   %57 = getelementptr inbounds i8, ptr %54, i64 24
   %58 = load ptr, ptr %57, align 8, !noalias !4346, !nonnull !9, !noundef !9
   %59 = getelementptr inbounds i8, ptr %0, i64 64

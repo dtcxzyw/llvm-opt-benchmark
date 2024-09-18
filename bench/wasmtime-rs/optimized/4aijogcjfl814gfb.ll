@@ -6080,6 +6080,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   br i1 %.not4.i, label %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5dafd6856c7722c9E.exit", label %.noexc2
 
 .noexc2:                                          ; preds = %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !647
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !647
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !647
@@ -6302,6 +6303,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Ente
   br i1 %.not3.i, label %_ZN7tracing4span4Span7do_exit17hf5a4acf1f840af7bE.exit, label %15
 
 15:                                               ; preds = %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ], !noalias !717
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !720
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !720
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1), !noalias !720
@@ -6746,6 +6748,7 @@ define internal fastcc void @_ZN7tracing4span4Span3log17h23e1145dd3ff6f08E(ptr n
   br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %13 = load i64, ptr %11, align 8, !range !804, !noundef !11
   %switch.tableidx = add nsw i64 %13, -1
   %14 = icmp ult i64 %switch.tableidx, 4
@@ -9841,6 +9844,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc89
 
 .noexc89:                                         ; preds = %103
+  call void @llvm.assume(i1 true) [ "align"(ptr %105, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25), !noalias !1185
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !1185
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !1185
@@ -10325,6 +10329,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %215
 
 215:                                              ; preds = %212
+  call void @llvm.assume(i1 true) [ "align"(ptr %214, i64 8) ], !noalias !1256
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !1259
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1259
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1259
@@ -10406,6 +10411,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i124, label %.sink.split, label %241
 
 241:                                              ; preds = %238
+  call void @llvm.assume(i1 true) [ "align"(ptr %240, i64 8) ], !noalias !1269
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !1272
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1272
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1272
@@ -10611,6 +10617,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc93
 
 .noexc93:                                         ; preds = %68
+  call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !1289
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !1289
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !1289
@@ -10763,6 +10770,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %121
 
 121:                                              ; preds = %118
+  call void @llvm.assume(i1 true) [ "align"(ptr %120, i64 8) ], !noalias !1311
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !1314
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1314
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1314
@@ -10848,6 +10856,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i111, label %.sink.split, label %149
 
 149:                                              ; preds = %146
+  call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 8) ], !noalias !1324
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1327
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1327
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1327
@@ -11153,6 +11162,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc89
 
 .noexc89:                                         ; preds = %110
+  call void @llvm.assume(i1 true) [ "align"(ptr %112, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32), !noalias !1344
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !1344
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !1344
@@ -11743,6 +11753,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h52bef2303070dc3bE.exit.thread2
   br i1 %.not3.i.i, label %.sink.split, label %260
 
 260:                                              ; preds = %257
+  call void @llvm.assume(i1 true) [ "align"(ptr %259, i64 8) ], !noalias !1431
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !1434
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1434
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1434
@@ -11824,6 +11835,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h52bef2303070dc3bE.exit.thread2
   br i1 %.not3.i.i124, label %.sink.split, label %286
 
 286:                                              ; preds = %283
+  call void @llvm.assume(i1 true) [ "align"(ptr %285, i64 8) ], !noalias !1444
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !1447
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1447
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1447
@@ -12029,6 +12041,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc66
 
 .noexc66:                                         ; preds = %68
+  call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !1464
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !1464
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !1464
@@ -12185,6 +12198,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %125
 
 125:                                              ; preds = %122
+  call void @llvm.assume(i1 true) [ "align"(ptr %124, i64 8) ], !noalias !1486
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !1489
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1489
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1489
@@ -12270,6 +12284,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i79, label %.sink.split, label %153
 
 153:                                              ; preds = %150
+  call void @llvm.assume(i1 true) [ "align"(ptr %152, i64 8) ], !noalias !1499
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1502
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1502
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1502
@@ -12521,6 +12536,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc88
 
 .noexc88:                                         ; preds = %81
+  call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !1509
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !1509
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !1509
@@ -12677,6 +12693,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %144
 
 144:                                              ; preds = %141
+  call void @llvm.assume(i1 true) [ "align"(ptr %143, i64 8) ], !noalias !1533
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !1536
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1536
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1536
@@ -12750,6 +12767,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i117, label %.sink.split, label %169
 
 169:                                              ; preds = %166
+  call void @llvm.assume(i1 true) [ "align"(ptr %168, i64 8) ], !noalias !1546
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !1549
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1549
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1549
@@ -13031,6 +13049,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc98
 
 .noexc98:                                         ; preds = %86
+  call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !1556
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !1556
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !1556
@@ -13214,6 +13233,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %149
 
 149:                                              ; preds = %146
+  call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 8) ], !noalias !1580
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !1583
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1583
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1583
@@ -13287,6 +13307,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i139, label %.sink.split, label %174
 
 174:                                              ; preds = %171
+  call void @llvm.assume(i1 true) [ "align"(ptr %173, i64 8) ], !noalias !1593
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !1596
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1596
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1596
@@ -14587,6 +14608,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc87
 
 .noexc87:                                         ; preds = %95
+  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !1715
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !1715
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !1715
@@ -14754,6 +14776,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %136
 
 136:                                              ; preds = %133
+  call void @llvm.assume(i1 true) [ "align"(ptr %135, i64 8) ], !noalias !1727
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !1730
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1730
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1730
@@ -14829,6 +14852,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i125, label %.sink.split, label %161
 
 161:                                              ; preds = %158
+  call void @llvm.assume(i1 true) [ "align"(ptr %160, i64 8) ], !noalias !1740
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !1743
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1743
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1743
@@ -15528,6 +15552,7 @@ common.ret:                                       ; preds = %286, %125
   store ptr %203, ptr %10, align 8, !noalias !1828
   %209 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %207, ptr %209, align 8, !noalias !1828
+  call void @llvm.assume(i1 true) [ "align"(ptr %207, i64 8) ]
   %210 = load ptr, ptr %207, align 8, !invariant.load !11, !noalias !1832, !nonnull !11
   invoke void %210(ptr noundef nonnull align 1 %203)
           to label %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_wasi..stream..HostOutputStream$GT$$GT$17hc201138539f157d8E.llvm.10002545943538650143.exit.i.i" unwind label %211, !noalias !1832
@@ -17971,6 +17996,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc105
 
 .noexc105:                                        ; preds = %91
+  call void @llvm.assume(i1 true) [ "align"(ptr %93, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !2117
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !2117
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2117
@@ -18223,6 +18249,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %165
 
 165:                                              ; preds = %162
+  call void @llvm.assume(i1 true) [ "align"(ptr %164, i64 8) ], !noalias !2148
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !2151
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !2151
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2151
@@ -18345,6 +18372,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i146, label %.sink.split, label %201
 
 201:                                              ; preds = %198
+  call void @llvm.assume(i1 true) [ "align"(ptr %200, i64 8) ], !noalias !2171
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !2174
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2174
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2174
@@ -18651,6 +18679,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc87
 
 .noexc87:                                         ; preds = %95
+  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !2181
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2181
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !2181
@@ -18813,6 +18842,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %134
 
 134:                                              ; preds = %131
+  call void @llvm.assume(i1 true) [ "align"(ptr %133, i64 8) ], !noalias !2193
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !2196
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !2196
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2196
@@ -18888,6 +18918,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i124, label %.sink.split, label %159
 
 159:                                              ; preds = %156
+  call void @llvm.assume(i1 true) [ "align"(ptr %158, i64 8) ], !noalias !2206
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !2209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !2209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2209
@@ -23259,6 +23290,7 @@ _ZN4core3mem4drop17h956b6ab2a4373c5bE.exit.i:     ; preds = %"_ZN4core3ptr57drop
           to label %396 unwind label %394, !noalias !2651
 
 356:                                              ; preds = %350
+  call void @llvm.assume(i1 true) [ "align"(ptr %333, i64 4) ]
   %.sroa.6282.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 200
   %.sroa.6282.0.copyload.i = load i64, ptr %.sroa.6282.0..sroa_idx.i, align 8, !noalias !2647
   %.sroa.7283.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 208
@@ -28983,6 +29015,7 @@ _ZN4core3mem4drop17h956b6ab2a4373c5bE.exit.i:     ; preds = %"_ZN4core3ptr57drop
   store ptr %290, ptr %6, align 8, !noalias !3576
   %296 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %294, ptr %296, align 8, !noalias !3576
+  call void @llvm.assume(i1 true) [ "align"(ptr %294, i64 8) ]
   %297 = load ptr, ptr %294, align 8, !invariant.load !11, !noalias !3580, !nonnull !11
   invoke void %297(ptr noundef nonnull align 1 %290)
           to label %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_wasi..stream..HostOutputStream$GT$$GT$17hc201138539f157d8E.llvm.10002545943538650143.exit.i.i" unwind label %298, !noalias !3580
@@ -29442,6 +29475,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc89
 
 .noexc89:                                         ; preds = %87
+  call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !3601
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !3601
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !3601
@@ -29737,6 +29771,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %181
 
 181:                                              ; preds = %178
+  call void @llvm.assume(i1 true) [ "align"(ptr %180, i64 8) ], !noalias !3643
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !3646
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !3646
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !3646
@@ -29815,6 +29850,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i117, label %.sink.split, label %207
 
 207:                                              ; preds = %204
+  call void @llvm.assume(i1 true) [ "align"(ptr %206, i64 8) ], !noalias !3656
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !3659
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3659
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3659
@@ -30131,6 +30167,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc120
 
 .noexc120:                                        ; preds = %103
+  call void @llvm.assume(i1 true) [ "align"(ptr %105, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !3666
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !3666
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !3666
@@ -30474,6 +30511,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %200
 
 200:                                              ; preds = %197
+  call void @llvm.assume(i1 true) [ "align"(ptr %199, i64 8) ], !noalias !3708
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !3711
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !3711
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !3711
@@ -30555,6 +30593,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i173, label %.sink.split, label %226
 
 226:                                              ; preds = %223
+  call void @llvm.assume(i1 true) [ "align"(ptr %225, i64 8) ], !noalias !3721
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !3724
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !3724
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3724
@@ -30845,6 +30884,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc113
 
 .noexc113:                                        ; preds = %98
+  call void @llvm.assume(i1 true) [ "align"(ptr %100, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !3731
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !3731
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !3731
@@ -31181,6 +31221,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %187
 
 187:                                              ; preds = %184
+  call void @llvm.assume(i1 true) [ "align"(ptr %186, i64 8) ], !noalias !3782
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !3785
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !3785
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !3785
@@ -31302,6 +31343,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i158, label %.sink.split, label %223
 
 223:                                              ; preds = %220
+  call void @llvm.assume(i1 true) [ "align"(ptr %222, i64 8) ], !noalias !3805
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !3808
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3808
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3808
@@ -33500,6 +33542,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc77
 
 .noexc77:                                         ; preds = %87
+  call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !4064
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !4064
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !4064
@@ -33773,6 +33816,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %172
 
 172:                                              ; preds = %169
+  call void @llvm.assume(i1 true) [ "align"(ptr %171, i64 8) ], !noalias !4109
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !4112
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !4112
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !4112
@@ -33851,6 +33895,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i105, label %.sink.split, label %198
 
 198:                                              ; preds = %195
+  call void @llvm.assume(i1 true) [ "align"(ptr %197, i64 8) ], !noalias !4122
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !4125
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !4125
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4125
@@ -53270,6 +53315,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc61
 
 .noexc61:                                         ; preds = %81
+  call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !7137
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !7137
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !7137
@@ -53378,6 +53424,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %116
 
 116:                                              ; preds = %113
+  call void @llvm.assume(i1 true) [ "align"(ptr %115, i64 8) ], !noalias !7149
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !7152
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !7152
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !7152
@@ -53457,6 +53504,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i74, label %.sink.split, label %143
 
 143:                                              ; preds = %140
+  call void @llvm.assume(i1 true) [ "align"(ptr %142, i64 8) ], !noalias !7162
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !7165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !7165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !7165
@@ -53697,6 +53745,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc56
 
 .noexc56:                                         ; preds = %77
+  call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !7172
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !7172
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !7172
@@ -53797,6 +53846,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.thread102, label %107
 
 107:                                              ; preds = %104
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ], !noalias !7184
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !7187
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !7187
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !7187
@@ -53993,6 +54043,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc27
 
 .noexc27:                                         ; preds = %51
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !7194
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !7194
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !7194
@@ -54053,6 +54104,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.thread54, label %75
 
 75:                                               ; preds = %72
+  call void @llvm.assume(i1 true) [ "align"(ptr %74, i64 8) ], !noalias !7206
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !7209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !7209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !7209
@@ -54345,6 +54397,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %.critedge, label %.noexc96
 
 .noexc96:                                         ; preds = %96
+  call void @llvm.assume(i1 true) [ "align"(ptr %98, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !7220
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !7220
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !7220
@@ -54576,6 +54629,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %.sink.split, label %161
 
 161:                                              ; preds = %158
+  call void @llvm.assume(i1 true) [ "align"(ptr %160, i64 8) ], !noalias !7257
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !7260
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !7260
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !7260
@@ -54657,6 +54711,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i127, label %.sink.split, label %188
 
 188:                                              ; preds = %185
+  call void @llvm.assume(i1 true) [ "align"(ptr %187, i64 8) ], !noalias !7270
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !7273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !7273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !7273
@@ -54919,6 +54974,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %102, label %.noexc63
 
 .noexc63:                                         ; preds = %82
+  call void @llvm.assume(i1 true) [ "align"(ptr %84, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !7280
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !7280
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !7280
@@ -55055,6 +55111,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E.exit", label %117
 
 117:                                              ; preds = %114
+  call void @llvm.assume(i1 true) [ "align"(ptr %116, i64 8) ], !noalias !7298
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !7301
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !7301
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !7301
@@ -55344,6 +55401,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %115, label %.noexc73
 
 .noexc73:                                         ; preds = %91
+  call void @llvm.assume(i1 true) [ "align"(ptr %93, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !7308
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !7308
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !7308
@@ -55508,6 +55566,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E.exit", label %130
 
 130:                                              ; preds = %127
+  call void @llvm.assume(i1 true) [ "align"(ptr %129, i64 8) ], !noalias !7326
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !7329
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !7329
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !7329
@@ -55797,6 +55856,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %115, label %.noexc73
 
 .noexc73:                                         ; preds = %91
+  call void @llvm.assume(i1 true) [ "align"(ptr %93, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !7336
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !7336
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !7336
@@ -55961,6 +56021,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E.exit", label %130
 
 130:                                              ; preds = %127
+  call void @llvm.assume(i1 true) [ "align"(ptr %129, i64 8) ], !noalias !7354
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !7357
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !7357
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !7357
@@ -56220,6 +56281,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i, label %101, label %.noexc63
 
 .noexc63:                                         ; preds = %81
+  call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !7364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !7364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !7364
@@ -56356,6 +56418,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br i1 %.not3.i.i, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E.exit", label %116
 
 116:                                              ; preds = %113
+  call void @llvm.assume(i1 true) [ "align"(ptr %115, i64 8) ], !noalias !7382
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !7385
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !7385
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !7385

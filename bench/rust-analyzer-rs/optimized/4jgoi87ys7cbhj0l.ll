@@ -182,6 +182,7 @@ _ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread: ; preds =
   %48 = load ptr, ptr %47, align 8, !nonnull !4, !align !5
   %49 = getelementptr inbounds i8, ptr %5, i64 16
   %50 = load i64, ptr %49, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 4) ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br i1 %trunc44, label %55, label %54
 
@@ -309,6 +310,7 @@ _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.16556925844696330
   %48 = load ptr, ptr %47, align 8, !nonnull !4, !align !5
   %49 = getelementptr inbounds i8, ptr %5, i64 16
   %50 = load i64, ptr %49, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 4) ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br i1 %trunc44, label %55, label %54
 
@@ -1815,8 +1817,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 ; Function Attrs: cold nonlazybind uwtable
 declare hidden noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17h53e6f67c91801e3dE(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 attributes #0 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1825,7 +1830,8 @@ attributes #3 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

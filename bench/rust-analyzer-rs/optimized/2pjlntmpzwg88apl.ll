@@ -26485,6 +26485,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h009efb45a95f
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -26645,6 +26646,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h0361b8cb7959
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -26799,6 +26801,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h0554ef8ca9e4
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -26959,6 +26962,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h07307b02baac
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -27113,6 +27117,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h07e88be3888c
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -27267,6 +27272,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h086b9e29fc8c
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -27421,6 +27427,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h10c5fe7cbfc2
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -27575,6 +27582,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h12e560bd812e
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -27735,6 +27743,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h13c6e334cf34
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -27889,6 +27898,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h187b65a3fcdd
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -28043,6 +28053,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1b9005bb195e
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -28197,6 +28208,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1fdba9a9c9ef
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -28357,6 +28369,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h21aa868be159
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -28511,6 +28524,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h22b4c2944902
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -28665,6 +28679,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h22cd75fc2e77
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -28825,6 +28840,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h24738bd01b9f
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -28985,6 +29001,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h26f86041b8e8
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -29139,6 +29156,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h29da0a2e6ea8
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -29299,6 +29317,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h31150ca2baef
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -29453,6 +29472,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h379e9cc3b873
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -29613,6 +29633,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3a23c70f4484
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -29773,6 +29794,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3ace5ad22524
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -29933,6 +29955,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3d89f1a210a6
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -30087,6 +30110,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3d9684853f2d
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -30247,6 +30271,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3f16b134bcb5
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -30407,6 +30432,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3f869b65fc45
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -30561,6 +30587,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h40b97fa0b649
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -30721,6 +30748,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h48a8a99d6c58
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -30875,6 +30903,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4af7dcb62d11
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -31035,6 +31064,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4df06ed51b7c
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -31189,6 +31219,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4ff42e29e4c0
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -31343,6 +31374,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h50c3d75b29fa
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -31503,6 +31535,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h50cc779b96cd
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -31663,6 +31696,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h51cdc9ae869e
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -31817,6 +31851,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h56e0997edaec
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -31977,6 +32012,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h57bbf6925654
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -32137,6 +32173,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5cc63e5bc5e5
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -32291,6 +32328,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5f4132afd2f6
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -32445,6 +32483,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5f657956e6f1
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -32605,6 +32644,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h63739fef38be
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -32765,6 +32805,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h63db5f9409f7
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -32919,6 +32960,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6414a32ef467
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -33073,6 +33115,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h679881fa05c3
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -33233,6 +33276,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6b24e6e0e2d3
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -33387,6 +33431,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6d70c64899af
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -33541,6 +33586,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6e0487f8d76d
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -33701,6 +33747,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6ebd79dec649
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -33861,6 +33908,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7101509f6645
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -34021,6 +34069,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7addd1f7d212
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -34181,6 +34230,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h815f1bc01d91
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -34341,6 +34391,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9968677e235a
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -34495,6 +34546,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h99d66664429f
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -34649,6 +34701,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9c3c7b5e232e
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -34809,6 +34862,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9cb03217204e
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -34963,6 +35017,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9e305a43b719
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -35117,6 +35172,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha08907810501
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -35277,6 +35333,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha4110b9e1052
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -35437,6 +35494,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha53f7bd12a1e
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -35597,6 +35655,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17haa318c402b9c
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -35757,6 +35816,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb0ad757071d1
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -35917,6 +35977,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb0facd44f226
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -36071,6 +36132,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb2d82b2cd066
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -36231,6 +36293,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb41e0370e12e
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -36385,6 +36448,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb5278e6931af
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -36539,6 +36603,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hba8a7c0efb0a
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -36693,6 +36758,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbae4904890c3
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -36847,6 +36913,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbbce6bbf71dc
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -37001,6 +37068,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbc16d3abd68d
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -37161,6 +37229,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbf1e16352c91
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -37321,6 +37390,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc181e65a17e5
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -37475,6 +37545,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc4fa4918c2a8
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -37635,6 +37706,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc538d3a07fd3
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -37789,6 +37861,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc7759c0b98b9
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -37943,6 +38016,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc87335c37664
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -38097,6 +38171,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcc031f683768
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -38251,6 +38326,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd347efd1ba37
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -38405,6 +38481,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd61baf5ed556
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -38565,6 +38642,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd71c39fbf82d
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -38725,6 +38803,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17he54e161c80ba
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -38885,6 +38964,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heba44bda189d
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -39045,6 +39125,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf192918fd099
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -39199,6 +39280,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf5b25de7d002
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -39353,6 +39435,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf7935b1a4bd6
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -39513,6 +39596,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf7da869b8817
   br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h9b48a53ca242ff69E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !noundef !10
@@ -119983,6 +120067,7 @@ select.unfold.us.i.i.i.i.i.i.i.i.i:               ; preds = %.split.us.i.i.i.i.i
   br label %.loopexit399
 
 293:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89bb14e9b1d5ef7cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6375.0..sroa.6375.0..sroa.6375.0..sroa.6375.8., i64 8) ]
   %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16. = load i64, ptr %.sroa.10, align 8, !noundef !10
   %294 = inttoptr i64 %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16. to ptr
   %295 = call noundef align 4 dereferenceable(8) ptr @_ZN7hir_def4path4Path4kind17h8e35bf924783c6b1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)

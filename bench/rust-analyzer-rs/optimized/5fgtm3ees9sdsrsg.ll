@@ -3261,6 +3261,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %common.resume.i.i.i.i.i unwind label %19
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   invoke void @"_ZN11ide_assists8handlers17inline_type_alias22inline_type_alias_uses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h93190e93a3889ad6E.llvm.14339125420948612040"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h71debaa435d90543E.exit.i" unwind label %.body.i.i.i.i.i
 
@@ -3562,6 +3563,7 @@ common.resume.i.i:                                ; preds = %41, %18
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h27f3cdeabd387c93E.exit.i.i": ; preds = %22
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !1495
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   call void @_ZN3hir9semantics13SemanticsImpl21ancestors_with_macros17h84e9cea4ba556d78E(ptr noalias nocapture noundef nonnull sret({ { { { ptr, ptr }, ptr }, { ptr, [1 x i64] } }, {} }) align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 %20, ptr noundef nonnull %23), !noalias !1496
   %.sroa.0.0.copyload9.i.i = load ptr, ptr %2, align 8, !noalias !1501
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8.0..sroa_idx10.i.i, i64 32, i1 false), !noalias !1461
@@ -5855,6 +5857,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %9, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h95fa73cf589e68b9E.llvm.6055058659040047083.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   br label %11
 
@@ -6590,6 +6593,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h322e457af6626e98E.llvm.6055058659040047083.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -9431,6 +9435,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %10, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h03a21a09d9f4aae3E.llvm.6055058659040047083.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   br label %12
 
@@ -10755,20 +10760,24 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0228d787550f870cE.llvm.6055058659040047083.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %10 = phi ptr [ %16, %.lr.ph.i ], [ %8, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %11, ptr %0, align 8, !alias.scope !3542, !noalias !3545
-  %12 = tail call { i64, ptr } @"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17hcaca36902b310b18E.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10), !noalias !3547
-  %13 = extractvalue { i64, ptr } %12, 0
-  %14 = extractvalue { i64, ptr } %12, 1
-  call void @"_ZN4core4iter8adapters7inspect16inspect_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7ac87da4afb57b4fE.llvm.6055058659040047083"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i64 noundef %13, ptr noundef %14)
-  %15 = load ptr, ptr %6, align 8, !alias.scope !3542, !noalias !3545, !nonnull !4, !noundef !4
-  %16 = load ptr, ptr %0, align 8, !alias.scope !3542, !noalias !3545, !nonnull !4, !noundef !4
-  %17 = icmp eq ptr %16, %15
-  br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0228d787550f870cE.llvm.6055058659040047083.exit, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
+  br label %10
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h0228d787550f870cE.llvm.6055058659040047083.exit: ; preds = %.lr.ph.i, %2
+10:                                               ; preds = %10, %.lr.ph.i
+  %11 = phi ptr [ %8, %.lr.ph.i ], [ %17, %10 ]
+  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %12, ptr %0, align 8, !alias.scope !3542, !noalias !3545
+  %13 = tail call { i64, ptr } @"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17hcaca36902b310b18E.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %11), !noalias !3547
+  %14 = extractvalue { i64, ptr } %13, 0
+  %15 = extractvalue { i64, ptr } %13, 1
+  call void @"_ZN4core4iter8adapters7inspect16inspect_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7ac87da4afb57b4fE.llvm.6055058659040047083"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i64 noundef %14, ptr noundef %15)
+  %16 = load ptr, ptr %6, align 8, !alias.scope !3542, !noalias !3545, !nonnull !4, !noundef !4
+  %17 = load ptr, ptr %0, align 8, !alias.scope !3542, !noalias !3545, !nonnull !4, !noundef !4
+  %18 = icmp eq ptr %17, %16
+  br i1 %18, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0228d787550f870cE.llvm.6055058659040047083.exit, label %10
+
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h0228d787550f870cE.llvm.6055058659040047083.exit: ; preds = %10, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -11763,6 +11772,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he43d56ebdf0021aaE.llvm.6055058659040047083.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -25402,6 +25412,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator14partial_cmp_by
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !7754)
   %.promoted.i.i.i.i.i.i.i.i = load ptr, ptr %27, align 8, !alias.scope !7757, !noalias !7760
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   br label %28
 
 28:                                               ; preds = %.noexc8.i, %26
@@ -42509,6 +42520,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b
 
 .lr.ph:                                           ; preds = %2
   %13 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %14 = getelementptr inbounds i8, ptr %7, i64 96
   %15 = getelementptr inbounds i8, ptr %7, i64 88
   %16 = getelementptr inbounds i8, ptr %7, i64 120
@@ -63134,6 +63146,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 
 .lr.ph.i.i.i:                                     ; preds = %28
   %32 = getelementptr inbounds i8, ptr %1, i64 24
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   br label %33
 
 33:                                               ; preds = %58, %.lr.ph.i.i.i
@@ -63660,6 +63673,7 @@ common.resume:                                    ; preds = %44, %50, %19
   br i1 %.not3.i.i.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd7eac01da59a7778E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core6option15Option$LT$T$GT$6insert17h427b7a1265c1de05E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %23 = getelementptr inbounds i8, ptr %9, i64 8
   %24 = getelementptr inbounds i8, ptr %9, i64 16
   %25 = getelementptr inbounds i8, ptr %3, i64 8
@@ -69419,6 +69433,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
           to label %common.resume.i.i.i.i unwind label %19
 
 .lr.ph.i.i.i.i:                                   ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   invoke void @"_ZN11ide_assists8handlers17inline_type_alias22inline_type_alias_uses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h93190e93a3889ad6E.llvm.14339125420948612040"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h71debaa435d90543E.exit" unwind label %.body.i.i.i.i
 

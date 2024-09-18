@@ -125417,7 +125417,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
 "_ZN4core3ptr102drop_in_place$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h3d594fab5135c558E.llvm.16532663377229269005.exit.i": ; preds = %33, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17ha4ba9369eab6d6c6E.llvm.16532663377229269005.exit"
   %.0.i = phi i64 [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17ha4ba9369eab6d6c6E.llvm.16532663377229269005.exit" ], [ %29, %33 ]
   %26 = icmp eq i64 %.0.i, %24
-  br i1 %26, label %"_ZN4core3ptr102drop_in_place$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h3d594fab5135c558E.llvm.16532663377229269005.exit.i.i.i", label %27
+  br i1 %26, label %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$u5d$$GT$17h249baf2d6e6a0c56E.llvm.16532663377229269005.exit", label %27
 
 27:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h3d594fab5135c558E.llvm.16532663377229269005.exit.i"
   %28 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] } }], ptr %23, i64 0, i64 %.0.i
@@ -125473,8 +125473,12 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   invoke void @"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$$GT$17h66e0f769a7b9e5ffE.llvm.16532663377229269005"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #28
           to label %common.resume unwind label %66
 
-"_ZN4core3ptr102drop_in_place$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h3d594fab5135c558E.llvm.16532663377229269005.exit.i.i.i": ; preds = %"_ZN4core3ptr102drop_in_place$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h3d594fab5135c558E.llvm.16532663377229269005.exit.i", %53
-  %.0.i.i.i1 = phi i64 [ %49, %53 ], [ 0, %"_ZN4core3ptr102drop_in_place$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h3d594fab5135c558E.llvm.16532663377229269005.exit.i" ]
+"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$u5d$$GT$17h249baf2d6e6a0c56E.llvm.16532663377229269005.exit": ; preds = %"_ZN4core3ptr102drop_in_place$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h3d594fab5135c558E.llvm.16532663377229269005.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
+  br label %"_ZN4core3ptr102drop_in_place$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h3d594fab5135c558E.llvm.16532663377229269005.exit.i.i.i"
+
+"_ZN4core3ptr102drop_in_place$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h3d594fab5135c558E.llvm.16532663377229269005.exit.i.i.i": ; preds = %53, %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$u5d$$GT$17h249baf2d6e6a0c56E.llvm.16532663377229269005.exit"
+  %.0.i.i.i1 = phi i64 [ 0, %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$u5d$$GT$17h249baf2d6e6a0c56E.llvm.16532663377229269005.exit" ], [ %49, %53 ]
   %46 = icmp eq i64 %.0.i.i.i1, %.sroa.11.0.i
   br i1 %46, label %"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$$LP$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$$GT$17h66e0f769a7b9e5ffE.llvm.16532663377229269005.exit", label %47
 
@@ -125677,6 +125681,7 @@ define hidden void @"_ZN96_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I
 54:                                               ; preds = %34, %60
   %.sroa.5.sroa.4.0 = phi ptr [ undef, %34 ], [ %44, %60 ]
   %.sroa.5.sroa.5.0 = phi i32 [ undef, %34 ], [ %.sroa.6.0.i.i10, %60 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   store ptr %5, ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.54.0, ptr %55, align 8

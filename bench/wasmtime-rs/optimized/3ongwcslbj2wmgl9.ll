@@ -4769,7 +4769,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot11instantiate17h0844c31e5e7d723cE(ptr noalias noundef align 8 dereferenceable(40) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(8) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot11instantiate17h0844c31e5e7d723cE(ptr noalias noundef align 8 dereferenceable(40) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8, !range !900, !noundef !9
   %7 = trunc nuw i8 %6 to i1
@@ -4810,6 +4810,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot11instantia
   br i1 %24, label %_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit.thread, label %.thread
 
 25:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %14, i64 16
   %27 = load ptr, ptr %2, align 8, !nonnull !9, !noundef !9
   %28 = getelementptr inbounds i8, ptr %27, i64 16
@@ -4879,9 +4880,9 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot11instantia
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h79960b9b4360afb3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
           to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit.i" unwind label %68
 
-common.resume:                                    ; preds = %186, %68
-  %storemerge = phi ptr [ null, %68 ], [ %.0.i84108, %186 ]
-  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %187, %186 ]
+common.resume:                                    ; preds = %187, %68
+  %storemerge = phi ptr [ null, %68 ], [ %.0.i84108, %187 ]
+  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %188, %187 ]
   store ptr %storemerge, ptr %13, align 8
   resume { ptr, i32 } %common.resume.op
 
@@ -4896,7 +4897,7 @@ common.resume:                                    ; preds = %186, %68
 
 _ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit: ; preds = %.thread
   %70 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h77632ac8a72b50b7E"(ptr noundef nonnull %62), !noalias !919
-  br label %185
+  br label %186
 
 _ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit.thread: ; preds = %.critedge, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit.i", %17, %19
   %71 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4933,7 +4934,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.l
   %86 = or disjoint i64 %.neg.i27.i, 2
   %87 = inttoptr i64 %86 to ptr
   %88 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h77632ac8a72b50b7E"(ptr noundef nonnull %87), !noalias !932
-  br label %185
+  br label %186
 
 89:                                               ; preds = %_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit.thread
   %90 = icmp ult i64 %1, %72
@@ -4982,7 +4983,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.l
   %111 = or disjoint i64 %.neg.i27.i76, 2
   %112 = inttoptr i64 %111 to ptr
   %113 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h77632ac8a72b50b7E"(ptr noundef nonnull %112), !noalias !935
-  br label %185
+  br label %186
 
 114:                                              ; preds = %98
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.8fb3e9176293a06dcba80ef82613c36f.82, i64 noundef 55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8fb3e9176293a06dcba80ef82613c36f.83) #30
@@ -5017,6 +5018,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.l
   br i1 %125, label %155, label %.critedge63.thread94
 
 126:                                              ; preds = %119
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %127 = getelementptr inbounds i8, ptr %115, i64 16
   %128 = load ptr, ptr %2, align 8, !nonnull !9, !noundef !9
   %129 = getelementptr inbounds i8, ptr %128, i64 16
@@ -5061,7 +5063,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.l
 
 155:                                              ; preds = %118, %120, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit"
   store i8 1, ptr %5, align 8
-  br label %185
+  br label %186
 
 .critedge63.thread94:                             ; preds = %120, %149, %143, %126, %..critedge63.thread94_crit_edge
   %.val.i = phi ptr [ %.pre, %..critedge63.thread94_crit_edge ], [ %128, %126 ], [ %128, %143 ], [ %128, %149 ], [ %128, %120 ]
@@ -5072,9 +5074,14 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.l
   %160 = load i64, ptr %159, align 8, !noundef !9
   %161 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %158, i64 %160)
   %162 = extractvalue { i64, i1 } %161, 1
-  br i1 %162, label %171, label %172
+  br i1 %162, label %172, label %173
 
-_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit.thread: ; preds = %176, %175
+"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit.thread": ; preds = %119
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 8) ]
+  br label %167
+
+_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit.thread: ; preds = %177, %176
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %163 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !956
   %164 = icmp slt i64 %163, 0
   br i1 %164, label %165, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit"
@@ -5087,62 +5094,62 @@ _ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit.thread: ;
   %.pre103 = load ptr, ptr %13, align 8, !alias.scope !959
   tail call void @llvm.experimental.noalias.scope.decl(metadata !959)
   %166 = icmp eq ptr %.pre103, null
-  br i1 %166, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit.thread"
+  br i1 %166, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit", label %167
 
-"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit.thread": ; preds = %119, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit"
-  %.0.i84108 = phi ptr [ %.val.i, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit" ], [ null, %119 ]
-  %167 = phi ptr [ %.pre103, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit" ], [ %115, %119 ]
-  %168 = atomicrmw sub ptr %167, i64 1 release, align 8, !noalias !962
-  %169 = icmp eq i64 %168, 1
-  br i1 %169, label %170, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit"
+167:                                              ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit.thread", %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit"
+  %.0.i84108 = phi ptr [ null, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit.thread" ], [ %.val.i, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit" ]
+  %168 = phi ptr [ %115, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit.thread" ], [ %.pre103, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit" ]
+  %169 = atomicrmw sub ptr %168, i64 1 release, align 8, !noalias !962
+  %170 = icmp eq i64 %169, 1
+  br i1 %170, label %171, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit"
 
-170:                                              ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit.thread"
+171:                                              ; preds = %167
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h79960b9b4360afb3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
-          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit" unwind label %186
+          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit" unwind label %187
 
-171:                                              ; preds = %.critedge63.thread94
+172:                                              ; preds = %.critedge63.thread94
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8fb3e9176293a06dcba80ef82613c36f.84) #30
   unreachable
 
-172:                                              ; preds = %.critedge63.thread94
-  %173 = extractvalue { i64, i1 } %161, 0
-  %.not56 = icmp ugt i64 %173, %1
-  br i1 %.not56, label %174, label %175
+173:                                              ; preds = %.critedge63.thread94
+  %174 = extractvalue { i64, i1 } %161, 0
+  %.not56 = icmp ugt i64 %174, %1
+  br i1 %.not56, label %175, label %176
 
-174:                                              ; preds = %172
+175:                                              ; preds = %173
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.8fb3e9176293a06dcba80ef82613c36f.85, i64 noundef 102, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8fb3e9176293a06dcba80ef82613c36f.86) #30
   unreachable
 
-175:                                              ; preds = %172
+176:                                              ; preds = %173
   %.not57 = icmp eq i64 %160, 0
-  br i1 %.not57, label %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit.thread, label %176
+  br i1 %.not57, label %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit.thread, label %177
 
-176:                                              ; preds = %175
-  %177 = getelementptr inbounds i8, ptr %0, i64 24
-  %178 = load ptr, ptr %177, align 8, !nonnull !9, !noundef !9
-  %179 = getelementptr inbounds i8, ptr %178, i64 %158
-  %180 = getelementptr inbounds i8, ptr %.val.i, i64 40
-  %181 = load i64, ptr %180, align 8, !alias.scope !967, !noundef !9
-  %182 = tail call noundef ptr @_ZN16wasmtime_runtime3sys4unix2vm17MemoryImageSource6map_at17heffc90364ee64b77E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %156, ptr noundef nonnull %179, i64 noundef %160, i64 noundef %181)
-  %183 = icmp eq ptr %182, null
-  br i1 %183, label %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit.thread, label %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit
+177:                                              ; preds = %176
+  %178 = getelementptr inbounds i8, ptr %0, i64 24
+  %179 = load ptr, ptr %178, align 8, !nonnull !9, !noundef !9
+  %180 = getelementptr inbounds i8, ptr %179, i64 %158
+  %181 = getelementptr inbounds i8, ptr %.val.i, i64 40
+  %182 = load i64, ptr %181, align 8, !alias.scope !967, !noundef !9
+  %183 = tail call noundef ptr @_ZN16wasmtime_runtime3sys4unix2vm17MemoryImageSource6map_at17heffc90364ee64b77E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %156, ptr noundef nonnull %180, i64 noundef %160, i64 noundef %182)
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit.thread, label %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit
 
-_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit: ; preds = %176
-  %184 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h77632ac8a72b50b7E"(ptr noundef nonnull %182)
-  br label %185
+_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit: ; preds = %177
+  %185 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h77632ac8a72b50b7E"(ptr noundef nonnull %183)
+  br label %186
 
-185:                                              ; preds = %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit77, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit, %_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit, %155
-  %.0 = phi ptr [ null, %155 ], [ %70, %_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit ], [ %88, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit ], [ %113, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit77 ], [ %184, %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit ]
+186:                                              ; preds = %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit77, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit, %_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit, %155
+  %.0 = phi ptr [ null, %155 ], [ %70, %_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit ], [ %88, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit ], [ %113, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit77 ], [ %185, %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit ]
   ret ptr %.0
 
-186:                                              ; preds = %170
-  %187 = landingpad { ptr, i32 }
+187:                                              ; preds = %171
+  %188 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit": ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit.thread", %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit", %170
-  %.0.i84109 = phi ptr [ %.0.i84108, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit.thread" ], [ %.val.i, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit" ], [ %.0.i84108, %170 ]
+"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit": ; preds = %167, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit", %171
+  %.0.i84109 = phi ptr [ %.0.i84108, %167 ], [ %.val.i, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7e6359f8cf71075cE.exit" ], [ %.0.i84108, %171 ]
   store ptr %.0.i84109, ptr %13, align 8
   br label %155
 }

@@ -31100,51 +31100,55 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
 
 .body:                                            ; preds = %31
   invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$deltalake_sql..parser..Statement$GT$$GT$17h5bebe5b65a74b5f5E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #13
-          to label %common.resume unwind label %53
+          to label %common.resume unwind label %54
 
-"_ZN4core3ptr63drop_in_place$LT$$u5b$deltalake_sql..parser..Statement$u5d$$GT$17h5572d019b0d43121E.llvm.11705908289436625823.exit": ; preds = %26, %41
-  %.0.i.i.i1 = phi i64 [ %43, %41 ], [ 0, %26 ]
-  %40 = icmp eq i64 %.0.i.i.i1, %.sroa.11.0.i
-  br i1 %40, label %"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$deltalake_sql..parser..Statement$GT$$GT$17h5bebe5b65a74b5f5E.llvm.11705908289436625823.exit", label %41
+"_ZN4core3ptr63drop_in_place$LT$$u5b$deltalake_sql..parser..Statement$u5d$$GT$17h5572d019b0d43121E.llvm.11705908289436625823.exit": ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
+  br label %40
 
-41:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$deltalake_sql..parser..Statement$u5d$$GT$17h5572d019b0d43121E.llvm.11705908289436625823.exit"
-  %42 = getelementptr inbounds [0 x { i64, [95 x i64] }], ptr %22, i64 0, i64 %.0.i.i.i1
-  %43 = add i64 %.0.i.i.i1, 1
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$deltalake_sql..parser..Statement$GT$17h645e6fb52c8ea11bE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(768) %42)
-          to label %"_ZN4core3ptr63drop_in_place$LT$$u5b$deltalake_sql..parser..Statement$u5d$$GT$17h5572d019b0d43121E.llvm.11705908289436625823.exit" unwind label %46, !noalias !14856
+40:                                               ; preds = %42, %"_ZN4core3ptr63drop_in_place$LT$$u5b$deltalake_sql..parser..Statement$u5d$$GT$17h5572d019b0d43121E.llvm.11705908289436625823.exit"
+  %.0.i.i.i1 = phi i64 [ 0, %"_ZN4core3ptr63drop_in_place$LT$$u5b$deltalake_sql..parser..Statement$u5d$$GT$17h5572d019b0d43121E.llvm.11705908289436625823.exit" ], [ %44, %42 ]
+  %41 = icmp eq i64 %.0.i.i.i1, %.sroa.11.0.i
+  br i1 %41, label %"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$deltalake_sql..parser..Statement$GT$$GT$17h5bebe5b65a74b5f5E.llvm.11705908289436625823.exit", label %42
 
-44:                                               ; preds = %48, %46
-  %.1.i.i.i = phi i64 [ %43, %46 ], [ %50, %48 ]
-  %45 = icmp eq i64 %.1.i.i.i, %.sroa.11.0.i
-  br i1 %45, label %common.resume, label %48
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds [0 x { i64, [95 x i64] }], ptr %22, i64 0, i64 %.0.i.i.i1
+  %44 = add i64 %.0.i.i.i1, 1
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$deltalake_sql..parser..Statement$GT$17h645e6fb52c8ea11bE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(768) %43)
+          to label %40 unwind label %47, !noalias !14856
 
-46:                                               ; preds = %41
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %49, %47
+  %.1.i.i.i = phi i64 [ %44, %47 ], [ %51, %49 ]
+  %46 = icmp eq i64 %.1.i.i.i, %.sroa.11.0.i
+  br i1 %46, label %common.resume, label %49
+
+47:                                               ; preds = %42
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %45
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds [0 x { i64, [95 x i64] }], ptr %22, i64 0, i64 %.1.i.i.i
-  %50 = add i64 %.1.i.i.i, 1
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$deltalake_sql..parser..Statement$GT$17h645e6fb52c8ea11bE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(768) %49) #13
-          to label %44 unwind label %51, !noalias !14856
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds [0 x { i64, [95 x i64] }], ptr %22, i64 0, i64 %.1.i.i.i
+  %51 = add i64 %.1.i.i.i, 1
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$deltalake_sql..parser..Statement$GT$17h645e6fb52c8ea11bE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(768) %50) #13
+          to label %45 unwind label %52, !noalias !14856
 
-common.resume:                                    ; preds = %44, %.body
-  %common.resume.op = phi { ptr, i32 } [ %34, %.body ], [ %47, %44 ]
+common.resume:                                    ; preds = %45, %.body
+  %common.resume.op = phi { ptr, i32 } [ %34, %.body ], [ %48, %45 ]
   resume { ptr, i32 } %common.resume.op
 
-51:                                               ; preds = %48
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %49
+  %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14, !noalias !14856
   unreachable
 
-"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$deltalake_sql..parser..Statement$GT$$GT$17h5bebe5b65a74b5f5E.llvm.11705908289436625823.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$deltalake_sql..parser..Statement$u5d$$GT$17h5572d019b0d43121E.llvm.11705908289436625823.exit"
+"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$deltalake_sql..parser..Statement$GT$$GT$17h5bebe5b65a74b5f5E.llvm.11705908289436625823.exit": ; preds = %40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret void
 
-53:                                               ; preds = %.body
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %.body
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14
   unreachable

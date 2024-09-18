@@ -27881,16 +27881,16 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h85546ef
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17hda59d1c46c64f954E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %6) #55
-          to label %.body unwind label %17, !noalias !6456
+          to label %.body unwind label %19, !noalias !6456
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %4, align 8, !noalias !6461, !noundef !26
   %.not.i = icmp eq ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !6461, !nonnull !26, !noundef !26
   br i1 %.not.i, label %.thread.i, label %14
 
 .thread.i:                                        ; preds = %10
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = load ptr, ptr %12, align 8, !noalias !6461, !nonnull !26, !align !632, !noundef !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %6, i64 152, i1 false), !alias.scope !6463, !noalias !6464
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %13, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !6456, !noalias !6465
@@ -27900,17 +27900,20 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h85546ef
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17haffcf5a125818388E.exit"
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %11, ptr %15, align 8, !alias.scope !6456, !noalias !6465
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %13, ptr %16, align 8, !alias.scope !6456, !noalias !6465
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
+  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = load ptr, ptr %15, align 8, !noalias !6461, !nonnull !26, !noundef !26
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %11, ptr %17, align 8, !alias.scope !6456, !noalias !6465
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %16, ptr %18, align 8, !alias.scope !6456, !noalias !6465
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !6456, !noalias !6465
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !6461
   call void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17hda59d1c46c64f954E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %6)
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17haffcf5a125818388E.exit"
 
-17:                                               ; preds = %8
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %8
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53, !noalias !6456
   unreachable

@@ -5678,6 +5678,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core4cell4onc
 
 "_ZN4core3ptr215drop_in_place$LT$core..result..Result$LT$$RF$triomphe..arc..Arc$LT$span..ast_id..AstIdMap$GT$$C$$LP$$RF$triomphe..arc..Arc$LT$span..ast_id..AstIdMap$GT$$C$triomphe..arc..Arc$LT$span..ast_id..AstIdMap$GT$$RP$$GT$$GT$17h3cc4e31fda6d261fE.exit": ; preds = %7
   store ptr %15, ptr %0, align 8, !alias.scope !1057, !noalias !1054
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %24
 
@@ -5827,6 +5828,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core4cell4onc
 
 "_ZN4core3ptr215drop_in_place$LT$core..result..Result$LT$$RF$triomphe..arc..Arc$LT$span..ast_id..AstIdMap$GT$$C$$LP$$RF$triomphe..arc..Arc$LT$span..ast_id..AstIdMap$GT$$C$triomphe..arc..Arc$LT$span..ast_id..AstIdMap$GT$$RP$$GT$$GT$17h3cc4e31fda6d261fE.exit": ; preds = %7
   store ptr %15, ptr %0, align 8, !alias.scope !1069, !noalias !1066
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %24
 
@@ -31627,6 +31629,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h0065938
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10700, !noalias !10703
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h8706037247949437E.exit"
@@ -31676,6 +31679,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h077e50a
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10715, !noalias !10718
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h3c712ab1ecfe3532E.exit"
@@ -31725,6 +31729,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h0788bd8
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10730, !noalias !10733
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hcc334f141db3c1deE.exit"
@@ -31774,6 +31779,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h1b8bc2c
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10745, !noalias !10748
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h4fc8364f2f491a17E.exit"
@@ -31823,6 +31829,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h1d57751
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10760, !noalias !10763
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h93278023124fec5cE.exit"
@@ -31872,6 +31879,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h2319894
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10775, !noalias !10778
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17haaa203bfad23564bE.exit"
@@ -31921,6 +31929,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h2b4d108
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10790, !noalias !10793
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h7f5961e1d79ca5a3E.exit"
@@ -31970,6 +31979,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h302ec81
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10805, !noalias !10808
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h52974587dc81386fE.exit"
@@ -32022,25 +32032,29 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h359a06d
   %21 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17ha241b54da85b41dcE.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20, i64 noundef %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !10834
   %22 = icmp eq ptr %21, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10825
-  br i1 %22, label %23, label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h129a0f7c309cec24E.exit"
+  br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %6, align 4, !noalias !10825, !noundef !4
-  %25 = load i8, ptr %13, align 4, !range !475, !noalias !10825, !noundef !4
-  %26 = inttoptr i64 %12 to ptr
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %24, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !10820, !noalias !10823
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h129a0f7c309cec24E.exit"
 
-"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h129a0f7c309cec24E.exit": ; preds = %4, %23
-  %.sink8.i = phi ptr [ %26, %23 ], [ %1, %4 ]
-  %.sink7.i = phi ptr [ %1, %23 ], [ %21, %4 ]
-  %.sink.i = phi i8 [ %25, %23 ], [ -126, %4 ]
+24:                                               ; preds = %4
+  %25 = load i32, ptr %6, align 4, !noalias !10825, !noundef !4
+  %26 = load i8, ptr %13, align 4, !range !475, !noalias !10825, !noundef !4
+  %27 = inttoptr i64 %12 to ptr
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %25, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !10820, !noalias !10823
+  br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h129a0f7c309cec24E.exit"
+
+"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h129a0f7c309cec24E.exit": ; preds = %23, %24
+  %.sink8.i = phi ptr [ %27, %24 ], [ %1, %23 ]
+  %.sink7.i = phi ptr [ %1, %24 ], [ %21, %23 ]
+  %.sink.i = phi i8 [ %26, %24 ], [ -126, %23 ]
   store ptr %.sink8.i, ptr %0, align 8, !alias.scope !10820, !noalias !10823
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink7.i, ptr %27, align 8, !alias.scope !10820, !noalias !10823
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 %.sink.i, ptr %28, align 4, !alias.scope !10820, !noalias !10823
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink7.i, ptr %28, align 8, !alias.scope !10820, !noalias !10823
+  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 %.sink.i, ptr %29, align 4, !alias.scope !10820, !noalias !10823
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 }
@@ -32073,6 +32087,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h39bb07f
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10835, !noalias !10838
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h30040846136c663eE.exit"
@@ -32125,24 +32140,28 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h3d72a36
   %21 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h21275dea826ab59aE.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20, i64 noundef %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !10864
   %22 = icmp eq ptr %21, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !10855
-  br i1 %22, label %23, label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h7628061e6f16bd7fE.exit"
+  br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %6, align 4, !range !358, !noalias !10855, !noundef !4
-  %25 = load i32, ptr %13, align 4, !noalias !10855, !noundef !4
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %25, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !10850, !noalias !10853
-  %26 = inttoptr i64 %12 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h7628061e6f16bd7fE.exit"
 
-"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h7628061e6f16bd7fE.exit": ; preds = %4, %23
-  %.sink7.i = phi i32 [ %24, %23 ], [ 5, %4 ]
-  %.sink.i = phi ptr [ %26, %23 ], [ %21, %4 ]
+24:                                               ; preds = %4
+  %25 = load i32, ptr %6, align 4, !range !358, !noalias !10855, !noundef !4
+  %26 = load i32, ptr %13, align 4, !noalias !10855, !noundef !4
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %26, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !10850, !noalias !10853
+  %27 = inttoptr i64 %12 to ptr
+  br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h7628061e6f16bd7fE.exit"
+
+"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h7628061e6f16bd7fE.exit": ; preds = %23, %24
+  %.sink7.i = phi i32 [ %25, %24 ], [ 5, %23 ]
+  %.sink.i = phi ptr [ %27, %24 ], [ %21, %23 ]
   store i32 %.sink7.i, ptr %0, align 8, !alias.scope !10850, !noalias !10853
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %27, align 8, !alias.scope !10850, !noalias !10853
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink.i, ptr %28, align 8, !alias.scope !10850, !noalias !10853
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %28, align 8, !alias.scope !10850, !noalias !10853
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink.i, ptr %29, align 8, !alias.scope !10850, !noalias !10853
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 }
@@ -32175,6 +32194,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h3d92974
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10865, !noalias !10868
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha7e0775271a2d8a1E.exit"
@@ -32229,6 +32249,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h3ea3de6
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %18, align 8, !alias.scope !10886, !noalias !10903
   store i32 19, ptr %0, align 8, !alias.scope !10886, !noalias !10903
@@ -32276,6 +32297,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h4439f3f
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10905, !noalias !10908
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h1bd946e57630dd2bE.exit"
@@ -32345,6 +32367,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h46dfda8
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hf27a9e3932e52561E.llvm.14358968814291841630.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   store i32 11, ptr %0, align 8, !alias.scope !10920, !noalias !10923
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hec0f2d626554f019E.exit"
 
@@ -32392,6 +32415,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h564831a
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10935, !noalias !10938
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hf30a4ff48da2fa00E.exit"
@@ -32441,6 +32465,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h60aeab1
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10950, !noalias !10953
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hcd42af9517ef974dE.exit"
@@ -32490,6 +32515,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h698c2e6
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10965, !noalias !10968
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h0b5fcd4e446c8f43E.exit"
@@ -32539,6 +32565,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h6ea5881
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10980, !noalias !10983
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hc0bed924ebc76aeaE.exit"
@@ -32588,6 +32615,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h7d4f1ef
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !10995, !noalias !10998
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hcb783b201fe95517E.exit"
@@ -32640,24 +32668,28 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h7ee5f9b
   %21 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h443244ea2c9689d7E.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20, i64 noundef %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !11024
   %22 = icmp eq ptr %21, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11015
-  br i1 %22, label %23, label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h73ff710e720f20aeE.exit"
+  br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %6, align 4, !range !30, !noalias !11015, !noundef !4
-  %25 = load i32, ptr %13, align 4, !noalias !11015, !noundef !4
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %25, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11010, !noalias !11013
-  %26 = inttoptr i64 %12 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h73ff710e720f20aeE.exit"
 
-"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h73ff710e720f20aeE.exit": ; preds = %4, %23
-  %.sink7.i = phi i32 [ %24, %23 ], [ 3, %4 ]
-  %.sink.i = phi ptr [ %26, %23 ], [ %21, %4 ]
+24:                                               ; preds = %4
+  %25 = load i32, ptr %6, align 4, !range !30, !noalias !11015, !noundef !4
+  %26 = load i32, ptr %13, align 4, !noalias !11015, !noundef !4
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %26, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11010, !noalias !11013
+  %27 = inttoptr i64 %12 to ptr
+  br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h73ff710e720f20aeE.exit"
+
+"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h73ff710e720f20aeE.exit": ; preds = %23, %24
+  %.sink7.i = phi i32 [ %25, %24 ], [ 3, %23 ]
+  %.sink.i = phi ptr [ %27, %24 ], [ %21, %23 ]
   store i32 %.sink7.i, ptr %0, align 8, !alias.scope !11010, !noalias !11013
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %27, align 8, !alias.scope !11010, !noalias !11013
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink.i, ptr %28, align 8, !alias.scope !11010, !noalias !11013
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %28, align 8, !alias.scope !11010, !noalias !11013
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink.i, ptr %29, align 8, !alias.scope !11010, !noalias !11013
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 }
@@ -32690,6 +32722,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h8945910
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11025, !noalias !11028
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h3c72bf0f6df50ee6E.exit"
@@ -32739,6 +32772,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h973dbe9
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11040, !noalias !11043
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h51ec556f8184f767E.exit"
@@ -32791,24 +32825,28 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h9a05e07
   %21 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hc4f9f42c0fdd3a29E.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20, i64 noundef %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !11069
   %22 = icmp eq ptr %21, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11060
-  br i1 %22, label %23, label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4a1cfd22a022cafE.exit"
+  br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %6, align 4, !range !358, !noalias !11060, !noundef !4
-  %25 = load i32, ptr %13, align 4, !noalias !11060, !noundef !4
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %25, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11055, !noalias !11058
-  %26 = inttoptr i64 %12 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4a1cfd22a022cafE.exit"
 
-"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4a1cfd22a022cafE.exit": ; preds = %4, %23
-  %.sink7.i = phi i32 [ %24, %23 ], [ 5, %4 ]
-  %.sink.i = phi ptr [ %26, %23 ], [ %21, %4 ]
+24:                                               ; preds = %4
+  %25 = load i32, ptr %6, align 4, !range !358, !noalias !11060, !noundef !4
+  %26 = load i32, ptr %13, align 4, !noalias !11060, !noundef !4
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %26, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11055, !noalias !11058
+  %27 = inttoptr i64 %12 to ptr
+  br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4a1cfd22a022cafE.exit"
+
+"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4a1cfd22a022cafE.exit": ; preds = %23, %24
+  %.sink7.i = phi i32 [ %25, %24 ], [ 5, %23 ]
+  %.sink.i = phi ptr [ %27, %24 ], [ %21, %23 ]
   store i32 %.sink7.i, ptr %0, align 8, !alias.scope !11055, !noalias !11058
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %27, align 8, !alias.scope !11055, !noalias !11058
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink.i, ptr %28, align 8, !alias.scope !11055, !noalias !11058
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %28, align 8, !alias.scope !11055, !noalias !11058
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink.i, ptr %29, align 8, !alias.scope !11055, !noalias !11058
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 }
@@ -32841,6 +32879,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h9dd78dd
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11070, !noalias !11073
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h83fb70b9e2a01434E.exit"
@@ -32890,6 +32929,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17ha151042
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11085, !noalias !11088
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hae3719c2d271379bE.exit"
@@ -32939,6 +32979,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17ha699be2
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11100, !noalias !11103
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h0b0c0eb3e29dde0eE.exit"
@@ -32988,6 +33029,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17ha850f13
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11115, !noalias !11118
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hb98b4c9aada7c2cdE.exit"
@@ -33040,24 +33082,28 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17hab7fa76
   %21 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17he3fce5cba0f1d2e3E.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20, i64 noundef %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !11144
   %22 = icmp eq ptr %21, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11135
-  br i1 %22, label %23, label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h2604087198d80d27E.exit"
+  br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %6, align 4, !range !30, !noalias !11135, !noundef !4
-  %25 = load i32, ptr %13, align 4, !noalias !11135, !noundef !4
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %25, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11130, !noalias !11133
-  %26 = inttoptr i64 %12 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h2604087198d80d27E.exit"
 
-"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h2604087198d80d27E.exit": ; preds = %4, %23
-  %.sink7.i = phi i32 [ %24, %23 ], [ 3, %4 ]
-  %.sink.i = phi ptr [ %26, %23 ], [ %21, %4 ]
+24:                                               ; preds = %4
+  %25 = load i32, ptr %6, align 4, !range !30, !noalias !11135, !noundef !4
+  %26 = load i32, ptr %13, align 4, !noalias !11135, !noundef !4
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %26, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11130, !noalias !11133
+  %27 = inttoptr i64 %12 to ptr
+  br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h2604087198d80d27E.exit"
+
+"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h2604087198d80d27E.exit": ; preds = %23, %24
+  %.sink7.i = phi i32 [ %25, %24 ], [ 3, %23 ]
+  %.sink.i = phi ptr [ %27, %24 ], [ %21, %23 ]
   store i32 %.sink7.i, ptr %0, align 8, !alias.scope !11130, !noalias !11133
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %27, align 8, !alias.scope !11130, !noalias !11133
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink.i, ptr %28, align 8, !alias.scope !11130, !noalias !11133
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %28, align 8, !alias.scope !11130, !noalias !11133
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink.i, ptr %29, align 8, !alias.scope !11130, !noalias !11133
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 }
@@ -33090,6 +33136,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17hba184b3
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11145, !noalias !11148
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h934c2f86bfb03d24E.exit"
@@ -33182,24 +33229,24 @@ default.unreachable:                              ; preds = %3
   %33 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h15ade3606e872d3cE.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %32, i64 noundef %25, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4), !noalias !11201
   %34 = icmp eq ptr %33, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !11195
-  br i1 %34, label %37, label %35
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %34, label %36, label %35
 
 35:                                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h2e621f182a3600d6E.llvm.14358968814291841630.exit"
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 3, ptr %36, align 8, !alias.scope !11185, !noalias !11202
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
+  store i32 3, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !11185, !noalias !11202
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17he7d0bf36831e9996E.exit"
 
-37:                                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h2e621f182a3600d6E.llvm.14358968814291841630.exit"
-  %38 = inttoptr i64 %25 to ptr
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+36:                                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h2e621f182a3600d6E.llvm.14358968814291841630.exit"
+  %37 = inttoptr i64 %25 to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false), !alias.scope !11203, !noalias !11188
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17he7d0bf36831e9996E.exit"
 
-"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17he7d0bf36831e9996E.exit": ; preds = %35, %37
-  %.sink.i = phi ptr [ %38, %37 ], [ %33, %35 ]
+"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17he7d0bf36831e9996E.exit": ; preds = %35, %36
+  %.sink.i = phi ptr [ %37, %36 ], [ %33, %35 ]
   store ptr %1, ptr %0, align 8, !alias.scope !11185, !noalias !11202
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %39, align 8, !alias.scope !11185, !noalias !11202
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink.i, ptr %38, align 8, !alias.scope !11185, !noalias !11202
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
   ret void
 }
@@ -33232,6 +33279,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17hcb458a6
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11204, !noalias !11207
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h4db57858f02d1bc5E.exit"
@@ -33281,6 +33329,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17hd77d324
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11219, !noalias !11222
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17he677e3dabb91d0f9E.exit"
@@ -33333,24 +33382,28 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17hdbc2461
   %21 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h44be576aae2afbd4E.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20, i64 noundef %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !11248
   %22 = icmp eq ptr %21, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11239
-  br i1 %22, label %23, label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hf664fae643aa2155E.exit"
+  br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %6, align 4, !range !358, !noalias !11239, !noundef !4
-  %25 = load i32, ptr %13, align 4, !noalias !11239, !noundef !4
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %25, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11234, !noalias !11237
-  %26 = inttoptr i64 %12 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hf664fae643aa2155E.exit"
 
-"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hf664fae643aa2155E.exit": ; preds = %4, %23
-  %.sink7.i = phi i32 [ %24, %23 ], [ 5, %4 ]
-  %.sink.i = phi ptr [ %26, %23 ], [ %21, %4 ]
+24:                                               ; preds = %4
+  %25 = load i32, ptr %6, align 4, !range !358, !noalias !11239, !noundef !4
+  %26 = load i32, ptr %13, align 4, !noalias !11239, !noundef !4
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %26, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11234, !noalias !11237
+  %27 = inttoptr i64 %12 to ptr
+  br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hf664fae643aa2155E.exit"
+
+"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hf664fae643aa2155E.exit": ; preds = %23, %24
+  %.sink7.i = phi i32 [ %25, %24 ], [ 5, %23 ]
+  %.sink.i = phi ptr [ %27, %24 ], [ %21, %23 ]
   store i32 %.sink7.i, ptr %0, align 8, !alias.scope !11234, !noalias !11237
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %27, align 8, !alias.scope !11234, !noalias !11237
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink.i, ptr %28, align 8, !alias.scope !11234, !noalias !11237
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %28, align 8, !alias.scope !11234, !noalias !11237
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink.i, ptr %29, align 8, !alias.scope !11234, !noalias !11237
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 }
@@ -33386,24 +33439,28 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17he3019fe
   %21 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17ha9a35d56b3f16d5bE.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20, i64 noundef %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !11263
   %22 = icmp eq ptr %21, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11254
-  br i1 %22, label %23, label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4d601b55f0d56a3E.exit"
+  br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %6, align 4, !range !30, !noalias !11254, !noundef !4
-  %25 = load i32, ptr %13, align 4, !noalias !11254, !noundef !4
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %25, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11249, !noalias !11252
-  %26 = inttoptr i64 %12 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4d601b55f0d56a3E.exit"
 
-"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4d601b55f0d56a3E.exit": ; preds = %4, %23
-  %.sink7.i = phi i32 [ %24, %23 ], [ 3, %4 ]
-  %.sink.i = phi ptr [ %26, %23 ], [ %21, %4 ]
+24:                                               ; preds = %4
+  %25 = load i32, ptr %6, align 4, !range !30, !noalias !11254, !noundef !4
+  %26 = load i32, ptr %13, align 4, !noalias !11254, !noundef !4
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %26, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11249, !noalias !11252
+  %27 = inttoptr i64 %12 to ptr
+  br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4d601b55f0d56a3E.exit"
+
+"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17ha4d601b55f0d56a3E.exit": ; preds = %23, %24
+  %.sink7.i = phi i32 [ %25, %24 ], [ 3, %23 ]
+  %.sink.i = phi ptr [ %27, %24 ], [ %21, %23 ]
   store i32 %.sink7.i, ptr %0, align 8, !alias.scope !11249, !noalias !11252
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %27, align 8, !alias.scope !11249, !noalias !11252
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink.i, ptr %28, align 8, !alias.scope !11249, !noalias !11252
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %28, align 8, !alias.scope !11249, !noalias !11252
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink.i, ptr %29, align 8, !alias.scope !11249, !noalias !11252
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 }
@@ -33436,6 +33493,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17hf1d1bbb
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11264, !noalias !11267
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h4603e384d48e72f0E.exit"
@@ -33616,6 +33674,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17hf7c0c6b
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %18, align 8, !alias.scope !11313, !noalias !11316
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h7fe3bf826578ce6dE.exit"
@@ -33668,24 +33727,28 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17hfdbbb09
   %21 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd6fa754043484da7E.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20, i64 noundef %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !11342
   %22 = icmp eq ptr %21, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11333
-  br i1 %22, label %23, label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h1df0b754d534b2beE.exit"
+  br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %6, align 4, !range !30, !noalias !11333, !noundef !4
-  %25 = load i32, ptr %13, align 4, !noalias !11333, !noundef !4
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %25, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11328, !noalias !11331
-  %26 = inttoptr i64 %12 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h1df0b754d534b2beE.exit"
 
-"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h1df0b754d534b2beE.exit": ; preds = %4, %23
-  %.sink7.i = phi i32 [ %24, %23 ], [ 3, %4 ]
-  %.sink.i = phi ptr [ %26, %23 ], [ %21, %4 ]
+24:                                               ; preds = %4
+  %25 = load i32, ptr %6, align 4, !range !30, !noalias !11333, !noundef !4
+  %26 = load i32, ptr %13, align 4, !noalias !11333, !noundef !4
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %26, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !11328, !noalias !11331
+  %27 = inttoptr i64 %12 to ptr
+  br label %"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h1df0b754d534b2beE.exit"
+
+"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17h1df0b754d534b2beE.exit": ; preds = %23, %24
+  %.sink7.i = phi i32 [ %25, %24 ], [ 3, %23 ]
+  %.sink.i = phi ptr [ %27, %24 ], [ %21, %23 ]
   store i32 %.sink7.i, ptr %0, align 8, !alias.scope !11328, !noalias !11331
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %27, align 8, !alias.scope !11328, !noalias !11331
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink.i, ptr %28, align 8, !alias.scope !11328, !noalias !11331
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %28, align 8, !alias.scope !11328, !noalias !11331
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink.i, ptr %29, align 8, !alias.scope !11328, !noalias !11331
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 }

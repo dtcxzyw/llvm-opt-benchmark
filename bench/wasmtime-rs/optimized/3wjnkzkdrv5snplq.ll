@@ -3455,6 +3455,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   store i64 2, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2541, i64 256
   store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2541, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %342, ptr nonnull align 8 %2541, i64 2)
           to label %2557 unwind label %.thread168.i
 
@@ -3565,6 +3566,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   store i64 4, ptr %.sroa.35.0..sroa_idx.i, align 8
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %2579, i64 120
   store ptr null, ptr %.sroa.46.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2579, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %325, ptr nonnull align 8 %2579, i64 1)
           to label %2586 unwind label %.thread179.i
 
@@ -3649,6 +3651,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   store i64 4, ptr %.sroa.310.0..sroa_idx.i, align 8
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds i8, ptr %2593, i64 256
   store ptr null, ptr %.sroa.411.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2593, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %320, ptr nonnull align 8 %2593, i64 2)
           to label %2608 unwind label %.thread190.i
 
@@ -3701,6 +3704,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   store i64 4, ptr %.sroa.315.0..sroa_idx.i, align 8
   %.sroa.416.0..sroa_idx.i = getelementptr inbounds i8, ptr %2613, i64 120
   store ptr null, ptr %.sroa.416.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2613, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %313, ptr nonnull align 8 %2613, i64 1)
           to label %2619 unwind label %.thread201.i
 
@@ -3780,6 +3784,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   store i64 4, ptr %.sroa.320.0..sroa_idx.i, align 8
   %.sroa.421.0..sroa_idx.i = getelementptr inbounds i8, ptr %2624, i64 256
   store ptr null, ptr %.sroa.421.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2624, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %308, ptr nonnull align 8 %2624, i64 2)
           to label %2639 unwind label %.thread212.i
 
@@ -3859,6 +3864,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   store i64 4, ptr %.sroa.325.0..sroa_idx.i, align 8
   %.sroa.426.0..sroa_idx.i = getelementptr inbounds i8, ptr %2644, i64 256
   store ptr null, ptr %.sroa.426.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2644, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %301, ptr nonnull align 8 %2644, i64 2)
           to label %2659 unwind label %.thread223.i
 
@@ -4508,6 +4514,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   store i64 4, ptr %.sroa.330.0..sroa_idx.i, align 8
   %.sroa.431.0..sroa_idx.i = getelementptr inbounds i8, ptr %2838, i64 120
   store ptr null, ptr %.sroa.431.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2838, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %231, ptr nonnull align 8 %2838, i64 1)
           to label %2844 unwind label %.thread322.i
 
@@ -5000,6 +5007,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   store i64 1, ptr %.sroa.3.0..sroa_idx.i3082, align 8
   %.sroa.4.0..sroa_idx.i3083 = getelementptr inbounds i8, ptr %2877, i64 120
   store ptr null, ptr %.sroa.4.0..sroa_idx.i3083, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2877, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %184, ptr nonnull align 8 %2877, i64 1)
           to label %2883 unwind label %.thread10.i
 
@@ -5170,6 +5178,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   store i64 1, ptr %.sroa.311.0..sroa_idx.i, align 8
   %.sroa.412.0..sroa_idx.i = getelementptr inbounds i8, ptr %2923, i64 120
   store ptr null, ptr %.sroa.412.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2923, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %167, ptr nonnull align 8 %2923, i64 1)
           to label %2929 unwind label %.thread32.i
 
@@ -5290,6 +5299,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   store i64 1, ptr %.sroa.316.0..sroa_idx.i, align 8
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds i8, ptr %2954, i64 120
   store ptr null, ptr %.sroa.417.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %2954, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %156, ptr nonnull align 8 %2954, i64 1)
           to label %2960 unwind label %.thread54.i
 
@@ -5461,6 +5471,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   store i64 1, ptr %.sroa.321.0..sroa_idx.i, align 8
   %.sroa.422.0..sroa_idx.i = getelementptr inbounds i8, ptr %3006, i64 120
   store ptr null, ptr %.sroa.422.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3006, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %142, ptr nonnull align 8 %3006, i64 1)
           to label %3012 unwind label %.thread71.i
 
@@ -5604,6 +5615,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   store i64 1, ptr %.sroa.326.0..sroa_idx.i, align 8
   %.sroa.427.0..sroa_idx.i = getelementptr inbounds i8, ptr %3053, i64 120
   store ptr null, ptr %.sroa.427.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3053, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %132, ptr nonnull align 8 %3053, i64 1)
           to label %3057 unwind label %.thread89.i
 
@@ -5976,6 +5988,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.3.0..sroa_idx.i3089, align 8
   %.sroa.4.0..sroa_idx.i3090 = getelementptr inbounds i8, ptr %3072, i64 256
   store ptr null, ptr %.sroa.4.0..sroa_idx.i3090, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3072, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %106, ptr nonnull align 8 %3072, i64 2)
           to label %3086 unwind label %.thread4.i3084
 
@@ -6016,6 +6029,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.311.0..sroa_idx.i3093, align 8
   %.sroa.412.0..sroa_idx.i3094 = getelementptr inbounds i8, ptr %3088, i64 120
   store ptr null, ptr %.sroa.412.0..sroa_idx.i3094, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3088, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %103, ptr nonnull align 8 %3088, i64 1)
           to label %3094 unwind label %.thread15.i
 
@@ -6087,6 +6101,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.316.0..sroa_idx.i3096, align 8
   %.sroa.417.0..sroa_idx.i3097 = getelementptr inbounds i8, ptr %3098, i64 256
   store ptr null, ptr %.sroa.417.0..sroa_idx.i3097, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3098, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %98, ptr nonnull align 8 %3098, i64 2)
           to label %3112 unwind label %.thread26.i
 
@@ -6127,6 +6142,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.321.0..sroa_idx.i3099, align 8
   %.sroa.422.0..sroa_idx.i3100 = getelementptr inbounds i8, ptr %3114, i64 120
   store ptr null, ptr %.sroa.422.0..sroa_idx.i3100, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3114, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %95, ptr nonnull align 8 %3114, i64 1)
           to label %3120 unwind label %.thread37.i
 
@@ -6198,6 +6214,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.326.0..sroa_idx.i3102, align 8
   %.sroa.427.0..sroa_idx.i3103 = getelementptr inbounds i8, ptr %3124, i64 256
   store ptr null, ptr %.sroa.427.0..sroa_idx.i3103, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3124, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %90, ptr nonnull align 8 %3124, i64 2)
           to label %3138 unwind label %.thread48.i
 
@@ -6238,6 +6255,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.331.0..sroa_idx.i, align 8
   %.sroa.432.0..sroa_idx.i = getelementptr inbounds i8, ptr %3140, i64 120
   store ptr null, ptr %.sroa.432.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3140, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %87, ptr nonnull align 8 %3140, i64 1)
           to label %3146 unwind label %.thread59.i
 
@@ -6309,6 +6327,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.336.0..sroa_idx.i, align 8
   %.sroa.437.0..sroa_idx.i = getelementptr inbounds i8, ptr %3150, i64 256
   store ptr null, ptr %.sroa.437.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3150, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %82, ptr nonnull align 8 %3150, i64 2)
           to label %3164 unwind label %.thread70.i
 
@@ -6349,6 +6368,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.341.0..sroa_idx.i, align 8
   %.sroa.442.0..sroa_idx.i = getelementptr inbounds i8, ptr %3166, i64 120
   store ptr null, ptr %.sroa.442.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3166, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %79, ptr nonnull align 8 %3166, i64 1)
           to label %3172 unwind label %.thread81.i
 
@@ -6455,6 +6475,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.346.0..sroa_idx.i, align 8
   %.sroa.447.0..sroa_idx.i = getelementptr inbounds i8, ptr %3186, i64 256
   store ptr null, ptr %.sroa.447.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3186, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %68, ptr nonnull align 8 %3186, i64 2)
           to label %3200 unwind label %.thread92.i
 
@@ -6495,6 +6516,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.351.0..sroa_idx.i, align 8
   %.sroa.452.0..sroa_idx.i = getelementptr inbounds i8, ptr %3202, i64 120
   store ptr null, ptr %.sroa.452.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3202, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %65, ptr nonnull align 8 %3202, i64 1)
           to label %3208 unwind label %.thread103.i
 
@@ -6566,6 +6588,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.356.0..sroa_idx.i, align 8
   %.sroa.457.0..sroa_idx.i = getelementptr inbounds i8, ptr %3212, i64 256
   store ptr null, ptr %.sroa.457.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3212, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %60, ptr nonnull align 8 %3212, i64 2)
           to label %3226 unwind label %.thread114.i
 
@@ -6606,6 +6629,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.361.0..sroa_idx.i, align 8
   %.sroa.462.0..sroa_idx.i = getelementptr inbounds i8, ptr %3228, i64 120
   store ptr null, ptr %.sroa.462.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3228, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %57, ptr nonnull align 8 %3228, i64 1)
           to label %3234 unwind label %.thread125.i
 
@@ -6677,6 +6701,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.366.0..sroa_idx.i, align 8
   %.sroa.467.0..sroa_idx.i = getelementptr inbounds i8, ptr %3238, i64 256
   store ptr null, ptr %.sroa.467.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3238, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %52, ptr nonnull align 8 %3238, i64 2)
           to label %3252 unwind label %.thread136.i
 
@@ -6717,6 +6742,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.371.0..sroa_idx.i, align 8
   %.sroa.472.0..sroa_idx.i = getelementptr inbounds i8, ptr %3254, i64 120
   store ptr null, ptr %.sroa.472.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3254, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %49, ptr nonnull align 8 %3254, i64 1)
           to label %3260 unwind label %.thread147.i
 
@@ -6788,6 +6814,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.376.0..sroa_idx.i, align 8
   %.sroa.477.0..sroa_idx.i = getelementptr inbounds i8, ptr %3264, i64 256
   store ptr null, ptr %.sroa.477.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3264, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %44, ptr nonnull align 8 %3264, i64 2)
           to label %3278 unwind label %.thread158.i
 
@@ -6828,6 +6855,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.381.0..sroa_idx.i, align 8
   %.sroa.482.0..sroa_idx.i = getelementptr inbounds i8, ptr %3280, i64 120
   store ptr null, ptr %.sroa.482.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3280, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %41, ptr nonnull align 8 %3280, i64 1)
           to label %3286 unwind label %.thread169.i
 
@@ -6899,6 +6927,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.386.0..sroa_idx.i, align 8
   %.sroa.487.0..sroa_idx.i = getelementptr inbounds i8, ptr %3290, i64 256
   store ptr null, ptr %.sroa.487.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3290, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %36, ptr nonnull align 8 %3290, i64 2)
           to label %3304 unwind label %.thread180.i
 
@@ -6939,6 +6968,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   store i64 1, ptr %.sroa.391.0..sroa_idx.i, align 8
   %.sroa.492.0..sroa_idx.i = getelementptr inbounds i8, ptr %3306, i64 120
   store ptr null, ptr %.sroa.492.0..sroa_idx.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3306, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %33, ptr nonnull align 8 %3306, i64 1)
           to label %3312 unwind label %.thread191.i
 
@@ -7849,6 +7879,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3529, ptr noundef nonnull align 8 dereferenceable(136) %2393, i64 136, i1 false)
   %3530 = getelementptr inbounds i8, ptr %3496, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3530, ptr noundef nonnull align 8 dereferenceable(136) %2392, i64 136, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3496, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2398, ptr nonnull align 8 %3496, i64 4)
           to label %3531 unwind label %.thread3129
 
@@ -8019,6 +8050,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3572, i64 120
   store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3572, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2376, ptr nonnull align 8 %3572, i64 1)
           to label %3578 unwind label %.thread3151
 
@@ -8162,6 +8194,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3112.0..sroa_idx, align 8
   %.sroa.4113.0..sroa_idx = getelementptr inbounds i8, ptr %3611, i64 120
   store ptr null, ptr %.sroa.4113.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3611, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2364, ptr nonnull align 8 %3611, i64 1)
           to label %3617 unwind label %.thread3173
 
@@ -8288,6 +8321,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3654, ptr noundef nonnull align 8 dereferenceable(136) %2355, i64 136, i1 false)
   %3655 = getelementptr inbounds i8, ptr %3622, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3655, ptr noundef nonnull align 8 dereferenceable(136) %2354, i64 136, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3622, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2359, ptr nonnull align 8 %3622, i64 4)
           to label %3656 unwind label %.thread3184
 
@@ -8458,6 +8492,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3117.0..sroa_idx, align 8
   %.sroa.4118.0..sroa_idx = getelementptr inbounds i8, ptr %3697, i64 120
   store ptr null, ptr %.sroa.4118.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3697, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2338, ptr nonnull align 8 %3697, i64 1)
           to label %3703 unwind label %.thread3206
 
@@ -8601,6 +8636,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3122.0..sroa_idx, align 8
   %.sroa.4123.0..sroa_idx = getelementptr inbounds i8, ptr %3736, i64 120
   store ptr null, ptr %.sroa.4123.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3736, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2326, ptr nonnull align 8 %3736, i64 1)
           to label %3742 unwind label %.thread3228
 
@@ -8727,6 +8763,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3779, ptr noundef nonnull align 8 dereferenceable(136) %2317, i64 136, i1 false)
   %3780 = getelementptr inbounds i8, ptr %3747, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3780, ptr noundef nonnull align 8 dereferenceable(136) %2316, i64 136, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3747, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2321, ptr nonnull align 8 %3747, i64 4)
           to label %3781 unwind label %.thread3239
 
@@ -8897,6 +8934,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3127.0..sroa_idx, align 8
   %.sroa.4128.0..sroa_idx = getelementptr inbounds i8, ptr %3822, i64 120
   store ptr null, ptr %.sroa.4128.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3822, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2300, ptr nonnull align 8 %3822, i64 1)
           to label %3828 unwind label %.thread3261
 
@@ -9040,6 +9078,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3132.0..sroa_idx, align 8
   %.sroa.4133.0..sroa_idx = getelementptr inbounds i8, ptr %3861, i64 120
   store ptr null, ptr %.sroa.4133.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %3861, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2288, ptr nonnull align 8 %3861, i64 1)
           to label %3867 unwind label %.thread3283
 
@@ -9166,6 +9205,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3904, ptr noundef nonnull align 8 dereferenceable(136) %2279, i64 136, i1 false)
   %3905 = getelementptr inbounds i8, ptr %3872, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3905, ptr noundef nonnull align 8 dereferenceable(136) %2278, i64 136, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3872, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2283, ptr nonnull align 8 %3872, i64 4)
           to label %3906 unwind label %.thread3294
 
@@ -10514,6 +10554,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 4, ptr %.sroa.3137.0..sroa_idx, align 8
   %.sroa.4138.0..sroa_idx = getelementptr inbounds i8, ptr %4289, i64 120
   store ptr null, ptr %.sroa.4138.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4289, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2143, ptr nonnull align 8 %4289, i64 1)
           to label %4295 unwind label %.thread3481
 
@@ -10564,6 +10605,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 3, ptr %.sroa.3142.0..sroa_idx, align 8
   %.sroa.4143.0..sroa_idx = getelementptr inbounds i8, ptr %4300, i64 120
   store ptr null, ptr %.sroa.4143.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4300, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2137, ptr nonnull align 8 %4300, i64 1)
           to label %4307 unwind label %.thread3492
 
@@ -10689,6 +10731,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 3, ptr %.sroa.3147.0..sroa_idx, align 8
   %.sroa.4148.0..sroa_idx = getelementptr inbounds i8, ptr %4325, i64 256
   store ptr null, ptr %.sroa.4148.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4325, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2128, ptr nonnull align 8 %4325, i64 2)
           to label %4340 unwind label %.thread3514
 
@@ -10741,6 +10784,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 3, ptr %.sroa.3152.0..sroa_idx, align 8
   %.sroa.4153.0..sroa_idx = getelementptr inbounds i8, ptr %4345, i64 120
   store ptr null, ptr %.sroa.4153.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4345, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2121, ptr nonnull align 8 %4345, i64 1)
           to label %4351 unwind label %.thread3525
 
@@ -10781,6 +10825,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 4, ptr %.sroa.3157.0..sroa_idx, align 8
   %.sroa.4158.0..sroa_idx = getelementptr inbounds i8, ptr %4353, i64 120
   store ptr null, ptr %.sroa.4158.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4353, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2119, ptr nonnull align 8 %4353, i64 1)
           to label %4359 unwind label %.thread3536
 
@@ -10831,6 +10876,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 2, ptr %.sroa.3162.0..sroa_idx, align 8
   %.sroa.4163.0..sroa_idx = getelementptr inbounds i8, ptr %4364, i64 120
   store ptr null, ptr %.sroa.4163.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4364, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2114, ptr nonnull align 8 %4364, i64 1)
           to label %4371 unwind label %.thread3547
 
@@ -10924,6 +10970,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 2, ptr %.sroa.3167.0..sroa_idx, align 8
   %.sroa.4168.0..sroa_idx = getelementptr inbounds i8, ptr %4387, i64 120
   store ptr null, ptr %.sroa.4168.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4387, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2105, ptr nonnull align 8 %4387, i64 1)
           to label %4393 unwind label %.thread3569
 
@@ -11017,6 +11064,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 2, ptr %.sroa.3172.0..sroa_idx, align 8
   %.sroa.4173.0..sroa_idx = getelementptr inbounds i8, ptr %4409, i64 120
   store ptr null, ptr %.sroa.4173.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4409, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2096, ptr nonnull align 8 %4409, i64 1)
           to label %4415 unwind label %.thread3591
 
@@ -11110,6 +11158,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 4, ptr %.sroa.3177.0..sroa_idx, align 8
   %.sroa.4178.0..sroa_idx = getelementptr inbounds i8, ptr %4431, i64 120
   store ptr null, ptr %.sroa.4178.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4431, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2087, ptr nonnull align 8 %4431, i64 1)
           to label %4437 unwind label %.thread3613
 
@@ -11162,6 +11211,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 4, ptr %.sroa.3182.0..sroa_idx, align 8
   %.sroa.4183.0..sroa_idx = getelementptr inbounds i8, ptr %4442, i64 120
   store ptr null, ptr %.sroa.4183.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4442, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2082, ptr nonnull align 8 %4442, i64 1)
           to label %4448 unwind label %.thread3624
 
@@ -11214,6 +11264,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 4, ptr %.sroa.3187.0..sroa_idx, align 8
   %.sroa.4188.0..sroa_idx = getelementptr inbounds i8, ptr %4453, i64 120
   store ptr null, ptr %.sroa.4188.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4453, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2078, ptr nonnull align 8 %4453, i64 1)
           to label %4459 unwind label %.thread3635
 
@@ -11262,6 +11313,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 4, ptr %.sroa.3192.0..sroa_idx, align 8
   %.sroa.4193.0..sroa_idx = getelementptr inbounds i8, ptr %4463, i64 120
   store ptr null, ptr %.sroa.4193.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4463, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2074, ptr nonnull align 8 %4463, i64 1)
           to label %4469 unwind label %.thread3646
 
@@ -11310,6 +11362,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 4, ptr %.sroa.3197.0..sroa_idx, align 8
   %.sroa.4198.0..sroa_idx = getelementptr inbounds i8, ptr %4473, i64 120
   store ptr null, ptr %.sroa.4198.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4473, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2070, ptr nonnull align 8 %4473, i64 1)
           to label %4479 unwind label %.thread3657
 
@@ -11359,6 +11412,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3202.0..sroa_idx, align 8
   %.sroa.4203.0..sroa_idx = getelementptr inbounds i8, ptr %4484, i64 120
   store ptr null, ptr %.sroa.4203.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4484, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2065, ptr nonnull align 8 %4484, i64 1)
           to label %4490 unwind label %.thread3668
 
@@ -11454,6 +11508,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3207.0..sroa_idx, align 8
   %.sroa.4208.0..sroa_idx = getelementptr inbounds i8, ptr %4507, i64 120
   store ptr null, ptr %.sroa.4208.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4507, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2056, ptr nonnull align 8 %4507, i64 1)
           to label %4514 unwind label %.thread3690
 
@@ -11549,6 +11604,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3212.0..sroa_idx, align 8
   %.sroa.4213.0..sroa_idx = getelementptr inbounds i8, ptr %4531, i64 120
   store ptr null, ptr %.sroa.4213.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4531, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2047, ptr nonnull align 8 %4531, i64 1)
           to label %4538 unwind label %.thread3712
 
@@ -12092,6 +12148,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3217.0..sroa_idx, align 8
   %.sroa.4218.0..sroa_idx = getelementptr inbounds i8, ptr %4685, i64 120
   store ptr null, ptr %.sroa.4218.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4685, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1991, ptr nonnull align 8 %4685, i64 1)
           to label %4691 unwind label %.thread3800
 
@@ -12239,6 +12296,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3222.0..sroa_idx, align 8
   %.sroa.4223.0..sroa_idx = getelementptr inbounds i8, ptr %4725, i64 120
   store ptr null, ptr %.sroa.4223.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4725, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1978, ptr nonnull align 8 %4725, i64 1)
           to label %4731 unwind label %.thread3822
 
@@ -12386,6 +12444,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3227.0..sroa_idx, align 8
   %.sroa.4228.0..sroa_idx = getelementptr inbounds i8, ptr %4765, i64 120
   store ptr null, ptr %.sroa.4228.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4765, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1965, ptr nonnull align 8 %4765, i64 1)
           to label %4771 unwind label %.thread3844
 
@@ -12533,6 +12592,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3232.0..sroa_idx, align 8
   %.sroa.4233.0..sroa_idx = getelementptr inbounds i8, ptr %4805, i64 120
   store ptr null, ptr %.sroa.4233.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4805, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1952, ptr nonnull align 8 %4805, i64 1)
           to label %4811 unwind label %.thread3866
 
@@ -12581,6 +12641,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3237.0..sroa_idx, align 8
   %.sroa.4238.0..sroa_idx = getelementptr inbounds i8, ptr %4815, i64 120
   store ptr null, ptr %.sroa.4238.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4815, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1947, ptr nonnull align 8 %4815, i64 1)
           to label %4821 unwind label %.thread3877
 
@@ -12621,6 +12682,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3242.0..sroa_idx, align 8
   %.sroa.4243.0..sroa_idx = getelementptr inbounds i8, ptr %4823, i64 120
   store ptr null, ptr %.sroa.4243.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4823, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1945, ptr nonnull align 8 %4823, i64 1)
           to label %4829 unwind label %.thread3888
 
@@ -12669,6 +12731,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3247.0..sroa_idx, align 8
   %.sroa.4248.0..sroa_idx = getelementptr inbounds i8, ptr %4833, i64 120
   store ptr null, ptr %.sroa.4248.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4833, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1940, ptr nonnull align 8 %4833, i64 1)
           to label %4839 unwind label %.thread3899
 
@@ -12709,6 +12772,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3252.0..sroa_idx, align 8
   %.sroa.4253.0..sroa_idx = getelementptr inbounds i8, ptr %4841, i64 120
   store ptr null, ptr %.sroa.4253.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4841, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1938, ptr nonnull align 8 %4841, i64 1)
           to label %4847 unwind label %.thread3910
 
@@ -12757,6 +12821,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3257.0..sroa_idx, align 8
   %.sroa.4258.0..sroa_idx = getelementptr inbounds i8, ptr %4851, i64 120
   store ptr null, ptr %.sroa.4258.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4851, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1933, ptr nonnull align 8 %4851, i64 1)
           to label %4857 unwind label %.thread3921
 
@@ -12797,6 +12862,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3262.0..sroa_idx, align 8
   %.sroa.4263.0..sroa_idx = getelementptr inbounds i8, ptr %4859, i64 120
   store ptr null, ptr %.sroa.4263.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4859, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1931, ptr nonnull align 8 %4859, i64 1)
           to label %4865 unwind label %.thread3932
 
@@ -12893,6 +12959,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3267.0..sroa_idx, align 8
   %.sroa.4268.0..sroa_idx = getelementptr inbounds i8, ptr %4870, i64 392
   store ptr null, ptr %.sroa.4268.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4870, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1926, ptr nonnull align 8 %4870, i64 3)
           to label %4893 unwind label %.thread3943
 
@@ -12945,6 +13012,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3272.0..sroa_idx, align 8
   %.sroa.4273.0..sroa_idx = getelementptr inbounds i8, ptr %4907, i64 120
   store ptr null, ptr %.sroa.4273.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4907, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1922, ptr nonnull align 8 %4907, i64 1)
           to label %4911 unwind label %.thread3950
 
@@ -13064,6 +13132,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3277.0..sroa_idx, align 8
   %.sroa.4278.0..sroa_idx = getelementptr inbounds i8, ptr %4920, i64 392
   store ptr null, ptr %.sroa.4278.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4920, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1916, ptr nonnull align 8 %4920, i64 3)
           to label %4942 unwind label %.thread3960
 
@@ -13104,6 +13173,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3282.0..sroa_idx, align 8
   %.sroa.4283.0..sroa_idx = getelementptr inbounds i8, ptr %4944, i64 120
   store ptr null, ptr %.sroa.4283.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4944, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1912, ptr nonnull align 8 %4944, i64 1)
           to label %4950 unwind label %.thread3971
 
@@ -13175,6 +13245,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3287.0..sroa_idx, align 8
   %.sroa.4288.0..sroa_idx = getelementptr inbounds i8, ptr %4954, i64 256
   store ptr null, ptr %.sroa.4288.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4954, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1907, ptr nonnull align 8 %4954, i64 2)
           to label %4968 unwind label %.thread3982
 
@@ -13215,6 +13286,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3292.0..sroa_idx, align 8
   %.sroa.4293.0..sroa_idx = getelementptr inbounds i8, ptr %4970, i64 120
   store ptr null, ptr %.sroa.4293.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4970, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1904, ptr nonnull align 8 %4970, i64 1)
           to label %4976 unwind label %.thread3993
 
@@ -13286,6 +13358,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3297.0..sroa_idx, align 8
   %.sroa.4298.0..sroa_idx = getelementptr inbounds i8, ptr %4980, i64 256
   store ptr null, ptr %.sroa.4298.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4980, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1899, ptr nonnull align 8 %4980, i64 2)
           to label %4994 unwind label %.thread4004
 
@@ -13326,6 +13399,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3302.0..sroa_idx, align 8
   %.sroa.4303.0..sroa_idx = getelementptr inbounds i8, ptr %4996, i64 120
   store ptr null, ptr %.sroa.4303.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %4996, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1896, ptr nonnull align 8 %4996, i64 1)
           to label %5002 unwind label %.thread4015
 
@@ -13374,6 +13448,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3307.0..sroa_idx, align 8
   %.sroa.4308.0..sroa_idx = getelementptr inbounds i8, ptr %5006, i64 120
   store ptr null, ptr %.sroa.4308.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5006, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1891, ptr nonnull align 8 %5006, i64 1)
           to label %5012 unwind label %.thread4026
 
@@ -13414,6 +13489,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3312.0..sroa_idx, align 8
   %.sroa.4313.0..sroa_idx = getelementptr inbounds i8, ptr %5014, i64 120
   store ptr null, ptr %.sroa.4313.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5014, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1889, ptr nonnull align 8 %5014, i64 1)
           to label %5020 unwind label %.thread4037
 
@@ -13462,6 +13538,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3317.0..sroa_idx, align 8
   %.sroa.4318.0..sroa_idx = getelementptr inbounds i8, ptr %5024, i64 120
   store ptr null, ptr %.sroa.4318.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5024, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1884, ptr nonnull align 8 %5024, i64 1)
           to label %5030 unwind label %.thread4048
 
@@ -13502,6 +13579,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3322.0..sroa_idx, align 8
   %.sroa.4323.0..sroa_idx = getelementptr inbounds i8, ptr %5032, i64 120
   store ptr null, ptr %.sroa.4323.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5032, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1882, ptr nonnull align 8 %5032, i64 1)
           to label %5038 unwind label %.thread4059
 
@@ -13573,6 +13651,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3327.0..sroa_idx, align 8
   %.sroa.4328.0..sroa_idx = getelementptr inbounds i8, ptr %5042, i64 256
   store ptr null, ptr %.sroa.4328.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5042, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1877, ptr nonnull align 8 %5042, i64 2)
           to label %5056 unwind label %.thread4070
 
@@ -13613,6 +13692,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3332.0..sroa_idx, align 8
   %.sroa.4333.0..sroa_idx = getelementptr inbounds i8, ptr %5058, i64 120
   store ptr null, ptr %.sroa.4333.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5058, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1874, ptr nonnull align 8 %5058, i64 1)
           to label %5064 unwind label %.thread4081
 
@@ -13684,6 +13764,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3337.0..sroa_idx, align 8
   %.sroa.4338.0..sroa_idx = getelementptr inbounds i8, ptr %5068, i64 256
   store ptr null, ptr %.sroa.4338.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5068, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1869, ptr nonnull align 8 %5068, i64 2)
           to label %5082 unwind label %.thread4092
 
@@ -13724,6 +13805,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3342.0..sroa_idx, align 8
   %.sroa.4343.0..sroa_idx = getelementptr inbounds i8, ptr %5084, i64 120
   store ptr null, ptr %.sroa.4343.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5084, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1866, ptr nonnull align 8 %5084, i64 1)
           to label %5090 unwind label %.thread4103
 
@@ -13795,6 +13877,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3347.0..sroa_idx, align 8
   %.sroa.4348.0..sroa_idx = getelementptr inbounds i8, ptr %5094, i64 256
   store ptr null, ptr %.sroa.4348.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5094, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1861, ptr nonnull align 8 %5094, i64 2)
           to label %5108 unwind label %.thread4114
 
@@ -13835,6 +13918,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3352.0..sroa_idx, align 8
   %.sroa.4353.0..sroa_idx = getelementptr inbounds i8, ptr %5110, i64 120
   store ptr null, ptr %.sroa.4353.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5110, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1858, ptr nonnull align 8 %5110, i64 1)
           to label %5116 unwind label %.thread4125
 
@@ -13937,6 +14021,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3357.0..sroa_idx, align 8
   %.sroa.4358.0..sroa_idx = getelementptr inbounds i8, ptr %5129, i64 256
   store ptr null, ptr %.sroa.4358.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5129, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1848, ptr nonnull align 8 %5129, i64 2)
           to label %5143 unwind label %.thread4136
 
@@ -13977,6 +14062,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3362.0..sroa_idx, align 8
   %.sroa.4363.0..sroa_idx = getelementptr inbounds i8, ptr %5145, i64 120
   store ptr null, ptr %.sroa.4363.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5145, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1845, ptr nonnull align 8 %5145, i64 1)
           to label %5151 unwind label %.thread4147
 
@@ -14048,6 +14134,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3367.0..sroa_idx, align 8
   %.sroa.4368.0..sroa_idx = getelementptr inbounds i8, ptr %5155, i64 256
   store ptr null, ptr %.sroa.4368.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5155, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1840, ptr nonnull align 8 %5155, i64 2)
           to label %5169 unwind label %.thread4158
 
@@ -14088,6 +14175,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3372.0..sroa_idx, align 8
   %.sroa.4373.0..sroa_idx = getelementptr inbounds i8, ptr %5171, i64 120
   store ptr null, ptr %.sroa.4373.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5171, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1837, ptr nonnull align 8 %5171, i64 1)
           to label %5177 unwind label %.thread4169
 
@@ -14159,6 +14247,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3377.0..sroa_idx, align 8
   %.sroa.4378.0..sroa_idx = getelementptr inbounds i8, ptr %5181, i64 256
   store ptr null, ptr %.sroa.4378.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5181, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1830, ptr nonnull align 8 %5181, i64 2)
           to label %5195 unwind label %.thread4180
 
@@ -14199,6 +14288,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3382.0..sroa_idx, align 8
   %.sroa.4383.0..sroa_idx = getelementptr inbounds i8, ptr %5197, i64 120
   store ptr null, ptr %.sroa.4383.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5197, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1827, ptr nonnull align 8 %5197, i64 1)
           to label %5203 unwind label %.thread4191
 
@@ -14278,6 +14368,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3387.0..sroa_idx, align 8
   %.sroa.4388.0..sroa_idx = getelementptr inbounds i8, ptr %5209, i64 256
   store ptr null, ptr %.sroa.4388.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5209, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1820, ptr nonnull align 8 %5209, i64 2)
           to label %5223 unwind label %.thread4202
 
@@ -14318,6 +14409,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3392.0..sroa_idx, align 8
   %.sroa.4393.0..sroa_idx = getelementptr inbounds i8, ptr %5225, i64 120
   store ptr null, ptr %.sroa.4393.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5225, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1817, ptr nonnull align 8 %5225, i64 1)
           to label %5231 unwind label %.thread4213
 
@@ -14397,6 +14489,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3397.0..sroa_idx, align 8
   %.sroa.4398.0..sroa_idx = getelementptr inbounds i8, ptr %5237, i64 256
   store ptr null, ptr %.sroa.4398.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5237, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1810, ptr nonnull align 8 %5237, i64 2)
           to label %5251 unwind label %.thread4224
 
@@ -14437,6 +14530,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3402.0..sroa_idx, align 8
   %.sroa.4403.0..sroa_idx = getelementptr inbounds i8, ptr %5253, i64 120
   store ptr null, ptr %.sroa.4403.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5253, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1807, ptr nonnull align 8 %5253, i64 1)
           to label %5259 unwind label %.thread4235
 
@@ -14516,6 +14610,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3407.0..sroa_idx, align 8
   %.sroa.4408.0..sroa_idx = getelementptr inbounds i8, ptr %5265, i64 256
   store ptr null, ptr %.sroa.4408.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5265, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1800, ptr nonnull align 8 %5265, i64 2)
           to label %5279 unwind label %.thread4246
 
@@ -14556,6 +14651,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3412.0..sroa_idx, align 8
   %.sroa.4413.0..sroa_idx = getelementptr inbounds i8, ptr %5281, i64 120
   store ptr null, ptr %.sroa.4413.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5281, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1797, ptr nonnull align 8 %5281, i64 1)
           to label %5287 unwind label %.thread4257
 
@@ -14636,6 +14732,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3417.0..sroa_idx, align 8
   %.sroa.4418.0..sroa_idx = getelementptr inbounds i8, ptr %5294, i64 256
   store ptr null, ptr %.sroa.4418.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5294, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1792, ptr nonnull align 8 %5294, i64 2)
           to label %5308 unwind label %.thread4268
 
@@ -14676,6 +14773,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3422.0..sroa_idx, align 8
   %.sroa.4423.0..sroa_idx = getelementptr inbounds i8, ptr %5310, i64 120
   store ptr null, ptr %.sroa.4423.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5310, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1789, ptr nonnull align 8 %5310, i64 1)
           to label %5316 unwind label %.thread4279
 
@@ -14747,6 +14845,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3427.0..sroa_idx, align 8
   %.sroa.4428.0..sroa_idx = getelementptr inbounds i8, ptr %5320, i64 256
   store ptr null, ptr %.sroa.4428.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5320, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1784, ptr nonnull align 8 %5320, i64 2)
           to label %5334 unwind label %.thread4290
 
@@ -14787,6 +14886,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3432.0..sroa_idx, align 8
   %.sroa.4433.0..sroa_idx = getelementptr inbounds i8, ptr %5336, i64 120
   store ptr null, ptr %.sroa.4433.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5336, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1781, ptr nonnull align 8 %5336, i64 1)
           to label %5342 unwind label %.thread4301
 
@@ -14858,6 +14958,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3437.0..sroa_idx, align 8
   %.sroa.4438.0..sroa_idx = getelementptr inbounds i8, ptr %5346, i64 256
   store ptr null, ptr %.sroa.4438.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5346, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1776, ptr nonnull align 8 %5346, i64 2)
           to label %5360 unwind label %.thread4312
 
@@ -14898,6 +14999,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3442.0..sroa_idx, align 8
   %.sroa.4443.0..sroa_idx = getelementptr inbounds i8, ptr %5362, i64 120
   store ptr null, ptr %.sroa.4443.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5362, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1773, ptr nonnull align 8 %5362, i64 1)
           to label %5368 unwind label %.thread4323
 
@@ -14969,6 +15071,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3447.0..sroa_idx, align 8
   %.sroa.4448.0..sroa_idx = getelementptr inbounds i8, ptr %5372, i64 256
   store ptr null, ptr %.sroa.4448.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5372, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1768, ptr nonnull align 8 %5372, i64 2)
           to label %5386 unwind label %.thread4334
 
@@ -15009,6 +15112,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3452.0..sroa_idx, align 8
   %.sroa.4453.0..sroa_idx = getelementptr inbounds i8, ptr %5388, i64 120
   store ptr null, ptr %.sroa.4453.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5388, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1765, ptr nonnull align 8 %5388, i64 1)
           to label %5394 unwind label %.thread4345
 
@@ -15080,6 +15184,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3457.0..sroa_idx, align 8
   %.sroa.4458.0..sroa_idx = getelementptr inbounds i8, ptr %5398, i64 256
   store ptr null, ptr %.sroa.4458.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5398, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1760, ptr nonnull align 8 %5398, i64 2)
           to label %5412 unwind label %.thread4356
 
@@ -15120,6 +15225,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3462.0..sroa_idx, align 8
   %.sroa.4463.0..sroa_idx = getelementptr inbounds i8, ptr %5414, i64 120
   store ptr null, ptr %.sroa.4463.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5414, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1757, ptr nonnull align 8 %5414, i64 1)
           to label %5420 unwind label %.thread4367
 
@@ -15191,6 +15297,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3467.0..sroa_idx, align 8
   %.sroa.4468.0..sroa_idx = getelementptr inbounds i8, ptr %5424, i64 256
   store ptr null, ptr %.sroa.4468.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5424, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1752, ptr nonnull align 8 %5424, i64 2)
           to label %5438 unwind label %.thread4378
 
@@ -15231,6 +15338,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3472.0..sroa_idx, align 8
   %.sroa.4473.0..sroa_idx = getelementptr inbounds i8, ptr %5440, i64 120
   store ptr null, ptr %.sroa.4473.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5440, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1749, ptr nonnull align 8 %5440, i64 1)
           to label %5446 unwind label %.thread4389
 
@@ -15302,6 +15410,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3477.0..sroa_idx, align 8
   %.sroa.4478.0..sroa_idx = getelementptr inbounds i8, ptr %5450, i64 256
   store ptr null, ptr %.sroa.4478.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5450, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1744, ptr nonnull align 8 %5450, i64 2)
           to label %5464 unwind label %.thread4400
 
@@ -15342,6 +15451,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3482.0..sroa_idx, align 8
   %.sroa.4483.0..sroa_idx = getelementptr inbounds i8, ptr %5466, i64 120
   store ptr null, ptr %.sroa.4483.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5466, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1741, ptr nonnull align 8 %5466, i64 1)
           to label %5472 unwind label %.thread4411
 
@@ -15481,6 +15591,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3487.0..sroa_idx, align 8
   %.sroa.4488.0..sroa_idx = getelementptr inbounds i8, ptr %5504, i64 120
   store ptr null, ptr %.sroa.4488.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5504, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1730, ptr nonnull align 8 %5504, i64 1)
           to label %5510 unwind label %.thread4433
 
@@ -15744,6 +15855,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3492.0..sroa_idx, align 8
   %.sroa.4493.0..sroa_idx = getelementptr inbounds i8, ptr %5572, i64 256
   store ptr null, ptr %.sroa.4493.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5572, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1709, ptr nonnull align 8 %5572, i64 2)
           to label %5586 unwind label %.thread4466
 
@@ -15872,6 +15984,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3497.0..sroa_idx, align 8
   %.sroa.4498.0..sroa_idx = getelementptr inbounds i8, ptr %5606, i64 256
   store ptr null, ptr %.sroa.4498.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5606, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1699, ptr nonnull align 8 %5606, i64 2)
           to label %5620 unwind label %.thread4488
 
@@ -16000,6 +16113,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3502.0..sroa_idx, align 8
   %.sroa.4503.0..sroa_idx = getelementptr inbounds i8, ptr %5640, i64 256
   store ptr null, ptr %.sroa.4503.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5640, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1689, ptr nonnull align 8 %5640, i64 2)
           to label %5654 unwind label %.thread4510
 
@@ -16128,6 +16242,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3507.0..sroa_idx, align 8
   %.sroa.4508.0..sroa_idx = getelementptr inbounds i8, ptr %5674, i64 256
   store ptr null, ptr %.sroa.4508.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5674, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1679, ptr nonnull align 8 %5674, i64 2)
           to label %5688 unwind label %.thread4532
 
@@ -16283,6 +16398,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3512.0..sroa_idx, align 8
   %.sroa.4513.0..sroa_idx = getelementptr inbounds i8, ptr %5716, i64 256
   store ptr null, ptr %.sroa.4513.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5716, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1665, ptr nonnull align 8 %5716, i64 2)
           to label %5730 unwind label %.thread4554
 
@@ -16411,6 +16527,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3517.0..sroa_idx, align 8
   %.sroa.4518.0..sroa_idx = getelementptr inbounds i8, ptr %5750, i64 256
   store ptr null, ptr %.sroa.4518.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5750, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1655, ptr nonnull align 8 %5750, i64 2)
           to label %5764 unwind label %.thread4576
 
@@ -16598,6 +16715,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 4, ptr %.sroa.3522.0..sroa_idx, align 8
   %.sroa.4523.0..sroa_idx = getelementptr inbounds i8, ptr %5795, i64 392
   store ptr null, ptr %.sroa.4523.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5795, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1639, ptr nonnull align 8 %5795, i64 3)
           to label %5817 unwind label %.thread4598
 
@@ -16638,6 +16756,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3527.0..sroa_idx, align 8
   %.sroa.4528.0..sroa_idx = getelementptr inbounds i8, ptr %5819, i64 120
   store ptr null, ptr %.sroa.4528.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5819, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1635, ptr nonnull align 8 %5819, i64 1)
           to label %5825 unwind label %.thread4609
 
@@ -16785,6 +16904,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3532.0..sroa_idx, align 8
   %.sroa.4533.0..sroa_idx = getelementptr inbounds i8, ptr %5859, i64 120
   store ptr null, ptr %.sroa.4533.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5859, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1624, ptr nonnull align 8 %5859, i64 1)
           to label %5865 unwind label %.thread4631
 
@@ -17062,6 +17182,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3537.0..sroa_idx, align 8
   %.sroa.4538.0..sroa_idx = getelementptr inbounds i8, ptr %5930, i64 256
   store ptr null, ptr %.sroa.4538.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5930, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1598, ptr nonnull align 8 %5930, i64 2)
           to label %5944 unwind label %.thread4664
 
@@ -17102,6 +17223,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3542.0..sroa_idx, align 8
   %.sroa.4543.0..sroa_idx = getelementptr inbounds i8, ptr %5946, i64 120
   store ptr null, ptr %.sroa.4543.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5946, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1595, ptr nonnull align 8 %5946, i64 1)
           to label %5952 unwind label %.thread4675
 
@@ -17173,6 +17295,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3547.0..sroa_idx, align 8
   %.sroa.4548.0..sroa_idx = getelementptr inbounds i8, ptr %5956, i64 256
   store ptr null, ptr %.sroa.4548.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5956, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1590, ptr nonnull align 8 %5956, i64 2)
           to label %5970 unwind label %.thread4686
 
@@ -17213,6 +17336,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3552.0..sroa_idx, align 8
   %.sroa.4553.0..sroa_idx = getelementptr inbounds i8, ptr %5972, i64 120
   store ptr null, ptr %.sroa.4553.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5972, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1587, ptr nonnull align 8 %5972, i64 1)
           to label %5978 unwind label %.thread4697
 
@@ -17284,6 +17408,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3557.0..sroa_idx, align 8
   %.sroa.4558.0..sroa_idx = getelementptr inbounds i8, ptr %5982, i64 256
   store ptr null, ptr %.sroa.4558.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5982, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1582, ptr nonnull align 8 %5982, i64 2)
           to label %5996 unwind label %.thread4708
 
@@ -17324,6 +17449,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3562.0..sroa_idx, align 8
   %.sroa.4563.0..sroa_idx = getelementptr inbounds i8, ptr %5998, i64 120
   store ptr null, ptr %.sroa.4563.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5998, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1579, ptr nonnull align 8 %5998, i64 1)
           to label %6004 unwind label %.thread4719
 
@@ -17372,6 +17498,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3567.0..sroa_idx, align 8
   %.sroa.4568.0..sroa_idx = getelementptr inbounds i8, ptr %6008, i64 120
   store ptr null, ptr %.sroa.4568.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6008, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1574, ptr nonnull align 8 %6008, i64 1)
           to label %6014 unwind label %.thread4730
 
@@ -17412,6 +17539,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3572.0..sroa_idx, align 8
   %.sroa.4573.0..sroa_idx = getelementptr inbounds i8, ptr %6016, i64 120
   store ptr null, ptr %.sroa.4573.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6016, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1572, ptr nonnull align 8 %6016, i64 1)
           to label %6022 unwind label %.thread4741
 
@@ -17483,6 +17611,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3577.0..sroa_idx, align 8
   %.sroa.4578.0..sroa_idx = getelementptr inbounds i8, ptr %6026, i64 256
   store ptr null, ptr %.sroa.4578.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6026, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1567, ptr nonnull align 8 %6026, i64 2)
           to label %6040 unwind label %.thread4752
 
@@ -17523,6 +17652,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3582.0..sroa_idx, align 8
   %.sroa.4583.0..sroa_idx = getelementptr inbounds i8, ptr %6042, i64 120
   store ptr null, ptr %.sroa.4583.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6042, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1564, ptr nonnull align 8 %6042, i64 1)
           to label %6048 unwind label %.thread4763
 
@@ -17594,6 +17724,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3587.0..sroa_idx, align 8
   %.sroa.4588.0..sroa_idx = getelementptr inbounds i8, ptr %6052, i64 256
   store ptr null, ptr %.sroa.4588.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6052, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1559, ptr nonnull align 8 %6052, i64 2)
           to label %6066 unwind label %.thread4774
 
@@ -17634,6 +17765,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3592.0..sroa_idx, align 8
   %.sroa.4593.0..sroa_idx = getelementptr inbounds i8, ptr %6068, i64 120
   store ptr null, ptr %.sroa.4593.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6068, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1556, ptr nonnull align 8 %6068, i64 1)
           to label %6074 unwind label %.thread4785
 
@@ -17705,6 +17837,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3597.0..sroa_idx, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds i8, ptr %6078, i64 256
   store ptr null, ptr %.sroa.4598.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6078, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1551, ptr nonnull align 8 %6078, i64 2)
           to label %6092 unwind label %.thread4796
 
@@ -17745,6 +17878,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3602.0..sroa_idx, align 8
   %.sroa.4603.0..sroa_idx = getelementptr inbounds i8, ptr %6094, i64 120
   store ptr null, ptr %.sroa.4603.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6094, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1548, ptr nonnull align 8 %6094, i64 1)
           to label %6100 unwind label %.thread4807
 
@@ -17816,6 +17950,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3607.0..sroa_idx, align 8
   %.sroa.4608.0..sroa_idx = getelementptr inbounds i8, ptr %6104, i64 256
   store ptr null, ptr %.sroa.4608.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6104, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1543, ptr nonnull align 8 %6104, i64 2)
           to label %6118 unwind label %.thread4818
 
@@ -17856,6 +17991,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3612.0..sroa_idx, align 8
   %.sroa.4613.0..sroa_idx = getelementptr inbounds i8, ptr %6120, i64 120
   store ptr null, ptr %.sroa.4613.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6120, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1540, ptr nonnull align 8 %6120, i64 1)
           to label %6126 unwind label %.thread4829
 
@@ -17927,6 +18063,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3617.0..sroa_idx, align 8
   %.sroa.4618.0..sroa_idx = getelementptr inbounds i8, ptr %6130, i64 256
   store ptr null, ptr %.sroa.4618.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6130, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1535, ptr nonnull align 8 %6130, i64 2)
           to label %6144 unwind label %.thread4840
 
@@ -17967,6 +18104,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3622.0..sroa_idx, align 8
   %.sroa.4623.0..sroa_idx = getelementptr inbounds i8, ptr %6146, i64 120
   store ptr null, ptr %.sroa.4623.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6146, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1532, ptr nonnull align 8 %6146, i64 1)
           to label %6152 unwind label %.thread4851
 
@@ -18038,6 +18176,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3627.0..sroa_idx, align 8
   %.sroa.4628.0..sroa_idx = getelementptr inbounds i8, ptr %6156, i64 256
   store ptr null, ptr %.sroa.4628.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6156, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1527, ptr nonnull align 8 %6156, i64 2)
           to label %6170 unwind label %.thread4862
 
@@ -18078,6 +18217,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3632.0..sroa_idx, align 8
   %.sroa.4633.0..sroa_idx = getelementptr inbounds i8, ptr %6172, i64 120
   store ptr null, ptr %.sroa.4633.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6172, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1524, ptr nonnull align 8 %6172, i64 1)
           to label %6178 unwind label %.thread4873
 
@@ -18198,6 +18338,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3637.0..sroa_idx, align 8
   %.sroa.4638.0..sroa_idx = getelementptr inbounds i8, ptr %6203, i64 120
   store ptr null, ptr %.sroa.4638.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6203, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1513, ptr nonnull align 8 %6203, i64 1)
           to label %6209 unwind label %.thread4895
 
@@ -18318,6 +18459,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3642.0..sroa_idx, align 8
   %.sroa.4643.0..sroa_idx = getelementptr inbounds i8, ptr %6234, i64 120
   store ptr null, ptr %.sroa.4643.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6234, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1502, ptr nonnull align 8 %6234, i64 1)
           to label %6240 unwind label %.thread4917
 
@@ -18393,6 +18535,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3647.0..sroa_idx, align 8
   %.sroa.4648.0..sroa_idx = getelementptr inbounds i8, ptr %6244, i64 256
   store ptr null, ptr %.sroa.4648.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6244, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1497, ptr nonnull align 8 %6244, i64 2)
           to label %6259 unwind label %.thread4928
 
@@ -18433,6 +18576,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3652.0..sroa_idx, align 8
   %.sroa.4653.0..sroa_idx = getelementptr inbounds i8, ptr %6261, i64 120
   store ptr null, ptr %.sroa.4653.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6261, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1493, ptr nonnull align 8 %6261, i64 1)
           to label %6267 unwind label %.thread4939
 
@@ -18508,6 +18652,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3657.0..sroa_idx, align 8
   %.sroa.4658.0..sroa_idx = getelementptr inbounds i8, ptr %6271, i64 256
   store ptr null, ptr %.sroa.4658.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6271, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1488, ptr nonnull align 8 %6271, i64 2)
           to label %6286 unwind label %.thread4950
 
@@ -18548,6 +18693,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3662.0..sroa_idx, align 8
   %.sroa.4663.0..sroa_idx = getelementptr inbounds i8, ptr %6288, i64 120
   store ptr null, ptr %.sroa.4663.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6288, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1484, ptr nonnull align 8 %6288, i64 1)
           to label %6294 unwind label %.thread4961
 
@@ -18668,6 +18814,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3667.0..sroa_idx, align 8
   %.sroa.4668.0..sroa_idx = getelementptr inbounds i8, ptr %6319, i64 120
   store ptr null, ptr %.sroa.4668.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6319, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1473, ptr nonnull align 8 %6319, i64 1)
           to label %6325 unwind label %.thread4983
 
@@ -18788,6 +18935,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3672.0..sroa_idx, align 8
   %.sroa.4673.0..sroa_idx = getelementptr inbounds i8, ptr %6350, i64 120
   store ptr null, ptr %.sroa.4673.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6350, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1462, ptr nonnull align 8 %6350, i64 1)
           to label %6356 unwind label %.thread5005
 
@@ -18908,6 +19056,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3677.0..sroa_idx, align 8
   %.sroa.4678.0..sroa_idx = getelementptr inbounds i8, ptr %6381, i64 120
   store ptr null, ptr %.sroa.4678.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6381, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1451, ptr nonnull align 8 %6381, i64 1)
           to label %6387 unwind label %.thread5027
 
@@ -18983,6 +19132,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3682.0..sroa_idx, align 8
   %.sroa.4683.0..sroa_idx = getelementptr inbounds i8, ptr %6391, i64 256
   store ptr null, ptr %.sroa.4683.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6391, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1446, ptr nonnull align 8 %6391, i64 2)
           to label %6406 unwind label %.thread5038
 
@@ -19023,6 +19173,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3687.0..sroa_idx, align 8
   %.sroa.4688.0..sroa_idx = getelementptr inbounds i8, ptr %6408, i64 120
   store ptr null, ptr %.sroa.4688.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6408, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1442, ptr nonnull align 8 %6408, i64 1)
           to label %6414 unwind label %.thread5049
 
@@ -19098,6 +19249,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3692.0..sroa_idx, align 8
   %.sroa.4693.0..sroa_idx = getelementptr inbounds i8, ptr %6418, i64 256
   store ptr null, ptr %.sroa.4693.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6418, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1437, ptr nonnull align 8 %6418, i64 2)
           to label %6433 unwind label %.thread5060
 
@@ -19138,6 +19290,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3697.0..sroa_idx, align 8
   %.sroa.4698.0..sroa_idx = getelementptr inbounds i8, ptr %6435, i64 120
   store ptr null, ptr %.sroa.4698.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6435, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1433, ptr nonnull align 8 %6435, i64 1)
           to label %6441 unwind label %.thread5071
 
@@ -19213,6 +19366,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3702.0..sroa_idx, align 8
   %.sroa.4703.0..sroa_idx = getelementptr inbounds i8, ptr %6445, i64 256
   store ptr null, ptr %.sroa.4703.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6445, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1428, ptr nonnull align 8 %6445, i64 2)
           to label %6460 unwind label %.thread5082
 
@@ -19253,6 +19407,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3707.0..sroa_idx, align 8
   %.sroa.4708.0..sroa_idx = getelementptr inbounds i8, ptr %6462, i64 120
   store ptr null, ptr %.sroa.4708.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6462, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1424, ptr nonnull align 8 %6462, i64 1)
           to label %6468 unwind label %.thread5093
 
@@ -19301,6 +19456,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3712.0..sroa_idx, align 8
   %.sroa.4713.0..sroa_idx = getelementptr inbounds i8, ptr %6472, i64 120
   store ptr null, ptr %.sroa.4713.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6472, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1419, ptr nonnull align 8 %6472, i64 1)
           to label %6478 unwind label %.thread5104
 
@@ -19341,6 +19497,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3717.0..sroa_idx, align 8
   %.sroa.4718.0..sroa_idx = getelementptr inbounds i8, ptr %6480, i64 120
   store ptr null, ptr %.sroa.4718.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6480, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1417, ptr nonnull align 8 %6480, i64 1)
           to label %6486 unwind label %.thread5115
 
@@ -19389,6 +19546,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3722.0..sroa_idx, align 8
   %.sroa.4723.0..sroa_idx = getelementptr inbounds i8, ptr %6490, i64 120
   store ptr null, ptr %.sroa.4723.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6490, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1412, ptr nonnull align 8 %6490, i64 1)
           to label %6496 unwind label %.thread5126
 
@@ -19429,6 +19587,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3727.0..sroa_idx, align 8
   %.sroa.4728.0..sroa_idx = getelementptr inbounds i8, ptr %6498, i64 120
   store ptr null, ptr %.sroa.4728.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6498, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1410, ptr nonnull align 8 %6498, i64 1)
           to label %6504 unwind label %.thread5137
 
@@ -19477,6 +19636,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3732.0..sroa_idx, align 8
   %.sroa.4733.0..sroa_idx = getelementptr inbounds i8, ptr %6508, i64 120
   store ptr null, ptr %.sroa.4733.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6508, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1405, ptr nonnull align 8 %6508, i64 1)
           to label %6514 unwind label %.thread5148
 
@@ -19517,6 +19677,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3737.0..sroa_idx, align 8
   %.sroa.4738.0..sroa_idx = getelementptr inbounds i8, ptr %6516, i64 120
   store ptr null, ptr %.sroa.4738.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6516, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1403, ptr nonnull align 8 %6516, i64 1)
           to label %6522 unwind label %.thread5159
 
@@ -19565,6 +19726,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3742.0..sroa_idx, align 8
   %.sroa.4743.0..sroa_idx = getelementptr inbounds i8, ptr %6526, i64 120
   store ptr null, ptr %.sroa.4743.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6526, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1398, ptr nonnull align 8 %6526, i64 1)
           to label %6532 unwind label %.thread5170
 
@@ -19605,6 +19767,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3747.0..sroa_idx, align 8
   %.sroa.4748.0..sroa_idx = getelementptr inbounds i8, ptr %6534, i64 120
   store ptr null, ptr %.sroa.4748.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6534, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1396, ptr nonnull align 8 %6534, i64 1)
           to label %6540 unwind label %.thread5181
 
@@ -19653,6 +19816,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3752.0..sroa_idx, align 8
   %.sroa.4753.0..sroa_idx = getelementptr inbounds i8, ptr %6544, i64 120
   store ptr null, ptr %.sroa.4753.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6544, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1391, ptr nonnull align 8 %6544, i64 1)
           to label %6550 unwind label %.thread5192
 
@@ -19693,6 +19857,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3757.0..sroa_idx, align 8
   %.sroa.4758.0..sroa_idx = getelementptr inbounds i8, ptr %6552, i64 120
   store ptr null, ptr %.sroa.4758.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6552, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1389, ptr nonnull align 8 %6552, i64 1)
           to label %6558 unwind label %.thread5203
 
@@ -19741,6 +19906,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3762.0..sroa_idx, align 8
   %.sroa.4763.0..sroa_idx = getelementptr inbounds i8, ptr %6562, i64 120
   store ptr null, ptr %.sroa.4763.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6562, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1384, ptr nonnull align 8 %6562, i64 1)
           to label %6568 unwind label %.thread5214
 
@@ -19781,6 +19947,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3767.0..sroa_idx, align 8
   %.sroa.4768.0..sroa_idx = getelementptr inbounds i8, ptr %6570, i64 120
   store ptr null, ptr %.sroa.4768.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6570, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1382, ptr nonnull align 8 %6570, i64 1)
           to label %6576 unwind label %.thread5225
 
@@ -19912,6 +20079,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3772.0..sroa_idx, align 8
   %.sroa.4773.0..sroa_idx = getelementptr inbounds i8, ptr %6591, i64 392
   store ptr null, ptr %.sroa.4773.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6591, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1371, ptr nonnull align 8 %6591, i64 3)
           to label %6614 unwind label %.thread5236
 
@@ -19964,6 +20132,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3777.0..sroa_idx, align 8
   %.sroa.4778.0..sroa_idx = getelementptr inbounds i8, ptr %6628, i64 120
   store ptr null, ptr %.sroa.4778.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6628, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1367, ptr nonnull align 8 %6628, i64 1)
           to label %6632 unwind label %.thread5243
 
@@ -20059,6 +20228,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3782.0..sroa_idx, align 8
   %.sroa.4783.0..sroa_idx = getelementptr inbounds i8, ptr %6640, i64 256
   store ptr null, ptr %.sroa.4783.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6640, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1361, ptr nonnull align 8 %6640, i64 2)
           to label %6654 unwind label %.thread5253
 
@@ -20175,6 +20345,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3787.0..sroa_idx, align 8
   %.sroa.4788.0..sroa_idx = getelementptr inbounds i8, ptr %6670, i64 256
   store ptr null, ptr %.sroa.4788.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6670, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1351, ptr nonnull align 8 %6670, i64 2)
           to label %6684 unwind label %.thread5275
 
@@ -20291,6 +20462,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3792.0..sroa_idx, align 8
   %.sroa.4793.0..sroa_idx = getelementptr inbounds i8, ptr %6700, i64 256
   store ptr null, ptr %.sroa.4793.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6700, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1341, ptr nonnull align 8 %6700, i64 2)
           to label %6714 unwind label %.thread5297
 
@@ -20407,6 +20579,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3797.0..sroa_idx, align 8
   %.sroa.4798.0..sroa_idx = getelementptr inbounds i8, ptr %6730, i64 256
   store ptr null, ptr %.sroa.4798.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6730, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1331, ptr nonnull align 8 %6730, i64 2)
           to label %6744 unwind label %.thread5319
 
@@ -20500,6 +20673,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3802.0..sroa_idx, align 8
   %.sroa.4803.0..sroa_idx = getelementptr inbounds i8, ptr %6760, i64 120
   store ptr null, ptr %.sroa.4803.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6760, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1321, ptr nonnull align 8 %6760, i64 1)
           to label %6766 unwind label %.thread5341
 
@@ -20639,6 +20813,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3807.0..sroa_idx, align 8
   %.sroa.4808.0..sroa_idx = getelementptr inbounds i8, ptr %6782, i64 392
   store ptr null, ptr %.sroa.4808.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6782, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1312, ptr nonnull align 8 %6782, i64 3)
           to label %6804 unwind label %.thread5363
 
@@ -20732,6 +20907,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3812.0..sroa_idx, align 8
   %.sroa.4813.0..sroa_idx = getelementptr inbounds i8, ptr %6820, i64 120
   store ptr null, ptr %.sroa.4813.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6820, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1301, ptr nonnull align 8 %6820, i64 1)
           to label %6826 unwind label %.thread5385
 
@@ -20825,6 +21001,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3817.0..sroa_idx, align 8
   %.sroa.4818.0..sroa_idx = getelementptr inbounds i8, ptr %6842, i64 120
   store ptr null, ptr %.sroa.4818.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6842, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1292, ptr nonnull align 8 %6842, i64 1)
           to label %6848 unwind label %.thread5407
 
@@ -20941,6 +21118,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3822.0..sroa_idx, align 8
   %.sroa.4823.0..sroa_idx = getelementptr inbounds i8, ptr %6864, i64 256
   store ptr null, ptr %.sroa.4823.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6864, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1283, ptr nonnull align 8 %6864, i64 2)
           to label %6878 unwind label %.thread5429
 
@@ -21057,6 +21235,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3827.0..sroa_idx, align 8
   %.sroa.4828.0..sroa_idx = getelementptr inbounds i8, ptr %6894, i64 256
   store ptr null, ptr %.sroa.4828.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6894, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1273, ptr nonnull align 8 %6894, i64 2)
           to label %6908 unwind label %.thread5451
 
@@ -21173,6 +21352,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3832.0..sroa_idx, align 8
   %.sroa.4833.0..sroa_idx = getelementptr inbounds i8, ptr %6924, i64 256
   store ptr null, ptr %.sroa.4833.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6924, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1263, ptr nonnull align 8 %6924, i64 2)
           to label %6938 unwind label %.thread5473
 
@@ -21266,6 +21446,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3837.0..sroa_idx, align 8
   %.sroa.4838.0..sroa_idx = getelementptr inbounds i8, ptr %6954, i64 120
   store ptr null, ptr %.sroa.4838.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6954, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1253, ptr nonnull align 8 %6954, i64 1)
           to label %6960 unwind label %.thread5495
 
@@ -21359,6 +21540,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3842.0..sroa_idx, align 8
   %.sroa.4843.0..sroa_idx = getelementptr inbounds i8, ptr %6976, i64 120
   store ptr null, ptr %.sroa.4843.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6976, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1244, ptr nonnull align 8 %6976, i64 1)
           to label %6982 unwind label %.thread5517
 
@@ -21452,6 +21634,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3847.0..sroa_idx, align 8
   %.sroa.4848.0..sroa_idx = getelementptr inbounds i8, ptr %6998, i64 120
   store ptr null, ptr %.sroa.4848.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6998, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1235, ptr nonnull align 8 %6998, i64 1)
           to label %7004 unwind label %.thread5539
 
@@ -21545,6 +21728,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3852.0..sroa_idx, align 8
   %.sroa.4853.0..sroa_idx = getelementptr inbounds i8, ptr %7020, i64 120
   store ptr null, ptr %.sroa.4853.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7020, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1226, ptr nonnull align 8 %7020, i64 1)
           to label %7026 unwind label %.thread5561
 
@@ -21638,6 +21822,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3857.0..sroa_idx, align 8
   %.sroa.4858.0..sroa_idx = getelementptr inbounds i8, ptr %7042, i64 120
   store ptr null, ptr %.sroa.4858.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7042, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1217, ptr nonnull align 8 %7042, i64 1)
           to label %7048 unwind label %.thread5583
 
@@ -21678,6 +21863,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3862.0..sroa_idx, align 8
   %.sroa.4863.0..sroa_idx = getelementptr inbounds i8, ptr %7050, i64 120
   store ptr null, ptr %.sroa.4863.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7050, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1215, ptr nonnull align 8 %7050, i64 1)
           to label %7056 unwind label %.thread5594
 
@@ -21726,6 +21912,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3867.0..sroa_idx, align 8
   %.sroa.4868.0..sroa_idx = getelementptr inbounds i8, ptr %7060, i64 120
   store ptr null, ptr %.sroa.4868.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7060, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1210, ptr nonnull align 8 %7060, i64 1)
           to label %7066 unwind label %.thread5605
 
@@ -21766,6 +21953,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3872.0..sroa_idx, align 8
   %.sroa.4873.0..sroa_idx = getelementptr inbounds i8, ptr %7068, i64 120
   store ptr null, ptr %.sroa.4873.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7068, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1208, ptr nonnull align 8 %7068, i64 1)
           to label %7074 unwind label %.thread5616
 
@@ -21838,6 +22026,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3877.0..sroa_idx, align 8
   %.sroa.4878.0..sroa_idx = getelementptr inbounds i8, ptr %7079, i64 256
   store ptr null, ptr %.sroa.4878.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7079, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1203, ptr nonnull align 8 %7079, i64 2)
           to label %7093 unwind label %.thread5627
 
@@ -22119,6 +22308,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3882.0..sroa_idx, align 8
   %.sroa.4883.0..sroa_idx = getelementptr inbounds i8, ptr %7165, i64 120
   store ptr null, ptr %.sroa.4883.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7165, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1173, ptr nonnull align 8 %7165, i64 1)
           to label %7171 unwind label %.thread5666
 
@@ -22159,6 +22349,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3887.0..sroa_idx, align 8
   %.sroa.4888.0..sroa_idx = getelementptr inbounds i8, ptr %7173, i64 120
   store ptr null, ptr %.sroa.4888.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7173, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1171, ptr nonnull align 8 %7173, i64 1)
           to label %7179 unwind label %.thread5677
 
@@ -22302,6 +22493,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3892.0..sroa_idx, align 8
   %.sroa.4893.0..sroa_idx = getelementptr inbounds i8, ptr %7219, i64 120
   store ptr null, ptr %.sroa.4893.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7219, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1157, ptr nonnull align 8 %7219, i64 1)
           to label %7220 unwind label %.thread5694
 
@@ -22427,6 +22619,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3897.0..sroa_idx, align 8
   %.sroa.4898.0..sroa_idx = getelementptr inbounds i8, ptr %7252, i64 256
   store ptr null, ptr %.sroa.4898.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7252, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1145, ptr nonnull align 8 %7252, i64 2)
           to label %7254 unwind label %.thread5705
 
@@ -22479,6 +22672,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3902.0..sroa_idx, align 8
   %.sroa.4903.0..sroa_idx = getelementptr inbounds i8, ptr %7268, i64 120
   store ptr null, ptr %.sroa.4903.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7268, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1142, ptr nonnull align 8 %7268, i64 1)
           to label %7272 unwind label %.thread5712
 
@@ -22575,6 +22769,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3907.0..sroa_idx, align 8
   %.sroa.4908.0..sroa_idx = getelementptr inbounds i8, ptr %7293, i64 256
   store ptr null, ptr %.sroa.4908.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7293, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1136, ptr nonnull align 8 %7293, i64 2)
           to label %7295 unwind label %.thread5722
 
@@ -22627,6 +22822,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3912.0..sroa_idx, align 8
   %.sroa.4913.0..sroa_idx = getelementptr inbounds i8, ptr %7309, i64 120
   store ptr null, ptr %.sroa.4913.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7309, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1133, ptr nonnull align 8 %7309, i64 1)
           to label %7313 unwind label %.thread5729
 
@@ -22723,6 +22919,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3917.0..sroa_idx, align 8
   %.sroa.4918.0..sroa_idx = getelementptr inbounds i8, ptr %7334, i64 256
   store ptr null, ptr %.sroa.4918.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7334, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1127, ptr nonnull align 8 %7334, i64 2)
           to label %7336 unwind label %.thread5739
 
@@ -22775,6 +22972,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3922.0..sroa_idx, align 8
   %.sroa.4923.0..sroa_idx = getelementptr inbounds i8, ptr %7350, i64 120
   store ptr null, ptr %.sroa.4923.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7350, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1124, ptr nonnull align 8 %7350, i64 1)
           to label %7354 unwind label %.thread5746
 
@@ -22887,6 +23085,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3927.0..sroa_idx, align 8
   %.sroa.4928.0..sroa_idx = getelementptr inbounds i8, ptr %7379, i64 120
   store ptr null, ptr %.sroa.4928.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7379, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1111, ptr nonnull align 8 %7379, i64 1)
           to label %7380 unwind label %.thread5756
 
@@ -22939,6 +23138,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3932.0..sroa_idx, align 8
   %.sroa.4933.0..sroa_idx = getelementptr inbounds i8, ptr %7394, i64 120
   store ptr null, ptr %.sroa.4933.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7394, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1109, ptr nonnull align 8 %7394, i64 1)
           to label %7398 unwind label %.thread5763
 
@@ -23012,6 +23212,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3937.0..sroa_idx, align 8
   %.sroa.4938.0..sroa_idx = getelementptr inbounds i8, ptr %7412, i64 120
   store ptr null, ptr %.sroa.4938.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7412, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1103, ptr nonnull align 8 %7412, i64 1)
           to label %7413 unwind label %.thread5773
 
@@ -23064,6 +23265,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3942.0..sroa_idx, align 8
   %.sroa.4943.0..sroa_idx = getelementptr inbounds i8, ptr %7427, i64 120
   store ptr null, ptr %.sroa.4943.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7427, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1101, ptr nonnull align 8 %7427, i64 1)
           to label %7431 unwind label %.thread5780
 
@@ -23137,6 +23339,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3947.0..sroa_idx, align 8
   %.sroa.4948.0..sroa_idx = getelementptr inbounds i8, ptr %7445, i64 120
   store ptr null, ptr %.sroa.4948.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7445, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1095, ptr nonnull align 8 %7445, i64 1)
           to label %7446 unwind label %.thread5790
 
@@ -23189,6 +23392,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3952.0..sroa_idx, align 8
   %.sroa.4953.0..sroa_idx = getelementptr inbounds i8, ptr %7460, i64 120
   store ptr null, ptr %.sroa.4953.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7460, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1093, ptr nonnull align 8 %7460, i64 1)
           to label %7464 unwind label %.thread5797
 
@@ -23262,6 +23466,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3957.0..sroa_idx, align 8
   %.sroa.4958.0..sroa_idx = getelementptr inbounds i8, ptr %7478, i64 120
   store ptr null, ptr %.sroa.4958.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7478, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1087, ptr nonnull align 8 %7478, i64 1)
           to label %7479 unwind label %.thread5807
 
@@ -23314,6 +23519,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3962.0..sroa_idx, align 8
   %.sroa.4963.0..sroa_idx = getelementptr inbounds i8, ptr %7493, i64 120
   store ptr null, ptr %.sroa.4963.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7493, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1085, ptr nonnull align 8 %7493, i64 1)
           to label %7497 unwind label %.thread5814
 
@@ -23410,6 +23616,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3967.0..sroa_idx, align 8
   %.sroa.4968.0..sroa_idx = getelementptr inbounds i8, ptr %7518, i64 256
   store ptr null, ptr %.sroa.4968.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7518, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1079, ptr nonnull align 8 %7518, i64 2)
           to label %7520 unwind label %.thread5824
 
@@ -23451,6 +23658,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3972.0..sroa_idx, align 8
   %.sroa.4973.0..sroa_idx = getelementptr inbounds i8, ptr %7528, i64 120
   store ptr null, ptr %.sroa.4973.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7528, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1076, ptr nonnull align 8 %7528, i64 1)
           to label %7529 unwind label %.thread5835
 
@@ -23558,6 +23766,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3977.0..sroa_idx, align 8
   %.sroa.4978.0..sroa_idx = getelementptr inbounds i8, ptr %7556, i64 256
   store ptr null, ptr %.sroa.4978.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7556, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1065, ptr nonnull align 8 %7556, i64 2)
           to label %7558 unwind label %.thread5846
 
@@ -23599,6 +23808,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3982.0..sroa_idx, align 8
   %.sroa.4983.0..sroa_idx = getelementptr inbounds i8, ptr %7566, i64 120
   store ptr null, ptr %.sroa.4983.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7566, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1062, ptr nonnull align 8 %7566, i64 1)
           to label %7567 unwind label %.thread5857
 
@@ -23715,6 +23925,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3987.0..sroa_idx, align 8
   %.sroa.4988.0..sroa_idx = getelementptr inbounds i8, ptr %7599, i64 120
   store ptr null, ptr %.sroa.4988.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7599, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1052, ptr nonnull align 8 %7599, i64 1)
           to label %7600 unwind label %.thread5874
 
@@ -23845,6 +24056,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3992.0..sroa_idx, align 8
   %.sroa.4993.0..sroa_idx = getelementptr inbounds i8, ptr %7636, i64 120
   store ptr null, ptr %.sroa.4993.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7636, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1042, ptr nonnull align 8 %7636, i64 1)
           to label %7637 unwind label %.thread5891
 
@@ -24002,6 +24214,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.3997.0..sroa_idx, align 8
   %.sroa.4998.0..sroa_idx = getelementptr inbounds i8, ptr %7681, i64 120
   store ptr null, ptr %.sroa.4998.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7681, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1028, ptr nonnull align 8 %7681, i64 1)
           to label %7682 unwind label %.thread5908
 
@@ -24132,6 +24345,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31002.0..sroa_idx, align 8
   %.sroa.41003.0..sroa_idx = getelementptr inbounds i8, ptr %7718, i64 120
   store ptr null, ptr %.sroa.41003.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7718, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1018, ptr nonnull align 8 %7718, i64 1)
           to label %7719 unwind label %.thread5925
 
@@ -24265,6 +24479,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31007.0..sroa_idx, align 8
   %.sroa.41008.0..sroa_idx = getelementptr inbounds i8, ptr %7753, i64 120
   store ptr null, ptr %.sroa.41008.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7753, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1001, ptr nonnull align 8 %7753, i64 1)
           to label %7754 unwind label %.thread5936
 
@@ -24306,6 +24521,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31012.0..sroa_idx, align 8
   %.sroa.41013.0..sroa_idx = getelementptr inbounds i8, ptr %7762, i64 120
   store ptr null, ptr %.sroa.41013.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7762, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %999, ptr nonnull align 8 %7762, i64 1)
           to label %7763 unwind label %.thread5947
 
@@ -24355,6 +24571,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31017.0..sroa_idx, align 8
   %.sroa.41018.0..sroa_idx = getelementptr inbounds i8, ptr %7773, i64 120
   store ptr null, ptr %.sroa.41018.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7773, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %994, ptr nonnull align 8 %7773, i64 1)
           to label %7774 unwind label %.thread5958
 
@@ -24396,6 +24613,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31022.0..sroa_idx, align 8
   %.sroa.41023.0..sroa_idx = getelementptr inbounds i8, ptr %7782, i64 120
   store ptr null, ptr %.sroa.41023.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7782, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %992, ptr nonnull align 8 %7782, i64 1)
           to label %7783 unwind label %.thread5969
 
@@ -24472,6 +24690,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31027.0..sroa_idx, align 8
   %.sroa.41028.0..sroa_idx = getelementptr inbounds i8, ptr %7801, i64 120
   store ptr null, ptr %.sroa.41028.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7801, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %981, ptr nonnull align 8 %7801, i64 1)
           to label %7802 unwind label %.thread5980
 
@@ -24513,6 +24732,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31032.0..sroa_idx, align 8
   %.sroa.41033.0..sroa_idx = getelementptr inbounds i8, ptr %7810, i64 120
   store ptr null, ptr %.sroa.41033.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7810, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %979, ptr nonnull align 8 %7810, i64 1)
           to label %7811 unwind label %.thread5991
 
@@ -24570,6 +24790,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31037.0..sroa_idx, align 8
   %.sroa.41038.0..sroa_idx = getelementptr inbounds i8, ptr %7823, i64 120
   store ptr null, ptr %.sroa.41038.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7823, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %972, ptr nonnull align 8 %7823, i64 1)
           to label %7824 unwind label %.thread6002
 
@@ -24611,6 +24832,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31042.0..sroa_idx, align 8
   %.sroa.41043.0..sroa_idx = getelementptr inbounds i8, ptr %7832, i64 120
   store ptr null, ptr %.sroa.41043.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7832, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %970, ptr nonnull align 8 %7832, i64 1)
           to label %7833 unwind label %.thread6013
 
@@ -24699,6 +24921,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31047.0..sroa_idx, align 8
   %.sroa.41048.0..sroa_idx = getelementptr inbounds i8, ptr %7854, i64 120
   store ptr null, ptr %.sroa.41048.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7854, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %960, ptr nonnull align 8 %7854, i64 1)
           to label %7855 unwind label %.thread6024
 
@@ -24740,6 +24963,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31052.0..sroa_idx, align 8
   %.sroa.41053.0..sroa_idx = getelementptr inbounds i8, ptr %7863, i64 120
   store ptr null, ptr %.sroa.41053.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7863, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %958, ptr nonnull align 8 %7863, i64 1)
           to label %7864 unwind label %.thread6035
 
@@ -24789,6 +25013,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31057.0..sroa_idx, align 8
   %.sroa.41058.0..sroa_idx = getelementptr inbounds i8, ptr %7874, i64 120
   store ptr null, ptr %.sroa.41058.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7874, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %953, ptr nonnull align 8 %7874, i64 1)
           to label %7875 unwind label %.thread6046
 
@@ -24830,6 +25055,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31062.0..sroa_idx, align 8
   %.sroa.41063.0..sroa_idx = getelementptr inbounds i8, ptr %7883, i64 120
   store ptr null, ptr %.sroa.41063.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7883, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %951, ptr nonnull align 8 %7883, i64 1)
           to label %7884 unwind label %.thread6057
 
@@ -24879,6 +25105,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31067.0..sroa_idx, align 8
   %.sroa.41068.0..sroa_idx = getelementptr inbounds i8, ptr %7894, i64 120
   store ptr null, ptr %.sroa.41068.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7894, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %946, ptr nonnull align 8 %7894, i64 1)
           to label %7895 unwind label %.thread6068
 
@@ -24920,6 +25147,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31072.0..sroa_idx, align 8
   %.sroa.41073.0..sroa_idx = getelementptr inbounds i8, ptr %7903, i64 120
   store ptr null, ptr %.sroa.41073.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7903, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %944, ptr nonnull align 8 %7903, i64 1)
           to label %7904 unwind label %.thread6079
 
@@ -25031,6 +25259,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31077.0..sroa_idx, align 8
   %.sroa.41078.0..sroa_idx = getelementptr inbounds i8, ptr %7932, i64 120
   store ptr null, ptr %.sroa.41078.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7932, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %929, ptr nonnull align 8 %7932, i64 1)
           to label %7933 unwind label %.thread6090
 
@@ -25072,6 +25301,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31082.0..sroa_idx, align 8
   %.sroa.41083.0..sroa_idx = getelementptr inbounds i8, ptr %7941, i64 120
   store ptr null, ptr %.sroa.41083.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7941, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %927, ptr nonnull align 8 %7941, i64 1)
           to label %7942 unwind label %.thread6101
 
@@ -25121,6 +25351,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31087.0..sroa_idx, align 8
   %.sroa.41088.0..sroa_idx = getelementptr inbounds i8, ptr %7952, i64 120
   store ptr null, ptr %.sroa.41088.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7952, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %922, ptr nonnull align 8 %7952, i64 1)
           to label %7953 unwind label %.thread6112
 
@@ -25162,6 +25393,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31092.0..sroa_idx, align 8
   %.sroa.41093.0..sroa_idx = getelementptr inbounds i8, ptr %7961, i64 120
   store ptr null, ptr %.sroa.41093.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7961, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %920, ptr nonnull align 8 %7961, i64 1)
           to label %7962 unwind label %.thread6123
 
@@ -25238,6 +25470,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 1, ptr %.sroa.31097.0..sroa_idx, align 8
   %.sroa.41098.0..sroa_idx = getelementptr inbounds i8, ptr %7980, i64 120
   store ptr null, ptr %.sroa.41098.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7980, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %911, ptr nonnull align 8 %7980, i64 1)
           to label %7981 unwind label %.thread6134
 
@@ -25443,6 +25676,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   store i64 2, ptr %.sroa.31102.0..sroa_idx, align 8
   %.sroa.41103.0..sroa_idx = getelementptr inbounds i8, ptr %8041, i64 256
   store ptr null, ptr %.sroa.41103.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %8041, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %898, ptr nonnull align 8 %8041, i64 2)
           to label %8043 unwind label %.thread6151
 
@@ -25676,6 +25910,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8116, ptr noundef nonnull align 8 dereferenceable(136) %876, i64 136, i1 false)
   %8117 = getelementptr inbounds i8, ptr %8114, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8117, ptr noundef nonnull align 8 dereferenceable(136) %875, i64 136, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8114, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %880, ptr nonnull align 8 %8114, i64 4)
           to label %8118 unwind label %.thread6168
 
@@ -25861,6 +26096,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8172, ptr noundef nonnull align 8 dereferenceable(136) %859, i64 136, i1 false)
   %8173 = getelementptr inbounds i8, ptr %8170, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8173, ptr noundef nonnull align 8 dereferenceable(136) %857, i64 136, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8170, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %863, ptr nonnull align 8 %8170, i64 4)
           to label %8174 unwind label %.thread6190
 

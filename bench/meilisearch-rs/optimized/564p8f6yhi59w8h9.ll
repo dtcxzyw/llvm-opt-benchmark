@@ -2899,6 +2899,7 @@ _ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit: ; preds = %44
   call void @llvm.experimental.noalias.scope.decl(metadata !533)
   call void @llvm.experimental.noalias.scope.decl(metadata !536)
   call void @llvm.experimental.noalias.scope.decl(metadata !539)
+  call void @llvm.assume(i1 true) [ "align"(ptr %100, i64 8) ]
   %103 = getelementptr inbounds i8, ptr %100, i64 16
   %104 = load ptr, ptr %103, align 8, !noalias !542, !nonnull !4, !noundef !4
   %105 = getelementptr inbounds i8, ptr %13, i64 24
@@ -2928,6 +2929,7 @@ _ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit: ; preds = %44
   call void @llvm.experimental.noalias.scope.decl(metadata !554)
   call void @llvm.experimental.noalias.scope.decl(metadata !557)
   call void @llvm.experimental.noalias.scope.decl(metadata !560)
+  call void @llvm.assume(i1 true) [ "align"(ptr %114, i64 8) ]
   %117 = getelementptr inbounds i8, ptr %114, i64 16
   %118 = load ptr, ptr %117, align 8, !noalias !563, !nonnull !4, !noundef !4
   %119 = getelementptr inbounds i8, ptr %13, i64 24
@@ -2988,6 +2990,7 @@ _ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit: ; preds = %44
   br i1 %127, label %133, label %128
 
 128:                                              ; preds = %.critedge.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %126, i64 8) ]
   %129 = getelementptr inbounds i8, ptr %126, i64 16
   %130 = load ptr, ptr %129, align 8, !noalias !577, !nonnull !4, !noundef !4
   %131 = getelementptr inbounds i8, ptr %28, i64 24

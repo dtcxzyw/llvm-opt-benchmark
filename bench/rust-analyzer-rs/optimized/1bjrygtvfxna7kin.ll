@@ -2374,7 +2374,7 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb61749f6dabb062fE"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
@@ -2414,6 +2414,7 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   %.sroa.7.0.i = phi i64 [ %.sroa.5.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17hafb79c82031633dbE.exit.i" ], [ 1, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h320dd690e4e92110E.exit.thread.preheader" ]
   %.0.i15 = phi i64 [ %27, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17hafb79c82031633dbE.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h320dd690e4e92110E.exit.thread.preheader" ]
   %11 = getelementptr inbounds { { i32, [15 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i15
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %12 = getelementptr i8, ptr %11, i64 72
   %.val.i = load ptr, ptr %12, align 8, !noalias !471, !nonnull !5, !noundef !5
   %13 = getelementptr i8, ptr %11, i64 88
@@ -2456,6 +2457,7 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   %.sroa.7.0.i21 = phi i64 [ %.sroa.4.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h634b720617775310E.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h320dd690e4e92110E.exit" ]
   %.0.i22 = phi i64 [ %60, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h634b720617775310E.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h320dd690e4e92110E.exit" ]
   %30 = getelementptr inbounds { { i32, [15 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i22
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %31 = getelementptr inbounds i8, ptr %30, i64 72
   %.val2.i.i = load ptr, ptr %31, align 8, !alias.scope !475, !noalias !478, !nonnull !5, !noundef !5
   %32 = getelementptr inbounds i8, ptr %30, i64 88
@@ -13040,12 +13042,14 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.8855768217806144362.ex
 395:                                              ; preds = %281
   %396 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %396)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   invoke void @_ZN15ide_diagnostics8handlers21break_outside_of_loop21break_outside_of_loop17ha1ae877cf7fd7eddE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %286)
           to label %606 unwind label %604
 
 397:                                              ; preds = %281
   %398 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %398)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers17expected_function17expected_function17h9ecc137312991023E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %286)
           to label %622 unwind label %620
 
@@ -13059,6 +13063,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.8855768217806144362.ex
 401:                                              ; preds = %281
   %402 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %402)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3004)
   call void @llvm.experimental.noalias.scope.decl(metadata !3007)
   %403 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h342c0b74897f23d5E"(i64 noundef 46, i1 noundef zeroext false)
@@ -13107,12 +13112,14 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.8855768217806144362.ex
 413:                                              ; preds = %281
   %414 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %414)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers14incorrect_case14incorrect_case17h47ac2a9a60bdd270E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %286)
           to label %661 unwind label %659
 
 415:                                              ; preds = %281
   %416 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %416)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3019)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %66)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65), !noalias !3022
@@ -13130,6 +13137,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.8855768217806144362.ex
 418:                                              ; preds = %281
   %419 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %419)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3029)
   call void @llvm.experimental.noalias.scope.decl(metadata !3032)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %64)
@@ -13181,6 +13189,7 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i: ; preds = %424,
 425:                                              ; preds = %281
   %426 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %426)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3046)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %58)
   %427 = getelementptr inbounds i8, ptr %286, i64 24
@@ -13243,6 +13252,7 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 440:                                              ; preds = %281
   %441 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %441)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3057)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52), !noalias !3060
@@ -13260,24 +13270,28 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 443:                                              ; preds = %281
   %444 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %444)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers20mismatched_arg_count20mismatched_arg_count17hebbd6ec2dd227e93E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %286)
           to label %708 unwind label %706
 
 445:                                              ; preds = %281
   %446 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %446)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers20mismatched_arg_count37mismatched_tuple_struct_pat_arg_count17hbb6bcb96c2662e19E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %286)
           to label %711 unwind label %709
 
 447:                                              ; preds = %281
   %448 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %448)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers14missing_fields14missing_fields17hac877590e84cb2b1E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %286)
           to label %714 unwind label %712
 
 449:                                              ; preds = %281
   %450 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %450)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3067)
   call void @llvm.experimental.noalias.scope.decl(metadata !3070)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51), !noalias !3072
@@ -13330,12 +13344,14 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 456:                                              ; preds = %281
   %457 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %457)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   invoke void @_ZN15ide_diagnostics8handlers14missing_unsafe14missing_unsafe17h85aa160c69416655E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %286)
           to label %729 unwind label %727
 
 458:                                              ; preds = %281
   %459 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %459)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers16moved_out_of_ref16moved_out_of_ref17h223e9fc48d49f9deE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %286)
           to label %732 unwind label %730
 
@@ -13349,6 +13365,7 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 462:                                              ; preds = %281
   %463 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %463)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3095)
   call void @llvm.experimental.noalias.scope.decl(metadata !3098)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !3100
@@ -13401,18 +13418,21 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 469:                                              ; preds = %281
   %470 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %470)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   invoke void @_ZN15ide_diagnostics8handlers13no_such_field13no_such_field17h6fe3cffafb00424dE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %286)
           to label %757 unwind label %755
 
 471:                                              ; preds = %281
   %472 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %472)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   invoke void @_ZN15ide_diagnostics8handlers18private_assoc_item18private_assoc_item17h07753bea7d3a8642E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %286)
           to label %760 unwind label %758
 
 473:                                              ; preds = %281
   %474 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %474)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   invoke void @_ZN15ide_diagnostics8handlers13private_field13private_field17he6e1105985604a44E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %286)
           to label %763 unwind label %761
 
@@ -13433,12 +13453,14 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 479:                                              ; preds = %281
   %480 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %480)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   invoke void @_ZN15ide_diagnostics8handlers37replace_filter_map_next_with_find_map37replace_filter_map_next_with_find_map17hb7014ca29caf2933E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %286)
           to label %780 unwind label %778
 
 481:                                              ; preds = %281
   %482 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %482)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3123)
   call void @llvm.experimental.noalias.scope.decl(metadata !3126)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.7.i)
@@ -13468,12 +13490,14 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 489:                                              ; preds = %281
   %490 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %490)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers29trait_impl_missing_assoc_item29trait_impl_missing_assoc_item17h525617aac9eaf407E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %286)
           to label %789 unwind label %787
 
 491:                                              ; preds = %281
   %492 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %492)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3134)
   call void @llvm.experimental.noalias.scope.decl(metadata !3137)
   %493 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h342c0b74897f23d5E"(i64 noundef 79, i1 noundef zeroext false)
@@ -13522,18 +13546,21 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
   %504 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %504)
   store ptr %286, ptr %92, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers31trait_impl_redundant_assoc_item31trait_impl_redundant_assoc_item17h23258f376ac99c8dE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %286)
           to label %795 unwind label %793
 
 505:                                              ; preds = %281
   %506 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %506)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers10typed_hole10typed_hole17h8199b08a82064b9aE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %286)
           to label %809 unwind label %807
 
 507:                                              ; preds = %281
   %508 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %508)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers13type_mismatch13type_mismatch17hf8a153162942da66E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %286)
           to label %815 unwind label %813
 
@@ -13542,12 +13569,14 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
   %510 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %510)
   store ptr %286, ptr %91, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers16undeclared_label16undeclared_label17h6cff9d5c24eddba5E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %286)
           to label %829 unwind label %827
 
 511:                                              ; preds = %281
   %512 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %512)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3147)
   call void @llvm.experimental.noalias.scope.decl(metadata !3150)
   %513 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h342c0b74897f23d5E"(i64 noundef 28, i1 noundef zeroext false)
@@ -13597,12 +13626,14 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
   %522 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %522)
   store ptr %286, ptr %90, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers17unreachable_label17unreachable_label17h5ffc5100c17069efE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %286)
           to label %846 unwind label %844
 
 523:                                              ; preds = %281
   %524 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %524)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3163)
   call void @llvm.experimental.noalias.scope.decl(metadata !3166)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.11.i), !noalias !3168
@@ -13629,6 +13660,7 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 526:                                              ; preds = %281
   %527 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %527)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3176)
   call void @llvm.experimental.noalias.scope.decl(metadata !3179)
   %.sroa.07.0.copyload.i = load i32, ptr %286, align 4, !alias.scope !3179, !noalias !3176
@@ -13659,12 +13691,14 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
   %530 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %530)
   store ptr %286, ptr %89, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers16unresolved_field16unresolved_field17hd83bbcd0246fa7f3E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %286)
           to label %872 unwind label %870
 
 531:                                              ; preds = %281
   %532 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %532)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3191)
   call void @llvm.experimental.noalias.scope.decl(metadata !3194)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.11.i406), !noalias !3196
@@ -13691,24 +13725,28 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 534:                                              ; preds = %281
   %535 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %535)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers21unresolved_macro_call21unresolved_macro_call17hc25f8e3c1be62659E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %286)
           to label %882 unwind label %880
 
 536:                                              ; preds = %281
   %537 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %537)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers17unresolved_method17unresolved_method17h9261dc785cb62ccdE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %286)
           to label %889 unwind label %887
 
 538:                                              ; preds = %281
   %539 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %539)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   invoke void @_ZN15ide_diagnostics8handlers17unresolved_module17unresolved_module17he630191775e29abbE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { [6 x i16], i16, [1 x i16] }, { i8, [23 x i8] }, { { i32, i32 }, i32 }, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %286)
           to label %895 unwind label %893
 
 540:                                              ; preds = %281
   %541 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %541)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 4) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3204)
   call void @llvm.experimental.noalias.scope.decl(metadata !3207)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.11.i433), !noalias !3209
@@ -13735,6 +13773,7 @@ _ZN15ide_diagnostics10Diagnostic3new17hacd62608ab6a70ceE.exit.i263: ; preds = %4
 543:                                              ; preds = %281
   %544 = icmp ne ptr %286, null
   call void @llvm.assume(i1 %544)
+  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3217)
   call void @llvm.experimental.noalias.scope.decl(metadata !3220)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
@@ -19304,7 +19343,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -4776,6 +4776,7 @@ common.resume.i.i.i.i:                            ; preds = %186, %158, %130
   br i1 %.not24.i.i.i.i, label %.thread124.i.i.i.i, label %176
 
 .noexc.i.i.i.i:                                   ; preds = %163
+  call void @llvm.assume(i1 true) [ "align"(ptr %157, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1334
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha0cb4b78e8af86abE.llvm.5062853439722839227"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !1267
   %168 = getelementptr inbounds i8, ptr %5, i64 8
@@ -5742,6 +5743,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %.not25, label %.thread103, label %57
 
 .thread94:                                        ; preds = %52
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @"_ZN4core3ptr105drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$proc_macro_api..ProcMacroKind$RP$$GT$$GT$17h0b6db2f8a9409107E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -5965,6 +5967,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %.not25, label %.thread103, label %57
 
 .thread94:                                        ; preds = %52
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h3819ef92139c1aa3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -6189,6 +6192,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %.not25, label %.thread103, label %66
 
 .noexc:                                           ; preds = %53
+  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1608
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h956a2e483279a56eE.llvm.5062853439722839227"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
@@ -7612,6 +7616,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %.not48, label %.thread121, label %220
 
 219:                                              ; preds = %214
+  call void @llvm.assume(i1 true) [ "align"(ptr %208, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.16.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.16.sroa.7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.16.sroa.8)
@@ -9314,6 +9319,7 @@ _ZN5serde2de9MapAccess8next_key17h72fb74f363e4ca7dE.exit.thread.i: ; preds = %48
   br i1 %.not45, label %.thread169, label %667
 
 666:                                              ; preds = %661
+  call void @llvm.assume(i1 true) [ "align"(ptr %655, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.44.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.44.sroa.7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.44.sroa.8)
@@ -9591,13 +9597,14 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 91:                                               ; preds = %89, %92
   %.120 = phi i1 [ %93, %92 ], [ false, %89 ]
-  %.sroa.123.0 = phi ptr [ %.018, %92 ], [ undef, %89 ]
+  %.sroa.123.0 = phi ptr [ %.sroa.573.0.sink, %92 ], [ undef, %89 ]
   %.sroa.02.0 = phi i1 [ true, %92 ], [ false, %89 ]
   %brmerge = or i1 %72, %trunc27
   br i1 %brmerge, label %94, label %96
 
 92:                                               ; preds = %87, %89
-  %.018 = phi ptr [ %84, %89 ], [ %.sroa.573.0, %87 ]
+  %.sroa.573.0.sink = phi ptr [ %84, %89 ], [ %.sroa.573.0, %87 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.573.0.sink, i64 8) ]
   %93 = xor i1 %trunc27, true
   br label %91
 
@@ -10036,13 +10043,14 @@ _ZN5serde2de9MapAccess10next_value17h7e101aeec5b60f44E.exit.i: ; preds = %183
 
 215:                                              ; preds = %213, %216
   %.1 = phi i1 [ %217, %216 ], [ false, %213 ]
-  %.sroa.123.2 = phi ptr [ %.023, %216 ], [ undef, %213 ]
+  %.sroa.123.2 = phi ptr [ %.sroa.580.0.sink, %216 ], [ undef, %213 ]
   %.sroa.02.2 = phi i1 [ true, %216 ], [ false, %213 ]
   %brmerge43 = or i1 %198, %trunc25
   br i1 %brmerge43, label %218, label %220
 
 216:                                              ; preds = %211, %213
-  %.023 = phi ptr [ %208, %213 ], [ %.sroa.580.0, %211 ]
+  %.sroa.580.0.sink = phi ptr [ %208, %213 ], [ %.sroa.580.0, %211 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.580.0.sink, i64 8) ]
   %217 = xor i1 %trunc25, true
   br label %215
 
@@ -10491,6 +10499,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %.not48, label %136, label %137
 
 121:                                              ; preds = %116
+  call void @llvm.assume(i1 true) [ "align"(ptr %110, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.8)
   invoke void @"_ZN4core3ptr56drop_in_place$LT$proc_macro_api..msg..flat..FlatTree$GT$17h64f5aa01918d51c9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %38)
           to label %.noexc unwind label %122
@@ -11280,6 +11289,7 @@ _ZN5serde2de9MapAccess10next_value17heac174885bd5fb3aE.exit.i: ; preds = %258
   br i1 %.not45, label %346, label %347
 
 331:                                              ; preds = %326
+  call void @llvm.assume(i1 true) [ "align"(ptr %320, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.20)
   invoke void @"_ZN4core3ptr56drop_in_place$LT$proc_macro_api..msg..flat..FlatTree$GT$17h64f5aa01918d51c9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %35)
           to label %.noexc69 unwind label %332

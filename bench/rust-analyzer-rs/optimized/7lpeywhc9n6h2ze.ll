@@ -25036,6 +25036,7 @@ define hidden void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$cor
   store ptr %.sroa.6.0.copyload.i, ptr %.sroa.69.0..sroa_idx.i.i, align 8, !noalias !8491
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !8495
   store ptr %7, ptr %5, align 8, !noalias !8502
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0.copyload.i, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !8506
   store ptr %5, ptr %4, align 8, !noalias !8506
   %9 = getelementptr inbounds i8, ptr %4, i64 8
@@ -41931,6 +41932,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h56f732f4508dea5aE(ptr 
   store ptr %8, ptr %.sroa.69.0..sroa_idx.i.i.i, align 8, !noalias !13643
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !13648
   store ptr %6, ptr %4, align 8, !noalias !13655
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !13659
   store ptr %4, ptr %3, align 8, !noalias !13659
   %10 = getelementptr inbounds i8, ptr %3, i64 8
@@ -65874,6 +65876,7 @@ _ZN6hir_ty11diagnostics11match_check12pat_analysis13MatchCheckCtx24compute_match
   store ptr %942, ptr %11, align 8, !noalias !19679
   store ptr %938, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !19679
   store i8 %944, ptr %.sroa.3.0..sroa_idx.i98.i, align 8, !noalias !19679
+  call void @llvm.assume(i1 true) [ "align"(ptr %942, i64 8) ]
   %945 = load ptr, ptr %942, align 8, !nonnull !4, !noundef !4
   %946 = load ptr, ptr %880, align 8, !nonnull !4, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !19719)
@@ -71482,6 +71485,7 @@ _ZN6hir_ty11diagnostics11match_check7PatCtxt9lower_lit17hd1d2bccb47e46a63E.exit:
   %212 = getelementptr inbounds i8, ptr %75, i64 56
   %213 = load ptr, ptr %212, align 8, !alias.scope !20672, !noalias !20675, !nonnull !4, !noundef !4
   %214 = getelementptr inbounds [0 x { { { [2 x i64] }, i64 }, { { i8, [23 x i8] } }, i8, i8, [6 x i8] }], ptr %213, i64 0, i64 %200
+  call void @llvm.assume(i1 true) [ "align"(ptr %spec.select.i, i64 8) ]
   %215 = load ptr, ptr %spec.select.i, align 8, !alias.scope !20678, !noalias !20575, !nonnull !4, !noundef !4
   %.not80.i = icmp eq i8 %194, 2
   br i1 %.not80.i, label %369, label %365
@@ -72367,7 +72371,7 @@ _ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc91
   %536 = getelementptr inbounds i8, ptr %535, i64 424
   %537 = load i64, ptr %536, align 8, !alias.scope !20816, !noundef !4
   %538 = icmp eq i64 %537, 0
-  br i1 %538, label %.loopexit, label %539
+  br i1 %538, label %.thread119.thread, label %539
 
 539:                                              ; preds = %_ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc918083ff013E.exit
   %540 = getelementptr inbounds i8, ptr %535, i64 400
@@ -72401,7 +72405,7 @@ _ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc91
   %550 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %551 = bitcast <16 x i1> %550 to i16
   %.not.i.i.i.i = icmp eq i16 %551, 0
-  br i1 %.not.i.i.i.i, label %561, label %.loopexit
+  br i1 %.not.i.i.i.i, label %561, label %.thread119.thread
 
 552:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
   %553 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i.i, i1 true)
@@ -72421,12 +72425,17 @@ _ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc91
   %563 = add i64 %.sroa.01.0.i.i.i.i, %562
   br label %545
 
+.thread119.thread:                                ; preds = %549, %_ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc918083ff013E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.1.i, i64 8) ]
+  br label %.loopexit
+
 .thread119:                                       ; preds = %552
   %564 = getelementptr inbounds { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %.val.i, i64 %559
   %565 = getelementptr inbounds i8, ptr %564, i64 -16
   %566 = load ptr, ptr %565, align 8, !nonnull !4, !noundef !4
   %567 = getelementptr inbounds i8, ptr %564, i64 -8
   %568 = load i64, ptr %567, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.1.i, i64 8) ]
   %569 = icmp eq i64 %568, 0
   br i1 %569, label %.loopexit, label %.lr.ph.i
 
@@ -72442,6 +72451,7 @@ _ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc91
   %.sroa.2.017.i = phi ptr [ %570, %.lr.ph.i ], [ %575, %591 ]
   %.val1316.i = phi ptr [ %.sroa.0.1.i, %.lr.ph.i ], [ %.val.i17, %591 ]
   %575 = getelementptr inbounds i8, ptr %.sroa.2.017.i, i64 -8
+  call void @llvm.assume(i1 true) [ "align"(ptr %storemerge18.i, i64 8) ]
   %.val.i17 = load ptr, ptr %575, align 8, !alias.scope !20848, !noalias !20851, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !20851
   store ptr %.val1316.i, ptr %18, align 8, !noalias !20854
@@ -72512,9 +72522,10 @@ _ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc91
   %592 = icmp eq ptr %566, %575
   br i1 %592, label %.loopexit, label %574
 
-.loopexit:                                        ; preds = %549, %591, %_ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc918083ff013E.exit, %.thread119
-  %.val13.lcssa.i = phi ptr [ %.sroa.0.1.i, %.thread119 ], [ %.sroa.0.1.i, %_ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc918083ff013E.exit ], [ %.val.i17, %591 ], [ %.sroa.0.1.i, %549 ]
-  %storemerge.lcssa10.i = phi ptr [ %.sroa.5.1.i, %.thread119 ], [ %.sroa.5.1.i, %_ZN6hir_ty11diagnostics11match_check7PatCtxt24lower_pattern_unadjusted17h5c6dc918083ff013E.exit ], [ %580, %591 ], [ %.sroa.5.1.i, %549 ]
+.loopexit:                                        ; preds = %591, %.thread119.thread, %.thread119
+  %.val13.lcssa.i = phi ptr [ %.sroa.0.1.i, %.thread119 ], [ %.sroa.0.1.i, %.thread119.thread ], [ %.val.i17, %591 ]
+  %storemerge.lcssa10.i = phi ptr [ %.sroa.5.1.i, %.thread119 ], [ %.sroa.5.1.i, %.thread119.thread ], [ %580, %591 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %storemerge.lcssa10.i, i64 8) ]
   %593 = insertvalue { ptr, ptr } poison, ptr %.val13.lcssa.i, 0
   %594 = insertvalue { ptr, ptr } %593, ptr %storemerge.lcssa10.i, 1
   ret { ptr, ptr } %594
@@ -79357,6 +79368,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit957: ; pred
 
 397:                                              ; preds = %394
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66)
+  call void @llvm.assume(i1 true) [ "align"(ptr %396, i64 16) ]
   call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner28_$u7b$$u7b$closure$u7d$$u7d$17h4e4cfdf731f6f033E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %66, ptr noalias noundef align 8 dereferenceable(40) %67, ptr noalias noundef readonly align 16 dereferenceable(32) %396, i8 noundef 12)
   %398 = load i8, ptr %66, align 8, !range !3316, !noundef !4
   %399 = icmp eq i8 %398, 24
@@ -79389,6 +79401,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit957: ; pred
 
 406:                                              ; preds = %400
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65)
+  call void @llvm.assume(i1 true) [ "align"(ptr %402, i64 16) ]
   call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner28_$u7b$$u7b$closure$u7d$$u7d$17h4e4cfdf731f6f033E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %65, ptr noalias noundef align 8 dereferenceable(40) %67, ptr noalias noundef readonly align 16 dereferenceable(32) %402, i8 noundef 14)
   %407 = load i8, ptr %65, align 8, !range !3316, !noundef !4
   %408 = icmp eq i8 %407, 24
@@ -92192,6 +92205,7 @@ _ZN4core4iter8adapters11try_process17h390de0603cd37eddE.exit.thread3148: ; preds
   br label %729
 
 2478:                                             ; preds = %_ZN4core4iter8adapters11try_process17h390de0603cd37eddE.exit.thread
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.012.i.i.i.i, i64 8) ]
   %2479 = load i32, ptr %215, align 4, !noundef !4
   %2480 = getelementptr inbounds i8, ptr %1, i64 320
   %.val2484 = load ptr, ptr %2480, align 8, !nonnull !4, !align !256, !noundef !4
@@ -92365,6 +92379,7 @@ _ZN4core4iter8adapters11try_process17h390de0603cd37eddE.exit.thread3148: ; preds
   br label %2549
 
 2537:                                             ; preds = %2531
+  call void @llvm.assume(i1 true) [ "align"(ptr %2533, i64 8) ]
   %2538 = load ptr, ptr %72, align 8, !nonnull !4, !noundef !4
   %2539 = load i32, ptr %213, align 4, !noundef !4
   %2540 = getelementptr inbounds i8, ptr %1, i64 8
