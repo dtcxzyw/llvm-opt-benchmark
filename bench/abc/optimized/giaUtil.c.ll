@@ -14304,61 +14304,57 @@ Vec_StrPush.exit:                                 ; preds = %.lr.ph.i.preheader,
 define void @Gia_ManDumpSuppFile(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #15 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.46)
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %7
+  br i1 %4, label %5, label %.lr.ph.i
 
 5:                                                ; preds = %2
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef %1)
-  br label %30
+  br label %29
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp sgt i32 %9, 0
-  %11 = getelementptr i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8
-  br i1 %10, label %.lr.ph.i, label %Vec_StrCountEntry.exit22
+.lr.ph.i:                                         ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp sgt i32 %8, 0
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %wide.trip.count.i = zext nneg i32 %8 to i64
+  br label %12
 
-.lr.ph.i:                                         ; preds = %7
-  %wide.trip.count.i = zext nneg i32 %9 to i64
-  br label %13
-
-13:                                               ; preds = %13, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %18, %13 ]
-  %14 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1
-  %16 = icmp eq i8 %15, 10
-  %17 = zext i1 %16 to i32
-  %18 = add nuw nsw i32 %.09.i, %17
+12:                                               ; preds = %12, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
+  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %17, %12 ]
+  %13 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv.i
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 10
+  %16 = zext i1 %15 to i32
+  %17 = add nuw nsw i32 %.09.i, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.i16, label %13, !llvm.loop !141
+  br i1 %exitcond.not.i, label %Vec_StrCountEntry.exit, label %12, !llvm.loop !141
 
-.lr.ph.i16:                                       ; preds = %13, %.lr.ph.i16
-  %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.i16 ], [ 0, %13 ]
-  %.09.i19 = phi i32 [ %23, %.lr.ph.i16 ], [ 0, %13 ]
-  %19 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.i18
-  %20 = load i8, ptr %19, align 1
-  %21 = icmp eq i8 %20, 10
-  %22 = zext i1 %21 to i32
-  %23 = add nuw nsw i32 %.09.i19, %22
+Vec_StrCountEntry.exit:                           ; preds = %12, %Vec_StrCountEntry.exit
+  %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i20, %Vec_StrCountEntry.exit ], [ 0, %12 ]
+  %.09.i19 = phi i32 [ %22, %Vec_StrCountEntry.exit ], [ 0, %12 ]
+  %18 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv.i18
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 10
+  %21 = zext i1 %20 to i32
+  %22 = add nuw nsw i32 %.09.i19, %21
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i
-  br i1 %exitcond.not.i21, label %Vec_StrCountEntry.exit22, label %.lr.ph.i16, !llvm.loop !141
+  br i1 %exitcond.not.i21, label %Vec_StrCountEntry.exit22, label %Vec_StrCountEntry.exit, !llvm.loop !141
 
-Vec_StrCountEntry.exit22:                         ; preds = %.lr.ph.i16, %7
-  %.0.lcssa.i24 = phi i32 [ 0, %7 ], [ %18, %.lr.ph.i16 ]
-  %.0.lcssa.i15 = phi i32 [ 0, %7 ], [ %23, %.lr.ph.i16 ]
-  %24 = sdiv i32 %9, %.0.lcssa.i15
-  %25 = add nsw i32 %24, -1
-  %26 = add nsw i32 %9, -1
-  %27 = sext i32 %26 to i64
-  %28 = tail call i64 @fwrite(ptr noundef %12, i64 noundef 1, i64 noundef %27, ptr noundef nonnull %3)
-  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %1, i32 noundef %.0.lcssa.i24, i32 noundef %25)
-  br label %30
+Vec_StrCountEntry.exit22:                         ; preds = %Vec_StrCountEntry.exit
+  %23 = udiv i32 %8, %22
+  %24 = add nsw i32 %23, -1
+  %25 = add nsw i32 %8, -1
+  %26 = zext nneg i32 %25 to i64
+  %27 = tail call i64 @fwrite(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %26, ptr noundef nonnull %3)
+  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %1, i32 noundef %17, i32 noundef %24)
+  br label %29
 
-30:                                               ; preds = %Vec_StrCountEntry.exit22, %5
-  %31 = tail call i32 @fclose(ptr noundef %3)
+29:                                               ; preds = %Vec_StrCountEntry.exit22, %5
+  %30 = tail call i32 @fclose(ptr noundef %3)
   ret void
 }
 

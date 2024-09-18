@@ -82,7 +82,7 @@ abc/abcProve.c.ll 156343513
 abc/abcQbf.c.ll 218198277
 abc/abcQuant.c.ll 372092100
 abc/abcReach.c.ll 179695420
-abc/abcRec3.c.ll 1765083229
+abc/abcRec3.c.ll 1766856079
 abc/abcReconv.c.ll 587240447
 abc/abcRefactor.c.ll 357767409
 abc/abcRefs.c.ll 257608184
@@ -205,7 +205,7 @@ abc/bblif.c.ll 558557694
 abc/bbrCex.c.ll 118181879
 abc/bbrImage.c.ll 410700321
 abc/bbrReach.c.ll 341774960
-abc/bdcCore.c.ll 429936183
+abc/bdcCore.c.ll 430366471
 abc/bdcDec.c.ll 553595750
 abc/bdcSpfd.c.ll 1101023982
 abc/bdcTable.c.ll 127361424
@@ -2883,7 +2883,7 @@ clamav/pdf.c.ll 1659690390
 clamav/pdfdecode.c.ll 600903022
 clamav/pdfng.c.ll 450211861
 clamav/pe.c.ll 2703429253
-clamav/pe_icons.c.ll 1449661046
+clamav/pe_icons.c.ll 1463268055
 clamav/petite.c.ll 440923465
 clamav/phish_allow_list.c.ll 46078543
 clamav/phish_domaincheck_db.c.ll 46491273
@@ -4871,7 +4871,7 @@ cpython/_functoolsmodule.ll 585895441
 cpython/_hashopenssl.ll 713820340
 cpython/_heapqmodule.ll 260155200
 cpython/_iomodule.ll 388588538
-cpython/_json.ll 1321029540
+cpython/_json.ll 1322353523
 cpython/_localemodule.ll 405855740
 cpython/_lsprof.ll 364113504
 cpython/_lzmamodule.ll 572422770
@@ -8600,7 +8600,7 @@ gromacs/ga2la.cpp.ll 209190364
 gromacs/gather.cpp.ll 96044334
 gromacs/gausstransform.cpp.ll 863745350
 gromacs/gen_ad.cpp.ll 2786244725
-gromacs/gen_maxwell_velocities.cpp.ll 568375393
+gromacs/gen_maxwell_velocities.cpp.ll 568944319
 gromacs/gen_vsite.cpp.ll 3976447909
 gromacs/genconf.cpp.ll 819262234
 gromacs/genhydro.cpp.ll 1453804263
@@ -10416,7 +10416,7 @@ hwloc/hwloc_dump_hwdata-hwloc-dump-hwdata-knl.ll 191636254
 hwloc/hwloc_dump_hwdata-hwloc-dump-hwdata.ll 63018678
 hwloc/lstopo-lstopo-ascii.ll 267942768
 hwloc/lstopo-lstopo-cairo.ll 296044201
-hwloc/lstopo-lstopo-draw.ll 1203808238
+hwloc/lstopo-lstopo-draw.ll 1205021702
 hwloc/lstopo-lstopo-fig.ll 74467673
 hwloc/lstopo-lstopo-shmem.ll 74632588
 hwloc/lstopo-lstopo-svg.ll 71604226
@@ -10425,7 +10425,7 @@ hwloc/lstopo-lstopo-tikz.ll 86358478
 hwloc/lstopo-lstopo-xml.ll 44075446
 hwloc/lstopo-lstopo.ll 1489138774
 hwloc/lstopo_no_graphics-lstopo-ascii.ll 267912155
-hwloc/lstopo_no_graphics-lstopo-draw.ll 1203510868
+hwloc/lstopo_no_graphics-lstopo-draw.ll 1204914946
 hwloc/lstopo_no_graphics-lstopo-fig.ll 74475503
 hwloc/lstopo_no_graphics-lstopo-shmem.ll 74644554
 hwloc/lstopo_no_graphics-lstopo-svg.ll 71548164
@@ -11673,7 +11673,7 @@ libjpeg-turbo/jmemmgr.c.ll 383523836
 libjpeg-turbo/jmemnobs.c.ll 44727872
 libjpeg-turbo/jpegtran.c.ll 215246571
 libjpeg-turbo/jquant1.c.ll 394916033
-libjpeg-turbo/jquant2.c.ll 738296327
+libjpeg-turbo/jquant2.c.ll 744686503
 libjpeg-turbo/jutils.c.ll 47906798
 libjpeg-turbo/md5.c.ll 284248865
 libjpeg-turbo/md5hl.c.ll 66495939
@@ -12498,7 +12498,7 @@ libzmq/plain_client.cpp.ll 88065722
 libzmq/plain_server.cpp.ll 122124965
 libzmq/poller_base.cpp.ll 189163203
 libzmq/polling_util.cpp.ll 39349738
-libzmq/proxy.cpp.ll 392042814
+libzmq/proxy.cpp.ll 392434983
 libzmq/proxy_thr.cpp.ll 104261846
 libzmq/pub.cpp.ll 56244451
 libzmq/pull.cpp.ll 59338327
@@ -16752,7 +16752,7 @@ llvm/SampleContextTracker.cpp.ll 2995250548
 llvm/SampleProf.cpp.ll 6275494712
 llvm/SampleProfReader.cpp.ll 7680143711
 llvm/SampleProfWriter.cpp.ll 4981941580
-llvm/SampleProfile.cpp.ll 22066399749
+llvm/SampleProfile.cpp.ll 22092002005
 llvm/SampleProfileInference.cpp.ll 4308587057
 llvm/SampleProfileLoaderBaseUtil.cpp.ll 701431711
 llvm/SampleProfileMatcher.cpp.ll 5849878482
@@ -17515,7 +17515,7 @@ luajit/lj_load_dyn.ll 85444945
 luajit/lj_mcode.ll 101646628
 luajit/lj_mcode_dyn.ll 101635386
 luajit/lj_meta.ll 310762622
-luajit/lj_meta_dyn.ll 310769253
+luajit/lj_meta_dyn.ll 311080262
 luajit/lj_obj.ll 47658322
 luajit/lj_obj_dyn.ll 47620256
 luajit/lj_opt_fold.ll 843260243
@@ -17875,8 +17875,8 @@ memcached/memcached-murmur3_hash.ll 56377221
 memcached/memcached-proto_bin.ll 455148701
 memcached/memcached-proto_text.ll 900586042
 memcached/memcached-restart.ll 142568583
-memcached/memcached-slab_automove.ll 96727542
-memcached/memcached-slab_automove_extstore.ll 106408426
+memcached/memcached-slab_automove.ll 96989449
+memcached/memcached-slab_automove_extstore.ll 106529926
 memcached/memcached-slabs.ll 544883921
 memcached/memcached-storage.ll 538952414
 memcached/memcached-thread.ll 408082615
@@ -17897,8 +17897,8 @@ memcached/memcached_debug-murmur3_hash.ll 56382925
 memcached/memcached_debug-proto_bin.ll 455352928
 memcached/memcached_debug-proto_text.ll 913822664
 memcached/memcached_debug-restart.ll 142582029
-memcached/memcached_debug-slab_automove.ll 96719659
-memcached/memcached_debug-slab_automove_extstore.ll 106445851
+memcached/memcached_debug-slab_automove.ll 96983804
+memcached/memcached_debug-slab_automove_extstore.ll 106569637
 memcached/memcached_debug-slabs.ll 545111366
 memcached/memcached_debug-storage.ll 538351779
 memcached/memcached_debug-thread.ll 407469781
@@ -18722,7 +18722,7 @@ mitsuba3/roughdielectric.cpp.ll 1999029528
 mitsuba3/roughplastic.cpp.ll 4432331934
 mitsuba3/sampler.cpp.ll 450636654
 mitsuba3/scene.cpp.ll 2930186347
-mitsuba3/sdfgrid.cpp.ll 7145690183
+mitsuba3/sdfgrid.cpp.ll 7157974871
 mitsuba3/sensor.cpp.ll 1102621394
 mitsuba3/serialized.cpp.ll 968333349
 mitsuba3/sggx.cpp.ll 817290627
@@ -19000,7 +19000,7 @@ mold/output-chunks.cc.LOONGARCH32.cc.ll 15176677329
 mold/output-chunks.cc.LOONGARCH64.cc.ll 15100119762
 mold/output-chunks.cc.M68K.cc.ll 14907424758
 mold/output-chunks.cc.PPC32.cc.ll 15300822401
-mold/output-chunks.cc.PPC64V1.cc.ll 15124232795
+mold/output-chunks.cc.PPC64V1.cc.ll 15139374839
 mold/output-chunks.cc.PPC64V2.cc.ll 15023159024
 mold/output-chunks.cc.RV32BE.cc.ll 15083147260
 mold/output-chunks.cc.RV32LE.cc.ll 14935806568
@@ -21853,7 +21853,7 @@ opencv/ar_hmdb.cpp.ll 697079327
 opencv/ar_hmdb_benchmark.cpp.ll 3484417770
 opencv/ar_sports.cpp.ll 605450812
 opencv/arg_layer.cpp.ll 568777563
-opencv/arithm.cpp.ll 1572912336
+opencv/arithm.cpp.ll 1580061478
 opencv/arithm.dispatch.cpp.ll 4841220144
 opencv/array.cpp.ll 1632651135
 opencv/aruco.cpp.ll 371231788
@@ -22082,7 +22082,7 @@ opencv/daisy.cpp.ll 2255324370
 opencv/darknet_importer.cpp.ll 1012002834
 opencv/darknet_io.cpp.ll 2853179047
 opencv/dasiamrpn_tracker.cpp.ll 350337375
-opencv/data.cpp.ll 3002478995
+opencv/data.cpp.ll 3008660675
 opencv/data_provider_interface_exception.cpp.ll 105108717
 opencv/datablock.cpp.ll 381720389
 opencv/datafile.cpp.ll 674543105
@@ -22513,7 +22513,7 @@ opencv/is_bsds.cpp.ll 491799144
 opencv/is_weizmann.cpp.ll 534404882
 opencv/islands.cpp.ll 3210391900
 opencv/itt.cpp.ll 37574817
-opencv/joint_bilateral_filter.cpp.ll 775616002
+opencv/joint_bilateral_filter.cpp.ll 777004097
 opencv/kalman.cpp.ll 307761919
 opencv/kalman_filter_no_opencv.cpp.ll 205597664
 opencv/kaze.cpp.ll 365764472
@@ -22630,7 +22630,7 @@ opencv/memory_descriptor.cpp.ll 53061548
 opencv/memory_descriptor_ref.cpp.ll 232825616
 opencv/memory_descriptor_view.cpp.ll 778852692
 opencv/merge.cpp.ll 577716292
-opencv/merge.dispatch.cpp.ll 488447072
+opencv/merge.dispatch.cpp.ll 490094821
 opencv/meta.cpp.ll 1998412499
 opencv/metadata.cpp.ll 169868406
 opencv/metatypes.cpp.ll 266151178
@@ -23109,7 +23109,7 @@ opencv/sparse_matching_gpc.cpp.ll 2769648159
 opencv/sparsetodenseflow.cpp.ll 352916153
 opencv/spatialgradient.cpp.ll 126550988
 opencv/speech_recognition.cpp.ll 1646778561
-opencv/split.dispatch.cpp.ll 447197947
+opencv/split.dispatch.cpp.ll 448326273
 opencv/split_layer.cpp.ll 246115322
 opencv/spv_shader.cpp.ll 158891944
 opencv/sqpnp.cpp.ll 1368487340
@@ -23120,7 +23120,7 @@ opencv/sr_general100.cpp.ll 516749412
 opencv/ssd_detector.cpp.ll 225066604
 opencv/stabilizer.cpp.ll 1697617806
 opencv/stackblur.cpp.ll 1709519731
-opencv/stardetector.cpp.ll 2333868169
+opencv/stardetector.cpp.ll 2376986915
 opencv/stat.dispatch.cpp.ll 62927595
 opencv/stat_c.cpp.ll 161306287
 opencv/staticSaliency.cpp.ll 129852463
@@ -24446,7 +24446,7 @@ openjdk/jni_util.ll 525803490
 openjdk/jni_util_md.ll 46395843
 openjdk/jpegdecoder.ll 218461934
 openjdk/jquant1.ll 393628431
-openjdk/jquant2.ll 687066238
+openjdk/jquant2.ll 693432494
 openjdk/jsig.ll 86539912
 openjdk/json.ll 410267144
 openjdk/jspawnhelper.ll 79504233
@@ -28834,7 +28834,7 @@ openssl/pem_read_depr_test-bin-pem_read_depr_test.ll 68858890
 openssl/pemtest-bin-pemtest.ll 67325251
 openssl/pkcs12_api_test-bin-pkcs12.ll 215933008
 openssl/pkcs12_api_test-bin-pkcs12_api_test.ll 104933540
-openssl/pkcs12_format_test-bin-pkcs12.ll 215926957
+openssl/pkcs12_format_test-bin-pkcs12.ll 216142926
 openssl/pkcs12_format_test-bin-pkcs12_format_test.ll 138477132
 openssl/pkcs7_test-bin-pkcs7_test.ll 55714276
 openssl/pkey_meth_kdf_test-bin-pkey_meth_kdf_test.ll 66024220
@@ -31804,7 +31804,7 @@ postgres/xlogdesc.ll 99039635
 postgres/xlogfuncs.ll 149743621
 postgres/xloginsert.ll 371105254
 postgres/xlogprefetcher.ll 263760611
-postgres/xlogreader.ll 528124002
+postgres/xlogreader.ll 528652648
 postgres/xlogrecovery.ll 1033421325
 postgres/xlogstats.ll 59728217
 postgres/xlogutils.ll 183067561
@@ -32005,7 +32005,7 @@ proj/units.cpp.ll 40463903
 proj/urm5.cpp.ll 52959221
 proj/urmfps.cpp.ll 60188723
 proj/util.cpp.ll 1364954903
-proj/utils.cpp.ll 176006734
+proj/utils.cpp.ll 176182798
 proj/vandg.cpp.ll 69563639
 proj/vandg2.cpp.ll 59562292
 proj/vandg4.cpp.ll 51463499
@@ -32977,7 +32977,7 @@ qemu/meson-generated_.._qapi_qapi-visit-stats.c.ll 164777084
 qemu/meson-generated_.._qapi_qapi-visit-tpm.c.ll 117094205
 qemu/meson-generated_.._qapi_qapi-visit-trace.c.ll 64615148
 qemu/meson-generated_.._qapi_qapi-visit-transaction.c.ll 142786366
-qemu/meson-generated_.._qapi_qapi-visit-ui.c.ll 472451279
+qemu/meson-generated_.._qapi_qapi-visit-ui.c.ll 472930292
 qemu/meson-generated_.._qapi_qapi-visit-virtio.c.ll 202263307
 qemu/migration_block-dirty-bitmap.c.ll 572030369
 qemu/migration_block.c.ll 451376051
@@ -42023,7 +42023,7 @@ z3/expr_functors.cpp.ll 187005144
 z3/expr_inverter.cpp.ll 1556531106
 z3/expr_map.cpp.ll 590169394
 z3/expr_pattern_match.cpp.ll 1430944339
-z3/expr_rand.cpp.ll 971038614
+z3/expr_rand.cpp.ll 969339820
 z3/expr_replacer.cpp.ll 1759235443
 z3/expr_safe_replace.cpp.ll 810653011
 z3/expr_substitution.cpp.ll 1043145330
@@ -42251,7 +42251,7 @@ z3/qe_mbi.cpp.ll 3349902940
 z3/qe_mbp.cpp.ll 6117999069
 z3/qe_tactic.cpp.ll 854477613
 z3/qfaufbv_tactic.cpp.ll 1292643828
-z3/qfauflia_tactic.cpp.ll 1273491594
+z3/qfauflia_tactic.cpp.ll 1274766124
 z3/qfbv_tactic.cpp.ll 1353762843
 z3/qffp_tactic.cpp.ll 710552550
 z3/qffplra_tactic.cpp.ll 684904885

@@ -5964,7 +5964,6 @@ entry:
 
 reflip.outer:                                     ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit, %entry
   %.ph = phi ptr [ %58, %_ZNK6vectorIjLb0EjE5emptyEv.exit ], [ %.pre, %entry ]
-  %cmp.i = icmp eq ptr %.ph, null
   %arrayidx.i = getelementptr inbounds i8, ptr %.ph, i64 -4
   %0 = load ptr, ptr %m_constraints, align 8
   %1 = load double, ptr %m_noise, align 8
@@ -5975,21 +5974,14 @@ reflip.outer:                                     ; preds = %_ZNK6vectorIjLb0EjE
   br label %reflip
 
 reflip:                                           ; preds = %reflip.backedge, %reflip.outer
-  br i1 %cmp.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit65, label %if.end.i
-
-if.end.i:                                         ; preds = %reflip
   %6 = load i32, ptr %arrayidx.i, align 4
-  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit65
-
-_ZNK6vectorIjLb0EjE4sizeEv.exit65:                ; preds = %reflip, %if.end.i
-  %retval.0.i = phi i32 [ %6, %if.end.i ], [ 0, %reflip ]
   %7 = load i32, ptr %m_rand, align 8
   %mul.i = mul i32 %7, 214013
   %add.i = add i32 %mul.i, 2531011
   store i32 %add.i, ptr %m_rand, align 8
   %shr.i = lshr i32 %add.i, 16
   %and.i = and i32 %shr.i, 32767
-  %rem = urem i32 %and.i, %retval.0.i
+  %rem = urem i32 %and.i, %6
   %idxprom.i = zext nneg i32 %rem to i64
   %arrayidx.i58 = getelementptr inbounds i32, ptr %.ph, i64 %idxprom.i
   %8 = load i32, ptr %arrayidx.i58, align 4
@@ -6009,7 +6001,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit65:                ; preds = %reflip, %if.end.i
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp11, label %if.else128, label %if.then
 
-if.then:                                          ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit65
+if.then:                                          ; preds = %reflip
   br i1 %cmp.i.i.i, label %reflip.backedge, label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
 
 reflip.backedge:                                  ; preds = %if.then, %_ZNK3sat12local_search10constraint3endEv.exit.i, %_ZNK3sat12local_search16constraint_valueERKNS0_10constraintE.exit, %if.end173
@@ -6192,7 +6184,7 @@ if.else52:                                        ; preds = %for.body48
   %34 = load i32, ptr %m_coeff, align 4
   %conv53 = zext i32 %34 to i64
   %cmp54 = icmp ult i64 %33, %conv53
-  %add = select i1 %cmp54, i32 %retval.0.i, i32 0
+  %add = select i1 %cmp54, i32 %6, i32 0
   %spec.select = add i32 %add, %best_bsb.0184
   br label %for.inc58
 
@@ -6268,7 +6260,7 @@ if.else96:                                        ; preds = %for.body85
   br i1 %cmp99, label %if.then100, label %for.inc107
 
 if.then100:                                       ; preds = %if.else96
-  %add101 = add i32 %bsb.0187, %retval.0.i
+  %add101 = add i32 %bsb.0187, %6
   %cmp102 = icmp ugt i32 %add101, %best_bsb.2194
   br i1 %cmp102, label %for.inc125, label %for.inc107
 
@@ -6304,7 +6296,7 @@ for.inc125:                                       ; preds = %if.then90, %if.then
   %cmp63.not = icmp eq ptr %cit.1, %add.ptr.i
   br i1 %cmp63.not, label %if.end158, label %for.body64, !llvm.loop !35
 
-if.else128:                                       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit65
+if.else128:                                       ; preds = %reflip
   br i1 %cmp.i.i.i, label %if.then160, label %_ZNK3sat12local_search10constraint3endEv.exit
 
 _ZNK3sat12local_search10constraint3endEv.exit:    ; preds = %if.else128
@@ -7155,17 +7147,9 @@ _ZN6vectorIjLb0EjE4backEv.exit:                   ; preds = %entry, %if.end.i.i
 define hidden void @_ZN3sat12local_search19pick_flip_lookaheadEv(ptr noundef nonnull align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_unsat_stack = getelementptr inbounds i8, ptr %this, i64 96
-  %0 = load ptr, ptr %m_unsat_stack, align 8
-  %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
+  %0 = load ptr, ptr %m_unsat_stack, align 8, !nonnull !11, !noundef !11
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  br label %_ZNK6vectorIjLb0EjE4sizeEv.exit
-
-_ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %entry, %if.end.i
-  %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %entry ]
   %m_constraints = getelementptr inbounds i8, ptr %this, i64 64
   %m_rand = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load i32, ptr %m_rand, align 8
@@ -7174,7 +7158,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %entry, %if.end.i
   store i32 %add.i, ptr %m_rand, align 8
   %shr.i = lshr i32 %add.i, 16
   %and.i = and i32 %shr.i, 32767
-  %rem = urem i32 %and.i, %retval.0.i
+  %rem = urem i32 %and.i, %1
   %idxprom.i = zext nneg i32 %rem to i64
   %arrayidx.i4 = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i4, align 4
@@ -7187,7 +7171,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %entry, %if.end.i
   %cmp.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i, label %if.else, label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
 
-_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
+_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i.i, align 4
   %8 = zext i32 %7 to i64
@@ -7272,7 +7256,7 @@ if.then33:                                        ; preds = %for.end
   %call41 = tail call noundef zeroext i1 @_ZN3sat12local_search9propagateENS_7literalE(ptr noundef nonnull align 8 dereferenceable(232) %this, i32 %xor.i23)
   br label %if.end54
 
-if.else:                                          ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %for.end
+if.else:                                          ; preds = %entry, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %for.end
   %call42 = tail call noundef i32 @_Z19get_verbosity_levelv()
   %cmp43.not = icmp eq i32 %call42, 0
   br i1 %cmp43.not, label %if.end54, label %if.then44

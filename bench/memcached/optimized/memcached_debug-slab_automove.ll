@@ -14,14 +14,14 @@ entry:
   %0 = load i32, ptr %slab_automove_window, align 8
   %slab_automove_ratio = getelementptr inbounds i8, ptr %settings, i64 152
   %1 = load double, ptr %slab_automove_ratio, align 8
-  %call = tail call noalias dereferenceable_or_null(6168) ptr @calloc(i64 noundef 1, i64 noundef 6168) #7
+  %call = tail call noalias dereferenceable_or_null(6168) ptr @calloc(i64 noundef 1, i64 noundef 6168) #8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %mul = shl i32 %0, 6
   %conv = zext i32 %mul to i64
-  %call1 = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 32) #7
+  %call1 = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 32) #8
   store ptr %call1, ptr %call, align 8
   %window_size2 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %window_size2, align 8
@@ -31,14 +31,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %call) #8
+  tail call void @free(ptr noundef nonnull %call) #9
   br label %return
 
 if.end8:                                          ; preds = %if.end
   %iam_before = getelementptr inbounds i8, ptr %call, i64 24
-  tail call void @fill_item_stats_automove(ptr noundef nonnull %iam_before) #8
+  tail call void @fill_item_stats_automove(ptr noundef nonnull %iam_before) #9
   %sam_before = getelementptr inbounds i8, ptr %call, i64 3096
-  tail call void @fill_slab_stats_automove(ptr noundef nonnull %sam_before) #8
+  tail call void @fill_slab_stats_automove(ptr noundef nonnull %sam_before) #9
   br label %return
 
 return:                                           ; preds = %entry, %if.end8, %if.then7
@@ -60,8 +60,8 @@ declare void @fill_slab_stats_automove(ptr noundef) local_unnamed_addr #3
 define dso_local void @slab_automove_free(ptr nocapture noundef %arg) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %arg, align 8
-  tail call void @free(ptr noundef %0) #8
-  tail call void @free(ptr noundef %arg) #8
+  tail call void @free(ptr noundef %0) #9
+  tail call void @free(ptr noundef %arg) #9
   ret void
 }
 
@@ -71,9 +71,9 @@ entry:
   store i32 -1, ptr %src, align 4
   store i32 -1, ptr %dst, align 4
   %iam_after = getelementptr inbounds i8, ptr %arg, i64 1560
-  tail call void @fill_item_stats_automove(ptr noundef nonnull %iam_after) #8
+  tail call void @fill_item_stats_automove(ptr noundef nonnull %iam_after) #9
   %sam_after = getelementptr inbounds i8, ptr %arg, i64 4632
-  tail call void @fill_slab_stats_automove(ptr noundef nonnull %sam_after) #8
+  tail call void @fill_slab_stats_automove(ptr noundef nonnull %sam_after) #9
   %iam_before = getelementptr inbounds i8, ptr %arg, i64 24
   br label %for.body
 
@@ -174,19 +174,17 @@ if.end50:                                         ; preds = %if.then48, %if.end3
   %idxprom57 = sext i32 %mul to i64
   %arrayidx58 = getelementptr inbounds %struct.window_data, ptr %14, i64 %idxprom57
   %15 = load i32, ptr %window_size, align 8
-  %cmp9.not.i = icmp eq i32 %15, 0
-  br i1 %cmp9.not.i, label %window_sum.exit, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %if.end50
+  %cmp9.not.i = icmp ne i32 %15, 0
+  tail call void @llvm.assume(i1 %cmp9.not.i)
   %wide.trip.count.i = zext i32 %15 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %16 = phi i64 [ 0, %for.body.lr.ph.i ], [ %add7.i, %for.body.i ]
-  %17 = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %add5.i, %for.body.i ]
-  %18 = phi i64 [ 0, %for.body.lr.ph.i ], [ %add3.i, %for.body.i ]
-  %19 = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %if.end50
+  %indvars.iv.i = phi i64 [ 0, %if.end50 ], [ %indvars.iv.next.i, %for.body.i ]
+  %16 = phi i64 [ 0, %if.end50 ], [ %add7.i, %for.body.i ]
+  %17 = phi float [ 0.000000e+00, %if.end50 ], [ %add5.i, %for.body.i ]
+  %18 = phi i64 [ 0, %if.end50 ], [ %add3.i, %for.body.i ]
+  %19 = phi i64 [ 0, %if.end50 ], [ %add.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.window_data, ptr %arrayidx58, i64 %indvars.iv.i
   %20 = load i64, ptr %arrayidx.i, align 8
   %add.i = add i64 %20, %19
@@ -205,36 +203,29 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 window_sum.exit.loopexit:                         ; preds = %for.body.i
   %24 = icmp eq i64 %add3.i, 0
-  %25 = udiv i64 %add.i, %wide.trip.count.i
-  br label %window_sum.exit
-
-window_sum.exit:                                  ; preds = %if.end50, %window_sum.exit.loopexit
-  %w_sum.sroa.4.1 = phi i1 [ %24, %window_sum.exit.loopexit ], [ true, %if.end50 ]
-  %w_sum.sroa.7.1 = phi float [ %add5.i, %window_sum.exit.loopexit ], [ 0.000000e+00, %if.end50 ]
-  %w_sum.sroa.1074.1 = phi i64 [ %add7.i, %window_sum.exit.loopexit ], [ 0, %if.end50 ]
-  %div64 = phi i64 [ %25, %window_sum.exit.loopexit ], [ poison, %if.end50 ]
+  %div64 = udiv i64 %add.i, %wide.trip.count.i
   %free_chunks = getelementptr inbounds i8, ptr %arrayidx41, i64 8
-  %26 = load i64, ptr %free_chunks, align 8
-  %conv68 = sitofp i64 %26 to double
-  %27 = load i32, ptr %arrayidx41, align 8
-  %conv72 = uitofp i32 %27 to double
+  %25 = load i64, ptr %free_chunks, align 8
+  %conv68 = sitofp i64 %25 to double
+  %26 = load i32, ptr %arrayidx41, align 8
+  %conv72 = uitofp i32 %26 to double
   %mul73 = fmul double %conv72, 2.500000e+00
   %cmp74 = fcmp olt double %mul73, %conv68
-  %or.cond1 = select i1 %cmp74, i1 %w_sum.sroa.4.1, i1 false
+  %or.cond1 = select i1 %cmp74, i1 %24, i1 false
   br i1 %or.cond1, label %if.then80, label %if.end82
 
-if.then80:                                        ; preds = %window_sum.exit
+if.then80:                                        ; preds = %window_sum.exit.loopexit
   store i32 %5, ptr %src, align 4
   store i32 0, ptr %dst, align 4
   br label %for.end115
 
-if.end82:                                         ; preds = %window_sum.exit
+if.end82:                                         ; preds = %window_sum.exit.loopexit
   %cmp83 = icmp ugt i64 %div64, %oldest_age.092
   br i1 %cmp83, label %land.lhs.true, label %if.end92
 
 land.lhs.true:                                    ; preds = %if.end82
-  %28 = load i64, ptr %total_pages, align 8
-  %cmp89 = icmp sgt i64 %28, 2
+  %27 = load i64, ptr %total_pages, align 8
+  %cmp89 = icmp sgt i64 %27, 2
   %spec.select = select i1 %cmp89, i64 %div64, i64 %oldest_age.092
   %spec.select73 = select i1 %cmp89, i32 %5, i32 %oldest.093
   br label %if.end92
@@ -248,12 +239,12 @@ if.end92:                                         ; preds = %land.lhs.true, %if.
 land.lhs.true95:                                  ; preds = %if.end92
   %div9872 = lshr i32 %15, 1
   %conv99 = zext nneg i32 %div9872 to i64
-  %cmp100 = icmp ugt i64 %w_sum.sroa.1074.1, %conv99
+  %cmp100 = icmp ugt i64 %add7.i, %conv99
   br i1 %cmp100, label %if.then109, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true95
   %conv104 = uitofp i32 %15 to float
-  %div105 = fdiv float %w_sum.sroa.7.1, %conv104
+  %div105 = fdiv float %add5.i, %conv104
   %cmp107 = fcmp ogt float %div105, 2.500000e-01
   br i1 %cmp107, label %if.then109, label %for.inc113
 
@@ -282,17 +273,17 @@ for.end115:                                       ; preds = %for.inc113, %if.the
   br i1 %or.cond, label %land.lhs.true129, label %if.end145
 
 land.lhs.true129:                                 ; preds = %for.end115
-  %29 = load i32, ptr %window_cur, align 4
-  %30 = load i32, ptr %window_size, align 8
-  %cmp132 = icmp ugt i32 %29, %30
+  %28 = load i32, ptr %window_cur, align 4
+  %29 = load i32, ptr %window_size, align 8
+  %cmp132 = icmp ugt i32 %28, %29
   br i1 %cmp132, label %if.then134, label %if.end145
 
 if.then134:                                       ; preds = %land.lhs.true129
   %conv135 = uitofp i64 %youngest_age.086 to double
   %conv136 = uitofp i64 %oldest_age.081 to double
   %max_age_ratio = getelementptr inbounds i8, ptr %arg, i64 16
-  %31 = load double, ptr %max_age_ratio, align 8
-  %mul137 = fmul double %31, %conv136
+  %30 = load double, ptr %max_age_ratio, align 8
+  %mul137 = fmul double %30, %conv136
   %cmp138 = fcmp ogt double %mul137, %conv135
   %brmerge.not = select i1 %cmp138, i1 %youngest_evicting.084, i1 false
   br i1 %brmerge.not, label %if.then143, label %if.end145
@@ -312,6 +303,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -319,8 +313,9 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind allocsize(0,1) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nounwind allocsize(0,1) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
