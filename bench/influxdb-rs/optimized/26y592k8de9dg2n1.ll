@@ -10562,6 +10562,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   br i1 %.not4.i, label %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d48cf1ab650ff76E.exit", label %20
 
 20:                                               ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !2136
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2136
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2136
@@ -10586,6 +10587,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   store i64 1, ptr %30, align 8, !alias.scope !2140, !noalias !2143
   call void @llvm.experimental.noalias.scope.decl(metadata !2146)
   call void @llvm.experimental.noalias.scope.decl(metadata !2149)
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %31 = load i64, ptr %19, align 8, !range !2151, !noalias !2152, !noundef !4
   %switch.tableidx = add nsw i64 %31, -1
   %32 = icmp ult i64 %switch.tableidx, 4
@@ -13546,6 +13548,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           to label %.thread153 unwind label %153
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h82eea67fab0d09f5E.llvm.10746823393314531435.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hef6d80db30db3aa8E.exit", %100
+  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 8) ]
   %107 = load ptr, ptr %.sroa.417.sroa.3.0..sroa.417.0..sroa_idx.sroa_idx, align 8, !alias.scope !2371, !noundef !4
   %108 = icmp eq ptr %107, null
   br i1 %108, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17hf01aaec0e5d62670E.exit76", label %109
@@ -13622,6 +13625,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           to label %"_ZN4core3ptr157drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$$GT$17h96a9e76b619a3680E.exit" unwind label %153
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h82eea67fab0d09f5E.llvm.10746823393314531435.exit82": ; preds = %135, %137
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 8) ]
   %.sroa.4.0..sroa_idx.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %141 = icmp eq ptr %.sroa.4.0..sroa_idx.val, null
   br i1 %141, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17he9b2fc2c21d11fe7E.exit", label %142
@@ -13906,6 +13910,7 @@ define hidden void @_ZN15influxdb3_write12write_buffer7flusher12run_io_flush17hc
   br label %.thread
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h4e47b8ad5bf15a3eE.exit": ; preds = %33, %37
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %34, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)

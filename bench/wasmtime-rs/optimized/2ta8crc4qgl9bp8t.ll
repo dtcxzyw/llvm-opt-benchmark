@@ -26268,6 +26268,8 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h0
   %56 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 }, { ptr, [5 x i64] }, { ptr, [2 x i64] } }, ptr %.sroa.471.0.copyload, i64 %27
   %57 = sub nuw i64 %.sroa.572.0.copyload, %27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload.i, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %14)
   store ptr %21, ptr %14, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
@@ -26709,7 +26711,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h7
   %.sroa.4.0..sroa_idx.i25 = getelementptr inbounds i8, ptr %16, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i25, align 8, !noalias !4798
   %.sroa.5.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %16, i64 16
-  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i26, align 8, !noalias !4798, !nonnull !5, !noundef !5
+  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i26, align 8, !noalias !4798, !nonnull !5, !align !12, !noundef !5
   %.sroa.6.0..sroa_idx.i27 = getelementptr inbounds i8, ptr %16, i64 24
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i27, align 8, !noalias !4798
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !4792
@@ -26719,6 +26721,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h7
   %.sroa.578.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.578.0.copyload = load ptr, ptr %.sroa.578.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %18)
   store ptr %25, ptr %18, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
@@ -27072,7 +27075,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hb
   %.sroa.4.0..sroa_idx.i25 = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i25, align 8, !noalias !4926
   %.sroa.5.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i26, align 8, !noalias !4926, !nonnull !5, !noundef !5
+  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i26, align 8, !noalias !4926, !nonnull !5, !align !12, !noundef !5
   %.sroa.6.0..sroa_idx.i27 = getelementptr inbounds i8, ptr %14, i64 24
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i27, align 8, !noalias !4926
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !4920
@@ -27082,6 +27085,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hb
   %.sroa.565.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.565.0.copyload = load ptr, ptr %.sroa.565.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %16)
   store ptr %23, ptr %16, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
@@ -27447,6 +27451,8 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
   %56 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 }, { ptr, [5 x i64] }, { ptr, [2 x i64] } }, ptr %.sroa.471.0.copyload, i64 %27
   %57 = sub nuw i64 %.sroa.572.0.copyload, %27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload.i, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %14)
   store ptr %21, ptr %14, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
@@ -27888,7 +27894,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   %.sroa.4.0..sroa_idx.i25 = getelementptr inbounds i8, ptr %16, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i25, align 8, !noalias !5113
   %.sroa.5.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %16, i64 16
-  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i26, align 8, !noalias !5113, !nonnull !5, !noundef !5
+  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i26, align 8, !noalias !5113, !nonnull !5, !align !12, !noundef !5
   %.sroa.6.0..sroa_idx.i27 = getelementptr inbounds i8, ptr %16, i64 24
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i27, align 8, !noalias !5113
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !5107
@@ -27898,6 +27904,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   %.sroa.578.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.578.0.copyload = load ptr, ptr %.sroa.578.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %18)
   store ptr %25, ptr %18, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
@@ -28275,6 +28282,8 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hf
   %.sroa.469.0.copyload = load ptr, ptr %.sroa.469.0..sroa_idx, align 8
   %57 = sub nuw i64 %.sroa.570.0.copyload, %27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload.i, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %14)
   store ptr %21, ptr %14, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
@@ -36140,6 +36149,7 @@ default.unreachable26:                            ; preds = %1
   br i1 %.not.i, label %"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$14coff_alignment17hfc4ddb828c991596E.exit", label %85
 
 85:                                               ; preds = %80
+  call void @llvm.assume(i1 true) [ "align"(ptr %84, i64 4) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7074)
   %86 = getelementptr inbounds i8, ptr %0, i64 16
   %87 = load ptr, ptr %86, align 8, !alias.scope !7077, !nonnull !5, !align !38, !noundef !5
@@ -36177,6 +36187,7 @@ default.unreachable26:                            ; preds = %1
   br i1 %.not.i22, label %"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$14coff_alignment17hfc4ddb828c991596E.exit", label %104
 
 104:                                              ; preds = %99
+  call void @llvm.assume(i1 true) [ "align"(ptr %103, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7081)
   %105 = getelementptr inbounds i8, ptr %0, i64 16
   %106 = load ptr, ptr %105, align 8, !alias.scope !7084, !nonnull !5, !align !12, !noundef !5

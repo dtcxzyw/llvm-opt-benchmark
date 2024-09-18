@@ -11760,7 +11760,7 @@ _ZN4just6recipe17error_from_signal17h7f5b2bc095ba6b37E.exit.i: ; preds = %412
           to label %466 unwind label %.loopexit.split-lp128.loopexit.split-lp.i, !noalias !1795
 
 460:                                              ; preds = %.loopexit126.i.thread
-  %461 = load ptr, ptr %433, align 8, !noalias !1790, !nonnull !21
+  %461 = load ptr, ptr %433, align 8, !noalias !1790, !nonnull !21, !align !42
   store ptr %461, ptr %44, align 8, !noalias !1790
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43), !noalias !1790
   %462 = getelementptr inbounds i8, ptr %461, i64 8

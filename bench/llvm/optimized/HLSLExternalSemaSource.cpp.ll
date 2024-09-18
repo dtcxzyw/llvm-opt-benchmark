@@ -321,8 +321,7 @@ define dso_local void @_ZN5clang22HLSLExternalSemaSource14InitializeSemaERNS_4Se
 
 61:                                               ; preds = %24
   %62 = load ptr, ptr %33, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %62, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %62, align 1
   %63 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %64 = inttoptr i64 %63 to ptr
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 28
@@ -1094,8 +1093,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderC2ERN5clan
 
 44:                                               ; preds = %5
   %45 = load ptr, ptr %21, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %45, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %45, align 1
   %46 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %47 = inttoptr i64 %46 to ptr
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
@@ -2965,8 +2963,7 @@ _ZN12_GLOBAL__N_122BuiltinTypeDeclBuilder15addHandleMemberEN4llvm4dxil13Resource
   %151 = load ptr, ptr %150, align 8
   %152 = call noundef zeroext i1 @_ZN5clang4Sema10LookupNameERNS_12LookupResultEPNS_5ScopeEbb(ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef %151, i1 noundef zeroext false, i1 noundef zeroext false) #14
   %153 = load ptr, ptr %138, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %153, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %153, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %153, align 1
   %154 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %155 = inttoptr i64 %154 to ptr
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 28

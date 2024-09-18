@@ -9259,7 +9259,6 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit.thread:      ; preds = %2
   br label %148
 
 42:                                               ; preds = %2
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %16, align 1, !noalias !167
   store ptr %17, ptr %15, align 8, !noalias !167
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
@@ -9314,7 +9313,6 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit12.thread:    ; preds = %42
   br label %148
 
 67:                                               ; preds = %42
-  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 1) ]
   %.0.copyload.i.i.i.i1 = load i64, ptr %17, align 1, !noalias !174
   store ptr %44, ptr %15, align 8, !noalias !174
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -9368,7 +9366,6 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit24.thread:    ; preds = %67
   br label %148
 
 91:                                               ; preds = %67
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
   %.0.copyload.i.i.i.i13 = load i64, ptr %44, align 1, !noalias !180
   store ptr %68, ptr %15, align 8, !noalias !180
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -9422,7 +9419,6 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit36.thread:    ; preds = %91
   br label %148
 
 115:                                              ; preds = %91
-  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 1) ]
   %.0.copyload.i.i.i.i25 = load i64, ptr %68, align 1, !noalias !186
   store ptr %92, ptr %15, align 8, !noalias !186
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -9583,7 +9579,6 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit.thread:      ; preds = %1
   br label %38
 
 _ZNK4llvm7ErrorOrImE8getErrorEv.exit:             ; preds = %1
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %6, align 1, !noalias !192
   store ptr %7, ptr %5, align 8, !noalias !192
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)

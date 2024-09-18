@@ -50400,6 +50400,7 @@ _ZN5serde2de9SeqAccess12next_element17h0f1e2b52f7276890E.exit.i.i: ; preds = %15
   br i1 %.not44, label %.thread139, label %203
 
 201:                                              ; preds = %195
+  call void @llvm.assume(i1 true) [ "align"(ptr %189, i64 8) ]
   %202 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %189, ptr %202, align 8
   store i8 30, ptr %30, align 8
@@ -50617,6 +50618,7 @@ _ZN5serde2de9SeqAccess12next_element17h0f1e2b52f7276890E.exit.i.i: ; preds = %15
   br i1 %.not41, label %.thread189, label %264
 
 262:                                              ; preds = %256
+  call void @llvm.assume(i1 true) [ "align"(ptr %250, i64 8) ]
   %263 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %250, ptr %263, align 8
   store i8 30, ptr %30, align 8
@@ -51292,7 +51294,7 @@ define void @_ZN5typst4util6bitset6BitSet6insert17hcf45db57805834dfE(ptr noalias
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #37 {
   %3 = icmp ult i64 %1, 64
   br i1 %3, label %7, label %4
@@ -51312,6 +51314,7 @@ define noundef zeroext i1 @_ZN5typst4util6bitset6BitSet8contains17hb325b963824d1
 11:                                               ; preds = %4
   %12 = lshr i64 %1, 6
   %13 = add nsw i64 %12, -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = icmp ult i64 %13, %15
@@ -51404,6 +51407,7 @@ _ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread.us: ; pred
 26:                                               ; preds = %.lr.ph.split
   %27 = lshr i64 %.sroa.01.09, 6
   %28 = add nsw i64 %27, -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %29 = load i64, ptr %12, align 8, !noalias !8965, !noundef !4
   %30 = icmp ult i64 %28, %29
   br i1 %30, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread
@@ -164978,7 +164982,7 @@ attributes #33 = { inlinehint nounwind nonlazybind memory(readwrite, inaccessibl
 attributes #34 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #35 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #36 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #37 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #37 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #38 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #39 = { mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #40 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

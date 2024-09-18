@@ -1703,7 +1703,7 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   %73 = getelementptr inbounds i8, ptr %23, i64 8
   %.sroa.0138.0.copyload = load i64, ptr %73, align 8
   %.sroa.4139.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 16
-  %.sroa.4139.0.copyload = load ptr, ptr %.sroa.4139.0..sroa_idx, align 8
+  %.sroa.4139.0.copyload = load ptr, ptr %.sroa.4139.0..sroa_idx, align 8, !align !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br i1 %trunc, label %81, label %74
 
@@ -3187,6 +3187,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %54, label %390, label %373
 
 373:                                              ; preds = %.noexc75
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %374 = load i64, ptr %55, align 8, !noalias !625, !noundef !4
   %375 = icmp ult i64 %132, %374
   br i1 %375, label %376, label %.invoke, !prof !628
@@ -3420,6 +3421,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %54, label %483, label %469
 
 469:                                              ; preds = %468
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %470 = load i64, ptr %55, align 8, !noalias !714, !noundef !4
   %471 = icmp ult i64 %153, %470
   br i1 %471, label %472, label %.invoke, !prof !628
@@ -3701,6 +3703,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %54, label %577, label %563
 
 563:                                              ; preds = %557
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %564 = load i64, ptr %55, align 8, !noalias !882, !noundef !4
   %565 = icmp ult i64 %186, %564
   br i1 %565, label %566, label %.invoke, !prof !628
@@ -3863,6 +3866,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %54, label %669, label %644
 
 644:                                              ; preds = %638
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %645 = load i64, ptr %55, align 8, !noalias !926, !noundef !4
   %646 = icmp ult i64 %213, %645
   br i1 %646, label %647, label %.invoke, !prof !628
@@ -4039,6 +4043,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %54, label %721, label %707
 
 707:                                              ; preds = %706
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %708 = load i64, ptr %55, align 8, !noalias !993, !noundef !4
   %709 = icmp ult i64 %228, %708
   br i1 %709, label %710, label %.invoke, !prof !628
@@ -4135,6 +4140,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %54, label %753, label %739
 
 739:                                              ; preds = %738
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %740 = load i64, ptr %55, align 8, !noalias !1035, !noundef !4
   %741 = icmp ult i64 %236, %740
   br i1 %741, label %742, label %.invoke, !prof !628
@@ -4483,6 +4489,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %54, label %898, label %873
 
 873:                                              ; preds = %867
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %874 = load i64, ptr %55, align 8, !noalias !1134, !noundef !4
   %875 = icmp ult i64 %277, %874
   br i1 %875, label %876, label %.invoke, !prof !628
@@ -5508,6 +5515,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %53, label %375, label %358
 
 358:                                              ; preds = %.noexc75
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %359 = load i64, ptr %54, align 8, !noalias !1499, !noundef !4
   %360 = icmp ult i64 %129, %359
   br i1 %360, label %361, label %.invoke, !prof !628
@@ -5741,6 +5749,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %53, label %468, label %454
 
 454:                                              ; preds = %453
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %455 = load i64, ptr %54, align 8, !noalias !1587, !noundef !4
   %456 = icmp ult i64 %150, %455
   br i1 %456, label %457, label %.invoke, !prof !628
@@ -6022,6 +6031,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %53, label %562, label %548
 
 548:                                              ; preds = %542
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %549 = load i64, ptr %54, align 8, !noalias !1755, !noundef !4
   %550 = icmp ult i64 %183, %549
   br i1 %550, label %551, label %.invoke, !prof !628
@@ -6184,6 +6194,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %53, label %654, label %629
 
 629:                                              ; preds = %623
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %630 = load i64, ptr %54, align 8, !noalias !1799, !noundef !4
   %631 = icmp ult i64 %210, %630
   br i1 %631, label %632, label %.invoke, !prof !628
@@ -6360,6 +6371,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %53, label %706, label %692
 
 692:                                              ; preds = %691
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %693 = load i64, ptr %54, align 8, !noalias !1866, !noundef !4
   %694 = icmp ult i64 %225, %693
   br i1 %694, label %695, label %.invoke, !prof !628
@@ -6456,6 +6468,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %53, label %738, label %724
 
 724:                                              ; preds = %723
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %725 = load i64, ptr %54, align 8, !noalias !1908, !noundef !4
   %726 = icmp ult i64 %233, %725
   br i1 %726, label %727, label %.invoke, !prof !628
@@ -6804,6 +6817,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %53, label %883, label %858
 
 858:                                              ; preds = %852
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %859 = load i64, ptr %54, align 8, !noalias !2007, !noundef !4
   %860 = icmp ult i64 %274, %859
   br i1 %860, label %861, label %.invoke, !prof !628
@@ -11642,7 +11656,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift5debug2gc22build_die_depende
   %93 = load i64, ptr %35, align 8, !range !201, !noundef !4
   %trunc218 = trunc nuw i64 %93 to i1
   %94 = getelementptr inbounds i8, ptr %35, i64 8
-  %.sroa.050.0.copyload219 = load ptr, ptr %94, align 8
+  %.sroa.050.0.copyload219 = load ptr, ptr %94, align 8, !align !5
   %.sroa.451.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 16
   %.sroa.451.0.copyload220 = load i64, ptr %.sroa.451.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
@@ -12195,7 +12209,7 @@ _ZN18wasmtime_cranelift5debug2gc20has_valid_code_range17h4009810ab7347c24E.exit.
   call void @"_ZN5gimli4read4unit24EntriesTreeIter$LT$R$GT$4next17h4bae07f8a91cb6f1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %35, ptr noalias noundef nonnull align 8 dereferenceable(24) %36)
   %201 = load i64, ptr %35, align 8, !range !201, !noundef !4
   %trunc = trunc nuw i64 %201 to i1
-  %.sroa.050.0.copyload = load ptr, ptr %94, align 8
+  %.sroa.050.0.copyload = load ptr, ptr %94, align 8, !align !5
   %.sroa.451.0.copyload = load i64, ptr %.sroa.451.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   br i1 %trunc, label %._crit_edge, label %114
@@ -14485,6 +14499,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression18CompiledExpression9is_simpl
 
 762:                                              ; preds = %340
   %763 = load i64, ptr %127, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %135, i64 8) ]
   %764 = sub i64 %763, %168
   %765 = icmp ult i64 %764, %166
   br i1 %765, label %766, label %769, !prof !628
@@ -15521,7 +15536,7 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform15transform_dwarf17hc
 84:                                               ; preds = %77
   %85 = load i64, ptr %18, align 8, !range !201, !noalias !3587, !noundef !4
   %trunc.i.i = trunc nuw i64 %85 to i1
-  %.sroa.037.0.copyload.i.i = load ptr, ptr %58, align 8, !noalias !3587
+  %.sroa.037.0.copyload.i.i = load ptr, ptr %58, align 8, !noalias !3587, !align !5
   %.sroa.438.0.copyload.i.i = load i64, ptr %.sroa.438.0..sroa_idx.i.i, align 8, !noalias !3587
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !3587
   br i1 %trunc.i.i, label %110, label %86

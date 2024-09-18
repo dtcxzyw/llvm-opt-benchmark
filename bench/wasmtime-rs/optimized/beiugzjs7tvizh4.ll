@@ -143,7 +143,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 104:                                              ; preds = %.thread, %108, %105
   %.pn258.pn = phi { ptr, i32 } [ %.pn258263, %.thread ], [ %.pn258, %108 ], [ %106, %105 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %103) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %103) #6
           to label %571 unwind label %568
 
 105:                                              ; preds = %5
@@ -178,7 +178,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 117:                                              ; preds = %112
   %118 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %100) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %100) #6
           to label %.thread unwind label %568
 
 119:                                              ; preds = %112
@@ -188,7 +188,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 120:                                              ; preds = %.thread264, %132, %129, %121
   %.pn255.pn = phi { ptr, i32 } [ %.pn255268, %.thread264 ], [ %.pn255, %132 ], [ %130, %129 ], [ %122, %121 ]
   %.2170 = phi i8 [ %.4172269, %.thread264 ], [ %.4172, %132 ], [ 1, %129 ], [ 1, %121 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %101) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %101) #6
           to label %108 unwind label %568
 
 121:                                              ; preds = %123, %119
@@ -211,7 +211,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 129:                                              ; preds = %124
   %130 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %98) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %98) #6
           to label %120 unwind label %568
 
 131:                                              ; preds = %124
@@ -246,7 +246,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 142:                                              ; preds = %137
   %143 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %96) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %96) #6
           to label %.thread264 unwind label %568
 
 144:                                              ; preds = %137
@@ -257,7 +257,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   %.pn253 = phi { ptr, i32 } [ %147, %146 ], [ %.pn251, %157 ], [ %155, %154 ]
   %.6174 = phi i8 [ %.2, %146 ], [ %.8176, %157 ], [ 1, %154 ]
   %.3 = phi i8 [ %.2, %146 ], [ %.5, %157 ], [ 1, %154 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %97) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %97) #6
           to label %132 unwind label %568
 
 146:                                              ; preds = %564, %148, %144
@@ -281,7 +281,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 154:                                              ; preds = %149
   %155 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %94) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %94) #6
           to label %145 unwind label %568
 
 156:                                              ; preds = %149
@@ -292,7 +292,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   %.pn251 = phi { ptr, i32 } [ %159, %158 ], [ %.pn249, %180 ], [ %.pn, %166 ]
   %.8176 = phi i8 [ %.4, %158 ], [ %.9177, %180 ], [ 1, %166 ]
   %.5 = phi i8 [ %.4, %158 ], [ %.6, %180 ], [ 1, %166 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %95) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %95) #6
           to label %145 unwind label %568
 
 158:                                              ; preds = %563, %160, %156
@@ -315,7 +315,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 166:                                              ; preds = %174, %167
   %.pn = phi { ptr, i32 } [ %175, %174 ], [ %168, %167 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %91) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %91) #6
           to label %157 unwind label %568
 
 167:                                              ; preds = %161
@@ -334,7 +334,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 174:                                              ; preds = %169
   %175 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %92) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %92) #6
           to label %166 unwind label %568
 
 176:                                              ; preds = %169
@@ -344,7 +344,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 177:                                              ; preds = %176
   %178 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %91) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %91) #6
           to label %180 unwind label %568
 
 179:                                              ; preds = %176
@@ -355,7 +355,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   %.pn249 = phi { ptr, i32 } [ %182, %181 ], [ %.pn247, %203 ], [ %.pn187, %189 ], [ %178, %177 ]
   %.9177 = phi i8 [ %.7, %181 ], [ %.11179, %203 ], [ 1, %189 ], [ 1, %177 ]
   %.6 = phi i8 [ %.7, %181 ], [ %.8, %203 ], [ 1, %189 ], [ 1, %177 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %93) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %93) #6
           to label %157 unwind label %568
 
 181:                                              ; preds = %562, %183, %179
@@ -378,7 +378,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 189:                                              ; preds = %197, %190
   %.pn187 = phi { ptr, i32 } [ %198, %197 ], [ %191, %190 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %88) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %88) #6
           to label %180 unwind label %568
 
 190:                                              ; preds = %184
@@ -397,7 +397,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 197:                                              ; preds = %192
   %198 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %89) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %89) #6
           to label %189 unwind label %568
 
 199:                                              ; preds = %192
@@ -407,7 +407,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 200:                                              ; preds = %199
   %201 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %88) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %88) #6
           to label %203 unwind label %568
 
 202:                                              ; preds = %199
@@ -418,7 +418,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   %.pn247 = phi { ptr, i32 } [ %205, %204 ], [ %.pn245, %226 ], [ %.pn189, %212 ], [ %201, %200 ]
   %.11179 = phi i8 [ %.9, %204 ], [ %.13181, %226 ], [ 1, %212 ], [ 1, %200 ]
   %.8 = phi i8 [ %.9, %204 ], [ %.10, %226 ], [ 1, %212 ], [ 1, %200 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %90) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %90) #6
           to label %180 unwind label %568
 
 204:                                              ; preds = %561, %206, %202
@@ -441,7 +441,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 212:                                              ; preds = %220, %213
   %.pn189 = phi { ptr, i32 } [ %221, %220 ], [ %214, %213 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %85) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %85) #6
           to label %203 unwind label %568
 
 213:                                              ; preds = %207
@@ -460,7 +460,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 220:                                              ; preds = %215
   %221 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %86) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %86) #6
           to label %212 unwind label %568
 
 222:                                              ; preds = %215
@@ -470,7 +470,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 223:                                              ; preds = %222
   %224 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %85) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %85) #6
           to label %226 unwind label %568
 
 225:                                              ; preds = %222
@@ -481,7 +481,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   %.pn245 = phi { ptr, i32 } [ %228, %227 ], [ %.pn243, %249 ], [ %.pn191, %235 ], [ %224, %223 ]
   %.13181 = phi i8 [ %.11, %227 ], [ %.15183, %249 ], [ 1, %235 ], [ 1, %223 ]
   %.10 = phi i8 [ %.11, %227 ], [ %.12, %249 ], [ 1, %235 ], [ 1, %223 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %87) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %87) #6
           to label %203 unwind label %568
 
 227:                                              ; preds = %560, %229, %225
@@ -504,7 +504,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 235:                                              ; preds = %243, %236
   %.pn191 = phi { ptr, i32 } [ %244, %243 ], [ %237, %236 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %82) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %82) #6
           to label %226 unwind label %568
 
 236:                                              ; preds = %230
@@ -523,7 +523,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 243:                                              ; preds = %238
   %244 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %83) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %83) #6
           to label %235 unwind label %568
 
 245:                                              ; preds = %238
@@ -533,7 +533,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 246:                                              ; preds = %245
   %247 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %82) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %82) #6
           to label %249 unwind label %568
 
 248:                                              ; preds = %245
@@ -544,7 +544,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   %.pn243 = phi { ptr, i32 } [ %251, %250 ], [ %.pn235.pn.pn.pn.pn.pn.pn, %255 ], [ %247, %246 ]
   %.15183 = phi i8 [ %.13, %250 ], [ %.17185, %255 ], [ 1, %246 ]
   %.12 = phi i8 [ %.13, %250 ], [ %.14, %255 ], [ 1, %246 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %84) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %84) #6
           to label %226 unwind label %568
 
 250:                                              ; preds = %553, %252, %248
@@ -566,7 +566,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   %.pn235.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn235.pn.pn.pn.pn.pn, %355 ], [ %.pn205, %260 ], [ %257, %256 ]
   %.17185 = phi i8 [ 0, %355 ], [ %.18, %260 ], [ 1, %256 ]
   %.14 = phi i8 [ 0, %355 ], [ %.16, %260 ], [ 1, %256 ]
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h140945824f80a0e4E"(ptr nonnull align 8 %80) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h140945824f80a0e4E"(ptr nonnull align 8 %80) #6
           to label %249 unwind label %568
 
 256:                                              ; preds = %254
@@ -582,7 +582,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   %.pn205 = phi { ptr, i32 } [ %350, %349 ], [ %262, %261 ], [ %.pn193.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %264 ]
   %.18 = phi i8 [ %.19, %349 ], [ 1, %261 ], [ 1, %264 ]
   %.16 = phi i8 [ 0, %349 ], [ %.15, %261 ], [ %.17, %264 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %78) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %78) #6
           to label %255 unwind label %568
 
 261:                                              ; preds = %334, %258
@@ -599,7 +599,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 264:                                              ; preds = %570, %265
   %.pn193.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn.pn.pn.pn.pn.pn.pn.pn, %570 ], [ %266, %265 ]
   %.17 = phi i8 [ 0, %570 ], [ 1, %265 ]
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba78dfe9a858a8d2E"(ptr nonnull align 8 %76) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba78dfe9a858a8d2E"(ptr nonnull align 8 %76) #6
           to label %260 unwind label %568
 
 265:                                              ; preds = %263
@@ -619,7 +619,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 272:                                              ; preds = %278, %273
   %.pn193.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn.pn.pn.pn.pn.pn.pn, %278 ], [ %274, %273 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %74) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %74) #6
           to label %570 unwind label %568
 
 273:                                              ; preds = %267
@@ -635,7 +635,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 278:                                              ; preds = %284, %279
   %.pn193.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn.pn.pn.pn.pn.pn, %284 ], [ %280, %279 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %73) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %73) #6
           to label %272 unwind label %568
 
 279:                                              ; preds = %275
@@ -651,7 +651,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 284:                                              ; preds = %290, %285
   %.pn193.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn.pn.pn.pn.pn, %290 ], [ %286, %285 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %72) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %72) #6
           to label %278 unwind label %568
 
 285:                                              ; preds = %281
@@ -667,7 +667,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 290:                                              ; preds = %296, %291
   %.pn193.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn.pn.pn.pn, %296 ], [ %292, %291 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %71) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %71) #6
           to label %284 unwind label %568
 
 291:                                              ; preds = %287
@@ -683,7 +683,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 296:                                              ; preds = %302, %297
   %.pn193.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn.pn.pn, %302 ], [ %298, %297 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %70) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %70) #6
           to label %290 unwind label %568
 
 297:                                              ; preds = %293
@@ -699,7 +699,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 302:                                              ; preds = %308, %303
   %.pn193.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn.pn, %308 ], [ %304, %303 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %69) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %69) #6
           to label %296 unwind label %568
 
 303:                                              ; preds = %299
@@ -715,7 +715,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 308:                                              ; preds = %314, %309
   %.pn193.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn, %314 ], [ %310, %309 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %68) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %68) #6
           to label %302 unwind label %568
 
 309:                                              ; preds = %305
@@ -731,7 +731,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 314:                                              ; preds = %320, %315
   %.pn193.pn.pn = phi { ptr, i32 } [ %.pn193.pn, %320 ], [ %316, %315 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %67) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %67) #6
           to label %308 unwind label %568
 
 315:                                              ; preds = %311
@@ -747,7 +747,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 320:                                              ; preds = %326, %321
   %.pn193.pn = phi { ptr, i32 } [ %.pn193, %326 ], [ %322, %321 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %66) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %66) #6
           to label %314 unwind label %568
 
 321:                                              ; preds = %317
@@ -763,7 +763,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 326:                                              ; preds = %332, %327
   %.pn193 = phi { ptr, i32 } [ %333, %332 ], [ %328, %327 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %65) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %65) #6
           to label %320 unwind label %568
 
 327:                                              ; preds = %323
@@ -780,7 +780,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 332:                                              ; preds = %329
   %333 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %64) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %64) #6
           to label %326 unwind label %568
 
 334:                                              ; preds = %329
@@ -809,6 +809,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %345, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false)
   %346 = getelementptr inbounds i8, ptr %259, i64 288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %346, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %259, i64 8) ]
   invoke void @_ZN5alloc5slice4hack8into_vec17h72ad2b5fd8992f79E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %77, ptr nonnull align 8 %259, i64 13)
           to label %347 unwind label %261
 
@@ -820,7 +821,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   %.19 = phi i8 [ 0, %351 ], [ 1, %347 ]
   %350 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %77) #5
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %77) #6
           to label %260 unwind label %568
 
 351:                                              ; preds = %347
@@ -839,7 +840,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 355:                                              ; preds = %400, %360, %356
   %.pn235.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn235.pn.pn.pn.pn, %400 ], [ %.pn211.pn, %360 ], [ %357, %356 ]
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$cranelift_codegen_meta..isle..IsleCompilation$GT$17h22676b42008f2d4bE"(ptr nonnull align 8 %79) #5
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$cranelift_codegen_meta..isle..IsleCompilation$GT$17h22676b42008f2d4bE"(ptr nonnull align 8 %79) #6
           to label %255 unwind label %568
 
 356:                                              ; preds = %352
@@ -853,7 +854,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 360:                                              ; preds = %364, %390, %361
   %.pn211.pn = phi { ptr, i32 } [ %.pn211, %390 ], [ %362, %361 ], [ %.pn207.pn.pn, %364 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %60) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %60) #6
           to label %355 unwind label %568
 
 361:                                              ; preds = %384, %358
@@ -868,7 +869,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 364:                                              ; preds = %368, %365
   %.pn207.pn.pn = phi { ptr, i32 } [ %.pn207.pn, %368 ], [ %366, %365 ]
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06ef8d8c37888c52E"(ptr nonnull align 8 %58) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06ef8d8c37888c52E"(ptr nonnull align 8 %58) #6
           to label %360 unwind label %568
 
 365:                                              ; preds = %363
@@ -883,7 +884,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 368:                                              ; preds = %376, %369
   %.pn207.pn = phi { ptr, i32 } [ %.pn207, %376 ], [ %370, %369 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %57) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %57) #6
           to label %364 unwind label %568
 
 369:                                              ; preds = %367
@@ -902,7 +903,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 376:                                              ; preds = %382, %377
   %.pn207 = phi { ptr, i32 } [ %383, %382 ], [ %378, %377 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %56) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %56) #6
           to label %368 unwind label %568
 
 377:                                              ; preds = %371
@@ -919,7 +920,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 382:                                              ; preds = %379
   %383 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %55) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %55) #6
           to label %376 unwind label %568
 
 384:                                              ; preds = %379
@@ -939,7 +940,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 390:                                              ; preds = %394, %391
   %.pn211 = phi { ptr, i32 } [ %392, %391 ], [ %395, %394 ]
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %59) #5
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %59) #6
           to label %360 unwind label %568
 
 391:                                              ; preds = %396, %388
@@ -955,7 +956,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 394:                                              ; preds = %393
   %395 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c2c5767003c6e41E"(ptr nonnull align 8 %52) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c2c5767003c6e41E"(ptr nonnull align 8 %52) #6
           to label %390 unwind label %568
 
 396:                                              ; preds = %393
@@ -974,7 +975,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 400:                                              ; preds = %459, %405, %401
   %.pn235.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn235.pn.pn.pn, %459 ], [ %.pn220.pn, %405 ], [ %402, %401 ]
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$cranelift_codegen_meta..isle..IsleCompilation$GT$17h22676b42008f2d4bE"(ptr nonnull align 8 %61) #5
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$cranelift_codegen_meta..isle..IsleCompilation$GT$17h22676b42008f2d4bE"(ptr nonnull align 8 %61) #6
           to label %355 unwind label %568
 
 401:                                              ; preds = %397
@@ -988,7 +989,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 405:                                              ; preds = %409, %449, %406
   %.pn220.pn = phi { ptr, i32 } [ %.pn220, %449 ], [ %407, %406 ], [ %.pn214.pn.pn.pn.pn, %409 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %50) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %50) #6
           to label %400 unwind label %568
 
 406:                                              ; preds = %441, %403
@@ -1003,7 +1004,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 409:                                              ; preds = %413, %410
   %.pn214.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn214.pn.pn.pn, %413 ], [ %411, %410 ]
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h284eaebf12a29392E"(ptr nonnull align 8 %48) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h284eaebf12a29392E"(ptr nonnull align 8 %48) #6
           to label %405 unwind label %568
 
 410:                                              ; preds = %408
@@ -1018,7 +1019,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 413:                                              ; preds = %421, %414
   %.pn214.pn.pn.pn = phi { ptr, i32 } [ %.pn214.pn.pn, %421 ], [ %415, %414 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %47) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %47) #6
           to label %409 unwind label %568
 
 414:                                              ; preds = %412
@@ -1037,7 +1038,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 421:                                              ; preds = %427, %422
   %.pn214.pn.pn = phi { ptr, i32 } [ %.pn214.pn, %427 ], [ %423, %422 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %46) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %46) #6
           to label %413 unwind label %568
 
 422:                                              ; preds = %416
@@ -1053,7 +1054,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 427:                                              ; preds = %433, %428
   %.pn214.pn = phi { ptr, i32 } [ %.pn214, %433 ], [ %429, %428 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %45) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %45) #6
           to label %421 unwind label %568
 
 428:                                              ; preds = %424
@@ -1069,7 +1070,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 433:                                              ; preds = %439, %434
   %.pn214 = phi { ptr, i32 } [ %440, %439 ], [ %435, %434 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %44) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %44) #6
           to label %427 unwind label %568
 
 434:                                              ; preds = %430
@@ -1086,7 +1087,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 439:                                              ; preds = %436
   %440 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %43) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %43) #6
           to label %433 unwind label %568
 
 441:                                              ; preds = %436
@@ -1110,7 +1111,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 449:                                              ; preds = %453, %450
   %.pn220 = phi { ptr, i32 } [ %451, %450 ], [ %454, %453 ]
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %49) #5
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %49) #6
           to label %405 unwind label %568
 
 450:                                              ; preds = %455, %447
@@ -1126,7 +1127,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 453:                                              ; preds = %452
   %454 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c2c5767003c6e41E"(ptr nonnull align 8 %40) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c2c5767003c6e41E"(ptr nonnull align 8 %40) #6
           to label %449 unwind label %568
 
 455:                                              ; preds = %452
@@ -1145,7 +1146,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 459:                                              ; preds = %504, %464, %460
   %.pn235.pn.pn.pn = phi { ptr, i32 } [ %.pn235.pn.pn, %504 ], [ %.pn227.pn, %464 ], [ %461, %460 ]
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$cranelift_codegen_meta..isle..IsleCompilation$GT$17h22676b42008f2d4bE"(ptr nonnull align 8 %51) #5
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$cranelift_codegen_meta..isle..IsleCompilation$GT$17h22676b42008f2d4bE"(ptr nonnull align 8 %51) #6
           to label %400 unwind label %568
 
 460:                                              ; preds = %456
@@ -1159,7 +1160,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 464:                                              ; preds = %468, %494, %465
   %.pn227.pn = phi { ptr, i32 } [ %.pn227, %494 ], [ %466, %465 ], [ %.pn223.pn.pn, %468 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %38) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %38) #6
           to label %459 unwind label %568
 
 465:                                              ; preds = %488, %462
@@ -1174,7 +1175,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 468:                                              ; preds = %472, %469
   %.pn223.pn.pn = phi { ptr, i32 } [ %.pn223.pn, %472 ], [ %470, %469 ]
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06ef8d8c37888c52E"(ptr nonnull align 8 %36) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06ef8d8c37888c52E"(ptr nonnull align 8 %36) #6
           to label %464 unwind label %568
 
 469:                                              ; preds = %467
@@ -1189,7 +1190,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 472:                                              ; preds = %480, %473
   %.pn223.pn = phi { ptr, i32 } [ %.pn223, %480 ], [ %474, %473 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %35) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %35) #6
           to label %468 unwind label %568
 
 473:                                              ; preds = %471
@@ -1208,7 +1209,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 480:                                              ; preds = %486, %481
   %.pn223 = phi { ptr, i32 } [ %487, %486 ], [ %482, %481 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %34) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %34) #6
           to label %472 unwind label %568
 
 481:                                              ; preds = %475
@@ -1225,7 +1226,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 486:                                              ; preds = %483
   %487 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %33) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %33) #6
           to label %480 unwind label %568
 
 488:                                              ; preds = %483
@@ -1245,7 +1246,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 494:                                              ; preds = %498, %495
   %.pn227 = phi { ptr, i32 } [ %496, %495 ], [ %499, %498 ]
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %37) #5
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %37) #6
           to label %464 unwind label %568
 
 495:                                              ; preds = %500, %492
@@ -1261,7 +1262,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 498:                                              ; preds = %497
   %499 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c2c5767003c6e41E"(ptr nonnull align 8 %30) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c2c5767003c6e41E"(ptr nonnull align 8 %30) #6
           to label %494 unwind label %568
 
 500:                                              ; preds = %497
@@ -1280,7 +1281,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 504:                                              ; preds = %509, %505
   %.pn235.pn.pn = phi { ptr, i32 } [ %.pn235.pn, %509 ], [ %506, %505 ]
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$cranelift_codegen_meta..isle..IsleCompilation$GT$17h22676b42008f2d4bE"(ptr nonnull align 8 %39) #5
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$cranelift_codegen_meta..isle..IsleCompilation$GT$17h22676b42008f2d4bE"(ptr nonnull align 8 %39) #6
           to label %459 unwind label %568
 
 505:                                              ; preds = %501
@@ -1294,7 +1295,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 509:                                              ; preds = %513, %546, %510
   %.pn235.pn = phi { ptr, i32 } [ %.pn235, %546 ], [ %511, %510 ], [ %.pn230.pn.pn.pn, %513 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %28) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %28) #6
           to label %504 unwind label %568
 
 510:                                              ; preds = %539, %507
@@ -1309,7 +1310,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 513:                                              ; preds = %517, %514
   %.pn230.pn.pn.pn = phi { ptr, i32 } [ %.pn230.pn.pn, %517 ], [ %515, %514 ]
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5b4d43127c42e9bE"(ptr nonnull align 8 %26) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5b4d43127c42e9bE"(ptr nonnull align 8 %26) #6
           to label %509 unwind label %568
 
 514:                                              ; preds = %512
@@ -1324,7 +1325,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 517:                                              ; preds = %525, %518
   %.pn230.pn.pn = phi { ptr, i32 } [ %.pn230.pn, %525 ], [ %519, %518 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %25) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %25) #6
           to label %513 unwind label %568
 
 518:                                              ; preds = %516
@@ -1343,7 +1344,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 525:                                              ; preds = %531, %526
   %.pn230.pn = phi { ptr, i32 } [ %.pn230, %531 ], [ %527, %526 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %24) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %24) #6
           to label %517 unwind label %568
 
 526:                                              ; preds = %520
@@ -1359,7 +1360,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 531:                                              ; preds = %537, %532
   %.pn230 = phi { ptr, i32 } [ %538, %537 ], [ %533, %532 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %23) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %23) #6
           to label %525 unwind label %568
 
 532:                                              ; preds = %528
@@ -1376,7 +1377,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 537:                                              ; preds = %534
   %538 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %22) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %22) #6
           to label %531 unwind label %568
 
 539:                                              ; preds = %534
@@ -1398,7 +1399,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 546:                                              ; preds = %550, %547
   %.pn235 = phi { ptr, i32 } [ %548, %547 ], [ %551, %550 ]
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %27) #5
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h121206ec22dc4c70E"(ptr nonnull align 8 %27) #6
           to label %509 unwind label %568
 
 547:                                              ; preds = %552, %544
@@ -1414,7 +1415,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 550:                                              ; preds = %549
   %551 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c2c5767003c6e41E"(ptr nonnull align 8 %19) #5
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c2c5767003c6e41E"(ptr nonnull align 8 %19) #6
           to label %546 unwind label %568
 
 552:                                              ; preds = %549
@@ -1476,22 +1477,22 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 568:                                              ; preds = %.thread, %.thread264, %570, %550, %546, %537, %531, %525, %517, %513, %509, %504, %498, %494, %486, %480, %472, %468, %464, %459, %453, %449, %439, %433, %427, %421, %413, %409, %405, %400, %394, %390, %382, %376, %368, %364, %360, %355, %349, %332, %326, %320, %314, %308, %302, %296, %290, %284, %278, %272, %264, %260, %255, %249, %246, %243, %235, %226, %223, %220, %212, %203, %200, %197, %189, %180, %177, %174, %166, %157, %154, %145, %142, %129, %120, %117, %104
   %569 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #6
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
   unreachable
 
 570:                                              ; preds = %272
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %75) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %75) #6
           to label %264 unwind label %568
 
 .thread264:                                       ; preds = %142, %132
   %.4172269 = phi i8 [ %.4172, %132 ], [ 1, %142 ]
   %.pn255268 = phi { ptr, i32 } [ %.pn255, %132 ], [ %143, %142 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %99) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %99) #6
           to label %120 unwind label %568
 
 .thread:                                          ; preds = %117, %108
   %.pn258263 = phi { ptr, i32 } [ %.pn258, %108 ], [ %118, %117 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %102) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %102) #6
           to label %104 unwind label %568
 
 571:                                              ; preds = %104
@@ -1549,16 +1550,20 @@ declare void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dr
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h140945824f80a0e4E"(ptr align 8) unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { cold }
-attributes #6 = { cold noreturn nounwind }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { cold }
+attributes #7 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

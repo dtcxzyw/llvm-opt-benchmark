@@ -15302,6 +15302,7 @@ _RNvXs1V_NtCs2al5CLA23zg_9rustc_ast3astNtB6_8GenericsNtNtCs9nhK3FOW46N_4core5clo
 
 218:                                              ; preds = %214
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19), !noalias !2219
+  call void @llvm.assume(i1 true) [ "align"(ptr %216, i64 8) ]
   invoke void @_RNvXs3w_NtCs2al5CLA23zg_9rustc_ast3astNtB6_4ExprNtNtCs9nhK3FOW46N_4core5clone5Clone5clone.llvm.9097680112167513710(ptr noalias nocapture noundef nonnull sret({ { i8, [39 x i8] }, { ptr, {} }, { i32, i16, i16 }, ptr, i32, [1 x i32] }) align 8 dereferenceable(72) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %216)
           to label %.noexc6.i.i.i.i unwind label %225, !noalias !2216
 
@@ -15539,6 +15540,7 @@ _RNvXs1V_NtCs2al5CLA23zg_9rustc_ast3astNtB6_8GenericsNtNtCs9nhK3FOW46N_4core5clo
 
 283:                                              ; preds = %278
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !2263
+  call void @llvm.assume(i1 true) [ "align"(ptr %281, i64 8) ]
   invoke void @_RNvXs2f_NtCs2al5CLA23zg_9rustc_ast3astNtB6_5BlockNtNtCs9nhK3FOW46N_4core5clone5Clone5clone.llvm.9097680112167513710(ptr noalias nocapture noundef nonnull sret({ { ptr, {} }, { i32, i16, i16 }, ptr, i32, i8, i8, [2 x i8] }) align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %281)
           to label %.noexc6.i.i.i15.i unwind label %290, !noalias !2255
 
@@ -15733,6 +15735,7 @@ _RNvXs1V_NtCs2al5CLA23zg_9rustc_ast3astNtB6_8GenericsNtNtCs9nhK3FOW46N_4core5clo
 
 344:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb245dcfa6db25f7bE.exit.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !2307
+  call void @llvm.assume(i1 true) [ "align"(ptr %342, i64 8) ]
   invoke void @_RNvXsE_NtCs2al5CLA23zg_9rustc_ast3astNtB5_2TyNtNtCs9nhK3FOW46N_4core5clone5Clone5clone(ptr noalias nocapture noundef nonnull sret({ { i8, [39 x i8] }, { i32, i16, i16 }, ptr, i32, [1 x i32] }) align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %342)
           to label %.noexc.i.i.i33.i unwind label %351, !noalias !2301
 
@@ -34064,6 +34067,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   %112 = getelementptr inbounds i8, ptr %43, i64 4
   %113 = load i32, ptr %112, align 4, !noundef !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
+  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 8) ]
   %114 = getelementptr inbounds i8, ptr %58, i64 8
   %.sroa.04.0.copyload = load i64, ptr %114, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
@@ -34332,6 +34336,7 @@ common.resume:                                    ; preds = %589, %447, %.body, 
           to label %205 unwind label %203
 
 201:                                              ; preds = %"_ZN15rustfmt_nightly5items54_$LT$impl$u20$rustfmt_nightly..visitor..FmtVisitor$GT$23rewrite_fn_before_block17h46792daaceb01780E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 8) ]
   %.sroa.010.0.copyload = load i64, ptr %114, align 8
   %202 = invoke i64 @_RNvMsb_CsdF516cSs19B_10rustc_spanNtNtB5_13span_encoding4Span15source_callsite(i64 %.sroa.010.0.copyload)
           to label %553 unwind label %447
@@ -34431,6 +34436,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   %229 = load ptr, ptr %228, align 8, !nonnull !10, !noundef !10
   %230 = getelementptr inbounds i8, ptr %46, i64 16
   %231 = load i64, ptr %230, align 8, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6066)
   call void @llvm.experimental.noalias.scope.decl(metadata !6069)
   call void @llvm.experimental.noalias.scope.decl(metadata !6071)
@@ -35163,6 +35169,7 @@ _ZN15rustfmt_nightly7visitor10FmtVisitor8push_str17he61c11efd3b73303E.exit110: ;
           to label %494 unwind label %203
 
 490:                                              ; preds = %_ZN15rustfmt_nightly7visitor10FmtVisitor8push_str17he61c11efd3b73303E.exit110, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h36a183da958ee33fE.llvm.7442130522521287225.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 8) ]
   %.sroa.08.0.copyload = load i64, ptr %114, align 8
   %491 = invoke i64 @_RNvMsb_CsdF516cSs19B_10rustc_spanNtNtB5_13span_encoding4Span15source_callsite(i64 %.sroa.08.0.copyload)
           to label %520 unwind label %203
@@ -35353,6 +35360,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 551:                                              ; preds = %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.7442130522521287225.exit150.thread, %550
   %.2 = phi i8 [ 0, %550 ], [ 1, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.7442130522521287225.exit150.thread ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 8) ]
   invoke void @_ZN15rustfmt_nightly7visitor10FmtVisitor11visit_block17h5494cf97d94200c8E(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %58, ptr noalias noundef readonly align 8 %5, i64 %6, i1 noundef zeroext true)
           to label %576 unwind label %447
 
@@ -41174,6 +41182,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   call void @llvm.experimental.noalias.scope.decl(metadata !7372)
   call void @llvm.experimental.noalias.scope.decl(metadata !7375)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.03.i, i64 8) ]
   %2099 = load i8, ptr %.03.i, align 8, !range !15, !noalias !7377, !noundef !10
   %2100 = icmp eq i8 %2099, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !7377

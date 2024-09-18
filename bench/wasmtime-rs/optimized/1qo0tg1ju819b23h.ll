@@ -18612,7 +18612,7 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform4unit10clone_unit17hf
   %127 = getelementptr inbounds i8, ptr %88, i64 8
   %.sroa.0234.0.copyload = load i64, ptr %127, align 8
   %.sroa.4235.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 16
-  %.sroa.4235.0.copyload = load ptr, ptr %.sroa.4235.0..sroa_idx, align 8
+  %.sroa.4235.0.copyload = load ptr, ptr %.sroa.4235.0..sroa_idx, align 8, !align !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %88)
   br i1 %trunc, label %129, label %128
 
@@ -19121,7 +19121,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs11UnitRefsMap6insert17h5638f96c2c934
   %278 = load i64, ptr %75, align 8, !range !18, !noundef !4
   %trunc397 = trunc nuw i64 %278 to i1
   %.sroa.0278.0.copyload = load i64, ptr %235, align 8
-  %.sroa.4279.0.copyload = load ptr, ptr %.sroa.4279.0..sroa_idx, align 8
+  %.sroa.4279.0.copyload = load ptr, ptr %.sroa.4279.0..sroa_idx, align 8, !align !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75)
   br i1 %trunc397, label %280, label %279
 

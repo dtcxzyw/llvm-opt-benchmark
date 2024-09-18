@@ -25473,6 +25473,7 @@ common.resume:                                    ; preds = %69, %64, %51, %30
 _ZN8wasmtime7runtime6module6Module12runtime_info17h6cebcf80dff62016E.exit: ; preds = %56
   store ptr %58, ptr %10, align 8
   store ptr @anon.6c5507757c8b1c864a673afc90c467c5.344.llvm.3458943816331328394, ptr %22, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr @anon.6c5507757c8b1c864a673afc90c467c5.344.llvm.3458943816331328394, i64 8) ]
   %62 = getelementptr i8, ptr %58, i64 16
   %63 = invoke noundef ptr @"_ZN94_$LT$wasmtime..runtime..module..ModuleInner$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$25wasm_to_native_trampoline17h6a80f846423e1ff0E"(ptr noundef align 1 %62, i32 noundef %1)
           to label %70 unwind label %64
@@ -32510,7 +32511,7 @@ define void @"_ZN104_$LT$wasmtime..runtime..stack..StackCreatorProxy$u20$as$u20$
   %17 = load ptr, ptr %5, align 8, !noundef !4
   %18 = icmp eq ptr %17, null
   %19 = getelementptr inbounds i8, ptr %5, i64 8
-  %20 = load ptr, ptr %19, align 8, !nonnull !4
+  %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %18, label %34, label %21
 
@@ -36476,7 +36477,7 @@ default.unreachable:                              ; preds = %1121, %611
   %629 = load ptr, ptr %46, align 8, !noalias !8809, !noundef !4
   %630 = icmp eq ptr %629, null
   %631 = getelementptr inbounds i8, ptr %46, i64 8
-  %632 = load ptr, ptr %631, align 8, !noalias !8809, !nonnull !4
+  %632 = load ptr, ptr %631, align 8, !noalias !8809, !nonnull !4, !align !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46), !noalias !8809
   br i1 %630, label %.critedge159.i, label %633
 
@@ -36493,7 +36494,7 @@ default.unreachable:                              ; preds = %1121, %611
   %637 = load ptr, ptr %44, align 8, !noalias !8809, !noundef !4
   %638 = icmp eq ptr %637, null
   %639 = getelementptr inbounds i8, ptr %44, i64 8
-  %640 = load ptr, ptr %639, align 8, !noalias !8809, !nonnull !4
+  %640 = load ptr, ptr %639, align 8, !noalias !8809, !nonnull !4, !align !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44), !noalias !8809
   br i1 %638, label %.critedge159.i, label %633
 
@@ -37385,7 +37386,7 @@ thread-pre-split288.i:                            ; preds = %1009
   %991 = load ptr, ptr %22, align 8, !noalias !8809, !noundef !4
   %992 = icmp eq ptr %991, null
   %993 = getelementptr inbounds i8, ptr %22, i64 8
-  %994 = load ptr, ptr %993, align 8, !noalias !8809, !nonnull !4
+  %994 = load ptr, ptr %993, align 8, !noalias !8809, !nonnull !4, !align !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !8809
   br i1 %992, label %996, label %995
 
@@ -37841,7 +37842,7 @@ _ZN8wasmtime6config6Config14build_compiler17hec6ec7b46840e86bE.exit.thread: ; pr
   %1125 = load ptr, ptr %8, align 8, !noalias !9002, !noundef !4
   %1126 = icmp eq ptr %1125, null
   %1127 = getelementptr inbounds i8, ptr %8, i64 8
-  %1128 = load ptr, ptr %1127, align 8, !noalias !9002, !nonnull !4
+  %1128 = load ptr, ptr %1127, align 8, !noalias !9002, !nonnull !4, !align !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !9002
   br i1 %1126, label %_ZN8wasmtime6config6Config14build_profiler17heb434fc7e9042c88E.exit, label %1149
 
@@ -37854,7 +37855,7 @@ _ZN8wasmtime6config6Config14build_compiler17hec6ec7b46840e86bE.exit.thread: ; pr
   %1130 = load ptr, ptr %7, align 8, !noalias !9002, !noundef !4
   %1131 = icmp eq ptr %1130, null
   %1132 = getelementptr inbounds i8, ptr %7, i64 8
-  %1133 = load ptr, ptr %1132, align 8, !noalias !9002, !nonnull !4
+  %1133 = load ptr, ptr %1132, align 8, !noalias !9002, !nonnull !4, !align !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !9002
   br i1 %1131, label %_ZN8wasmtime6config6Config14build_profiler17heb434fc7e9042c88E.exit, label %1149
 

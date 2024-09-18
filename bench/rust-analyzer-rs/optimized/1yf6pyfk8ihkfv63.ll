@@ -65501,6 +65501,7 @@ _ZN10serde_json2de12ParserNumber5visit17h51c5a2c1c03a585cE.exit: ; preds = %154,
   br i1 %.not44, label %.thread113, label %205
 
 203:                                              ; preds = %197
+  call void @llvm.assume(i1 true) [ "align"(ptr %191, i64 8) ]
   %204 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %191, ptr %204, align 8
   store i64 -9223372036854775808, ptr %36, align 8
@@ -65655,6 +65656,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %.not41, label %.thread141, label %251
 
 249:                                              ; preds = %243
+  call void @llvm.assume(i1 true) [ "align"(ptr %237, i64 8) ]
   %250 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %237, ptr %250, align 8
   store i64 -9223372036854775808, ptr %36, align 8
@@ -75072,6 +75074,7 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdfb56c2e2fb3d358E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdfb56c2e2fb3d358E.exit": ; preds = %.noexc2, %select.unfold
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %62 = getelementptr inbounds i8, ptr %12, i64 4
   br i1 %13, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.i.i, label %63
 
@@ -75089,7 +75092,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.251028245
   br i1 %67, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.i.i, label %68
 
 68:                                               ; preds = %.noexc3
-  store atomic i8 1, ptr %62 monotonic, align 1, !noalias !16218
+  store atomic i8 1, ptr %62 monotonic, align 4, !noalias !16218
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.i.i: ; preds = %68, %.noexc3, %63, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdfb56c2e2fb3d358E.exit"

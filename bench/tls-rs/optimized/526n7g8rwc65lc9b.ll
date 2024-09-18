@@ -7210,6 +7210,7 @@ define noundef zeroext i1 @"_ZN70_$LT$rustls..versions..EnabledVersions$u20$as$u
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 2) ]
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.201)
   br label %7
 
@@ -7221,6 +7222,7 @@ define noundef zeroext i1 @"_ZN70_$LT$rustls..versions..EnabledVersions$u20$as$u
   br i1 %.not3, label %12, label %10
 
 10:                                               ; preds = %7
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 2) ]
   %11 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.201)
   br label %12
 
@@ -12535,6 +12537,7 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest6cookie17hcd43289147bbddcbE.exit.i: 
   unreachable
 
 143:                                              ; preds = %140
+  call void @llvm.assume(i1 true) [ "align"(ptr %137, i64 8) ]
   %144 = getelementptr inbounds i8, ptr %137, i64 48
   %145 = load ptr, ptr %144, align 8, !invariant.load !4, !noalias !2336, !nonnull !4
   %146 = invoke { i16, i16 } %145(ptr noundef nonnull align 1 %135)

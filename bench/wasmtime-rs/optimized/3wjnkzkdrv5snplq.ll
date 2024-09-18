@@ -5596,7 +5596,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
           to label %.thread85.i unwind label %3064
 
 3052:                                             ; preds = %3049
-  %3053 = load ptr, ptr %131, align 8, !noundef !3
+  %3053 = load ptr, ptr %131, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3053, ptr noundef nonnull align 8 dereferenceable(104) %115, i64 104, i1 false)
   %.sroa.225.0..sroa_idx.i = getelementptr inbounds i8, ptr %3053, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.225.0..sroa_idx.i, align 8
@@ -12937,7 +12937,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3946 unwind label %8361
 
 4906:                                             ; preds = %4903
-  %4907 = load ptr, ptr %1921, align 8, !noundef !3
+  %4907 = load ptr, ptr %1921, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4907, ptr noundef nonnull align 8 dereferenceable(104) %676, i64 104, i1 false)
   %.sroa.2271.0..sroa_idx = getelementptr inbounds i8, ptr %4907, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2271.0..sroa_idx, align 8
@@ -19956,7 +19956,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5239 unwind label %8361
 
 6627:                                             ; preds = %6624
-  %6628 = load ptr, ptr %1366, align 8, !noundef !3
+  %6628 = load ptr, ptr %1366, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6628, ptr noundef nonnull align 8 dereferenceable(104) %498, i64 104, i1 false)
   %.sroa.2776.0..sroa_idx = getelementptr inbounds i8, ptr %6628, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2776.0..sroa_idx, align 8
@@ -22294,7 +22294,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5686 unwind label %8361
 
 7218:                                             ; preds = %7215
-  %7219 = load ptr, ptr %1156, align 8, !noundef !3
+  %7219 = load ptr, ptr %1156, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7219, ptr noundef nonnull align 8 dereferenceable(104) %446, i64 104, i1 false)
   %.sroa.2891.0..sroa_idx = getelementptr inbounds i8, ptr %7219, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2891.0..sroa_idx, align 8
@@ -22417,7 +22417,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %7242 unwind label %8361
 
 7251:                                             ; preds = %7245
-  %7252 = load ptr, ptr %1144, align 8, !noundef !3
+  %7252 = load ptr, ptr %1144, align 8, !align !4, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7252, ptr noundef nonnull align 8 dereferenceable(136) %1143, i64 136, i1 false)
   %7253 = getelementptr inbounds i8, ptr %7252, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7253, ptr noundef nonnull align 8 dereferenceable(104) %444, i64 104, i1 false)
@@ -22471,7 +22471,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5708 unwind label %8361
 
 7267:                                             ; preds = %7264
-  %7268 = load ptr, ptr %1141, align 8, !noundef !3
+  %7268 = load ptr, ptr %1141, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7268, ptr noundef nonnull align 8 dereferenceable(104) %443, i64 104, i1 false)
   %.sroa.2901.0..sroa_idx = getelementptr inbounds i8, ptr %7268, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2901.0..sroa_idx, align 8
@@ -22565,7 +22565,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %7283 unwind label %8361
 
 7292:                                             ; preds = %7286
-  %7293 = load ptr, ptr %1135, align 8, !noundef !3
+  %7293 = load ptr, ptr %1135, align 8, !align !4, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7293, ptr noundef nonnull align 8 dereferenceable(136) %1134, i64 136, i1 false)
   %7294 = getelementptr inbounds i8, ptr %7293, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7294, ptr noundef nonnull align 8 dereferenceable(104) %441, i64 104, i1 false)
@@ -22619,7 +22619,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5725 unwind label %8361
 
 7308:                                             ; preds = %7305
-  %7309 = load ptr, ptr %1132, align 8, !noundef !3
+  %7309 = load ptr, ptr %1132, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7309, ptr noundef nonnull align 8 dereferenceable(104) %440, i64 104, i1 false)
   %.sroa.2911.0..sroa_idx = getelementptr inbounds i8, ptr %7309, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2911.0..sroa_idx, align 8
@@ -22713,7 +22713,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %7324 unwind label %8361
 
 7333:                                             ; preds = %7327
-  %7334 = load ptr, ptr %1126, align 8, !noundef !3
+  %7334 = load ptr, ptr %1126, align 8, !align !4, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7334, ptr noundef nonnull align 8 dereferenceable(136) %1125, i64 136, i1 false)
   %7335 = getelementptr inbounds i8, ptr %7334, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7335, ptr noundef nonnull align 8 dereferenceable(104) %438, i64 104, i1 false)
@@ -22767,7 +22767,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5742 unwind label %8361
 
 7349:                                             ; preds = %7346
-  %7350 = load ptr, ptr %1123, align 8, !noundef !3
+  %7350 = load ptr, ptr %1123, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7350, ptr noundef nonnull align 8 dereferenceable(104) %437, i64 104, i1 false)
   %.sroa.2921.0..sroa_idx = getelementptr inbounds i8, ptr %7350, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2921.0..sroa_idx, align 8
@@ -22879,7 +22879,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5748 unwind label %8361
 
 7378:                                             ; preds = %7375
-  %7379 = load ptr, ptr %1110, align 8, !noundef !3
+  %7379 = load ptr, ptr %1110, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7379, ptr noundef nonnull align 8 dereferenceable(104) %436, i64 104, i1 false)
   %.sroa.2926.0..sroa_idx = getelementptr inbounds i8, ptr %7379, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2926.0..sroa_idx, align 8
@@ -22931,7 +22931,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5759 unwind label %8361
 
 7393:                                             ; preds = %7390
-  %7394 = load ptr, ptr %1108, align 8, !noundef !3
+  %7394 = load ptr, ptr %1108, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7394, ptr noundef nonnull align 8 dereferenceable(104) %435, i64 104, i1 false)
   %.sroa.2931.0..sroa_idx = getelementptr inbounds i8, ptr %7394, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2931.0..sroa_idx, align 8
@@ -23004,7 +23004,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5765 unwind label %8361
 
 7411:                                             ; preds = %7408
-  %7412 = load ptr, ptr %1102, align 8, !noundef !3
+  %7412 = load ptr, ptr %1102, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7412, ptr noundef nonnull align 8 dereferenceable(104) %434, i64 104, i1 false)
   %.sroa.2936.0..sroa_idx = getelementptr inbounds i8, ptr %7412, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2936.0..sroa_idx, align 8
@@ -23056,7 +23056,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5776 unwind label %8361
 
 7426:                                             ; preds = %7423
-  %7427 = load ptr, ptr %1100, align 8, !noundef !3
+  %7427 = load ptr, ptr %1100, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7427, ptr noundef nonnull align 8 dereferenceable(104) %433, i64 104, i1 false)
   %.sroa.2941.0..sroa_idx = getelementptr inbounds i8, ptr %7427, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2941.0..sroa_idx, align 8
@@ -23129,7 +23129,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5782 unwind label %8361
 
 7444:                                             ; preds = %7441
-  %7445 = load ptr, ptr %1094, align 8, !noundef !3
+  %7445 = load ptr, ptr %1094, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7445, ptr noundef nonnull align 8 dereferenceable(104) %432, i64 104, i1 false)
   %.sroa.2946.0..sroa_idx = getelementptr inbounds i8, ptr %7445, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2946.0..sroa_idx, align 8
@@ -23181,7 +23181,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5793 unwind label %8361
 
 7459:                                             ; preds = %7456
-  %7460 = load ptr, ptr %1092, align 8, !noundef !3
+  %7460 = load ptr, ptr %1092, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7460, ptr noundef nonnull align 8 dereferenceable(104) %431, i64 104, i1 false)
   %.sroa.2951.0..sroa_idx = getelementptr inbounds i8, ptr %7460, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2951.0..sroa_idx, align 8
@@ -23254,7 +23254,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5799 unwind label %8361
 
 7477:                                             ; preds = %7474
-  %7478 = load ptr, ptr %1086, align 8, !noundef !3
+  %7478 = load ptr, ptr %1086, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7478, ptr noundef nonnull align 8 dereferenceable(104) %430, i64 104, i1 false)
   %.sroa.2956.0..sroa_idx = getelementptr inbounds i8, ptr %7478, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2956.0..sroa_idx, align 8
@@ -23306,7 +23306,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5810 unwind label %8361
 
 7492:                                             ; preds = %7489
-  %7493 = load ptr, ptr %1084, align 8, !noundef !3
+  %7493 = load ptr, ptr %1084, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7493, ptr noundef nonnull align 8 dereferenceable(104) %429, i64 104, i1 false)
   %.sroa.2961.0..sroa_idx = getelementptr inbounds i8, ptr %7493, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2961.0..sroa_idx, align 8
@@ -23400,7 +23400,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %7508 unwind label %8361
 
 7517:                                             ; preds = %7511
-  %7518 = load ptr, ptr %1078, align 8, !noundef !3
+  %7518 = load ptr, ptr %1078, align 8, !align !4, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7518, ptr noundef nonnull align 8 dereferenceable(136) %1077, i64 136, i1 false)
   %7519 = getelementptr inbounds i8, ptr %7518, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7519, ptr noundef nonnull align 8 dereferenceable(104) %427, i64 104, i1 false)
@@ -23443,7 +23443,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5827 unwind label %8361
 
 7527:                                             ; preds = %7524
-  %7528 = load ptr, ptr %1075, align 8, !noundef !3
+  %7528 = load ptr, ptr %1075, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7528, ptr noundef nonnull align 8 dereferenceable(104) %426, i64 104, i1 false)
   %.sroa.2971.0..sroa_idx = getelementptr inbounds i8, ptr %7528, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2971.0..sroa_idx, align 8
@@ -23548,7 +23548,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %7546 unwind label %8361
 
 7555:                                             ; preds = %7549
-  %7556 = load ptr, ptr %1064, align 8, !noundef !3
+  %7556 = load ptr, ptr %1064, align 8, !align !4, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7556, ptr noundef nonnull align 8 dereferenceable(136) %1063, i64 136, i1 false)
   %7557 = getelementptr inbounds i8, ptr %7556, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7557, ptr noundef nonnull align 8 dereferenceable(104) %424, i64 104, i1 false)
@@ -23591,7 +23591,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5849 unwind label %8361
 
 7565:                                             ; preds = %7562
-  %7566 = load ptr, ptr %1061, align 8, !noundef !3
+  %7566 = load ptr, ptr %1061, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7566, ptr noundef nonnull align 8 dereferenceable(104) %423, i64 104, i1 false)
   %.sroa.2981.0..sroa_idx = getelementptr inbounds i8, ptr %7566, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2981.0..sroa_idx, align 8
@@ -23707,7 +23707,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5866 unwind label %8361
 
 7598:                                             ; preds = %7595
-  %7599 = load ptr, ptr %1051, align 8, !noundef !3
+  %7599 = load ptr, ptr %1051, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7599, ptr noundef nonnull align 8 dereferenceable(104) %421, i64 104, i1 false)
   %.sroa.2986.0..sroa_idx = getelementptr inbounds i8, ptr %7599, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2986.0..sroa_idx, align 8
@@ -23837,7 +23837,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5883 unwind label %8361
 
 7635:                                             ; preds = %7632
-  %7636 = load ptr, ptr %1041, align 8, !noundef !3
+  %7636 = load ptr, ptr %1041, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7636, ptr noundef nonnull align 8 dereferenceable(104) %419, i64 104, i1 false)
   %.sroa.2991.0..sroa_idx = getelementptr inbounds i8, ptr %7636, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2991.0..sroa_idx, align 8
@@ -23994,7 +23994,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5900 unwind label %8361
 
 7680:                                             ; preds = %7677
-  %7681 = load ptr, ptr %1027, align 8, !noundef !3
+  %7681 = load ptr, ptr %1027, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7681, ptr noundef nonnull align 8 dereferenceable(104) %417, i64 104, i1 false)
   %.sroa.2996.0..sroa_idx = getelementptr inbounds i8, ptr %7681, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2996.0..sroa_idx, align 8
@@ -24124,7 +24124,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5917 unwind label %8361
 
 7717:                                             ; preds = %7714
-  %7718 = load ptr, ptr %1017, align 8, !noundef !3
+  %7718 = load ptr, ptr %1017, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7718, ptr noundef nonnull align 8 dereferenceable(104) %415, i64 104, i1 false)
   %.sroa.21001.0..sroa_idx = getelementptr inbounds i8, ptr %7718, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21001.0..sroa_idx, align 8
@@ -24257,7 +24257,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5928 unwind label %8361
 
 7752:                                             ; preds = %7749
-  %7753 = load ptr, ptr %1000, align 8, !noundef !3
+  %7753 = load ptr, ptr %1000, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7753, ptr noundef nonnull align 8 dereferenceable(104) %414, i64 104, i1 false)
   %.sroa.21006.0..sroa_idx = getelementptr inbounds i8, ptr %7753, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21006.0..sroa_idx, align 8
@@ -24298,7 +24298,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5939 unwind label %8361
 
 7761:                                             ; preds = %7758
-  %7762 = load ptr, ptr %998, align 8, !noundef !3
+  %7762 = load ptr, ptr %998, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7762, ptr noundef nonnull align 8 dereferenceable(104) %413, i64 104, i1 false)
   %.sroa.21011.0..sroa_idx = getelementptr inbounds i8, ptr %7762, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21011.0..sroa_idx, align 8
@@ -24347,7 +24347,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5950 unwind label %8361
 
 7772:                                             ; preds = %7769
-  %7773 = load ptr, ptr %993, align 8, !noundef !3
+  %7773 = load ptr, ptr %993, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7773, ptr noundef nonnull align 8 dereferenceable(104) %412, i64 104, i1 false)
   %.sroa.21016.0..sroa_idx = getelementptr inbounds i8, ptr %7773, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21016.0..sroa_idx, align 8
@@ -24388,7 +24388,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5961 unwind label %8361
 
 7781:                                             ; preds = %7778
-  %7782 = load ptr, ptr %991, align 8, !noundef !3
+  %7782 = load ptr, ptr %991, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7782, ptr noundef nonnull align 8 dereferenceable(104) %411, i64 104, i1 false)
   %.sroa.21021.0..sroa_idx = getelementptr inbounds i8, ptr %7782, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21021.0..sroa_idx, align 8
@@ -24464,7 +24464,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5972 unwind label %8361
 
 7800:                                             ; preds = %7797
-  %7801 = load ptr, ptr %980, align 8, !noundef !3
+  %7801 = load ptr, ptr %980, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7801, ptr noundef nonnull align 8 dereferenceable(104) %410, i64 104, i1 false)
   %.sroa.21026.0..sroa_idx = getelementptr inbounds i8, ptr %7801, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21026.0..sroa_idx, align 8
@@ -24505,7 +24505,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5983 unwind label %8361
 
 7809:                                             ; preds = %7806
-  %7810 = load ptr, ptr %978, align 8, !noundef !3
+  %7810 = load ptr, ptr %978, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7810, ptr noundef nonnull align 8 dereferenceable(104) %409, i64 104, i1 false)
   %.sroa.21031.0..sroa_idx = getelementptr inbounds i8, ptr %7810, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21031.0..sroa_idx, align 8
@@ -24562,7 +24562,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5994 unwind label %8361
 
 7822:                                             ; preds = %7819
-  %7823 = load ptr, ptr %971, align 8, !noundef !3
+  %7823 = load ptr, ptr %971, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7823, ptr noundef nonnull align 8 dereferenceable(104) %408, i64 104, i1 false)
   %.sroa.21036.0..sroa_idx = getelementptr inbounds i8, ptr %7823, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21036.0..sroa_idx, align 8
@@ -24603,7 +24603,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6005 unwind label %8361
 
 7831:                                             ; preds = %7828
-  %7832 = load ptr, ptr %969, align 8, !noundef !3
+  %7832 = load ptr, ptr %969, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7832, ptr noundef nonnull align 8 dereferenceable(104) %407, i64 104, i1 false)
   %.sroa.21041.0..sroa_idx = getelementptr inbounds i8, ptr %7832, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21041.0..sroa_idx, align 8
@@ -24691,7 +24691,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6016 unwind label %8361
 
 7853:                                             ; preds = %7850
-  %7854 = load ptr, ptr %959, align 8, !noundef !3
+  %7854 = load ptr, ptr %959, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7854, ptr noundef nonnull align 8 dereferenceable(104) %406, i64 104, i1 false)
   %.sroa.21046.0..sroa_idx = getelementptr inbounds i8, ptr %7854, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21046.0..sroa_idx, align 8
@@ -24732,7 +24732,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6027 unwind label %8361
 
 7862:                                             ; preds = %7859
-  %7863 = load ptr, ptr %957, align 8, !noundef !3
+  %7863 = load ptr, ptr %957, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7863, ptr noundef nonnull align 8 dereferenceable(104) %405, i64 104, i1 false)
   %.sroa.21051.0..sroa_idx = getelementptr inbounds i8, ptr %7863, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21051.0..sroa_idx, align 8
@@ -24781,7 +24781,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6038 unwind label %8361
 
 7873:                                             ; preds = %7870
-  %7874 = load ptr, ptr %952, align 8, !noundef !3
+  %7874 = load ptr, ptr %952, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7874, ptr noundef nonnull align 8 dereferenceable(104) %404, i64 104, i1 false)
   %.sroa.21056.0..sroa_idx = getelementptr inbounds i8, ptr %7874, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21056.0..sroa_idx, align 8
@@ -24822,7 +24822,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6049 unwind label %8361
 
 7882:                                             ; preds = %7879
-  %7883 = load ptr, ptr %950, align 8, !noundef !3
+  %7883 = load ptr, ptr %950, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7883, ptr noundef nonnull align 8 dereferenceable(104) %403, i64 104, i1 false)
   %.sroa.21061.0..sroa_idx = getelementptr inbounds i8, ptr %7883, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21061.0..sroa_idx, align 8
@@ -24871,7 +24871,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6060 unwind label %8361
 
 7893:                                             ; preds = %7890
-  %7894 = load ptr, ptr %945, align 8, !noundef !3
+  %7894 = load ptr, ptr %945, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7894, ptr noundef nonnull align 8 dereferenceable(104) %402, i64 104, i1 false)
   %.sroa.21066.0..sroa_idx = getelementptr inbounds i8, ptr %7894, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21066.0..sroa_idx, align 8
@@ -24912,7 +24912,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6071 unwind label %8361
 
 7902:                                             ; preds = %7899
-  %7903 = load ptr, ptr %943, align 8, !noundef !3
+  %7903 = load ptr, ptr %943, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7903, ptr noundef nonnull align 8 dereferenceable(104) %401, i64 104, i1 false)
   %.sroa.21071.0..sroa_idx = getelementptr inbounds i8, ptr %7903, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21071.0..sroa_idx, align 8
@@ -25023,7 +25023,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6082 unwind label %8361
 
 7931:                                             ; preds = %7928
-  %7932 = load ptr, ptr %928, align 8, !noundef !3
+  %7932 = load ptr, ptr %928, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7932, ptr noundef nonnull align 8 dereferenceable(104) %400, i64 104, i1 false)
   %.sroa.21076.0..sroa_idx = getelementptr inbounds i8, ptr %7932, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21076.0..sroa_idx, align 8
@@ -25064,7 +25064,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6093 unwind label %8361
 
 7940:                                             ; preds = %7937
-  %7941 = load ptr, ptr %926, align 8, !noundef !3
+  %7941 = load ptr, ptr %926, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7941, ptr noundef nonnull align 8 dereferenceable(104) %399, i64 104, i1 false)
   %.sroa.21081.0..sroa_idx = getelementptr inbounds i8, ptr %7941, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21081.0..sroa_idx, align 8
@@ -25113,7 +25113,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6104 unwind label %8361
 
 7951:                                             ; preds = %7948
-  %7952 = load ptr, ptr %921, align 8, !noundef !3
+  %7952 = load ptr, ptr %921, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7952, ptr noundef nonnull align 8 dereferenceable(104) %398, i64 104, i1 false)
   %.sroa.21086.0..sroa_idx = getelementptr inbounds i8, ptr %7952, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21086.0..sroa_idx, align 8
@@ -25154,7 +25154,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6115 unwind label %8361
 
 7960:                                             ; preds = %7957
-  %7961 = load ptr, ptr %919, align 8, !noundef !3
+  %7961 = load ptr, ptr %919, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7961, ptr noundef nonnull align 8 dereferenceable(104) %397, i64 104, i1 false)
   %.sroa.21091.0..sroa_idx = getelementptr inbounds i8, ptr %7961, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21091.0..sroa_idx, align 8
@@ -25230,7 +25230,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6126 unwind label %8361
 
 7979:                                             ; preds = %7976
-  %7980 = load ptr, ptr %910, align 8, !noundef !3
+  %7980 = load ptr, ptr %910, align 8, !align !4, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7980, ptr noundef nonnull align 8 dereferenceable(104) %396, i64 104, i1 false)
   %.sroa.21096.0..sroa_idx = getelementptr inbounds i8, ptr %7980, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21096.0..sroa_idx, align 8
@@ -25433,7 +25433,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %8031 unwind label %8361
 
 8040:                                             ; preds = %8034
-  %8041 = load ptr, ptr %897, align 8, !noundef !3
+  %8041 = load ptr, ptr %897, align 8, !align !4, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8041, ptr noundef nonnull align 8 dereferenceable(136) %896, i64 136, i1 false)
   %8042 = getelementptr inbounds i8, ptr %8041, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8042, ptr noundef nonnull align 8 dereferenceable(104) %392, i64 104, i1 false)
@@ -25668,7 +25668,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %8113 unwind label %8107
 
 8113:                                             ; preds = %8109
-  %8114 = load ptr, ptr %879, align 8, !noundef !3
+  %8114 = load ptr, ptr %879, align 8, !align !4, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8114, ptr noundef nonnull align 8 dereferenceable(136) %878, i64 136, i1 false)
   %8115 = getelementptr inbounds i8, ptr %8114, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8115, ptr noundef nonnull align 8 dereferenceable(136) %877, i64 136, i1 false)
@@ -25853,7 +25853,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %8169 unwind label %8163
 
 8169:                                             ; preds = %8165
-  %8170 = load ptr, ptr %862, align 8, !noundef !3
+  %8170 = load ptr, ptr %862, align 8, !align !4, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8170, ptr noundef nonnull align 8 dereferenceable(136) %861, i64 136, i1 false)
   %8171 = getelementptr inbounds i8, ptr %8170, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8171, ptr noundef nonnull align 8 dereferenceable(136) %860, i64 136, i1 false)
@@ -28233,3 +28233,4 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
+!4 = !{i64 8}

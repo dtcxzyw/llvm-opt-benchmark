@@ -867,6 +867,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %70
 
 70:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 8) ]
   %71 = getelementptr inbounds i8, ptr %59, i64 24
   %.val = load ptr, ptr %71, align 8, !nonnull !7, !noundef !7
   %72 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
@@ -2697,6 +2698,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %50
 
 50:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit154.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit154
+  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 8) ]
   %51 = getelementptr inbounds i8, ptr %39, i64 24
   %.val = load ptr, ptr %51, align 8, !nonnull !7, !noundef !7
   %52 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
@@ -2900,6 +2902,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %113 unwind label %108
 
 113:                                              ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %98, i64 8) ]
   %114 = getelementptr inbounds i8, ptr %97, i64 24
   %115 = load ptr, ptr %114, align 8, !nonnull !7, !noundef !7
   %116 = getelementptr inbounds i8, ptr %115, i64 16
@@ -3917,6 +3920,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %14
 
 14:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %3, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !7, !noundef !7
   %17 = getelementptr inbounds i8, ptr %16, i64 32
@@ -4057,6 +4061,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %22
 
 22:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %23 = getelementptr inbounds i8, ptr %11, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !7, !noundef !7
   %25 = getelementptr inbounds i8, ptr %24, i64 56
@@ -4744,6 +4749,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %103 unwind label %.loopexit.split-lp
 
 103:                                              ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit89.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit89
+  call void @llvm.assume(i1 true) [ "align"(ptr %90, i64 8) ]
   %104 = getelementptr inbounds i8, ptr %89, i64 24
   %105 = load ptr, ptr %104, align 8, !nonnull !7, !noundef !7
   %106 = getelementptr inbounds i8, ptr %105, i64 88
@@ -4868,6 +4874,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %160 unwind label %.loopexit
 
 160:                                              ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %150, i64 8) ]
   %161 = getelementptr inbounds i8, ptr %149, i64 24
   %162 = load ptr, ptr %161, align 8, !nonnull !7, !noundef !7
   %163 = getelementptr inbounds i8, ptr %162, i64 32
@@ -5165,6 +5172,7 @@ define void @_ZN8mini_lsm11lsm_storage7MiniLsm21add_compaction_filter17hf3fe35e2
           to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.exit.i" unwind label %46, !noalias !593
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.exit.i": ; preds = %11, %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %.val, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !593
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -5329,6 +5337,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %49
 
 49:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread.i, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 8) ]
   %50 = getelementptr inbounds i8, ptr %38, i64 24
   %.val.i = load ptr, ptr %50, align 8, !noalias !624, !nonnull !7, !noundef !7
   %51 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !624
@@ -6738,6 +6747,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %69
 
 69:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread.i, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 8) ]
   %70 = getelementptr inbounds i8, ptr %58, i64 24
   %.val.i = load ptr, ptr %70, align 8, !noalias !888, !nonnull !7, !noundef !7
   %71 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !888
@@ -8468,6 +8478,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %16
 
 16:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit23.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit23
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = load ptr, ptr %17, align 8, !nonnull !7, !noundef !7
   %19 = getelementptr inbounds i8, ptr %18, i64 88
@@ -8598,6 +8609,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %76
 
 76:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 8) ]
   %77 = getelementptr inbounds i8, ptr %63, i64 24
   %78 = load ptr, ptr %77, align 8, !nonnull !7, !noundef !7
   %79 = getelementptr inbounds i8, ptr %78, i64 32
@@ -8721,6 +8733,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %67
 
 67:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit163.thread.i, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit163.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
   %68 = getelementptr inbounds i8, ptr %51, i64 24
   %.val.i = load ptr, ptr %68, align 8, !nonnull !7, !noundef !7
   %69 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8
@@ -9044,6 +9057,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %178 unwind label %173
 
 178:                                              ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread.i, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %163, i64 8) ]
   %179 = getelementptr inbounds i8, ptr %162, i64 24
   %180 = load ptr, ptr %179, align 8, !nonnull !7, !noundef !7
   %181 = getelementptr inbounds i8, ptr %180, i64 16
@@ -9443,6 +9457,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
           to label %.body234.i unwind label %430
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h38b0d02595a7b126E.exit.i": ; preds = %296, %292
+  call void @llvm.assume(i1 true) [ "align"(ptr %294, i64 8) ]
   %304 = getelementptr inbounds i8, ptr %293, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !1294)
   call void @llvm.experimental.noalias.scope.decl(metadata !1297)
@@ -10083,6 +10098,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %14
 
 14:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %3, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !7, !noundef !7
   %17 = getelementptr inbounds i8, ptr %16, i64 88
@@ -10191,6 +10207,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %30 unwind label %25
 
 30:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %31 = getelementptr inbounds i8, ptr %14, i64 24
   %32 = load ptr, ptr %31, align 8, !nonnull !7, !noundef !7
   %33 = getelementptr inbounds i8, ptr %32, i64 88
@@ -10861,6 +10878,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %42 unwind label %38
 
 42:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.llvm.4793276509712053274.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %43 = getelementptr inbounds i8, ptr %30, i64 24
   %44 = load ptr, ptr %43, align 8, !nonnull !7, !noundef !7
   %45 = getelementptr inbounds i8, ptr %44, i64 32

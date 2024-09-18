@@ -581,20 +581,17 @@ define dso_local void @_ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceER
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.010 = phi ptr [ %16, %.lr.ph ], [ %5, %2 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010, i64 8) ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.05.010, align 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.05.010, align 1
   %8 = lshr i64 %.0.copyload.i.i.i.i.i, 3
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.05.010, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.05.010, align 1
   %13 = and i64 %.0.copyload.i.i.i.i.i.i, 3
   %14 = ptrtoint ptr %12 to i64
   %15 = or i64 %13, %14
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010, i64 8) ]
-  store i64 %15, ptr %.sroa.05.010, align 8
+  store i64 %15, ptr %.sroa.05.010, align 1
   %16 = getelementptr inbounds i8, ptr %.sroa.05.010, i64 8
   %17 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %16, %17
@@ -5408,20 +5405,17 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %_ZNK5clang13Referen
 
 .lr.ph.i.i:                                       ; preds = %422, %.lr.ph.i.i
   %.sroa.05.010.i.i = phi ptr [ %436, %.lr.ph.i.i ], [ %425, %422 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %428 = lshr i64 %.0.copyload.i.i.i.i.i.i.i, 3
   %429 = load ptr, ptr %424, align 8
   %430 = getelementptr inbounds i8, ptr %429, i64 16
   %431 = load ptr, ptr %430, align 8
   %432 = tail call noundef ptr %431(ptr noundef nonnull align 8 dereferenceable(16) %424, i64 %428) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %433 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 3
   %434 = ptrtoint ptr %432 to i64
   %435 = or i64 %433, %434
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  store i64 %435, ptr %.sroa.05.010.i.i, align 8
+  store i64 %435, ptr %.sroa.05.010.i.i, align 1
   %436 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i, i64 8
   %437 = load ptr, ptr %426, align 8
   %.not.i.i = icmp eq ptr %436, %437
@@ -7816,20 +7810,17 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %.sroa.05.010.i = phi ptr [ %19, %.lr.ph.i ], [ %8, %5 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i, align 1
   %11 = lshr i64 %.0.copyload.i.i.i.i.i.i, 3
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 %11) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i, align 1
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i, 3
   %17 = ptrtoint ptr %15 to i64
   %18 = or i64 %16, %17
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i, i64 8) ]
-  store i64 %18, ptr %.sroa.05.010.i, align 8
+  store i64 %18, ptr %.sroa.05.010.i, align 1
   %19 = getelementptr inbounds i8, ptr %.sroa.05.010.i, i64 8
   %20 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %19, %20
@@ -10456,20 +10447,17 @@ _ZNK5clang13CXXRecordDecl9bases_endEv.exit:       ; preds = %_ZNK5clang13LazyOff
 
 .lr.ph.i.i:                                       ; preds = %63, %.lr.ph.i.i
   %.sroa.05.010.i.i = phi ptr [ %77, %.lr.ph.i.i ], [ %66, %63 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %69 = lshr i64 %.0.copyload.i.i.i.i.i.i.i, 3
   %70 = load ptr, ptr %65, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef ptr %72(ptr noundef nonnull align 8 dereferenceable(16) %65, i64 %69) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %74 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 3
   %75 = ptrtoint ptr %73 to i64
   %76 = or i64 %74, %75
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  store i64 %76, ptr %.sroa.05.010.i.i, align 8
+  store i64 %76, ptr %.sroa.05.010.i.i, align 1
   %77 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i, i64 8
   %78 = load ptr, ptr %67, align 8
   %.not.i.i9 = icmp eq ptr %77, %78
@@ -10504,20 +10492,17 @@ _ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceERNS_10ASTContextE.exit.i
 
 .lr.ph.i.i13:                                     ; preds = %84, %.lr.ph.i.i13
   %.sroa.05.010.i.i14 = phi ptr [ %98, %.lr.ph.i.i13 ], [ %87, %84 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i14, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i15 = load i64, ptr %.sroa.05.010.i.i14, align 8
+  %.0.copyload.i.i.i.i.i.i.i15 = load i64, ptr %.sroa.05.010.i.i14, align 1
   %90 = lshr i64 %.0.copyload.i.i.i.i.i.i.i15, 3
   %91 = load ptr, ptr %86, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(16) %86, i64 %90) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i14, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i16 = load i64, ptr %.sroa.05.010.i.i14, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i16 = load i64, ptr %.sroa.05.010.i.i14, align 1
   %95 = and i64 %.0.copyload.i.i.i.i.i.i.i.i16, 3
   %96 = ptrtoint ptr %94 to i64
   %97 = or i64 %95, %96
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i14, i64 8) ]
-  store i64 %97, ptr %.sroa.05.010.i.i14, align 8
+  store i64 %97, ptr %.sroa.05.010.i.i14, align 1
   %98 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i14, i64 8
   %99 = load ptr, ptr %88, align 8
   %.not.i.i17 = icmp eq ptr %98, %99
@@ -10593,20 +10578,17 @@ _ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit22: ; preds = %80, %_
 
 .lr.ph.i.i.i.i:                                   ; preds = %127, %.lr.ph.i.i.i.i
   %.sroa.05.010.i.i.i.i = phi ptr [ %141, %.lr.ph.i.i.i.i ], [ %.pre1.i.i, %127 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i.i, align 1
   %133 = lshr i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 3
   %134 = load ptr, ptr %130, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8
   %137 = call noundef ptr %136(ptr noundef nonnull align 8 dereferenceable(16) %130, i64 %133) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i.i, align 1
   %138 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
   %139 = ptrtoint ptr %137 to i64
   %140 = or i64 %138, %139
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i.i, i64 8) ]
-  store i64 %140, ptr %.sroa.05.010.i.i.i.i, align 8
+  store i64 %140, ptr %.sroa.05.010.i.i.i.i, align 1
   %141 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i.i, i64 8
   %142 = load ptr, ptr %131, align 8
   %.not.i.i.i.i = icmp eq ptr %141, %142
@@ -10654,20 +10636,17 @@ _ZNK5clang13CXXRecordDecl16conversion_beginEv.exit.i: ; preds = %_ZNK5clang20Laz
 
 .lr.ph.i.i.i29.i:                                 ; preds = %151, %.lr.ph.i.i.i29.i
   %.sroa.05.010.i.i.i30.i = phi ptr [ %167, %.lr.ph.i.i.i29.i ], [ %156, %151 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i30.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i31.i = load i64, ptr %.sroa.05.010.i.i.i30.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i31.i = load i64, ptr %.sroa.05.010.i.i.i30.i, align 1
   %159 = lshr i64 %.0.copyload.i.i.i.i.i.i.i.i31.i, 3
   %160 = load ptr, ptr %155, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8
   %163 = call noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(16) %155, i64 %159) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i30.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i32.i = load i64, ptr %.sroa.05.010.i.i.i30.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i32.i = load i64, ptr %.sroa.05.010.i.i.i30.i, align 1
   %164 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i32.i, 3
   %165 = ptrtoint ptr %163 to i64
   %166 = or i64 %164, %165
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i30.i, i64 8) ]
-  store i64 %166, ptr %.sroa.05.010.i.i.i30.i, align 8
+  store i64 %166, ptr %.sroa.05.010.i.i.i30.i, align 1
   %167 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i30.i, i64 8
   %168 = load ptr, ptr %157, align 8
   %.not.i.i.i33.i = icmp eq ptr %167, %168
@@ -10779,8 +10758,7 @@ _ZN5clang9ASTVectorINS_14DeclAccessPairEE4growERKNS_10ASTContextEm.exit.i.i.i: ;
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE6insertES4_.exit.i, %.lr.ph.preheader.i
   %.sroa.076.086.i = phi ptr [ %265, %_ZN4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE6insertES4_.exit.i ], [ %144, %.lr.ph.preheader.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.076.086.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i26 = load i64, ptr %.sroa.076.086.i, align 8
+  %.0.copyload.i.i.i.i.i.i26 = load i64, ptr %.sroa.076.086.i, align 1
   %223 = and i64 %.0.copyload.i.i.i.i.i.i26, -8
   %224 = inttoptr i64 %223 to ptr
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 28
@@ -10949,8 +10927,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i:    ; preds = %276, %.lr.ph90.i
 
 307:                                              ; preds = %382, %.lr.ph95.i
   %.sroa.066.093.i = phi ptr [ %300, %.lr.ph95.i ], [ %383, %382 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.066.093.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i46.i = load i64, ptr %.sroa.066.093.i, align 8
+  %.0.copyload.i.i.i.i.i46.i = load i64, ptr %.sroa.066.093.i, align 1
   %308 = and i64 %.0.copyload.i.i.i.i.i46.i, -8
   %309 = inttoptr i64 %308 to ptr
   %310 = load ptr, ptr %309, align 8
@@ -11018,9 +10995,7 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE5countEPKS2_.exit.i: ; preds = %.
   br i1 %.not82.i, label %339, label %382
 
 339:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE5countEPKS2_.exit.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.066.093.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i53.i = load i64, ptr %.sroa.066.093.i, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.066.093.i, i64 8) ]
+  %.0.copyload.i.i.i.i.i53.i = load i64, ptr %.sroa.066.093.i, align 1
   %340 = load ptr, ptr %303, align 8
   %.0.copyload.i.i.i.i.i.i55.i = load i64, ptr %82, align 8
   %341 = and i64 %.0.copyload.i.i.i.i.i.i55.i, -8
@@ -11229,20 +11204,17 @@ define dso_local void @_ZN5clang13CXXRecordDecl16removeConversionEPKNS_9NamedDec
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
   %.sroa.05.010.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %16, %12 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %19 = lshr i64 %.0.copyload.i.i.i.i.i.i.i, 3
   %20 = load ptr, ptr %15, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 %19) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 3
   %25 = ptrtoint ptr %23 to i64
   %26 = or i64 %24, %25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  store i64 %26, ptr %.sroa.05.010.i.i, align 8
+  store i64 %26, ptr %.sroa.05.010.i.i, align 1
   %27 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i, i64 8
   %28 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %27, %28
@@ -12067,20 +12039,17 @@ define linkonce_odr hidden ptr @_ZNK5clang13CXXRecordDecl14conversion_endEv(ptr 
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %.sroa.05.010.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %15, %10 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %18 = lshr i64 %.0.copyload.i.i.i.i.i.i.i, 3
   %19 = load ptr, ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 %18) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %23 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 3
   %24 = ptrtoint ptr %22 to i64
   %25 = or i64 %23, %24
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  store i64 %25, ptr %.sroa.05.010.i.i, align 8
+  store i64 %25, ptr %.sroa.05.010.i.i, align 1
   %26 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i, i64 8
   %27 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %26, %27
@@ -12129,20 +12098,17 @@ define linkonce_odr hidden ptr @_ZNK5clang13CXXRecordDecl16conversion_beginEv(pt
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.i.i
   %.sroa.05.010.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %.pre1, %11 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %17 = lshr i64 %.0.copyload.i.i.i.i.i.i.i, 3
   %18 = load ptr, ptr %14, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 %17) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i, align 1
   %22 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 3
   %23 = ptrtoint ptr %21 to i64
   %24 = or i64 %22, %23
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i, i64 8) ]
-  store i64 %24, ptr %.sroa.05.010.i.i, align 8
+  store i64 %24, ptr %.sroa.05.010.i.i, align 1
   %25 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i, i64 8
   %26 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %25, %26
@@ -12361,20 +12327,17 @@ define dso_local void @_ZN5clang13CXXRecordDecl18completeDefinitionEPNS_20CXXFin
 
 .lr.ph.i.i.i:                                     ; preds = %25, %.lr.ph.i.i.i
   %.sroa.05.010.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %.pre1.i, %25 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i, align 1
   %31 = lshr i64 %.0.copyload.i.i.i.i.i.i.i.i, 3
   %32 = load ptr, ptr %28, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(16) %28, i64 %31) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i, align 1
   %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 3
   %37 = ptrtoint ptr %35 to i64
   %38 = or i64 %36, %37
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i, i64 8) ]
-  store i64 %38, ptr %.sroa.05.010.i.i.i, align 8
+  store i64 %38, ptr %.sroa.05.010.i.i.i, align 1
   %39 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i, i64 8
   %40 = load ptr, ptr %29, align 8
   %.not.i.i.i = icmp eq ptr %39, %40
@@ -12422,20 +12385,17 @@ _ZNK5clang13CXXRecordDecl16conversion_beginEv.exit: ; preds = %15, %_ZNK5clang20
 
 .lr.ph.i.i.i5:                                    ; preds = %49, %.lr.ph.i.i.i5
   %.sroa.05.010.i.i.i6 = phi ptr [ %65, %.lr.ph.i.i.i5 ], [ %54, %49 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i6, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i7 = load i64, ptr %.sroa.05.010.i.i.i6, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i7 = load i64, ptr %.sroa.05.010.i.i.i6, align 1
   %57 = lshr i64 %.0.copyload.i.i.i.i.i.i.i.i7, 3
   %58 = load ptr, ptr %53, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = tail call noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(16) %53, i64 %57) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i6, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i8 = load i64, ptr %.sroa.05.010.i.i.i6, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i8 = load i64, ptr %.sroa.05.010.i.i.i6, align 1
   %62 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, 3
   %63 = ptrtoint ptr %61 to i64
   %64 = or i64 %62, %63
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i6, i64 8) ]
-  store i64 %64, ptr %.sroa.05.010.i.i.i6, align 8
+  store i64 %64, ptr %.sroa.05.010.i.i.i6, align 1
   %65 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i6, i64 8
   %66 = load ptr, ptr %55, align 8
   %.not.i.i.i9 = icmp eq ptr %65, %66
@@ -12459,19 +12419,16 @@ _ZNK5clang13CXXRecordDecl14conversion_endEv.exit: ; preds = %._ZNK5clang20LazyAS
 
 .lr.ph:                                           ; preds = %_ZNK5clang13CXXRecordDecl14conversion_endEv.exit, %.lr.ph
   %.sroa.016.021 = phi ptr [ %78, %.lr.ph ], [ %42, %_ZNK5clang13CXXRecordDecl14conversion_endEv.exit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.016.021, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.016.021, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.016.021, align 1
   %70 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %71 = inttoptr i64 %70 to ptr
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 28
   %73 = load i32, ptr %72, align 4
   %74 = lshr i32 %73, 13
   %75 = and i32 %74, 3
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.016.021, i64 8) ]
   %76 = zext nneg i32 %75 to i64
   %77 = or disjoint i64 %70, %76
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.016.021, i64 8) ]
-  store i64 %77, ptr %.sroa.016.021, align 8
+  store i64 %77, ptr %.sroa.016.021, align 1
   %78 = getelementptr inbounds i8, ptr %.sroa.016.021, i64 8
   %.not = icmp eq ptr %78, %69
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
@@ -20228,20 +20185,17 @@ define internal fastcc void @_ZL25CollectVisibleConversionsRN5clang10ASTContextE
 
 .lr.ph.i.i.i:                                     ; preds = %24, %.lr.ph.i.i.i
   %.sroa.05.010.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %.pre1.i, %24 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i, align 1
   %30 = lshr i64 %.0.copyload.i.i.i.i.i.i.i.i, 3
   %31 = load ptr, ptr %27, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 %30) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.010.i.i.i, align 1
   %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 3
   %36 = ptrtoint ptr %34 to i64
   %37 = or i64 %35, %36
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i, i64 8) ]
-  store i64 %37, ptr %.sroa.05.010.i.i.i, align 8
+  store i64 %37, ptr %.sroa.05.010.i.i.i, align 1
   %38 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i, i64 8
   %39 = load ptr, ptr %28, align 8
   %.not.i.i.i = icmp eq ptr %38, %39
@@ -20289,20 +20243,17 @@ _ZNK5clang13CXXRecordDecl16conversion_beginEv.exit: ; preds = %8, %_ZNK5clang20L
 
 .lr.ph.i.i.i50:                                   ; preds = %48, %.lr.ph.i.i.i50
   %.sroa.05.010.i.i.i51 = phi ptr [ %64, %.lr.ph.i.i.i50 ], [ %53, %48 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i51, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i52 = load i64, ptr %.sroa.05.010.i.i.i51, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i52 = load i64, ptr %.sroa.05.010.i.i.i51, align 1
   %56 = lshr i64 %.0.copyload.i.i.i.i.i.i.i.i52, 3
   %57 = load ptr, ptr %52, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(16) %52, i64 %56) #25
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i51, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i53 = load i64, ptr %.sroa.05.010.i.i.i51, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i53 = load i64, ptr %.sroa.05.010.i.i.i51, align 1
   %61 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i53, 3
   %62 = ptrtoint ptr %60 to i64
   %63 = or i64 %61, %62
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.010.i.i.i51, i64 8) ]
-  store i64 %63, ptr %.sroa.05.010.i.i.i51, align 8
+  store i64 %63, ptr %.sroa.05.010.i.i.i51, align 1
   %64 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i51, i64 8
   %65 = load ptr, ptr %54, align 8
   %.not.i.i.i54 = icmp eq ptr %64, %65
@@ -20349,8 +20300,7 @@ _ZNK5clang13CXXRecordDecl14conversion_endEv.exit: ; preds = %._ZNK5clang20LazyAS
 
 82:                                               ; preds = %.lr.ph, %_ZN4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE6insertES3_.exit
   %.sroa.0106.0125 = phi ptr [ %41, %.lr.ph ], [ %236, %_ZN4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE6insertES3_.exit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0106.0125, i64 8) ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0106.0125, align 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0106.0125, align 1
   %83 = and i64 %.0.copyload.i.i.i.i.i, -8
   %84 = inttoptr i64 %83 to ptr
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 28
@@ -20499,8 +20449,7 @@ _ZNK4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE5countES4_.exit: ; preds
   br i1 %2, label %151, label %_ZN4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE6insertES3_.exit
 
 151:                                              ; preds = %.critedge
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0106.0125, i64 8) ]
-  %.0.copyload.i.i.i.i.i69 = load i64, ptr %.sroa.0106.0125, align 8
+  %.0.copyload.i.i.i.i.i69 = load i64, ptr %.sroa.0106.0125, align 1
   %152 = and i64 %.0.copyload.i.i.i.i.i69, -8
   %153 = inttoptr i64 %152 to ptr
   %154 = load ptr, ptr %153, align 8
@@ -20546,14 +20495,12 @@ _ZNK4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE5countES4_.exit: ; preds
   br label %_ZN4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE6insertES3_.exit
 
 _ZN4llvm15SmallPtrSetImplIN5clang7CanQualINS1_4TypeEEEE6insertES4_.exit: ; preds = %.lr.ph.i.i66, %147, %149
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0106.0125, i64 8) ]
-  %.0.copyload.i.i.i.i.i91 = load i64, ptr %.sroa.0106.0125, align 8
+  %.0.copyload.i.i.i.i.i91 = load i64, ptr %.sroa.0106.0125, align 1
   %175 = trunc i64 %.0.copyload.i.i.i.i.i91 to i32
   %176 = and i32 %175, 3
   %177 = icmp eq i32 %176, 2
   %178 = call i32 @llvm.smax.i32(i32 %3, i32 %176)
   %.0.i = select i1 %177, i32 3, i32 %178
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0106.0125, i64 8) ]
   %179 = and i64 %.0.copyload.i.i.i.i.i91, -8
   br i1 %2, label %180, label %192
 

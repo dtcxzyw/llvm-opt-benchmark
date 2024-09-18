@@ -860,8 +860,7 @@ _ZNK4llvm9StringRef6rsplitEc.exit:                ; preds = %161, %_ZN5clang17Gl
   %218 = load ptr, ptr %37, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 %216
   %220 = getelementptr inbounds i8, ptr %218, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %219, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %219, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %219, align 1
   %221 = getelementptr inbounds i8, ptr %219, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %221, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %221, align 4
@@ -2424,8 +2423,7 @@ _ZN12_GLOBAL__N_126IdentifierIndexReaderTrait11ComputeHashERKN4llvm9StringRefE.e
   %45 = zext i32 %42 to i64
   %46 = shl nuw nsw i64 %45, 2
   %47 = getelementptr inbounds i8, ptr %44, i64 %46
-  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %47, align 4, !noalias !121
+  %.0.copyload.i.i.i.i.i = load i32, ptr %47, align 1, !noalias !121
   %48 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %48, label %_ZN4llvm11SmallVectorIjLj2EED2Ev.exit, label %49
 
@@ -2434,7 +2432,6 @@ _ZN12_GLOBAL__N_126IdentifierIndexReaderTrait11ComputeHashERKN4llvm9StringRefE.e
   %51 = load ptr, ptr %50, align 8, !noalias !121
   %52 = zext i32 %.0.copyload.i.i.i.i.i to i64
   %53 = getelementptr inbounds i8, ptr %51, i64 %52
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %.0.copyload.i.i.i30.i.i = load i16, ptr %53, align 1, !noalias !121
   %54 = zext i16 %.0.copyload.i.i.i30.i.i to i32
   %.not15.i.i = icmp eq i16 %.0.copyload.i.i.i30.i.i, 0
@@ -2447,13 +2444,10 @@ _ZN12_GLOBAL__N_126IdentifierIndexReaderTrait11ComputeHashERKN4llvm9StringRefE.e
 .lr.ph.i.i:                                       ; preds = %_ZN12_GLOBAL__N_126IdentifierIndexReaderTrait8EqualKeyERKN4llvm9StringRefES4_.exit.thread10.i.i, %.lr.ph.preheader.i.i
   %.02114.i.i = phi i32 [ %64, %_ZN12_GLOBAL__N_126IdentifierIndexReaderTrait8EqualKeyERKN4llvm9StringRefES4_.exit.thread10.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %.013.i.i = phi ptr [ %storemerge.i.i, %_ZN12_GLOBAL__N_126IdentifierIndexReaderTrait8EqualKeyERKN4llvm9StringRefES4_.exit.thread10.i.i ], [ %55, %.lr.ph.preheader.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.013.i.i, i64 1) ]
   %.0.copyload.i.i.i31.i.i = load i32, ptr %.013.i.i, align 1, !noalias !121
   %56 = getelementptr inbounds i8, ptr %.013.i.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i16, ptr %56, align 1, !noalias !121
   %57 = getelementptr inbounds i8, ptr %.013.i.i, i64 6
-  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 1) ]
   %.0.copyload.i.i.i2.i.i.i = load i16, ptr %57, align 1, !noalias !121
   %58 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
   %.sroa.0.0.extract.trunc.i.i = zext i16 %.0.copyload.i.i.i.i.i.i to i32
@@ -2496,7 +2490,6 @@ _ZN4llvm22OnDiskChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE4f
 .lr.ph.i.i20:                                     ; preds = %.lr.ph.i.i20.preheader, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i.i
   %.04.i.i = phi i32 [ %77, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i.i ], [ %.sroa.4.0.extract.trunc.i.i, %.lr.ph.i.i20.preheader ]
   %.013.i.i21 = phi ptr [ %67, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i.i ], [ %66, %.lr.ph.i.i20.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.013.i.i21, i64 1) ]
   %.0.copyload.i.i.i.i.i22 = load i32, ptr %.013.i.i21, align 1, !noalias !131
   %67 = getelementptr inbounds i8, ptr %.013.i.i21, i64 4
   %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
@@ -3834,8 +3827,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit.i:         ; preds = %376, %372
   %384 = load ptr, ptr %61, align 8, !noalias !152
   %385 = getelementptr inbounds i8, ptr %384, i64 %382
   %386 = getelementptr inbounds i8, ptr %384, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %385, i64 4) ]
-  %.0.copyload.i.i.i.i2.i.i = load i32, ptr %385, align 4
+  %.0.copyload.i.i.i.i2.i.i = load i32, ptr %385, align 1
   %387 = getelementptr inbounds i8, ptr %385, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %387, i64 4) ]
   %.0.copyload.i.i.i2.i.i.i = load i32, ptr %387, align 4
@@ -3876,7 +3868,6 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit.i:         ; preds = %376, %372
   %403 = load ptr, ptr %41, align 8, !noalias !210
   %404 = and i64 %398, 4294967295
   %405 = getelementptr inbounds i8, ptr %403, i64 %404
-  call void @llvm.assume(i1 true) [ "align"(ptr %405, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %405, align 1, !noalias !214
   %406 = trunc i64 %.0.copyload.i.i.i.i.i.i to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41), !noalias !152
@@ -3916,7 +3907,6 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit121.i: ; preds = %415, 
   br i1 %.not.i.i123.i, label %424, label %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_135InterestingASTIdentifierLookupTraitEE13data_iteratorppEv.exit.i
 
 424:                                              ; preds = %422
-  call void @llvm.assume(i1 true) [ "align"(ptr %.pre.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i.i124.i = load i16, ptr %.pre.i.i.i, align 1
   %425 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 2
   %426 = zext i16 %.0.copyload.i.i.i.i.i124.i to i32
@@ -13589,7 +13579,7 @@ define internal void @_ZN12_GLOBAL__N_129GlobalIndexIdentifierIteratorD0Ev(ptr n
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal { ptr, i64 } @_ZN12_GLOBAL__N_129GlobalIndexIdentifierIterator4NextEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
@@ -13597,7 +13587,7 @@ define internal { ptr, i64 } @_ZN12_GLOBAL__N_129GlobalIndexIdentifierIterator4N
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %.val1 = load i32, ptr %4, align 4
   %5 = icmp eq i32 %.val, %.val1
-  br i1 %5, label %26, label %6
+  br i1 %5, label %25, label %6
 
 6:                                                ; preds = %1
   %.val2 = load ptr, ptr %2, align 8
@@ -13607,48 +13597,42 @@ define internal { ptr, i64 } @_ZN12_GLOBAL__N_129GlobalIndexIdentifierIterator4N
   %8 = select i1 %.not.i.i.i, i64 2, i64 0
   %9 = getelementptr inbounds i8, ptr %.val2, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i16, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %9, i64 6
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  %13 = zext i16 %.0.copyload.i.i.i.i.i.i to i64
-  br i1 %.not.i.i.i, label %14, label %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = zext i16 %.0.copyload.i.i.i.i.i.i to i64
+  br i1 %.not.i.i.i, label %13, label %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit
 
-14:                                               ; preds = %6
-  call void @llvm.assume(i1 true) [ "align"(ptr %.val2, i64 1) ]
+13:                                               ; preds = %6
   %.0.copyload.i.i.i.i.i = load i16, ptr %.val2, align 1
-  %15 = getelementptr inbounds i8, ptr %.val2, i64 2
-  %16 = zext i16 %.0.copyload.i.i.i.i.i to i32
-  store i32 %16, ptr %7, align 8
+  %14 = getelementptr inbounds i8, ptr %.val2, i64 2
+  %15 = zext i16 %.0.copyload.i.i.i.i.i to i32
+  store i32 %15, ptr %7, align 8
   br label %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit
 
-_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit: ; preds = %6, %14
-  %17 = phi i32 [ %16, %14 ], [ %.val3, %6 ]
-  %18 = phi ptr [ %15, %14 ], [ %.val2, %6 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit: ; preds = %6, %13
+  %16 = phi i32 [ %15, %13 ], [ %.val3, %6 ]
+  %17 = phi ptr [ %14, %13 ], [ %.val2, %6 ]
+  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  store ptr %18, ptr %2, align 8
+  %.0.copyload.i.i.i.i.i.i4 = load i16, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %17, i64 6
   store ptr %19, ptr %2, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i4 = load i16, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %18, i64 6
-  store ptr %20, ptr %2, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
-  %.0.copyload.i.i.i2.i.i.i = load i16, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %.0.copyload.i.i.i2.i.i.i = load i16, ptr %19, align 1
+  %20 = getelementptr inbounds i8, ptr %17, i64 8
   %.sroa.2.0.insert.ext.i.i.i.i = zext i16 %.0.copyload.i.i.i2.i.i.i to i64
   %.sroa.0.0.insert.ext.i.i.i.i = zext i16 %.0.copyload.i.i.i.i.i.i4 to i64
-  %22 = getelementptr inbounds i8, ptr %21, i64 %.sroa.0.0.insert.ext.i.i.i.i
-  %23 = getelementptr inbounds i8, ptr %22, i64 %.sroa.2.0.insert.ext.i.i.i.i
-  store ptr %23, ptr %2, align 8
-  %24 = add i32 %17, -1
-  store i32 %24, ptr %7, align 8
-  %25 = add i32 %.val, -1
-  store i32 %25, ptr %3, align 4
-  br label %26
+  %21 = getelementptr inbounds i8, ptr %20, i64 %.sroa.0.0.insert.ext.i.i.i.i
+  %22 = getelementptr inbounds i8, ptr %21, i64 %.sroa.2.0.insert.ext.i.i.i.i
+  store ptr %22, ptr %2, align 8
+  %23 = add i32 %16, -1
+  store i32 %23, ptr %7, align 8
+  %24 = add i32 %.val, -1
+  store i32 %24, ptr %3, align 4
+  br label %25
 
-26:                                               ; preds = %1, %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit
-  %.sroa.0.0 = phi ptr [ %12, %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit ], [ null, %1 ]
-  %.sroa.4.0 = phi i64 [ %13, %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit ], [ 0, %1 ]
+25:                                               ; preds = %1, %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit
+  %.sroa.0.0 = phi ptr [ %11, %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit ], [ null, %1 ]
+  %.sroa.4.0 = phi i64 [ %12, %_ZN4llvm30OnDiskIterableChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE12key_iteratorppEv.exit ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -14457,7 +14441,7 @@ attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-p
 attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nofree nounwind }
 attributes #21 = { nofree nounwind willreturn memory(argmem: read) }

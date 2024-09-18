@@ -1083,6 +1083,7 @@ define internal fastcc noundef zeroext i1 @"_ZN13fluent_bundle8resolver17inline_
   %72 = getelementptr inbounds i8, ptr %0, i64 24
   %73 = getelementptr inbounds i8, ptr %2, i64 24
   %74 = load ptr, ptr %73, align 8, !nonnull !9, !align !65, !noundef !9
+  call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 8) ]
   %75 = load ptr, ptr %71, align 8, !nonnull !9, !align !157, !noundef !9
   %76 = getelementptr inbounds i8, ptr %0, i64 16
   %77 = load i64, ptr %76, align 8, !noundef !9
@@ -33818,6 +33819,7 @@ define hidden void @_ZN15rustfmt_nightly5pairs12rewrite_pair17hfd9ed89ede58a146E
   br label %"_ZN93_$LT$rustfmt_nightly..patterns..RangeOperand$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17he1b2b41d5f5c02abE.exit"
 
 114:                                              ; preds = %95
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   call void @_ZN15rustfmt_nightly4expr11format_expr17h25647a30bc5d02e0E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %107, i1 noundef zeroext true, ptr noundef nonnull align 8 %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %53), !noalias !5713
   %.pr = load i64, ptr %51, align 8
   br label %"_ZN93_$LT$rustfmt_nightly..patterns..RangeOperand$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17he1b2b41d5f5c02abE.exit"
@@ -34026,6 +34028,7 @@ common.resume:                                    ; preds = %143, %121
   br label %"_ZN93_$LT$rustfmt_nightly..patterns..RangeOperand$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17he1b2b41d5f5c02abE.exit132"
 
 173:                                              ; preds = %162
+  call void @llvm.assume(i1 true) [ "align"(ptr %166, i64 8) ]
   invoke void @_ZN15rustfmt_nightly4expr11format_expr17h25647a30bc5d02e0E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %166, i1 noundef zeroext true, ptr noundef nonnull align 8 %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %30)
           to label %"_ZN93_$LT$rustfmt_nightly..patterns..RangeOperand$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17he1b2b41d5f5c02abE.exit132thread-pre-split" unwind label %144
 
@@ -34668,6 +34671,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %258
   br label %"_ZN93_$LT$rustfmt_nightly..patterns..RangeOperand$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17he1b2b41d5f5c02abE.exit234"
 
 367:                                              ; preds = %358
+  call void @llvm.assume(i1 true) [ "align"(ptr %360, i64 8) ]
   invoke void @_ZN15rustfmt_nightly4expr11format_expr17h25647a30bc5d02e0E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %360, i1 noundef zeroext true, ptr noundef nonnull align 8 %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %41)
           to label %"_ZN93_$LT$rustfmt_nightly..patterns..RangeOperand$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17he1b2b41d5f5c02abE.exit234thread-pre-split" unwind label %.loopexit.split-lp.loopexit.split-lp
 

@@ -110125,6 +110125,7 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.exit: ; preds = %72, %98
   br i1 %.not, label %101, label %100
 
 100:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 8) ]
   call fastcc void @"_ZN75_$LT$typst..foundations..styles..StyleChain$u20$as$u20$core..hash..Hash$GT$4hash17h35df33c062095bdfE"(ptr noalias noundef readonly align 8 dereferenceable(24) %63, ptr noalias noundef align 8 dereferenceable(72) %1)
   br label %101
 
@@ -160261,7 +160262,7 @@ define void @"_ZN88_$LT$typst..model..figure..FigureKind$u20$as$u20$typst..found
   %11 = load i64, ptr %7, align 8, !range !80, !noundef !12
   %trunc25 = trunc nuw i64 %11 to i1
   %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.012.sroa.0.0.copyload = load ptr, ptr %12, align 8
+  %.sroa.012.sroa.0.0.copyload = load ptr, ptr %12, align 8, !align !35
   %.sroa.012.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.012.sroa.4.0.copyload = load i64, ptr %.sroa.012.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -165566,7 +165567,7 @@ define void @"_ZN97_$LT$typst..introspection..counter..CounterKey$u20$as$u20$typ
   %65 = load i64, ptr %10, align 8, !range !80, !noundef !12
   %trunc = trunc nuw i64 %65 to i1
   %66 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.056.sroa.0.0.copyload = load ptr, ptr %66, align 8
+  %.sroa.056.sroa.0.0.copyload = load ptr, ptr %66, align 8, !align !35
   %.sroa.056.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.056.sroa.4.0.copyload = load i64, ptr %.sroa.056.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
