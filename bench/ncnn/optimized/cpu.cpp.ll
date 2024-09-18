@@ -193,7 +193,7 @@ define internal fastcc void @_ZL30try_initialize_global_cpu_infov() unnamed_addr
   br i1 %.not.i.i, label %_ZL12get_cpucountv.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9
-  %11 = tail call i32 @feof(ptr noundef nonnull %10) #21
+  %11 = tail call i32 @feof(ptr noundef nonnull %10) #22
   %.not911.i.i = icmp eq i32 %11, 0
   br i1 %.not911.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -208,7 +208,7 @@ define internal fastcc void @_ZL30try_initialize_global_cpu_infov() unnamed_addr
   %14 = icmp eq i32 %bcmp.i.i, 0
   %15 = zext i1 %14 to i32
   %spec.select.i.i = add nuw nsw i32 %.0812.i.i, %15
-  %16 = call i32 @feof(ptr noundef nonnull %10) #21
+  %16 = call i32 @feof(ptr noundef nonnull %10) #22
   %.not9.i.i = icmp eq i32 %16, 0
   br i1 %.not9.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
@@ -232,7 +232,7 @@ _ZL12get_cpucountv.exit.i:                        ; preds = %._crit_edge.i.i, %9
   %.sroa.7.049.i.i = phi ptr [ %.sroa.7.1.i.i, %.loopexit.i.i ], [ null, %_ZL12get_cpucountv.exit.i ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.01352.i.i) #21
+  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.01352.i.i) #22
   %19 = call noalias ptr @fopen(ptr noundef nonnull %6, ptr noundef nonnull @.str.7)
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %.thread.i.i, label %20
@@ -286,7 +286,7 @@ _ZL12get_cpucountv.exit.i:                        ; preds = %._crit_edge.i.i, %9
   %32 = ptrtoint ptr %.sroa.12.050.i.i to i64
   %33 = ptrtoint ptr %.sroa.0.051.i.i to i64
   %34 = sub i64 %32, %33
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.051.i.i, i64 noundef %34) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.051.i.i, i64 noundef %34) #23
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i13.i, %31, %30
@@ -318,7 +318,7 @@ common.resume.i:                                  ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %42, label %43, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 43:                                               ; preds = %41
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24
           to label %.noexc17.i.i unwind label %.loopexit.split-lp.i.i
 
 .noexc17.i.i:                                     ; preds = %43
@@ -335,7 +335,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %41
 
 48:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i
   %49 = shl nuw nsw i64 %47, 2
-  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #24
+  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
           to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i.i unwind label %.loopexit32.i.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i.i: ; preds = %48, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -355,7 +355,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i: ; preds = %54, %_
   br i1 %.not.i17.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, label %56
 
 56:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.051.i.i, i64 noundef %28) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.051.i.i, i64 noundef %28) #23
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %56, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
@@ -388,7 +388,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiE
   %63 = ptrtoint ptr %.sroa.12.1.i.i to i64
   %64 = ptrtoint ptr %.sroa.0.1.i.i to i64
   %65 = sub i64 %63, %64
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i.i, i64 noundef %65) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i.i, i64 noundef %65) #23
   %.pr.i = load i32, ptr @_ZL10g_cpucount, align 4
   br label %_ZL21get_physical_cpucountv.exit.i
 
@@ -427,7 +427,7 @@ _ZN4ncnn6CpuSet6enableEi.exit.i.i:                ; preds = %69, %.lr.ph.i17.i
   br i1 %76, label %.noexc.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 .noexc.i.i:                                       ; preds = %._crit_edge.i6.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #24
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %._crit_edge.i6.i
@@ -436,7 +436,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %._crit_edg
 
 .noexc47.i.i:                                     ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %77 = shl nuw nsw i64 %wide.trip.count.i.i, 2
-  %78 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %77) #24
+  %78 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %77) #25
   store i32 0, ptr %78, align 4
   %79 = icmp eq i32 %66, 1
   br i1 %79, label %.lr.ph24.i.i.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i
@@ -459,24 +459,24 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc47.
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %82 = trunc nuw nsw i64 %indvars.iv31.i.i to i32
-  %83 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %82) #21
+  %83 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %82) #22
   %84 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.7)
   %.not.i.i7.i = icmp eq ptr %84, null
   br i1 %.not.i.i7.i, label %86, label %.preheader45.i.i.i
 
 .preheader45.i.i.i:                               ; preds = %.lr.ph24.i.i
-  %85 = call i32 @feof(ptr noundef nonnull %84) #21
+  %85 = call i32 @feof(ptr noundef nonnull %84) #22
   %.not4246.i.i.i = icmp eq i32 %85, 0
   br i1 %.not4246.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 86:                                               ; preds = %.lr.ph24.i.i
-  %87 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %82) #21
+  %87 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %82) #22
   %88 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.7)
   %.not36.i.i.i = icmp eq ptr %88, null
   br i1 %.not36.i.i.i, label %96, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %86
-  %89 = call i32 @feof(ptr noundef nonnull %88) #21
+  %89 = call i32 @feof(ptr noundef nonnull %88) #22
   %.not3750.i.i.i = icmp eq i32 %89, 0
   br i1 %.not3750.i.i.i, label %.lr.ph52.i.i.i, label %._crit_edge53.thread.i.i.i
 
@@ -497,7 +497,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc47.
 92:                                               ; preds = %.noexc48.i.i
   %93 = load i32, ptr %3, align 4
   %spec.select.i.i.i = call i32 @llvm.smax.i32(i32 %93, i32 %.02751.i.i.i)
-  %94 = call i32 @feof(ptr noundef nonnull %88) #21
+  %94 = call i32 @feof(ptr noundef nonnull %88) #22
   %.not37.i.i.i = icmp eq i32 %94, 0
   br i1 %.not37.i.i.i, label %.lr.ph52.i.i.i, label %._crit_edge53.i.i.i, !llvm.loop !10
 
@@ -508,7 +508,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc47.
   br i1 %.not39.i.i.i, label %96, label %113
 
 96:                                               ; preds = %._crit_edge53.i.i.i, %._crit_edge53.thread.i.i.i, %86
-  %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %82) #21
+  %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %82) #22
   %98 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.7)
   %.not40.i.i.i = icmp eq ptr %98, null
   br i1 %.not40.i.i.i, label %113, label %99
@@ -524,7 +524,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc47.
 
 101:                                              ; preds = %.noexc49.i.i
   %102 = load ptr, ptr @stderr, align 8
-  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.18, i32 noundef %100) #25
+  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.18, i32 noundef %100) #26
   %104 = load ptr, ptr @stderr, align 8
   %fputc.i.i.i = call i32 @fputc(i32 10, ptr %104)
   br label %105
@@ -547,7 +547,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc47.
 109:                                              ; preds = %.noexc50.i.i
   %110 = load i32, ptr %5, align 4
   %spec.select44.i.i.i = call i32 @llvm.smax.i32(i32 %110, i32 %.02447.i.i.i)
-  %111 = call i32 @feof(ptr noundef nonnull %84) #21
+  %111 = call i32 @feof(ptr noundef nonnull %84) #22
   %.not42.i.i.i = icmp eq i32 %111, 0
   br i1 %.not42.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !11
 
@@ -601,13 +601,13 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc47.
   %indvars.iv34.i.i = phi i64 [ %indvars.iv.next35.i.i, %_ZN4ncnn6CpuSet6enableEi.exit53.i.i ], [ 0, %.preheader.i10.i ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1)
   %122 = trunc nuw nsw i64 %indvars.iv34.i.i to i32
-  %123 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %122) #21
+  %123 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %122) #22
   %124 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.7)
   %.not.i51.i.i = icmp eq ptr %124, null
   br i1 %.not.i51.i.i, label %125, label %128
 
 125:                                              ; preds = %.lr.ph29.i.i
-  %126 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %122) #21
+  %126 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %122) #22
   %127 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.7)
   %.not16.i.i.i = icmp eq ptr %127, null
   br i1 %.not16.i.i.i, label %.thread.i11.i, label %128
@@ -617,7 +617,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc47.
   br label %129
 
 129:                                              ; preds = %131, %128
-  %130 = call i32 @feof(ptr noundef nonnull %.013.i.i.i) #21
+  %130 = call i32 @feof(ptr noundef nonnull %.013.i.i.i) #22
   %.not17.i.i.i = icmp eq i32 %130, 0
   br i1 %.not17.i.i.i, label %131, label %134
 
@@ -670,18 +670,18 @@ _ZN4ncnn6CpuSet6enableEi.exit53.i.i:              ; preds = %_ZN4ncnn6CpuSet6ena
   br label %.loopexit.thread.i.i
 
 .loopexit.thread.i.i:                             ; preds = %_ZN4ncnn6CpuSet6enableEi.exit53.i.i, %.loopexit.i12.i, %.preheader.i10.i
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %77) #22
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %77) #23
   br label %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i13.i:              ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit10.i.i
   %lpad.phi.i14.i = phi { ptr, i32 } [ %lpad.loopexit.i15.i, %.loopexit10.i.i ], [ %lpad.loopexit11.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp12.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %77) #22
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %77) #23
   br label %common.resume.i
 
 _ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i: ; preds = %.loopexit.thread.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   call fastcc void @_ZL13get_elf_hwcapj(i32 noundef 16)
   call fastcc void @_ZL13get_elf_hwcapj(i32 noundef 26)
-  %152 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #26, !srcloc !15
+  %152 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #27, !srcloc !15
   %153 = extractvalue { i32, i32, i32, i32 } %152, 0
   %154 = icmp slt i32 %153, 1
   br i1 %154, label %_ZL23get_cpu_support_x86_avxv.exit.thread.i, label %_ZL9x86_cpuidiPj.exit6.i.i
@@ -691,14 +691,14 @@ _ZL23get_cpu_support_x86_avxv.exit.thread.i:      ; preds = %_ZL35initialize_cpu
   br label %_ZL23get_cpu_support_x86_fmav.exit.i
 
 _ZL9x86_cpuidiPj.exit6.i.i:                       ; preds = %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i
-  %155 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #26
+  %155 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #27
   %156 = extractvalue { i32, i32, i32, i32 } %155, 2
   %157 = and i32 %156, 469762048
   %or.cond5.not.i.i = icmp eq i32 %157, 469762048
   br i1 %or.cond5.not.i.i, label %_ZL23get_cpu_support_x86_avxv.exit.i, label %_ZL23get_cpu_support_x86_avxv.exit.thread95.i
 
 _ZL23get_cpu_support_x86_avxv.exit.i:             ; preds = %_ZL9x86_cpuidiPj.exit6.i.i
-  %158 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #26, !srcloc !16
+  %158 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #27, !srcloc !16
   %159 = and i32 %158, 6
   %.not4.i.i = icmp eq i32 %159, 6
   %..i.i = zext i1 %.not4.i.i to i32
@@ -720,13 +720,13 @@ _ZL23get_cpu_support_x86_fmav.exit.i:             ; preds = %_ZL9x86_cpuidiPj.ex
   %163 = phi i1 [ true, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ false, %_ZL9x86_cpuidiPj.exit6.i20.i ], [ true, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ %161, %_ZL23get_cpu_support_x86_avxv.exit.thread95.i ]
   %.0.i22.i = phi i32 [ 0, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ %spec.select.i24.i, %_ZL9x86_cpuidiPj.exit6.i20.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread95.i ]
   store i32 %.0.i22.i, ptr @_ZL21g_cpu_support_x86_fma, align 4
-  %164 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #26, !srcloc !15
+  %164 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #27, !srcloc !15
   %165 = extractvalue { i32, i32, i32, i32 } %164, 0
   %166 = icmp ult i32 %165, -2147483647
   br i1 %166, label %_ZL23get_cpu_support_x86_xopv.exit.i, label %_ZL9x86_cpuidiPj.exit1.i.i
 
 _ZL9x86_cpuidiPj.exit1.i.i:                       ; preds = %_ZL23get_cpu_support_x86_fmav.exit.i
-  %167 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #26, !srcloc !17
+  %167 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #27, !srcloc !17
   %168 = extractvalue { i32, i32, i32, i32 } %167, 2
   %169 = and i32 %168, 2048
   br label %_ZL23get_cpu_support_x86_xopv.exit.i
@@ -737,7 +737,7 @@ _ZL23get_cpu_support_x86_xopv.exit.i:             ; preds = %_ZL9x86_cpuidiPj.ex
   br i1 %154, label %_ZL24get_cpu_support_x86_f16cv.exit.i, label %_ZL9x86_cpuidiPj.exit2.i.i
 
 _ZL9x86_cpuidiPj.exit2.i.i:                       ; preds = %_ZL23get_cpu_support_x86_xopv.exit.i
-  %170 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #26, !srcloc !17
+  %170 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #27, !srcloc !17
   %171 = extractvalue { i32, i32, i32, i32 } %170, 2
   %172 = and i32 %171, 536870912
   br label %_ZL24get_cpu_support_x86_f16cv.exit.i
@@ -748,23 +748,23 @@ _ZL24get_cpu_support_x86_f16cv.exit.i:            ; preds = %_ZL9x86_cpuidiPj.ex
   br i1 %163, label %_ZL31get_cpu_support_x86_avx512_bf16v.exit.i, label %_ZL9x86_cpuidiPj.exit6.i27.i
 
 _ZL9x86_cpuidiPj.exit6.i27.i:                     ; preds = %_ZL24get_cpu_support_x86_f16cv.exit.i
-  %173 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #26
+  %173 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #27
   %174 = extractvalue { i32, i32, i32, i32 } %173, 2
   %175 = and i32 %174, 469762048
   %or.cond5.not.i28.i = icmp eq i32 %175, 469762048
   br i1 %or.cond5.not.i28.i, label %176, label %_ZL9x86_cpuidiPj.exit7.i41.i
 
 176:                                              ; preds = %_ZL9x86_cpuidiPj.exit6.i27.i
-  %177 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #26, !srcloc !16
+  %177 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #27, !srcloc !16
   %178 = and i32 %177, 6
   %.not4.i30.i = icmp eq i32 %178, 6
   br i1 %.not4.i30.i, label %179, label %186
 
 179:                                              ; preds = %176
-  %180 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #26, !srcloc !18
+  %180 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #27, !srcloc !18
   %181 = extractvalue { i32, i32, i32, i32 } %180, 1
   %182 = and i32 %181, 32
-  %183 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #26, !srcloc !18
+  %183 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #27, !srcloc !18
   %184 = extractvalue { i32, i32, i32, i32 } %183, 0
   %185 = and i32 %184, 16
   br label %186
@@ -779,7 +779,7 @@ _ZL9x86_cpuidiPj.exit6.i27.i:                     ; preds = %_ZL24get_cpu_suppor
   br i1 %or.cond19.i.i, label %188, label %195
 
 188:                                              ; preds = %186
-  %189 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #26
+  %189 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #27
   %190 = extractvalue { i32, i32, i32, i32 } %189, 1
   %191 = and i32 %190, 1342373888
   %or.cond13.not.i.i = icmp eq i32 %191, 1342373888
@@ -797,7 +797,7 @@ _ZL9x86_cpuidiPj.exit6.i27.i:                     ; preds = %_ZL24get_cpu_suppor
   br i1 %.not4.i30.i, label %196, label %200
 
 196:                                              ; preds = %195
-  %197 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #26, !srcloc !18
+  %197 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #27, !srcloc !18
   %198 = extractvalue { i32, i32, i32, i32 } %197, 0
   %199 = and i32 %198, 32
   br label %200
@@ -824,7 +824,7 @@ _ZL9x86_cpuidiPj.exit7.i41.i:                     ; preds = %_ZL9x86_cpuidiPj.ex
   br i1 %or.cond19.i.i, label %201, label %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i
 
 201:                                              ; preds = %200
-  %202 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #26, !srcloc !18
+  %202 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #27, !srcloc !18
   %203 = extractvalue { i32, i32, i32, i32 } %202, 3
   %204 = and i32 %203, 8388608
   br label %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i
@@ -893,7 +893,7 @@ _ZL27get_big_cpu_data_cache_sizei.exit.i.i:       ; preds = %_ZNK4ncnn6CpuSet10i
   br i1 %225, label %226, label %_ZL24get_cpu_level2_cachesizev.exit.i
 
 226:                                              ; preds = %_ZL27get_big_cpu_data_cache_sizei.exit.i.i
-  %227 = call i64 @sysconf(i32 noundef 191) #21
+  %227 = call i64 @sysconf(i32 noundef 191) #22
   %228 = trunc i64 %227 to i32
   %229 = icmp slt i32 %228, 1
   br i1 %229, label %230, label %_ZL24get_cpu_level2_cachesizev.exit.i
@@ -974,7 +974,7 @@ _ZL27get_big_cpu_data_cache_sizei.exit.i59.i:     ; preds = %_ZNK4ncnn6CpuSet10i
   br i1 %254, label %255, label %_ZL26initialize_global_cpu_infov.exit
 
 255:                                              ; preds = %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i
-  %256 = call i64 @sysconf(i32 noundef 194) #21
+  %256 = call i64 @sysconf(i32 noundef 194) #22
   %257 = trunc i64 %256 to i32
   br label %_ZL26initialize_global_cpu_infov.exit
 
@@ -1218,7 +1218,7 @@ define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN4ncnn28get_cp
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef %0) #25
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef %0) #26
   %6 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %6)
   br label %8
@@ -1379,7 +1379,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn17set_cpu_powersaveEi(i32 no
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef %0) #25
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef %0) #26
   %5 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
   br label %15
@@ -1390,16 +1390,16 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call fastcc void @_ZL30try_initialize_global_cpu_infov()
-  %7 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #21
+  %7 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #22
   %8 = trunc i64 %7 to i32
-  %9 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %8, i64 noundef 128, ptr noundef nonnull %switch.load) #21
+  %9 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %8, i64 noundef 128, ptr noundef nonnull %switch.load) #22
   %10 = trunc i64 %9 to i32
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %14, label %_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit
 
 _ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit: ; preds = %switch.lookup
   %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.34, i32 noundef %10) #25
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.34, i32 noundef %10) #26
   %13 = load ptr, ptr @stderr, align 8
   %fputc.i.i = tail call i32 @fputc(i32 10, ptr %13)
   br label %15
@@ -1419,16 +1419,16 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #4 {
   tail call fastcc void @_ZL30try_initialize_global_cpu_infov()
-  %2 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #21
+  %2 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #22
   %3 = trunc i64 %2 to i32
-  %4 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %3, i64 noundef 128, ptr noundef nonnull %0) #21
+  %4 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %3, i64 noundef 128, ptr noundef nonnull %0) #22
   %5 = trunc i64 %4 to i32
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %9, label %_ZL18set_sched_affinityRKN4ncnn6CpuSetE.exit
 
 _ZL18set_sched_affinityRKN4ncnn6CpuSetE.exit:     ; preds = %1
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.34, i32 noundef %5) #25
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.34, i32 noundef %5) #26
   %8 = load ptr, ptr @stderr, align 8
   %fputc.i = tail call i32 @fputc(i32 10, ptr %8)
   br label %9
@@ -1482,7 +1482,7 @@ define hidden void @_ZN4ncnn17set_kmp_blocktimeEi(i32 noundef %0) local_unnamed_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn18ThreadLocalStorageD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #7 comdat align 2 {
   %2 = load i32, ptr %0, align 4
-  %3 = tail call i32 @pthread_key_delete(i32 noundef %2) #21
+  %3 = tail call i32 @pthread_key_delete(i32 noundef %2) #22
   ret void
 }
 
@@ -1501,7 +1501,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn19set_flush_denormalsEi(i32 
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.5, i32 noundef %0) #25
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.5, i32 noundef %0) #26
   %5 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
   br label %6
@@ -1525,13 +1525,13 @@ define internal fastcc void @_ZL13get_elf_hwcapj(i32 noundef range(i32 16, 27) %
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 28, i64 1, ptr %6) #27
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 28, i64 1, ptr %6) #28
   %8 = load ptr, ptr @stderr, align 8
   %fputc.i = tail call i32 @fputc(i32 10, ptr %8)
   br label %_ZL33get_elf_hwcap_from_proc_self_auxvj.exit
 
 9:                                                ; preds = %14, %.preheader.i
-  %10 = tail call i32 @feof(ptr noundef nonnull %3) #21
+  %10 = tail call i32 @feof(ptr noundef nonnull %3) #22
   %.not11.i = icmp eq i32 %10, 0
   br i1 %.not11.i, label %11, label %20
 
@@ -1613,7 +1613,7 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
   %8 = alloca i32, align 4
   %9 = alloca %"class.ncnn::CpuSet", align 8
   %10 = alloca [256 x i8], align 16
-  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %0, i32 noundef 0) #21
+  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %0, i32 noundef 0) #22
   %12 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.7)
   %.not132 = icmp eq ptr %12, null
   br i1 %.not132, label %.thread, label %.lr.ph
@@ -1631,7 +1631,7 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
   br i1 %or.cond90, label %17, label %24
 
 17:                                               ; preds = %.lr.ph
-  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %0, i32 noundef %.064133) #21
+  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %0, i32 noundef %.064133) #22
   %19 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.7)
   %.not76 = icmp eq ptr %19, null
   br i1 %.not76, label %.thread, label %20
@@ -1652,14 +1652,14 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
 
 24:                                               ; preds = %23, %20, %.lr.ph
   %25 = add nuw nsw i32 %.064133, 1
-  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %0, i32 noundef %25) #21
+  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %0, i32 noundef %25) #22
   %27 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.7)
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !21
 
 28:                                               ; preds = %23
   store i32 0, ptr %8, align 4
-  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %0, i32 noundef %.064133) #21
+  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %0, i32 noundef %.064133) #22
   %30 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.7)
   %.not81 = icmp eq ptr %30, null
   br i1 %.not81, label %.thread, label %31
@@ -1672,14 +1672,14 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr @stderr, align 8
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.30, i32 noundef %32) #25
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.30, i32 noundef %32) #26
   %37 = load ptr, ptr @stderr, align 8
   %fputc89 = call i32 @fputc(i32 10, ptr %37)
   br label %.thread
 
 38:                                               ; preds = %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 128, i1 false)
-  %39 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %0, i32 noundef %.064133) #21
+  %39 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %0, i32 noundef %.064133) #22
   %40 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.7)
   %.not83 = icmp eq ptr %40, null
   br i1 %.not83, label %.thread, label %41
@@ -1692,13 +1692,13 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr @stderr, align 8
-  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.33, i32 noundef %42) #25
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.33, i32 noundef %42) #26
   %47 = load ptr, ptr @stderr, align 8
   %fputc = call i32 @fputc(i32 10, ptr %47)
   br label %.thread
 
 48:                                               ; preds = %41
-  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #28
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #29
   %50 = trunc i64 %49 to i32
   %51 = load i8, ptr %10, align 16
   %52 = icmp eq i8 %51, 48
@@ -1816,7 +1816,8 @@ _ZNK4ncnn6CpuSet11num_enabledEv.exit:             ; preds = %_ZNK4ncnn6CpuSet10i
 .preheader119:                                    ; preds = %_ZNK4ncnn6CpuSet11num_enabledEv.exit
   %104 = load i32, ptr @_ZL10g_cpucount, align 4
   %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %.lr.ph147, label %_ZNSt6vectorIiSaIiEED2Ev.exit100
+  call void @llvm.assume(i1 %105)
+  br label %.lr.ph147
 
 106:                                              ; preds = %_ZNK4ncnn6CpuSet11num_enabledEv.exit
   %107 = load i32, ptr %8, align 4
@@ -1846,7 +1847,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit:              ; preds = %.lr.ph147
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %117 = trunc nuw nsw i64 %indvars.iv163 to i32
-  %118 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %117) #21
+  %118 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %117) #22
   %119 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.7)
   %.not.i = icmp eq ptr %119, null
   br i1 %.not.i, label %.thread112, label %120
@@ -1900,7 +1901,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit:              ; preds = %.lr.ph147
   %132 = ptrtoint ptr %.sroa.12.0143 to i64
   %133 = ptrtoint ptr %.sroa.0.0144 to i64
   %134 = sub i64 %132, %133
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0144, i64 noundef %134) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0144, i64 noundef %134) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %130, %131
@@ -1931,7 +1932,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %130, %131
   br i1 %142, label %143, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
 143:                                              ; preds = %141
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24
           to label %.noexc97 unwind label %.loopexit.split-lp
 
 .noexc97:                                         ; preds = %143
@@ -1948,7 +1949,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %141
 
 148:                                              ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %149 = shl nuw nsw i64 %147, 2
-  %150 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %149) #24
+  %150 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %149) #25
           to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %148, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -1968,7 +1969,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %154, %_ZNS
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %156
 
 156:                                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0144, i64 noundef %128) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0144, i64 noundef %128) #23
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %156, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
@@ -2002,13 +2003,12 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.thread:       ; preds = %.lr.ph140, %.lr.ph1
   %163 = ptrtoint ptr %.sroa.12.1 to i64
   %164 = ptrtoint ptr %.sroa.0.1 to i64
   %165 = sub i64 %163, %164
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1, i64 noundef %165) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1, i64 noundef %165) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit100
 
-_ZNSt6vectorIiSaIiEED2Ev.exit100:                 ; preds = %.preheader119, %._crit_edge, %162
-  %.063.lcssa170 = phi i32 [ %.1, %._crit_edge ], [ %.1, %162 ], [ 0, %.preheader119 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit100:                 ; preds = %._crit_edge, %162
   %166 = load i32, ptr %8, align 4
-  %167 = sdiv i32 %166, %.063.lcssa170
+  %167 = sdiv i32 %166, %.1
   %168 = add nsw i32 %167, 3
   %169 = sdiv i32 %168, 4
   %170 = shl nsw i32 %169, 12
@@ -2036,8 +2036,8 @@ define internal void @_GLOBAL__sub_I_cpu.cpp() #17 section ".text.startup" {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) @_ZL23g_cpu_affinity_mask_all, i8 0, i64 128, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) @_ZL26g_cpu_affinity_mask_little, i8 0, i64 128, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) @_ZL23g_cpu_affinity_mask_big, i8 0, i64 128, i1 false)
-  %1 = tail call i32 @pthread_key_create(ptr noundef nonnull @_ZN4ncnnL19tls_flush_denormalsE, ptr noundef null) #21
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4ncnn18ThreadLocalStorageD2Ev, ptr nonnull @_ZN4ncnnL19tls_flush_denormalsE, ptr nonnull @__dso_handle) #21
+  %1 = tail call i32 @pthread_key_create(ptr noundef nonnull @_ZN4ncnnL19tls_flush_denormalsE, ptr noundef null) #22
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4ncnn18ThreadLocalStorageD2Ev, ptr nonnull @_ZN4ncnnL19tls_flush_denormalsE, ptr nonnull @__dso_handle) #22
   ret void
 }
 
@@ -2068,6 +2068,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #21
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -2089,14 +2092,15 @@ attributes #17 = { nounwind uwtable "approx-func-fp-math"="true" "frame-pointer"
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nounwind }
-attributes #22 = { builtin nounwind }
-attributes #23 = { noreturn }
-attributes #24 = { builtin allocsize(0) }
-attributes #25 = { cold nounwind }
-attributes #26 = { nounwind memory(none) }
-attributes #27 = { cold }
-attributes #28 = { nounwind willreturn memory(read) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #22 = { nounwind }
+attributes #23 = { builtin nounwind }
+attributes #24 = { noreturn }
+attributes #25 = { builtin allocsize(0) }
+attributes #26 = { cold nounwind }
+attributes #27 = { nounwind memory(none) }
+attributes #28 = { cold }
+attributes #29 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -273,12 +273,12 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
   br i1 %or.cond, label %42, label %49
 
 42:                                               ; preds = %39, %37
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %43 unwind label %45
 
 43:                                               ; preds = %42
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_, ptr noundef nonnull @.str.1, i32 noundef 117) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_, ptr noundef nonnull @.str.1, i32 noundef 117) #13
           to label %44 unwind label %47
 
 44:                                               ; preds = %43
@@ -292,7 +292,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
 47:                                               ; preds = %43
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   br label %118
 
 49:                                               ; preds = %39
@@ -333,12 +333,12 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
   br i1 %or.cond32, label %70, label %77
 
 70:                                               ; preds = %67, %65
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %71 unwind label %73
 
 71:                                               ; preds = %70
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_, ptr noundef nonnull @.str.1, i32 noundef 129) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_, ptr noundef nonnull @.str.1, i32 noundef 129) #13
           to label %72 unwind label %75
 
 72:                                               ; preds = %71
@@ -352,7 +352,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
 75:                                               ; preds = %71
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   br label %118
 
 77:                                               ; preds = %67
@@ -433,7 +433,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
 118:                                              ; preds = %73, %75, %45, %47
   %.sink = phi ptr [ %8, %47 ], [ %8, %45 ], [ %10, %75 ], [ %10, %73 ]
   %.pn26.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ], [ %76, %75 ], [ %74, %73 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #12
   resume { ptr, i32 } %.pn26.pn
 }
 
@@ -536,12 +536,12 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5Rect_IiEE(ptr nocapture noundef nonnu
   br i1 %.not, label %58, label %66
 
 58:                                               ; preds = %54, %47, %4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %59 unwind label %61
 
 59:                                               ; preds = %58
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_, ptr noundef nonnull @.str.1, i32 noundef 155) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_, ptr noundef nonnull @.str.1, i32 noundef 155) #13
           to label %60 unwind label %63
 
 60:                                               ; preds = %59
@@ -555,12 +555,12 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5Rect_IiEE(ptr nocapture noundef nonnu
 63:                                               ; preds = %59
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   br label %65
 
 65:                                               ; preds = %63, %61
   %.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
   resume { ptr, i32 } %.pn
 
 66:                                               ; preds = %54
@@ -715,12 +715,12 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
   br i1 %.not61, label %62, label %69
 
 62:                                               ; preds = %59
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %63 unwind label %65
 
 63:                                               ; preds = %62
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -13, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv4cuda6GpuMat7reshapeEii, ptr noundef nonnull @.str.1, i32 noundef 183) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -13, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv4cuda6GpuMat7reshapeEii, ptr noundef nonnull @.str.1, i32 noundef 183) #13
           to label %64 unwind label %67
 
 64:                                               ; preds = %63
@@ -734,7 +734,7 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
 67:                                               ; preds = %63
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   br label %112
 
 69:                                               ; preds = %59
@@ -742,12 +742,12 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
   br i1 %70, label %71, label %78
 
 71:                                               ; preds = %69
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %72 unwind label %74
 
 72:                                               ; preds = %71
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -211, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZNK2cv4cuda6GpuMat7reshapeEii, ptr noundef nonnull @.str.1, i32 noundef 186) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -211, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZNK2cv4cuda6GpuMat7reshapeEii, ptr noundef nonnull @.str.1, i32 noundef 186) #13
           to label %73 unwind label %76
 
 73:                                               ; preds = %72
@@ -761,7 +761,7 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
 76:                                               ; preds = %72
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   br label %112
 
 78:                                               ; preds = %69
@@ -771,12 +771,12 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
   br i1 %.not49, label %88, label %81
 
 81:                                               ; preds = %78
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %82 unwind label %84
 
 82:                                               ; preds = %81
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZNK2cv4cuda6GpuMat7reshapeEii, ptr noundef nonnull @.str.1, i32 noundef 191) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZNK2cv4cuda6GpuMat7reshapeEii, ptr noundef nonnull @.str.1, i32 noundef 191) #13
           to label %83 unwind label %86
 
 83:                                               ; preds = %82
@@ -790,7 +790,7 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
 86:                                               ; preds = %82
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   br label %112
 
 88:                                               ; preds = %78
@@ -813,12 +813,12 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
   br i1 %.not50, label %106, label %99
 
 99:                                               ; preds = %96
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %100 unwind label %102
 
 100:                                              ; preds = %99
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -15, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__func__._ZNK2cv4cuda6GpuMat7reshapeEii, ptr noundef nonnull @.str.1, i32 noundef 200) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -15, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__func__._ZNK2cv4cuda6GpuMat7reshapeEii, ptr noundef nonnull @.str.1, i32 noundef 200) #13
           to label %101 unwind label %104
 
 101:                                              ; preds = %100
@@ -832,7 +832,7 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
 104:                                              ; preds = %100
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
   br label %112
 
 106:                                              ; preds = %96
@@ -848,7 +848,7 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
 112:                                              ; preds = %102, %104, %84, %86, %74, %76, %65, %67
   %.sink = phi ptr [ %6, %67 ], [ %6, %65 ], [ %8, %76 ], [ %8, %74 ], [ %10, %86 ], [ %10, %84 ], [ %12, %104 ], [ %12, %102 ]
   %.pn55.pn = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ], [ %77, %76 ], [ %75, %74 ], [ %87, %86 ], [ %85, %84 ], [ %105, %104 ], [ %103, %102 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #12
   resume { ptr, i32 } %.pn55.pn
 }
 
@@ -1100,11 +1100,11 @@ common.resume:                                    ; preds = %105, %31
 31:                                               ; preds = %25
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #12
   br label %common.resume
 
 _ZN12_GLOBAL__N_120createContinuousImplIN2cv3MatEEEviiiRT_.exit: ; preds = %25
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
   br label %111
 
@@ -1136,7 +1136,7 @@ _ZN12_GLOBAL__N_120createContinuousImplIN2cv3MatEEEviiiRT_.exit: ; preds = %25
   br i1 %.not16.i19, label %50, label %.critedge.i18
 
 .critedge.i18:                                    ; preds = %44, %39, %33
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 
 50:                                               ; preds = %44
@@ -1235,7 +1235,7 @@ _ZN12_GLOBAL__N_120createContinuousImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; preds
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #13
+  call void @__clang_call_terminate(ptr %104) #14
   unreachable
 
 105:                                              ; preds = %95
@@ -1248,7 +1248,7 @@ _ZN12_GLOBAL__N_120createContinuousImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; preds
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #13
+  call void @__clang_call_terminate(ptr %109) #14
   unreachable
 
 _ZN12_GLOBAL__N_120createContinuousImplIN2cv4cuda7HostMemEEEviiiRT_.exit: ; preds = %101
@@ -1276,10 +1276,10 @@ declare void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv4cuda18ensureSizeIsEnoughEiiiRKNS_12_OutputArrayE(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 {
   %5 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  switch i32 %5, label %152 [
+  switch i32 %5, label %149 [
     i32 65536, label %6
-    i32 589824, label %57
-    i32 524288, label %104
+    i32 589824, label %54
+    i32 524288, label %101
   ]
 
 6:                                                ; preds = %4
@@ -1299,219 +1299,213 @@ define void @_ZN2cv4cuda18ensureSizeIsEnoughEiiiRKNS_12_OutputArrayE(i32 noundef
   %15 = getelementptr inbounds i8, ptr %7, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not33.i = icmp eq ptr %14, %16
-  br i1 %.not33.i, label %18, label %17
+  br i1 %.not33.i, label %_ZNK2cv3Mat8elemSizeEv.exit.i, label %17
 
 17:                                               ; preds = %12, %9, %6
   tail call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %7, i64 4
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %22, label %_ZNK2cv3Mat8elemSizeEv.exit.i
+_ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %7, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp sgt i32 %19, 0
+  tail call void @llvm.assume(i1 %20)
+  %21 = getelementptr inbounds i8, ptr %7, i64 72
+  %22 = load ptr, ptr %21, align 8
+  %23 = zext nneg i32 %19 to i64
+  %24 = getelementptr i64, ptr %22, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 -8
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %29 = ptrtoint ptr %28 to i64
+  %30 = ptrtoint ptr %14 to i64
+  %31 = sub i64 %29, %30
+  %32 = getelementptr inbounds i8, ptr %7, i64 12
+  %33 = load i32, ptr %32, align 4
+  %34 = sext i32 %33 to i64
+  %35 = mul i64 %26, %34
+  %36 = sub i64 %31, %35
+  %37 = getelementptr inbounds i8, ptr %7, i64 80
+  %38 = load i64, ptr %37, align 8
+  %39 = udiv i64 %36, %38
+  %40 = trunc i64 %39 to i32
+  %41 = add i32 %40, 1
+  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %43 = load i32, ptr %42, align 8
+  %.sroa.speculated37.i = tail call i32 @llvm.smax.i32(i32 %41, i32 %43)
+  %44 = add nsw i32 %.sroa.speculated37.i, -1
+  %45 = sext i32 %44 to i64
+  %46 = mul i64 %38, %45
+  %47 = sub i64 %31, %46
+  %48 = udiv i64 %47, %26
+  %49 = trunc i64 %48 to i32
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %33, i32 %49)
+  %50 = icmp slt i32 %.sroa.speculated37.i, %0
+  %51 = icmp slt i32 %.sroa.speculated.i, %1
+  %or.cond.i = select i1 %50, i1 true, i1 %51
+  br i1 %or.cond.i, label %52, label %53
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %7, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %25 = zext nneg i32 %20 to i64
-  %26 = getelementptr i64, ptr %24, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -8
-  %28 = load i64, ptr %27, align 8
-  br label %_ZNK2cv3Mat8elemSizeEv.exit.i
-
-_ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %22, %18
-  %29 = phi i64 [ %28, %22 ], [ 0, %18 ]
-  %30 = getelementptr inbounds i8, ptr %7, i64 32
-  %31 = load ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %14 to i64
-  %34 = sub i64 %32, %33
-  %35 = getelementptr inbounds i8, ptr %7, i64 12
-  %36 = load i32, ptr %35, align 4
-  %37 = sext i32 %36 to i64
-  %38 = mul i64 %29, %37
-  %39 = sub i64 %34, %38
-  %40 = getelementptr inbounds i8, ptr %7, i64 80
-  %41 = load i64, ptr %40, align 8
-  %42 = udiv i64 %39, %41
-  %43 = trunc i64 %42 to i32
-  %44 = add i32 %43, 1
-  %45 = getelementptr inbounds i8, ptr %7, i64 8
-  %46 = load i32, ptr %45, align 8
-  %.sroa.speculated37.i = tail call i32 @llvm.smax.i32(i32 %44, i32 %46)
-  %47 = add nsw i32 %.sroa.speculated37.i, -1
-  %48 = sext i32 %47 to i64
-  %49 = mul i64 %41, %48
-  %50 = sub i64 %34, %49
-  %51 = udiv i64 %50, %29
-  %52 = trunc i64 %51 to i32
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %36, i32 %52)
-  %53 = icmp slt i32 %.sroa.speculated37.i, %0
-  %54 = icmp slt i32 %.sroa.speculated.i, %1
-  %or.cond.i = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond.i, label %55, label %56
-
-55:                                               ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.i
+52:                                               ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.i
   tail call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit
 
-56:                                               ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.i
-  store i32 %1, ptr %35, align 4
-  store i32 %0, ptr %45, align 8
+53:                                               ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.i
+  store i32 %1, ptr %32, align 4
+  store i32 %0, ptr %42, align 8
   br label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit
 
-57:                                               ; preds = %4
-  %58 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2cv12_OutputArray12getGpuMatRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %67, label %62
+54:                                               ; preds = %4
+  %55 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2cv12_OutputArray12getGpuMatRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %64, label %59
 
-62:                                               ; preds = %57
-  %63 = load i32, ptr %58, align 8
-  %64 = and i32 %63, 4095
-  %.not.i16 = icmp eq i32 %64, %2
-  %65 = getelementptr inbounds i8, ptr %58, i64 40
-  %66 = load ptr, ptr %65, align 8
-  %.not33.i17 = icmp eq ptr %60, %66
+59:                                               ; preds = %54
+  %60 = load i32, ptr %55, align 8
+  %61 = and i32 %60, 4095
+  %.not.i16 = icmp eq i32 %61, %2
+  %62 = getelementptr inbounds i8, ptr %55, i64 40
+  %63 = load ptr, ptr %62, align 8
+  %.not33.i17 = icmp eq ptr %57, %63
   %or.cond42.i = select i1 %.not.i16, i1 %.not33.i17, i1 false
-  br i1 %or.cond42.i, label %68, label %67
+  br i1 %or.cond42.i, label %65, label %64
 
-67:                                               ; preds = %62, %57
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+64:                                               ; preds = %59, %54
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 
-68:                                               ; preds = %62
-  %69 = lshr i32 %63, 3
-  %70 = and i32 %69, 511
-  %71 = add nuw nsw i32 %70, 1
-  %72 = shl i32 %63, 2
-  %73 = and i32 %72, 28
-  %74 = lshr i32 675553809, %73
-  %75 = and i32 %74, 15
-  %76 = mul nuw nsw i32 %75, %71
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %58, i64 48
-  %79 = load ptr, ptr %78, align 8
-  %80 = ptrtoint ptr %79 to i64
-  %81 = ptrtoint ptr %60 to i64
-  %82 = sub i64 %80, %81
-  %83 = getelementptr inbounds i8, ptr %58, i64 8
-  %84 = load i32, ptr %83, align 8
-  %85 = sext i32 %84 to i64
-  %86 = mul nsw i64 %85, %77
-  %87 = sub i64 %82, %86
-  %88 = getelementptr inbounds i8, ptr %58, i64 16
-  %89 = load i64, ptr %88, align 8
-  %90 = udiv i64 %87, %89
-  %91 = trunc i64 %90 to i32
-  %92 = add i32 %91, 1
-  %93 = getelementptr inbounds i8, ptr %58, i64 4
-  %94 = load i32, ptr %93, align 4
-  %.sroa.speculated38.i = tail call i32 @llvm.smax.i32(i32 %92, i32 %94)
-  %95 = add nsw i32 %.sroa.speculated38.i, -1
-  %96 = sext i32 %95 to i64
-  %97 = mul i64 %89, %96
-  %98 = sub i64 %82, %97
-  %99 = udiv i64 %98, %77
-  %100 = trunc i64 %99 to i32
-  %.sroa.speculated.i18 = tail call i32 @llvm.smax.i32(i32 %84, i32 %100)
-  %101 = icmp slt i32 %.sroa.speculated38.i, %0
-  %102 = icmp slt i32 %.sroa.speculated.i18, %1
-  %or.cond.i19 = select i1 %101, i1 true, i1 %102
-  br i1 %or.cond.i19, label %103, label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit
+65:                                               ; preds = %59
+  %66 = lshr i32 %60, 3
+  %67 = and i32 %66, 511
+  %68 = add nuw nsw i32 %67, 1
+  %69 = shl i32 %60, 2
+  %70 = and i32 %69, 28
+  %71 = lshr i32 675553809, %70
+  %72 = and i32 %71, 15
+  %73 = mul nuw nsw i32 %72, %68
+  %74 = zext nneg i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %55, i64 48
+  %76 = load ptr, ptr %75, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %57 to i64
+  %79 = sub i64 %77, %78
+  %80 = getelementptr inbounds i8, ptr %55, i64 8
+  %81 = load i32, ptr %80, align 8
+  %82 = sext i32 %81 to i64
+  %83 = mul nsw i64 %82, %74
+  %84 = sub i64 %79, %83
+  %85 = getelementptr inbounds i8, ptr %55, i64 16
+  %86 = load i64, ptr %85, align 8
+  %87 = udiv i64 %84, %86
+  %88 = trunc i64 %87 to i32
+  %89 = add i32 %88, 1
+  %90 = getelementptr inbounds i8, ptr %55, i64 4
+  %91 = load i32, ptr %90, align 4
+  %.sroa.speculated38.i = tail call i32 @llvm.smax.i32(i32 %89, i32 %91)
+  %92 = add nsw i32 %.sroa.speculated38.i, -1
+  %93 = sext i32 %92 to i64
+  %94 = mul i64 %86, %93
+  %95 = sub i64 %79, %94
+  %96 = udiv i64 %95, %74
+  %97 = trunc i64 %96 to i32
+  %.sroa.speculated.i18 = tail call i32 @llvm.smax.i32(i32 %81, i32 %97)
+  %98 = icmp slt i32 %.sroa.speculated38.i, %0
+  %99 = icmp slt i32 %.sroa.speculated.i18, %1
+  %or.cond.i19 = select i1 %98, i1 true, i1 %99
+  br i1 %or.cond.i19, label %100, label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit
 
-103:                                              ; preds = %68
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+100:                                              ; preds = %65
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 
-_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; preds = %68
-  store i32 %1, ptr %83, align 8
-  store i32 %0, ptr %93, align 4
+_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; preds = %65
+  store i32 %1, ptr %80, align 8
+  store i32 %0, ptr %90, align 4
   br label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit
 
-104:                                              ; preds = %4
-  %105 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZNK2cv12_OutputArray13getHostMemRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %106 = getelementptr inbounds i8, ptr %105, i64 24
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %114, label %109
+101:                                              ; preds = %4
+  %102 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZNK2cv12_OutputArray13getHostMemRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %104 = load ptr, ptr %103, align 8
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %111, label %106
 
-109:                                              ; preds = %104
-  %110 = load i32, ptr %105, align 8
-  %111 = and i32 %110, 4095
-  %.not.i20 = icmp eq i32 %111, %2
-  %112 = getelementptr inbounds i8, ptr %105, i64 40
-  %113 = load ptr, ptr %112, align 8
-  %.not33.i21 = icmp eq ptr %107, %113
+106:                                              ; preds = %101
+  %107 = load i32, ptr %102, align 8
+  %108 = and i32 %107, 4095
+  %.not.i20 = icmp eq i32 %108, %2
+  %109 = getelementptr inbounds i8, ptr %102, i64 40
+  %110 = load ptr, ptr %109, align 8
+  %.not33.i21 = icmp eq ptr %104, %110
   %or.cond41.i = select i1 %.not.i20, i1 %.not33.i21, i1 false
-  br i1 %or.cond41.i, label %115, label %114
+  br i1 %or.cond41.i, label %112, label %111
 
-114:                                              ; preds = %109, %104
-  tail call void @_ZN2cv4cuda7HostMem6createEiii(ptr noundef nonnull align 8 dereferenceable(60) %105, i32 noundef %0, i32 noundef %1, i32 noundef %2)
+111:                                              ; preds = %106, %101
+  tail call void @_ZN2cv4cuda7HostMem6createEiii(ptr noundef nonnull align 8 dereferenceable(60) %102, i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit
 
-115:                                              ; preds = %109
-  %116 = lshr i32 %110, 3
-  %117 = and i32 %116, 511
-  %118 = add nuw nsw i32 %117, 1
-  %119 = shl i32 %110, 2
-  %120 = and i32 %119, 28
-  %121 = lshr i32 675553809, %120
-  %122 = and i32 %121, 15
-  %123 = mul nuw nsw i32 %122, %118
-  %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds i8, ptr %105, i64 48
-  %126 = load ptr, ptr %125, align 8
-  %127 = ptrtoint ptr %126 to i64
-  %128 = ptrtoint ptr %107 to i64
-  %129 = sub i64 %127, %128
-  %130 = getelementptr inbounds i8, ptr %105, i64 8
-  %131 = load i32, ptr %130, align 8
-  %132 = sext i32 %131 to i64
-  %133 = mul nsw i64 %132, %124
-  %134 = sub i64 %129, %133
-  %135 = getelementptr inbounds i8, ptr %105, i64 16
-  %136 = load i64, ptr %135, align 8
-  %137 = udiv i64 %134, %136
-  %138 = trunc i64 %137 to i32
-  %139 = add i32 %138, 1
-  %140 = getelementptr inbounds i8, ptr %105, i64 4
-  %141 = load i32, ptr %140, align 4
-  %.sroa.speculated37.i22 = tail call i32 @llvm.smax.i32(i32 %139, i32 %141)
-  %142 = add nsw i32 %.sroa.speculated37.i22, -1
-  %143 = sext i32 %142 to i64
-  %144 = mul i64 %136, %143
-  %145 = sub i64 %129, %144
-  %146 = udiv i64 %145, %124
-  %147 = trunc i64 %146 to i32
-  %.sroa.speculated.i23 = tail call i32 @llvm.smax.i32(i32 %131, i32 %147)
-  %148 = icmp slt i32 %.sroa.speculated37.i22, %0
-  %149 = icmp slt i32 %.sroa.speculated.i23, %1
-  %or.cond.i24 = select i1 %148, i1 true, i1 %149
-  br i1 %or.cond.i24, label %150, label %151
+112:                                              ; preds = %106
+  %113 = lshr i32 %107, 3
+  %114 = and i32 %113, 511
+  %115 = add nuw nsw i32 %114, 1
+  %116 = shl i32 %107, 2
+  %117 = and i32 %116, 28
+  %118 = lshr i32 675553809, %117
+  %119 = and i32 %118, 15
+  %120 = mul nuw nsw i32 %119, %115
+  %121 = zext nneg i32 %120 to i64
+  %122 = getelementptr inbounds i8, ptr %102, i64 48
+  %123 = load ptr, ptr %122, align 8
+  %124 = ptrtoint ptr %123 to i64
+  %125 = ptrtoint ptr %104 to i64
+  %126 = sub i64 %124, %125
+  %127 = getelementptr inbounds i8, ptr %102, i64 8
+  %128 = load i32, ptr %127, align 8
+  %129 = sext i32 %128 to i64
+  %130 = mul nsw i64 %129, %121
+  %131 = sub i64 %126, %130
+  %132 = getelementptr inbounds i8, ptr %102, i64 16
+  %133 = load i64, ptr %132, align 8
+  %134 = udiv i64 %131, %133
+  %135 = trunc i64 %134 to i32
+  %136 = add i32 %135, 1
+  %137 = getelementptr inbounds i8, ptr %102, i64 4
+  %138 = load i32, ptr %137, align 4
+  %.sroa.speculated37.i22 = tail call i32 @llvm.smax.i32(i32 %136, i32 %138)
+  %139 = add nsw i32 %.sroa.speculated37.i22, -1
+  %140 = sext i32 %139 to i64
+  %141 = mul i64 %133, %140
+  %142 = sub i64 %126, %141
+  %143 = udiv i64 %142, %121
+  %144 = trunc i64 %143 to i32
+  %.sroa.speculated.i23 = tail call i32 @llvm.smax.i32(i32 %128, i32 %144)
+  %145 = icmp slt i32 %.sroa.speculated37.i22, %0
+  %146 = icmp slt i32 %.sroa.speculated.i23, %1
+  %or.cond.i24 = select i1 %145, i1 true, i1 %146
+  br i1 %or.cond.i24, label %147, label %148
 
-150:                                              ; preds = %115
-  tail call void @_ZN2cv4cuda7HostMem6createEiii(ptr noundef nonnull align 8 dereferenceable(60) %105, i32 noundef %0, i32 noundef %1, i32 noundef %2)
+147:                                              ; preds = %112
+  tail call void @_ZN2cv4cuda7HostMem6createEiii(ptr noundef nonnull align 8 dereferenceable(60) %102, i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit
 
-151:                                              ; preds = %115
-  store i32 %1, ptr %130, align 8
-  store i32 %0, ptr %140, align 4
+148:                                              ; preds = %112
+  store i32 %1, ptr %127, align 8
+  store i32 %0, ptr %137, align 4
   br label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit
 
-152:                                              ; preds = %4
+149:                                              ; preds = %4
   tail call void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
   br label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit
 
-_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit: ; preds = %151, %150, %114, %56, %55, %17, %152, %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit
+_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit: ; preds = %148, %147, %111, %53, %52, %17, %149, %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda11getInputMatERKNS_11_InputArrayERNS0_6StreamE(ptr dead_on_unwind noalias nocapture readnone sret(%"class.cv::cuda::GpuMat") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #6 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
@@ -1519,12 +1513,12 @@ define void @_ZN2cv4cuda11getInputMatERKNS_11_InputArrayERNS0_6StreamE(ptr dead_
 define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %3 unwind label %5
 
 3:                                                ; preds = %0
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -216, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZL13throw_no_cudav, ptr noundef nonnull @.str.9, i32 noundef 106) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -216, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZL13throw_no_cudav, ptr noundef nonnull @.str.9, i32 noundef 106) #13
           to label %4 unwind label %7
 
 4:                                                ; preds = %3
@@ -1538,36 +1532,36 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #6 personality p
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
   br label %9
 
 9:                                                ; preds = %7, %5
   %.pn = phi { ptr, i32 } [ %8, %7 ], [ %6, %5 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #12
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda12getOutputMatERKNS_12_OutputArrayEiiiRNS0_6StreamE(ptr dead_on_unwind noalias nocapture readnone sret(%"class.cv::cuda::GpuMat") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %5) local_unnamed_addr #6 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda10syncOutputERKNS0_6GpuMatERKNS_12_OutputArrayERNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #6 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6GpuMat19setDefaultAllocatorEPNS1_9AllocatorE(ptr nocapture noundef readnone %0) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6GpuMat6createEiii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
@@ -1578,67 +1572,67 @@ define void @_ZN2cv4cuda6GpuMat7releaseEv(ptr nocapture noundef nonnull readnone
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6GpuMat6uploadERKNS_11_InputArrayE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6GpuMat6uploadERKNS_11_InputArrayERNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda6GpuMat8downloadERKNS_12_OutputArrayE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda6GpuMat8downloadERKNS_12_OutputArrayERNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda6GpuMat6copyToERKNS_12_OutputArrayE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda6GpuMat6copyToERKNS_12_OutputArrayERNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda6GpuMat6copyToERKNS_12_OutputArrayERKNS_11_InputArrayERNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv4cuda6GpuMat5setToENS_7Scalar_IdEERNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv4cuda6GpuMat5setToENS_7Scalar_IdEERKNS_11_InputArrayERNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda6GpuMat9convertToERKNS_12_OutputArrayEiRNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda6GpuMat9convertToERKNS_12_OutputArrayEiddRNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %5) local_unnamed_addr #6 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #13
   unreachable
 }
 
@@ -1766,7 +1760,7 @@ _ZN2cv4cuda7HostMemC2ERKS1_.exit:                 ; preds = %4, %30
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #13
+  call void @__clang_call_terminate(ptr %60) #14
   unreachable
 
 _ZN2cv4cuda7HostMemD2Ev.exit:                     ; preds = %_ZN2cv4cuda7HostMemC2ERKS1_.exit, %2
@@ -1777,8 +1771,8 @@ declare void @_ZN2cv4cuda7HostMem7releaseEv(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -1799,6 +1793,9 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -1810,9 +1807,10 @@ attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #8 = { cold nofree noreturn }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { noreturn nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

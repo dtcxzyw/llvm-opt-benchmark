@@ -335,8 +335,8 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorIN3opt13w
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc17
   %__begin1.026 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr18, %for.inc17 ]
   %3 = load ptr, ptr %__begin1.026, align 8
-  %cmp.i.i12 = icmp eq ptr %3, null
-  br i1 %cmp.i.i12, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %_ZNK6vectorIP4exprLb0EjE3endEv.exit
+  %cmp.i.i12 = icmp ne ptr %3, null
+  br i1 %cmp.i.i12, label %_ZNK6vectorIP4exprLb0EjE3endEv.exit, label %if.end
 
 _ZNK6vectorIP4exprLb0EjE3endEv.exit:              ; preds = %for.body
   %arrayidx.i.i14 = getelementptr inbounds i8, ptr %3, i64 -4
@@ -344,7 +344,7 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit:              ; preds = %for.body
   %5 = zext i32 %4 to i64
   %add.ptr.i16 = getelementptr inbounds ptr, ptr %3, i64 %5
   %cmp6.not22 = icmp eq i32 %4, 0
-  br i1 %cmp6.not22, label %if.end.i, label %for.body7.lr.ph
+  br i1 %cmp6.not22, label %if.end, label %for.body7.lr.ph
 
 for.body7.lr.ph:                                  ; preds = %_ZNK6vectorIP4exprLb0EjE3endEv.exit
   %6 = load i32, ptr %m_capacity.i.i, align 8
@@ -422,22 +422,19 @@ _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8con
   br i1 %cmp6.not, label %for.end, label %for.body7
 
 for.end:                                          ; preds = %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
-  br i1 %or11, label %for.inc17, label %if.end.i
+  br i1 %or11, label %for.inc17, label %if.end
 
-if.end.i:                                         ; preds = %for.end, %_ZNK6vectorIP4exprLb0EjE3endEv.exit
+if.end:                                           ; preds = %for.body, %_ZNK6vectorIP4exprLb0EjE3endEv.exit, %for.end
+  call void @llvm.assume(i1 %cmp.i.i12)
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 -4
   %14 = load i32, ptr %arrayidx.i, align 4
-  br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
-
-_ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %for.body, %if.end.i
-  %retval.0.i = phi i32 [ %14, %if.end.i ], [ 0, %for.body ]
   %15 = load i32, ptr %m_rand, align 8
   %mul.i.i = mul i32 %15, 214013
   %add.i.i = add i32 %mul.i.i, 2531011
   store i32 %add.i.i, ptr %m_rand, align 8
   %shr.i.i = lshr i32 %add.i.i, 16
   %and.i.i18 = and i32 %shr.i.i, 32767
-  %rem.i = urem i32 %and.i.i18, %retval.0.i
+  %rem.i = urem i32 %and.i.i18, %14
   %16 = load ptr, ptr %__begin1.026, align 8
   %idxprom.i = zext nneg i32 %rem.i to i64
   %arrayidx.i19 = getelementptr inbounds ptr, ptr %16, i64 %idxprom.i
@@ -448,7 +445,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %for.body, %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i)
   br label %for.inc17
 
-for.inc17:                                        ; preds = %for.end, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
+for.inc17:                                        ; preds = %for.end, %if.end
   %incdec.ptr18 = getelementptr inbounds i8, ptr %__begin1.026, i64 40
   %cmp.not = icmp eq ptr %incdec.ptr18, %add.ptr.i
   br i1 %cmp.not, label %for.end19, label %for.body

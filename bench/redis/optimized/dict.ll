@@ -917,8 +917,8 @@ if.end.i:                                         ; preds = %if.end, %if.end2
   br i1 %cmp1.i, label %lor.lhs.false.i.i, label %if.end9.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i
-  %ht_used.i16.i = getelementptr inbounds i8, ptr %d, i64 24
-  %6 = load i64, ptr %ht_used.i16.i, align 8
+  %ht_used.i17.i = getelementptr inbounds i8, ptr %d, i64 24
+  %6 = load i64, ptr %ht_used.i17.i, align 8
   %cmp1.i.i = icmp ugt i64 %6, 4
   br i1 %cmp1.i.i, label %return, label %if.end20.i.i
 
@@ -948,7 +948,7 @@ if.end43.i.i:                                     ; preds = %if.then40.i.i, %if.
   br i1 %cmp46.i.i, label %if.then53.i.i, label %lor.lhs.false48.i.i
 
 lor.lhs.false48.i.i:                              ; preds = %if.end43.i.i
-  %10 = load i64, ptr %ht_used.i16.i, align 8
+  %10 = load i64, ptr %ht_used.i17.i, align 8
   %cmp51.i.i = icmp eq i64 %10, 0
   br i1 %cmp51.i.i, label %if.then53.i.i, label %for.cond.preheader
 
@@ -975,7 +975,7 @@ if.then63.i.i:                                    ; preds = %if.end59.i.i
 
 if.end66.i.i:                                     ; preds = %if.then63.i.i, %if.end59.i.i
   store i8 2, ptr %ht_size_exp.i, align 2
-  store i64 0, ptr %ht_used.i16.i, align 8
+  store i64 0, ptr %ht_used.i17.i, align 8
   store ptr %call31.i.i, ptr %ht_table.i.i, align 8
   store ptr null, ptr %arrayidx37.i.i, align 8
   store i8 -1, ptr %arrayidx34.i.i, align 1
@@ -1051,8 +1051,8 @@ dictTypeExpandAllowed.exit.if.end54_crit_edge.i:  ; preds = %dictTypeExpandAllow
 if.end54.i:                                       ; preds = %dictTypeExpandAllowed.exit.if.end54_crit_edge.i, %if.then51.i
   %22 = phi i64 [ %.pre23.i, %dictTypeExpandAllowed.exit.if.end54_crit_edge.i ], [ %17, %if.then51.i ]
   %add.i = add i64 %22, 1
-  %call.i13.i = tail call range(i32 0, 2) i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %add.i, ptr noundef null)
-  %23 = icmp eq i32 %call.i13.i, 0
+  %call.i14.i = tail call range(i32 0, 2) i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %add.i, ptr noundef null)
+  %23 = icmp eq i32 %call.i14.i, 0
   br i1 %23, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.then1, %if.end2, %dictTypeExpandAllowed.exit.i, %land.lhs.true31.i, %if.end66.i.i, %lor.lhs.false48.i.i, %if.end9.i, %land.lhs.true.i, %if.end54.i

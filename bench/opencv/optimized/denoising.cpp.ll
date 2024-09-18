@@ -9904,9 +9904,7 @@ _ZN2cv7Array3dIiEC2Eiii.exit106:                  ; preds = %30
   %.2 = phi i32 [ %195, %.loopexit ], [ 0, %68 ]
   %196 = load i32, ptr %9, align 8
   %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %.lr.ph157, label %._crit_edge158.split.us
-
-.lr.ph157:                                        ; preds = %.preheader131.preheader
+  call void @llvm.assume(i1 %197)
   %198 = load i32, ptr %46, align 8
   %invariant.op = add i32 %64, %198
   %199 = load ptr, ptr %48, align 8
@@ -9923,12 +9921,12 @@ _ZN2cv7Array3dIiEC2Eiii.exit106:                  ; preds = %30
   %invariant.gep215 = getelementptr %"class.cv::Vec.34", ptr %199, i64 %207
   br label %.lr.ph144.us
 
-.lr.ph144.us:                                     ; preds = %._crit_edge145.us, %.lr.ph157
-  %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge145.us ], [ 0, %.lr.ph157 ]
-  %.lcssa150166.us = phi i32 [ %237, %._crit_edge145.us ], [ 0, %.lr.ph157 ]
-  %.lcssa148163.us = phi i32 [ %235, %._crit_edge145.us ], [ 0, %.lr.ph157 ]
-  %.lcssa152155.us = phi i32 [ %232, %._crit_edge145.us ], [ 0, %.lr.ph157 ]
-  %.lcssa141153154.us = phi i32 [ %236, %._crit_edge145.us ], [ 0, %.lr.ph157 ]
+.lr.ph144.us:                                     ; preds = %._crit_edge145.us, %.preheader131.preheader
+  %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge145.us ], [ 0, %.preheader131.preheader ]
+  %.lcssa150166.us = phi i32 [ %237, %._crit_edge145.us ], [ 0, %.preheader131.preheader ]
+  %.lcssa148163.us = phi i32 [ %235, %._crit_edge145.us ], [ 0, %.preheader131.preheader ]
+  %.lcssa152155.us = phi i32 [ %232, %._crit_edge145.us ], [ 0, %.preheader131.preheader ]
+  %.lcssa141153154.us = phi i32 [ %236, %._crit_edge145.us ], [ 0, %.preheader131.preheader ]
   %209 = trunc nuw nsw i64 %indvars.iv196 to i32
   %.reass.us = add i32 %invariant.op, %209
   %210 = sext i32 %.reass.us to i64
@@ -9973,17 +9971,13 @@ _ZN2cv7Array3dIiEC2Eiii.exit106:                  ; preds = %30
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
   br i1 %exitcond200.not, label %._crit_edge158.split.us, label %.lr.ph144.us, !llvm.loop !122
 
-._crit_edge158.split.us:                          ; preds = %._crit_edge145.us, %.preheader131.preheader
-  %.sroa.4.1 = phi i32 [ 0, %.preheader131.preheader ], [ %235, %._crit_edge145.us ]
-  %.sroa.3.1 = phi i32 [ 0, %.preheader131.preheader ], [ %237, %._crit_edge145.us ]
-  %.lcssa141153.lcssa = phi i32 [ 0, %.preheader131.preheader ], [ %236, %._crit_edge145.us ]
-  %.lcssa152.lcssa = phi i32 [ 0, %.preheader131.preheader ], [ %232, %._crit_edge145.us ]
-  %238 = sdiv i32 %.lcssa141153.lcssa, 2
-  %239 = add i32 %238, %.lcssa152.lcssa
-  %240 = udiv i32 %239, %.lcssa141153.lcssa
-  %241 = sdiv i32 %.sroa.3.1, 2
-  %242 = add i32 %241, %.sroa.4.1
-  %243 = udiv i32 %242, %.sroa.3.1
+._crit_edge158.split.us:                          ; preds = %._crit_edge145.us
+  %238 = sdiv i32 %236, 2
+  %239 = add i32 %238, %232
+  %240 = udiv i32 %239, %236
+  %241 = sdiv i32 %237, 2
+  %242 = add i32 %241, %235
+  %243 = udiv i32 %242, %237
   %244 = call i32 @llvm.smax.i32(i32 %240, i32 0)
   %245 = call i32 @llvm.umin.i32(i32 %244, i32 255)
   %.sroa.0.0.insert.ext = trunc nuw nsw i32 %245 to i16
@@ -18759,9 +18753,7 @@ _ZN2cv7Array3dIiEC2Eiii.exit106:                  ; preds = %30
   %.2 = phi i32 [ %197, %.loopexit ], [ 0, %68 ]
   %198 = load i32, ptr %9, align 8
   %199 = icmp sgt i32 %198, 0
-  br i1 %199, label %.lr.ph160, label %._crit_edge161.split.us
-
-.lr.ph160:                                        ; preds = %.preheader134.preheader
+  call void @llvm.assume(i1 %199)
   %200 = load i32, ptr %46, align 8
   %invariant.op = add i32 %64, %200
   %201 = load ptr, ptr %48, align 8
@@ -18778,12 +18770,12 @@ _ZN2cv7Array3dIiEC2Eiii.exit106:                  ; preds = %30
   %invariant.gep218 = getelementptr %"class.cv::Vec.34", ptr %201, i64 %209
   br label %.lr.ph147.us
 
-.lr.ph147.us:                                     ; preds = %._crit_edge148.us, %.lr.ph160
-  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
-  %.lcssa153169.us = phi i32 [ %239, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
-  %.lcssa151166.us = phi i32 [ %237, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
-  %.lcssa155158.us = phi i32 [ %234, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
-  %.lcssa144156157.us = phi i32 [ %238, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
+.lr.ph147.us:                                     ; preds = %._crit_edge148.us, %.preheader134.preheader
+  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
+  %.lcssa153169.us = phi i32 [ %239, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
+  %.lcssa151166.us = phi i32 [ %237, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
+  %.lcssa155158.us = phi i32 [ %234, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
+  %.lcssa144156157.us = phi i32 [ %238, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
   %211 = trunc nuw nsw i64 %indvars.iv199 to i32
   %.reass.us = add i32 %invariant.op, %211
   %212 = sext i32 %.reass.us to i64
@@ -18828,17 +18820,13 @@ _ZN2cv7Array3dIiEC2Eiii.exit106:                  ; preds = %30
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
   br i1 %exitcond203.not, label %._crit_edge161.split.us, label %.lr.ph147.us, !llvm.loop !459
 
-._crit_edge161.split.us:                          ; preds = %._crit_edge148.us, %.preheader134.preheader
-  %.sroa.4.1 = phi i32 [ 0, %.preheader134.preheader ], [ %237, %._crit_edge148.us ]
-  %.sroa.3.1 = phi i32 [ 0, %.preheader134.preheader ], [ %239, %._crit_edge148.us ]
-  %.lcssa144156.lcssa = phi i32 [ 0, %.preheader134.preheader ], [ %238, %._crit_edge148.us ]
-  %.lcssa155.lcssa = phi i32 [ 0, %.preheader134.preheader ], [ %234, %._crit_edge148.us ]
-  %240 = sdiv i32 %.lcssa144156.lcssa, 2
-  %241 = add i32 %240, %.lcssa155.lcssa
-  %242 = udiv i32 %241, %.lcssa144156.lcssa
-  %243 = sdiv i32 %.sroa.3.1, 2
-  %244 = add i32 %243, %.sroa.4.1
-  %245 = udiv i32 %244, %.sroa.3.1
+._crit_edge161.split.us:                          ; preds = %._crit_edge148.us
+  %240 = sdiv i32 %238, 2
+  %241 = add i32 %240, %234
+  %242 = udiv i32 %241, %238
+  %243 = sdiv i32 %239, 2
+  %244 = add i32 %243, %237
+  %245 = udiv i32 %244, %239
   %246 = call i32 @llvm.smax.i32(i32 %242, i32 0)
   %247 = call i32 @llvm.umin.i32(i32 %246, i32 255)
   %.sroa.0.0.insert.ext = trunc nuw nsw i32 %247 to i16
@@ -27446,9 +27434,7 @@ _ZN2cv7Array3dIiEC2Eiii.exit106:                  ; preds = %30
   %.2 = phi i32 [ %197, %.loopexit ], [ 0, %68 ]
   %198 = load i32, ptr %9, align 8
   %199 = icmp sgt i32 %198, 0
-  br i1 %199, label %.lr.ph160, label %._crit_edge161.split.us
-
-.lr.ph160:                                        ; preds = %.preheader134.preheader
+  call void @llvm.assume(i1 %199)
   %200 = load i32, ptr %46, align 8
   %invariant.op = add i32 %64, %200
   %201 = load ptr, ptr %48, align 8
@@ -27465,12 +27451,12 @@ _ZN2cv7Array3dIiEC2Eiii.exit106:                  ; preds = %30
   %invariant.gep218 = getelementptr %"class.cv::Vec.60", ptr %201, i64 %209
   br label %.lr.ph147.us
 
-.lr.ph147.us:                                     ; preds = %._crit_edge148.us, %.lr.ph160
-  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
-  %.lcssa153169.us = phi i64 [ %241, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
-  %.lcssa151166.us = phi i64 [ %239, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
-  %.lcssa155158.us = phi i64 [ %235, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
-  %.lcssa144156157.us = phi i64 [ %240, %._crit_edge148.us ], [ 0, %.lr.ph160 ]
+.lr.ph147.us:                                     ; preds = %._crit_edge148.us, %.preheader134.preheader
+  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
+  %.lcssa153169.us = phi i64 [ %241, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
+  %.lcssa151166.us = phi i64 [ %239, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
+  %.lcssa155158.us = phi i64 [ %235, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
+  %.lcssa144156157.us = phi i64 [ %240, %._crit_edge148.us ], [ 0, %.preheader134.preheader ]
   %211 = trunc nuw nsw i64 %indvars.iv199 to i32
   %.reass.us = add i32 %invariant.op, %211
   %212 = sext i32 %.reass.us to i64
@@ -27517,17 +27503,13 @@ _ZN2cv7Array3dIiEC2Eiii.exit106:                  ; preds = %30
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
   br i1 %exitcond203.not, label %._crit_edge161.split.us, label %.lr.ph147.us, !llvm.loop !788
 
-._crit_edge161.split.us:                          ; preds = %._crit_edge148.us, %.preheader134.preheader
-  %.sroa.4.1 = phi i64 [ 0, %.preheader134.preheader ], [ %239, %._crit_edge148.us ]
-  %.sroa.3.1 = phi i64 [ 0, %.preheader134.preheader ], [ %241, %._crit_edge148.us ]
-  %.lcssa144156.lcssa = phi i64 [ 0, %.preheader134.preheader ], [ %240, %._crit_edge148.us ]
-  %.lcssa155.lcssa = phi i64 [ 0, %.preheader134.preheader ], [ %235, %._crit_edge148.us ]
-  %242 = sdiv i64 %.lcssa144156.lcssa, 2
-  %243 = add i64 %242, %.lcssa155.lcssa
-  %244 = udiv i64 %243, %.lcssa144156.lcssa
-  %245 = sdiv i64 %.sroa.3.1, 2
-  %246 = add i64 %245, %.sroa.4.1
-  %247 = udiv i64 %246, %.sroa.3.1
+._crit_edge161.split.us:                          ; preds = %._crit_edge148.us
+  %242 = sdiv i64 %240, 2
+  %243 = add i64 %242, %235
+  %244 = udiv i64 %243, %240
+  %245 = sdiv i64 %241, 2
+  %246 = add i64 %245, %239
+  %247 = udiv i64 %246, %241
   %248 = call i64 @llvm.smax.i64(i64 %244, i64 0)
   %249 = call i64 @llvm.umin.i64(i64 %248, i64 65535)
   %.sroa.0.0.insert.ext = trunc nuw nsw i64 %249 to i32
@@ -37978,9 +37960,7 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %.2106 = phi i32 [ %229, %.loopexit ], [ 0, %83 ]
   %230 = load i32, ptr %10, align 4
   %231 = icmp sgt i32 %230, 0
-  br i1 %231, label %.lr.ph244, label %._crit_edge
-
-.lr.ph244:                                        ; preds = %.preheader196.preheader
+  call void @llvm.assume(i1 %231)
   %232 = load ptr, ptr %65, align 8
   %233 = load i32, ptr %12, align 8
   %234 = icmp sgt i32 %233, 0
@@ -37992,9 +37972,7 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %factor.op.mul = mul i32 %237, %238
   %239 = load i32, ptr %68, align 8
   %240 = load ptr, ptr %69, align 8
-  br i1 %234, label %.lr.ph223.us.preheader, label %._crit_edge
-
-.lr.ph223.us.preheader:                           ; preds = %.lr.ph244
+  call void @llvm.assume(i1 %234)
   %241 = add nsw i32 %81, %235
   %242 = sext i32 %241 to i64
   %243 = sext i32 %238 to i64
@@ -38002,12 +37980,12 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %wide.trip.count289 = zext nneg i32 %233 to i64
   br label %.lr.ph223.us
 
-.lr.ph223.us:                                     ; preds = %.lr.ph223.us.preheader, %._crit_edge224.split.us.us
-  %indvars.iv291 = phi i64 [ 0, %.lr.ph223.us.preheader ], [ %indvars.iv.next292, %._crit_edge224.split.us.us ]
-  %.lcssa215231.lcssa.us250.us = phi i32 [ 0, %.lr.ph223.us.preheader ], [ %281, %._crit_edge224.split.us.us ]
-  %.lcssa213228.lcssa.us247.us = phi i32 [ 0, %.lr.ph223.us.preheader ], [ %279, %._crit_edge224.split.us.us ]
-  %.lcssa217.lcssa238242.us = phi i32 [ 0, %.lr.ph223.us.preheader ], [ %276, %._crit_edge224.split.us.us ]
-  %.lcssa208218.lcssa240241.us = phi i32 [ 0, %.lr.ph223.us.preheader ], [ %280, %._crit_edge224.split.us.us ]
+.lr.ph223.us:                                     ; preds = %.preheader196.preheader, %._crit_edge224.split.us.us
+  %indvars.iv291 = phi i64 [ 0, %.preheader196.preheader ], [ %indvars.iv.next292, %._crit_edge224.split.us.us ]
+  %.lcssa215231.lcssa.us250.us = phi i32 [ 0, %.preheader196.preheader ], [ %281, %._crit_edge224.split.us.us ]
+  %.lcssa213228.lcssa.us247.us = phi i32 [ 0, %.preheader196.preheader ], [ %279, %._crit_edge224.split.us.us ]
+  %.lcssa217.lcssa238242.us = phi i32 [ 0, %.preheader196.preheader ], [ %276, %._crit_edge224.split.us.us ]
+  %.lcssa208218.lcssa240241.us = phi i32 [ 0, %.preheader196.preheader ], [ %280, %._crit_edge224.split.us.us ]
   %244 = getelementptr inbounds %"class.cv::Mat", ptr %232, i64 %indvars.iv291
   %245 = getelementptr inbounds i8, ptr %244, i64 16
   %246 = load ptr, ptr %245, align 8
@@ -38076,17 +38054,13 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count294
   br i1 %exitcond295.not, label %._crit_edge, label %.lr.ph223.us, !llvm.loop !1212
 
-._crit_edge:                                      ; preds = %._crit_edge224.split.us.us, %.lr.ph244, %.preheader196.preheader
-  %.sroa.4.1 = phi i32 [ 0, %.preheader196.preheader ], [ 0, %.lr.ph244 ], [ %279, %._crit_edge224.split.us.us ]
-  %.sroa.3.1 = phi i32 [ 0, %.preheader196.preheader ], [ 0, %.lr.ph244 ], [ %281, %._crit_edge224.split.us.us ]
-  %.lcssa208218.lcssa240.lcssa = phi i32 [ 0, %.preheader196.preheader ], [ 0, %.lr.ph244 ], [ %280, %._crit_edge224.split.us.us ]
-  %.lcssa217.lcssa238.lcssa = phi i32 [ 0, %.preheader196.preheader ], [ 0, %.lr.ph244 ], [ %276, %._crit_edge224.split.us.us ]
-  %282 = sdiv i32 %.lcssa208218.lcssa240.lcssa, 2
-  %283 = add i32 %282, %.lcssa217.lcssa238.lcssa
-  %284 = udiv i32 %283, %.lcssa208218.lcssa240.lcssa
-  %285 = sdiv i32 %.sroa.3.1, 2
-  %286 = add i32 %285, %.sroa.4.1
-  %287 = udiv i32 %286, %.sroa.3.1
+._crit_edge:                                      ; preds = %._crit_edge224.split.us.us
+  %282 = sdiv i32 %280, 2
+  %283 = add i32 %282, %276
+  %284 = udiv i32 %283, %280
+  %285 = sdiv i32 %281, 2
+  %286 = add i32 %285, %279
+  %287 = udiv i32 %286, %281
   %288 = call i32 @llvm.smax.i32(i32 %284, i32 0)
   %289 = call i32 @llvm.umin.i32(i32 %288, i32 255)
   %.sroa.0.0.insert.ext = trunc nuw nsw i32 %289 to i16
@@ -49822,9 +49796,7 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %.2106 = phi i32 [ %231, %.loopexit ], [ 0, %83 ]
   %232 = load i32, ptr %10, align 4
   %233 = icmp sgt i32 %232, 0
-  br i1 %233, label %.lr.ph247, label %._crit_edge
-
-.lr.ph247:                                        ; preds = %.preheader199.preheader
+  call void @llvm.assume(i1 %233)
   %234 = load ptr, ptr %65, align 8
   %235 = load i32, ptr %12, align 8
   %236 = icmp sgt i32 %235, 0
@@ -49836,9 +49808,7 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %factor.op.mul = mul i32 %239, %240
   %241 = load i32, ptr %68, align 8
   %242 = load ptr, ptr %69, align 8
-  br i1 %236, label %.lr.ph226.us.preheader, label %._crit_edge
-
-.lr.ph226.us.preheader:                           ; preds = %.lr.ph247
+  call void @llvm.assume(i1 %236)
   %243 = add nsw i32 %81, %237
   %244 = sext i32 %243 to i64
   %245 = sext i32 %240 to i64
@@ -49846,12 +49816,12 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %wide.trip.count292 = zext nneg i32 %235 to i64
   br label %.lr.ph226.us
 
-.lr.ph226.us:                                     ; preds = %.lr.ph226.us.preheader, %._crit_edge227.split.us.us
-  %indvars.iv294 = phi i64 [ 0, %.lr.ph226.us.preheader ], [ %indvars.iv.next295, %._crit_edge227.split.us.us ]
-  %.lcssa218234.lcssa.us253.us = phi i32 [ 0, %.lr.ph226.us.preheader ], [ %283, %._crit_edge227.split.us.us ]
-  %.lcssa216231.lcssa.us250.us = phi i32 [ 0, %.lr.ph226.us.preheader ], [ %281, %._crit_edge227.split.us.us ]
-  %.lcssa220.lcssa241245.us = phi i32 [ 0, %.lr.ph226.us.preheader ], [ %278, %._crit_edge227.split.us.us ]
-  %.lcssa211221.lcssa243244.us = phi i32 [ 0, %.lr.ph226.us.preheader ], [ %282, %._crit_edge227.split.us.us ]
+.lr.ph226.us:                                     ; preds = %.preheader199.preheader, %._crit_edge227.split.us.us
+  %indvars.iv294 = phi i64 [ 0, %.preheader199.preheader ], [ %indvars.iv.next295, %._crit_edge227.split.us.us ]
+  %.lcssa218234.lcssa.us253.us = phi i32 [ 0, %.preheader199.preheader ], [ %283, %._crit_edge227.split.us.us ]
+  %.lcssa216231.lcssa.us250.us = phi i32 [ 0, %.preheader199.preheader ], [ %281, %._crit_edge227.split.us.us ]
+  %.lcssa220.lcssa241245.us = phi i32 [ 0, %.preheader199.preheader ], [ %278, %._crit_edge227.split.us.us ]
+  %.lcssa211221.lcssa243244.us = phi i32 [ 0, %.preheader199.preheader ], [ %282, %._crit_edge227.split.us.us ]
   %246 = getelementptr inbounds %"class.cv::Mat", ptr %234, i64 %indvars.iv294
   %247 = getelementptr inbounds i8, ptr %246, i64 16
   %248 = load ptr, ptr %247, align 8
@@ -49920,17 +49890,13 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %exitcond298.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count297
   br i1 %exitcond298.not, label %._crit_edge, label %.lr.ph226.us, !llvm.loop !1715
 
-._crit_edge:                                      ; preds = %._crit_edge227.split.us.us, %.lr.ph247, %.preheader199.preheader
-  %.sroa.4.1 = phi i32 [ 0, %.preheader199.preheader ], [ 0, %.lr.ph247 ], [ %281, %._crit_edge227.split.us.us ]
-  %.sroa.3.1 = phi i32 [ 0, %.preheader199.preheader ], [ 0, %.lr.ph247 ], [ %283, %._crit_edge227.split.us.us ]
-  %.lcssa211221.lcssa243.lcssa = phi i32 [ 0, %.preheader199.preheader ], [ 0, %.lr.ph247 ], [ %282, %._crit_edge227.split.us.us ]
-  %.lcssa220.lcssa241.lcssa = phi i32 [ 0, %.preheader199.preheader ], [ 0, %.lr.ph247 ], [ %278, %._crit_edge227.split.us.us ]
-  %284 = sdiv i32 %.lcssa211221.lcssa243.lcssa, 2
-  %285 = add i32 %284, %.lcssa220.lcssa241.lcssa
-  %286 = udiv i32 %285, %.lcssa211221.lcssa243.lcssa
-  %287 = sdiv i32 %.sroa.3.1, 2
-  %288 = add i32 %287, %.sroa.4.1
-  %289 = udiv i32 %288, %.sroa.3.1
+._crit_edge:                                      ; preds = %._crit_edge227.split.us.us
+  %284 = sdiv i32 %282, 2
+  %285 = add i32 %284, %278
+  %286 = udiv i32 %285, %282
+  %287 = sdiv i32 %283, 2
+  %288 = add i32 %287, %281
+  %289 = udiv i32 %288, %283
   %290 = call i32 @llvm.smax.i32(i32 %286, i32 0)
   %291 = call i32 @llvm.umin.i32(i32 %290, i32 255)
   %.sroa.0.0.insert.ext = trunc nuw nsw i32 %291 to i16
@@ -61696,9 +61662,7 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %.2106 = phi i32 [ %231, %.loopexit ], [ 0, %83 ]
   %232 = load i32, ptr %10, align 4
   %233 = icmp sgt i32 %232, 0
-  br i1 %233, label %.lr.ph247, label %._crit_edge
-
-.lr.ph247:                                        ; preds = %.preheader199.preheader
+  call void @llvm.assume(i1 %233)
   %234 = load ptr, ptr %65, align 8
   %235 = load i32, ptr %12, align 8
   %236 = icmp sgt i32 %235, 0
@@ -61710,9 +61674,7 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %factor.op.mul = mul i32 %239, %240
   %241 = load i32, ptr %68, align 8
   %242 = load ptr, ptr %69, align 8
-  br i1 %236, label %.lr.ph226.us.preheader, label %._crit_edge
-
-.lr.ph226.us.preheader:                           ; preds = %.lr.ph247
+  call void @llvm.assume(i1 %236)
   %243 = add nsw i32 %81, %237
   %244 = sext i32 %243 to i64
   %245 = sext i32 %240 to i64
@@ -61720,12 +61682,12 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %wide.trip.count292 = zext nneg i32 %235 to i64
   br label %.lr.ph226.us
 
-.lr.ph226.us:                                     ; preds = %.lr.ph226.us.preheader, %._crit_edge227.split.us.us
-  %indvars.iv294 = phi i64 [ 0, %.lr.ph226.us.preheader ], [ %indvars.iv.next295, %._crit_edge227.split.us.us ]
-  %.lcssa218234.lcssa.us253.us = phi i64 [ 0, %.lr.ph226.us.preheader ], [ %285, %._crit_edge227.split.us.us ]
-  %.lcssa216231.lcssa.us250.us = phi i64 [ 0, %.lr.ph226.us.preheader ], [ %283, %._crit_edge227.split.us.us ]
-  %.lcssa220.lcssa241245.us = phi i64 [ 0, %.lr.ph226.us.preheader ], [ %279, %._crit_edge227.split.us.us ]
-  %.lcssa211221.lcssa243244.us = phi i64 [ 0, %.lr.ph226.us.preheader ], [ %284, %._crit_edge227.split.us.us ]
+.lr.ph226.us:                                     ; preds = %.preheader199.preheader, %._crit_edge227.split.us.us
+  %indvars.iv294 = phi i64 [ 0, %.preheader199.preheader ], [ %indvars.iv.next295, %._crit_edge227.split.us.us ]
+  %.lcssa218234.lcssa.us253.us = phi i64 [ 0, %.preheader199.preheader ], [ %285, %._crit_edge227.split.us.us ]
+  %.lcssa216231.lcssa.us250.us = phi i64 [ 0, %.preheader199.preheader ], [ %283, %._crit_edge227.split.us.us ]
+  %.lcssa220.lcssa241245.us = phi i64 [ 0, %.preheader199.preheader ], [ %279, %._crit_edge227.split.us.us ]
+  %.lcssa211221.lcssa243244.us = phi i64 [ 0, %.preheader199.preheader ], [ %284, %._crit_edge227.split.us.us ]
   %246 = getelementptr inbounds %"class.cv::Mat", ptr %234, i64 %indvars.iv294
   %247 = getelementptr inbounds i8, ptr %246, i64 16
   %248 = load ptr, ptr %247, align 8
@@ -61796,17 +61758,13 @@ _ZN2cv7Array2dIiED2Ev.exit135:                    ; preds = %._crit_edge.us, %_Z
   %exitcond298.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count297
   br i1 %exitcond298.not, label %._crit_edge, label %.lr.ph226.us, !llvm.loop !2218
 
-._crit_edge:                                      ; preds = %._crit_edge227.split.us.us, %.lr.ph247, %.preheader199.preheader
-  %.sroa.4.1 = phi i64 [ 0, %.preheader199.preheader ], [ 0, %.lr.ph247 ], [ %283, %._crit_edge227.split.us.us ]
-  %.sroa.3.1 = phi i64 [ 0, %.preheader199.preheader ], [ 0, %.lr.ph247 ], [ %285, %._crit_edge227.split.us.us ]
-  %.lcssa211221.lcssa243.lcssa = phi i64 [ 0, %.preheader199.preheader ], [ 0, %.lr.ph247 ], [ %284, %._crit_edge227.split.us.us ]
-  %.lcssa220.lcssa241.lcssa = phi i64 [ 0, %.preheader199.preheader ], [ 0, %.lr.ph247 ], [ %279, %._crit_edge227.split.us.us ]
-  %286 = sdiv i64 %.lcssa211221.lcssa243.lcssa, 2
-  %287 = add i64 %286, %.lcssa220.lcssa241.lcssa
-  %288 = udiv i64 %287, %.lcssa211221.lcssa243.lcssa
-  %289 = sdiv i64 %.sroa.3.1, 2
-  %290 = add i64 %289, %.sroa.4.1
-  %291 = udiv i64 %290, %.sroa.3.1
+._crit_edge:                                      ; preds = %._crit_edge227.split.us.us
+  %286 = sdiv i64 %284, 2
+  %287 = add i64 %286, %279
+  %288 = udiv i64 %287, %284
+  %289 = sdiv i64 %285, 2
+  %290 = add i64 %289, %283
+  %291 = udiv i64 %290, %285
   %292 = call i64 @llvm.smax.i64(i64 %288, i64 0)
   %293 = call i64 @llvm.umin.i64(i64 %292, i64 65535)
   %.sroa.0.0.insert.ext = trunc nuw nsw i64 %293 to i32
