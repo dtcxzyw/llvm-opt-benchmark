@@ -5,6 +5,7 @@ import os
 import subprocess
 from multiprocessing import Pool
 import tqdm
+import json
 
 bench_dir = sys.argv[1]
 opt_exec = sys.argv[2]
@@ -26,16 +27,18 @@ def run_opt(task):
     input_file, output_file = task
     try:
         result = 0
+        stats = dict()
         cmd = [opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-vectorize-slp=false', input_file, '-S']
         tmp_output = output_file + '.bench_tmp.ll'
         cmd += ['-o', tmp_output]
         if comptime is not None:
-            cmd = ['perf', 'stat', '-e', 'instructions:u', '--no-big-num'] + cmd
+            cmd = ['perf', 'stat', '-e', 'instructions:u', '--no-big-num'] + cmd + ['--stats', '--stats-json']
         ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, capture_output=True, timeout=600.0,env={})
         if ret.returncode != 0:
-            return (input_file, 'fail', 0)
+            return (input_file, 'fail', 0, dict())
         if comptime is not None:
             err = ret.stderr.decode()
+            stats = json.loads(err[err.find('{'):err.find('}')+1])
             for line in err.splitlines():
                 if 'instructions:u' in line:
                     result = int(line.strip().split()[0])
@@ -46,11 +49,11 @@ def run_opt(task):
         else:
             os.remove(tmp_output)
 
-        return (input_file, 'success', result)
+        return (input_file, 'success', result, stats)
     except subprocess.TimeoutExpired:
-        return (input_file, 'timeout', 0)
+        return (input_file, 'timeout', 0, dict())
     except Exception:
-        return (input_file, 'crash', 0)
+        return (input_file, 'crash', 0, dict())
 
 if __name__ == '__main__':
     work_list = []
@@ -74,8 +77,9 @@ if __name__ == '__main__':
     pool = Pool(processes=cores)
     progress = tqdm.tqdm(work_list, miniters=len(work_list)/200)
     fail = False
+    stats_acc = dict()
     with open('test.log', 'w') as log:
-        for file, status, res in pool.imap_unordered(run_opt, work_list):
+        for file, status, res, stats in pool.imap_unordered(run_opt, work_list):
             file = os.path.relpath(file, bench_dir)
             file = file.replace('/original/','/')
             if status != 'success':
@@ -84,6 +88,8 @@ if __name__ == '__main__':
                 fail = True
             elif comptime:
                 comptime_res.append((file, res))
+                for k in stats:
+                    stats_acc[k] = stats_acc.get(k, 0) + stats[k]
             progress.update()
         progress.close()
 
@@ -92,5 +98,7 @@ if __name__ == '__main__':
         with open(comptime, 'w') as f:
             for k,v in comptime_res:
                 f.write(f'{k} {v}\n')
+        with open(comptime+'.stats', 'w') as f:
+            json.dump(stats_acc, f)
     
     exit(1 if fail else 0)

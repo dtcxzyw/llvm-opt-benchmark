@@ -3,6 +3,7 @@ llvm-build
 llvm-cov-build
 CHANGELOGS
 *.log
+*.log.stats
 patch.diff
 *.bench_tmp.ll
 .vscode

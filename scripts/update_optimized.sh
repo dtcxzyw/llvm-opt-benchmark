@@ -14,9 +14,11 @@ scripts/gen_optimized.py bench llvm/llvm-build/bin/opt comptime comptime.log
 ret=$?
 scripts/comptime_diff.py comptime.baseline comptime.log >> ctdiff.log
 ctret=$?
+scripts/stats_diff.py stats.baseline comptime.log.stats >> stdiff.log
 if [ $PRE_COMMIT_MODE -eq 0 ]
 then
   scripts/comptime_align.py comptime.baseline comptime.log
+  cp comptime.log.stats stats.baseline
   llvm_commit=$(git -C llvm/llvm-project rev-parse HEAD)
   git add .
   git commit -m "llvm: Update baseline to $llvm_commit"
@@ -30,6 +32,7 @@ then
     then
       scripts/gen_issue_report.py $(git rev-parse HEAD)
       cat ctdiff.log >> scripts/issue.md
+      cat stdiff.log >> scripts/issue.md
       echo "SHOULD_OPEN_ISSUE=1" >> $GITHUB_OUTPUT
     else
       echo "SHOULD_OPEN_ISSUE=0" >> $GITHUB_OUTPUT
@@ -48,6 +51,7 @@ else
   echo "commit: $(git rev-parse HEAD)" >> scripts/pr-comment.md
   echo "$diff_stat" >> scripts/pr-comment.md
   cat ctdiff.log >> scripts/pr-comment.md
+  cat stdiff.log >> scripts/pr-comment.md
   head -100 test.log >> scripts/pr-comment.md
   git show --numstat --oneline | head -200 >> scripts/pr-comment.md
 fi
