@@ -24847,7 +24847,7 @@ openjdk/serialStringDedup.ll 71045788
 openjdk/serialVMOperations.ll 55262738
 openjdk/serviceThread.ll 249816183
 openjdk/sharedRuntime.ll 2554976716
-openjdk/sharedRuntimeTrans.ll 300763357
+openjdk/sharedRuntimeTrans.ll 301064127
 openjdk/sharedRuntimeTrig.ll 455357182
 openjdk/sharedRuntime_x86.ll 78165426
 openjdk/sharedRuntime_x86_64.ll 2557658763
