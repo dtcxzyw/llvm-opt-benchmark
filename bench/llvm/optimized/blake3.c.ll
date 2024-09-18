@@ -2525,7 +2525,7 @@ define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_s
   %176 = lshr exact i64 %173, 10
   %177 = add i64 %176, %3
   %178 = tail call i64 @llvm_blake3_simd_degree() #9
-  %179 = icmp ugt i64 %173, 1024
+  %179 = icmp ne i64 %171, 63
   %180 = icmp eq i64 %178, 1
   %or.cond = select i1 %179, i1 %180, i1 false
   %181 = shl i64 %178, 5

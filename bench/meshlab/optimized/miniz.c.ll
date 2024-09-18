@@ -2051,12 +2051,12 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %71, label %78
 
 71:                                               ; preds = %57
-  %72 = lshr i32 %63, 4
-  %73 = shl nuw i32 256, %72
-  %74 = icmp ugt i32 %73, 32768
-  %75 = zext nneg i32 %73 to i64
+  %72 = icmp ugt i32 %63, 127
+  %73 = lshr i32 %63, 4
+  %74 = shl nuw i32 256, %73
+  %75 = zext nneg i32 %74 to i64
   %76 = icmp ult i64 %22, %75
-  %narrow1717 = select i1 %74, i1 true, i1 %76
+  %narrow1717 = select i1 %72, i1 true, i1 %76
   %77 = or i1 %narrow1717, %narrow
   br i1 %77, label %1006, label %79
 

@@ -3030,7 +3030,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit242:                ; preds = %.lr.ph.i238
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #17
   %388 = load ptr, ptr %72, align 8
   %389 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %72) #17
-  %390 = icmp ult i32 %199, 33
+  %390 = icmp ult i64 %.0496, 3
   %.sroa.063.0.copyload = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store ptr %.sroa.063.0.copyload, ptr %18, align 8
