@@ -1844,29 +1844,29 @@ if.else.i:                                        ; preds = %if.end.i
   %agg.tmp2.sroa.0.0.extract.trunc.i.i = sext i32 %8 to i64
   %9 = ashr i32 %8, 31
   %agg.tmp2.sroa.2.0.extract.trunc.i.i = sext i32 %9 to i64
-  %coerce2.sroa.2.0.insert.ext.i.i3.i = zext i64 %agg.tmp2.sroa.2.0.extract.trunc.i.i to i128
-  %coerce2.sroa.2.0.insert.shift.i.i4.i = shl nuw i128 %coerce2.sroa.2.0.insert.ext.i.i3.i, 64
-  %coerce2.sroa.0.0.insert.ext.i.i5.i = zext i64 %agg.tmp2.sroa.0.0.extract.trunc.i.i to i128
-  %coerce2.sroa.0.0.insert.insert.i.i6.i = or disjoint i128 %coerce2.sroa.2.0.insert.shift.i.i4.i, %coerce2.sroa.0.0.insert.ext.i.i5.i
-  %add.ptr.i7.i = getelementptr inbounds i8, ptr %agg.tmp4.sroa.2.0.copyload.i, i64 %agg.tmp4.sroa.0.0.copyload.i
+  %coerce2.sroa.2.0.insert.ext.i.i4.i = zext i64 %agg.tmp2.sroa.2.0.extract.trunc.i.i to i128
+  %coerce2.sroa.2.0.insert.shift.i.i5.i = shl nuw i128 %coerce2.sroa.2.0.insert.ext.i.i4.i, 64
+  %coerce2.sroa.0.0.insert.ext.i.i6.i = zext i64 %agg.tmp2.sroa.0.0.extract.trunc.i.i to i128
+  %coerce2.sroa.0.0.insert.insert.i.i7.i = or disjoint i128 %coerce2.sroa.2.0.insert.shift.i.i5.i, %coerce2.sroa.0.0.insert.ext.i.i6.i
+  %add.ptr.i8.i = getelementptr inbounds i8, ptr %agg.tmp4.sroa.2.0.copyload.i, i64 %agg.tmp4.sroa.0.0.copyload.i
   %cmp91.i.i = icmp slt i64 %agg.tmp4.sroa.0.0.copyload.i, 1
-  br i1 %cmp91.i.i, label %return.sink.split.i, label %for.body.lr.ph.i8.i
+  br i1 %cmp91.i.i, label %return.sink.split.i, label %for.body.lr.ph.i9.i
 
-for.body.lr.ph.i8.i:                              ; preds = %if.else.i
-  %arrayidx.i9.i = getelementptr inbounds [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 0, i64 %agg.tmp2.sroa.0.0.extract.trunc.i.i
-  %vmin_over_base.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 8
+for.body.lr.ph.i9.i:                              ; preds = %if.else.i
+  %arrayidx.i10.i = getelementptr inbounds [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 0, i64 %agg.tmp2.sroa.0.0.extract.trunc.i.i
+  %vmin_over_base.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i10.i, i64 8
   %vmin_over_base.sroa.4.0.copyload.i.i = load i64, ptr %vmin_over_base.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
-  %vmin_over_base.sroa.0.0.copyload.i.i = load i64, ptr %arrayidx.i9.i, align 16
+  %vmin_over_base.sroa.0.0.copyload.i.i = load i64, ptr %arrayidx.i10.i, align 16
   %coerce2.sroa.2.0.insert.ext.i26.i.i = zext i64 %vmin_over_base.sroa.4.0.copyload.i.i to i128
   %coerce2.sroa.2.0.insert.shift.i27.i.i = shl nuw i128 %coerce2.sroa.2.0.insert.ext.i26.i.i, 64
   %coerce2.sroa.0.0.insert.ext.i28.i.i = zext i64 %vmin_over_base.sroa.0.0.copyload.i.i to i128
   %coerce2.sroa.0.0.insert.insert.i29.i.i = or disjoint i128 %coerce2.sroa.2.0.insert.shift.i27.i.i, %coerce2.sroa.0.0.insert.ext.i28.i.i
-  br label %for.body.i10.i
+  br label %for.body.i11.i
 
-for.body.i10.i:                                   ; preds = %if.end30.i.i, %for.body.lr.ph.i8.i
-  %start.094.i.i = phi ptr [ %agg.tmp4.sroa.2.0.copyload.i, %for.body.lr.ph.i8.i ], [ %incdec.ptr.i15.i, %if.end30.i.i ]
-  %value.sroa.0.093.i.i = phi i64 [ 0, %for.body.lr.ph.i8.i ], [ %retval.sroa.0.0.extract.trunc.i.i68.i.i, %if.end30.i.i ]
-  %value.sroa.9.092.i.i = phi i64 [ 0, %for.body.lr.ph.i8.i ], [ %.narrow.i.i67.i.i, %if.end30.i.i ]
+for.body.i11.i:                                   ; preds = %if.end30.i.i, %for.body.lr.ph.i9.i
+  %start.094.i.i = phi ptr [ %agg.tmp4.sroa.2.0.copyload.i, %for.body.lr.ph.i9.i ], [ %incdec.ptr.i16.i, %if.end30.i.i ]
+  %value.sroa.0.093.i.i = phi i64 [ 0, %for.body.lr.ph.i9.i ], [ %retval.sroa.0.0.extract.trunc.i.i68.i.i, %if.end30.i.i ]
+  %value.sroa.9.092.i.i = phi i64 [ 0, %for.body.lr.ph.i9.i ], [ %.narrow.i.i67.i.i, %if.end30.i.i ]
   %10 = load i8, ptr %start.094.i.i, align 1
   %idxprom10.i.i = zext i8 %10 to i64
   %arrayidx11.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom10.i.i
@@ -1875,7 +1875,7 @@ for.body.i10.i:                                   ; preds = %if.end30.i.i, %for.
   %cmp12.not.i.i = icmp sgt i32 %8, %conv.i.i
   br i1 %cmp12.not.i.i, label %if.end14.i.i, label %return.sink.split.i
 
-if.end14.i.i:                                     ; preds = %for.body.i10.i
+if.end14.i.i:                                     ; preds = %for.body.i11.i
   %coerce.sroa.2.0.insert.ext.i22.i.i = zext i64 %value.sroa.9.092.i.i to i128
   %coerce.sroa.2.0.insert.shift.i23.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i22.i.i, 64
   %coerce.sroa.0.0.insert.ext.i24.i.i = zext i64 %value.sroa.0.093.i.i to i128
@@ -1884,35 +1884,35 @@ if.end14.i.i:                                     ; preds = %for.body.i10.i
   br i1 %cmp.i30.i.i, label %return.sink.split.i, label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %if.end14.i.i
-  %mul.i.i.i13.i = mul nsw i128 %coerce.sroa.0.0.insert.insert.i25.i.i, %coerce2.sroa.0.0.insert.insert.i.i6.i
+  %mul.i.i.i14.i = mul nsw i128 %coerce.sroa.0.0.insert.insert.i25.i.i, %coerce2.sroa.0.0.insert.insert.i.i7.i
   %agg.tmp25.sroa.0.0.extract.trunc.i.i = sext i8 %11 to i64
   %12 = ashr i8 %11, 7
   %agg.tmp25.sroa.2.0.extract.trunc.i.i = sext i8 %12 to i64
-  %.narrow.i.i14.i = xor i64 %agg.tmp25.sroa.2.0.extract.trunc.i.i, -9223372036854775808
-  %coerce2.sroa.2.0.insert.ext.i52.i.i = zext i64 %.narrow.i.i14.i to i128
+  %.narrow.i.i15.i = xor i64 %agg.tmp25.sroa.2.0.extract.trunc.i.i, -9223372036854775808
+  %coerce2.sroa.2.0.insert.ext.i52.i.i = zext i64 %.narrow.i.i15.i to i128
   %coerce2.sroa.2.0.insert.shift.i53.i.i = shl nuw i128 %coerce2.sroa.2.0.insert.ext.i52.i.i, 64
   %coerce2.sroa.0.0.insert.ext.i54.i.i = zext i64 %agg.tmp25.sroa.0.0.extract.trunc.i.i to i128
   %coerce2.sroa.0.0.insert.insert.i55.i.i = or disjoint i128 %coerce2.sroa.2.0.insert.shift.i53.i.i, %coerce2.sroa.0.0.insert.ext.i54.i.i
-  %cmp.i56.i.i = icmp slt i128 %mul.i.i.i13.i, %coerce2.sroa.0.0.insert.insert.i55.i.i
+  %cmp.i56.i.i = icmp slt i128 %mul.i.i.i14.i, %coerce2.sroa.0.0.insert.insert.i55.i.i
   br i1 %cmp.i56.i.i, label %return.sink.split.i, label %if.end30.i.i
 
 if.end30.i.i:                                     ; preds = %if.end19.i.i
-  %coerce.sroa.0.0.insert.insert.i.i65.i.i = sub i128 %mul.i.i.i13.i, %coerce2.sroa.0.0.insert.ext.i54.i.i
+  %coerce.sroa.0.0.insert.insert.i.i65.i.i = sub i128 %mul.i.i.i14.i, %coerce2.sroa.0.0.insert.ext.i54.i.i
   %13 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i65.i.i, 64
   %.tr.i.i66.i.i = trunc nuw i128 %13 to i64
   %.narrow.i.i67.i.i = sub i64 %.tr.i.i66.i.i, %agg.tmp25.sroa.2.0.extract.trunc.i.i
   %retval.sroa.0.0.extract.trunc.i.i68.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i.i65.i.i to i64
-  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %start.094.i.i, i64 1
-  %cmp.not.i16.i = icmp ult ptr %incdec.ptr.i15.i, %add.ptr.i7.i
-  br i1 %cmp.not.i16.i, label %for.body.i10.i, label %return.sink.split.i, !llvm.loop !12
+  %incdec.ptr.i16.i = getelementptr inbounds i8, ptr %start.094.i.i, i64 1
+  %cmp.not.i17.i = icmp ult ptr %incdec.ptr.i16.i, %add.ptr.i8.i
+  br i1 %cmp.not.i17.i, label %for.body.i11.i, label %return.sink.split.i, !llvm.loop !12
 
-return.sink.split.i:                              ; preds = %if.end21.i.i, %if.end11.i.i, %if.end.i.i, %for.body.i.i, %if.end30.i.i, %if.end19.i.i, %if.end14.i.i, %for.body.i10.i, %if.else.i, %if.then2.i
-  %value.sroa.0.0.lcssa.sink.i11.sink.i = phi i64 [ 0, %if.then2.i ], [ 0, %if.else.i ], [ %value.sroa.0.093.i.i, %for.body.i10.i ], [ 0, %if.end14.i.i ], [ 0, %if.end19.i.i ], [ %retval.sroa.0.0.extract.trunc.i.i68.i.i, %if.end30.i.i ], [ %value.sroa.0.067.i.i, %for.body.i.i ], [ -1, %if.end.i.i ], [ -1, %if.end11.i.i ], [ %retval.sroa.0.0.extract.trunc.i.i43.i.i, %if.end21.i.i ]
-  %value.sroa.9.0.lcssa.sink.i12.sink.i = phi i64 [ 0, %if.then2.i ], [ 0, %if.else.i ], [ %value.sroa.9.092.i.i, %for.body.i10.i ], [ -9223372036854775808, %if.end14.i.i ], [ -9223372036854775808, %if.end19.i.i ], [ %.narrow.i.i67.i.i, %if.end30.i.i ], [ %value.sroa.9.066.i.i, %for.body.i.i ], [ 9223372036854775807, %if.end.i.i ], [ 9223372036854775807, %if.end11.i.i ], [ %.narrow.i.i.i.i, %if.end21.i.i ]
-  %retval.0.ph.i = phi i1 [ true, %if.then2.i ], [ true, %if.else.i ], [ false, %for.body.i10.i ], [ false, %if.end14.i.i ], [ false, %if.end19.i.i ], [ true, %if.end30.i.i ], [ false, %for.body.i.i ], [ false, %if.end.i.i ], [ false, %if.end11.i.i ], [ true, %if.end21.i.i ]
-  store i64 %value.sroa.0.0.lcssa.sink.i11.sink.i, ptr %value, align 16
+return.sink.split.i:                              ; preds = %if.end21.i.i, %if.end11.i.i, %if.end.i.i, %for.body.i.i, %if.end30.i.i, %if.end19.i.i, %if.end14.i.i, %for.body.i11.i, %if.else.i, %if.then2.i
+  %value.sroa.0.0.lcssa.sink.i12.sink.i = phi i64 [ 0, %if.then2.i ], [ 0, %if.else.i ], [ %value.sroa.0.093.i.i, %for.body.i11.i ], [ 0, %if.end14.i.i ], [ 0, %if.end19.i.i ], [ %retval.sroa.0.0.extract.trunc.i.i68.i.i, %if.end30.i.i ], [ %value.sroa.0.067.i.i, %for.body.i.i ], [ -1, %if.end.i.i ], [ -1, %if.end11.i.i ], [ %retval.sroa.0.0.extract.trunc.i.i43.i.i, %if.end21.i.i ]
+  %value.sroa.9.0.lcssa.sink.i13.sink.i = phi i64 [ 0, %if.then2.i ], [ 0, %if.else.i ], [ %value.sroa.9.092.i.i, %for.body.i11.i ], [ -9223372036854775808, %if.end14.i.i ], [ -9223372036854775808, %if.end19.i.i ], [ %.narrow.i.i67.i.i, %if.end30.i.i ], [ %value.sroa.9.066.i.i, %for.body.i.i ], [ 9223372036854775807, %if.end.i.i ], [ 9223372036854775807, %if.end11.i.i ], [ %.narrow.i.i.i.i, %if.end21.i.i ]
+  %retval.0.ph.i = phi i1 [ true, %if.then2.i ], [ true, %if.else.i ], [ false, %for.body.i11.i ], [ false, %if.end14.i.i ], [ false, %if.end19.i.i ], [ true, %if.end30.i.i ], [ false, %for.body.i.i ], [ false, %if.end.i.i ], [ false, %if.end11.i.i ], [ true, %if.end21.i.i ]
+  store i64 %value.sroa.0.0.lcssa.sink.i12.sink.i, ptr %value, align 16
   %value.sroa.9.0.value_p.sroa_idx71.i.i = getelementptr inbounds i8, ptr %value, i64 8
-  store i64 %value.sroa.9.0.lcssa.sink.i12.sink.i, ptr %value.sroa.9.0.value_p.sroa_idx71.i.i, align 8
+  store i64 %value.sroa.9.0.lcssa.sink.i13.sink.i, ptr %value.sroa.9.0.value_p.sroa_idx71.i.i, align 8
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %entry, %return.sink.split.i

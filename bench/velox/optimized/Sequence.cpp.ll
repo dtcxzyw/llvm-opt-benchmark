@@ -21831,10 +21831,10 @@ _ZNK8facebook5velox9Timestamp8toMillisEv.exit.i:  ; preds = %for.body
   %cmp.i.not.i.i = icmp eq i32 %add.i.i.i.i, -32768
   %30 = add i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, -13
   %spec.select.i.i.i = icmp ult i8 %30, -12
-  %or.cond.not86.i = or i1 %cmp.i.not.i.i, %spec.select.i.i.i
-  %or.cond81.i = or i1 %cmp.i.i.not.i.i, %or.cond.not86.i
+  %or.cond.not83.i = or i1 %cmp.i.not.i.i, %spec.select.i.i.i
+  %or.cond78.i = or i1 %cmp.i.i.not.i.i, %or.cond.not83.i
   %.pre.i = and i32 %.fr.i, 255
-  br i1 %or.cond81.i, label %if.then31.i.i.i, label %land.rhs.i.i
+  br i1 %or.cond78.i, label %if.then31.i.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit.i
   %cmp.i.i.not.i.i.i = icmp eq i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, 2
@@ -21925,24 +21925,25 @@ if.end44.i.i.i:                                   ; preds = %cond.true.i.i41.i, 
   %mul.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i, 86400000
   %add.i.i63.i = add nsw i64 %mul.i.i.i.i.i.i, %conv7.i.i
   %cmp.i65.i = icmp sgt i64 %add.i.i63.i, -1
-  %rem.i66.i = srem i64 %add.i.i63.i, 1000
-  %div.i71.i = sdiv i64 %add.i.i63.i, 1000
-  %cmp1.i.i = icmp eq i64 %rem.i66.i, 0
-  %or.cond.i67.i = or i1 %cmp.i65.i, %cmp1.i.i
-  br i1 %or.cond.i67.i, label %_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i, label %if.end.i68.i
+  br i1 %cmp.i65.i, label %if.then.i68.i, label %if.end.i66.i
 
-if.end.i68.i:                                     ; preds = %if.end44.i.i.i
+if.then.i68.i:                                    ; preds = %if.end44.i.i.i
+  %div8.i.i = udiv i64 %add.i.i63.i, 1000
+  %rem29.i.i = urem i64 %add.i.i63.i, 1000
+  br label %_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i
+
+if.end.i66.i:                                     ; preds = %if.end44.i.i.i
   %millis.nonneg.i.i = sub i64 0, %add.i.i63.i
-  %div38.i.i = udiv i64 %millis.nonneg.i.i, 1000
-  %sub.i69.i = xor i64 %div38.i.i, -1
-  %mul4.neg.i.i = mul i64 %sub.i69.i, -1000
+  %div310.i.i = udiv i64 %millis.nonneg.i.i, 1000
+  %sub.i67.i = xor i64 %div310.i.i, -1
+  %mul4.neg.i.i = mul i64 %sub.i67.i, -1000
   %sub5.i.i = add i64 %mul4.neg.i.i, %add.i.i63.i
   %rem6.i.i = srem i64 %sub5.i.i, 1000
   br label %_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i
 
-_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i: ; preds = %if.end44.i.i.i, %if.end.i68.i
-  %retval.sroa.3.0.in.i.i = phi i64 [ %rem6.i.i, %if.end.i68.i ], [ %rem.i66.i, %if.end44.i.i.i ]
-  %retval.sroa.0.0.i.i = phi i64 [ %sub.i69.i, %if.end.i68.i ], [ %div.i71.i, %if.end44.i.i.i ]
+_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i: ; preds = %if.end.i66.i, %if.then.i68.i
+  %retval.sroa.3.0.in.i.i = phi i64 [ %rem29.i.i, %if.then.i68.i ], [ %rem6.i.i, %if.end.i66.i ]
+  %retval.sroa.0.0.i.i = phi i64 [ %div8.i.i, %if.then.i68.i ], [ %sub.i67.i, %if.end.i66.i ]
   %retval.sroa.3.0.i.i = mul nsw i64 %retval.sroa.3.0.in.i.i, 1000000
   %add.i.i49 = add nsw i64 %retval.sroa.3.0.i.i, %rem.i.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_13addINS0_9TimestampEiEET_S5_T0_i.exit
@@ -24326,24 +24327,25 @@ _ZNK8facebook5velox9Timestamp8toMillisEv.exit.i:  ; preds = %_ZNK8facebook5velox
   %mul.i = mul i64 %retval.0.i, %indvars.iv
   %add.i = add i64 %mul.i, %conv7.i.i
   %cmp.i.i = icmp sgt i64 %add.i, -1
-  %rem.i.i = srem i64 %add.i, 1000
-  %div.i3.i = sdiv i64 %add.i, 1000
-  %cmp1.i.i = icmp eq i64 %rem.i.i, 0
-  %or.cond.i1.i = or i1 %cmp.i.i, %cmp1.i.i
-  br i1 %or.cond.i1.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_13addINS0_9TimestampElEET_S5_T0_i.exit, label %if.end.i.i47
+  br i1 %cmp.i.i, label %if.then.i1.i, label %if.end.i.i47
+
+if.then.i1.i:                                     ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit.i
+  %div8.i.i = udiv i64 %add.i, 1000
+  %rem29.i.i = urem i64 %add.i, 1000
+  br label %_ZN8facebook5velox9functions12_GLOBAL__N_13addINS0_9TimestampElEET_S5_T0_i.exit
 
 if.end.i.i47:                                     ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit.i
   %millis.nonneg.i.i = sub i64 0, %add.i
-  %div38.i.i = udiv i64 %millis.nonneg.i.i, 1000
-  %sub.i.i = xor i64 %div38.i.i, -1
+  %div310.i.i = udiv i64 %millis.nonneg.i.i, 1000
+  %sub.i.i = xor i64 %div310.i.i, -1
   %mul4.neg.i.i = mul i64 %sub.i.i, -1000
   %sub5.i.i = add i64 %mul4.neg.i.i, %add.i
   %rem6.i.i = srem i64 %sub5.i.i, 1000
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_13addINS0_9TimestampElEET_S5_T0_i.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_13addINS0_9TimestampElEET_S5_T0_i.exit: ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit.i, %if.end.i.i47
-  %retval.sroa.3.0.in.i.i = phi i64 [ %rem6.i.i, %if.end.i.i47 ], [ %rem.i.i, %_ZNK8facebook5velox9Timestamp8toMillisEv.exit.i ]
-  %retval.sroa.0.0.i.i = phi i64 [ %sub.i.i, %if.end.i.i47 ], [ %div.i3.i, %_ZNK8facebook5velox9Timestamp8toMillisEv.exit.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_13addINS0_9TimestampElEET_S5_T0_i.exit: ; preds = %if.then.i1.i, %if.end.i.i47
+  %retval.sroa.3.0.in.i.i = phi i64 [ %rem29.i.i, %if.then.i1.i ], [ %rem6.i.i, %if.end.i.i47 ]
+  %retval.sroa.0.0.i.i = phi i64 [ %div8.i.i, %if.then.i1.i ], [ %sub.i.i, %if.end.i.i47 ]
   %retval.sroa.3.0.i.i = mul nsw i64 %retval.sroa.3.0.in.i.i, 1000000
   %arrayidx = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %elements, i64 %indvars.iv
   store i64 %retval.sroa.0.0.i.i, ptr %arrayidx, align 8

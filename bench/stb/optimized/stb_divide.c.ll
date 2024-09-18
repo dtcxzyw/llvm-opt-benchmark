@@ -96,17 +96,14 @@ if.then17:                                        ; preds = %if.then15
 
 if.then21:                                        ; preds = %if.then17
   %sub23.neg = sub i32 %v2, %add18
-  %div2538 = udiv i32 %sub23.neg, %v2
-  %sub26 = sub nsw i32 0, %div2538
+  %div2537 = udiv i32 %sub23.neg, %v2
+  %sub26 = sub nsw i32 0, %div2537
   br label %return
 
 if.else27:                                        ; preds = %if.then17
   %sub28 = sub nsw i32 0, %v1
   %div29 = udiv i32 %sub28, %v2
-  %rem3237 = urem i32 %sub28, %v2
-  %tobool33.not = icmp ne i32 %rem3237, 0
-  %cond34 = sext i1 %tobool33.not to i32
-  %add35 = sub nsw i32 %cond34, %div29
+  %add35 = xor i32 %div29, -1
   br label %return
 
 if.else36:                                        ; preds = %if.then15

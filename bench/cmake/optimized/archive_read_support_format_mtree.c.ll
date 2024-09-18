@@ -3560,7 +3560,7 @@ parsedigit.exit:                                  ; preds = %24, %28, %30
 36:                                               ; preds = %.lr.ph81
   %37 = icmp ne i64 %.04179, %.neg
   %.not49 = icmp slt i32 %.080, %19
-  %or.cond = or i1 %37, %.not49
+  %or.cond = select i1 %37, i1 true, i1 %.not49
   br i1 %or.cond, label %38, label %.loopexit
 
 38:                                               ; preds = %36

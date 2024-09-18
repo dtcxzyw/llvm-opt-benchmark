@@ -561,11 +561,9 @@ return:                                           ; preds = %if.end, %if.then6, 
 define i32 @stbir__edge_wrap_full(i32 noundef %n, i32 noundef %max) #1 {
 entry:
   %rem = srem i32 %n, %max
-  %cmp2.not = icmp eq i32 %rem, 0
-  %sub4 = add nsw i32 %rem, %max
-  %spec.select = select i1 %cmp2.not, i32 0, i32 %sub4
   %cmp7 = icmp slt i32 %n, 0
-  %retval.0 = select i1 %cmp7, i32 %spec.select, i32 %rem
+  %sub4 = select i1 %cmp7, i32 %max, i32 0
+  %retval.0 = add nsw i32 %rem, %sub4
   ret i32 %retval.0
 }
 

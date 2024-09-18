@@ -222,20 +222,10 @@ if.end13:                                         ; preds = %if.end
   %cond = select i1 %cmp, i8 45, i8 43
   %div = sdiv i32 %conv, 60
   %rem = srem i32 %conv, 60
-  br i1 %cmp, label %if.then17, label %if.end23
-
-if.then17:                                        ; preds = %if.end13
-  %cmp18 = icmp sgt i32 %rem, 0
-  %sub = add nuw nsw i32 %rem, -60
-  %add.neg = sext i1 %cmp18 to i32
-  %offset_minutes.1.neg = sub nsw i32 %add.neg, %div
-  %offset_seconds.1 = select i1 %cmp18, i32 %sub, i32 %rem
-  %sub21 = sub nsw i32 0, %offset_seconds.1
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.then17, %if.end13
-  %offset_minutes.0 = phi i32 [ %offset_minutes.1.neg, %if.then17 ], [ %div, %if.end13 ]
-  %offset_seconds.0 = phi i32 [ %sub21, %if.then17 ], [ %rem, %if.end13 ]
+  %sub21 = sub nsw i32 0, %rem
+  %sub22 = sub nsw i32 0, %div
+  %offset_minutes.0 = select i1 %cmp, i32 %sub22, i32 %div
+  %offset_seconds.0 = select i1 %cmp, i32 %sub21, i32 %rem
   %div24.lhs.trunc = trunc i32 %offset_minutes.0 to i16
   %div2460 = sdiv i16 %div24.lhs.trunc, 60
   %rem2561 = srem i16 %div24.lhs.trunc, 60
@@ -291,7 +281,7 @@ if.end23:                                         ; preds = %if.then17, %if.end1
   %call.i56 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc55 unwind label %lpad35
 
-call.i.noexc55:                                   ; preds = %if.end23
+call.i.noexc55:                                   ; preds = %if.end13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i56, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34)
           to label %.noexc57 unwind label %lpad35
 
@@ -307,7 +297,7 @@ lpad.i54:                                         ; preds = %.noexc57
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #10
   br label %eh.resume
 
-lpad35:                                           ; preds = %call.i.noexc55, %if.end23
+lpad35:                                           ; preds = %call.i.noexc55, %if.end13
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume

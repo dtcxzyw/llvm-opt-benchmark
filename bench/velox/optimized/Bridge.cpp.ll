@@ -196633,24 +196633,25 @@ if.then8.i266:                                    ; preds = %invoke.cont6.i
   %arrayidx.i267 = getelementptr inbounds i64, ptr %219, i64 %i.034.i
   %238 = load i64, ptr %arrayidx.i267, align 8, !noalias !1782
   %cmp.i.i268 = icmp sgt i64 %238, -1
-  %rem.i.i = srem i64 %238, 1000000000
-  %div.i.i = sdiv i64 %238, 1000000000
-  %cmp1.i.i = icmp eq i64 %rem.i.i, 0
-  %or.cond.i.i = or i1 %cmp.i.i268, %cmp1.i.i
-  br i1 %or.cond.i.i, label %invoke.cont10.i, label %if.end.i.i269
+  br i1 %cmp.i.i268, label %if.then.i13.i, label %if.end.i.i269
+
+if.then.i13.i:                                    ; preds = %if.then8.i266
+  %div8.i.i = udiv i64 %238, 1000000000
+  %rem29.i.i = urem i64 %238, 1000000000
+  br label %invoke.cont10.i
 
 if.end.i.i269:                                    ; preds = %if.then8.i266
   %nanos.nonneg.i.i = sub i64 0, %238
-  %div38.i.i = udiv i64 %nanos.nonneg.i.i, 1000000000
-  %sub.i12.i = xor i64 %div38.i.i, -1
+  %div310.i.i = udiv i64 %nanos.nonneg.i.i, 1000000000
+  %sub.i12.i = xor i64 %div310.i.i, -1
   %mul.neg.i.i = mul i64 %sub.i12.i, -1000000000
   %sub4.i.i = add i64 %mul.neg.i.i, %238
   %rem5.i.i = srem i64 %sub4.i.i, 1000000000
   br label %invoke.cont10.i
 
-invoke.cont10.i:                                  ; preds = %if.then8.i266, %if.end.i.i269
-  %retval.sroa.3.0.i.i = phi i64 [ %rem5.i.i, %if.end.i.i269 ], [ %rem.i.i, %if.then8.i266 ]
-  %retval.sroa.0.0.i.i = phi i64 [ %sub.i12.i, %if.end.i.i269 ], [ %div.i.i, %if.then8.i266 ]
+invoke.cont10.i:                                  ; preds = %if.end.i.i269, %if.then.i13.i
+  %retval.sroa.3.0.i.i = phi i64 [ %rem29.i.i, %if.then.i13.i ], [ %rem5.i.i, %if.end.i.i269 ]
+  %retval.sroa.0.0.i.i = phi i64 [ %div8.i.i, %if.then.i13.i ], [ %sub.i12.i, %if.end.i.i269 ]
   %arrayidx12.i = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %233, i64 %i.034.i
   store i64 %retval.sroa.0.0.i.i, ptr %arrayidx12.i, align 8, !noalias !1782
   %ref.tmp9.sroa.2.0.arrayidx12.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx12.i, i64 8

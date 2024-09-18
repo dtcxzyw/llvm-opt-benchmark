@@ -109,27 +109,25 @@ entry:
   %call = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #16
   %div.i.i = sdiv i64 %call, 1000000
   %cmp.i = icmp sgt i64 %call, -1000000
-  %rem.i = srem i64 %div.i.i, 1000
-  %cmp1.i = icmp eq i64 %rem.i, 0
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.i, label %if.then.i, label %if.end.i
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %div.i = sdiv i64 %call, 1000000000
+  %div8.i = udiv i64 %div.i.i, 1000
+  %rem29.i = urem i64 %div.i.i, 1000
   br label %_ZN8facebook5velox9Timestamp10fromMillisEl.exit
 
 if.end.i:                                         ; preds = %entry
   %millis.nonneg.i = sub nsw i64 0, %div.i.i
-  %div38.i = udiv i64 %millis.nonneg.i, 1000
-  %sub.i = xor i64 %div38.i, -1
+  %div310.i = udiv i64 %millis.nonneg.i, 1000
+  %sub.i = xor i64 %div310.i, -1
   %mul4.neg.i = mul nsw i64 %sub.i, -1000
   %sub5.i = add nsw i64 %mul4.neg.i, %div.i.i
   %rem6.i = srem i64 %sub5.i, 1000
   br label %_ZN8facebook5velox9Timestamp10fromMillisEl.exit
 
 _ZN8facebook5velox9Timestamp10fromMillisEl.exit:  ; preds = %if.then.i, %if.end.i
-  %retval.sroa.3.0.in.i = phi i64 [ %rem.i, %if.then.i ], [ %rem6.i, %if.end.i ]
-  %retval.sroa.0.0.i = phi i64 [ %div.i, %if.then.i ], [ %sub.i, %if.end.i ]
+  %retval.sroa.3.0.in.i = phi i64 [ %rem29.i, %if.then.i ], [ %rem6.i, %if.end.i ]
+  %retval.sroa.0.0.i = phi i64 [ %div8.i, %if.then.i ], [ %sub.i, %if.end.i ]
   %retval.sroa.3.0.i = mul nsw i64 %retval.sroa.3.0.in.i, 1000000
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %retval.sroa.3.0.i, 1

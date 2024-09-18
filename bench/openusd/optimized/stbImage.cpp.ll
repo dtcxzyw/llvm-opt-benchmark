@@ -12670,11 +12670,9 @@ define internal noundef i32 @_ZL24stbir__edge_reflect_fullii(i32 noundef %0, i32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i32 @_ZL21stbir__edge_wrap_fullii(i32 noundef %0, i32 noundef %1) #9 {
   %3 = srem i32 %0, %1
-  %.not = icmp eq i32 %3, 0
-  %4 = add nsw i32 %3, %1
-  %spec.select = select i1 %.not, i32 0, i32 %4
-  %5 = icmp slt i32 %0, 0
-  %.010 = select i1 %5, i32 %spec.select, i32 %3
+  %4 = icmp slt i32 %0, 0
+  %5 = select i1 %4, i32 %1, i32 0
+  %.010 = add nsw i32 %3, %5
   ret i32 %.010
 }
 
@@ -29606,8 +29604,8 @@ _ZL16stbir__edge_wrap10stbir_edgeii.exit:         ; preds = %3, %21
   %99 = load i32, ptr %indvars.iv.sroa.phi, align 4
   %100 = mul nsw i32 %99, %7
   %101 = sext i32 %100 to i64
-  %.idx95 = shl nsw i64 %101, 2
-  %102 = getelementptr inbounds i8, ptr %41, i64 %.idx95
+  %.idx94 = shl nsw i64 %101, 2
+  %102 = getelementptr inbounds i8, ptr %41, i64 %.idx94
   %103 = icmp sgt i32 %99, -1
   %104 = icmp slt i32 %99, %92
   %or.cond.i90 = and i1 %103, %104
@@ -29615,25 +29613,23 @@ _ZL16stbir__edge_wrap10stbir_edgeii.exit:         ; preds = %3, %21
 
 105:                                              ; preds = %98
   %106 = srem i32 %99, %92
-  %.not.i94 = icmp eq i32 %106, 0
-  %107 = add nsw i32 %106, %92
-  %spec.select.i = select i1 %.not.i94, i32 0, i32 %107
-  %108 = icmp slt i32 %99, 0
-  %.010.i = select i1 %108, i32 %spec.select.i, i32 %106
+  %107 = icmp slt i32 %99, 0
+  %108 = select i1 %107, i32 %92, i32 0
+  %.010.i = add nsw i32 %106, %108
   %.pre = mul nsw i32 %.010.i, %7
-  %.pre102 = sext i32 %.pre to i64
-  %.pre104 = shl nsw i64 %.pre102, 2
+  %.pre101 = sext i32 %.pre to i64
+  %.pre103 = shl nsw i64 %.pre101, 2
   br label %_ZL16stbir__edge_wrap10stbir_edgeii.exit92
 
 _ZL16stbir__edge_wrap10stbir_edgeii.exit92:       ; preds = %98, %105
-  %.idx.pre-phi = phi i64 [ %.idx95, %98 ], [ %.pre104, %105 ]
+  %.idx.pre-phi = phi i64 [ %.idx94, %98 ], [ %.pre103, %105 ]
   %109 = getelementptr inbounds i8, ptr %41, i64 %.idx.pre-phi
   %110 = mul nsw i32 %97, %7
   %111 = sext i32 %110 to i64
   %112 = shl nsw i64 %111, 2
   %113 = getelementptr inbounds i8, ptr %102, i64 %112
   %114 = ptrtoint ptr %102 to i64
-  %gepdiff = sub nsw i64 %.idx.pre-phi, %.idx95
+  %gepdiff = sub nsw i64 %.idx.pre-phi, %.idx94
   %115 = icmp ult i64 %112, 64
   br i1 %115, label %116, label %137
 

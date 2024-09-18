@@ -473,248 +473,199 @@ define dso_local i64 @cash_out(ptr nocapture noundef readonly %0) local_unnamed_
   %narrow = select i1 %or.cond, i8 2, i8 %7
   %narrow.fr = freeze i8 %narrow
   %spec.store.select = sext i8 %narrow.fr to i32
-  %8 = getelementptr inbounds i8, ptr %5, i64 56
+  %8 = getelementptr inbounds i8, ptr %5, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
-  %11 = add i8 %10, -7
-  %or.cond3 = icmp ult i8 %11, -6
-  %narrow116 = select i1 %or.cond3, i8 3, i8 %10
-  %spec.store.select6 = sext i8 %narrow116 to i32
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i8, ptr %13, align 1
-  %.fr = freeze i8 %14
-  %.not = icmp eq i8 %.fr, 0
-  br i1 %.not, label %.thread, label %15
+  %.not = icmp eq i8 %10, 0
+  br i1 %.not, label %15, label %11
 
-15:                                               ; preds = %1
-  %16 = getelementptr i8, ptr %13, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %19, label %.thread
+11:                                               ; preds = %1
+  %12 = getelementptr i8, ptr %9, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %16, label %15
 
-19:                                               ; preds = %15
-  %.not118 = icmp eq i8 %.fr, 44
-  %spec.select132 = select i1 %.not118, ptr @.str.1, ptr @.str
-  br label %.thread
+15:                                               ; preds = %11, %1
+  br label %16
 
-.thread:                                          ; preds = %15, %1, %19
-  %.0110130 = phi i8 [ %.fr, %19 ], [ 46, %1 ], [ 46, %15 ]
-  %20 = phi ptr [ %spec.select132, %19 ], [ @.str, %1 ], [ @.str, %15 ]
-  %.in = getelementptr inbounds i8, ptr %5, i64 48
-  %21 = load ptr, ptr %.in, align 8
-  %.not117131.in = load i8, ptr %21, align 1
-  %.not117131 = icmp eq i8 %.not117131.in, 0
-  %.0109 = select i1 %.not117131, ptr %20, ptr %21
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i8, ptr %23, align 1
-  %.not119 = icmp eq i8 %24, 0
-  %25 = select i1 %.not119, ptr @.str.2, ptr %23
-  %26 = icmp slt i64 %4, 0
-  br i1 %26, label %27, label %32
+16:                                               ; preds = %11, %15
+  %.0110 = phi i8 [ 46, %15 ], [ %10, %11 ]
+  %17 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i8, ptr %18, align 1
+  %.not119 = icmp eq i8 %19, 0
+  %20 = select i1 %.not119, ptr @.str.2, ptr %18
+  %21 = icmp slt i64 %4, 0
+  br i1 %21, label %22, label %27
 
-27:                                               ; preds = %.thread
-  %28 = sub i64 0, %4
-  %29 = getelementptr inbounds i8, ptr %5, i64 72
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i8, ptr %30, align 1
-  %.not120 = icmp eq i8 %31, 0
-  %spec.select = select i1 %.not120, ptr @.str.4, ptr %30
-  br label %35
+22:                                               ; preds = %16
+  %23 = sub i64 0, %4
+  %24 = getelementptr inbounds i8, ptr %5, i64 72
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i8, ptr %25, align 1
+  %.not120 = icmp eq i8 %26, 0
+  %spec.select = select i1 %.not120, ptr @.str.4, ptr %25
+  br label %30
 
-32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds i8, ptr %5, i64 64
-  %34 = load ptr, ptr %33, align 8
-  br label %35
+27:                                               ; preds = %16
+  %28 = getelementptr inbounds i8, ptr %5, i64 64
+  %29 = load ptr, ptr %28, align 8
+  br label %30
 
-35:                                               ; preds = %32, %27
-  %.sink142 = phi i64 [ 86, %32 ], [ 87, %27 ]
-  %.sink141 = phi i64 [ 82, %32 ], [ 84, %27 ]
-  %.sink = phi i64 [ 83, %32 ], [ 85, %27 ]
-  %.0107 = phi ptr [ %34, %32 ], [ %spec.select, %27 ]
-  %.0 = phi i64 [ %4, %32 ], [ %28, %27 ]
-  %36 = getelementptr inbounds i8, ptr %5, i64 %.sink142
-  %37 = getelementptr inbounds i8, ptr %5, i64 %.sink141
-  %38 = getelementptr inbounds i8, ptr %5, i64 %.sink
-  %.0104 = load i8, ptr %38, align 1
-  %.0105 = load i8, ptr %37, align 2
-  %.0106 = load i8, ptr %36, align 1
-  %39 = getelementptr inbounds i8, ptr %2, i64 127
-  store i8 0, ptr %39, align 1
-  %.not136 = icmp eq i8 %narrow.fr, 0
-  br i1 %.not136, label %.split.us, label %.split
+30:                                               ; preds = %27, %22
+  %.sink134 = phi i64 [ 86, %27 ], [ 87, %22 ]
+  %.sink133 = phi i64 [ 82, %27 ], [ 84, %22 ]
+  %.sink = phi i64 [ 83, %27 ], [ 85, %22 ]
+  %.0107 = phi ptr [ %29, %27 ], [ %spec.select, %22 ]
+  %.0 = phi i64 [ %4, %27 ], [ %23, %22 ]
+  %31 = getelementptr inbounds i8, ptr %5, i64 %.sink134
+  %32 = getelementptr inbounds i8, ptr %5, i64 %.sink133
+  %33 = getelementptr inbounds i8, ptr %5, i64 %.sink
+  %.0104 = load i8, ptr %33, align 1
+  %.0105 = load i8, ptr %32, align 2
+  %.0106 = load i8, ptr %31, align 1
+  %34 = getelementptr inbounds i8, ptr %2, i64 127
+  store i8 0, ptr %34, align 1
+  %.not128 = icmp eq i8 %narrow.fr, 0
+  br i1 %.not128, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %35, %48
-  %.0112.us = phi ptr [ %52, %48 ], [ %39, %35 ]
-  %.0111.us = phi i32 [ %54, %48 ], [ 0, %35 ]
-  %.1.us = phi i64 [ %53, %48 ], [ %.0, %35 ]
-  %40 = icmp slt i32 %.0111.us, 0
-  br i1 %40, label %41, label %48
+.split.us:                                        ; preds = %30, %.split.us
+  %.0112.us = phi ptr [ %38, %.split.us ], [ %34, %30 ]
+  %.0111.us = phi i32 [ %40, %.split.us ], [ 0, %30 ]
+  %.1.us = phi i64 [ %39, %.split.us ], [ %.0, %30 ]
+  %35 = urem i64 %.1.us, 10
+  %36 = trunc nuw nsw i64 %35 to i8
+  %37 = or disjoint i8 %36, 48
+  %38 = getelementptr i8, ptr %.0112.us, i64 -1
+  store i8 %37, ptr %38, align 1
+  %39 = udiv i64 %.1.us, 10
+  %40 = add i32 %.0111.us, -1
+  %41 = icmp ugt i64 %.1.us, 9
+  %42 = icmp sgt i32 %40, -1
+  %43 = select i1 %41, i1 true, i1 %42
+  br i1 %43, label %.split.us, label %.split127.us, !llvm.loop !14
 
-41:                                               ; preds = %.split.us
-  %42 = srem i32 %.0111.us, %spec.store.select6
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %48
+.split:                                           ; preds = %30, %47
+  %.0112 = phi ptr [ %51, %47 ], [ %34, %30 ]
+  %.0111 = phi i32 [ %53, %47 ], [ %spec.store.select, %30 ]
+  %.1 = phi i64 [ %52, %47 ], [ %.0, %30 ]
+  %44 = icmp eq i32 %.0111, 0
+  br i1 %44, label %45, label %47
 
-44:                                               ; preds = %41
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0109) #14
-  %46 = sub i64 0, %45
-  %47 = getelementptr i8, ptr %.0112.us, i64 %46
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 1 %.0109, i64 %45, i1 false)
-  br label %48
+45:                                               ; preds = %.split
+  %46 = getelementptr i8, ptr %.0112, i64 -1
+  store i8 %.0110, ptr %46, align 1
+  br label %47
 
-48:                                               ; preds = %44, %41, %.split.us
-  %.1113.us = phi ptr [ %47, %44 ], [ %.0112.us, %41 ], [ %.0112.us, %.split.us ]
-  %49 = urem i64 %.1.us, 10
-  %50 = trunc nuw nsw i64 %49 to i8
-  %51 = or disjoint i8 %50, 48
-  %52 = getelementptr i8, ptr %.1113.us, i64 -1
-  store i8 %51, ptr %52, align 1
-  %53 = udiv i64 %.1.us, 10
-  %54 = add i32 %.0111.us, -1
-  %55 = icmp ugt i64 %.1.us, 9
-  %56 = icmp sgt i32 %54, -1
-  %57 = or i1 %55, %56
-  br i1 %57, label %.split.us, label %.split134.us, !llvm.loop !14
+47:                                               ; preds = %.split, %45
+  %.1113 = phi ptr [ %46, %45 ], [ %.0112, %.split ]
+  %48 = urem i64 %.1, 10
+  %49 = trunc nuw nsw i64 %48 to i8
+  %50 = or disjoint i8 %49, 48
+  %51 = getelementptr i8, ptr %.1113, i64 -1
+  store i8 %50, ptr %51, align 1
+  %52 = udiv i64 %.1, 10
+  %53 = add i32 %.0111, -1
+  %54 = icmp ugt i64 %.1, 9
+  %55 = icmp sgt i32 %53, -1
+  %56 = or i1 %54, %55
+  br i1 %56, label %.split, label %.split127.us, !llvm.loop !14
 
-.split:                                           ; preds = %35, %70
-  %.0112 = phi ptr [ %74, %70 ], [ %39, %35 ]
-  %.0111 = phi i32 [ %76, %70 ], [ %spec.store.select, %35 ]
-  %.1 = phi i64 [ %75, %70 ], [ %.0, %35 ]
-  %58 = icmp eq i32 %.0111, 0
-  br i1 %58, label %59, label %61
-
-59:                                               ; preds = %.split
-  %60 = getelementptr i8, ptr %.0112, i64 -1
-  store i8 %.0110130, ptr %60, align 1
-  br label %70
-
-61:                                               ; preds = %.split
-  %62 = icmp slt i32 %.0111, 0
-  br i1 %62, label %63, label %70
-
-63:                                               ; preds = %61
-  %64 = srem i32 %.0111, %spec.store.select6
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %70
-
-66:                                               ; preds = %63
-  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0109) #14
-  %68 = sub i64 0, %67
-  %69 = getelementptr i8, ptr %.0112, i64 %68
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr nonnull align 1 %.0109, i64 %67, i1 false)
-  br label %70
-
-70:                                               ; preds = %61, %63, %66, %59
-  %.1113 = phi ptr [ %60, %59 ], [ %69, %66 ], [ %.0112, %63 ], [ %.0112, %61 ]
-  %71 = urem i64 %.1, 10
-  %72 = trunc nuw nsw i64 %71 to i8
-  %73 = or disjoint i8 %72, 48
-  %74 = getelementptr i8, ptr %.1113, i64 -1
-  store i8 %73, ptr %74, align 1
-  %75 = udiv i64 %.1, 10
-  %76 = add i32 %.0111, -1
-  %77 = icmp ugt i64 %.1, 9
-  %78 = icmp sgt i32 %76, -1
-  %79 = or i1 %77, %78
-  br i1 %79, label %.split, label %.split134.us, !llvm.loop !14
-
-.split134.us:                                     ; preds = %70, %48
-  %.us-phi = phi ptr [ %52, %48 ], [ %74, %70 ]
+.split127.us:                                     ; preds = %47, %.split.us
+  %.us-phi = phi ptr [ %38, %.split.us ], [ %51, %47 ]
   %.not125 = icmp eq i8 %.0105, 0
-  switch i8 %.0106, label %87 [
-    i8 0, label %80
-    i8 4, label %118
-    i8 2, label %96
-    i8 3, label %105
+  switch i8 %.0106, label %64 [
+    i8 0, label %57
+    i8 4, label %95
+    i8 2, label %73
+    i8 3, label %82
   ]
 
-80:                                               ; preds = %.split134.us
-  %81 = icmp eq i8 %.0104, 1
-  %82 = select i1 %81, ptr @.str.10, ptr @.str.11
-  br i1 %.not125, label %85, label %83
+57:                                               ; preds = %.split127.us
+  %58 = icmp eq i8 %.0104, 1
+  %59 = select i1 %58, ptr @.str.10, ptr @.str.11
+  br i1 %.not125, label %62, label %60
 
-83:                                               ; preds = %80
-  %84 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef nonnull %25, ptr noundef nonnull %82, ptr noundef nonnull %.us-phi) #12
-  br label %131
+60:                                               ; preds = %57
+  %61 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef nonnull %20, ptr noundef nonnull %59, ptr noundef nonnull %.us-phi) #12
+  br label %108
 
-85:                                               ; preds = %80
-  %86 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef nonnull %.us-phi, ptr noundef nonnull %82, ptr noundef nonnull %25) #12
-  br label %131
+62:                                               ; preds = %57
+  %63 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef nonnull %.us-phi, ptr noundef nonnull %59, ptr noundef nonnull %20) #12
+  br label %108
 
-87:                                               ; preds = %.split134.us
-  %88 = icmp eq i8 %.0104, 2
-  %89 = select i1 %88, ptr @.str.10, ptr @.str.11
+64:                                               ; preds = %.split127.us
+  %65 = icmp eq i8 %.0104, 2
+  %66 = select i1 %65, ptr @.str.10, ptr @.str.11
+  %67 = icmp eq i8 %.0104, 1
+  %68 = select i1 %67, ptr @.str.10, ptr @.str.11
+  br i1 %.not125, label %71, label %69
+
+69:                                               ; preds = %64
+  %70 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef %.0107, ptr noundef nonnull %66, ptr noundef nonnull %20, ptr noundef nonnull %68, ptr noundef nonnull %.us-phi) #12
+  br label %108
+
+71:                                               ; preds = %64
+  %72 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef %.0107, ptr noundef nonnull %66, ptr noundef nonnull %.us-phi, ptr noundef nonnull %68, ptr noundef nonnull %20) #12
+  br label %108
+
+73:                                               ; preds = %.split127.us
+  %74 = icmp eq i8 %.0104, 1
+  %75 = select i1 %74, ptr @.str.10, ptr @.str.11
+  %76 = icmp eq i8 %.0104, 2
+  %77 = select i1 %76, ptr @.str.10, ptr @.str.11
+  br i1 %.not125, label %80, label %78
+
+78:                                               ; preds = %73
+  %79 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %20, ptr noundef nonnull %75, ptr noundef nonnull %.us-phi, ptr noundef nonnull %77, ptr noundef %.0107) #12
+  br label %108
+
+80:                                               ; preds = %73
+  %81 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %.us-phi, ptr noundef nonnull %75, ptr noundef nonnull %20, ptr noundef nonnull %77, ptr noundef %.0107) #12
+  br label %108
+
+82:                                               ; preds = %.split127.us
+  br i1 %.not125, label %89, label %83
+
+83:                                               ; preds = %82
+  %84 = icmp eq i8 %.0104, 2
+  %85 = select i1 %84, ptr @.str.10, ptr @.str.11
+  %86 = icmp eq i8 %.0104, 1
+  %87 = select i1 %86, ptr @.str.10, ptr @.str.11
+  %88 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef %.0107, ptr noundef nonnull %85, ptr noundef nonnull %20, ptr noundef nonnull %87, ptr noundef nonnull %.us-phi) #12
+  br label %108
+
+89:                                               ; preds = %82
   %90 = icmp eq i8 %.0104, 1
   %91 = select i1 %90, ptr @.str.10, ptr @.str.11
-  br i1 %.not125, label %94, label %92
+  %92 = icmp eq i8 %.0104, 2
+  %93 = select i1 %92, ptr @.str.10, ptr @.str.11
+  %94 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %.us-phi, ptr noundef nonnull %91, ptr noundef %.0107, ptr noundef nonnull %93, ptr noundef nonnull %20) #12
+  br label %108
 
-92:                                               ; preds = %87
-  %93 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef %.0107, ptr noundef nonnull %89, ptr noundef nonnull %25, ptr noundef nonnull %91, ptr noundef nonnull %.us-phi) #12
-  br label %131
+95:                                               ; preds = %.split127.us
+  br i1 %.not125, label %102, label %96
 
-94:                                               ; preds = %87
-  %95 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef %.0107, ptr noundef nonnull %89, ptr noundef nonnull %.us-phi, ptr noundef nonnull %91, ptr noundef nonnull %25) #12
-  br label %131
-
-96:                                               ; preds = %.split134.us
-  %97 = icmp eq i8 %.0104, 1
+96:                                               ; preds = %95
+  %97 = icmp eq i8 %.0104, 2
   %98 = select i1 %97, ptr @.str.10, ptr @.str.11
-  %99 = icmp eq i8 %.0104, 2
+  %99 = icmp eq i8 %.0104, 1
   %100 = select i1 %99, ptr @.str.10, ptr @.str.11
-  br i1 %.not125, label %103, label %101
+  %101 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %20, ptr noundef nonnull %98, ptr noundef %.0107, ptr noundef nonnull %100, ptr noundef nonnull %.us-phi) #12
+  br label %108
 
-101:                                              ; preds = %96
-  %102 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %25, ptr noundef nonnull %98, ptr noundef nonnull %.us-phi, ptr noundef nonnull %100, ptr noundef %.0107) #12
-  br label %131
+102:                                              ; preds = %95
+  %103 = icmp eq i8 %.0104, 1
+  %104 = select i1 %103, ptr @.str.10, ptr @.str.11
+  %105 = icmp eq i8 %.0104, 2
+  %106 = select i1 %105, ptr @.str.10, ptr @.str.11
+  %107 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %.us-phi, ptr noundef nonnull %104, ptr noundef nonnull %20, ptr noundef nonnull %106, ptr noundef %.0107) #12
+  br label %108
 
-103:                                              ; preds = %96
-  %104 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %.us-phi, ptr noundef nonnull %98, ptr noundef nonnull %25, ptr noundef nonnull %100, ptr noundef %.0107) #12
-  br label %131
-
-105:                                              ; preds = %.split134.us
-  br i1 %.not125, label %112, label %106
-
-106:                                              ; preds = %105
-  %107 = icmp eq i8 %.0104, 2
-  %108 = select i1 %107, ptr @.str.10, ptr @.str.11
-  %109 = icmp eq i8 %.0104, 1
-  %110 = select i1 %109, ptr @.str.10, ptr @.str.11
-  %111 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef %.0107, ptr noundef nonnull %108, ptr noundef nonnull %25, ptr noundef nonnull %110, ptr noundef nonnull %.us-phi) #12
-  br label %131
-
-112:                                              ; preds = %105
-  %113 = icmp eq i8 %.0104, 1
-  %114 = select i1 %113, ptr @.str.10, ptr @.str.11
-  %115 = icmp eq i8 %.0104, 2
-  %116 = select i1 %115, ptr @.str.10, ptr @.str.11
-  %117 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %.us-phi, ptr noundef nonnull %114, ptr noundef %.0107, ptr noundef nonnull %116, ptr noundef nonnull %25) #12
-  br label %131
-
-118:                                              ; preds = %.split134.us
-  br i1 %.not125, label %125, label %119
-
-119:                                              ; preds = %118
-  %120 = icmp eq i8 %.0104, 2
-  %121 = select i1 %120, ptr @.str.10, ptr @.str.11
-  %122 = icmp eq i8 %.0104, 1
-  %123 = select i1 %122, ptr @.str.10, ptr @.str.11
-  %124 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %25, ptr noundef nonnull %121, ptr noundef %.0107, ptr noundef nonnull %123, ptr noundef nonnull %.us-phi) #12
-  br label %131
-
-125:                                              ; preds = %118
-  %126 = icmp eq i8 %.0104, 1
-  %127 = select i1 %126, ptr @.str.10, ptr @.str.11
-  %128 = icmp eq i8 %.0104, 2
-  %129 = select i1 %128, ptr @.str.10, ptr @.str.11
-  %130 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %.us-phi, ptr noundef nonnull %127, ptr noundef nonnull %25, ptr noundef nonnull %129, ptr noundef %.0107) #12
-  br label %131
-
-131:                                              ; preds = %119, %125, %106, %112, %101, %103, %92, %94, %83, %85
-  %.0108 = phi ptr [ %93, %92 ], [ %95, %94 ], [ %111, %106 ], [ %117, %112 ], [ %102, %101 ], [ %104, %103 ], [ %124, %119 ], [ %130, %125 ], [ %84, %83 ], [ %86, %85 ]
-  %132 = ptrtoint ptr %.0108 to i64
-  ret i64 %132
+108:                                              ; preds = %96, %102, %83, %89, %78, %80, %69, %71, %60, %62
+  %.0108 = phi ptr [ %70, %69 ], [ %72, %71 ], [ %88, %83 ], [ %94, %89 ], [ %79, %78 ], [ %81, %80 ], [ %101, %96 ], [ %107, %102 ], [ %61, %60 ], [ %63, %62 ]
+  %109 = ptrtoint ptr %.0108 to i64
+  ret i64 %109
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

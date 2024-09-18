@@ -60518,9 +60518,9 @@ define internal fastcc { i64, i64 } @_ZN8facebook5velox12_GLOBAL__N_113randTimes
 entry:
   switch i8 %opts.97.val, label %return [
     i8 0, label %for.cond85.i.i.i.i
-    i8 1, label %for.cond.i32
-    i8 2, label %for.cond.i60
-    i8 3, label %for.cond85.i.i.i.i24
+    i8 1, label %for.cond.i29
+    i8 2, label %for.cond.i57
+    i8 3, label %for.cond85.i.i.i.i22
   ]
 
 for.cond85.i.i.i.i:                               ; preds = %entry, %for.cond85.i.i.i.i
@@ -60539,8 +60539,8 @@ if.end45.i:                                       ; preds = %for.cond.i
   %add47.i = add i64 %mul46.i, %call29.i
   %cmp48.i = icmp ult i64 %add47.i, %mul46.i
   %cmp51.i = icmp slt i64 %add47.i, 0
-  %or.cond.i31 = or i1 %cmp48.i, %cmp51.i
-  br i1 %or.cond.i31, label %for.cond.i.backedge, label %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit
+  %or.cond.i = or i1 %cmp48.i, %cmp51.i
+  br i1 %or.cond.i, label %for.cond.i.backedge, label %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit
 
 for.cond.i.backedge:                              ; preds = %if.end45.i, %for.cond.i
   br label %for.cond.i, !llvm.loop !19
@@ -60550,64 +60550,64 @@ _ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32E
   %rem = urem i64 %add47.i, 1000000000
   br label %return
 
-for.cond.i32:                                     ; preds = %entry, %for.cond.i32.backedge
-  %call29.i36 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng)
-  %call40.i47 = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %rng, i64 noundef 0, i64 noundef 2147483647)
-  %mul.ov.i49 = icmp ugt i64 %call40.i47, 4294967295
-  br i1 %mul.ov.i49, label %for.cond.i32.backedge, label %if.end45.i50
+for.cond.i29:                                     ; preds = %entry, %for.cond.i29.backedge
+  %call29.i33 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng)
+  %call40.i44 = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %rng, i64 noundef 0, i64 noundef 2147483647)
+  %mul.ov.i46 = icmp ugt i64 %call40.i44, 4294967295
+  br i1 %mul.ov.i46, label %for.cond.i29.backedge, label %if.end45.i47
 
-if.end45.i50:                                     ; preds = %for.cond.i32
-  %mul46.i51 = shl nuw i64 %call40.i47, 32
-  %add47.i52 = add i64 %mul46.i51, %call29.i36
-  %cmp48.i53 = icmp ult i64 %add47.i52, %mul46.i51
-  %cmp51.i54 = icmp slt i64 %add47.i52, 0
-  %or.cond.i55 = or i1 %cmp48.i53, %cmp51.i54
-  br i1 %or.cond.i55, label %for.cond.i32.backedge, label %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit59.thread
+if.end45.i47:                                     ; preds = %for.cond.i29
+  %mul46.i48 = shl nuw i64 %call40.i44, 32
+  %add47.i49 = add i64 %mul46.i48, %call29.i33
+  %cmp48.i50 = icmp ult i64 %add47.i49, %mul46.i48
+  %cmp51.i51 = icmp slt i64 %add47.i49, 0
+  %or.cond.i52 = or i1 %cmp48.i50, %cmp51.i51
+  br i1 %or.cond.i52, label %for.cond.i29.backedge, label %if.then.i
 
-for.cond.i32.backedge:                            ; preds = %if.end45.i50, %for.cond.i32
-  br label %for.cond.i32, !llvm.loop !19
+for.cond.i29.backedge:                            ; preds = %if.end45.i47, %for.cond.i29
+  br label %for.cond.i29, !llvm.loop !19
 
-_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit59.thread: ; preds = %if.end45.i50
-  %rem.i315 = urem i64 %add47.i52, 1000000
-  %0 = udiv i64 %add47.i52, 1000000
-  %1 = mul nuw nsw i64 %rem.i315, 1000
+if.then.i:                                        ; preds = %if.end45.i47
+  %div8.i = udiv i64 %add47.i49, 1000000
+  %rem29.i = urem i64 %add47.i49, 1000000
+  %0 = mul nuw nsw i64 %rem29.i, 1000
   br label %return
 
-for.cond.i60:                                     ; preds = %entry, %for.cond.i60.backedge
-  %call29.i64 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng)
-  %call40.i75 = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %rng, i64 noundef 0, i64 noundef 2147483647)
-  %mul.ov.i77 = icmp ugt i64 %call40.i75, 4294967295
-  br i1 %mul.ov.i77, label %for.cond.i60.backedge, label %if.end45.i78
+for.cond.i57:                                     ; preds = %entry, %for.cond.i57.backedge
+  %call29.i61 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng)
+  %call40.i72 = tail call noundef i64 @_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEmEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(5000) %rng, i64 noundef 0, i64 noundef 2147483647)
+  %mul.ov.i74 = icmp ugt i64 %call40.i72, 4294967295
+  br i1 %mul.ov.i74, label %for.cond.i57.backedge, label %if.end45.i75
 
-if.end45.i78:                                     ; preds = %for.cond.i60
-  %mul46.i79 = shl nuw i64 %call40.i75, 32
-  %add47.i80 = add i64 %mul46.i79, %call29.i64
-  %cmp48.i81 = icmp ult i64 %add47.i80, %mul46.i79
-  %cmp51.i82 = icmp slt i64 %add47.i80, 0
-  %or.cond.i83 = or i1 %cmp48.i81, %cmp51.i82
-  br i1 %or.cond.i83, label %for.cond.i60.backedge, label %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit87.thread
+if.end45.i75:                                     ; preds = %for.cond.i57
+  %mul46.i76 = shl nuw i64 %call40.i72, 32
+  %add47.i77 = add i64 %mul46.i76, %call29.i61
+  %cmp48.i78 = icmp ult i64 %add47.i77, %mul46.i76
+  %cmp51.i79 = icmp slt i64 %add47.i77, 0
+  %or.cond.i80 = or i1 %cmp48.i78, %cmp51.i79
+  br i1 %or.cond.i80, label %for.cond.i57.backedge, label %if.then.i19
 
-for.cond.i60.backedge:                            ; preds = %if.end45.i78, %for.cond.i60
-  br label %for.cond.i60, !llvm.loop !19
+for.cond.i57.backedge:                            ; preds = %if.end45.i75, %for.cond.i57
+  br label %for.cond.i57, !llvm.loop !19
 
-_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit87.thread: ; preds = %if.end45.i78
-  %rem.i81016 = urem i64 %add47.i80, 1000
-  %2 = udiv i64 %add47.i80, 1000
-  %3 = mul nuw nsw i64 %rem.i81016, 1000000
+if.then.i19:                                      ; preds = %if.end45.i75
+  %div8.i20 = udiv i64 %add47.i77, 1000
+  %rem29.i21 = urem i64 %add47.i77, 1000
+  %1 = mul nuw nsw i64 %rem29.i21, 1000000
   br label %return
 
-for.cond85.i.i.i.i24:                             ; preds = %entry, %for.cond85.i.i.i.i24
-  %call88.i.i.i.i25 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng)
-  %cmp92.not.i.i.i.i26 = icmp ugt i64 %call88.i.i.i.i25, 4294967295
-  br i1 %cmp92.not.i.i.i.i26, label %for.cond85.i.i.i.i24, label %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit29, !llvm.loop !10
+for.cond85.i.i.i.i22:                             ; preds = %entry, %for.cond85.i.i.i.i22
+  %call88.i.i.i.i23 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng)
+  %cmp92.not.i.i.i.i24 = icmp ugt i64 %call88.i.i.i.i23, 4294967295
+  br i1 %cmp92.not.i.i.i.i24, label %for.cond85.i.i.i.i22, label %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit27, !llvm.loop !10
 
-_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit29: ; preds = %for.cond85.i.i.i.i24
-  %div90.i.i.i2.i27 = lshr i64 %call88.i.i.i.i25, 1
+_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit27: ; preds = %for.cond85.i.i.i.i22
+  %div90.i.i.i2.i25 = lshr i64 %call88.i.i.i.i23, 1
   br label %return
 
-return:                                           ; preds = %entry, %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit29, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit87.thread, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit59.thread, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit
-  %retval.sroa.0.0 = phi i64 [ %div90.i.i.i2.i27, %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit29 ], [ %2, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit87.thread ], [ %0, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit59.thread ], [ %div90.i.i.i2.i, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit ], [ 0, %entry ]
-  %retval.sroa.6.0 = phi i64 [ 0, %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit29 ], [ %3, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit87.thread ], [ %1, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit59.thread ], [ %rem, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit27, %if.then.i19, %if.then.i, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit
+  %retval.sroa.0.0 = phi i64 [ %div90.i.i.i2.i25, %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit27 ], [ %div8.i20, %if.then.i19 ], [ %div8.i, %if.then.i ], [ %div90.i.i.i2.i, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit ], [ 0, %entry ]
+  %retval.sroa.6.0 = phi i64 [ 0, %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit27 ], [ %1, %if.then.i19 ], [ %0, %if.then.i ], [ %rem, %_ZN5boost6random6detail20generate_uniform_intISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EElEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE.exit ], [ 0, %entry ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
