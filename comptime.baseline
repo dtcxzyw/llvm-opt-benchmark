@@ -42051,7 +42051,7 @@ z3/func_decl_dependencies.cpp.ll 972821564
 z3/func_decl_replace.cpp.ll 480242069
 z3/func_interp.cpp.ll 1048137097
 z3/generic_model_converter.cpp.ll 866746265
-z3/goal.cpp.ll 2468551587
+z3/goal.cpp.ll 2471020844
 z3/goal2nlsat.cpp.ll 1245505783
 z3/goal2sat.cpp.ll 2552589213
 z3/goal_num_occurs.cpp.ll 339347953
