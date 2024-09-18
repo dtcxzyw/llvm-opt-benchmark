@@ -49,5 +49,5 @@ else
   echo "$diff_stat" >> scripts/pr-comment.md
   cat ctdiff.log >> scripts/pr-comment.md
   head -100 test.log >> scripts/pr-comment.md
-  git show --name-only --oneline | head -100 >> scripts/pr-comment.md
+  git show --numstat --oneline | head -200 >> scripts/pr-comment.md
 fi
