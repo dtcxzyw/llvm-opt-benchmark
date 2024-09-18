@@ -9698,7 +9698,7 @@ harfbuzz/hb-ot-cff2-table.cc.ll 1999747152
 harfbuzz/hb-static.cc.ll 2934180115
 harfbuzz/hb-subset-cff-common.cc.ll 1041536668
 harfbuzz/hb-subset-cff1.cc.ll 6576890439
-harfbuzz/hb-subset-cff2.cc.ll 5880289617
+harfbuzz/hb-subset-cff2.cc.ll 5886172852
 harfbuzz/hb-subset-input.cc.ll 715343380
 harfbuzz/hb-subset-instancer-solver.cc.ll 358892355
 harfbuzz/hb-subset-plan.cc.ll 35087116803
