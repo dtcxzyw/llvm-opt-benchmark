@@ -9966,8 +9966,8 @@ define dso_local void @_ZN4llvm12IRSimilarity22IRSimilarityIdentifier14findCandi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %40 = load ptr, ptr %19, align 8
   %41 = load ptr, ptr %20, align 8
-  %.not636913 = icmp eq ptr %40, %41
-  br i1 %.not636913, label %._crit_edge, label %.lr.ph
+  %.not636907 = icmp eq ptr %40, %41
+  br i1 %.not636907, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -10085,11 +10085,11 @@ _ZSt8_DestroyIN4llvm10SuffixTree17RepeatedSubstringEEvPT_.exit.i.i.i.i.i.i: ; pr
   %85 = phi i64 [ 0, %76 ], [ 0, %.thread.i.i.i ], [ %74, %_ZSt8_DestroyIN4llvm10SuffixTree17RepeatedSubstringEEvPT_.exit.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef %.sroa.6.02027.i.i.i, i64 noundef %85) #24
   %.pre = load ptr, ptr %18, align 8
-  %.pre1247 = load ptr, ptr %66, align 8
-  %.not637979 = icmp eq ptr %.pre, %.pre1247
-  br i1 %.not637979, label %._crit_edge992, label %.lr.ph991
+  %.pre1201 = load ptr, ptr %66, align 8
+  %.not637939 = icmp eq ptr %.pre, %.pre1201
+  br i1 %.not637939, label %._crit_edge946, label %.lr.ph945
 
-.lr.ph991:                                        ; preds = %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit"
+.lr.ph945:                                        ; preds = %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit"
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -10168,20 +10168,20 @@ _ZNSt6vectorIN4llvm10SuffixTree17RepeatedSubstringESaIS2_EE9push_backERKS2_.exit
   %.not636 = icmp eq ptr %139, %140
   br i1 %.not636, label %._crit_edge, label %126
 
-141:                                              ; preds = %.lr.ph991, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit
-  %.sroa.0569.0990 = phi ptr [ null, %.lr.ph991 ], [ %.sroa.0569.1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
-  %.sroa.14.0989 = phi i32 [ 0, %.lr.ph991 ], [ %.sroa.14.1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
-  %.sroa.25.0988 = phi i32 [ 0, %.lr.ph991 ], [ %.sroa.25.1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
-  %.sroa.32.0987 = phi i32 [ 0, %.lr.ph991 ], [ %.sroa.32.1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
-  %.sroa.0566.0986 = phi ptr [ %.pre, %.lr.ph991 ], [ %3060, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
+141:                                              ; preds = %.lr.ph945, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit
+  %.sroa.0569.0944 = phi ptr [ null, %.lr.ph945 ], [ %.sroa.0569.1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
+  %.sroa.14.0943 = phi i32 [ 0, %.lr.ph945 ], [ %.sroa.14.1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
+  %.sroa.25.0942 = phi i32 [ 0, %.lr.ph945 ], [ %.sroa.25.1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
+  %.sroa.32.0941 = phi i32 [ 0, %.lr.ph945 ], [ %.sroa.32.1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
+  %.sroa.0566.0940 = phi ptr [ %.pre, %.lr.ph945 ], [ %3060, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %142 = load i32, ptr %.sroa.0566.0986, align 8
+  %142 = load i32, ptr %.sroa.0566.0940, align 8
   store i32 %142, ptr %11, align 4
   %143 = icmp ult i32 %142, 2
   br i1 %143, label %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit, label %144
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.0566.0986, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.0566.0940, i64 8
   %146 = load ptr, ptr %145, align 8
   %147 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #24
   %148 = getelementptr inbounds i32, ptr %146, i64 %147
@@ -10264,34 +10264,34 @@ _ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperER
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
-  %.not750.i = icmp eq ptr %177, %176
-  br i1 %.not750.i, label %_ZN4llvm8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES3_NS_6detail12DenseMapPairIjS4_EEED2Ev.exit.i, label %.lr.ph764.i
+  %.not734.i = icmp eq ptr %177, %176
+  br i1 %.not734.i, label %_ZN4llvm8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES3_NS_6detail12DenseMapPairIjS4_EEED2Ev.exit.i, label %.lr.ph740.i
 
-.lr.ph764.i:                                      ; preds = %183
-  %184 = icmp eq i32 %.sroa.32.0987, 0
-  %185 = add i32 %.sroa.32.0987, -1
-  %186 = zext i32 %.sroa.32.0987 to i64
-  %187 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0990, i64 %186
+.lr.ph740.i:                                      ; preds = %183
+  %184 = icmp eq i32 %.sroa.32.0941, 0
+  %185 = add i32 %.sroa.32.0941, -1
+  %186 = zext i32 %.sroa.32.0941 to i64
+  %187 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0944, i64 %186
   br label %188
 
 .loopexit608.i:                                   ; preds = %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i, %.loopexit609.i
-  %.sroa.2447.1.lcssa.i = phi ptr [ %.sroa.2447.0751.i, %.loopexit609.i ], [ %.sroa.2447.2.i, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i ]
-  %.sroa.0446.1.lcssa.i = phi ptr [ %.sroa.0446.0752.i, %.loopexit609.i ], [ %.sroa.0446.2.i, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i ]
+  %.sroa.2447.1.lcssa.i = phi ptr [ %.sroa.2447.0735.i, %.loopexit609.i ], [ %.sroa.2447.2.i, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i ]
+  %.sroa.0446.1.lcssa.i = phi ptr [ %.sroa.0446.0736.i, %.loopexit609.i ], [ %.sroa.0446.2.i, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i ]
   %.not.i25 = icmp eq ptr %876, %176
   br i1 %.not.i25, label %._crit_edge.i, label %188, !llvm.loop !284
 
-188:                                              ; preds = %.loopexit608.i, %.lr.ph764.i
-  %.0763.i = phi i32 [ 0, %.lr.ph764.i ], [ %.1.i, %.loopexit608.i ]
-  %.sroa.0486.0753.i = phi ptr [ %177, %.lr.ph764.i ], [ %876, %.loopexit608.i ]
-  %.sroa.0446.0752.i = phi ptr [ undef, %.lr.ph764.i ], [ %.sroa.0446.1.lcssa.i, %.loopexit608.i ]
-  %.sroa.2447.0751.i = phi ptr [ undef, %.lr.ph764.i ], [ %.sroa.2447.1.lcssa.i, %.loopexit608.i ]
+188:                                              ; preds = %.loopexit608.i, %.lr.ph740.i
+  %.0739.i = phi i32 [ 0, %.lr.ph740.i ], [ %.1.i, %.loopexit608.i ]
+  %.sroa.0486.0737.i = phi ptr [ %177, %.lr.ph740.i ], [ %876, %.loopexit608.i ]
+  %.sroa.0446.0736.i = phi ptr [ undef, %.lr.ph740.i ], [ %.sroa.0446.1.lcssa.i, %.loopexit608.i ]
+  %.sroa.2447.0735.i = phi ptr [ undef, %.lr.ph740.i ], [ %.sroa.2447.1.lcssa.i, %.loopexit608.i ]
   %189 = load ptr, ptr %6, align 8
   %190 = load i32, ptr %89, align 8
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %.loopexit.i.i, label %192
 
 192:                                              ; preds = %188
-  %193 = ptrtoint ptr %.sroa.0486.0753.i to i64
+  %193 = ptrtoint ptr %.sroa.0486.0737.i to i64
   %194 = trunc i64 %193 to i32
   %195 = lshr i32 %194, 4
   %196 = lshr i32 %194, 9
@@ -10301,7 +10301,7 @@ _ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperER
   %199 = zext nneg i32 %.01618.i.i.i to i64
   %200 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %189, i64 %199
   %201 = load ptr, ptr %200, align 8
-  %202 = icmp eq ptr %.sroa.0486.0753.i, %201
+  %202 = icmp eq ptr %.sroa.0486.0737.i, %201
   br i1 %202, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.thread.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %192, %205
@@ -10318,7 +10318,7 @@ _ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperER
   %208 = zext i32 %.016.i.i.i to i64
   %209 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %189, i64 %208
   %210 = load ptr, ptr %209, align 8
-  %211 = icmp eq ptr %.sroa.0486.0753.i, %210
+  %211 = icmp eq ptr %.sroa.0486.0737.i, %210
   br i1 %211, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !285
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %188
@@ -10327,13 +10327,13 @@ _ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperER
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i.loopexit: ; preds = %205
-  %.pre1262 = zext i32 %190 to i64
+  %.pre1214 = zext i32 %190 to i64
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i.loopexit, %.loopexit.i.i
-  %.pre-phi1263 = phi i64 [ %.pre1262, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i.loopexit ], [ %212, %.loopexit.i.i ]
+  %.pre-phi = phi i64 [ %.pre1214, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i.loopexit ], [ %212, %.loopexit.i.i ]
   %.0.i.pn.i.i = phi ptr [ %209, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i.loopexit ], [ %213, %.loopexit.i.i ]
-  %214 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %189, i64 %.pre-phi1263
+  %214 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %189, i64 %.pre-phi
   %215 = icmp eq ptr %.0.i.pn.i.i, %214
   br i1 %215, label %218, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit.i
 
@@ -10342,32 +10342,32 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   br i1 %216, label %.thread.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit.i
 
 .thread.i:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.thread.i
-  %217 = add i32 %.0763.i, 1
+  %217 = add i32 %.0739.i, 1
   br label %220
 
 218:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i
-  %219 = add i32 %.0763.i, 1
-  br i1 %191, label %239, label %._crit_edge1264
+  %219 = add i32 %.0739.i, 1
+  br i1 %191, label %239, label %._crit_edge1215
 
-._crit_edge1264:                                  ; preds = %218
-  %.pre1265 = ptrtoint ptr %.sroa.0486.0753.i to i64
-  %.pre1267 = trunc i64 %.pre1265 to i32
-  %.pre1269 = lshr i32 %.pre1267, 4
-  %.pre1271 = lshr i32 %.pre1267, 9
-  %.pre1273 = xor i32 %.pre1269, %.pre1271
-  %.pre1275 = add i32 %190, -1
-  %.pre1277 = and i32 %.pre1275, %.pre1273
-  %.pre1278 = zext nneg i32 %.pre1277 to i64
+._crit_edge1215:                                  ; preds = %218
+  %.pre1216 = ptrtoint ptr %.sroa.0486.0737.i to i64
+  %.pre1218 = trunc i64 %.pre1216 to i32
+  %.pre1220 = lshr i32 %.pre1218, 4
+  %.pre1222 = lshr i32 %.pre1218, 9
+  %.pre1224 = xor i32 %.pre1220, %.pre1222
+  %.pre1226 = add i32 %190, -1
+  %.pre1228 = and i32 %.pre1226, %.pre1224
+  %.pre1229 = zext nneg i32 %.pre1228 to i64
   br label %220
 
-220:                                              ; preds = %._crit_edge1264, %.thread.i
-  %.pre-phi1279 = phi i64 [ %.pre1278, %._crit_edge1264 ], [ %199, %.thread.i ]
-  %.02733.i.i.i.i.i.pre-phi = phi i32 [ %.pre1277, %._crit_edge1264 ], [ %.01618.i.i.i, %.thread.i ]
-  %.pre-phi1276 = phi i32 [ %.pre1275, %._crit_edge1264 ], [ %198, %.thread.i ]
-  %221 = phi i32 [ %219, %._crit_edge1264 ], [ %217, %.thread.i ]
-  %222 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %189, i64 %.pre-phi1279
+220:                                              ; preds = %._crit_edge1215, %.thread.i
+  %.pre-phi1230 = phi i64 [ %.pre1229, %._crit_edge1215 ], [ %199, %.thread.i ]
+  %.02733.i.i.i.i.i.pre-phi = phi i32 [ %.pre1228, %._crit_edge1215 ], [ %.01618.i.i.i, %.thread.i ]
+  %.pre-phi1227 = phi i32 [ %.pre1226, %._crit_edge1215 ], [ %198, %.thread.i ]
+  %221 = phi i32 [ %219, %._crit_edge1215 ], [ %217, %.thread.i ]
+  %222 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %189, i64 %.pre-phi1230
   %223 = load ptr, ptr %222, align 8, !noalias !286
-  %224 = icmp eq ptr %.sroa.0486.0753.i, %223
+  %224 = icmp eq ptr %.sroa.0486.0737.i, %223
   br i1 %224, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit.i, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %220, %230
@@ -10391,11 +10391,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %spec.select.i.i.i.i.i = select i1 %or.cond.not.i.i.i.i.i, ptr %226, ptr %.02834.i.i.i.i.i
   %233 = add i32 %.02635.i.i.i.i.i, 1
   %234 = add i32 %.02635.i.i.i.i.i, %.02736.i.i.i.i.i
-  %.027.i.i.i.i.i = and i32 %234, %.pre-phi1276
+  %.027.i.i.i.i.i = and i32 %234, %.pre-phi1227
   %235 = zext i32 %.027.i.i.i.i.i to i64
   %236 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %189, i64 %235
   %237 = load ptr, ptr %236, align 8, !noalias !286
-  %238 = icmp eq ptr %.sroa.0486.0753.i, %237
+  %238 = icmp eq ptr %.sroa.0486.0737.i, %237
   br i1 %238, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit.i, label %.lr.ph.i.i.i.i.i29, !llvm.loop !291
 
 239:                                              ; preds = %228, %218
@@ -10417,7 +10417,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   br i1 %249, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %250
 
 250:                                              ; preds = %245
-  %251 = ptrtoint ptr %.sroa.0486.0753.i to i64
+  %251 = ptrtoint ptr %.sroa.0486.0737.i to i64
   %252 = trunc i64 %251 to i32
   %253 = lshr i32 %252, 4
   %254 = lshr i32 %252, 9
@@ -10427,7 +10427,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %257 = zext nneg i32 %.02733.i.i.i to i64
   %258 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %247, i64 %257
   %259 = load ptr, ptr %258, align 8, !noalias !286
-  %260 = icmp eq ptr %.sroa.0486.0753.i, %259
+  %260 = icmp eq ptr %.sroa.0486.0737.i, %259
   br i1 %260, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i.i.i201
 
 .lr.ph.i.i.i201:                                  ; preds = %250, %266
@@ -10455,7 +10455,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %271 = zext i32 %.027.i.i.i to i64
   %272 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %247, i64 %271
   %273 = load ptr, ptr %272, align 8, !noalias !286
-  %274 = icmp eq ptr %.sroa.0486.0753.i, %273
+  %274 = icmp eq ptr %.sroa.0486.0737.i, %273
   br i1 %274, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i.i.i201, !llvm.loop !291
 
 275:                                              ; preds = %239
@@ -10475,7 +10475,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   br i1 %282, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %283
 
 283:                                              ; preds = %279
-  %284 = ptrtoint ptr %.sroa.0486.0753.i to i64
+  %284 = ptrtoint ptr %.sroa.0486.0737.i to i64
   %285 = trunc i64 %284 to i32
   %286 = lshr i32 %285, 4
   %287 = lshr i32 %285, 9
@@ -10485,7 +10485,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %290 = zext nneg i32 %.02733.i.i11.i to i64
   %291 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %280, i64 %290
   %292 = load ptr, ptr %291, align 8, !noalias !286
-  %293 = icmp eq ptr %.sroa.0486.0753.i, %292
+  %293 = icmp eq ptr %.sroa.0486.0737.i, %292
   br i1 %293, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i.i12.i
 
 .lr.ph.i.i12.i:                                   ; preds = %283, %299
@@ -10513,7 +10513,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %304 = zext i32 %.027.i.i18.i to i64
   %305 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %280, i64 %304
   %306 = load ptr, ptr %305, align 8, !noalias !286
-  %307 = icmp eq ptr %.sroa.0486.0753.i, %306
+  %307 = icmp eq ptr %.sroa.0486.0737.i, %306
   br i1 %307, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i.i12.i, !llvm.loop !291
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %266, %299, %297, %283, %279, %275, %264, %250, %245
@@ -10532,14 +10532,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, %312
-  store ptr %.sroa.0486.0753.i, ptr %.0.i, align 8, !noalias !286
+  store ptr %.sroa.0486.0737.i, ptr %.0.i, align 8, !noalias !286
   %315 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store i32 %.0763.i, ptr %315, align 4, !noalias !286
+  store i32 %.0739.i, ptr %315, align 4, !noalias !286
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit.i: ; preds = %230, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit, %220, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.thread.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i
   %.sroa.0.0.i = phi ptr [ %.0.i.pn.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i ], [ %.0.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit ], [ %222, %220 ], [ %200, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.thread.i ], [ %236, %230 ]
-  %.1.i = phi i32 [ %.0763.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i ], [ %240, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit ], [ %221, %220 ], [ %.0763.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.thread.i ], [ %221, %230 ]
+  %.1.i = phi i32 [ %.0739.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i ], [ %240, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit ], [ %221, %220 ], [ %.0739.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.thread.i ], [ %221, %230 ]
   %316 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   %317 = load i32, ptr %316, align 8
   %318 = load ptr, ptr %16, align 8
@@ -10587,12 +10587,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCa
   br i1 %341, label %.lr.ph.i.i.i.i.i.i.i, label %.loopexit609.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E4findERKj.exit.i
-  %342 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 48
-  %343 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 56
+  %342 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 48
+  %343 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 56
   %344 = load i32, ptr %343, align 8
   %345 = icmp eq i32 %344, 0
   %346 = load ptr, ptr %342, align 8
-  %347 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 64
+  %347 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 64
   %348 = load i32, ptr %347, align 8
   %349 = zext i32 %348 to i64
   %350 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.327", ptr %346, i64 %349
@@ -10619,14 +10619,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_5ValueENS_12DenseMapInfoIjvEENS_6detail
   br i1 %.not42.i, label %_ZN4llvm12IRSimilarity21IRSimilarityCandidate25createCanonicalMappingForERS1_.exit, label %.lr.ph.i186
 
 .lr.ph.i186:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_5ValueENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit.i
-  %354 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 72
-  %355 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 88
-  %356 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 96
-  %357 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 112
-  %358 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 80
-  %359 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 84
-  %360 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 104
-  %361 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0753.i, i64 108
+  %354 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 72
+  %355 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 88
+  %356 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 96
+  %357 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 112
+  %358 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 80
+  %359 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 84
+  %360 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 104
+  %361 = getelementptr inbounds nuw i8, ptr %.sroa.0486.0737.i, i64 108
   br label %362
 
 362:                                              ; preds = %_ZN4llvm16DenseMapIteratorIjPNS_5ValueENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EELb0EEppEv.exit.i, %.lr.ph.i186
@@ -11064,11 +11064,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   store i32 %363, ptr %.0.i289, align 4, !noalias !293
   %577 = getelementptr inbounds nuw i8, ptr %.0.i289, i64 4
   store i32 %.044.i, ptr %577, align 4, !noalias !293
-  %.pre1248 = load i32, ptr %.sroa.032.043.i, align 4
+  %.pre1202 = load i32, ptr %.sroa.032.043.i, align 4
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6insertEOSt4pairIjjE.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6insertEOSt4pairIjjE.exit.i: ; preds = %379, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E20InsertIntoBucketImplIjEEPS6_RKjRKT_SA_.exit303, %367
-  %578 = phi i32 [ %.pre1248, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E20InsertIntoBucketImplIjEEPS6_RKjRKT_SA_.exit303 ], [ %363, %367 ], [ %363, %379 ]
+  %578 = phi i32 [ %.pre1202, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E20InsertIntoBucketImplIjEEPS6_RKjRKT_SA_.exit303 ], [ %363, %367 ], [ %363, %379 ]
   %579 = load ptr, ptr %356, align 8, !noalias !300
   %580 = load i32, ptr %357, align 8, !noalias !300
   %581 = icmp eq i32 %580, 0
@@ -11524,7 +11524,7 @@ _ZN4llvm16DenseMapIteratorIjPNS_5ValueENS_12DenseMapInfoIjvEENS_6detail12DenseMa
   br i1 %.not.i195, label %_ZN4llvm12IRSimilarity21IRSimilarityCandidate25createCanonicalMappingForERS1_.exit, label %362
 
 _ZN4llvm12IRSimilarity21IRSimilarityCandidate25createCanonicalMappingForERS1_.exit: ; preds = %.critedge2.i8.i14.i9.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6insertEOSt4pairIjjE.exit26.i, %_ZN4llvm16DenseMapIteratorIjPNS_5ValueENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EELb0EEppEv.exit.i, %.critedge2.i6.i.i, %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_5ValueENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit.i
-  call void @_ZN4llvm12IRSimilarity21IRSimilarityCandidateC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0486.0753.i)
+  call void @_ZN4llvm12IRSimilarity21IRSimilarityCandidateC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0486.0737.i)
   %797 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #28
   %798 = getelementptr inbounds i8, ptr %797, i64 120
   call void @_ZN4llvm12IRSimilarity21IRSimilarityCandidateC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %797, ptr noundef nonnull align 8 dereferenceable(120) %10)
@@ -11635,7 +11635,7 @@ _ZSt8_DestroyIPN4llvm12IRSimilarity21IRSimilarityCandidateES2_EvT_S4_RSaIT0_E.ex
   br label %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4llvm12IRSimilarity21IRSimilarityCandidateES2_EvT_S4_RSaIT0_E.exit.i183.thread, %.lr.ph.i.i.i.i178, %855
-  %.sink25.i.i49.i12861289 = phi ptr [ %823, %_ZSt8_DestroyIPN4llvm12IRSimilarity21IRSimilarityCandidateES2_EvT_S4_RSaIT0_E.exit.i183.thread ], [ %.sink25.i.i49.i.ph, %.lr.ph.i.i.i.i178 ], [ %.sink25.i.i49.i.ph, %855 ]
+  %.sink25.i.i49.i12371240 = phi ptr [ %823, %_ZSt8_DestroyIPN4llvm12IRSimilarity21IRSimilarityCandidateES2_EvT_S4_RSaIT0_E.exit.i183.thread ], [ %.sink25.i.i49.i.ph, %.lr.ph.i.i.i.i178 ], [ %.sink25.i.i49.i.ph, %855 ]
   %860 = load ptr, ptr %109, align 8
   %861 = load i32, ptr %110, align 8
   %862 = zext i32 %861 to i64
@@ -11659,14 +11659,14 @@ _ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exit: ; pr
   br label %.loopexit609.i
 
 .loopexit609.i:                                   ; preds = %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E4findERKj.exit.i
-  %.sroa.0581.0.i = phi ptr [ %.0.i.pn.i38.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E4findERKj.exit.i ], [ %.sink25.i.i49.i12861289, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exit ]
-  %876 = getelementptr inbounds i8, ptr %.sroa.0486.0753.i, i64 120
+  %.sroa.0581.0.i = phi ptr [ %.0.i.pn.i38.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E4findERKj.exit.i ], [ %.sink25.i.i49.i12371240, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exit ]
+  %876 = getelementptr inbounds i8, ptr %.sroa.0486.0737.i, i64 120
   %877 = load ptr, ptr %87, align 8
   %.not594729.i = icmp eq ptr %876, %877
   br i1 %.not594729.i, label %.loopexit608.i, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %.loopexit609.i
-  %878 = getelementptr i8, ptr %.sroa.0486.0753.i, i64 4
+  %878 = getelementptr i8, ptr %.sroa.0486.0737.i, i64 4
   %879 = getelementptr inbounds nuw i8, ptr %.sroa.0581.0.i, i64 16
   %880 = getelementptr inbounds nuw i8, ptr %.sroa.0581.0.i, i64 24
   %881 = getelementptr inbounds nuw i8, ptr %.sroa.0581.0.i, i64 8
@@ -11674,8 +11674,8 @@ _ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exit: ; pr
 
 882:                                              ; preds = %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i, %.lr.ph.i24
   %.sroa.0474.0732.i = phi ptr [ %876, %.lr.ph.i24 ], [ %2429, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i ]
-  %.sroa.0446.1731.i = phi ptr [ %.sroa.0446.0752.i, %.lr.ph.i24 ], [ %.sroa.0446.2.i, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i ]
-  %.sroa.2447.1730.i = phi ptr [ %.sroa.2447.0751.i, %.lr.ph.i24 ], [ %.sroa.2447.2.i, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i ]
+  %.sroa.0446.1731.i = phi ptr [ %.sroa.0446.0736.i, %.lr.ph.i24 ], [ %.sroa.0446.2.i, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i ]
+  %.sroa.2447.1730.i = phi ptr [ %.sroa.2447.0735.i, %.lr.ph.i24 ], [ %.sroa.2447.2.i, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i ]
   %883 = load ptr, ptr %6, align 8
   %884 = load i32, ptr %89, align 8
   %885 = icmp eq i32 %884, 0
@@ -11725,7 +11725,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   br i1 %.not595.i, label %910, label %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i
 
 910:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit66.i
-  %.val.i = load i32, ptr %.sroa.0486.0753.i, align 8
+  %.val.i = load i32, ptr %.sroa.0486.0737.i, align 8
   %.val32.i = load i32, ptr %878, align 4
   %.val33.i = load i32, ptr %.sroa.0474.0732.i, align 8
   %911 = getelementptr i8, ptr %.sroa.0474.0732.i, i64 4
@@ -11818,11 +11818,11 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   br i1 %.not74.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i
-  %.pre1249 = load ptr, ptr %.pn14.i.i.i.i, align 8, !noalias !314
+  %.pre1203 = load ptr, ptr %.pn14.i.i.i.i, align 8, !noalias !314
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit.i.i
-  %953 = phi ptr [ %1330, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit.i.i ], [ %.pre1249, %.lr.ph.i.i.preheader ]
+  %953 = phi ptr [ %1330, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit.i.i ], [ %.pre1203, %.lr.ph.i.i.preheader ]
   %.sroa.38.4.i = phi i32 [ %.sroa.38.5.i, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %.sroa.29.7.i = phi i32 [ %.sroa.29.8.i, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %.sroa.15.7.i = phi i32 [ %.sroa.15.8.i, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit.i.i ], [ 0, %.lr.ph.i.i.preheader ]
@@ -11855,7 +11855,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   %968 = xor i32 %966, %967
   %.01618.i.i.i.i = and i32 %968, %185
   %969 = zext nneg i32 %.01618.i.i.i.i to i64
-  %970 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0990, i64 %969
+  %970 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0944, i64 %969
   %971 = load ptr, ptr %970, align 8, !noalias !314
   %972 = icmp eq ptr %953, %971
   br i1 %972, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i.i, label %.lr.ph.i.i17.i.i
@@ -11872,7 +11872,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   %977 = add i32 %.01519.i.i18.i.i, %.01620.i.i.i.i
   %.016.i.i.i.i = and i32 %977, %185
   %978 = zext i32 %.016.i.i.i.i to i64
-  %979 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0990, i64 %978
+  %979 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0944, i64 %978
   %980 = load ptr, ptr %979, align 8, !noalias !314
   %981 = icmp eq ptr %953, %980
   br i1 %981, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i.i, label %.lr.ph.i.i17.i.i, !llvm.loop !285
@@ -12748,11 +12748,11 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   br i1 %.not5476.i.i, label %._crit_edge79.i.i, label %.lr.ph78.i.i.preheader
 
 .lr.ph78.i.i.preheader:                           ; preds = %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit62.i.i
-  %.pre1250 = load ptr, ptr %.pn14.i.i59.i.i, align 8, !noalias !314
+  %.pre1204 = load ptr, ptr %.pn14.i.i59.i.i, align 8, !noalias !314
   br label %.lr.ph78.i.i
 
 .lr.ph78.i.i:                                     ; preds = %.lr.ph78.i.i.preheader, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit117.i.i
-  %1369 = phi ptr [ %1701, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit117.i.i ], [ %.pre1250, %.lr.ph78.i.i.preheader ]
+  %1369 = phi ptr [ %1701, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit117.i.i ], [ %.pre1204, %.lr.ph78.i.i.preheader ]
   %.sroa.023.077.i.i = phi ptr [ %.sroa.023.1.i.i, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit117.i.i ], [ %.pn14.i.i59.i.i, %.lr.ph78.i.i.preheader ]
   %1370 = load i32, ptr %1369, align 8, !noalias !314
   %1371 = icmp ugt i32 %1370, %.val33.i
@@ -12777,7 +12777,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   %1384 = xor i32 %1382, %1383
   %.01618.i.i65.i.i = and i32 %1384, %185
   %1385 = zext nneg i32 %.01618.i.i65.i.i to i64
-  %1386 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0990, i64 %1385
+  %1386 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0944, i64 %1385
   %1387 = load ptr, ptr %1386, align 8, !noalias !314
   %1388 = icmp eq ptr %1369, %1387
   br i1 %1388, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit77.i.i, label %.lr.ph.i.i66.i.i
@@ -12794,7 +12794,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   %1393 = add i32 %.01519.i.i68.i.i, %.01620.i.i67.i.i
   %.016.i.i69.i.i = and i32 %1393, %185
   %1394 = zext i32 %.016.i.i69.i.i to i64
-  %1395 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0990, i64 %1394
+  %1395 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.0944, i64 %1394
   %1396 = load ptr, ptr %1395, align 8, !noalias !314
   %1397 = icmp eq ptr %1369, %1396
   br i1 %1397, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit77.i.i, label %.lr.ph.i.i66.i.i, !llvm.loop !285
@@ -13282,15 +13282,15 @@ _ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSe
   %1640 = shl nuw nsw i64 %1606, 2
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %1553, i64 noundef %1640, i64 noundef 4) #24, !noalias !337
   %.pr586.pre.i = load i32, ptr %96, align 8, !noalias !337
-  %.pre895.i = load ptr, ptr %5, align 8, !noalias !337
+  %.pre871.i = load ptr, ptr %5, align 8, !noalias !337
   %1641 = icmp eq i32 %.pr586.pre.i, 0
   br i1 %1641, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit.i.i, label %1642
 
 1642:                                             ; preds = %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.i, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.thread.i
-  %.pr586904.i = phi i32 [ %1602, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.thread.i ], [ %.pr586.pre.i, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.i ]
-  %1643 = phi ptr [ %1600, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.thread.i ], [ %.pre895.i, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.i ]
+  %.pr586880.i = phi i32 [ %1602, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.thread.i ], [ %.pr586.pre.i, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.i ]
+  %1643 = phi ptr [ %1600, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.thread.i ], [ %.pre871.i, %_ZN4llvm8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS1_12DenseSetPairIjEEE4growEj.exit.i ]
   %1644 = mul i32 %1399, 37
-  %1645 = add i32 %.pr586904.i, -1
+  %1645 = add i32 %.pr586880.i, -1
   %.02532.i.i.i.i = and i32 %1645, %1644
   %1646 = zext i32 %.02532.i.i.i.i to i64
   %1647 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.444", ptr %1643, i64 %1646
@@ -13661,7 +13661,7 @@ _ZL16CheckLargerCandsRN4llvm12IRSimilarity21IRSimilarityCandidateES2_RNS_8DenseM
   br i1 %.sroa.4.0.i, label %_ZNRSt8optionalISt4pairIPN4llvm12IRSimilarity21IRSimilarityCandidateES4_EE5valueEv.exit69.i, label %2036
 
 _ZNRSt8optionalISt4pairIPN4llvm12IRSimilarity21IRSimilarityCandidateES4_EE5valueEv.exit69.i: ; preds = %_ZL16CheckLargerCandsRN4llvm12IRSimilarity21IRSimilarityCandidateES2_RNS_8DenseMapIjNS_8DenseSetIPS1_NS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEERNS3_IS5_jS7_NSB_IS5_jEEEE.exit.i
-  call void @_ZN4llvm12IRSimilarity21IRSimilarityCandidate27createCanonicalRelationFromERS1_S2_S2_(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0474.0732.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0486.0753.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0446.3.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.2447.3.i)
+  call void @_ZN4llvm12IRSimilarity21IRSimilarityCandidate27createCanonicalRelationFromERS1_S2_S2_(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0474.0732.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0486.0737.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0446.3.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.2447.3.i)
   %1798 = load ptr, ptr %6, align 8, !noalias !344
   %1799 = load i32, ptr %89, align 8, !noalias !344
   %1800 = icmp eq i32 %1799, 0
@@ -13855,11 +13855,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %1897 = shl nuw nsw i64 %1856, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %1798, i64 noundef %1897, i64 noundef 8) #24, !noalias !344
   %.pr587.pre.i = load i32, ptr %89, align 8, !noalias !344
-  %.pre897.i = load ptr, ptr %6, align 8, !noalias !344
+  %.pre873.i = load ptr, ptr %6, align 8, !noalias !344
   br label %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit.i
 
 _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit.i: ; preds = %.lr.ph.i.i431.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i.i
-  %1898 = phi ptr [ %.pre897.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i.i ], [ %1849, %.lr.ph.i.i431.i ]
+  %1898 = phi ptr [ %.pre873.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i.i ], [ %1849, %.lr.ph.i.i431.i ]
   %.pr587.i = phi i32 [ %.pr587.pre.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i.i ], [ %1851, %.lr.ph.i.i431.i ]
   %1899 = icmp eq i32 %.pr587.i, 0
   br i1 %1899, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %1900
@@ -14051,11 +14051,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %1994 = shl nuw nsw i64 %1953, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %1798, i64 noundef %1994, i64 noundef 8) #24, !noalias !344
   %.pr628.pre = load i32, ptr %89, align 8, !noalias !344
-  %.pre1256 = load ptr, ptr %6, align 8, !noalias !344
+  %.pre1210 = load ptr, ptr %6, align 8, !noalias !344
   br label %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit170
 
 _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit170: ; preds = %.lr.ph.i.i167, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i154
-  %1995 = phi ptr [ %.pre1256, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i154 ], [ %1946, %.lr.ph.i.i167 ]
+  %1995 = phi ptr [ %.pre1210, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i154 ], [ %1946, %.lr.ph.i.i167 ]
   %.pr628 = phi i32 [ %.pr628.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i154 ], [ %1948, %.lr.ph.i.i167 ]
   %1996 = icmp eq i32 %.pr628, 0
   br i1 %1996, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %1997
@@ -14455,11 +14455,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES4_NS
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES4_NS_6detail12DenseMapPairIjS5_EEEEjS5_S4_S8_E5clearEv.exit98.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES4_NS_6detail12DenseMapPairIjS5_EEEEjS5_S4_S8_E5clearEv.exit98.i: ; preds = %.lr.ph.i.i.i233.i, %.lr.ph.i6.i237.i, %._crit_edge.i97.i, %2176, %2152, %2143, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES4_NS_6detail12DenseMapPairIjS5_EEEEjS5_S4_S8_E5clearEv.exit.i
-  %2189 = call noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate16compareStructureERKS1_S3_RNS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES7_NS_6detail12DenseMapPairIjS8_EEEESD_(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0486.0753.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0474.0732.i, ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %8)
+  %2189 = call noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate16compareStructureERKS1_S3_RNS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES7_NS_6detail12DenseMapPairIjS8_EEEESD_(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0486.0737.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0474.0732.i, ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %8)
   br i1 %2189, label %2190, label %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2_.exit.i
 
 2190:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES4_NS_6detail12DenseMapPairIjS5_EEEEjS5_S4_S8_E5clearEv.exit98.i
-  call void @_ZN4llvm12IRSimilarity21IRSimilarityCandidate27createCanonicalRelationFromERS1_RNS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES6_NS_6detail12DenseMapPairIjS7_EEEESC_(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0474.0732.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0486.0753.i, ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %8)
+  call void @_ZN4llvm12IRSimilarity21IRSimilarityCandidate27createCanonicalRelationFromERS1_RNS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES6_NS_6detail12DenseMapPairIjS7_EEEESC_(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0474.0732.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0486.0737.i, ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %8)
   %2191 = load ptr, ptr %6, align 8, !noalias !353
   %2192 = load i32, ptr %89, align 8, !noalias !353
   %2193 = icmp eq i32 %2192, 0
@@ -14653,11 +14653,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %2290 = shl nuw nsw i64 %2249, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %2191, i64 noundef %2290, i64 noundef 8) #24, !noalias !353
   %.pr629.pre = load i32, ptr %89, align 8, !noalias !353
-  %.pre1252 = load ptr, ptr %6, align 8, !noalias !353
+  %.pre1206 = load ptr, ptr %6, align 8, !noalias !353
   br label %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit141
 
 _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit141: ; preds = %.lr.ph.i.i138, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i125
-  %2291 = phi ptr [ %.pre1252, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i125 ], [ %2242, %.lr.ph.i.i138 ]
+  %2291 = phi ptr [ %.pre1206, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i125 ], [ %2242, %.lr.ph.i.i138 ]
   %.pr629 = phi i32 [ %.pr629.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i125 ], [ %2244, %.lr.ph.i.i138 ]
   %2292 = icmp eq i32 %.pr629, 0
   br i1 %2292, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i250.i, label %2293
@@ -14849,11 +14849,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %2387 = shl nuw nsw i64 %2346, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %2191, i64 noundef %2387, i64 noundef 8) #24, !noalias !353
   %.pr630.pre = load i32, ptr %89, align 8, !noalias !353
-  %.pre1254 = load ptr, ptr %6, align 8, !noalias !353
+  %.pre1208 = load ptr, ptr %6, align 8, !noalias !353
   br label %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit
 
 _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit: ; preds = %.lr.ph.i.i111, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i
-  %2388 = phi ptr [ %.pre1254, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i ], [ %2339, %.lr.ph.i.i111 ]
+  %2388 = phi ptr [ %.pre1208, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i ], [ %2339, %.lr.ph.i.i111 ]
   %.pr630 = phi i32 [ %.pr630.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i ], [ %2341, %.lr.ph.i.i111 ]
   %2389 = icmp eq i32 %.pr630, 0
   br i1 %2389, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i250.i, label %2390
@@ -14946,13 +14946,13 @@ _ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE9push_backERKS2
   br i1 %.not594.i, label %.loopexit608.i, label %882, !llvm.loop !358
 
 ._crit_edge.i:                                    ; preds = %.loopexit608.i
-  %.pre898.i = load i32, ptr %106, align 8
+  %.pre874.i = load i32, ptr %106, align 8
   %.pre1.i.pre.i = load ptr, ptr %8, align 8
-  %2430 = icmp eq i32 %.pre898.i, 0
+  %2430 = icmp eq i32 %.pre874.i, 0
   br i1 %2430, label %_ZN4llvm8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES3_NS_6detail12DenseMapPairIjS4_EEED2Ev.exit.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %._crit_edge.i
-  %2431 = zext i32 %.pre898.i to i64
+  %2431 = zext i32 %.pre874.i to i64
   %2432 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.155", ptr %.pre1.i.pre.i, i64 %2431
   br label %.lr.ph.i.i119.i
 
@@ -15046,7 +15046,7 @@ _ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandida
   %2472 = load i32, ptr %90, align 8
   %2473 = zext i32 %2472 to i64
   %2474 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.368", ptr %2471, i64 %2473
-  br i1 %2470, label %._crit_edge968, label %2475
+  br i1 %2470, label %._crit_edge934, label %2475
 
 2475:                                             ; preds = %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit
   %.not4.i5.i10.i2.i = icmp eq i32 %2472, 0
@@ -15061,21 +15061,21 @@ _ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandida
 .critedge2.i8.i14.i9.i:                           ; preds = %.lr.ph.i6.i12.i3.i
   %2477 = getelementptr inbounds i8, ptr %.sroa.0.3.i4.i, i64 32
   %.not.i9.i15.i10.i = icmp eq ptr %2477, %2474
-  br i1 %.not.i9.i15.i10.i, label %._crit_edge968, label %.lr.ph.i6.i12.i3.i, !llvm.loop !359
+  br i1 %.not.i9.i15.i10.i, label %._crit_edge934, label %.lr.ph.i6.i12.i3.i, !llvm.loop !359
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %2475
   %.pn14.i = phi ptr [ %2471, %2475 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
-  %.not638955 = icmp eq ptr %.pn14.i, %2474
-  br i1 %.not638955, label %._crit_edge968, label %.lr.ph967
+  %.not638927 = icmp eq ptr %.pn14.i, %2474
+  br i1 %.not638927, label %._crit_edge934, label %.lr.ph933
 
-.lr.ph967:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit
-  %.sroa.0569.2966 = phi ptr [ %.sroa.0569.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.0569.0990, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
-  %.sroa.14.2965 = phi i32 [ %.sroa.14.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.14.0989, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
-  %.sroa.25.2964 = phi i32 [ %.sroa.25.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.25.0988, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
-  %.sroa.32.2963 = phi i32 [ %.sroa.32.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.32.0987, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
-  %.sroa.0562.0962 = phi ptr [ %.sroa.0562.2, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.pn14.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
-  %2478 = getelementptr inbounds nuw i8, ptr %.sroa.0562.0962, i64 8
-  %2479 = getelementptr inbounds nuw i8, ptr %.sroa.0562.0962, i64 16
+.lr.ph933:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit
+  %.sroa.0569.2932 = phi ptr [ %.sroa.0569.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.0569.0944, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
+  %.sroa.14.2931 = phi i32 [ %.sroa.14.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.14.0943, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
+  %.sroa.25.2930 = phi i32 [ %.sroa.25.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.25.0942, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
+  %.sroa.32.2929 = phi i32 [ %.sroa.32.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.32.0941, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
+  %.sroa.0562.0928 = phi ptr [ %.sroa.0562.2, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.pn14.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ]
+  %2478 = getelementptr inbounds nuw i8, ptr %.sroa.0562.0928, i64 8
+  %2479 = getelementptr inbounds nuw i8, ptr %.sroa.0562.0928, i64 16
   %2480 = load ptr, ptr %2479, align 8
   %2481 = load ptr, ptr %2478, align 8
   %2482 = ptrtoint ptr %2480 to i64
@@ -15085,7 +15085,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCa
   %2486 = icmp ugt i64 %2485, 1
   br i1 %2486, label %2487, label %.loopexit
 
-2487:                                             ; preds = %.lr.ph967
+2487:                                             ; preds = %.lr.ph933
   %2488 = load ptr, ptr %119, align 8
   %2489 = load ptr, ptr %120, align 8
   %.not.i31 = icmp eq ptr %2488, %2489
@@ -15140,56 +15140,56 @@ _ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidate
 
 2505:                                             ; preds = %2487
   call void @_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr %2488, ptr noundef nonnull align 8 dereferenceable(24) %2478)
-  %.pre1257 = load ptr, ptr %119, align 8
+  %.pre1211 = load ptr, ptr %119, align 8
   br label %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %2505
-  %2506 = phi ptr [ %2504, %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ], [ %.pre1257, %2505 ]
+  %2506 = phi ptr [ %2504, %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ], [ %.pre1211, %2505 ]
   %2507 = getelementptr inbounds i8, ptr %2506, i64 -24
   %2508 = load ptr, ptr %2507, align 8
   %2509 = getelementptr inbounds i8, ptr %2506, i64 -16
   %2510 = load ptr, ptr %2509, align 8
-  %.not639930 = icmp eq ptr %2508, %2510
-  br i1 %.not639930, label %.loopexit, label %.lr.ph944
+  %.not639915 = icmp eq ptr %2508, %2510
+  br i1 %.not639915, label %.loopexit, label %.lr.ph923
 
-.lr.ph944:                                        ; preds = %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit
-  %.sroa.0569.3943 = phi ptr [ %.sroa.0569.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %.sroa.0569.2966, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
-  %.sroa.14.3942 = phi i32 [ %.sroa.14.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %.sroa.14.2965, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
-  %.sroa.25.3941 = phi i32 [ %.sroa.25.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %.sroa.25.2964, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
-  %.sroa.32.3940 = phi i32 [ %.sroa.32.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %.sroa.32.2963, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
-  %.sroa.0557.0937 = phi ptr [ %3009, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %2508, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
-  %2511 = load i32, ptr %.sroa.0557.0937, align 8
-  %2512 = getelementptr inbounds nuw i8, ptr %.sroa.0557.0937, i64 4
+.lr.ph923:                                        ; preds = %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit
+  %.sroa.0569.3922 = phi ptr [ %.sroa.0569.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %.sroa.0569.2932, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
+  %.sroa.14.3921 = phi i32 [ %.sroa.14.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %.sroa.14.2931, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
+  %.sroa.25.3920 = phi i32 [ %.sroa.25.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %.sroa.25.2930, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
+  %.sroa.32.3919 = phi i32 [ %.sroa.32.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %.sroa.32.2929, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
+  %.sroa.0557.0916 = phi ptr [ %3009, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ], [ %2508, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
+  %2511 = load i32, ptr %.sroa.0557.0916, align 8
+  %2512 = getelementptr inbounds nuw i8, ptr %.sroa.0557.0916, i64 4
   %2513 = load i32, ptr %2512, align 4
   %2514 = add i32 %2511, -1
   %2515 = add i32 %2514, %2513
-  %.not914 = icmp ugt i32 %2511, %2515
-  br i1 %.not914, label %._crit_edge924, label %.lr.ph923
+  %.not908 = icmp ugt i32 %2511, %2515
+  br i1 %.not908, label %._crit_edge914, label %.lr.ph913
 
-.lr.ph923:                                        ; preds = %.lr.ph944
-  %2516 = ptrtoint ptr %.sroa.0557.0937 to i64
+.lr.ph913:                                        ; preds = %.lr.ph923
+  %2516 = ptrtoint ptr %.sroa.0557.0916 to i64
   %2517 = trunc i64 %2516 to i32
   %2518 = lshr i32 %2517, 4
   %2519 = lshr i32 %2517, 9
   %2520 = xor i32 %2518, %2519
   br label %2521
 
-2521:                                             ; preds = %.lr.ph923, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit
-  %.0919 = phi i32 [ %2511, %.lr.ph923 ], [ %2797, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit ]
+2521:                                             ; preds = %.lr.ph913, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit
+  %.0909 = phi i32 [ %2511, %.lr.ph913 ], [ %2797, %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit ]
   %2522 = load ptr, ptr %17, align 8
   %2523 = load i32, ptr %94, align 8
   %2524 = icmp eq i32 %2523, 0
   br i1 %2524, label %.loopexit.i36, label %2525
 
 2525:                                             ; preds = %2521
-  %2526 = mul i32 %.0919, 37
+  %2526 = mul i32 %.0909, 37
   %2527 = add i32 %2523, -1
   %.01517.i.i = and i32 %2527, %2526
   %2528 = zext i32 %.01517.i.i to i64
   %2529 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.386", ptr %2522, i64 %2528
   %2530 = load i32, ptr %2529, align 4
-  %2531 = icmp eq i32 %.0919, %2530
-  br i1 %2531, label %.loopexit9.i, label %.lr.ph.i.i33
+  %2531 = icmp eq i32 %.0909, %2530
+  br i1 %2531, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilarityCandidateENS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_S9_SC_E4findERKj.exit, label %.lr.ph.i.i33
 
 .lr.ph.i.i33:                                     ; preds = %2525, %2534
   %2532 = phi i32 [ %2539, %2534 ], [ %2530, %2525 ]
@@ -15205,39 +15205,34 @@ _ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9pus
   %2537 = zext i32 %.015.i.i to i64
   %2538 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.386", ptr %2522, i64 %2537
   %2539 = load i32, ptr %2538, align 4
-  %2540 = icmp eq i32 %.0919, %2539
-  br i1 %2540, label %.loopexit9.i, label %.lr.ph.i.i33, !llvm.loop !317
-
-.loopexit9.i:                                     ; preds = %2534, %2525
-  %.0.i.i34 = phi ptr [ %2529, %2525 ], [ %2538, %2534 ]
-  %2541 = zext i32 %2523 to i64
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilarityCandidateENS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_S9_SC_E4findERKj.exit
+  %2540 = icmp eq i32 %.0909, %2539
+  br i1 %2540, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilarityCandidateENS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_S9_SC_E4findERKj.exit, label %.lr.ph.i.i33, !llvm.loop !317
 
 .loopexit.i36:                                    ; preds = %.lr.ph.i.i33, %2521
-  %2542 = zext i32 %2523 to i64
-  %2543 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.386", ptr %2522, i64 %2542
+  %2541 = zext i32 %2523 to i64
+  %2542 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.386", ptr %2522, i64 %2541
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilarityCandidateENS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_S9_SC_E4findERKj.exit
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilarityCandidateENS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_S9_SC_E4findERKj.exit: ; preds = %.loopexit9.i, %.loopexit.i36
-  %.pre-phi = phi i64 [ %2541, %.loopexit9.i ], [ %2542, %.loopexit.i36 ]
-  %.0.i.pn.i = phi ptr [ %.0.i.i34, %.loopexit9.i ], [ %2543, %.loopexit.i36 ]
-  %2544 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.386", ptr %2522, i64 %.pre-phi
+_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilarityCandidateENS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_S9_SC_E4findERKj.exit: ; preds = %2534, %2525, %.loopexit.i36
+  %.0.i.pn.i = phi ptr [ %2542, %.loopexit.i36 ], [ %2529, %2525 ], [ %2538, %2534 ]
+  %2543 = zext i32 %2523 to i64
+  %2544 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.386", ptr %2522, i64 %2543
   %2545 = icmp eq ptr %.0.i.pn.i, %2544
   br i1 %2545, label %2546, label %2579
 
 2546:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilarityCandidateENS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_S9_SC_E4findERKj.exit
-  store i32 %.0919, ptr %21, align 8, !alias.scope !361
+  store i32 %.0909, ptr %21, align 8, !alias.scope !361
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %121, i8 0, i64 20, i1 false)
   br i1 %2524, label %2568, label %2547
 
 2547:                                             ; preds = %2546
-  %2548 = mul i32 %.0919, 37
+  %2548 = mul i32 %.0909, 37
   %2549 = add i32 %2523, -1
   %.02532.i.i.i = and i32 %2549, %2548
   %2550 = zext i32 %.02532.i.i.i to i64
   %2551 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.386", ptr %2522, i64 %2550
   %2552 = load i32, ptr %2551, align 4, !noalias !364
-  %2553 = icmp eq i32 %.0919, %2552
+  %2553 = icmp eq i32 %.0909, %2552
   br i1 %2553, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilarityCandidateENS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_S9_SC_E11try_emplaceIJS8_EEESt4pairINS_16DenseMapIteratorIjS8_S9_SC_Lb0EEEbEOjDpOT_.exit, label %.lr.ph.i.i.i203
 
 .lr.ph.i.i.i203:                                  ; preds = %2547, %2559
@@ -15265,7 +15260,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilari
   %2564 = zext i32 %.025.i.i.i to i64
   %2565 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.386", ptr %2522, i64 %2564
   %2566 = load i32, ptr %2565, align 4, !noalias !364
-  %2567 = icmp eq i32 %.0919, %2566
+  %2567 = icmp eq i32 %.0909, %2566
   br i1 %2567, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilarityCandidateENS_12DenseMapInfoIS5_vEEEENS6_IjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_S9_SC_E11try_emplaceIJS8_EEESt4pairINS_16DenseMapIteratorIjS8_S9_SC_Lb0EEEbEOjDpOT_.exit, label %.lr.ph.i.i.i203, !llvm.loop !367
 
 2568:                                             ; preds = %2557, %2546
@@ -15313,7 +15308,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilari
   %2587 = zext nneg i32 %.02733.i.i.i.i39 to i64
   %2588 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.485", ptr %2581, i64 %2587
   %2589 = load ptr, ptr %2588, align 8, !noalias !368
-  %2590 = icmp eq ptr %.sroa.0557.0937, %2589
+  %2590 = icmp eq ptr %.sroa.0557.0916, %2589
   br i1 %2590, label %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit, label %.lr.ph.i.i.i.i40
 
 .lr.ph.i.i.i.i40:                                 ; preds = %2585, %2596
@@ -15341,7 +15336,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_8DenseSetIPNS_12IRSimilarity21IRSimilari
   %2601 = zext i32 %.027.i.i.i.i46 to i64
   %2602 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.485", ptr %2581, i64 %2601
   %2603 = load ptr, ptr %2602, align 8, !noalias !368
-  %2604 = icmp eq ptr %.sroa.0557.0937, %2603
+  %2604 = icmp eq ptr %.sroa.0557.0916, %2603
   br i1 %2604, label %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit, label %.lr.ph.i.i.i.i40, !llvm.loop !373
 
 2605:                                             ; preds = %2594, %2579
@@ -15502,7 +15497,7 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSet
   %2681 = zext nneg i32 %.02733.i.i.i211 to i64
   %2682 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.485", ptr %2677, i64 %2681
   %2683 = load ptr, ptr %2682, align 8, !noalias !368
-  %2684 = icmp eq ptr %.sroa.0557.0937, %2683
+  %2684 = icmp eq ptr %.sroa.0557.0916, %2683
   br i1 %2684, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %.lr.ph.i.i.i212
 
 .lr.ph.i.i.i212:                                  ; preds = %2679, %2690
@@ -15530,7 +15525,7 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSet
   %2695 = zext i32 %.027.i.i.i218 to i64
   %2696 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.485", ptr %2677, i64 %2695
   %2697 = load ptr, ptr %2696, align 8, !noalias !368
-  %2698 = icmp eq ptr %.sroa.0557.0937, %2697
+  %2698 = icmp eq ptr %.sroa.0557.0916, %2697
   br i1 %2698, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %.lr.ph.i.i.i212, !llvm.loop !373
 
 2699:                                             ; preds = %2605
@@ -15688,7 +15683,7 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSet
   %2771 = zext nneg i32 %.02733.i.i11.i224 to i64
   %2772 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.485", ptr %2767, i64 %2771
   %2773 = load ptr, ptr %2772, align 8, !noalias !368
-  %2774 = icmp eq ptr %.sroa.0557.0937, %2773
+  %2774 = icmp eq ptr %.sroa.0557.0916, %2773
   br i1 %2774, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %.lr.ph.i.i12.i225
 
 .lr.ph.i.i12.i225:                                ; preds = %2769, %2780
@@ -15716,7 +15711,7 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSet
   %2785 = zext i32 %.027.i.i18.i231 to i64
   %2786 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.485", ptr %2767, i64 %2785
   %2787 = load ptr, ptr %2786, align 8, !noalias !368
-  %2788 = icmp eq ptr %.sroa.0557.0937, %2787
+  %2788 = icmp eq ptr %.sroa.0557.0916, %2787
   br i1 %2788, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %.lr.ph.i.i12.i225, !llvm.loop !373
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i: ; preds = %2690, %2780, %2722, %2630, %2778, %2769, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEE4growEj.exit, %2699, %2688, %2679, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEE4growEj.exit357
@@ -15736,15 +15731,15 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, %2793
-  store ptr %.sroa.0557.0937, ptr %.0.i219, align 8, !noalias !368
+  store ptr %.sroa.0557.0916, ptr %.0.i219, align 8, !noalias !368
   br label %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit
 
 _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit: ; preds = %2596, %2585, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_.exit
-  %2797 = add i32 %.0919, 1
+  %2797 = add i32 %.0909, 1
   %.not = icmp ugt i32 %2797, %2515
-  br i1 %.not, label %._crit_edge924, label %2521, !llvm.loop !376
+  br i1 %.not, label %._crit_edge914, label %2521, !llvm.loop !376
 
-._crit_edge924:                                   ; preds = %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit, %.lr.ph944
+._crit_edge914:                                   ; preds = %_ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit, %.lr.ph923
   %2798 = load ptr, ptr %119, align 8
   %2799 = load ptr, ptr %118, align 8
   %2800 = ptrtoint ptr %2798 to i64
@@ -15753,21 +15748,21 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   %2803 = sdiv exact i64 %2802, 24
   %2804 = trunc i64 %2803 to i32
   %2805 = add i32 %2804, -1
-  %2806 = icmp eq i32 %.sroa.32.3940, 0
+  %2806 = icmp eq i32 %.sroa.32.3919, 0
   br i1 %2806, label %2832, label %2807
 
-2807:                                             ; preds = %._crit_edge924
-  %2808 = ptrtoint ptr %.sroa.0557.0937 to i64
+2807:                                             ; preds = %._crit_edge914
+  %2808 = ptrtoint ptr %.sroa.0557.0916 to i64
   %2809 = trunc i64 %2808 to i32
   %2810 = lshr i32 %2809, 4
   %2811 = lshr i32 %2809, 9
   %2812 = xor i32 %2810, %2811
-  %2813 = add i32 %.sroa.32.3940, -1
+  %2813 = add i32 %.sroa.32.3919, -1
   %.02733.i.i.i.i48 = and i32 %2812, %2813
   %2814 = zext nneg i32 %.02733.i.i.i.i48 to i64
-  %2815 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.3943, i64 %2814
+  %2815 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.3922, i64 %2814
   %2816 = load ptr, ptr %2815, align 8, !noalias !377
-  %2817 = icmp eq ptr %.sroa.0557.0937, %2816
+  %2817 = icmp eq ptr %.sroa.0557.0916, %2816
   br i1 %2817, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit, label %.lr.ph.i.i.i.i49
 
 .lr.ph.i.i.i.i49:                                 ; preds = %2807, %2823
@@ -15793,21 +15788,21 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   %2827 = add i32 %.02635.i.i.i.i51, %.02736.i.i.i.i50
   %.027.i.i.i.i55 = and i32 %2827, %2813
   %2828 = zext i32 %.027.i.i.i.i55 to i64
-  %2829 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.3943, i64 %2828
+  %2829 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.3922, i64 %2828
   %2830 = load ptr, ptr %2829, align 8, !noalias !377
-  %2831 = icmp eq ptr %.sroa.0557.0937, %2830
+  %2831 = icmp eq ptr %.sroa.0557.0916, %2830
   br i1 %2831, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit, label %.lr.ph.i.i.i.i49, !llvm.loop !291
 
-2832:                                             ; preds = %2821, %._crit_edge924
-  %.sink.i.i.i.i61 = phi ptr [ %2822, %2821 ], [ null, %._crit_edge924 ]
-  %2833 = shl i32 %.sroa.14.3942, 2
+2832:                                             ; preds = %2821, %._crit_edge914
+  %.sink.i.i.i.i61 = phi ptr [ %2822, %2821 ], [ null, %._crit_edge914 ]
+  %2833 = shl i32 %.sroa.14.3921, 2
   %2834 = add i32 %2833, 4
-  %2835 = mul i32 %.sroa.32.3940, 3
+  %2835 = mul i32 %.sroa.32.3919, 3
   %.not.i233 = icmp ult i32 %2834, %2835
   br i1 %.not.i233, label %2919, label %2836
 
 2836:                                             ; preds = %2832
-  %2837 = shl i32 %.sroa.32.3940, 1
+  %2837 = shl i32 %.sroa.32.3919, 1
   %2838 = add i32 %2837, -1
   %2839 = zext i32 %2838 to i64
   %2840 = lshr i64 %2839, 1
@@ -15826,7 +15821,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   %2852 = zext i32 %.sroa.speculated.i387 to i64
   %2853 = shl nuw nsw i64 %2852, 4
   %2854 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %2853, i64 noundef 8) #24, !noalias !377
-  %.not.i388 = icmp eq ptr %.sroa.0569.3943, null
+  %.not.i388 = icmp eq ptr %.sroa.0569.3922, null
   br i1 %.not.i388, label %2855, label %2858
 
 2855:                                             ; preds = %2836
@@ -15841,7 +15836,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   br i1 %.not.i.i414, label %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415, label %.lr.ph.i.i412, !llvm.loop !349
 
 2858:                                             ; preds = %2836
-  %2859 = zext i32 %.sroa.32.3940 to i64
+  %2859 = zext i32 %.sroa.32.3919 to i64
   %2860 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %2854, i64 %2852
   br label %.lr.ph.i.i.i390
 
@@ -15853,7 +15848,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12IRSimilarity21IRSimilarityCandidateENS_8Dens
   br i1 %.not.i.i.i392, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i393, label %.lr.ph.i.i.i390, !llvm.loop !349
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i393: ; preds = %.lr.ph.i.i.i390
-  %2862 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.3943, i64 %2859
+  %2862 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.3922, i64 %2859
   br i1 %2806, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i399, label %.lr.ph.i7.i395.preheader
 
 .lr.ph.i7.i395.preheader:                         ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i393
@@ -15862,7 +15857,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
 
 .lr.ph.i7.i395:                                   ; preds = %.lr.ph.i7.i395.preheader, %2892
   %.sroa.14.11 = phi i32 [ %.sroa.14.12, %2892 ], [ 0, %.lr.ph.i7.i395.preheader ]
-  %.020.i.i396 = phi ptr [ %2893, %2892 ], [ %.sroa.0569.3943, %.lr.ph.i7.i395.preheader ]
+  %.020.i.i396 = phi ptr [ %2893, %2892 ], [ %.sroa.0569.3922, %.lr.ph.i7.i395.preheader ]
   %2864 = load ptr, ptr %.020.i.i396, align 8, !noalias !377
   %magicptr.i.i397 = ptrtoint ptr %2864 to i64
   switch i64 %magicptr.i.i397, label %2865 [
@@ -15929,12 +15924,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i399: ; preds = %2892, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i393
   %.sroa.14.13 = phi i32 [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i393 ], [ %.sroa.14.12, %2892 ]
   %2894 = shl nuw nsw i64 %2859, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %.sroa.0569.3943, i64 noundef %2894, i64 noundef 8) #24, !noalias !377
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %.sroa.0569.3922, i64 noundef %2894, i64 noundef 8) #24, !noalias !377
   br label %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415
 
 _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415: ; preds = %.lr.ph.i.i412, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i399
   %.sroa.14.14 = phi i32 [ %.sroa.14.13, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i399 ], [ 0, %.lr.ph.i.i412 ]
-  %2895 = ptrtoint ptr %.sroa.0557.0937 to i64
+  %2895 = ptrtoint ptr %.sroa.0557.0916 to i64
   %2896 = trunc i64 %2895 to i32
   %2897 = lshr i32 %2896, 4
   %2898 = lshr i32 %2896, 9
@@ -15944,7 +15939,7 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS
   %2901 = zext nneg i32 %.02733.i.i.i234 to i64
   %2902 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %2854, i64 %2901
   %2903 = load ptr, ptr %2902, align 8, !noalias !377
-  %2904 = icmp eq ptr %.sroa.0557.0937, %2903
+  %2904 = icmp eq ptr %.sroa.0557.0916, %2903
   br i1 %2904, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242, label %.lr.ph.i.i.i235
 
 .lr.ph.i.i.i235:                                  ; preds = %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415, %2910
@@ -15972,19 +15967,19 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS
   %2915 = zext i32 %.027.i.i.i241 to i64
   %2916 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %2854, i64 %2915
   %2917 = load ptr, ptr %2916, align 8, !noalias !377
-  %2918 = icmp eq ptr %.sroa.0557.0937, %2917
+  %2918 = icmp eq ptr %.sroa.0557.0916, %2917
   br i1 %2918, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242, label %.lr.ph.i.i.i235, !llvm.loop !291
 
 2919:                                             ; preds = %2832
-  %.neg.i245 = xor i32 %.sroa.14.3942, -1
-  %.neg25.i246 = sub i32 %.sroa.32.3940, %.sroa.25.3941
+  %.neg.i245 = xor i32 %.sroa.14.3921, -1
+  %.neg25.i246 = sub i32 %.sroa.32.3919, %.sroa.25.3920
   %2920 = add i32 %.neg25.i246, %.neg.i245
-  %2921 = lshr i32 %.sroa.32.3940, 3
+  %2921 = lshr i32 %.sroa.32.3919, 3
   %.not10.i247 = icmp ugt i32 %2920, %2921
   br i1 %.not10.i247, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242thread-pre-split, label %2922
 
 2922:                                             ; preds = %2919
-  %2923 = add i32 %.sroa.32.3940, -1
+  %2923 = add i32 %.sroa.32.3919, -1
   %2924 = zext i32 %2923 to i64
   %2925 = lshr i64 %2924, 1
   %2926 = or i64 %2925, %2924
@@ -16002,7 +15997,7 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS
   %2937 = zext i32 %.sroa.speculated.i358 to i64
   %2938 = shl nuw nsw i64 %2937, 4
   %2939 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %2938, i64 noundef 8) #24, !noalias !377
-  %.not.i359 = icmp eq ptr %.sroa.0569.3943, null
+  %.not.i359 = icmp eq ptr %.sroa.0569.3922, null
   br i1 %.not.i359, label %2940, label %2943
 
 2940:                                             ; preds = %2922
@@ -16017,7 +16012,7 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS
   br i1 %.not.i.i385, label %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386, label %.lr.ph.i.i383, !llvm.loop !349
 
 2943:                                             ; preds = %2922
-  %2944 = zext i32 %.sroa.32.3940 to i64
+  %2944 = zext i32 %.sroa.32.3919 to i64
   %2945 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %2939, i64 %2937
   br label %.lr.ph.i.i.i361
 
@@ -16029,7 +16024,7 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS
   br i1 %.not.i.i.i363, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i364, label %.lr.ph.i.i.i361, !llvm.loop !349
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i364: ; preds = %.lr.ph.i.i.i361
-  %2947 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.3943, i64 %2944
+  %2947 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %.sroa.0569.3922, i64 %2944
   br i1 %2806, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i370, label %.lr.ph.i7.i366.preheader
 
 .lr.ph.i7.i366.preheader:                         ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i364
@@ -16038,7 +16033,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
 
 .lr.ph.i7.i366:                                   ; preds = %.lr.ph.i7.i366.preheader, %2977
   %.sroa.14.7 = phi i32 [ %.sroa.14.8, %2977 ], [ 0, %.lr.ph.i7.i366.preheader ]
-  %.020.i.i367 = phi ptr [ %2978, %2977 ], [ %.sroa.0569.3943, %.lr.ph.i7.i366.preheader ]
+  %.020.i.i367 = phi ptr [ %2978, %2977 ], [ %.sroa.0569.3922, %.lr.ph.i7.i366.preheader ]
   %2949 = load ptr, ptr %.020.i.i367, align 8, !noalias !377
   %magicptr.i.i368 = ptrtoint ptr %2949 to i64
   switch i64 %magicptr.i.i368, label %2950 [
@@ -16105,12 +16100,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i370: ; preds = %2977, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i364
   %.sroa.14.9 = phi i32 [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i.i364 ], [ %.sroa.14.8, %2977 ]
   %2979 = shl nuw nsw i64 %2944, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %.sroa.0569.3943, i64 noundef %2979, i64 noundef 8) #24, !noalias !377
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %.sroa.0569.3922, i64 noundef %2979, i64 noundef 8) #24, !noalias !377
   br label %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386
 
 _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386: ; preds = %.lr.ph.i.i383, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i370
   %.sroa.14.10 = phi i32 [ %.sroa.14.9, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i370 ], [ 0, %.lr.ph.i.i383 ]
-  %2980 = ptrtoint ptr %.sroa.0557.0937 to i64
+  %2980 = ptrtoint ptr %.sroa.0557.0916 to i64
   %2981 = trunc i64 %2980 to i32
   %2982 = lshr i32 %2981, 4
   %2983 = lshr i32 %2981, 9
@@ -16120,7 +16115,7 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS
   %2986 = zext nneg i32 %.02733.i.i11.i248 to i64
   %2987 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %2939, i64 %2986
   %2988 = load ptr, ptr %2987, align 8, !noalias !377
-  %2989 = icmp eq ptr %.sroa.0557.0937, %2988
+  %2989 = icmp eq ptr %.sroa.0557.0916, %2988
   br i1 %2989, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242, label %.lr.ph.i.i12.i249
 
 .lr.ph.i.i12.i249:                                ; preds = %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386, %2995
@@ -16148,20 +16143,20 @@ _ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS
   %3000 = zext i32 %.027.i.i18.i255 to i64
   %3001 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.456", ptr %2939, i64 %3000
   %3002 = load ptr, ptr %3001, align 8, !noalias !377
-  %3003 = icmp eq ptr %.sroa.0557.0937, %3002
+  %3003 = icmp eq ptr %.sroa.0557.0916, %3002
   br i1 %3003, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242, label %.lr.ph.i.i12.i249, !llvm.loop !291
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242thread-pre-split: ; preds = %2908, %2919, %2993
-  %.sroa.32.6.ph = phi i32 [ %.sroa.speculated.i387, %2908 ], [ %.sroa.speculated.i358, %2993 ], [ %.sroa.32.3940, %2919 ]
-  %.sroa.25.6.ph = phi i32 [ 0, %2908 ], [ 0, %2993 ], [ %.sroa.25.3941, %2919 ]
-  %.sroa.14.6.ph = phi i32 [ %.sroa.14.14, %2908 ], [ %.sroa.14.10, %2993 ], [ %.sroa.14.3942, %2919 ]
-  %.sroa.0569.6.ph = phi ptr [ %2854, %2908 ], [ %2939, %2993 ], [ %.sroa.0569.3943, %2919 ]
+  %.sroa.32.6.ph = phi i32 [ %.sroa.speculated.i387, %2908 ], [ %.sroa.speculated.i358, %2993 ], [ %.sroa.32.3919, %2919 ]
+  %.sroa.25.6.ph = phi i32 [ 0, %2908 ], [ 0, %2993 ], [ %.sroa.25.3920, %2919 ]
+  %.sroa.14.6.ph = phi i32 [ %.sroa.14.14, %2908 ], [ %.sroa.14.10, %2993 ], [ %.sroa.14.3921, %2919 ]
+  %.sroa.0569.6.ph = phi ptr [ %2854, %2908 ], [ %2939, %2993 ], [ %.sroa.0569.3922, %2919 ]
   %.0.i243.ph = phi ptr [ %2909, %2908 ], [ %2994, %2993 ], [ %.sink.i.i.i.i61, %2919 ]
   %.pr633 = load ptr, ptr %.0.i243.ph, align 8, !noalias !377
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242: ; preds = %2910, %2995, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242thread-pre-split, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415
-  %3004 = phi ptr [ %.pr633, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242thread-pre-split ], [ %.sroa.0557.0937, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386 ], [ %.sroa.0557.0937, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415 ], [ %.sroa.0557.0937, %2995 ], [ %.sroa.0557.0937, %2910 ]
+  %3004 = phi ptr [ %.pr633, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242thread-pre-split ], [ %.sroa.0557.0916, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386 ], [ %.sroa.0557.0916, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415 ], [ %.sroa.0557.0916, %2995 ], [ %.sroa.0557.0916, %2910 ]
   %.sroa.32.6 = phi i32 [ %.sroa.32.6.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242thread-pre-split ], [ %.sroa.speculated.i358, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386 ], [ %.sroa.speculated.i387, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415 ], [ %.sroa.speculated.i358, %2995 ], [ %.sroa.speculated.i387, %2910 ]
   %.sroa.25.6 = phi i32 [ %.sroa.25.6.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242thread-pre-split ], [ 0, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386 ], [ 0, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415 ], [ 0, %2995 ], [ 0, %2910 ]
   %.sroa.14.6 = phi i32 [ %.sroa.14.6.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242thread-pre-split ], [ %.sroa.14.10, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit386 ], [ %.sroa.14.14, %_ZN4llvm8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj.exit415 ], [ %.sroa.14.10, %2995 ], [ %.sroa.14.14, %2910 ]
@@ -16171,26 +16166,26 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
   %3006 = icmp ne ptr %3004, inttoptr (i64 -4096 to ptr)
   %3007 = sext i1 %3006 to i32
   %spec.select = add i32 %.sroa.25.6, %3007
-  store ptr %.sroa.0557.0937, ptr %.0.i243, align 8, !noalias !377
+  store ptr %.sroa.0557.0916, ptr %.0.i243, align 8, !noalias !377
   %3008 = getelementptr inbounds nuw i8, ptr %.0.i243, i64 8
   store i32 %2805, ptr %3008, align 4, !noalias !377
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit: ; preds = %2823, %2807, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242
-  %.sroa.32.5 = phi i32 [ %.sroa.32.6, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242 ], [ %.sroa.32.3940, %2807 ], [ %.sroa.32.3940, %2823 ]
-  %.sroa.25.5 = phi i32 [ %spec.select, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242 ], [ %.sroa.25.3941, %2807 ], [ %.sroa.25.3941, %2823 ]
-  %.sroa.14.5 = phi i32 [ %3005, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242 ], [ %.sroa.14.3942, %2807 ], [ %.sroa.14.3942, %2823 ]
-  %.sroa.0569.5 = phi ptr [ %.sroa.0569.6, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242 ], [ %.sroa.0569.3943, %2807 ], [ %.sroa.0569.3943, %2823 ]
-  %3009 = getelementptr inbounds i8, ptr %.sroa.0557.0937, i64 120
+  %.sroa.32.5 = phi i32 [ %.sroa.32.6, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242 ], [ %.sroa.32.3919, %2807 ], [ %.sroa.32.3919, %2823 ]
+  %.sroa.25.5 = phi i32 [ %spec.select, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242 ], [ %.sroa.25.3920, %2807 ], [ %.sroa.25.3920, %2823 ]
+  %.sroa.14.5 = phi i32 [ %3005, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242 ], [ %.sroa.14.3921, %2807 ], [ %.sroa.14.3921, %2823 ]
+  %.sroa.0569.5 = phi ptr [ %.sroa.0569.6, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i242 ], [ %.sroa.0569.3922, %2807 ], [ %.sroa.0569.3922, %2823 ]
+  %3009 = getelementptr inbounds i8, ptr %.sroa.0557.0916, i64 120
   %.not639 = icmp eq ptr %3009, %2510
-  br i1 %.not639, label %.loopexit, label %.lr.ph944
+  br i1 %.not639, label %.loopexit, label %.lr.ph923
 
-.loopexit:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit, %.lr.ph967
-  %.sroa.32.4 = phi i32 [ %.sroa.32.2963, %.lr.ph967 ], [ %.sroa.32.2963, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.32.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ]
-  %.sroa.25.4 = phi i32 [ %.sroa.25.2964, %.lr.ph967 ], [ %.sroa.25.2964, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.25.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ]
-  %.sroa.14.4 = phi i32 [ %.sroa.14.2965, %.lr.ph967 ], [ %.sroa.14.2965, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.14.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ]
-  %.sroa.0569.4 = phi ptr [ %.sroa.0569.2966, %.lr.ph967 ], [ %.sroa.0569.2966, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.0569.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ]
-  %3010 = getelementptr inbounds i8, ptr %.sroa.0562.0962, i64 32
+.loopexit:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit, %.lr.ph933
+  %.sroa.32.4 = phi i32 [ %.sroa.32.2929, %.lr.ph933 ], [ %.sroa.32.2929, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.32.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ]
+  %.sroa.25.4 = phi i32 [ %.sroa.25.2930, %.lr.ph933 ], [ %.sroa.25.2930, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.25.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ]
+  %.sroa.14.4 = phi i32 [ %.sroa.14.2931, %.lr.ph933 ], [ %.sroa.14.2931, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.14.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ]
+  %.sroa.0569.4 = phi ptr [ %.sroa.0569.2932, %.lr.ph933 ], [ %.sroa.0569.2932, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.0569.5, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6insertEOSt4pairIS4_jE.exit ]
+  %3010 = getelementptr inbounds i8, ptr %.sroa.0562.0928, i64 32
   %.not4.i3.i = icmp eq ptr %3010, %2474
   br i1 %.not4.i3.i, label %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit, label %.lr.ph.i4.i
 
@@ -16208,20 +16203,20 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12IRSimilarity21IRSimilarityCandidateEjN
 _ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %.loopexit
   %.sroa.0562.2 = phi ptr [ %3010, %.loopexit ], [ %.sroa.0562.1, %.lr.ph.i4.i ], [ %3012, %.critedge2.i6.i ]
   %.not638 = icmp eq ptr %.sroa.0562.2, %2474
-  br i1 %.not638, label %._crit_edge968, label %.lr.ph967
+  br i1 %.not638, label %._crit_edge934, label %.lr.ph933
 
-._crit_edge968:                                   ; preds = %.critedge2.i8.i14.i9.i, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit
-  %.sroa.32.2.lcssa = phi i32 [ %.sroa.32.0987, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ], [ %.sroa.32.0987, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit ], [ %.sroa.32.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.32.0987, %.critedge2.i8.i14.i9.i ]
-  %.sroa.25.2.lcssa = phi i32 [ %.sroa.25.0988, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ], [ %.sroa.25.0988, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit ], [ %.sroa.25.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.25.0988, %.critedge2.i8.i14.i9.i ]
-  %.sroa.14.2.lcssa = phi i32 [ %.sroa.14.0989, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ], [ %.sroa.14.0989, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit ], [ %.sroa.14.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.14.0989, %.critedge2.i8.i14.i9.i ]
-  %.sroa.0569.2.lcssa = phi ptr [ %.sroa.0569.0990, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ], [ %.sroa.0569.0990, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit ], [ %.sroa.0569.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.0569.0990, %.critedge2.i8.i14.i9.i ]
+._crit_edge934:                                   ; preds = %.critedge2.i8.i14.i9.i, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit
+  %.sroa.32.2.lcssa = phi i32 [ %.sroa.32.0941, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ], [ %.sroa.32.0941, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit ], [ %.sroa.32.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.32.0941, %.critedge2.i8.i14.i9.i ]
+  %.sroa.25.2.lcssa = phi i32 [ %.sroa.25.0942, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ], [ %.sroa.25.0942, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit ], [ %.sroa.25.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.25.0942, %.critedge2.i8.i14.i9.i ]
+  %.sroa.14.2.lcssa = phi i32 [ %.sroa.14.0943, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ], [ %.sroa.14.0943, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit ], [ %.sroa.14.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.14.0943, %.critedge2.i8.i14.i9.i ]
+  %.sroa.0569.2.lcssa = phi ptr [ %.sroa.0569.0944, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit ], [ %.sroa.0569.0944, %_ZL23findCandidateStructuresRSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EERNS0_8DenseMapIjS4_NS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjS4_EEEERNS6_IjNS0_8DenseSetIPS2_NS7_ISF_vEEEES8_NSA_IjSH_EEEERNS6_ISF_jSG_NSA_ISF_jEEEE.exit ], [ %.sroa.0569.4, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb0EEppEv.exit ], [ %.sroa.0569.0944, %.critedge2.i8.i14.i9.i ]
   %3013 = load ptr, ptr %15, align 8
   %3014 = load ptr, ptr %87, align 8
   %.not.i.i62 = icmp eq ptr %3014, %3013
   br i1 %.not.i.i62, label %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i63
 
-.lr.ph.i.i.i.i.i63:                               ; preds = %._crit_edge968, %.lr.ph.i.i.i.i.i63
-  %.05.i.i.i.i.i = phi ptr [ %3039, %.lr.ph.i.i.i.i.i63 ], [ %3013, %._crit_edge968 ]
+.lr.ph.i.i.i.i.i63:                               ; preds = %._crit_edge934, %.lr.ph.i.i.i.i.i63
+  %.05.i.i.i.i.i = phi ptr [ %3039, %.lr.ph.i.i.i.i.i63 ], [ %3013, %._crit_edge934 ]
   %3015 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 96
   %3016 = load ptr, ptr %3015, align 8
   %3017 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 112
@@ -16258,7 +16253,7 @@ _ZSt8_DestroyIPN4llvm12IRSimilarity21IRSimilarityCandidateES2_EvT_S4_RSaIT0_E.ex
   store ptr %3013, ptr %87, align 8
   br label %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit
 
-_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit: ; preds = %._crit_edge968, %_ZSt8_DestroyIPN4llvm12IRSimilarity21IRSimilarityCandidateES2_EvT_S4_RSaIT0_E.exit.i.i
+_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit: ; preds = %._crit_edge934, %_ZSt8_DestroyIPN4llvm12IRSimilarity21IRSimilarityCandidateES2_EvT_S4_RSaIT0_E.exit.i.i
   %3040 = load i32, ptr %117, align 8
   %3041 = icmp eq i32 %3040, 0
   %3042 = load i32, ptr %125, align 4
@@ -16313,31 +16308,31 @@ _ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit: 
   br label %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit
 
 _ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit: ; preds = %._crit_edge.i68, %3049, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit, %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit
-  %.sroa.32.1 = phi i32 [ %.sroa.32.0987, %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit ], [ %.sroa.32.2.lcssa, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit ], [ %.sroa.32.2.lcssa, %3049 ], [ %.sroa.32.2.lcssa, %._crit_edge.i68 ]
-  %.sroa.25.1 = phi i32 [ %.sroa.25.0988, %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit ], [ %.sroa.25.2.lcssa, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit ], [ %.sroa.25.2.lcssa, %3049 ], [ %.sroa.25.2.lcssa, %._crit_edge.i68 ]
-  %.sroa.14.1 = phi i32 [ %.sroa.14.0989, %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit ], [ %.sroa.14.2.lcssa, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit ], [ %.sroa.14.2.lcssa, %3049 ], [ %.sroa.14.2.lcssa, %._crit_edge.i68 ]
-  %.sroa.0569.1 = phi ptr [ %.sroa.0569.0990, %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit ], [ %.sroa.0569.2.lcssa, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit ], [ %.sroa.0569.2.lcssa, %3049 ], [ %.sroa.0569.2.lcssa, %._crit_edge.i68 ]
-  %3060 = getelementptr inbounds i8, ptr %.sroa.0566.0986, i64 72
-  %.not637 = icmp eq ptr %3060, %.pre1247
-  br i1 %.not637, label %._crit_edge992.loopexit, label %141
+  %.sroa.32.1 = phi i32 [ %.sroa.32.0941, %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit ], [ %.sroa.32.2.lcssa, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit ], [ %.sroa.32.2.lcssa, %3049 ], [ %.sroa.32.2.lcssa, %._crit_edge.i68 ]
+  %.sroa.25.1 = phi i32 [ %.sroa.25.0942, %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit ], [ %.sroa.25.2.lcssa, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit ], [ %.sroa.25.2.lcssa, %3049 ], [ %.sroa.25.2.lcssa, %._crit_edge.i68 ]
+  %.sroa.14.1 = phi i32 [ %.sroa.14.0943, %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit ], [ %.sroa.14.2.lcssa, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit ], [ %.sroa.14.2.lcssa, %3049 ], [ %.sroa.14.2.lcssa, %._crit_edge.i68 ]
+  %.sroa.0569.1 = phi ptr [ %.sroa.0569.0944, %_ZL30createCandidatesFromSuffixTreeRKN4llvm12IRSimilarity19IRInstructionMapperERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEERNS_10SuffixTree17RepeatedSubstringERS4_INS0_21IRSimilarityCandidateESaISG_EE.exit ], [ %.sroa.0569.2.lcssa, %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EE5clearEv.exit ], [ %.sroa.0569.2.lcssa, %3049 ], [ %.sroa.0569.2.lcssa, %._crit_edge.i68 ]
+  %3060 = getelementptr inbounds i8, ptr %.sroa.0566.0940, i64 72
+  %.not637 = icmp eq ptr %3060, %.pre1201
+  br i1 %.not637, label %._crit_edge946.loopexit, label %141
 
-._crit_edge992.loopexit:                          ; preds = %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit
-  %.pre1258 = load ptr, ptr %18, align 8
-  %.pre1259 = load ptr, ptr %66, align 8
+._crit_edge946.loopexit:                          ; preds = %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE5clearEv.exit
+  %.pre1212 = load ptr, ptr %18, align 8
+  %.pre1213 = load ptr, ptr %66, align 8
   %3061 = zext i32 %.sroa.32.1 to i64
   %3062 = shl nuw nsw i64 %3061, 4
-  br label %._crit_edge992
+  br label %._crit_edge946
 
-._crit_edge992:                                   ; preds = %._crit_edge992.loopexit, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit"
-  %3063 = phi ptr [ %.pre1247, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit" ], [ %.pre1259, %._crit_edge992.loopexit ]
-  %3064 = phi ptr [ %.pre, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit" ], [ %.pre1258, %._crit_edge992.loopexit ]
-  %.sroa.32.0.lcssa = phi i64 [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit" ], [ %3062, %._crit_edge992.loopexit ]
-  %.sroa.0569.0.lcssa = phi ptr [ null, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit" ], [ %.sroa.0569.1, %._crit_edge992.loopexit ]
+._crit_edge946:                                   ; preds = %._crit_edge946.loopexit, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit"
+  %3063 = phi ptr [ %.pre1201, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit" ], [ %.pre1213, %._crit_edge946.loopexit ]
+  %3064 = phi ptr [ %.pre, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit" ], [ %.pre1212, %._crit_edge946.loopexit ]
+  %.sroa.32.0.lcssa = phi i64 [ 0, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit" ], [ %3062, %._crit_edge946.loopexit ]
+  %.sroa.0569.0.lcssa = phi ptr [ null, %"_ZN4llvm11stable_sortIRSt6vectorINS_10SuffixTree17RepeatedSubstringESaIS3_EEZNS_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS1_IPNS7_17IRInstructionDataESaISA_EERS1_IjSaIjEEE3$_0EEvOT_T0_.exit" ], [ %.sroa.0569.1, %._crit_edge946.loopexit ]
   %.not4.i.i.i.i = icmp eq ptr %3064, %3063
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i73
 
-.lr.ph.i.i.i.i73:                                 ; preds = %._crit_edge992, %_ZSt8_DestroyIN4llvm10SuffixTree17RepeatedSubstringEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %3071, %_ZSt8_DestroyIN4llvm10SuffixTree17RepeatedSubstringEEvPT_.exit.i.i.i.i ], [ %3064, %._crit_edge992 ]
+.lr.ph.i.i.i.i73:                                 ; preds = %._crit_edge946, %_ZSt8_DestroyIN4llvm10SuffixTree17RepeatedSubstringEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %3071, %_ZSt8_DestroyIN4llvm10SuffixTree17RepeatedSubstringEEvPT_.exit.i.i.i.i ], [ %3064, %._crit_edge946 ]
   %3065 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %3066 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3065) #24
   %3067 = load ptr, ptr %3065, align 8
@@ -16358,10 +16353,10 @@ _ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exitthre
   %.pr.i75 = load ptr, ptr %18, align 8
   br label %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZN4llvm10SuffixTree25RepeatedSubstringIteratorD2Ev.exit22, %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %._crit_edge992
-  %.sroa.0569.0.lcssa1296 = phi ptr [ %.sroa.0569.0.lcssa, %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.0569.0.lcssa, %._crit_edge992 ], [ null, %_ZN4llvm10SuffixTree25RepeatedSubstringIteratorD2Ev.exit22 ]
-  %.sroa.32.0.lcssa1295 = phi i64 [ %.sroa.32.0.lcssa, %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.32.0.lcssa, %._crit_edge992 ], [ 0, %_ZN4llvm10SuffixTree25RepeatedSubstringIteratorD2Ev.exit22 ]
-  %3072 = phi ptr [ %.pr.i75, %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %3064, %._crit_edge992 ], [ %.val, %_ZN4llvm10SuffixTree25RepeatedSubstringIteratorD2Ev.exit22 ]
+_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZN4llvm10SuffixTree25RepeatedSubstringIteratorD2Ev.exit22, %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %._crit_edge946
+  %.sroa.0569.0.lcssa1247 = phi ptr [ %.sroa.0569.0.lcssa, %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.0569.0.lcssa, %._crit_edge946 ], [ null, %_ZN4llvm10SuffixTree25RepeatedSubstringIteratorD2Ev.exit22 ]
+  %.sroa.32.0.lcssa1246 = phi i64 [ %.sroa.32.0.lcssa, %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.32.0.lcssa, %._crit_edge946 ], [ 0, %_ZN4llvm10SuffixTree25RepeatedSubstringIteratorD2Ev.exit22 ]
+  %3072 = phi ptr [ %.pr.i75, %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %3064, %._crit_edge946 ], [ %.val, %_ZN4llvm10SuffixTree25RepeatedSubstringIteratorD2Ev.exit22 ]
   %.not.i.i.i76 = icmp eq ptr %3072, null
   br i1 %.not.i.i.i76, label %_ZNSt6vectorIN4llvm10SuffixTree17RepeatedSubstringESaIS2_EED2Ev.exit, label %3073
 
@@ -16375,7 +16370,7 @@ _ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exit.i: 
   br label %_ZNSt6vectorIN4llvm10SuffixTree17RepeatedSubstringESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm10SuffixTree17RepeatedSubstringESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4llvm10SuffixTree17RepeatedSubstringES2_EvT_S4_RSaIT0_E.exit.i, %3073
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sroa.0569.0.lcssa1296, i64 noundef %.sroa.32.0.lcssa1295, i64 noundef 8) #24
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sroa.0569.0.lcssa1247, i64 noundef %.sroa.32.0.lcssa1246, i64 noundef 8) #24
   %3079 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %3080 = load i32, ptr %3079, align 8
   %3081 = icmp eq i32 %3080, 0

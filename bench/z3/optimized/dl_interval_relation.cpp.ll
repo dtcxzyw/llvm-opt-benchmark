@@ -4424,8 +4424,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %change.0164 = phi i1 [ false, %for.body.lr.ph ], [ %change.1, %for.inc ]
-  %storemerge163 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %change.0163 = phi i1 [ false, %for.body.lr.ph ], [ %change.1, %for.inc ]
+  %storemerge162 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call21 = invoke noundef i32 @_ZN10union_findI22union_find_default_ctxS0_E6mk_varEv(ptr noundef nonnull align 8 dereferenceable(56) %call12)
           to label %invoke.cont20 unwind label %lpad18.loopexit.split-lp.loopexit
 
@@ -4436,7 +4436,7 @@ invoke.cont20:                                    ; preds = %for.body
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %invoke.cont20
-  %v.addr.0.i.i = phi i32 [ %storemerge163, %invoke.cont20 ], [ %6, %while.body.i.i ]
+  %v.addr.0.i.i = phi i32 [ %storemerge162, %invoke.cont20 ], [ %6, %while.body.i.i ]
   %idxprom.i.i.i = zext i32 %v.addr.0.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i.i.i
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
@@ -4450,7 +4450,7 @@ invoke.cont23:                                    ; preds = %while.body.i.i
   br label %while.body.i.i35
 
 while.body.i.i35:                                 ; preds = %while.body.i.i35, %invoke.cont23
-  %v.addr.0.i.i36 = phi i32 [ %storemerge163, %invoke.cont23 ], [ %9, %while.body.i.i35 ]
+  %v.addr.0.i.i36 = phi i32 [ %storemerge162, %invoke.cont23 ], [ %9, %while.body.i.i35 ]
   %idxprom.i.i.i37 = zext i32 %v.addr.0.i.i36 to i64
   %arrayidx.i.i.i38 = getelementptr inbounds i32, ptr %8, i64 %idxprom.i.i.i37
   %9 = load i32, ptr %arrayidx.i.i.i38, align 4
@@ -4546,7 +4546,7 @@ if.then32:                                        ; preds = %land.lhs.true.i.i.i
   %retval.0.i.i.i = phi ptr [ %curr.135.i.i.i, %land.lhs.true25.i.i.i ], [ %curr.033.i.i.i, %land.lhs.true.i.i.i ]
   %m_value.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   %22 = load i32, ptr %m_value.i, align 4
-  invoke void @_ZN10union_findI22union_find_default_ctxS0_E5mergeEjj(ptr noundef nonnull align 8 dereferenceable(56) %call12, i32 noundef %storemerge163, i32 noundef %22)
+  invoke void @_ZN10union_findI22union_find_default_ctxS0_E5mergeEjj(ptr noundef nonnull align 8 dereferenceable(56) %call12, i32 noundef %storemerge162, i32 noundef %22)
           to label %for.inc unwind label %lpad18.loopexit.split-lp.loopexit
 
 lpad18.loopexit:                                  ; preds = %invoke.cont52
@@ -4567,7 +4567,7 @@ lpad18.loopexit.split-lp.loopexit.split-lp:       ; preds = %_ZN6vectorI12old_in
 if.else:                                          ; preds = %for.body.i.i.i, %for.body20.i.i.i, %for.inc36.i.i.i, %for.cond18.preheader.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i)
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %ref.tmp.i, align 8
-  store i32 %storemerge163, ptr %m_value.i.i, align 8
+  store i32 %storemerge162, ptr %m_value.i.i, align 8
   invoke void @_ZN14core_hashtableI17default_map_entryISt4pairIjjEjEN9table2mapIS3_9pair_hashI13unsigned_hashS6_E10default_eqIS2_EE15entry_hash_procENSA_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(28) %mp, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i)
           to label %invoke.cont34 unwind label %lpad18.loopexit.split-lp.loopexit
 
@@ -4579,7 +4579,7 @@ invoke.cont34:                                    ; preds = %if.else
   br label %while.body.i.i46
 
 while.body.i.i46:                                 ; preds = %while.body.i.i46, %invoke.cont34
-  %v.addr.0.i.i47 = phi i32 [ %storemerge163, %invoke.cont34 ], [ %25, %while.body.i.i46 ]
+  %v.addr.0.i.i47 = phi i32 [ %storemerge162, %invoke.cont34 ], [ %25, %while.body.i.i46 ]
   %idxprom.i.i.i48 = zext i32 %v.addr.0.i.i47 to i64
   %arrayidx.i.i.i49 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i.i.i48
   %25 = load i32, ptr %arrayidx.i.i.i49, align 4
@@ -4599,7 +4599,7 @@ invoke.cont37:                                    ; preds = %while.body.i.i46
   br i1 %cmp.i52.not, label %while.body.i.i55, label %for.inc
 
 while.body.i.i55:                                 ; preds = %invoke.cont37, %while.body.i.i55
-  %v.addr.0.i.i56 = phi i32 [ %28, %while.body.i.i55 ], [ %storemerge163, %invoke.cont37 ]
+  %v.addr.0.i.i56 = phi i32 [ %28, %while.body.i.i55 ], [ %storemerge162, %invoke.cont37 ]
   %idxprom.i.i.i57 = zext i32 %v.addr.0.i.i56 to i64
   %arrayidx.i.i.i58 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i.i.i57
   %28 = load i32, ptr %arrayidx.i.i.i58, align 4
@@ -4618,8 +4618,8 @@ invoke.cont41:                                    ; preds = %while.body.i.i55
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont41, %invoke.cont37, %if.then32
-  %change.1 = phi i1 [ %change.0164, %if.then32 ], [ %change.0164, %invoke.cont41 ], [ true, %invoke.cont37 ]
-  %inc = add nuw i32 %storemerge163, 1
+  %change.1 = phi i1 [ %change.0163, %if.then32 ], [ %change.0163, %invoke.cont41 ], [ true, %invoke.cont37 ]
+  %inc = add nuw i32 %storemerge162, 1
   %exitcond.not = icmp eq i32 %inc, %retval.0.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
@@ -4660,7 +4660,7 @@ for.body51.lr.ph:                                 ; preds = %invoke.cont46
 
 for.body51:                                       ; preds = %for.body51.lr.ph, %_ZN12old_intervalD2Ev.exit122
   %indvars.iv = phi i64 [ 0, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN12old_intervalD2Ev.exit122 ]
-  %change.2166 = phi i1 [ %change.0.lcssa, %for.body51.lr.ph ], [ %75, %_ZN12old_intervalD2Ev.exit122 ]
+  %change.2165 = phi i1 [ %change.0.lcssa, %for.body51.lr.ph ], [ %75, %_ZN12old_intervalD2Ev.exit122 ]
   %30 = load ptr, ptr %m_eqs, align 8
   %31 = load ptr, ptr %m_elems.i, align 8
   %m_find.i.i.i = getelementptr inbounds i8, ptr %30, i64 16
@@ -4820,7 +4820,7 @@ lpad79:                                           ; preds = %invoke.cont78
   br label %ehcleanup
 
 if.end82:                                         ; preds = %.noexc.i.i3.i86, %.noexc.i.i3.i
-  %brmerge = select i1 %tobool83.not, i1 true, i1 %change.2166
+  %brmerge = select i1 %tobool83.not, i1 true, i1 %change.2165
   br i1 %brmerge, label %land.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end82
@@ -4947,8 +4947,8 @@ terminate.lpad.i.i2.i119:                         ; preds = %.noexc.i.i3.i120, %
 
 _ZN12old_intervalD2Ev.exit122:                    ; preds = %.noexc.i.i3.i120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond178.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond178.not, label %for.end94, label %for.body51, !llvm.loop !13
+  %exitcond177.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond177.not, label %for.end94, label %for.body51, !llvm.loop !13
 
 ehcleanup:                                        ; preds = %lpad79, %lpad71, %lpad69
   %.pn = phi { ptr, i32 } [ %51, %lpad69 ], [ %52, %lpad71 ], [ %60, %lpad79 ]

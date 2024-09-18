@@ -1734,526 +1734,526 @@ define i32 @arkEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
 .thread:                                          ; preds = %39, %47
   %48 = call i32 @arkStopTests(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %6)
   %.not278 = icmp eq i32 %48, 0
-  %.promoted.pre = load i32, ptr %6, align 4
-  br i1 %.not278, label %.thread._crit_edge, label %.loopexit
+  br i1 %.not278, label %.thread._crit_edge, label %49
+
+49:                                               ; preds = %.thread
+  %50 = load i32, ptr %6, align 4
+  br label %.loopexit
 
 .thread._crit_edge:                               ; preds = %.thread, %47
-  %.promoted = phi i32 [ 0, %47 ], [ %.promoted.pre, %.thread ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 376
-  %50 = getelementptr inbounds i8, ptr %0, i64 408
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
-  %52 = getelementptr inbounds i8, ptr %0, i64 272
-  %53 = getelementptr inbounds i8, ptr %0, i64 240
-  %54 = getelementptr inbounds i8, ptr %0, i64 96
-  %55 = getelementptr inbounds i8, ptr %0, i64 256
-  %56 = getelementptr inbounds i8, ptr %0, i64 112
-  %57 = getelementptr inbounds i8, ptr %0, i64 248
-  %58 = getelementptr inbounds i8, ptr %0, i64 120
-  %59 = getelementptr inbounds i8, ptr %0, i64 456
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 592
-  %62 = getelementptr inbounds i8, ptr %0, i64 424
-  %63 = getelementptr inbounds i8, ptr %0, i64 496
-  %64 = getelementptr inbounds i8, ptr %0, i64 464
-  %65 = getelementptr inbounds i8, ptr %0, i64 400
-  %66 = getelementptr inbounds i8, ptr %0, i64 416
-  %67 = getelementptr inbounds i8, ptr %0, i64 440
-  %68 = getelementptr inbounds i8, ptr %0, i64 368
-  %69 = getelementptr inbounds i8, ptr %0, i64 348
-  %70 = getelementptr inbounds i8, ptr %0, i64 360
-  %71 = getelementptr inbounds i8, ptr %0, i64 688
-  %72 = getelementptr inbounds i8, ptr %0, i64 480
-  %73 = getelementptr inbounds i8, ptr %0, i64 224
-  %74 = getelementptr inbounds i8, ptr %0, i64 504
-  %75 = getelementptr inbounds i8, ptr %0, i64 448
-  %76 = getelementptr inbounds i8, ptr %0, i64 476
-  %77 = getelementptr inbounds i8, ptr %0, i64 384
-  %78 = getelementptr inbounds i8, ptr %0, i64 684
-  %79 = getelementptr inbounds i8, ptr %0, i64 640
-  %80 = getelementptr inbounds i8, ptr %0, i64 128
-  %81 = getelementptr inbounds i8, ptr %0, i64 488
+  %51 = getelementptr inbounds i8, ptr %0, i64 376
+  %52 = getelementptr inbounds i8, ptr %0, i64 408
+  %53 = getelementptr inbounds i8, ptr %0, i64 88
+  %54 = getelementptr inbounds i8, ptr %0, i64 272
+  %55 = getelementptr inbounds i8, ptr %0, i64 240
+  %56 = getelementptr inbounds i8, ptr %0, i64 96
+  %57 = getelementptr inbounds i8, ptr %0, i64 256
+  %58 = getelementptr inbounds i8, ptr %0, i64 112
+  %59 = getelementptr inbounds i8, ptr %0, i64 248
+  %60 = getelementptr inbounds i8, ptr %0, i64 120
+  %61 = getelementptr inbounds i8, ptr %0, i64 456
+  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 592
+  %64 = getelementptr inbounds i8, ptr %0, i64 424
+  %65 = getelementptr inbounds i8, ptr %0, i64 496
+  %66 = getelementptr inbounds i8, ptr %0, i64 464
+  %67 = getelementptr inbounds i8, ptr %0, i64 400
+  %68 = getelementptr inbounds i8, ptr %0, i64 416
+  %69 = getelementptr inbounds i8, ptr %0, i64 440
+  %70 = getelementptr inbounds i8, ptr %0, i64 368
+  %71 = getelementptr inbounds i8, ptr %0, i64 348
+  %72 = getelementptr inbounds i8, ptr %0, i64 360
+  %73 = getelementptr inbounds i8, ptr %0, i64 688
+  %74 = getelementptr inbounds i8, ptr %0, i64 480
+  %75 = getelementptr inbounds i8, ptr %0, i64 224
+  %76 = getelementptr inbounds i8, ptr %0, i64 504
+  %77 = getelementptr inbounds i8, ptr %0, i64 448
+  %78 = getelementptr inbounds i8, ptr %0, i64 476
+  %79 = getelementptr inbounds i8, ptr %0, i64 384
+  %80 = getelementptr inbounds i8, ptr %0, i64 684
+  %81 = getelementptr inbounds i8, ptr %0, i64 640
+  %82 = getelementptr inbounds i8, ptr %0, i64 128
+  %83 = getelementptr inbounds i8, ptr %0, i64 488
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.thread._crit_edge
-  %82 = phi i32 [ %.promoted, %.thread._crit_edge ], [ %300, %.backedge.backedge ]
-  %.0250 = phi i64 [ 0, %.thread._crit_edge ], [ %263, %.backedge.backedge ]
-  %83 = load double, ptr %49, align 8
-  store double %83, ptr %50, align 8
-  %84 = load i32, ptr %40, align 4
-  %.not279 = icmp eq i32 %84, 0
-  br i1 %.not279, label %85, label %121
+  %.0250 = phi i64 [ 0, %.thread._crit_edge ], [ %264, %.backedge.backedge ]
+  %84 = load double, ptr %51, align 8
+  store double %84, ptr %52, align 8
+  %85 = load i32, ptr %40, align 4
+  %.not279 = icmp eq i32 %85, 0
+  br i1 %.not279, label %86, label %122
 
-85:                                               ; preds = %.backedge
-  %86 = load ptr, ptr %51, align 8
-  %87 = load ptr, ptr %52, align 8
-  %88 = load ptr, ptr %53, align 8
-  %89 = load ptr, ptr %54, align 8
-  %90 = call i32 %86(ptr noundef %87, ptr noundef %88, ptr noundef %89) #16
-  %.not280 = icmp eq i32 %90, 0
-  br i1 %.not280, label %102, label %91
+86:                                               ; preds = %.backedge
+  %87 = load ptr, ptr %53, align 8
+  %88 = load ptr, ptr %54, align 8
+  %89 = load ptr, ptr %55, align 8
+  %90 = load ptr, ptr %56, align 8
+  %91 = call i32 %87(ptr noundef %88, ptr noundef %89, ptr noundef %90) #16
+  %.not280 = icmp eq i32 %91, 0
+  br i1 %.not280, label %103, label %92
 
-91:                                               ; preds = %85
-  %92 = getelementptr inbounds i8, ptr %0, i64 24
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp eq i32 %93, 2
-  %95 = load double, ptr %62, align 8
-  br i1 %94, label %96, label %97
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds i8, ptr %0, i64 24
+  %94 = load i32, ptr %93, align 8
+  %95 = icmp eq i32 %94, 2
+  %96 = load double, ptr %64, align 8
+  br i1 %95, label %97, label %98
 
-96:                                               ; preds = %91
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 807, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20, double noundef %95)
-  br label %98
+97:                                               ; preds = %92
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 807, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20, double noundef %96)
+  br label %99
 
-97:                                               ; preds = %91
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 812, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, double noundef %95)
-  br label %98
+98:                                               ; preds = %92
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 812, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, double noundef %96)
+  br label %99
 
-98:                                               ; preds = %97, %96
-  %99 = load double, ptr %62, align 8
-  store double %99, ptr %3, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 432
-  store double %99, ptr %100, align 8
-  %101 = load ptr, ptr %52, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %101, ptr noundef nonnull %2) #16
+99:                                               ; preds = %98, %97
+  %100 = load double, ptr %64, align 8
+  store double %100, ptr %3, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 432
+  store double %100, ptr %101, align 8
+  %102 = load ptr, ptr %54, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %102, ptr noundef nonnull %2) #16
   br label %.loopexit
 
-102:                                              ; preds = %85
-  %103 = load i32, ptr %55, align 8
-  %.not281 = icmp eq i32 %103, 0
-  br i1 %.not281, label %104, label %121
+103:                                              ; preds = %86
+  %104 = load i32, ptr %57, align 8
+  %.not281 = icmp eq i32 %104, 0
+  br i1 %.not281, label %105, label %122
 
-104:                                              ; preds = %102
-  %105 = load ptr, ptr %56, align 8
-  %106 = load ptr, ptr %52, align 8
-  %107 = load ptr, ptr %57, align 8
-  %108 = load ptr, ptr %58, align 8
-  %109 = call i32 %105(ptr noundef %106, ptr noundef %107, ptr noundef %108) #16
-  %.not282 = icmp eq i32 %109, 0
-  br i1 %.not282, label %121, label %110
+105:                                              ; preds = %103
+  %106 = load ptr, ptr %58, align 8
+  %107 = load ptr, ptr %54, align 8
+  %108 = load ptr, ptr %59, align 8
+  %109 = load ptr, ptr %60, align 8
+  %110 = call i32 %106(ptr noundef %107, ptr noundef %108, ptr noundef %109) #16
+  %.not282 = icmp eq i32 %110, 0
+  br i1 %.not282, label %122, label %111
 
-110:                                              ; preds = %104
-  %111 = getelementptr inbounds i8, ptr %0, i64 24
-  %112 = load i32, ptr %111, align 8
-  %113 = icmp eq i32 %112, 2
-  %114 = load double, ptr %62, align 8
-  br i1 %113, label %115, label %116
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds i8, ptr %0, i64 24
+  %113 = load i32, ptr %112, align 8
+  %114 = icmp eq i32 %113, 2
+  %115 = load double, ptr %64, align 8
+  br i1 %114, label %116, label %117
 
-115:                                              ; preds = %110
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 829, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, double noundef %114)
-  br label %117
+116:                                              ; preds = %111
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 829, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, double noundef %115)
+  br label %118
 
-116:                                              ; preds = %110
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 834, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, double noundef %114)
-  br label %117
+117:                                              ; preds = %111
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 834, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, double noundef %115)
+  br label %118
 
-117:                                              ; preds = %116, %115
-  %118 = load double, ptr %62, align 8
-  store double %118, ptr %3, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 432
-  store double %118, ptr %119, align 8
-  %120 = load ptr, ptr %52, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %120, ptr noundef nonnull %2) #16
+118:                                              ; preds = %117, %116
+  %119 = load double, ptr %64, align 8
+  store double %119, ptr %3, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 432
+  store double %119, ptr %120, align 8
+  %121 = load ptr, ptr %54, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %121, ptr noundef nonnull %2) #16
   br label %.loopexit
 
-121:                                              ; preds = %102, %104, %.backedge
-  %122 = load i64, ptr %59, align 8
-  %123 = icmp slt i64 %122, 1
-  %.not283 = icmp slt i64 %.0250, %122
-  %or.cond296 = select i1 %123, i1 true, i1 %.not283
-  br i1 %or.cond296, label %129, label %124
+122:                                              ; preds = %103, %105, %.backedge
+  %123 = load i64, ptr %61, align 8
+  %124 = icmp slt i64 %123, 1
+  %.not283 = icmp slt i64 %.0250, %123
+  %or.cond296 = select i1 %124, i1 true, i1 %.not283
+  br i1 %or.cond296, label %130, label %125
 
-124:                                              ; preds = %121
-  %125 = load double, ptr %62, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 849, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, double noundef %125)
-  %126 = load double, ptr %62, align 8
-  store double %126, ptr %3, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 432
-  store double %126, ptr %127, align 8
-  %128 = load ptr, ptr %52, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %128, ptr noundef nonnull %2) #16
+125:                                              ; preds = %122
+  %126 = load double, ptr %64, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 849, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, double noundef %126)
+  %127 = load double, ptr %64, align 8
+  store double %127, ptr %3, align 8
+  %128 = getelementptr inbounds i8, ptr %0, i64 432
+  store double %127, ptr %128, align 8
+  %129 = load ptr, ptr %54, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %129, ptr noundef nonnull %2) #16
   br label %.loopexit
 
-129:                                              ; preds = %121
-  %130 = load ptr, ptr %52, align 8
-  %131 = load ptr, ptr %53, align 8
-  %132 = call double @N_VWrmsNorm(ptr noundef %130, ptr noundef %131) #16
-  %133 = load double, ptr %60, align 8
-  %134 = fmul double %132, %133
-  store double %134, ptr %61, align 8
-  %135 = fcmp ogt double %134, 1.000000e+00
-  br i1 %135, label %136, label %143
+130:                                              ; preds = %122
+  %131 = load ptr, ptr %54, align 8
+  %132 = load ptr, ptr %55, align 8
+  %133 = call double @N_VWrmsNorm(ptr noundef %131, ptr noundef %132) #16
+  %134 = load double, ptr %62, align 8
+  %135 = fmul double %133, %134
+  store double %135, ptr %63, align 8
+  %136 = fcmp ogt double %135, 1.000000e+00
+  br i1 %136, label %137, label %144
 
-136:                                              ; preds = %129
-  %137 = load double, ptr %62, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 862, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.25, double noundef %137)
-  %138 = load double, ptr %62, align 8
-  store double %138, ptr %3, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 432
-  store double %138, ptr %139, align 8
-  %140 = load ptr, ptr %52, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %140, ptr noundef nonnull %2) #16
-  %141 = load double, ptr %61, align 8
-  %142 = fmul double %141, 2.000000e+00
-  store double %142, ptr %61, align 8
+137:                                              ; preds = %130
+  %138 = load double, ptr %64, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 862, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.25, double noundef %138)
+  %139 = load double, ptr %64, align 8
+  store double %139, ptr %3, align 8
+  %140 = getelementptr inbounds i8, ptr %0, i64 432
+  store double %139, ptr %140, align 8
+  %141 = load ptr, ptr %54, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %141, ptr noundef nonnull %2) #16
+  %142 = load double, ptr %63, align 8
+  %143 = fmul double %142, 2.000000e+00
+  store double %143, ptr %63, align 8
   br label %.loopexit
 
-143:                                              ; preds = %129
-  store double 1.000000e+00, ptr %61, align 8
-  %144 = load double, ptr %62, align 8
-  %145 = load double, ptr %49, align 8
-  %146 = fadd double %144, %145
-  %147 = fcmp oeq double %146, %144
-  br i1 %147, label %148, label %158
+144:                                              ; preds = %130
+  store double 1.000000e+00, ptr %63, align 8
+  %145 = load double, ptr %64, align 8
+  %146 = load double, ptr %51, align 8
+  %147 = fadd double %145, %146
+  %148 = fcmp oeq double %147, %145
+  br i1 %148, label %149, label %159
 
-148:                                              ; preds = %143
-  %149 = load i32, ptr %63, align 8
-  %150 = add nsw i32 %149, 1
-  store i32 %150, ptr %63, align 8
-  %151 = load i32, ptr %64, align 8
-  %.not284.not = icmp slt i32 %149, %151
-  br i1 %.not284.not, label %152, label %153
+149:                                              ; preds = %144
+  %150 = load i32, ptr %65, align 8
+  %151 = add nsw i32 %150, 1
+  store i32 %151, ptr %65, align 8
+  %152 = load i32, ptr %66, align 8
+  %.not284.not = icmp slt i32 %150, %152
+  br i1 %.not284.not, label %153, label %154
 
-152:                                              ; preds = %148
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 99, i32 noundef 878, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, double noundef %144, double noundef %145)
-  %.pre552 = load i32, ptr %63, align 8
-  %.pre553 = load i32, ptr %64, align 8
-  br label %153
+153:                                              ; preds = %149
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 99, i32 noundef 878, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, double noundef %145, double noundef %146)
+  %.pre552 = load i32, ptr %65, align 8
+  %.pre553 = load i32, ptr %66, align 8
+  br label %154
 
-153:                                              ; preds = %152, %148
-  %154 = phi i32 [ %.pre553, %152 ], [ %151, %148 ]
-  %155 = phi i32 [ %.pre552, %152 ], [ %150, %148 ]
-  %156 = icmp eq i32 %155, %154
-  br i1 %156, label %157, label %158
+154:                                              ; preds = %153, %149
+  %155 = phi i32 [ %.pre553, %153 ], [ %152, %149 ]
+  %156 = phi i32 [ %.pre552, %153 ], [ %151, %149 ]
+  %157 = icmp eq i32 %156, %155
+  br i1 %157, label %158, label %159
 
-157:                                              ; preds = %153
+158:                                              ; preds = %154
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 99, i32 noundef 883, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.27)
-  br label %158
+  br label %159
 
-158:                                              ; preds = %153, %157, %143
-  %159 = load double, ptr %65, align 8
-  %160 = load double, ptr %49, align 8
-  %161 = fcmp une double %159, %160
-  br i1 %161, label %162, label %165
+159:                                              ; preds = %154, %158, %144
+  %160 = load double, ptr %67, align 8
+  %161 = load double, ptr %51, align 8
+  %162 = fcmp une double %160, %161
+  br i1 %162, label %163, label %166
 
-162:                                              ; preds = %158
-  %163 = load double, ptr %66, align 8
-  %164 = fmul double %160, %163
-  store double %164, ptr %49, align 8
-  store double %164, ptr %50, align 8
-  br label %165
+163:                                              ; preds = %159
+  %164 = load double, ptr %68, align 8
+  %165 = fmul double %161, %164
+  store double %165, ptr %51, align 8
+  store double %165, ptr %52, align 8
+  br label %166
 
-165:                                              ; preds = %162, %158
-  %166 = load i32, ptr %67, align 8
-  %.not285 = icmp eq i32 %166, 0
-  br i1 %.not285, label %182, label %167
+166:                                              ; preds = %163, %159
+  %167 = load i32, ptr %69, align 8
+  %.not285 = icmp eq i32 %167, 0
+  br i1 %.not285, label %183, label %168
 
-167:                                              ; preds = %165
-  %168 = load double, ptr %68, align 8
-  store double %168, ptr %49, align 8
-  store double %168, ptr %50, align 8
-  %169 = load i32, ptr %69, align 4
-  %.not286 = icmp eq i32 %169, 0
-  br i1 %.not286, label %182, label %170
+168:                                              ; preds = %166
+  %169 = load double, ptr %70, align 8
+  store double %169, ptr %51, align 8
+  store double %169, ptr %52, align 8
+  %170 = load i32, ptr %71, align 4
+  %.not286 = icmp eq i32 %170, 0
+  br i1 %.not286, label %183, label %171
 
-170:                                              ; preds = %167
-  %171 = load double, ptr %62, align 8
-  %172 = fadd double %168, %171
-  %173 = load double, ptr %70, align 8
-  %174 = fsub double %172, %173
-  %175 = fmul double %168, %174
-  %176 = fcmp ogt double %175, 0.000000e+00
-  br i1 %176, label %177, label %182
+171:                                              ; preds = %168
+  %172 = load double, ptr %64, align 8
+  %173 = fadd double %169, %172
+  %174 = load double, ptr %72, align 8
+  %175 = fsub double %173, %174
+  %176 = fmul double %169, %175
+  %177 = fcmp ogt double %176, 0.000000e+00
+  br i1 %177, label %178, label %183
 
-177:                                              ; preds = %170
-  %178 = fsub double %173, %171
-  %179 = load double, ptr %60, align 8
-  %180 = call double @llvm.fmuladd.f64(double %179, double -4.000000e+00, double 1.000000e+00)
-  %181 = fmul double %178, %180
-  store double %181, ptr %49, align 8
-  br label %182
+178:                                              ; preds = %171
+  %179 = fsub double %174, %172
+  %180 = load double, ptr %62, align 8
+  %181 = call double @llvm.fmuladd.f64(double %180, double -4.000000e+00, double 1.000000e+00)
+  %182 = fmul double %179, %181
+  store double %182, ptr %51, align 8
+  br label %183
 
-182:                                              ; preds = %167, %177, %170, %165
+183:                                              ; preds = %168, %178, %171, %166
   store double 0.000000e+00, ptr %7, align 8
-  store i32 0, ptr %71, align 8
+  store i32 0, ptr %73, align 8
   store i32 0, ptr %10, align 4
   store i32 0, ptr %9, align 4
   store i32 0, ptr %11, align 4
   store i32 6, ptr %8, align 4
-  %183 = load i64, ptr %72, align 8
-  %184 = add nsw i64 %183, 1
-  store i64 %184, ptr %72, align 8
-  %185 = load ptr, ptr %73, align 8
-  %186 = call i32 %185(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
-  %187 = icmp slt i32 %186, 0
-  br i1 %187, label %.thread344, label %.lr.ph
+  %184 = load i64, ptr %74, align 8
+  %185 = add nsw i64 %184, 1
+  store i64 %185, ptr %74, align 8
+  %186 = load ptr, ptr %75, align 8
+  %187 = call i32 %186(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  %188 = icmp slt i32 %187, 0
+  br i1 %188, label %.thread344, label %.lr.ph
 
-.lr.ph:                                           ; preds = %182, %246
-  %.0434 = phi i32 [ %.1300308313318324329335, %246 ], [ 0, %182 ]
-  %188 = load i32, ptr %8, align 4
-  %189 = icmp eq i32 %188, 0
-  br i1 %189, label %arkCheckConvergence.exit, label %190
+.lr.ph:                                           ; preds = %183, %247
+  %.0434 = phi i32 [ %.1300308313318324329335, %247 ], [ 0, %183 ]
+  %189 = load i32, ptr %8, align 4
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %arkCheckConvergence.exit, label %191
 
-190:                                              ; preds = %.lr.ph
-  %191 = load i64, ptr %74, align 8
-  %192 = add nsw i64 %191, 1
-  store i64 %192, ptr %74, align 8
-  %193 = load i32, ptr %67, align 8
-  %.not.i = icmp eq i32 %193, 0
-  br i1 %.not.i, label %194, label %.thread344
+191:                                              ; preds = %.lr.ph
+  %192 = load i64, ptr %76, align 8
+  %193 = add nsw i64 %192, 1
+  store i64 %193, ptr %76, align 8
+  %194 = load i32, ptr %69, align 8
+  %.not.i = icmp eq i32 %194, 0
+  br i1 %.not.i, label %195, label %.thread344
 
-194:                                              ; preds = %190
-  %195 = load ptr, ptr %75, align 8
-  %196 = icmp eq ptr %195, null
-  br i1 %196, label %197, label %198
+195:                                              ; preds = %191
+  %196 = load ptr, ptr %77, align 8
+  %197 = icmp eq ptr %196, null
+  br i1 %197, label %198, label %199
 
-197:                                              ; preds = %194
+198:                                              ; preds = %195
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 3124, ptr noundef nonnull @__func__.arkCheckConvergence, ptr noundef nonnull @.str, ptr noundef nonnull @.str.129)
   br label %.thread344
 
-198:                                              ; preds = %194
-  %199 = icmp slt i32 %188, 0
-  br i1 %199, label %200, label %202
+199:                                              ; preds = %195
+  %200 = icmp slt i32 %189, 0
+  br i1 %200, label %201, label %203
 
-200:                                              ; preds = %198
-  %switch.tableidx = add nsw i32 %188, 8
-  %201 = icmp ult i32 %switch.tableidx, 3
-  %spec.select = select i1 %201, i32 %188, i32 -32
+201:                                              ; preds = %199
+  %switch.tableidx = add nsw i32 %189, 8
+  %202 = icmp ult i32 %switch.tableidx, 3
+  %spec.select = select i1 %202, i32 %189, i32 -32
   br label %.thread344
 
-202:                                              ; preds = %198
-  %203 = add nsw i32 %.0434, 1
-  store double 1.000000e+00, ptr %195, align 8
-  %204 = load i32, ptr %76, align 4
-  %205 = icmp eq i32 %203, %204
-  br i1 %205, label %212, label %206
+203:                                              ; preds = %199
+  %204 = add nsw i32 %.0434, 1
+  store double 1.000000e+00, ptr %196, align 8
+  %205 = load i32, ptr %78, align 4
+  %206 = icmp eq i32 %204, %205
+  br i1 %206, label %213, label %207
 
-206:                                              ; preds = %202
-  %207 = load double, ptr %49, align 8
-  %208 = call double @llvm.fabs.f64(double %207)
-  %209 = load double, ptr %77, align 8
-  %210 = fmul double %209, 0x3FF000010C6F7A0B
-  %211 = fcmp ugt double %208, %210
-  br i1 %211, label %.thread314, label %212
+207:                                              ; preds = %203
+  %208 = load double, ptr %51, align 8
+  %209 = call double @llvm.fabs.f64(double %208)
+  %210 = load double, ptr %79, align 8
+  %211 = fmul double %210, 0x3FF000010C6F7A0B
+  %212 = fcmp ugt double %209, %211
+  br i1 %212, label %.thread314, label %213
 
-212:                                              ; preds = %206, %202
-  switch i32 %188, label %.thread314 [
+213:                                              ; preds = %207, %203
+  switch i32 %189, label %.thread314 [
     i32 4, label %.thread344.loopexit603
     i32 9, label %.thread344
   ]
 
 arkCheckConvergence.exit:                         ; preds = %.lr.ph
-  %213 = load i32, ptr %79, align 8
-  %.not350 = icmp eq i32 %213, 0
-  br i1 %.not350, label %217, label %214
+  %214 = load i32, ptr %81, align 8
+  %.not350 = icmp eq i32 %214, 0
+  br i1 %.not350, label %218, label %215
 
-214:                                              ; preds = %arkCheckConvergence.exit
-  %215 = call i32 @arkRelax(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
-  %216 = icmp slt i32 %215, 0
-  br i1 %216, label %.thread344, label %217
+215:                                              ; preds = %arkCheckConvergence.exit
+  %216 = call i32 @arkRelax(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  %217 = icmp slt i32 %216, 0
+  br i1 %217, label %.thread344, label %218
 
-217:                                              ; preds = %214, %arkCheckConvergence.exit
-  %.1 = phi i32 [ %215, %214 ], [ 0, %arkCheckConvergence.exit ]
-  %218 = load i32, ptr %80, align 8
-  %219 = icmp ne i32 %218, 0
-  %220 = icmp eq i32 %.1, 0
-  %or.cond5 = and i1 %220, %219
-  br i1 %or.cond5, label %221, label %224
+218:                                              ; preds = %215, %arkCheckConvergence.exit
+  %.1 = phi i32 [ %216, %215 ], [ 0, %arkCheckConvergence.exit ]
+  %219 = load i32, ptr %82, align 8
+  %220 = icmp ne i32 %219, 0
+  %221 = icmp eq i32 %.1, 0
+  %or.cond5 = and i1 %221, %220
+  br i1 %or.cond5, label %222, label %225
 
-221:                                              ; preds = %217
-  %222 = call i32 @arkCheckConstraints(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %8)
-  %223 = icmp slt i32 %222, 0
-  br i1 %223, label %.thread344, label %224
+222:                                              ; preds = %218
+  %223 = call i32 @arkCheckConstraints(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %8)
+  %224 = icmp slt i32 %223, 0
+  br i1 %224, label %.thread344, label %225
 
-224:                                              ; preds = %221, %217
-  %.2 = phi i32 [ %222, %221 ], [ %.1, %217 ]
-  %225 = load i32, ptr %67, align 8
-  %.not287 = icmp eq i32 %225, 0
-  br i1 %.not287, label %229, label %254
+225:                                              ; preds = %222, %218
+  %.2 = phi i32 [ %223, %222 ], [ %.1, %218 ]
+  %226 = load i32, ptr %69, align 8
+  %.not287 = icmp eq i32 %226, 0
+  br i1 %.not287, label %230, label %255
 
-.thread314:                                       ; preds = %206, %212
-  %226 = getelementptr inbounds i8, ptr %195, i64 40
-  %227 = load double, ptr %226, align 8
-  store double %227, ptr %66, align 8
+.thread314:                                       ; preds = %207, %213
+  %227 = getelementptr inbounds i8, ptr %196, i64 40
+  %228 = load double, ptr %227, align 8
+  store double %228, ptr %68, align 8
   store i32 7, ptr %8, align 4
-  %228 = load i32, ptr %67, align 8
-  %.not287317 = icmp eq i32 %228, 0
+  %229 = load i32, ptr %69, align 8
+  %.not287317 = icmp eq i32 %229, 0
   br i1 %.not287317, label %.thread325, label %.thread341
 
 .thread341:                                       ; preds = %.thread314
-  store double 1.000000e+00, ptr %66, align 8
+  store double 1.000000e+00, ptr %68, align 8
   br label %.thread344
 
-229:                                              ; preds = %224
-  %230 = icmp eq i32 %.2, 0
-  br i1 %230, label %231, label %235
+230:                                              ; preds = %225
+  %231 = icmp eq i32 %.2, 0
+  br i1 %231, label %232, label %236
 
-231:                                              ; preds = %229
-  %232 = load double, ptr %7, align 8
-  %233 = call i32 @arkCheckTemporalError(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %9, double noundef %232)
-  %234 = icmp slt i32 %233, 0
-  br i1 %234, label %.thread344, label %235
+232:                                              ; preds = %230
+  %233 = load double, ptr %7, align 8
+  %234 = call i32 @arkCheckTemporalError(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %9, double noundef %233)
+  %235 = icmp slt i32 %234, 0
+  br i1 %235, label %.thread344, label %236
 
-235:                                              ; preds = %231, %229
-  %.3 = phi i32 [ %233, %231 ], [ %.2, %229 ]
-  %236 = load i32, ptr %78, align 4
-  %.not288 = icmp eq i32 %236, 0
-  br i1 %.not288, label %239, label %238
+236:                                              ; preds = %232, %230
+  %.3 = phi i32 [ %234, %232 ], [ %.2, %230 ]
+  %237 = load i32, ptr %80, align 4
+  %.not288 = icmp eq i32 %237, 0
+  br i1 %.not288, label %240, label %239
 
 .thread325:                                       ; preds = %.thread314
-  %237 = load i32, ptr %78, align 4
-  %.not288328 = icmp eq i32 %237, 0
-  br i1 %.not288328, label %.thread332, label %238
+  %238 = load i32, ptr %80, align 4
+  %.not288328 = icmp eq i32 %238, 0
+  br i1 %.not288328, label %.thread332, label %239
 
-238:                                              ; preds = %.thread325, %235
-  %.3330 = phi i32 [ 3, %.thread325 ], [ %.3, %235 ]
-  store i32 %.3330, ptr %71, align 8
+239:                                              ; preds = %.thread325, %236
+  %.3330 = phi i32 [ 3, %.thread325 ], [ %.3, %236 ]
+  store i32 %.3330, ptr %73, align 8
   br label %.thread339
 
-239:                                              ; preds = %235
-  %240 = icmp eq i32 %.3, 0
-  br i1 %240, label %.thread339, label %.thread332
+240:                                              ; preds = %236
+  %241 = icmp eq i32 %.3, 0
+  br i1 %241, label %.thread339, label %.thread332
 
-.thread332:                                       ; preds = %.thread325, %239
-  %.1300308313318324329335 = phi i32 [ %.0434, %239 ], [ %203, %.thread325 ]
-  %241 = load double, ptr %49, align 8
-  %242 = call double @llvm.fabs.f64(double %241)
-  %243 = load double, ptr %77, align 8
-  %244 = fmul double %243, 0x3FF000010C6F7A0B
-  %245 = fcmp ugt double %242, %244
-  br i1 %245, label %246, label %.loopexit
+.thread332:                                       ; preds = %.thread325, %240
+  %.1300308313318324329335 = phi i32 [ %.0434, %240 ], [ %204, %.thread325 ]
+  %242 = load double, ptr %51, align 8
+  %243 = call double @llvm.fabs.f64(double %242)
+  %244 = load double, ptr %79, align 8
+  %245 = fmul double %244, 0x3FF000010C6F7A0B
+  %246 = fcmp ugt double %243, %245
+  br i1 %246, label %247, label %.loopexit
 
-246:                                              ; preds = %.thread332
-  %247 = load double, ptr %66, align 8
-  %248 = fmul double %241, %247
-  store double %248, ptr %49, align 8
-  store double %248, ptr %65, align 8
-  store double %248, ptr %50, align 8
-  %249 = load i64, ptr %72, align 8
-  %250 = add nsw i64 %249, 1
-  store i64 %250, ptr %72, align 8
-  %251 = load ptr, ptr %73, align 8
-  %252 = call i32 %251(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
-  %253 = icmp slt i32 %252, 0
-  br i1 %253, label %.thread344, label %.lr.ph
+247:                                              ; preds = %.thread332
+  %248 = load double, ptr %68, align 8
+  %249 = fmul double %242, %248
+  store double %249, ptr %51, align 8
+  store double %249, ptr %67, align 8
+  store double %249, ptr %52, align 8
+  %250 = load i64, ptr %74, align 8
+  %251 = add nsw i64 %250, 1
+  store i64 %251, ptr %74, align 8
+  %252 = load ptr, ptr %75, align 8
+  %253 = call i32 %252(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  %254 = icmp slt i32 %253, 0
+  br i1 %254, label %.thread344, label %.lr.ph
 
-254:                                              ; preds = %224
-  store double 1.000000e+00, ptr %66, align 8
-  %255 = icmp eq i32 %.2, 0
-  br i1 %255, label %.thread339, label %.thread344
+255:                                              ; preds = %225
+  store double 1.000000e+00, ptr %68, align 8
+  %256 = icmp eq i32 %.2, 0
+  br i1 %256, label %.thread339, label %.thread344
 
-.thread339:                                       ; preds = %239, %238, %254
-  %256 = load double, ptr %7, align 8
-  %257 = call i32 @arkCompleteStep(ptr noundef nonnull %0, double noundef %256)
-  %.not289 = icmp eq i32 %257, 0
-  br i1 %.not289, label %262, label %.thread344
+.thread339:                                       ; preds = %240, %239, %255
+  %257 = load double, ptr %7, align 8
+  %258 = call i32 @arkCompleteStep(ptr noundef nonnull %0, double noundef %257)
+  %.not289 = icmp eq i32 %258, 0
+  br i1 %.not289, label %263, label %.thread344
 
-.thread344.loopexit603:                           ; preds = %212
+.thread344.loopexit603:                           ; preds = %213
   br label %.thread344
 
-.thread344:                                       ; preds = %254, %.thread339, %182, %190, %231, %221, %214, %246, %212, %.thread344.loopexit603, %200, %197, %.thread341
-  %.4347 = phi i32 [ 3, %.thread341 ], [ -21, %197 ], [ %spec.select, %200 ], [ -10, %212 ], [ %252, %246 ], [ %215, %214 ], [ %222, %221 ], [ %233, %231 ], [ -4, %190 ], [ -4, %.thread344.loopexit603 ], [ %186, %182 ], [ %.2, %254 ], [ %257, %.thread339 ]
-  %258 = call i32 @arkHandleFailure(ptr noundef nonnull %0, i32 noundef %.4347)
-  %259 = load double, ptr %62, align 8
-  store double %259, ptr %3, align 8
-  %260 = getelementptr inbounds i8, ptr %0, i64 432
-  store double %259, ptr %260, align 8
-  %261 = load ptr, ptr %52, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %261, ptr noundef nonnull %2) #16
+.thread344:                                       ; preds = %255, %.thread339, %183, %191, %232, %222, %215, %247, %213, %.thread344.loopexit603, %201, %198, %.thread341
+  %.4347 = phi i32 [ 3, %.thread341 ], [ -21, %198 ], [ %spec.select, %201 ], [ -10, %213 ], [ %253, %247 ], [ %216, %215 ], [ %223, %222 ], [ %234, %232 ], [ -4, %191 ], [ -4, %.thread344.loopexit603 ], [ %187, %183 ], [ %.2, %255 ], [ %258, %.thread339 ]
+  %259 = call i32 @arkHandleFailure(ptr noundef nonnull %0, i32 noundef %.4347)
+  %260 = load double, ptr %64, align 8
+  store double %260, ptr %3, align 8
+  %261 = getelementptr inbounds i8, ptr %0, i64 432
+  store double %260, ptr %261, align 8
+  %262 = load ptr, ptr %54, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %262, ptr noundef nonnull %2) #16
   br label %.loopexit
 
-262:                                              ; preds = %.thread339
-  %263 = add nuw nsw i64 %.0250, 1
-  %264 = load ptr, ptr %30, align 8
-  %.not290 = icmp eq ptr %264, null
-  br i1 %.not290, label %.thread348, label %265
+263:                                              ; preds = %.thread339
+  %264 = add nuw nsw i64 %.0250, 1
+  %265 = load ptr, ptr %30, align 8
+  %.not290 = icmp eq ptr %265, null
+  br i1 %.not290, label %.thread348, label %266
 
-265:                                              ; preds = %262
-  %266 = getelementptr inbounds i8, ptr %264, i64 8
-  %267 = load i32, ptr %266, align 8
-  %268 = icmp sgt i32 %267, 0
-  br i1 %268, label %269, label %.thread348
+266:                                              ; preds = %263
+  %267 = getelementptr inbounds i8, ptr %265, i64 8
+  %268 = load i32, ptr %267, align 8
+  %269 = icmp sgt i32 %268, 0
+  br i1 %269, label %270, label %.thread348
 
-269:                                              ; preds = %265
-  %270 = call i32 @arkRootCheck3(ptr noundef nonnull %0) #16
-  switch i32 %270, label %282 [
-    i32 1, label %271
-    i32 -12, label %278
+270:                                              ; preds = %266
+  %271 = call i32 @arkRootCheck3(ptr noundef nonnull %0) #16
+  switch i32 %271, label %283 [
+    i32 1, label %272
+    i32 -12, label %279
   ]
 
-271:                                              ; preds = %269
-  %272 = load ptr, ptr %30, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 100
-  store i32 1, ptr %273, align 4
-  %274 = load ptr, ptr %30, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 32
-  %276 = load double, ptr %275, align 8
-  store double %276, ptr %3, align 8
-  %277 = getelementptr inbounds i8, ptr %0, i64 432
-  store double %276, ptr %277, align 8
+272:                                              ; preds = %270
+  %273 = load ptr, ptr %30, align 8
+  %274 = getelementptr inbounds i8, ptr %273, i64 100
+  store i32 1, ptr %274, align 4
+  %275 = load ptr, ptr %30, align 8
+  %276 = getelementptr inbounds i8, ptr %275, i64 32
+  %277 = load double, ptr %276, align 8
+  store double %277, ptr %3, align 8
+  %278 = getelementptr inbounds i8, ptr %0, i64 432
+  store double %277, ptr %278, align 8
   br label %.loopexit
 
-278:                                              ; preds = %269
-  %279 = load ptr, ptr %30, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 32
-  %281 = load double, ptr %280, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -12, i32 noundef 1028, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, double noundef %281)
+279:                                              ; preds = %270
+  %280 = load ptr, ptr %30, align 8
+  %281 = getelementptr inbounds i8, ptr %280, i64 32
+  %282 = load double, ptr %281, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -12, i32 noundef 1028, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, double noundef %282)
   br label %.loopexit
 
-282:                                              ; preds = %269
-  %283 = load i64, ptr %81, align 8
-  %284 = icmp eq i64 %283, 1
-  br i1 %284, label %.preheader, label %.thread348
+283:                                              ; preds = %270
+  %284 = load i64, ptr %83, align 8
+  %285 = icmp eq i64 %284, 1
+  br i1 %285, label %.preheader, label %.thread348
 
-.preheader:                                       ; preds = %282
-  %285 = load ptr, ptr %30, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 8
-  %287 = load i32, ptr %286, align 8
-  %288 = icmp sgt i32 %287, 0
-  br i1 %288, label %.lr.ph462, label %.thread348
+.preheader:                                       ; preds = %283
+  %286 = load ptr, ptr %30, align 8
+  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  %288 = load i32, ptr %287, align 8
+  %289 = icmp sgt i32 %288, 0
+  br i1 %289, label %.lr.ph462, label %.thread348
 
 .lr.ph462:                                        ; preds = %.preheader
-  %289 = getelementptr inbounds i8, ptr %285, i64 112
-  %290 = load ptr, ptr %289, align 8
-  %wide.trip.count = zext nneg i32 %287 to i64
-  br label %292
+  %290 = getelementptr inbounds i8, ptr %286, i64 112
+  %291 = load ptr, ptr %290, align 8
+  %wide.trip.count = zext nneg i32 %288 to i64
+  br label %293
 
-291:                                              ; preds = %292
+292:                                              ; preds = %293
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread348, label %292
+  br i1 %exitcond.not, label %.thread348, label %293
 
-292:                                              ; preds = %.lr.ph462, %291
-  %indvars.iv = phi i64 [ 0, %.lr.ph462 ], [ %indvars.iv.next, %291 ]
-  %293 = getelementptr inbounds i32, ptr %290, i64 %indvars.iv
-  %294 = load i32, ptr %293, align 4
-  %.not291 = icmp eq i32 %294, 0
-  br i1 %.not291, label %295, label %291
+293:                                              ; preds = %.lr.ph462, %292
+  %indvars.iv = phi i64 [ 0, %.lr.ph462 ], [ %indvars.iv.next, %292 ]
+  %294 = getelementptr inbounds i32, ptr %291, i64 %indvars.iv
+  %295 = load i32, ptr %294, align 4
+  %.not291 = icmp eq i32 %295, 0
+  br i1 %.not291, label %296, label %292
 
-295:                                              ; preds = %292
-  %296 = getelementptr inbounds i8, ptr %285, i64 120
-  %297 = load i32, ptr %296, align 8
-  %298 = icmp sgt i32 %297, 0
-  br i1 %298, label %299, label %.thread348
+296:                                              ; preds = %293
+  %297 = getelementptr inbounds i8, ptr %286, i64 120
+  %298 = load i32, ptr %297, align 8
+  %299 = icmp sgt i32 %298, 0
+  br i1 %299, label %300, label %.thread348
 
-299:                                              ; preds = %295
+300:                                              ; preds = %296
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef 99, i32 noundef 1051, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.29)
   br label %.thread348
 
-.thread348:                                       ; preds = %291, %.preheader, %265, %295, %299, %282, %262
-  %300 = phi i32 [ %82, %265 ], [ %270, %295 ], [ %270, %299 ], [ %270, %282 ], [ %82, %262 ], [ %270, %.preheader ], [ %270, %291 ]
-  %301 = load i32, ptr %69, align 4
+.thread348:                                       ; preds = %292, %.preheader, %266, %296, %300, %283, %263
+  %301 = load i32, ptr %71, align 4
   %.not292 = icmp eq i32 %301, 0
   br i1 %.not292, label %344, label %302
 
 302:                                              ; preds = %.thread348
-  %303 = load double, ptr %60, align 8
+  %303 = load double, ptr %62, align 8
   %304 = fmul double %303, 1.000000e+02
-  %305 = load double, ptr %62, align 8
+  %305 = load double, ptr %64, align 8
   %306 = call double @llvm.fabs.f64(double %305)
-  %307 = load double, ptr %49, align 8
+  %307 = load double, ptr %51, align 8
   %308 = call double @llvm.fabs.f64(double %307)
   %309 = fadd double %306, %308
   %310 = fmul double %304, %309
-  %311 = load double, ptr %70, align 8
+  %311 = load double, ptr %72, align 8
   %312 = fsub double %305, %311
   %313 = call double @llvm.fabs.f64(double %312)
   %314 = fcmp ugt double %313, %310
@@ -2280,25 +2280,25 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br i1 %.not295, label %330, label %326
 
 326:                                              ; preds = %324
-  %327 = load double, ptr %70, align 8
+  %327 = load double, ptr %72, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef %325, i32 noundef 1075, ptr noundef nonnull @__func__.arkEvolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.30, double noundef %327)
   br label %.loopexit
 
 328:                                              ; preds = %321
-  %329 = load ptr, ptr %52, align 8
+  %329 = load ptr, ptr %54, align 8
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %329, ptr noundef nonnull %2) #16
   br label %330
 
 330:                                              ; preds = %324, %328
-  %331 = load double, ptr %70, align 8
+  %331 = load double, ptr %72, align 8
   store double %331, ptr %3, align 8
   %332 = getelementptr inbounds i8, ptr %0, i64 432
   store double %331, ptr %332, align 8
-  store i32 0, ptr %69, align 4
+  store i32 0, ptr %71, align 4
   br label %.loopexit
 
 333:                                              ; preds = %302
-  %334 = load double, ptr %65, align 8
+  %334 = load double, ptr %67, align 8
   %335 = fadd double %305, %334
   %336 = fsub double %335, %311
   %337 = fmul double %307, %336
@@ -2309,9 +2309,9 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   %340 = fsub double %311, %305
   %341 = call double @llvm.fmuladd.f64(double %303, double -4.000000e+00, double 1.000000e+00)
   %342 = fmul double %341, %340
-  store double %342, ptr %65, align 8
+  store double %342, ptr %67, align 8
   %343 = fdiv double %342, %307
-  store double %343, ptr %66, align 8
+  store double %343, ptr %68, align 8
   br label %344
 
 344:                                              ; preds = %315, %339, %333, %.thread348
@@ -2324,9 +2324,9 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br label %.backedge
 
 345:                                              ; preds = %344
-  %346 = load double, ptr %62, align 8
+  %346 = load double, ptr %64, align 8
   %347 = fsub double %346, %1
-  %348 = load double, ptr %49, align 8
+  %348 = load double, ptr %51, align 8
   %349 = fmul double %347, %348
   %350 = fcmp ult double %349, 0.000000e+00
   br i1 %350, label %.backedge.backedge, label %351
@@ -2344,23 +2344,23 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   store double %1, ptr %3, align 8
   %355 = getelementptr inbounds i8, ptr %0, i64 432
   store double %1, ptr %355, align 8
-  %356 = load double, ptr %65, align 8
-  store double %356, ptr %50, align 8
+  %356 = load double, ptr %67, align 8
+  store double %356, ptr %52, align 8
   br label %.loopexit
 
 357:                                              ; preds = %344
-  %358 = load double, ptr %62, align 8
+  %358 = load double, ptr %64, align 8
   store double %358, ptr %3, align 8
   %359 = getelementptr inbounds i8, ptr %0, i64 432
   store double %358, ptr %359, align 8
-  %360 = load ptr, ptr %52, align 8
+  %360 = load ptr, ptr %54, align 8
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %360, ptr noundef nonnull %2) #16
-  %361 = load double, ptr %65, align 8
-  store double %361, ptr %50, align 8
+  %361 = load double, ptr %67, align 8
+  store double %361, ptr %52, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread332, %.thread, %98, %117, %124, %136, %.thread344, %271, %278, %326, %330, %353, %354, %357, %42, %28, %25, %22, %18, %13
-  %.0249 = phi i32 [ -21, %13 ], [ -23, %18 ], [ -22, %22 ], [ -22, %25 ], [ -22, %28 ], [ %46, %42 ], [ -1, %124 ], [ -2, %136 ], [ %258, %.thread344 ], [ 2, %271 ], [ -12, %278 ], [ %325, %326 ], [ 1, %330 ], [ %352, %353 ], [ 0, %354 ], [ 0, %357 ], [ -22, %98 ], [ -22, %117 ], [ %.promoted.pre, %.thread ], [ -3, %.thread332 ]
+.loopexit:                                        ; preds = %.thread332, %99, %118, %125, %137, %.thread344, %272, %279, %326, %330, %353, %354, %357, %42, %49, %28, %25, %22, %18, %13
+  %.0249 = phi i32 [ -21, %13 ], [ -23, %18 ], [ -22, %22 ], [ -22, %25 ], [ -22, %28 ], [ %50, %49 ], [ %46, %42 ], [ -1, %125 ], [ -2, %137 ], [ %259, %.thread344 ], [ 2, %272 ], [ -12, %279 ], [ %325, %326 ], [ 1, %330 ], [ %352, %353 ], [ 0, %354 ], [ 0, %357 ], [ -22, %99 ], [ -22, %118 ], [ -3, %.thread332 ]
   ret i32 %.0249
 }
 

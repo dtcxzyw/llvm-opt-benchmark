@@ -3548,13 +3548,13 @@ define internal noundef i32 @xferinfo(ptr nocapture noundef %0, i64 noundef %1, 
   store i64 0, ptr %6, align 8
   %9 = sitofp i64 %1 to double
   %10 = icmp slt i64 %1, 1
-  br i1 %10, label %104, label %11
+  br i1 %10, label %164, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %14, label %104
+  br i1 %.not, label %14, label %164
 
 14:                                               ; preds = %11
   %15 = sitofp i64 %2 to double
@@ -3568,7 +3568,7 @@ define internal noundef i32 @xferinfo(ptr nocapture noundef %0, i64 noundef %1, 
   %22 = load ptr, ptr @stdout, align 8
   %23 = call i64 @fwrite(ptr nonnull @.str.166, i64 5, i64 1, ptr %22)
   %24 = fcmp ugt double %16, 0.000000e+00
-  br i1 %24, label %33, label %25
+  br i1 %24, label %53, label %25
 
 25:                                               ; preds = %14
   %26 = load ptr, ptr @stdout, align 8
@@ -3576,154 +3576,244 @@ define internal noundef i32 @xferinfo(ptr nocapture noundef %0, i64 noundef %1, 
   %28 = load i64, ptr %6, align 8
   %29 = sitofp i64 %28 to double
   %30 = fdiv double %29, 1.000000e+06
-  call fastcc void @printTime(double noundef %30)
-  %31 = load ptr, ptr @stdout, align 8
-  %32 = call i64 @fwrite(ptr nonnull @.str.168, i64 15, i64 1, ptr %31)
-  br label %49
+  %31 = fcmp ult double %30, 3.600000e+03
+  br i1 %31, label %40, label %32
 
-33:                                               ; preds = %14
-  %34 = load i64, ptr %6, align 8
-  %35 = sitofp i64 %34 to double
-  %36 = fdiv double %35, %16
-  %37 = fsub double %36, %35
-  %38 = fptosi double %37 to i64
-  %39 = load ptr, ptr @stdout, align 8
-  %40 = call i64 @fwrite(ptr nonnull @.str.167, i64 6, i64 1, ptr %39)
-  %41 = load i64, ptr %6, align 8
-  %42 = sitofp i64 %41 to double
-  %43 = fdiv double %42, 1.000000e+06
-  call fastcc void @printTime(double noundef %43)
-  %44 = load ptr, ptr @stdout, align 8
-  %45 = call i64 @fwrite(ptr nonnull @.str.169, i64 7, i64 1, ptr %44)
-  %46 = sitofp i64 %38 to double
-  %47 = fdiv double %46, 1.000000e+06
-  call fastcc void @printTime(double noundef %47)
-  %48 = load ptr, ptr @stdout, align 8
-  %fputc = call i32 @fputc(i32 32, ptr %48)
-  br label %49
+32:                                               ; preds = %25
+  %33 = load ptr, ptr @stdout, align 8
+  %34 = fdiv double %30, 3.600000e+03
+  %35 = call double @llvm.trunc.f64(double %34)
+  %36 = call double @fmod(double noundef %30, double noundef 3.600000e+03) #23
+  %37 = fdiv double %36, 6.000000e+01
+  %38 = call double @llvm.trunc.f64(double %37)
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.178, double noundef %35, double noundef %38) #23
+  br label %printTime.exit
 
-49:                                               ; preds = %33, %25
-  %50 = load ptr, ptr @stdout, align 8
-  %fputc30 = call i32 @fputc(i32 91, ptr %50)
+40:                                               ; preds = %25
+  %41 = fcmp ult double %30, 6.000000e+01
+  %42 = load ptr, ptr @stdout, align 8
+  br i1 %41, label %49, label %43
+
+43:                                               ; preds = %40
+  %44 = fdiv double %30, 6.000000e+01
+  %45 = call double @llvm.trunc.f64(double %44)
+  %46 = frem nnan double %30, 6.000000e+01
+  %47 = call double @llvm.trunc.f64(double %46)
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.179, double noundef %45, double noundef %47) #23
+  br label %printTime.exit
+
+49:                                               ; preds = %40
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.180, double noundef %30) #23
+  br label %printTime.exit
+
+printTime.exit:                                   ; preds = %32, %43, %49
+  %51 = load ptr, ptr @stdout, align 8
+  %52 = call i64 @fwrite(ptr nonnull @.str.168, i64 15, i64 1, ptr %51)
+  br label %109
+
+53:                                               ; preds = %14
+  %54 = load i64, ptr %6, align 8
+  %55 = sitofp i64 %54 to double
+  %56 = fdiv double %55, %16
+  %57 = fsub double %56, %55
+  %58 = fptosi double %57 to i64
+  %59 = load ptr, ptr @stdout, align 8
+  %60 = call i64 @fwrite(ptr nonnull @.str.167, i64 6, i64 1, ptr %59)
+  %61 = load i64, ptr %6, align 8
+  %62 = sitofp i64 %61 to double
+  %63 = fdiv double %62, 1.000000e+06
+  %64 = fcmp ult double %63, 3.600000e+03
+  br i1 %64, label %73, label %65
+
+65:                                               ; preds = %53
+  %66 = load ptr, ptr @stdout, align 8
+  %67 = fdiv double %63, 3.600000e+03
+  %68 = call double @llvm.trunc.f64(double %67)
+  %69 = call double @fmod(double noundef %63, double noundef 3.600000e+03) #23
+  %70 = fdiv double %69, 6.000000e+01
+  %71 = call double @llvm.trunc.f64(double %70)
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.178, double noundef %68, double noundef %71) #23
+  br label %printTime.exit39
+
+73:                                               ; preds = %53
+  %74 = fcmp ult double %63, 6.000000e+01
+  %75 = load ptr, ptr @stdout, align 8
+  br i1 %74, label %82, label %76
+
+76:                                               ; preds = %73
+  %77 = fdiv double %63, 6.000000e+01
+  %78 = call double @llvm.trunc.f64(double %77)
+  %79 = frem nnan double %63, 6.000000e+01
+  %80 = call double @llvm.trunc.f64(double %79)
+  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.179, double noundef %78, double noundef %80) #23
+  br label %printTime.exit39
+
+82:                                               ; preds = %73
+  %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.180, double noundef %63) #23
+  br label %printTime.exit39
+
+printTime.exit39:                                 ; preds = %65, %76, %82
+  %84 = load ptr, ptr @stdout, align 8
+  %85 = call i64 @fwrite(ptr nonnull @.str.169, i64 7, i64 1, ptr %84)
+  %86 = sitofp i64 %58 to double
+  %87 = fdiv double %86, 1.000000e+06
+  %88 = fcmp ult double %87, 3.600000e+03
+  br i1 %88, label %97, label %89
+
+89:                                               ; preds = %printTime.exit39
+  %90 = load ptr, ptr @stdout, align 8
+  %91 = fdiv double %87, 3.600000e+03
+  %92 = call double @llvm.trunc.f64(double %91)
+  %93 = call double @fmod(double noundef %87, double noundef 3.600000e+03) #23
+  %94 = fdiv double %93, 6.000000e+01
+  %95 = call double @llvm.trunc.f64(double %94)
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.178, double noundef %92, double noundef %95) #23
+  br label %printTime.exit40
+
+97:                                               ; preds = %printTime.exit39
+  %98 = fcmp ult double %87, 6.000000e+01
+  %99 = load ptr, ptr @stdout, align 8
+  br i1 %98, label %106, label %100
+
+100:                                              ; preds = %97
+  %101 = fdiv double %87, 6.000000e+01
+  %102 = call double @llvm.trunc.f64(double %101)
+  %103 = frem nnan double %87, 6.000000e+01
+  %104 = call double @llvm.trunc.f64(double %103)
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.179, double noundef %102, double noundef %104) #23
+  br label %printTime.exit40
+
+106:                                              ; preds = %97
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.180, double noundef %87) #23
+  br label %printTime.exit40
+
+printTime.exit40:                                 ; preds = %89, %100, %106
+  %108 = load ptr, ptr @stdout, align 8
+  %fputc = call i32 @fputc(i32 32, ptr %108)
+  br label %109
+
+109:                                              ; preds = %printTime.exit40, %printTime.exit
+  %110 = load ptr, ptr @stdout, align 8
+  %fputc30 = call i32 @fputc(i32 91, ptr %110)
   switch i32 %19, label %.lr.ph.preheader [
-    i32 0, label %.lr.ph42.preheader
-    i32 1, label %.thread47
+    i32 0, label %.lr.ph44.preheader
+    i32 1, label %.thread49
   ]
 
-.lr.ph.preheader:                                 ; preds = %49
-  %51 = add i32 %19, -2
+.lr.ph.preheader:                                 ; preds = %109
+  %111 = add i32 %19, -2
   br label %.lr.ph
 
-.thread47:                                        ; preds = %49
-  %52 = load ptr, ptr @stdout, align 8
-  %fputc3349 = call i32 @fputc(i32 62, ptr %52)
-  br label %.lr.ph42.preheader
+.thread49:                                        ; preds = %109
+  %112 = load ptr, ptr @stdout, align 8
+  %fputc3351 = call i32 @fputc(i32 62, ptr %112)
+  br label %.lr.ph44.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.240 = phi i32 [ %54, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %53 = load ptr, ptr @stdout, align 8
-  %fputc38 = call i32 @fputc(i32 61, ptr %53)
-  %54 = add nuw i32 %.240, 1
-  %exitcond.not = icmp eq i32 %.240, %51
-  br i1 %exitcond.not, label %55, label %.lr.ph
+  %.242 = phi i32 [ %114, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %113 = load ptr, ptr @stdout, align 8
+  %fputc38 = call i32 @fputc(i32 61, ptr %113)
+  %114 = add nuw i32 %.242, 1
+  %exitcond.not = icmp eq i32 %.242, %111
+  br i1 %exitcond.not, label %115, label %.lr.ph
 
-55:                                               ; preds = %.lr.ph
-  %56 = load ptr, ptr @stdout, align 8
-  %fputc33 = call i32 @fputc(i32 62, ptr %56)
-  %57 = icmp ult i32 %19, 25
-  br i1 %57, label %.lr.ph42.preheader, label %._crit_edge
+115:                                              ; preds = %.lr.ph
+  %116 = load ptr, ptr @stdout, align 8
+  %fputc33 = call i32 @fputc(i32 62, ptr %116)
+  %117 = icmp ult i32 %19, 25
+  br i1 %117, label %.lr.ph44.preheader, label %._crit_edge
 
-.lr.ph42.preheader:                               ; preds = %49, %.thread47, %55
-  br label %.lr.ph42
+.lr.ph44.preheader:                               ; preds = %109, %.thread49, %115
+  br label %.lr.ph44
 
-.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
-  %.341 = phi i32 [ %59, %.lr.ph42 ], [ %19, %.lr.ph42.preheader ]
-  %58 = load ptr, ptr @stdout, align 8
-  %fputc37 = call i32 @fputc(i32 32, ptr %58)
-  %59 = add i32 %.341, 1
-  %exitcond44.not = icmp eq i32 %59, 25
-  br i1 %exitcond44.not, label %._crit_edge, label %.lr.ph42
+.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44
+  %.343 = phi i32 [ %119, %.lr.ph44 ], [ %19, %.lr.ph44.preheader ]
+  %118 = load ptr, ptr @stdout, align 8
+  %fputc37 = call i32 @fputc(i32 32, ptr %118)
+  %119 = add i32 %.343, 1
+  %exitcond46.not = icmp eq i32 %119, 25
+  br i1 %exitcond46.not, label %._crit_edge, label %.lr.ph44
 
-._crit_edge:                                      ; preds = %.lr.ph42, %55
-  %60 = load ptr, ptr @stdout, align 8
-  %61 = call i64 @fwrite(ptr nonnull @.str.174, i64 2, i64 1, ptr %60)
-  %62 = icmp sgt i64 %2, 1048575
-  br i1 %62, label %63, label %68
+._crit_edge:                                      ; preds = %.lr.ph44, %115
+  %120 = load ptr, ptr @stdout, align 8
+  %121 = call i64 @fwrite(ptr nonnull @.str.174, i64 2, i64 1, ptr %120)
+  %122 = icmp sgt i64 %2, 1048575
+  br i1 %122, label %123, label %128
 
-63:                                               ; preds = %._crit_edge
-  %64 = uitofp nneg i64 %2 to double
-  %65 = fmul double %64, 0x3EB0000000000000
-  %66 = load ptr, ptr @stdout, align 8
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.181, double noundef %65) #23
+123:                                              ; preds = %._crit_edge
+  %124 = uitofp nneg i64 %2 to double
+  %125 = fmul double %124, 0x3EB0000000000000
+  %126 = load ptr, ptr @stdout, align 8
+  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.181, double noundef %125) #23
   br label %printBytes.exit
 
-68:                                               ; preds = %._crit_edge
-  %69 = icmp sgt i64 %2, 1023
-  br i1 %69, label %70, label %75
+128:                                              ; preds = %._crit_edge
+  %129 = icmp sgt i64 %2, 1023
+  br i1 %129, label %130, label %135
 
-70:                                               ; preds = %68
-  %71 = uitofp nneg i64 %2 to double
-  %72 = fmul double %71, 0x3F50000000000000
-  %73 = load ptr, ptr @stdout, align 8
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.183, double noundef %72) #23
+130:                                              ; preds = %128
+  %131 = uitofp nneg i64 %2 to double
+  %132 = fmul double %131, 0x3F50000000000000
+  %133 = load ptr, ptr @stdout, align 8
+  %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.183, double noundef %132) #23
   br label %printBytes.exit
 
-75:                                               ; preds = %68
-  %76 = load ptr, ptr @stdout, align 8
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.185, i64 noundef %2) #23
+135:                                              ; preds = %128
+  %136 = load ptr, ptr @stdout, align 8
+  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.185, i64 noundef %2) #23
   br label %printBytes.exit
 
-printBytes.exit:                                  ; preds = %63, %70, %75
-  %78 = load ptr, ptr @stdout, align 8
-  %fputc34 = call i32 @fputc(i32 47, ptr %78)
-  %79 = icmp sgt i64 %1, 1048575
-  br i1 %79, label %80, label %85
+printBytes.exit:                                  ; preds = %123, %130, %135
+  %138 = load ptr, ptr @stdout, align 8
+  %fputc34 = call i32 @fputc(i32 47, ptr %138)
+  %139 = icmp sgt i64 %1, 1048575
+  br i1 %139, label %140, label %145
 
-80:                                               ; preds = %printBytes.exit
-  %81 = uitofp nneg i64 %1 to double
-  %82 = fmul double %81, 0x3EB0000000000000
-  %83 = load ptr, ptr @stdout, align 8
-  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.182, double noundef %82) #23
-  br label %printBytes.exit39
+140:                                              ; preds = %printBytes.exit
+  %141 = uitofp nneg i64 %1 to double
+  %142 = fmul double %141, 0x3EB0000000000000
+  %143 = load ptr, ptr @stdout, align 8
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.182, double noundef %142) #23
+  br label %printBytes.exit41
 
-85:                                               ; preds = %printBytes.exit
-  %86 = icmp sgt i64 %1, 1023
-  br i1 %86, label %87, label %92
+145:                                              ; preds = %printBytes.exit
+  %146 = icmp sgt i64 %1, 1023
+  br i1 %146, label %147, label %152
 
-87:                                               ; preds = %85
-  %88 = uitofp nneg i64 %1 to double
-  %89 = fmul double %88, 0x3F50000000000000
-  %90 = load ptr, ptr @stdout, align 8
-  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.184, double noundef %89) #23
-  br label %printBytes.exit39
+147:                                              ; preds = %145
+  %148 = uitofp nneg i64 %1 to double
+  %149 = fmul double %148, 0x3F50000000000000
+  %150 = load ptr, ptr @stdout, align 8
+  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str.184, double noundef %149) #23
+  br label %printBytes.exit41
 
-92:                                               ; preds = %85
-  %93 = load ptr, ptr @stdout, align 8
-  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.186, i64 noundef %1) #23
-  br label %printBytes.exit39
+152:                                              ; preds = %145
+  %153 = load ptr, ptr @stdout, align 8
+  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.186, i64 noundef %1) #23
+  br label %printBytes.exit41
 
-printBytes.exit39:                                ; preds = %80, %87, %92
-  %95 = icmp slt i64 %2, %1
-  %96 = load ptr, ptr @stdout, align 8
-  br i1 %95, label %97, label %98
+printBytes.exit41:                                ; preds = %140, %147, %152
+  %155 = icmp slt i64 %2, %1
+  %156 = load ptr, ptr @stdout, align 8
+  br i1 %155, label %157, label %158
 
-97:                                               ; preds = %printBytes.exit39
-  %fputc36 = call i32 @fputc(i32 13, ptr %96)
-  br label %99
+157:                                              ; preds = %printBytes.exit41
+  %fputc36 = call i32 @fputc(i32 13, ptr %156)
+  br label %159
 
-98:                                               ; preds = %printBytes.exit39
-  %fputc35 = call i32 @fputc(i32 10, ptr %96)
+158:                                              ; preds = %printBytes.exit41
+  %fputc35 = call i32 @fputc(i32 10, ptr %156)
   store i8 1, ptr %12, align 8
-  br label %99
+  br label %159
 
-99:                                               ; preds = %98, %97
-  %100 = load ptr, ptr @stdout, align 8
-  %101 = call i64 @fwrite(ptr nonnull @.str.177, i64 5, i64 1, ptr %100)
-  %102 = load ptr, ptr @stdout, align 8
-  %103 = call i32 @fflush(ptr noundef %102)
-  br label %104
+159:                                              ; preds = %158, %157
+  %160 = load ptr, ptr @stdout, align 8
+  %161 = call i64 @fwrite(ptr nonnull @.str.177, i64 5, i64 1, ptr %160)
+  %162 = load ptr, ptr @stdout, align 8
+  %163 = call i32 @fflush(ptr noundef %162)
+  br label %164
 
-104:                                              ; preds = %5, %11, %99
+164:                                              ; preds = %5, %11, %159
   ret i32 0
 }
 
@@ -3802,42 +3892,6 @@ declare double @llvm.round.f64(double) #15
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @printTime(double noundef %0) unnamed_addr #16 {
-  %2 = fcmp ult double %0, 3.600000e+03
-  br i1 %2, label %11, label %3
-
-3:                                                ; preds = %1
-  %4 = load ptr, ptr @stdout, align 8
-  %5 = fdiv double %0, 3.600000e+03
-  %6 = tail call double @llvm.trunc.f64(double %5)
-  %7 = tail call double @fmod(double noundef %0, double noundef 3.600000e+03) #23
-  %8 = fdiv double %7, 6.000000e+01
-  %9 = tail call double @llvm.trunc.f64(double %8)
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.178, double noundef %6, double noundef %9) #23
-  br label %22
-
-11:                                               ; preds = %1
-  %12 = fcmp ult double %0, 6.000000e+01
-  %13 = load ptr, ptr @stdout, align 8
-  br i1 %12, label %20, label %14
-
-14:                                               ; preds = %11
-  %15 = fdiv double %0, 6.000000e+01
-  %16 = tail call double @llvm.trunc.f64(double %15)
-  %17 = tail call double @fmod(double noundef %0, double noundef 6.000000e+01) #23
-  %18 = tail call double @llvm.trunc.f64(double %17)
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.179, double noundef %16, double noundef %18) #23
-  br label %22
-
-20:                                               ; preds = %11
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.180, double noundef %0) #23
-  br label %22
-
-22:                                               ; preds = %14, %20, %3
-  ret void
-}
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
 
@@ -3845,13 +3899,13 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
 declare double @llvm.trunc.f64(double) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @fmod(double noundef, double noundef) local_unnamed_addr #17
+declare double @fmod(double noundef, double noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #18
 
 declare i32 @cl_cvdverify(ptr noundef) local_unnamed_addr #3
 
@@ -3879,7 +3933,7 @@ declare i32 @gzclose(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @WriteFileCallback(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #16 {
+define internal noundef i64 @WriteFileCallback(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #19 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %3, null
   %or.cond = or i1 %5, %6
@@ -3931,10 +3985,10 @@ attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nofree nounwind }
 attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

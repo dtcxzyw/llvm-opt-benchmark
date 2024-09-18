@@ -4049,17 +4049,17 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread144:      ; preds = %23, %40, %_ZN4llvmn
   %59 = zext i32 %57 to i64
   %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #17
   %.not66176 = icmp eq i64 %60, %59
-  br i1 %.not66176, label %._crit_edge, label %.lr.ph180
+  br i1 %.not66176, label %._crit_edge, label %.lr.ph178
 
-.lr.ph180:                                        ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread144
+.lr.ph178:                                        ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread144
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %62 = getelementptr inbounds i8, ptr %18, i64 -16
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   br label %64
 
-64:                                               ; preds = %.lr.ph180, %.loopexit
-  %65 = phi i64 [ %59, %.lr.ph180 ], [ %210, %.loopexit ]
-  %.057179 = phi i32 [ %57, %.lr.ph180 ], [ %209, %.loopexit ]
+64:                                               ; preds = %.lr.ph178, %.loopexit
+  %65 = phi i64 [ %59, %.lr.ph178 ], [ %210, %.loopexit ]
+  %.057177 = phi i32 [ %57, %.lr.ph178 ], [ %209, %.loopexit ]
   %66 = load ptr, ptr %58, align 8
   %67 = getelementptr inbounds ptr, ptr %66, i64 %65
   %68 = load ptr, ptr %67, align 8
@@ -4089,9 +4089,9 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread144:      ; preds = %23, %40, %_ZN4llvmn
 ._crit_edge.i.i:                                  ; preds = %78, %72
   %80 = load i32, ptr %53, align 8, !noalias !106
   %81 = icmp ult i32 %73, %80
-  br i1 %81, label %.critedge194, label %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit
+  br i1 %81, label %.critedge192, label %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit
 
-.critedge194:                                     ; preds = %._crit_edge.i.i
+.critedge192:                                     ; preds = %._crit_edge.i.i
   %82 = add nuw i32 %73, 1
   store i32 %82, ptr %54, align 4, !noalias !106
   store ptr %68, ptr %75, align 8, !noalias !106
@@ -4103,7 +4103,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit: ; preds =
   %84 = trunc i8 %.fca.1.extract.i.i to i1
   br i1 %84, label %85, label %.loopexit
 
-85:                                               ; preds = %.critedge194, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit
+85:                                               ; preds = %.critedge192, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit
   %86 = load ptr, ptr %61, align 8
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -4305,20 +4305,20 @@ _ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit: ; preds = %178
 _ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit..critedge_crit_edge: ; preds = %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit
   %.sroa.0.0.copyload.i.i.i.i.i108.pre = load i64, ptr %117, align 8
   %.pre = and i64 %.sroa.0.0.copyload.i.i.i.i.i108.pre, 4
-  %.pre187 = and i64 %.sroa.0.0.copyload.i.i.i.i.i108.pre, -8
+  %.pre185 = and i64 %.sroa.0.0.copyload.i.i.i.i.i108.pre, -8
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit..critedge_crit_edge, %178, %173
-  %.pre-phi188 = phi i64 [ %.pre187, %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit..critedge_crit_edge ], [ %161, %178 ], [ %161, %173 ]
+  %.pre-phi186 = phi i64 [ %.pre185, %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit..critedge_crit_edge ], [ %161, %178 ], [ %161, %173 ]
   %.pre-phi = phi i64 [ %.pre, %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit..critedge_crit_edge ], [ 1, %178 ], [ %160, %173 ]
   %.061148 = phi ptr [ null, %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit..critedge_crit_edge ], [ null, %178 ], [ %175, %173 ]
   %.not.i.i.i.i.i109 = icmp eq i64 %.pre-phi, 0
-  %.not3.i110 = icmp eq i64 %.pre-phi188, 0
+  %.not3.i110 = icmp eq i64 %.pre-phi186, 0
   %.not.i111 = or i1 %.not.i.i.i.i.i109, %.not3.i110
   br i1 %.not.i111, label %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit118, label %185
 
 185:                                              ; preds = %.critedge
-  %186 = inttoptr i64 %.pre-phi188 to ptr
+  %186 = inttoptr i64 %.pre-phi186 to ptr
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %.0.copyload.i.i.i.i.i.i112 = load i64, ptr %187, align 8
   %.not.i.i.i113 = icmp ult i64 %.0.copyload.i.i.i.i.i.i112, 8
@@ -4378,7 +4378,7 @@ _ZN5clang12Preprocessor10MacroState9setLatestEPNS_14MacroDirectiveE.exit: ; pred
   br i1 %.not71, label %.loopexit, label %.lr.ph, !llvm.loop !111
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %207, %169, %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit101, %_ZN5clang12Preprocessor10MacroState9setLatestEPNS_14MacroDirectiveE.exit, %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit.thread, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS2_12Preprocessor10MacroStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit
-  %209 = add i32 %.057179, 1
+  %209 = add i32 %.057177, 1
   %210 = zext i32 %209 to i64
   %211 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #17
   %.not66 = icmp eq i64 %211, %210

@@ -4677,10 +4677,10 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18DSEState17eliminate
   store ptr %74, ptr %45, align 8
   %75 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_12MemoryAccessENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(104) %43, ptr noundef nonnull align 8 dereferenceable(8) %45)
   %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #17
-  %.not368.i = icmp eq i64 %76, 0
-  br i1 %.not368.i, label %.loopexit.i, label %.lr.ph367.i
+  %.not360.i = icmp eq i64 %76, 0
+  br i1 %.not360.i, label %.loopexit.i, label %.lr.ph359.i
 
-.lr.ph367.i:                                      ; preds = %58
+.lr.ph359.i:                                      ; preds = %58
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %79 = getelementptr inbounds i8, ptr %0, i64 768
@@ -4748,13 +4748,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18DSEState17eliminate
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1612
   br label %133
 
-133:                                              ; preds = %.thread.i, %.lr.ph367.i
-  %134 = phi i64 [ 0, %.lr.ph367.i ], [ %1355, %.thread.i ]
-  %.0366.i = phi i32 [ 0, %.lr.ph367.i ], [ %1354, %.thread.i ]
-  %.0210356.i = phi i1 [ false, %.lr.ph367.i ], [ %.2.i, %.thread.i ]
-  %.0212354.i = phi i32 [ %59, %.lr.ph367.i ], [ %.1213.i, %.thread.i ]
-  %.0215353.i = phi i32 [ %60, %.lr.ph367.i ], [ %.1216.i, %.thread.i ]
-  %.0221351.i = phi i32 [ %61, %.lr.ph367.i ], [ %.1222.i, %.thread.i ]
+133:                                              ; preds = %.thread.i, %.lr.ph359.i
+  %134 = phi i64 [ 0, %.lr.ph359.i ], [ %1355, %.thread.i ]
+  %.0358.i = phi i32 [ 0, %.lr.ph359.i ], [ %1354, %.thread.i ]
+  %.0210356.i = phi i1 [ false, %.lr.ph359.i ], [ %.2.i, %.thread.i ]
+  %.0212354.i = phi i32 [ %59, %.lr.ph359.i ], [ %.1213.i, %.thread.i ]
+  %.0215353.i = phi i32 [ %60, %.lr.ph359.i ], [ %.1216.i, %.thread.i ]
+  %.0221351.i = phi i32 [ %61, %.lr.ph359.i ], [ %.1222.i, %.thread.i ]
   %135 = load ptr, ptr %62, align 8
   %136 = getelementptr inbounds ptr, ptr %135, i64 %134
   %137 = load ptr, ptr %136, align 8
@@ -6514,8 +6514,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS
   store ptr %756, ptr %.0.i150.i, align 8
   %862 = getelementptr inbounds nuw i8, ptr %.0.i150.i, i64 8
   store i32 0, ptr %862, align 4
-  %.pre449.i = load ptr, ptr %102, align 8
-  %.pre450.i = load i32, ptr %130, align 8
+  %.pre441.i = load ptr, ptr %102, align 8
+  %.pre442.i = load i32, ptr %130, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i.loopexit: ; preds = %779
@@ -6525,8 +6525,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i.loopexit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_.exit.i
   %863 = phi i32 [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_.exit.i ], [ %.pre258, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i.loopexit ]
-  %864 = phi i32 [ %.pre450.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_.exit.i ], [ %759, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i.loopexit ]
-  %865 = phi ptr [ %.pre449.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_.exit.i ], [ %758, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i.loopexit ]
+  %864 = phi i32 [ %.pre442.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_.exit.i ], [ %759, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i.loopexit ]
+  %865 = phi ptr [ %.pre441.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_.exit.i ], [ %758, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i.loopexit ]
   %866 = icmp eq i32 %864, 0
   br i1 %866, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i86.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit.i._crit_edge
 
@@ -6802,7 +6802,7 @@ _ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.i:
   br i1 %.not251.i, label %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93._ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread245_crit_edge.i, label %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread.i
 
 _ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93._ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread245_crit_edge.i: ; preds = %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.i
-  %.pre447.i = load ptr, ptr %78, align 8
+  %.pre439.i = load ptr, ptr %78, align 8
   br label %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread245.i
 
 _ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread.i: ; preds = %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.i, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i92.i
@@ -6817,7 +6817,7 @@ _ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.th
   br label %.thread.i
 
 _ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread245.i: ; preds = %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93._ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread245_crit_edge.i, %989
-  %1006 = phi ptr [ %.pre447.i, %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93._ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread245_crit_edge.i ], [ %996, %989 ]
+  %1006 = phi ptr [ %.pre439.i, %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93._ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread245_crit_edge.i ], [ %996, %989 ]
   store i64 0, ptr %50, align 8
   store i64 0, ptr %51, align 8
   %1007 = load ptr, ptr %.sroa.5.0..sroa_idx7.i.i, align 8
@@ -7424,11 +7424,11 @@ _ZNK4llvm5APIntlsEj.exit.i.i:                     ; preds = %_ZN4llvm5APIntC2ERK
   br i1 %1284, label %_ZNK4llvm5APIntlsEj.exit.i._crit_edge.i, label %1290
 
 _ZNK4llvm5APIntlsEj.exit.i._crit_edge.i:          ; preds = %_ZNK4llvm5APIntlsEj.exit.i.i
-  %.pre448.i = load i64, ptr %23, align 8, !noalias !132
+  %.pre440.i = load i64, ptr %23, align 8, !noalias !132
   br label %1285
 
 1285:                                             ; preds = %_ZNK4llvm5APIntlsEj.exit.i._crit_edge.i, %_ZNK4llvm5APIntlsEj.exit.thread.i.i
-  %1286 = phi i64 [ %1283, %_ZNK4llvm5APIntlsEj.exit.thread.i.i ], [ %.pre448.i, %_ZNK4llvm5APIntlsEj.exit.i._crit_edge.i ]
+  %1286 = phi i64 [ %1283, %_ZNK4llvm5APIntlsEj.exit.thread.i.i ], [ %.pre440.i, %_ZNK4llvm5APIntlsEj.exit.i._crit_edge.i ]
   %1287 = phi i32 [ %1273, %_ZNK4llvm5APIntlsEj.exit.thread.i.i ], [ %.pre51.i.i, %_ZNK4llvm5APIntlsEj.exit.i._crit_edge.i ]
   %1288 = load i64, ptr %20, align 8, !noalias !132
   %1289 = or i64 %1288, %1286
@@ -7607,7 +7607,7 @@ _ZL34tryToMergePartialOverlappingStoresPN4llvm9StoreInstES1_llRKNS_10DataLayoutE
   %.1216.i = phi i32 [ %.0215353.i, %_ZNK4llvm15SmallPtrSetImplIPNS_12MemoryAccessEE8containsEPKS1_.exit.i ], [ %239, %1004 ], [ %239, %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread.i ], [ %239, %1352 ], [ %239, %1350 ], [ %239, %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_.exit.i ], [ %.5220.ph.i, %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_.exit.thread.i ], [ %239, %_ZL34tryToMergePartialOverlappingStoresPN4llvm9StoreInstES1_llRKNS_10DataLayoutERNS_14BatchAAResultsEPNS_13DominatorTreeE.exit.thread.i ], [ %239, %1141 ], [ %239, %1148 ], [ %239, %_ZL34tryToMergePartialOverlappingStoresPN4llvm9StoreInstES1_llRKNS_10DataLayoutERNS_14BatchAAResultsEPNS_13DominatorTreeE.exit.i ], [ %239, %_ZN4llvm9MemoryPhi15incoming_valuesEv.exit.i ], [ %239, %977 ]
   %.1213.i = phi i32 [ %.0212354.i, %_ZNK4llvm15SmallPtrSetImplIPNS_12MemoryAccessEE8containsEPKS1_.exit.i ], [ %.5243.i, %1004 ], [ %.5243.i, %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread.i ], [ %.5243.i, %1352 ], [ %.5243.i, %1350 ], [ %.4.i, %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_.exit.i ], [ %.0212354.i, %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_.exit.thread.i ], [ %.5243.i, %_ZL34tryToMergePartialOverlappingStoresPN4llvm9StoreInstES1_llRKNS_10DataLayoutERNS_14BatchAAResultsEPNS_13DominatorTreeE.exit.thread.i ], [ %.5243.i, %1141 ], [ %.5243.i, %1148 ], [ %.5243.i, %_ZL34tryToMergePartialOverlappingStoresPN4llvm9StoreInstES1_llRKNS_10DataLayoutERNS_14BatchAAResultsEPNS_13DominatorTreeE.exit.i ], [ %.5243.i, %_ZN4llvm9MemoryPhi15incoming_valuesEv.exit.i ], [ %.5243.i, %977 ]
   %.2.i = phi i1 [ %.0210356.i, %_ZNK4llvm15SmallPtrSetImplIPNS_12MemoryAccessEE8containsEPKS1_.exit.i ], [ true, %1004 ], [ %.0210356.i, %_ZNK12_GLOBAL__N_18DSEState19isMemTerminatorInstEPN4llvm11InstructionE.exit93.thread.i ], [ true, %1352 ], [ %.0210356.i, %1350 ], [ %.0210356.i, %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_.exit.i ], [ %.0210356.i, %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_.exit.thread.i ], [ %.0210356.i, %_ZL34tryToMergePartialOverlappingStoresPN4llvm9StoreInstES1_llRKNS_10DataLayoutERNS_14BatchAAResultsEPNS_13DominatorTreeE.exit.thread.i ], [ %.0210356.i, %1141 ], [ %.0210356.i, %1148 ], [ %.0210356.i, %_ZL34tryToMergePartialOverlappingStoresPN4llvm9StoreInstES1_llRKNS_10DataLayoutERNS_14BatchAAResultsEPNS_13DominatorTreeE.exit.i ], [ %.0210356.i, %_ZN4llvm9MemoryPhi15incoming_valuesEv.exit.i ], [ %.0210356.i, %977 ]
-  %1354 = add i32 %.0366.i, 1
+  %1354 = add i32 %.0358.i, 1
   %1355 = zext i32 %1354 to i64
   %1356 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #17
   %1357 = icmp ugt i64 %1356, %1355

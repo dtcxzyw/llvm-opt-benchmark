@@ -148,9 +148,9 @@ define dso_local void @_ZN4llvm23parseCachePruningPolicyENS_9StringRefE(ptr dead
   store i64 %2, ptr %.sroa.2232.0..sroa_idx, align 8
   %.promoted = load ptr, ptr %0, align 8
   %26 = icmp eq i64 %2, 0
-  br i1 %26, label %._crit_edge480, label %.lr.ph
+  br i1 %26, label %._crit_edge476, label %.lr.ph
 
-._crit_edge480:                                   ; preds = %3
+._crit_edge476:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
@@ -159,15 +159,15 @@ define dso_local void @_ZN4llvm23parseCachePruningPolicyENS_9StringRefE(ptr dead
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.promoted393 = load i8, ptr %28, align 8
+  %.promoted389 = load i8, ptr %28, align 8
   br label %30
 
 30:                                               ; preds = %.lr.ph, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread
-  %.sroa.12.0385 = phi i64 [ 1000000, %.lr.ph ], [ %.sroa.12.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
-  %.sroa.10230.0383 = phi i64 [ 0, %.lr.ph ], [ %.sroa.10230.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
-  %.sroa.8.0381 = phi i32 [ 75, %.lr.ph ], [ %.sroa.8.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
-  %.sroa.6229.0378 = phi i64 [ 604800, %.lr.ph ], [ %.sroa.6229.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
-  %.sroa.0227.0374 = phi i64 [ 1200, %.lr.ph ], [ %.sroa.0227.2, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.12.0381 = phi i64 [ 1000000, %.lr.ph ], [ %.sroa.12.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.10230.0379 = phi i64 [ 0, %.lr.ph ], [ %.sroa.10230.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.8.0377 = phi i32 [ 75, %.lr.ph ], [ %.sroa.8.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.6229.0374 = phi i64 [ 604800, %.lr.ph ], [ %.sroa.6229.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.0227.0370 = phi i64 [ 1200, %.lr.ph ], [ %.sroa.0227.2, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 58, ptr %8, align 1, !noalias !4
   %31 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr nonnull %8, i64 1, i64 noundef 0) #15, !noalias !7
@@ -247,7 +247,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %55 = inttoptr i64 %54 to ptr
-  %56 = or i8 %.promoted393, 1
+  %56 = or i8 %.promoted389, 1
   store i8 %56, ptr %28, align 8
   store ptr %55, ptr %0, align 8
   br label %178
@@ -266,7 +266,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit33.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit41: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit33.thread
   %61 = inttoptr i64 %60 to ptr
-  %62 = or i8 %.promoted393, 1
+  %62 = or i8 %.promoted389, 1
   store i8 %62, ptr %28, align 8
   store ptr %61, ptr %0, align 8
   br label %178
@@ -284,7 +284,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit45.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not, label %80, label %_ZN4llvm5ErrorD2Ev.exit47
 
 _ZN4llvm5ErrorD2Ev.exit47:                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit45.thread
-  store i8 %.promoted393, ptr %28, align 8
+  store i8 %.promoted389, ptr %28, align 8
   store ptr %.promoted, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 3, ptr %67, align 8, !alias.scope !16
@@ -321,7 +321,7 @@ _ZN4llvm5ErrorD2Ev.exit47:                        ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %82, label %_ZN4llvm5ErrorD2Ev.exit67, label %96
 
 _ZN4llvm5ErrorD2Ev.exit67:                        ; preds = %80
-  store i8 %.promoted393, ptr %28, align 8
+  store i8 %.promoted389, ptr %28, align 8
   store ptr %.promoted, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -358,7 +358,7 @@ _ZN4llvm5ErrorD2Ev.exit67:                        ; preds = %80
   br i1 %98, label %_ZN4llvm5ErrorD2Ev.exit87, label %112
 
 _ZN4llvm5ErrorD2Ev.exit87:                        ; preds = %96
-  store i8 %.promoted393, ptr %28, align 8
+  store i8 %.promoted389, ptr %28, align 8
   store ptr %.promoted, ptr %0, align 8
   %99 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i8 3, ptr %99, align 8, !alias.scope !48
@@ -431,7 +431,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit91.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %127, label %_ZN4llvm5ErrorD2Ev.exit124, label %141
 
 _ZN4llvm5ErrorD2Ev.exit124:                       ; preds = %126
-  store i8 %.promoted393, ptr %28, align 8
+  store i8 %.promoted389, ptr %28, align 8
   store ptr %.promoted, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %128 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -483,7 +483,7 @@ _ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132: ; preds = %_ZN4llvmeqENS_9St
   br label %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread
 
 _ZN4llvm5ErrorD2Ev.exit152:                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit128.thread
-  store i8 %.promoted393, ptr %28, align 8
+  store i8 %.promoted389, ptr %28, align 8
   store ptr %.promoted, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %147 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -515,7 +515,7 @@ _ZN4llvm5ErrorD2Ev.exit152:                       ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm5ErrorD2Ev.exit172:                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit45, %_ZN4llvmeqENS_9StringRefES0_.exit33, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm9StringRef5splitEc.exit28, %_ZN4llvmeqENS_9StringRefES0_.exit128
   %.sroa.3.0.lcssa = phi i64 [ %.sroa.3.0, %_ZNK4llvm9StringRef5splitEc.exit28 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit128 ], [ 14, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 11, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ 10, %_ZN4llvmeqENS_9StringRefES0_.exit45 ]
-  store i8 %.promoted393, ptr %28, align 8
+  store i8 %.promoted389, ptr %28, align 8
   store ptr %.promoted, ptr %0, align 8
   %160 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i8 3, ptr %160, align 8, !alias.scope !96
@@ -545,22 +545,22 @@ _ZN4llvm5ErrorD2Ev.exit172:                       ; preds = %_ZN4llvmeqENS_9Stri
   br label %178
 
 _ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit33.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132, %141, %112
-  %.sroa.0227.2 = phi i64 [ %.sroa.0227.0374, %112 ], [ %.sroa.0227.0374, %141 ], [ %.sroa.0227.0374, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %54, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.0227.0374, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
-  %.sroa.6229.1 = phi i64 [ %.sroa.6229.0378, %112 ], [ %.sroa.6229.0378, %141 ], [ %.sroa.6229.0378, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %.sroa.6229.0378, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %60, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
-  %.sroa.8.1 = phi i32 [ %113, %112 ], [ %.sroa.8.0381, %141 ], [ %.sroa.8.0381, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %.sroa.8.0381, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.8.0381, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
-  %.sroa.10230.1 = phi i64 [ %.sroa.10230.0383, %112 ], [ %143, %141 ], [ %.sroa.10230.0383, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %.sroa.10230.0383, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.10230.0383, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
-  %.sroa.12.1 = phi i64 [ %.sroa.12.0385, %112 ], [ %.sroa.12.0385, %141 ], [ %146, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %.sroa.12.0385, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.12.0385, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
+  %.sroa.0227.2 = phi i64 [ %.sroa.0227.0370, %112 ], [ %.sroa.0227.0370, %141 ], [ %.sroa.0227.0370, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %54, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.0227.0370, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
+  %.sroa.6229.1 = phi i64 [ %.sroa.6229.0374, %112 ], [ %.sroa.6229.0374, %141 ], [ %.sroa.6229.0374, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %.sroa.6229.0374, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %60, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
+  %.sroa.8.1 = phi i32 [ %113, %112 ], [ %.sroa.8.0377, %141 ], [ %.sroa.8.0377, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %.sroa.8.0377, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.8.0377, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
+  %.sroa.10230.1 = phi i64 [ %.sroa.10230.0379, %112 ], [ %143, %141 ], [ %.sroa.10230.0379, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %.sroa.10230.0379, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.10230.0379, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
+  %.sroa.12.1 = phi i64 [ %.sroa.12.0381, %112 ], [ %.sroa.12.0381, %141 ], [ %146, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit132 ], [ %.sroa.12.0381, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.12.0381, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread ]
   %173 = load i64, ptr %.sroa.2232.0..sroa_idx, align 8
   %174 = icmp eq i64 %173, 0
   br i1 %174, label %._crit_edge, label %30, !llvm.loop !112
 
-._crit_edge:                                      ; preds = %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread, %._crit_edge480
-  %175 = phi i8 [ %.pre, %._crit_edge480 ], [ %.promoted393, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
-  %.sroa.0227.0.lcssa = phi i64 [ 1200, %._crit_edge480 ], [ %.sroa.0227.2, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
-  %.sroa.6229.0.lcssa = phi i64 [ 604800, %._crit_edge480 ], [ %.sroa.6229.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
-  %.sroa.8.0.lcssa = phi i32 [ 75, %._crit_edge480 ], [ %.sroa.8.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
-  %.sroa.10230.0.lcssa = phi i64 [ 0, %._crit_edge480 ], [ %.sroa.10230.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
-  %.sroa.12.0.lcssa = phi i64 [ 1000000, %._crit_edge480 ], [ %.sroa.12.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+._crit_edge:                                      ; preds = %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread, %._crit_edge476
+  %175 = phi i8 [ %.pre, %._crit_edge476 ], [ %.promoted389, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.0227.0.lcssa = phi i64 [ 1200, %._crit_edge476 ], [ %.sroa.0227.2, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.6229.0.lcssa = phi i64 [ 604800, %._crit_edge476 ], [ %.sroa.6229.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.8.0.lcssa = phi i32 [ 75, %._crit_edge476 ], [ %.sroa.8.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.10230.0.lcssa = phi i64 [ 0, %._crit_edge476 ], [ %.sroa.10230.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
+  %.sroa.12.0.lcssa = phi i64 [ 1000000, %._crit_edge476 ], [ %.sroa.12.1, %_ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %177 = and i8 %175, -2
   store i8 %177, ptr %176, align 8

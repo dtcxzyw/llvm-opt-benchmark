@@ -4617,12 +4617,12 @@ switch.lookup:                                    ; preds = %55, %55, %55
   %56 = ashr exact i64 %sext, 32
   %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply, i64 0, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %sext114 = shl i64 %indvars.iv, 32
-  %57 = ashr exact i64 %sext114, 32
-  %switch.gep112 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply.21, i64 0, i64 %57
-  %switch.load113 = load ptr, ptr %switch.gep112, align 8
+  %sext113 = shl i64 %indvars.iv, 32
+  %57 = ashr exact i64 %sext113, 32
+  %switch.gep111 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply.21, i64 0, i64 %57
+  %switch.load112 = load ptr, ptr %switch.gep111, align 8
   %58 = load i32, ptr %switch.load, align 4
-  %59 = load i32, ptr %switch.load113, align 4
+  %59 = load i32, ptr %switch.load112, align 4
   %60 = select i1 %39, i32 %58, i32 %59
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %.0100103, i32 noundef %60, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #18
   br i1 %38, label %62, label %63

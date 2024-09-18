@@ -3654,16 +3654,16 @@ define hidden void @dissect_bgp_path_attr(ptr noundef %0, ptr noundef %1, i16 no
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = zext i16 %2 to i32
-  %.not1901 = icmp eq i16 %2, 0
-  br i1 %.not1901, label %._crit_edge1898, label %.lr.ph1897
+  %.not1900 = icmp eq i16 %2, 0
+  br i1 %.not1900, label %._crit_edge1897, label %.lr.ph1896
 
-.lr.ph1897:                                       ; preds = %5
+.lr.ph1896:                                       ; preds = %5
   %10 = getelementptr inbounds i8, ptr %4, i64 408
   br label %11
 
-11:                                               ; preds = %.lr.ph1897, %dissect_bgp_update_pmsi_attr.exit
-  %.016801895 = phi i32 [ 0, %.lr.ph1897 ], [ %1545, %dissect_bgp_update_pmsi_attr.exit ]
-  %12 = add i32 %.016801895, %3
+11:                                               ; preds = %.lr.ph1896, %dissect_bgp_update_pmsi_attr.exit
+  %.016801894 = phi i32 [ 0, %.lr.ph1896 ], [ %1545, %dissect_bgp_update_pmsi_attr.exit ]
+  %12 = add i32 %.016801894, %3
   %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %12) #4
   %14 = add i32 %12, 1
   %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %14) #4
@@ -3729,7 +3729,7 @@ define hidden void @dissect_bgp_path_attr(ptr noundef %0, ptr noundef %1, i16 no
   %50 = add i32 %12, 2
   %51 = add nsw i32 %.01690, -2
   %52 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %49, ptr noundef %1, i32 noundef %50, i32 noundef %51, i32 noundef 0) #4
-  %53 = sub nsw i32 %9, %.016801895
+  %53 = sub nsw i32 %9, %.016801894
   %54 = icmp sgt i32 %27, %53
   br i1 %54, label %55, label %60
 
@@ -3975,15 +3975,15 @@ heuristic_as2_or_4_from_as_path.exit.thread1779:  ; preds = %._crit_edge100.i, %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph1893, %157, %158
-  %.str.20.sink1996 = phi ptr [ @.str.20, %158 ], [ @.str.19, %157 ], [ @.str.18, %.lr.ph1893 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull %.str.20.sink1996) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %150, ptr noundef nonnull %.str.20.sink1996) #4
+  %.str.20.sink1995 = phi ptr [ @.str.20, %158 ], [ @.str.19, %157 ], [ @.str.18, %.lr.ph1893 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull %.str.20.sink1995) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %150, ptr noundef nonnull %.str.20.sink1995) #4
   br label %159
 
 159:                                              ; preds = %.sink.split, %.lr.ph1893
   %160 = add i32 %.01891, 2
-  %.not1903 = icmp eq i8 %145, 0
-  br i1 %.not1903, label %._crit_edge1882, label %.lr.ph1881
+  %.not1902 = icmp eq i8 %145, 0
+  br i1 %.not1902, label %._crit_edge1882, label %.lr.ph1881
 
 .lr.ph1881:                                       ; preds = %159
   %161 = add nsw i32 %147, -1
@@ -4027,8 +4027,8 @@ heuristic_as2_or_4_from_as_path.exit.thread1779:  ; preds = %._crit_edge100.i, %
 177:                                              ; preds = %176, %171
   %178 = add i32 %.11879.us, %138
   %179 = add nuw nsw i32 %.016811878.us, 1
-  %exitcond1942.not = icmp eq i32 %179, %147
-  br i1 %exitcond1942.not, label %._crit_edge1882, label %.lr.ph1881.split.us, !llvm.loop !9
+  %exitcond1941.not = icmp eq i32 %179, %147
+  br i1 %exitcond1941.not, label %._crit_edge1882, label %.lr.ph1881.split.us, !llvm.loop !9
 
 .lr.ph1881.split.us1884:                          ; preds = %.lr.ph1881, %185
   %.11879.us1885 = phi i32 [ %186, %185 ], [ %160, %.lr.ph1881 ]
@@ -4050,8 +4050,8 @@ heuristic_as2_or_4_from_as_path.exit.thread1779:  ; preds = %._crit_edge100.i, %
 185:                                              ; preds = %184, %.lr.ph1881.split.us1884
   %186 = add i32 %.11879.us1885, %138
   %187 = add nuw nsw i32 %.016811878.us1886, 1
-  %exitcond1941.not = icmp eq i32 %187, %147
-  br i1 %exitcond1941.not, label %._crit_edge1882, label %.lr.ph1881.split.us1884, !llvm.loop !9
+  %exitcond1940.not = icmp eq i32 %187, %147
+  br i1 %exitcond1940.not, label %._crit_edge1882, label %.lr.ph1881.split.us1884, !llvm.loop !9
 
 .lr.ph1881.split:                                 ; preds = %.lr.ph1881, %189
   %.016811878 = phi i32 [ %190, %189 ], [ 0, %.lr.ph1881 ]
@@ -4065,8 +4065,8 @@ heuristic_as2_or_4_from_as_path.exit.thread1779:  ; preds = %._crit_edge100.i, %
 
 189:                                              ; preds = %188, %.lr.ph1881.split
   %190 = add nuw nsw i32 %.016811878, 1
-  %exitcond1943.not = icmp eq i32 %190, %147
-  br i1 %exitcond1943.not, label %._crit_edge1882.loopexit, label %.lr.ph1881.split, !llvm.loop !9
+  %exitcond1942.not = icmp eq i32 %190, %147
+  br i1 %exitcond1942.not, label %._crit_edge1882.loopexit, label %.lr.ph1881.split, !llvm.loop !9
 
 ._crit_edge1882.loopexit:                         ; preds = %189
   %191 = add i32 %160, %148
@@ -4101,8 +4101,8 @@ heuristic_as2_or_4_from_as_path.exit.thread1779:  ; preds = %._crit_edge100.i, %
 
 196:                                              ; preds = %192, %193, %194, %195
   %197 = add nuw nsw i32 %.016831890, 1
-  %exitcond1944.not = icmp eq i32 %197, %.217741777
-  br i1 %exitcond1944.not, label %dissect_bgp_update_pmsi_attr.exit, label %.lr.ph1893, !llvm.loop !10
+  %exitcond1943.not = icmp eq i32 %197, %.217741777
+  br i1 %exitcond1943.not, label %dissect_bgp_update_pmsi_attr.exit, label %.lr.ph1893, !llvm.loop !10
 
 198:                                              ; preds = %60
   %.not1755 = icmp eq i32 %.01694, 4
@@ -4588,14 +4588,14 @@ decode_mp_next_hop.exit:                          ; preds = %.thread.i, %.sink.s
   br i1 %.not1748, label %.loopexit1792.loopexit, label %435, !llvm.loop !12
 
 .loopexit1792.loopexit:                           ; preds = %435
-  %.pre1945 = add i32 %444, %351
+  %.pre1944 = add i32 %444, %351
   br label %.loopexit1792
 
 .loopexit1792:                                    ; preds = %.loopexit1792.loopexit, %decode_mp_next_hop.exit
-  %.pre-phi1946 = phi i32 [ %.pre1945, %.loopexit1792.loopexit ], [ %352, %decode_mp_next_hop.exit ]
+  %.pre-phi1945 = phi i32 [ %.pre1944, %.loopexit1792.loopexit ], [ %352, %decode_mp_next_hop.exit ]
   %.01695 = phi i32 [ %444, %.loopexit1792.loopexit ], [ 1, %decode_mp_next_hop.exit ]
   %446 = add nsw i32 %.01694, -4
-  %447 = sub i32 %446, %.pre-phi1946
+  %447 = sub i32 %446, %.pre-phi1945
   %448 = add i32 %.01695, %427
   %449 = load i32, ptr @hf_bgp_update_path_attribute_mp_reach_nlri, align 4
   %450 = add i32 %448, %12
@@ -4924,8 +4924,8 @@ save_afi_safi_data.exit1768:                      ; preds = %473, %491
   br label %651
 
 651:                                              ; preds = %648, %644
-  %.2000 = phi i32 [ 3, %648 ], [ 2, %644 ]
-  %.1999 = phi i32 [ 2, %648 ], [ 1, %644 ]
+  %.1999 = phi i32 [ 3, %648 ], [ 2, %644 ]
+  %.1998 = phi i32 [ 2, %648 ], [ 1, %644 ]
   %.01686 = phi i16 [ %650, %648 ], [ %647, %644 ]
   %.01684 = phi i16 [ %649, %648 ], [ %646, %644 ]
   %652 = zext i16 %.01686 to i32
@@ -4935,8 +4935,8 @@ save_afi_safi_data.exit1768:                      ; preds = %473, %491
   %656 = load i32, ptr @hf_bgp_update_encaps_tunnel_subtlv_type, align 4
   %657 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %656, ptr noundef %1, i32 noundef %.71854, i32 noundef 1, i32 noundef 0) #4
   %658 = load i32, ptr @hf_bgp_update_encaps_tunnel_subtlv_len, align 4
-  %659 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %658, ptr noundef %1, i32 noundef %643, i32 noundef %.1999, i32 noundef 0) #4
-  %660 = add i32 %.71854, %.2000
+  %659 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %658, ptr noundef %1, i32 noundef %643, i32 noundef %.1998, i32 noundef 0) #4
+  %660 = add i32 %.71854, %.1999
   switch i8 %640, label %835 [
     i8 1, label %661
     i8 2, label %717
@@ -5322,8 +5322,8 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   %922 = call ptr @proto_tree_add_item(ptr noundef %920, i32 noundef %921, ptr noundef %1, i32 noundef %907, i32 noundef 2, i32 noundef 0) #4
   %923 = add i32 %907, 2
   %924 = and i32 %913, 255
-  %.not1902 = icmp eq i32 %924, 0
-  br i1 %.not1902, label %._crit_edge1841, label %.lr.ph1840
+  %.not1901 = icmp eq i32 %924, 0
+  br i1 %.not1901, label %._crit_edge1841, label %.lr.ph1840
 
 .lr.ph1840:                                       ; preds = %916, %.lr.ph1840
   %.131838 = phi i32 [ %935, %.lr.ph1840 ], [ %923, %916 ]
@@ -5521,7 +5521,7 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   br i1 %1064, label %.lr.ph1827, label %._crit_edge1828
 
 .lr.ph1827:                                       ; preds = %1043, %.loopexit1787
-  %.016781825 = phi i32 [ %.pre-phi1953, %.loopexit1787 ], [ %1058, %1043 ]
+  %.016781825 = phi i32 [ %.pre-phi1952, %.loopexit1787 ], [ %1058, %1043 ]
   %1065 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.016781825) #4
   %1066 = add nsw i32 %.016781825, 1
   %1067 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %1066) #4
@@ -5627,9 +5627,9 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   br label %1152
 
 1152:                                             ; preds = %1136, %1106
-  %.pre-phi1949 = phi i32 [ %1150, %1136 ], [ %1119, %1106 ]
-  %.pre-phi1948 = phi i32 [ %1139, %1136 ], [ %1108, %1106 ]
-  %1153 = add i32 %.pre-phi1949, %.pre-phi1948
+  %.pre-phi1948 = phi i32 [ %1150, %1136 ], [ %1119, %1106 ]
+  %.pre-phi1947 = phi i32 [ %1139, %1136 ], [ %1108, %1106 ]
+  %1153 = add i32 %.pre-phi1948, %.pre-phi1947
   %1154 = icmp slt i32 %1153, %1101
   br i1 %1154, label %.lr.ph1824, label %.loopexit1787, !llvm.loop !23
 
@@ -5650,12 +5650,12 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   %1168 = load i32, ptr @hf_bgp_prefix_sid_srv6_l3vpn_sub_tlv_value, align 4
   %1169 = add i32 %.016781825, 3
   %1170 = call ptr @proto_tree_add_item(ptr noundef %1163, i32 noundef %1168, ptr noundef %1, i32 noundef %1169, i32 noundef %1158, i32 noundef 0) #4
-  %.pre1952 = add i32 %1169, %1158
+  %.pre1951 = add i32 %1169, %1158
   br label %.loopexit1787
 
 .loopexit1787:                                    ; preds = %1152, %1068, %1155
-  %.pre-phi1953 = phi i32 [ %1101, %1068 ], [ %.pre1952, %1155 ], [ %1101, %1152 ]
-  %1171 = icmp slt i32 %.pre-phi1953, %1063
+  %.pre-phi1952 = phi i32 [ %1101, %1068 ], [ %.pre1951, %1155 ], [ %1101, %1152 ]
+  %1171 = icmp slt i32 %.pre-phi1952, %1063
   br i1 %1171, label %.lr.ph1827, label %._crit_edge1828, !llvm.loop !24
 
 ._crit_edge1828:                                  ; preds = %.loopexit1787, %1043
@@ -5687,7 +5687,7 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   br i1 %1194, label %.lr.ph1820, label %._crit_edge1821
 
 .lr.ph1820:                                       ; preds = %1173, %.loopexit1788
-  %.116791818 = phi i32 [ %.pre-phi1959, %.loopexit1788 ], [ %1188, %1173 ]
+  %.116791818 = phi i32 [ %.pre-phi1958, %.loopexit1788 ], [ %1188, %1173 ]
   %1195 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.116791818) #4
   %1196 = add nsw i32 %.116791818, 1
   %1197 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %1196) #4
@@ -5793,9 +5793,9 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   br label %1282
 
 1282:                                             ; preds = %1266, %1236
-  %.pre-phi1955 = phi i32 [ %1280, %1266 ], [ %1249, %1236 ]
-  %.pre-phi1954 = phi i32 [ %1269, %1266 ], [ %1238, %1236 ]
-  %1283 = add i32 %.pre-phi1955, %.pre-phi1954
+  %.pre-phi1954 = phi i32 [ %1280, %1266 ], [ %1249, %1236 ]
+  %.pre-phi1953 = phi i32 [ %1269, %1266 ], [ %1238, %1236 ]
+  %1283 = add i32 %.pre-phi1954, %.pre-phi1953
   %1284 = icmp slt i32 %1283, %1231
   br i1 %1284, label %.lr.ph1817, label %.loopexit1788, !llvm.loop !25
 
@@ -5816,12 +5816,12 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   %1298 = load i32, ptr @hf_bgp_prefix_sid_srv6_l2vpn_sub_tlv_value, align 4
   %1299 = add i32 %.116791818, 3
   %1300 = call ptr @proto_tree_add_item(ptr noundef %1293, i32 noundef %1298, ptr noundef %1, i32 noundef %1299, i32 noundef %1288, i32 noundef 0) #4
-  %.pre1958 = add i32 %1299, %1288
+  %.pre1957 = add i32 %1299, %1288
   br label %.loopexit1788
 
 .loopexit1788:                                    ; preds = %1282, %1198, %1285
-  %.pre-phi1959 = phi i32 [ %1231, %1198 ], [ %.pre1958, %1285 ], [ %1231, %1282 ]
-  %1301 = icmp slt i32 %.pre-phi1959, %1193
+  %.pre-phi1958 = phi i32 [ %1231, %1198 ], [ %.pre1957, %1285 ], [ %1231, %1282 ]
+  %1301 = icmp slt i32 %.pre-phi1958, %1193
   br i1 %1301, label %.lr.ph1820, label %._crit_edge1821, !llvm.loop !26
 
 ._crit_edge1821:                                  ; preds = %.loopexit1788, %1173
@@ -6182,11 +6182,11 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   br label %dissect_bgp_update_pmsi_attr.exit
 
 dissect_bgp_update_pmsi_attr.exit:                ; preds = %1321, %.lr.ph1845, %.loopexit1789, %611, %534, %.preheader1793, %515, %.lr.ph1873, %469, %314, %196, %965, %._crit_edge1841, %613, %551, %525, %.preheader, %277, %141, %1467, %1462, %1457, %1445, %1435, %1425, %1422, %1407, %1392, %1356, %1353, %save_afi_safi_data.exit1768, %.loopexit1792, %457, %1490, %1495, %1484, %1476, %1472, %879, %850, %859, %575, %546, %548, %318, %323, %245, %260, %232, %233, %222, %227, %211, %216, %199, %204, %62, %65, %1541, %1537, %1535, %1503, %._crit_edge1849, %save_link_state_attr_position.exit, %520, %272, %239, %heuristic_as2_or_4_from_as_path.exit.thread1779
-  %1545 = add nuw nsw i32 %27, %.016801895
+  %1545 = add nuw nsw i32 %27, %.016801894
   %1546 = icmp ult i32 %1545, %9
-  br i1 %1546, label %11, label %._crit_edge1898, !llvm.loop !29
+  br i1 %1546, label %11, label %._crit_edge1897, !llvm.loop !29
 
-._crit_edge1898:                                  ; preds = %dissect_bgp_update_pmsi_attr.exit, %5
+._crit_edge1897:                                  ; preds = %dissect_bgp_update_pmsi_attr.exit, %5
   %1547 = getelementptr inbounds i8, ptr %4, i64 408
   %1548 = load ptr, ptr %1547, align 8
   %1549 = load i32, ptr @proto_bgp, align 4
@@ -6194,7 +6194,7 @@ dissect_bgp_update_pmsi_attr.exit:                ; preds = %1321, %.lr.ph1845, 
   %.not = icmp eq ptr %1550, null
   br i1 %.not, label %.loopexit, label %1551
 
-1551:                                             ; preds = %._crit_edge1898
+1551:                                             ; preds = %._crit_edge1897
   %1552 = getelementptr inbounds i8, ptr %1550, i64 16
   %1553 = load i32, ptr %1552, align 8
   %.not1732 = icmp eq i32 %1553, 0
@@ -6216,10 +6216,10 @@ dissect_bgp_update_pmsi_attr.exit:                ; preds = %1321, %.lr.ph1845, 
   %1567 = load i32, ptr %1558, align 4
   %1568 = load i32, ptr %1566, align 8
   %1569 = icmp slt i32 %1567, %1568
-  br i1 %1569, label %.lr.ph1900, label %.loopexit
+  br i1 %1569, label %.lr.ph1899, label %.loopexit
 
-.lr.ph1900:                                       ; preds = %1554, %.lr.ph1900
-  %1570 = phi i32 [ %1574, %.lr.ph1900 ], [ %1567, %1554 ]
+.lr.ph1899:                                       ; preds = %1554, %.lr.ph1899
+  %1570 = phi i32 [ %1574, %.lr.ph1899 ], [ %1567, %1554 ]
   %1571 = load i8, ptr %1550, align 8
   %1572 = call fastcc i32 @decode_link_state_attribute_tlv(ptr noundef %1565, ptr noundef %1, i32 noundef %1570, ptr noundef %4, i8 noundef zeroext %1571)
   %1573 = load i32, ptr %1558, align 4
@@ -6227,9 +6227,9 @@ dissect_bgp_update_pmsi_attr.exit:                ; preds = %1321, %.lr.ph1845, 
   store i32 %1574, ptr %1558, align 4
   %1575 = load i32, ptr %1566, align 8
   %1576 = icmp slt i32 %1574, %1575
-  br i1 %1576, label %.lr.ph1900, label %.loopexit, !llvm.loop !30
+  br i1 %1576, label %.lr.ph1899, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %.lr.ph1900, %1554, %1551, %._crit_edge1898, %55
+.loopexit:                                        ; preds = %.lr.ph1899, %1554, %1551, %._crit_edge1897, %55
   ret void
 }
 

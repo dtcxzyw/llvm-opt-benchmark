@@ -1527,9 +1527,9 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
   br label %101
 
 101:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit243.i", %71
-  %102 = phi ptr [ %1, %71 ], [ %127, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit243.i" ]
-  %103 = phi ptr [ undef, %71 ], [ %128, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit243.i" ]
-  %trunc.i = phi i1 [ false, %71 ], [ %129, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit243.i" ]
+  %102 = phi ptr [ %127, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit243.i" ], [ %1, %71 ]
+  %103 = phi ptr [ %128, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit243.i" ], [ undef, %71 ]
+  %trunc.i = phi i1 [ %129, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit243.i" ], [ false, %71 ]
   br i1 %trunc.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f60dddcd74036faE.exit.i", label %104
 
 104:                                              ; preds = %101

@@ -2153,7 +2153,6 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   br label %153
 
 153:                                              ; preds = %177, %.lr.ph.i
-  %.sink.i412 = phi i64 [ %.promoted65.i, %.lr.ph.i ], [ %.sink.i411, %177 ]
   %154 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %179, %177 ]
   %155 = phi i64 [ %.promoted65.i, %.lr.ph.i ], [ %178, %177 ]
   %156 = phi i64 [ %145, %.lr.ph.i ], [ %180, %177 ]
@@ -2211,7 +2210,6 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   br label %177
 
 177:                                              ; preds = %.split398.us, %200, %.sink.split.i, %164
-  %.sink.i411 = phi i64 [ %.sink.i412, %.split398.us ], [ %.sink.i412, %200 ], [ %.sink.i412, %164 ], [ %.sink.i, %.sink.split.i ]
   %178 = phi i64 [ %155, %.split398.us ], [ %155, %200 ], [ %155, %164 ], [ %.sink.i, %.sink.split.i ]
   %179 = phi i64 [ %176, %.split398.us ], [ %201, %200 ], [ %156, %164 ], [ %.ph104.i, %.sink.split.i ]
   %180 = sub i64 %179, %143

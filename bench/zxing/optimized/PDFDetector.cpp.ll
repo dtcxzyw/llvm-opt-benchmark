@@ -363,7 +363,7 @@ common.resume:                                    ; preds = %18, %_ZN5ZXing9BitM
 44:                                               ; preds = %32, %341
   %45 = phi i1 [ false, %32 ], [ true, %341 ]
   %46 = phi i1 [ true, %32 ], [ false, %341 ]
-  %.011130 = phi i32 [ 0, %32 ], [ 90, %341 ]
+  %.011124 = phi i32 [ 0, %32 ], [ 90, %341 ]
   %47 = load ptr, ptr %5, align 8
   %48 = invoke noundef zeroext i1 @_ZN5ZXing6Pdf41715HasStartPatternERKNS_9BitMatrixEb(ptr noundef nonnull align 8 dereferenceable(32) %47, i1 noundef zeroext %45)
           to label %49 unwind label %.loopexit
@@ -382,7 +382,7 @@ common.resume:                                    ; preds = %18, %_ZN5ZXing9BitM
   br label %_ZN5ZXing9BitMatrixD2Ev.exit24
 
 50:                                               ; preds = %49
-  store i32 %.011130, ptr %36, align 8
+  store i32 %.011124, ptr %36, align 8
   br i1 %45, label %51, label %_ZNSt10shared_ptrIN5ZXing9BitMatrixEED2Ev.exit
 
 51:                                               ; preds = %50
@@ -870,8 +870,8 @@ _ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EEaS
   br label %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EED2Ev.exit62
 
 _ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EED2Ev.exit62: ; preds = %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EE5clearEv.exit.i.i55, %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EEaSEOS8_.exit57.thread
-  %.sink145 = phi ptr [ %43, %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EEaSEOS8_.exit57.thread ], [ %35, %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EE5clearEv.exit.i.i55 ]
-  store i64 0, ptr %.sink145, align 8
+  %.sink139 = phi ptr [ %43, %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EEaSEOS8_.exit57.thread ], [ %35, %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EE5clearEv.exit.i.i55 ]
+  store i64 0, ptr %.sink139, align 8
   %242 = load i32, ptr %36, align 8
   %243 = add nsw i32 %242, 180
   store i32 %243, ptr %36, align 8
@@ -1110,12 +1110,12 @@ _ZNSt10shared_ptrIN5ZXing9BitMatrixEED2Ev.exit83: ; preds = %_ZNSt16_Sp_counted_
   store i64 0, ptr %345, align 8
   %346 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 -1, ptr %346, align 8
-  %.pre136 = load ptr, ptr %33, align 8
-  %.not8.i.i.i.i86 = icmp eq ptr %.pre136, %33
+  %.pre130 = load ptr, ptr %33, align 8
+  %.not8.i.i.i.i86 = icmp eq ptr %.pre130, %33
   br i1 %.not8.i.i.i.i86, label %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EED2Ev.exit.i, label %.lr.ph.i.i.i.i87
 
 .lr.ph.i.i.i.i87:                                 ; preds = %342, %.lr.ph.i.i.i.i87
-  %.09.i.i.i.i88 = phi ptr [ %347, %.lr.ph.i.i.i.i87 ], [ %.pre136, %342 ]
+  %.09.i.i.i.i88 = phi ptr [ %347, %.lr.ph.i.i.i.i87 ], [ %.pre130, %342 ]
   %347 = load ptr, ptr %.09.i.i.i.i88, align 8
   call void @_ZdlPv(ptr noundef %.09.i.i.i.i88) #19
   %.not.i.i.i.i89 = icmp eq ptr %347, %33

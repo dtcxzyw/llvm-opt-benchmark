@@ -3530,9 +3530,9 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu33ComputePointsNormalsColorsInvoke
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %6, %8
-  br i1 %9, label %.lr.ph190, label %._crit_edge191
+  br i1 %9, label %.lr.ph185, label %._crit_edge186
 
-.lr.ph190:                                        ; preds = %2
+.lr.ph185:                                        ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3549,30 +3549,30 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu33ComputePointsNormalsColorsInvoke
   %23 = getelementptr inbounds i8, ptr %22, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph190.split.preheader, label %._crit_edge191
+  br i1 %25, label %.lr.ph185.split.preheader, label %._crit_edge186
 
-.lr.ph190.split.preheader:                        ; preds = %.lr.ph190
+.lr.ph185.split.preheader:                        ; preds = %.lr.ph185
   %26 = sext i32 %6 to i64
-  br label %.lr.ph190.split
+  br label %.lr.ph185.split
 
-.lr.ph190.split:                                  ; preds = %.lr.ph190.split.preheader, %._crit_edge
-  %27 = phi i32 [ %8, %.lr.ph190.split.preheader ], [ %227, %._crit_edge ]
-  %28 = phi ptr [ %22, %.lr.ph190.split.preheader ], [ %228, %._crit_edge ]
-  %indvars.iv194 = phi i64 [ %26, %.lr.ph190.split.preheader ], [ %indvars.iv.next195, %._crit_edge ]
+.lr.ph185.split:                                  ; preds = %.lr.ph185.split.preheader, %._crit_edge
+  %27 = phi i32 [ %8, %.lr.ph185.split.preheader ], [ %227, %._crit_edge ]
+  %28 = phi ptr [ %22, %.lr.ph185.split.preheader ], [ %228, %._crit_edge ]
+  %indvars.iv189 = phi i64 [ %26, %.lr.ph185.split.preheader ], [ %indvars.iv.next190, %._crit_edge ]
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 72
   %32 = load ptr, ptr %31, align 8
   %33 = load i64, ptr %32, align 8
-  %34 = mul i64 %33, %indvars.iv194
+  %34 = mul i64 %33, %indvars.iv189
   %35 = getelementptr inbounds i8, ptr %30, i64 %34
   %36 = getelementptr inbounds i8, ptr %28, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = add nsw i32 %37, -1
   %39 = sext i32 %38 to i64
-  %40 = icmp slt i64 %indvars.iv194, %39
-  %indvars.iv.next195 = add nsw i64 %indvars.iv194, 1
-  %41 = mul i64 %33, %indvars.iv.next195
+  %40 = icmp slt i64 %indvars.iv189, %39
+  %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
+  %41 = mul i64 %33, %indvars.iv.next190
   %42 = getelementptr inbounds i8, ptr %30, i64 %41
   %43 = select i1 %40, ptr %42, ptr null
   %44 = load ptr, ptr %11, align 8
@@ -3581,7 +3581,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu33ComputePointsNormalsColorsInvoke
   %47 = getelementptr inbounds i8, ptr %44, i64 72
   %48 = load ptr, ptr %47, align 8
   %49 = load i64, ptr %48, align 8
-  %50 = mul i64 %49, %indvars.iv194
+  %50 = mul i64 %49, %indvars.iv189
   %51 = getelementptr inbounds i8, ptr %46, i64 %50
   %52 = load ptr, ptr %12, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 16
@@ -3589,7 +3589,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu33ComputePointsNormalsColorsInvoke
   %55 = getelementptr inbounds i8, ptr %52, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = load i64, ptr %56, align 8
-  %58 = mul i64 %57, %indvars.iv194
+  %58 = mul i64 %57, %indvars.iv189
   %59 = getelementptr inbounds i8, ptr %54, i64 %58
   %60 = load ptr, ptr %13, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 16
@@ -3597,17 +3597,17 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu33ComputePointsNormalsColorsInvoke
   %63 = getelementptr inbounds i8, ptr %60, i64 72
   %64 = load ptr, ptr %63, align 8
   %65 = load i64, ptr %64, align 8
-  %66 = mul i64 %65, %indvars.iv194
+  %66 = mul i64 %65, %indvars.iv189
   %67 = getelementptr inbounds i8, ptr %62, i64 %66
   %68 = getelementptr inbounds i8, ptr %28, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph190.split
-  %71 = trunc nsw i64 %indvars.iv194 to i32
+.lr.ph:                                           ; preds = %.lr.ph185.split
+  %71 = trunc nsw i64 %indvars.iv189 to i32
   %72 = sitofp i32 %71 to float
-  %73 = trunc nsw i64 %indvars.iv.next195 to i32
+  %73 = trunc nsw i64 %indvars.iv.next190 to i32
   %74 = sitofp i32 %73 to float
   br label %75
 
@@ -3663,7 +3663,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu33ComputePointsNormalsColorsInvoke
   %121 = load i32, ptr %120, align 8
   %122 = add nsw i32 %121, -1
   %123 = sext i32 %122 to i64
-  %124 = icmp slt i64 %indvars.iv194, %123
+  %124 = icmp slt i64 %indvars.iv189, %123
   %125 = icmp sgt i32 %112, -1
   %or.cond = select i1 %124, i1 %125, i1 false
   br i1 %or.cond, label %126, label %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit
@@ -3856,14 +3856,14 @@ _ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit:      ; preds = %218, %_ZN2cvngIfLi3
   %.pre = load i32, ptr %7, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph190.split
-  %227 = phi i32 [ %27, %.lr.ph190.split ], [ %.pre, %._crit_edge.loopexit ]
-  %228 = phi ptr [ %28, %.lr.ph190.split ], [ %222, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph185.split
+  %227 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %27, %.lr.ph185.split ]
+  %228 = phi ptr [ %222, %._crit_edge.loopexit ], [ %28, %.lr.ph185.split ]
   %229 = sext i32 %227 to i64
-  %230 = icmp slt i64 %indvars.iv.next195, %229
-  br i1 %230, label %.lr.ph190.split, label %._crit_edge191, !llvm.loop !97
+  %230 = icmp slt i64 %indvars.iv.next190, %229
+  br i1 %230, label %.lr.ph185.split, label %._crit_edge186, !llvm.loop !97
 
-._crit_edge191:                                   ; preds = %._crit_edge, %.lr.ph190, %2
+._crit_edge186:                                   ; preds = %._crit_edge, %.lr.ph185, %2
   ret void
 }
 
@@ -4418,9 +4418,9 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu27ComputePointsNormalsInvokerclERK
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %6, %8
-  br i1 %9, label %.lr.ph148, label %._crit_edge149
+  br i1 %9, label %.lr.ph143, label %._crit_edge144
 
-.lr.ph148:                                        ; preds = %2
+.lr.ph143:                                        ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4434,30 +4434,30 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu27ComputePointsNormalsInvokerclERK
   %20 = getelementptr inbounds i8, ptr %19, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph148.split.preheader, label %._crit_edge149
+  br i1 %22, label %.lr.ph143.split.preheader, label %._crit_edge144
 
-.lr.ph148.split.preheader:                        ; preds = %.lr.ph148
+.lr.ph143.split.preheader:                        ; preds = %.lr.ph143
   %23 = sext i32 %6 to i64
-  br label %.lr.ph148.split
+  br label %.lr.ph143.split
 
-.lr.ph148.split:                                  ; preds = %.lr.ph148.split.preheader, %._crit_edge
-  %24 = phi i32 [ %8, %.lr.ph148.split.preheader ], [ %170, %._crit_edge ]
-  %25 = phi ptr [ %19, %.lr.ph148.split.preheader ], [ %171, %._crit_edge ]
-  %indvars.iv152 = phi i64 [ %23, %.lr.ph148.split.preheader ], [ %indvars.iv.next153, %._crit_edge ]
+.lr.ph143.split:                                  ; preds = %.lr.ph143.split.preheader, %._crit_edge
+  %24 = phi i32 [ %8, %.lr.ph143.split.preheader ], [ %170, %._crit_edge ]
+  %25 = phi ptr [ %19, %.lr.ph143.split.preheader ], [ %171, %._crit_edge ]
+  %indvars.iv147 = phi i64 [ %23, %.lr.ph143.split.preheader ], [ %indvars.iv.next148, %._crit_edge ]
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = load i64, ptr %29, align 8
-  %31 = mul i64 %30, %indvars.iv152
+  %31 = mul i64 %30, %indvars.iv147
   %32 = getelementptr inbounds i8, ptr %27, i64 %31
   %33 = getelementptr inbounds i8, ptr %25, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = add nsw i32 %34, -1
   %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv152, %36
-  %indvars.iv.next153 = add nsw i64 %indvars.iv152, 1
-  %38 = mul i64 %30, %indvars.iv.next153
+  %37 = icmp slt i64 %indvars.iv147, %36
+  %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
+  %38 = mul i64 %30, %indvars.iv.next148
   %39 = getelementptr inbounds i8, ptr %27, i64 %38
   %40 = select i1 %37, ptr %39, ptr null
   %41 = load ptr, ptr %11, align 8
@@ -4466,7 +4466,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu27ComputePointsNormalsInvokerclERK
   %44 = getelementptr inbounds i8, ptr %41, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = load i64, ptr %45, align 8
-  %47 = mul i64 %46, %indvars.iv152
+  %47 = mul i64 %46, %indvars.iv147
   %48 = getelementptr inbounds i8, ptr %43, i64 %47
   %49 = load ptr, ptr %12, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 16
@@ -4474,17 +4474,17 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu27ComputePointsNormalsInvokerclERK
   %52 = getelementptr inbounds i8, ptr %49, i64 72
   %53 = load ptr, ptr %52, align 8
   %54 = load i64, ptr %53, align 8
-  %55 = mul i64 %54, %indvars.iv152
+  %55 = mul i64 %54, %indvars.iv147
   %56 = getelementptr inbounds i8, ptr %51, i64 %55
   %57 = getelementptr inbounds i8, ptr %25, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph148.split
-  %60 = trunc nsw i64 %indvars.iv152 to i32
+.lr.ph:                                           ; preds = %.lr.ph143.split
+  %60 = trunc nsw i64 %indvars.iv147 to i32
   %61 = sitofp i32 %60 to float
-  %62 = trunc nsw i64 %indvars.iv.next153 to i32
+  %62 = trunc nsw i64 %indvars.iv.next148 to i32
   %63 = sitofp i32 %62 to float
   br label %64
 
@@ -4525,7 +4525,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu27ComputePointsNormalsInvokerclERK
   %95 = load i32, ptr %94, align 8
   %96 = add nsw i32 %95, -1
   %97 = sext i32 %96 to i64
-  %98 = icmp slt i64 %indvars.iv152, %97
+  %98 = icmp slt i64 %indvars.iv147, %97
   br i1 %98, label %99, label %162
 
 99:                                               ; preds = %93
@@ -4666,14 +4666,14 @@ _ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit:      ; preds = %154
   %.pre = load i32, ptr %7, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph148.split
-  %170 = phi i32 [ %24, %.lr.ph148.split ], [ %.pre, %._crit_edge.loopexit ]
-  %171 = phi ptr [ %25, %.lr.ph148.split ], [ %165, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph143.split
+  %170 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %24, %.lr.ph143.split ]
+  %171 = phi ptr [ %165, %._crit_edge.loopexit ], [ %25, %.lr.ph143.split ]
   %172 = sext i32 %170 to i64
-  %173 = icmp slt i64 %indvars.iv.next153, %172
-  br i1 %173, label %.lr.ph148.split, label %._crit_edge149, !llvm.loop !168
+  %173 = icmp slt i64 %indvars.iv.next148, %172
+  br i1 %173, label %.lr.ph143.split, label %._crit_edge144, !llvm.loop !168
 
-._crit_edge149:                                   ; preds = %._crit_edge, %.lr.ph148, %2
+._crit_edge144:                                   ; preds = %._crit_edge, %.lr.ph143, %2
   ret void
 }
 

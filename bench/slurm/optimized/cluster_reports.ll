@@ -655,7 +655,6 @@ define internal fastcc void @_set_assoc_cond(ptr nocapture noundef nonnull %0, i
 30:                                               ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %129 ]
   %.0102146 = phi i32 [ %8, %.lr.ph ], [ %.1, %129 ]
-  %.0104145 = phi i32 [ 0, %.lr.ph ], [ %.1105, %129 ]
   %31 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @parse_option_end(ptr noundef %32) #10
@@ -833,7 +832,6 @@ define internal fastcc void @_set_assoc_cond(ptr nocapture noundef nonnull %0, i
   br label %129
 
 129:                                              ; preds = %46, %63, %94, %112, %111, %125, %120, %104, %85, %56
-  %.1105 = phi i32 [ %.0104145, %125 ], [ 1, %120 ], [ %.0104145, %112 ], [ %.0104145, %111 ], [ 1, %104 ], [ 1, %94 ], [ 1, %85 ], [ 1, %63 ], [ %.0104145, %56 ], [ %.0104145, %46 ]
   %.1 = phi i32 [ %.0102146, %125 ], [ %.0102146, %120 ], [ %.0102146, %112 ], [ %.0102146, %111 ], [ %.0102146, %104 ], [ %.0102146, %94 ], [ %.0102146, %85 ], [ %.0102146, %63 ], [ %.0102146, %56 ], [ 1, %46 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32

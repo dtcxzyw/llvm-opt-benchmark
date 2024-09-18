@@ -40,24 +40,24 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   br label %.preheader.outer
 
 .preheader.outer:                                 ; preds = %get_12_norm.exit130, %14
-  %.066163.ph = phi i32 [ %196, %get_12_norm.exit130 ], [ 1, %14 ]
+  %.066157.ph = phi i32 [ %196, %get_12_norm.exit130 ], [ 1, %14 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %203
-  br i1 %15, label %.lr.ph158, label %._crit_edge159.thread
+  br i1 %15, label %.lr.ph154, label %._crit_edge155.thread
 
-.lr.ph158:                                        ; preds = %.preheader, %162
-  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %162 ], [ 0, %.preheader ]
-  %.1157 = phi i1 [ %.3, %162 ], [ false, %.preheader ]
-  %17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv176
+.lr.ph154:                                        ; preds = %.preheader, %162
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %162 ], [ 0, %.preheader ]
+  %.1153 = phi i1 [ %.3, %162 ], [ false, %.preheader ]
+  %17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv168
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %18, %20
   br i1 %21, label %.lr.ph.i, label %.lr.ph
 
-.lr.ph.i:                                         ; preds = %.lr.ph158
-  %22 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv176
+.lr.ph.i:                                         ; preds = %.lr.ph154
+  %22 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv168
   %23 = sext i32 %18 to i64
   %24 = sext i32 %20 to i64
   br label %25
@@ -69,7 +69,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   %27 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp eq i64 %indvars.iv176, %29
+  %30 = icmp eq i64 %indvars.iv168, %29
   br i1 %30, label %40, label %31
 
 31:                                               ; preds = %25
@@ -91,16 +91,16 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %24
   br i1 %exitcond.not, label %.lr.ph, label %25
 
-.lr.ph:                                           ; preds = %40, %.lr.ph158
-  %.sroa.0135.4 = phi double [ %16, %.lr.ph158 ], [ %.sroa.0135.3, %40 ]
-  %42 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv176
+.lr.ph:                                           ; preds = %40, %.lr.ph154
+  %.sroa.0135.4 = phi double [ %16, %.lr.ph154 ], [ %.sroa.0135.3, %40 ]
+  %42 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv168
   br label %43
 
 43:                                               ; preds = %.lr.ph, %121
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %121 ]
-  %.2154 = phi i1 [ %.1157, %.lr.ph ], [ %.3, %121 ]
-  %.sroa.0135.0151 = phi double [ %.sroa.0135.4, %.lr.ph ], [ %.sroa.0135.1, %121 ]
-  %44 = icmp eq i64 %indvars.iv, %indvars.iv176
+  %.2151 = phi i1 [ %.1153, %.lr.ph ], [ %.3, %121 ]
+  %.sroa.0135.0148 = phi double [ %.sroa.0135.4, %.lr.ph ], [ %.sroa.0135.1, %121 ]
+  %44 = icmp eq i64 %indvars.iv, %indvars.iv168
   br i1 %44, label %121, label %45
 
 45:                                               ; preds = %43
@@ -143,8 +143,8 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   %.sroa.0133.1 = phi double [ %.sroa.0133.0, %54 ], [ %..i77, %60 ]
   %70 = phi double [ %55, %54 ], [ %..i77, %60 ]
   %indvars.iv.next.i80 = add nsw i64 %indvars.iv.i75, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next.i80, %53
-  br i1 %exitcond171.not, label %get_local_12_norm.exit82, label %54
+  %exitcond163.not = icmp eq i64 %indvars.iv.next.i80, %53
+  br i1 %exitcond163.not, label %get_local_12_norm.exit82, label %54
 
 get_local_12_norm.exit82:                         ; preds = %69, %45
   %.sroa.0133.2 = phi double [ %16, %45 ], [ %.sroa.0133.1, %69 ]
@@ -170,7 +170,7 @@ get_local_12_norm.exit82:                         ; preds = %69, %45
   %81 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i84
   %82 = load i32, ptr %81, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp eq i64 %indvars.iv176, %83
+  %84 = icmp eq i64 %indvars.iv168, %83
   br i1 %84, label %94, label %85
 
 85:                                               ; preds = %79
@@ -189,8 +189,8 @@ get_local_12_norm.exit82:                         ; preds = %69, %45
   %.sroa.0131.1 = phi double [ %.sroa.0131.0, %79 ], [ %..i86, %85 ]
   %95 = phi double [ %80, %79 ], [ %..i86, %85 ]
   %indvars.iv.next.i89 = add nsw i64 %indvars.iv.i84, 1
-  %exitcond172.not = icmp eq i64 %indvars.iv.next.i89, %78
-  br i1 %exitcond172.not, label %get_local_12_norm.exit91, label %79
+  %exitcond164.not = icmp eq i64 %indvars.iv.next.i89, %78
+  br i1 %exitcond164.not, label %get_local_12_norm.exit91, label %79
 
 get_local_12_norm.exit91:                         ; preds = %94, %get_local_12_norm.exit82
   %.sroa.0131.2 = phi double [ %16, %get_local_12_norm.exit82 ], [ %.sroa.0131.1, %94 ]
@@ -229,13 +229,13 @@ get_local_12_norm.exit91:                         ; preds = %94, %get_local_12_n
   %.sroa.0.1 = phi double [ %.sroa.0.0, %101 ], [ %..i95, %107 ]
   %116 = phi double [ %102, %101 ], [ %..i95, %107 ]
   %indvars.iv.next.i98 = add nsw i64 %indvars.iv.i93, 1
-  %exitcond173.not = icmp eq i64 %indvars.iv.next.i98, %100
-  br i1 %exitcond173.not, label %get_local_12_norm.exit100, label %101
+  %exitcond165.not = icmp eq i64 %indvars.iv.next.i98, %100
+  br i1 %exitcond165.not, label %get_local_12_norm.exit100, label %101
 
 get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_norm.exit91
   %.sroa.0.2 = phi double [ %16, %get_local_12_norm.exit91 ], [ %.sroa.0.1, %115 ]
   %117 = tail call double @llvm.minnum.f64(double %.sroa.0131.2, double %.sroa.0.2)
-  %118 = tail call double @llvm.minnum.f64(double %.sroa.0135.0151, double %.sroa.0133.2)
+  %118 = tail call double @llvm.minnum.f64(double %.sroa.0135.0148, double %.sroa.0133.2)
   %119 = fcmp ogt double %117, %118
   br i1 %119, label %121, label %120
 
@@ -245,14 +245,14 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   br label %121
 
 121:                                              ; preds = %get_local_12_norm.exit100, %43, %120
-  %.sroa.0135.1 = phi double [ %.sroa.0135.0151, %43 ], [ %.sroa.0135.0151, %120 ], [ %.sroa.0131.2, %get_local_12_norm.exit100 ]
-  %.3 = phi i1 [ %.2154, %43 ], [ %.2154, %120 ], [ true, %get_local_12_norm.exit100 ]
+  %.sroa.0135.1 = phi double [ %.sroa.0135.0148, %43 ], [ %.sroa.0135.0148, %120 ], [ %.sroa.0131.2, %get_local_12_norm.exit100 ]
+  %.3 = phi i1 [ %.2151, %43 ], [ %.2151, %120 ], [ true, %get_local_12_norm.exit100 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond174.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond174.not, label %._crit_edge, label %43
+  %exitcond166.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
+  br i1 %exitcond166.not, label %._crit_edge, label %43
 
 ._crit_edge:                                      ; preds = %121
-  %122 = trunc nuw nsw i64 %indvars.iv176 to i32
+  %122 = trunc nuw nsw i64 %indvars.iv168 to i32
   %123 = urem i32 %122, 100
   %124 = icmp eq i32 %123, 0
   %125 = load i8, ptr @Verbose, align 1
@@ -312,8 +312,8 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   %153 = phi double [ %136, %135 ], [ %..i104, %141 ]
   %.1.i106 = phi double [ %.064.i, %135 ], [ %151, %141 ]
   %indvars.iv.next.i107 = add nsw i64 %indvars.iv.i103, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next.i107, %134
-  br i1 %exitcond175.not, label %._crit_edge.i101, label %135
+  %exitcond167.not = icmp eq i64 %indvars.iv.next.i107, %134
+  br i1 %exitcond167.not, label %._crit_edge.i101, label %135
 
 ._crit_edge.i101:                                 ; preds = %152, %.lr.ph71.i
   %.sroa.0135.6 = phi double [ %.sroa.0135.5, %.lr.ph71.i ], [ %.sroa.0135.8, %152 ]
@@ -333,26 +333,26 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   br label %162
 
 162:                                              ; preds = %._crit_edge, %get_12_norm.exit
-  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %exitcond179.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count.i
-  br i1 %exitcond179.not, label %._crit_edge159, label %.lr.ph158
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond171.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count.i
+  br i1 %exitcond171.not, label %._crit_edge155, label %.lr.ph154
 
-._crit_edge159:                                   ; preds = %162
+._crit_edge155:                                   ; preds = %162
   %163 = load i8, ptr @Verbose, align 1
   %.not73 = icmp eq i8 %163, 0
   br i1 %.not73, label %203, label %.lr.ph71.i111.preheader
 
-._crit_edge159.thread:                            ; preds = %.preheader
+._crit_edge155.thread:                            ; preds = %.preheader
   %164 = load i8, ptr @Verbose, align 1
-  %.not73183 = icmp eq i8 %164, 0
-  br i1 %.not73183, label %.thread188, label %get_12_norm.exit130
+  %.not73175 = icmp eq i8 %164, 0
+  br i1 %.not73175, label %.thread180, label %get_12_norm.exit130
 
-.lr.ph71.i111.preheader:                          ; preds = %._crit_edge159
-  %.pre181 = load i32, ptr %5, align 4
+.lr.ph71.i111.preheader:                          ; preds = %._crit_edge155
+  %.pre173 = load i32, ptr %5, align 4
   br label %.lr.ph71.i111
 
 .lr.ph71.i111:                                    ; preds = %.lr.ph71.i111.preheader, %._crit_edge.i116
-  %165 = phi i32 [ %168, %._crit_edge.i116 ], [ %.pre181, %.lr.ph71.i111.preheader ]
+  %165 = phi i32 [ %168, %._crit_edge.i116 ], [ %.pre173, %.lr.ph71.i111.preheader ]
   %.sroa.0135.10 = phi double [ %.sroa.0135.11, %._crit_edge.i116 ], [ %16, %.lr.ph71.i111.preheader ]
   %166 = phi double [ %192, %._crit_edge.i116 ], [ %16, %.lr.ph71.i111.preheader ]
   %indvars.iv76.i112 = phi i64 [ %indvars.iv.next77.i115, %._crit_edge.i116 ], [ 0, %.lr.ph71.i111.preheader ]
@@ -399,8 +399,8 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %191 = phi double [ %174, %173 ], [ %..i125, %179 ]
   %.1.i128 = phi double [ %.064.i123, %173 ], [ %189, %179 ]
   %indvars.iv.next.i129 = add nsw i64 %indvars.iv.i122, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next.i129, %172
-  br i1 %exitcond180.not, label %._crit_edge.i116, label %173
+  %exitcond172.not = icmp eq i64 %indvars.iv.next.i129, %172
+  br i1 %exitcond172.not, label %._crit_edge.i116, label %173
 
 ._crit_edge.i116:                                 ; preds = %190, %.lr.ph71.i111
   %.sroa.0135.11 = phi double [ %.sroa.0135.10, %.lr.ph71.i111 ], [ %.sroa.0135.13, %190 ]
@@ -410,33 +410,33 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next77.i115, %wide.trip.count.i
   br i1 %exitcond.not.i119, label %get_12_norm.exit130, label %.lr.ph71.i111
 
-get_12_norm.exit130:                              ; preds = %._crit_edge.i116, %._crit_edge159.thread
-  %.1.lcssa184187 = phi i1 [ false, %._crit_edge159.thread ], [ %.3, %._crit_edge.i116 ]
-  %.sroa.0135.14 = phi double [ %16, %._crit_edge159.thread ], [ %.sroa.0135.11, %._crit_edge.i116 ]
-  %storemerge.lcssa.i108 = phi double [ 0.000000e+00, %._crit_edge159.thread ], [ %193, %._crit_edge.i116 ]
+get_12_norm.exit130:                              ; preds = %._crit_edge.i116, %._crit_edge155.thread
+  %.1.lcssa176179 = phi i1 [ false, %._crit_edge155.thread ], [ %.3, %._crit_edge.i116 ]
+  %.sroa.0135.14 = phi double [ %16, %._crit_edge155.thread ], [ %.sroa.0135.11, %._crit_edge.i116 ]
+  %storemerge.lcssa.i108 = phi double [ 0.000000e+00, %._crit_edge155.thread ], [ %193, %._crit_edge.i116 ]
   %194 = fdiv double %storemerge.lcssa.i108, %16
   %195 = load ptr, ptr @stderr, align 8
-  %196 = add nuw nsw i32 %.066163.ph, 1
-  %197 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.4, i32 noundef %.066163.ph, double noundef %.sroa.0135.14, double noundef %194) #8
+  %196 = add nuw nsw i32 %.066157.ph, 1
+  %197 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.4, i32 noundef %.066157.ph, double noundef %.sroa.0135.14, double noundef %194) #8
   %198 = tail call i64 @clock() #6
   %199 = sub nsw i64 %198, %8
   %200 = sitofp i64 %199 to double
   %201 = fdiv double %200, 1.000000e+06
   %202 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0, ptr noundef nonnull @.str.3, double noundef %201, double noundef %.sroa.0135.14, double noundef %194) #6
-  br i1 %.1.lcssa184187, label %.preheader.outer, label %.thread188
+  br i1 %.1.lcssa176179, label %.preheader.outer, label %.thread180
 
-203:                                              ; preds = %._crit_edge159
-  br i1 %.3, label %.preheader, label %.thread188
+203:                                              ; preds = %._crit_edge155
+  br i1 %.3, label %.preheader, label %.thread180
 
-.thread188:                                       ; preds = %._crit_edge159.thread, %get_12_norm.exit130, %203
+.thread180:                                       ; preds = %._crit_edge155.thread, %get_12_norm.exit130, %203
   %.not72 = icmp eq ptr %.0, null
   br i1 %.not72, label %206, label %204
 
-204:                                              ; preds = %.thread188
+204:                                              ; preds = %.thread180
   %205 = tail call i32 @fclose(ptr noundef nonnull %.0)
   br label %206
 
-206:                                              ; preds = %204, %.thread188
+206:                                              ; preds = %204, %.thread180
   ret void
 }
 

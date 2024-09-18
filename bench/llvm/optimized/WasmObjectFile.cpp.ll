@@ -9489,8 +9489,8 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit.i51: ; preds =
   unreachable
 
 _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit56: ; preds = %_ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit.i51
-  %.not46310 = icmp eq i64 %94, 0
-  br i1 %.not46310, label %.loopexit201, label %.lr.ph.preheader
+  %.not46265 = icmp eq i64 %94, 0
+  br i1 %.not46265, label %.loopexit201, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit56
   %106 = trunc nuw i64 %94 to i32
@@ -10175,11 +10175,11 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmS
   br label %.loopexit201
 
 .loopexit201.loopexit:                            ; preds = %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEERS2_DpOT_.exit
-  %.pre392 = load ptr, ptr %31, align 8
+  %.pre329 = load ptr, ptr %31, align 8
   br label %.loopexit201
 
 .loopexit201:                                     ; preds = %.loopexit201.loopexit, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit56, %389
-  %390 = phi ptr [ %.pre392, %.loopexit201.loopexit ], [ %103, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit56 ], [ %81, %389 ]
+  %390 = phi ptr [ %.pre329, %.loopexit201.loopexit ], [ %103, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit56 ], [ %81, %389 ]
   %.not47 = icmp eq ptr %390, %81
   br i1 %.not47, label %51, label %391, !llvm.loop !495
 

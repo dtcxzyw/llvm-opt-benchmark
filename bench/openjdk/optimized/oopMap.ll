@@ -5386,21 +5386,21 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %107
   %116 = getelementptr inbounds i8, ptr %114, i64 44
   %117 = load i32, ptr %116, align 4
   %118 = icmp sgt i32 %117, 0
-  %.pre.i.i.pre249 = load ptr, ptr %13, align 8
+  %.pre.i.i.pre245 = load ptr, ptr %13, align 8
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %115
   %120 = zext nneg i32 %117 to i64
-  %121 = getelementptr inbounds i64, ptr %.pre.i.i.pre249, i64 %120
+  %121 = getelementptr inbounds i64, ptr %.pre.i.i.pre245, i64 %120
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i
 
 122:                                              ; preds = %._crit_edge, %115
-  %.pre.i.i = phi ptr [ %.pre.i.i.pre, %._crit_edge ], [ %.pre.i.i.pre249, %115 ]
+  %.pre.i.i = phi ptr [ %.pre.i.i.pre, %._crit_edge ], [ %.pre.i.i.pre245, %115 ]
   %123 = load ptr, ptr %14, align 8
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i
 
 _ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i: ; preds = %122, %119
-  %124 = phi ptr [ %.pre.i.i.pre249, %119 ], [ %.pre.i.i, %122 ]
+  %124 = phi ptr [ %.pre.i.i.pre245, %119 ], [ %.pre.i.i, %122 ]
   %.0.i.i.i = phi ptr [ %121, %119 ], [ %123, %122 ]
   %125 = sext i32 %109 to i64
   %126 = getelementptr inbounds i8, ptr %124, i64 %125
@@ -5485,9 +5485,9 @@ _ZNK11RegisterMap7in_contEv.exit.i37:             ; preds = %164
 170:                                              ; preds = %_ZNK11RegisterMap7in_contEv.exit.i37
   %171 = load ptr, ptr %12, align 8
   %.not.i.i.i39 = icmp eq ptr %171, null
-  br i1 %.not.i.i.i39, label %._crit_edge251, label %172
+  br i1 %.not.i.i.i39, label %._crit_edge247, label %172
 
-._crit_edge251:                                   ; preds = %170
+._crit_edge247:                                   ; preds = %170
   %.pre.i.i41.pre = load ptr, ptr %13, align 8
   br label %179
 
@@ -5495,21 +5495,21 @@ _ZNK11RegisterMap7in_contEv.exit.i37:             ; preds = %164
   %173 = getelementptr inbounds i8, ptr %171, i64 44
   %174 = load i32, ptr %173, align 4
   %175 = icmp sgt i32 %174, 0
-  %.pre.i.i41.pre252 = load ptr, ptr %13, align 8
+  %.pre.i.i41.pre248 = load ptr, ptr %13, align 8
   br i1 %175, label %176, label %179
 
 176:                                              ; preds = %172
   %177 = zext nneg i32 %174 to i64
-  %178 = getelementptr inbounds i64, ptr %.pre.i.i41.pre252, i64 %177
+  %178 = getelementptr inbounds i64, ptr %.pre.i.i41.pre248, i64 %177
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i42
 
-179:                                              ; preds = %._crit_edge251, %172
-  %.pre.i.i41 = phi ptr [ %.pre.i.i41.pre, %._crit_edge251 ], [ %.pre.i.i41.pre252, %172 ]
+179:                                              ; preds = %._crit_edge247, %172
+  %.pre.i.i41 = phi ptr [ %.pre.i.i41.pre, %._crit_edge247 ], [ %.pre.i.i41.pre248, %172 ]
   %180 = load ptr, ptr %14, align 8
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i42
 
 _ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i42: ; preds = %179, %176
-  %181 = phi ptr [ %.pre.i.i41.pre252, %176 ], [ %.pre.i.i41, %179 ]
+  %181 = phi ptr [ %.pre.i.i41.pre248, %176 ], [ %.pre.i.i41, %179 ]
   %.0.i.i.i43 = phi ptr [ %178, %176 ], [ %180, %179 ]
   %182 = sext i32 %166 to i64
   %183 = getelementptr inbounds i8, ptr %181, i64 %182
@@ -5845,9 +5845,9 @@ _ZNK11RegisterMap7in_contEv.exit.i58:             ; preds = %355
 361:                                              ; preds = %_ZNK11RegisterMap7in_contEv.exit.i58
   %362 = load ptr, ptr %275, align 8
   %.not.i.i.i60 = icmp eq ptr %362, null
-  br i1 %.not.i.i.i60, label %._crit_edge254, label %363
+  br i1 %.not.i.i.i60, label %._crit_edge250, label %363
 
-._crit_edge254:                                   ; preds = %361
+._crit_edge250:                                   ; preds = %361
   %.pre.i.i62.pre = load ptr, ptr %276, align 8
   br label %370
 
@@ -5855,21 +5855,21 @@ _ZNK11RegisterMap7in_contEv.exit.i58:             ; preds = %355
   %364 = getelementptr inbounds i8, ptr %362, i64 44
   %365 = load i32, ptr %364, align 4
   %366 = icmp sgt i32 %365, 0
-  %.pre.i.i62.pre255 = load ptr, ptr %276, align 8
+  %.pre.i.i62.pre251 = load ptr, ptr %276, align 8
   br i1 %366, label %367, label %370
 
 367:                                              ; preds = %363
   %368 = zext nneg i32 %365 to i64
-  %369 = getelementptr inbounds i64, ptr %.pre.i.i62.pre255, i64 %368
+  %369 = getelementptr inbounds i64, ptr %.pre.i.i62.pre251, i64 %368
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i63
 
-370:                                              ; preds = %._crit_edge254, %363
-  %.pre.i.i62 = phi ptr [ %.pre.i.i62.pre, %._crit_edge254 ], [ %.pre.i.i62.pre255, %363 ]
+370:                                              ; preds = %._crit_edge250, %363
+  %.pre.i.i62 = phi ptr [ %.pre.i.i62.pre, %._crit_edge250 ], [ %.pre.i.i62.pre251, %363 ]
   %371 = load ptr, ptr %277, align 8
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i63
 
 _ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i63: ; preds = %370, %367
-  %372 = phi ptr [ %.pre.i.i62.pre255, %367 ], [ %.pre.i.i62, %370 ]
+  %372 = phi ptr [ %.pre.i.i62.pre251, %367 ], [ %.pre.i.i62, %370 ]
   %.0.i.i.i64 = phi ptr [ %369, %367 ], [ %371, %370 ]
   %373 = sext i32 %357 to i64
   %374 = getelementptr inbounds i8, ptr %372, i64 %373
@@ -5934,9 +5934,9 @@ _ZN13SkipNullValue11should_skipEPv.exit70.thread210: ; preds = %393
   br label %_ZN13SkipNullValue11should_skipEPv.exit70.thread.sink.split
 
 _ZN13SkipNullValue11should_skipEPv.exit70.thread.sink.split: ; preds = %400, %_ZN13SkipNullValue11should_skipEPv.exit70.thread210
-  %.sink273 = phi ptr [ %399, %_ZN13SkipNullValue11should_skipEPv.exit70.thread210 ], [ %403, %400 ]
+  %.sink269 = phi ptr [ %399, %_ZN13SkipNullValue11should_skipEPv.exit70.thread210 ], [ %403, %400 ]
   %.sink = phi ptr [ %398, %_ZN13SkipNullValue11should_skipEPv.exit70.thread210 ], [ %401, %400 ]
-  %404 = load ptr, ptr %.sink273, align 8
+  %404 = load ptr, ptr %.sink269, align 8
   tail call void %404(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef nonnull %.0.i66) #19
   br label %_ZN13SkipNullValue11should_skipEPv.exit70.thread
 

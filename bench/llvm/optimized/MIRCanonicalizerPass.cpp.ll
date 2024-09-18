@@ -527,9 +527,9 @@ _ZL10GetRPOListRN4llvm15MachineFunctionE.exit:    ; preds = %27, %28, %39
 .preheader87.i.i:                                 ; preds = %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backEOS2_.exit.i.i
   %73 = ptrtoint ptr %.sroa.1080.1.i.i to i64
   %.not83115.i.i = icmp eq ptr %.sroa.074.1.i.i, %.sroa.577.1.i.i
-  br i1 %.not83115.i.i, label %._crit_edge122.i.i, label %.lr.ph121.i.i
+  br i1 %.not83115.i.i, label %._crit_edge119.i.i, label %.lr.ph118.i.i
 
-.lr.ph121.i.i:                                    ; preds = %.preheader87.i.i
+.lr.ph118.i.i:                                    ; preds = %.preheader87.i.i
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 56
   br label %104
 
@@ -612,10 +612,10 @@ _ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backEOS2_.exit.i.i: ; preds = %
   %.not82.i.i = icmp eq ptr %.sroa.069.0.i.i, %72
   br i1 %.not82.i.i, label %.preheader87.i.i, label %.lr.ph.i.i
 
-104:                                              ; preds = %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i, %.lr.ph121.i.i
-  %.0120.i.i = phi i1 [ false, %.lr.ph121.i.i ], [ %.1.i.i, %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i ]
-  %.sroa.063.0119.i.i = phi ptr [ %.sroa.074.1.i.i, %.lr.ph121.i.i ], [ %178, %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i ]
-  %105 = load ptr, ptr %.sroa.063.0119.i.i, align 8
+104:                                              ; preds = %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i, %.lr.ph118.i.i
+  %.0117.i.i = phi i1 [ false, %.lr.ph118.i.i ], [ %.1.i.i, %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i ]
+  %.sroa.063.0116.i.i = phi ptr [ %.sroa.074.1.i.i, %.lr.ph118.i.i ], [ %178, %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i ]
+  %105 = load ptr, ptr %.sroa.063.0116.i.i, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %107 = load ptr, ptr %106, align 8
   %108 = load i32, ptr %107, align 8
@@ -807,24 +807,24 @@ _ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EE9push_backEOS2_.exit.i.i: ; preds =
   br label %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i
 
 _ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i: ; preds = %175, %._crit_edge.i.i, %._crit_edge.thread.i.i, %131, %123, %116, %111, %104
-  %.1.i.i = phi i1 [ %.0120.i.i, %123 ], [ %.0120.i.i, %131 ], [ %.0120.i.i, %116 ], [ %.0120.i.i, %111 ], [ %.0120.i.i, %104 ], [ true, %._crit_edge.i.i ], [ true, %175 ], [ true, %._crit_edge.thread.i.i ]
-  %178 = getelementptr inbounds i8, ptr %.sroa.063.0119.i.i, i64 8
+  %.1.i.i = phi i1 [ %.0117.i.i, %131 ], [ %.0117.i.i, %123 ], [ %.0117.i.i, %116 ], [ %.0117.i.i, %111 ], [ %.0117.i.i, %104 ], [ true, %._crit_edge.i.i ], [ true, %175 ], [ true, %._crit_edge.thread.i.i ]
+  %178 = getelementptr inbounds i8, ptr %.sroa.063.0116.i.i, i64 8
   %.not83.i.i = icmp eq ptr %178, %.sroa.577.1.i.i
-  br i1 %.not83.i.i, label %._crit_edge122.i.i, label %104
+  br i1 %.not83.i.i, label %._crit_edge119.i.i, label %104
 
-._crit_edge122.i.i:                               ; preds = %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i, %.preheader87.i.i
+._crit_edge119.i.i:                               ; preds = %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i, %.preheader87.i.i
   %.0.lcssa.i.i = phi i1 [ false, %.preheader87.i.i ], [ %.1.i.i, %_ZNSt6vectorIPN4llvm14MachineOperandESaIS2_EED2Ev.exit.i.i ]
   %.not.i.i.i39.i.i = icmp eq ptr %.sroa.074.1.i.i, null
   br i1 %.not.i.i.i39.i.i, label %_ZL20propagateLocalCopiesPN4llvm17MachineBasicBlockE.exit.i, label %179
 
-179:                                              ; preds = %._crit_edge122.i.i
+179:                                              ; preds = %._crit_edge119.i.i
   %180 = ptrtoint ptr %.sroa.074.1.i.i to i64
   %181 = sub i64 %73, %180
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.074.1.i.i, i64 noundef %181) #23
   br label %_ZL20propagateLocalCopiesPN4llvm17MachineBasicBlockE.exit.i
 
-_ZL20propagateLocalCopiesPN4llvm17MachineBasicBlockE.exit.i: ; preds = %179, %._crit_edge122.i.i, %64
-  %.0.lcssa147.i.i = phi i1 [ %.0.lcssa.i.i, %._crit_edge122.i.i ], [ %.0.lcssa.i.i, %179 ], [ false, %64 ]
+_ZL20propagateLocalCopiesPN4llvm17MachineBasicBlockE.exit.i: ; preds = %179, %._crit_edge119.i.i, %64
+  %.0.lcssa144.i.i = phi i1 [ %.0.lcssa.i.i, %._crit_edge119.i.i ], [ %.0.lcssa.i.i, %179 ], [ false, %64 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -2327,7 +2327,7 @@ _ZL15runOnBasicBlockPN4llvm17MachineBasicBlockEjRNS_11VRegRenamerE.exit: ; preds
   %737 = zext i1 %691 to i8
   %738 = or i8 %736, %737
   %739 = icmp ne i8 %738, 0
-  %740 = or i1 %.0.lcssa147.i.i, %739
+  %740 = or i1 %.0.lcssa144.i.i, %739
   %741 = or i1 %740, %706
   %742 = or i1 %741, %.0.lcssa.i42.i
   %743 = or i1 %.01087, %742

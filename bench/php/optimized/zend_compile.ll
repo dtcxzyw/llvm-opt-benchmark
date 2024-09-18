@@ -20291,8 +20291,8 @@ zend_get_import_ht.exit:                          ; preds = %6, %8, %10, %.sink.
   %14 = icmp eq i16 %5, 4
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  %.not264 = icmp eq i32 %16, 0
-  br i1 %.not264, label %._crit_edge, label %.lr.ph
+  %.not262 = icmp eq i32 %16, 0
+  br i1 %.not262, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %zend_get_import_ht.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 16
@@ -20389,7 +20389,7 @@ zend_get_unqualified_name.exit:                   ; preds = %45
   br label %72
 
 72:                                               ; preds = %34, %42, %50, %71, %70
-  %.0214 = phi ptr [ %58, %50 ], [ %33, %71 ], [ %33, %70 ], [ %38, %42 ], [ %38, %34 ]
+  %.0214 = phi ptr [ %58, %50 ], [ %33, %70 ], [ %33, %71 ], [ %38, %42 ], [ %38, %34 ]
   br i1 %14, label %73, label %80
 
 73:                                               ; preds = %72
@@ -20534,23 +20534,23 @@ zend_have_seen_symbol.exit235:                    ; preds = %141
   %148 = getelementptr inbounds i8, ptr %.0213249, i64 16
   %149 = load i64, ptr %148, align 8
   %150 = icmp eq i64 %147, %149
-  br i1 %150, label %151, label %switch.lookup300
+  br i1 %150, label %151, label %switch.lookup298
 
 151:                                              ; preds = %145
   %152 = getelementptr inbounds i8, ptr %33, i64 24
   %153 = getelementptr inbounds i8, ptr %.0213249, i64 24
   %154 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %152, i64 noundef %147, ptr noundef nonnull %153, i64 noundef %147) #28
   %.not.i238 = icmp eq i32 %154, 0
-  br i1 %.not.i238, label %zend_check_already_in_use.exit239, label %switch.lookup300
+  br i1 %.not.i238, label %zend_check_already_in_use.exit239, label %switch.lookup298
 
-switch.lookup300:                                 ; preds = %151, %145
-  %switch.tableidx301 = add nsw i16 %5, -1
-  %155 = sext i16 %switch.tableidx301 to i64
-  %switch.gep302 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_compile_use.26, i64 0, i64 %155
-  %switch.load303 = load ptr, ptr %switch.gep302, align 8
+switch.lookup298:                                 ; preds = %151, %145
+  %switch.tableidx299 = add nsw i16 %5, -1
+  %155 = sext i16 %switch.tableidx299 to i64
+  %switch.gep300 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_compile_use.26, i64 0, i64 %155
+  %switch.load301 = load ptr, ptr %switch.gep300, align 8
   %156 = getelementptr inbounds i8, ptr %33, i64 24
   %157 = getelementptr inbounds i8, ptr %.0214, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %switch.load303, ptr noundef nonnull %156, ptr noundef nonnull %157) #29
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %switch.load301, ptr noundef nonnull %156, ptr noundef nonnull %157) #29
   unreachable
 
 zend_check_already_in_use.exit239:                ; preds = %141, %151, %zend_have_seen_symbol.exit235, %zend_check_already_in_use.exit
@@ -20573,16 +20573,16 @@ zend_check_already_in_use.exit239:                ; preds = %141, %151, %zend_ha
   store i32 13, ptr %22, align 8
   %167 = call ptr @zend_hash_add(ptr noundef %.0.i, ptr noundef %.0213249, ptr noundef nonnull %2) #28
   %.not227 = icmp eq ptr %167, null
-  br i1 %.not227, label %switch.lookup304, label %171
+  br i1 %.not227, label %switch.lookup302, label %171
 
-switch.lookup304:                                 ; preds = %164
-  %switch.tableidx305 = add nsw i16 %5, -1
-  %168 = sext i16 %switch.tableidx305 to i64
-  %switch.gep306 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_compile_use.26, i64 0, i64 %168
-  %switch.load307 = load ptr, ptr %switch.gep306, align 8
+switch.lookup302:                                 ; preds = %164
+  %switch.tableidx303 = add nsw i16 %5, -1
+  %168 = sext i16 %switch.tableidx303 to i64
+  %switch.gep304 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_compile_use.26, i64 0, i64 %168
+  %switch.load305 = load ptr, ptr %switch.gep304, align 8
   %169 = getelementptr inbounds i8, ptr %166, i64 24
   %170 = getelementptr inbounds i8, ptr %.0214, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %switch.load307, ptr noundef nonnull %169, ptr noundef nonnull %170) #29
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %switch.load305, ptr noundef nonnull %169, ptr noundef nonnull %170) #29
   unreachable
 
 171:                                              ; preds = %164

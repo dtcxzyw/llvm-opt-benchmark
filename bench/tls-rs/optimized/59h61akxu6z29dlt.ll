@@ -11737,7 +11737,7 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
           to label %460 unwind label %.loopexit.split-lp
 
 303:                                              ; preds = %.lr.ph, %424
-  %.sroa.10.sroa.10.0674 = phi i16 [ undef, %.lr.ph ], [ %.sroa.10.sroa.10.5, %424 ]
+  %.sroa.10.sroa.10.0673 = phi i16 [ undef, %.lr.ph ], [ %.sroa.10.sroa.10.5, %424 ]
   %.sroa.10.sroa.8.0672 = phi i8 [ undef, %.lr.ph ], [ %.sroa.10.sroa.8.5, %424 ]
   %.sroa.10.sroa.7.0671 = phi i32 [ undef, %.lr.ph ], [ %.sroa.10.sroa.7.5, %424 ]
   %.sroa.10.sroa.6.0670 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10.sroa.6.5, %424 ]
@@ -11886,7 +11886,7 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
   %.sroa.10.sroa.6.1 = phi i64 [ %.sroa.10.sroa.6.0.copyload, %374 ], [ %.sroa.10.sroa.6.0670, %371 ]
   %.sroa.10.sroa.7.1 = phi i32 [ %.sroa.10.sroa.7.0.copyload, %374 ], [ %.sroa.10.sroa.7.0671, %371 ]
   %.sroa.10.sroa.8.1 = phi i8 [ %.sroa.10.sroa.8.0.copyload, %374 ], [ %.sroa.10.sroa.8.0672, %371 ]
-  %.sroa.10.sroa.10.1 = phi i16 [ %.sroa.10.sroa.10.0.copyload, %374 ], [ %.sroa.10.sroa.10.0674, %371 ]
+  %.sroa.10.sroa.10.1 = phi i16 [ %.sroa.10.sroa.10.0.copyload, %374 ], [ %.sroa.10.sroa.10.0673, %371 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !2852
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h316187016974866fE.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21)
           to label %.noexc398 unwind label %.loopexit
@@ -11920,7 +11920,7 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
   %.sroa.10.sroa.6.2 = phi i64 [ %.sroa.10.sroa.6.1, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17h1d41474661f0e793E.exit.i" ], [ %.sroa.10.sroa.6.0670, %.noexc396 ]
   %.sroa.10.sroa.7.2 = phi i32 [ %.sroa.10.sroa.7.1, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17h1d41474661f0e793E.exit.i" ], [ %.sroa.10.sroa.7.0671, %.noexc396 ]
   %.sroa.10.sroa.8.2 = phi i8 [ %.sroa.10.sroa.8.1, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17h1d41474661f0e793E.exit.i" ], [ %.sroa.10.sroa.8.0672, %.noexc396 ]
-  %.sroa.10.sroa.10.2 = phi i16 [ %.sroa.10.sroa.10.1, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17h1d41474661f0e793E.exit.i" ], [ %.sroa.10.sroa.10.0674, %.noexc396 ]
+  %.sroa.10.sroa.10.2 = phi i16 [ %.sroa.10.sroa.10.1, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17h1d41474661f0e793E.exit.i" ], [ %.sroa.10.sroa.10.0673, %.noexc396 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !2834
   br label %_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption17hacb69b90872707abE.exit
 
@@ -11964,7 +11964,7 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
   %.sroa.10.sroa.6.3 = phi i64 [ %.sroa.10.sroa.6.0.copyload532, %390 ], [ %.sroa.10.sroa.6.0670, %387 ]
   %.sroa.10.sroa.7.3 = phi i32 [ %.sroa.10.sroa.7.0.copyload533, %390 ], [ %.sroa.10.sroa.7.0671, %387 ]
   %.sroa.10.sroa.8.3 = phi i8 [ %.sroa.10.sroa.8.0.copyload534, %390 ], [ %.sroa.10.sroa.8.0672, %387 ]
-  %.sroa.10.sroa.10.3 = phi i16 [ %.sroa.10.sroa.10.0.copyload536, %390 ], [ %.sroa.10.sroa.10.0674, %387 ]
+  %.sroa.10.sroa.10.3 = phi i16 [ %.sroa.10.sroa.10.0.copyload536, %390 ], [ %.sroa.10.sroa.10.0673, %387 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !2873
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h316187016974866fE.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22)
           to label %.noexc402 unwind label %.loopexit
@@ -11998,7 +11998,7 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
   %.sroa.10.sroa.6.4 = phi i64 [ %.sroa.10.sroa.6.3, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17ha58da3077bcec926E.exit.i" ], [ %.sroa.10.sroa.6.0670, %.noexc397 ]
   %.sroa.10.sroa.7.4 = phi i32 [ %.sroa.10.sroa.7.3, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17ha58da3077bcec926E.exit.i" ], [ %.sroa.10.sroa.7.0671, %.noexc397 ]
   %.sroa.10.sroa.8.4 = phi i8 [ %.sroa.10.sroa.8.3, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17ha58da3077bcec926E.exit.i" ], [ %.sroa.10.sroa.8.0672, %.noexc397 ]
-  %.sroa.10.sroa.10.4 = phi i16 [ %.sroa.10.sroa.10.3, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17ha58da3077bcec926E.exit.i" ], [ %.sroa.10.sroa.10.0674, %.noexc397 ]
+  %.sroa.10.sroa.10.4 = phi i16 [ %.sroa.10.sroa.10.3, %"_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption28_$u7b$$u7b$closure$u7d$$u7d$17ha58da3077bcec926E.exit.i" ], [ %.sroa.10.sroa.10.0673, %.noexc397 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !2834
   br label %_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls13_ticket_decryption17hacb69b90872707abE.exit
 
@@ -12470,8 +12470,8 @@ _ZN6rustls6server5tls1312client_hello13emit_fake_ccs17he996375f99b9cc44E.exit427
   invoke fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypted_extensions17h5128df3b73b2d149E(ptr noalias nocapture noundef align 8 dereferenceable(32) %57, ptr noalias noundef align 8 dereferenceable(56) %497, i16 %.val343, i16 %.val344, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noalias noundef align 8 dereferenceable(16) %58, ptr noalias noundef readonly align 8 dereferenceable(152) %5, ptr noalias noundef readonly align 8 dereferenceable_or_null(144) %.319, ptr noalias nocapture noundef align 8 dereferenceable(24) %56, ptr noalias noundef readonly align 8 dereferenceable(176) %567)
           to label %574 unwind label %572
 
-570:                                              ; preds = %.invoke705, %.invoke, %555, %581, %634, %629, %622, %601, %591
-  %.9286 = phi i8 [ 0, %629 ], [ 0, %622 ], [ 0, %634 ], [ 0, %601 ], [ 0, %591 ], [ 0, %581 ], [ 1, %555 ], [ 0, %.invoke ], [ 0, %.invoke705 ]
+570:                                              ; preds = %.invoke704, %.invoke, %555, %581, %634, %629, %622, %601, %591
+  %.9286 = phi i8 [ 0, %629 ], [ 0, %622 ], [ 0, %634 ], [ 0, %601 ], [ 0, %591 ], [ 0, %581 ], [ 1, %555 ], [ 0, %.invoke ], [ 0, %.invoke704 ]
   %571 = landingpad { ptr, i32 }
           cleanup
   br label %737
@@ -12517,7 +12517,7 @@ _ZN6rustls6server5tls1312client_hello13emit_fake_ccs17he996375f99b9cc44E.exit427
 585:                                              ; preds = %579, %619
   %.0287 = phi i1 [ %620, %619 ], [ false, %579 ]
   switch i8 %578, label %default.unreachable [
-    i8 0, label %.invoke705
+    i8 0, label %.invoke704
     i8 1, label %631
     i8 2, label %622
   ]
@@ -12639,16 +12639,16 @@ _ZN6rustls6server5tls1312client_hello13emit_fake_ccs17he996375f99b9cc44E.exit427
   %644 = icmp eq i32 %643, 0
   %narrow.i430 = select i1 %644, i32 16384, i32 %643
   %.0.i431 = zext i32 %narrow.i430 to i64
-  br label %.invoke705
+  br label %.invoke704
 
-.invoke705:                                       ; preds = %585, %640
+.invoke704:                                       ; preds = %585, %640
   %645 = phi i64 [ 1, %640 ], [ 0, %585 ]
   %646 = phi i64 [ %.0.i431, %640 ], [ undef, %585 ]
   %647 = load ptr, ptr %2, align 8, !nonnull !4, !align !5, !noundef !4
   invoke fastcc void @_ZN6rustls5tls1312key_schedule20KeyScheduleHandshake23set_handshake_decrypter17h0b3d503624760939E(ptr noalias noundef readonly align 8 dereferenceable(168) %60, i64 noundef %645, i64 %646, ptr noalias noundef align 8 dereferenceable(776) %647)
           to label %.invoke unwind label %570
 
-.invoke:                                          ; preds = %.invoke705
+.invoke:                                          ; preds = %.invoke704
   %648 = getelementptr inbounds i8, ptr %2, i64 8
   %649 = load ptr, ptr %648, align 8, !nonnull !4, !align !5, !noundef !4
   invoke void @_ZN6rustls6server11server_conn14EarlyDataState6reject17h8fd2141712b8a2bfE(ptr noalias noundef nonnull align 8 dereferenceable(48) %649)
@@ -12752,7 +12752,7 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   %687 = getelementptr inbounds i8, ptr %686, i64 772
   %688 = load i8, ptr %687, align 4, !range !334, !alias.scope !2935, !noundef !4
   %689 = trunc nuw i8 %688 to i1
-  %.pre689 = load ptr, ptr %539, align 8
+  %.pre688 = load ptr, ptr %539, align 8
   br i1 %689, label %704, label %690
 
 690:                                              ; preds = %685
@@ -12764,7 +12764,7 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   %693 = getelementptr inbounds i8, ptr %1, i64 160
   %694 = load i64, ptr %693, align 8, !noundef !4
   %695 = getelementptr inbounds i8, ptr %48, i64 56
-  store ptr %.pre689, ptr %695, align 8
+  store ptr %.pre688, ptr %695, align 8
   %696 = getelementptr inbounds i8, ptr %48, i64 64
   store ptr %691, ptr %696, align 8
   %697 = getelementptr inbounds i8, ptr %48, i64 384
@@ -12790,7 +12790,7 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   br label %719
 
 704:                                              ; preds = %_ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154E.exit._crit_edge, %685
-  %705 = phi ptr [ %.pre, %_ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154E.exit._crit_edge ], [ %.pre689, %685 ]
+  %705 = phi ptr [ %.pre, %_ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154E.exit._crit_edge ], [ %.pre688, %685 ]
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %47)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %497, i64 56, i1 false)
   %706 = load ptr, ptr %534, align 8, !nonnull !4, !align !5, !noundef !4

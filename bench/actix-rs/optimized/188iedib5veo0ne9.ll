@@ -3074,15 +3074,15 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   br label %41
 
 41:                                               ; preds = %.backedge.i, %.lr.ph.i
-  %.sroa.0.047.i = phi ptr [ %32, %.lr.ph.i ], [ %42, %.backedge.i ]
-  %.sroa.7.046.i = phi i64 [ 0, %.lr.ph.i ], [ %43, %.backedge.i ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 104
-  %43 = add nuw nsw i64 %.sroa.7.046.i, 1
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 64
+  %.sroa.0.045.i = phi ptr [ %32, %.lr.ph.i ], [ %42, %.backedge.i ]
+  %.sroa.7.044.i = phi i64 [ 0, %.lr.ph.i ], [ %43, %.backedge.i ]
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 104
+  %43 = add nuw nsw i64 %.sroa.7.044.i, 1
+  %44 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 64
   %45 = tail call fastcc noundef i16 @_ZN4http6header3map15hash_elem_using17hd776960a2e290af4E(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %44)
   %46 = and i16 %45, %37
   %47 = zext nneg i16 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 96
+  %48 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 96
   store i16 %45, ptr %48, align 8, !noalias !579
   br label %.outer39
 
@@ -3118,7 +3118,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   br label %.outer39
 
 65:                                               ; preds = %54
-  %66 = trunc i64 %.sroa.7.046.i to i16
+  %66 = trunc i64 %.sroa.7.044.i to i16
   br label %.outer
 
 .outer:                                           ; preds = %73, %65
@@ -3159,7 +3159,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   br i1 %79, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit", label %41
 
 80:                                               ; preds = %51
-  %81 = trunc i64 %.sroa.7.046.i to i16
+  %81 = trunc i64 %.sroa.7.044.i to i16
   store i16 %81, ptr %52, align 2, !noalias !579
   br label %.backedge.i
 

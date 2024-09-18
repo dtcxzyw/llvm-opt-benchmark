@@ -586,15 +586,15 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppE
   br label %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppEv.exit, !llvm.loop !4
 
 _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppEv.exit: ; preds = %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppEv.exit.loopexit, %.lr.ph
-  %.sroa.055.078 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppEv.exit.loopexit ]
-  %42 = load i32, ptr %.sroa.055.078, align 8
+  %.sroa.055.077 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppEv.exit.loopexit ]
+  %42 = load i32, ptr %.sroa.055.077, align 8
   %43 = and i32 %42, 16777216
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %44, label %46
 
 44:                                               ; preds = %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppEv.exit
   %45 = and i32 %42, -83886081
-  store i32 %45, ptr %.sroa.055.078, align 8
+  store i32 %45, ptr %.sroa.055.077, align 8
   br label %46
 
 46:                                               ; preds = %44, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppEv.exit
@@ -632,11 +632,11 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %46
   br i1 %62, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread65.preheader, label %63
 
 63:                                               ; preds = %55, %52
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.055.078, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.055.077, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
-  %68 = ptrtoint ptr %.sroa.055.078 to i64
+  %68 = ptrtoint ptr %.sroa.055.077 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = lshr exact i64 %70, 5
@@ -805,7 +805,7 @@ _ZNK4llvm11SlotIndexes19getInstructionIndexERKNS_12MachineInstrEb.exit: ; preds 
   br label %154
 
 154:                                              ; preds = %_ZNK4llvm11SlotIndexes19getInstructionIndexERKNS_12MachineInstrEb.exit, %75
-  %storemerge = phi i64 [ %.sroa.0.0.copyload.i45, %75 ], [ %153, %_ZNK4llvm11SlotIndexes19getInstructionIndexERKNS_12MachineInstrEb.exit ]
+  %storemerge = phi i64 [ %153, %_ZNK4llvm11SlotIndexes19getInstructionIndexERKNS_12MachineInstrEb.exit ], [ %.sroa.0.0.copyload.i45, %75 ]
   %155 = load ptr, ptr %6, align 8
   %156 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #9
   call void @_ZN4llvm13LiveRangeCalc6extendERNS_9LiveRangeENS_9SlotIndexEjNS_8ArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 %storemerge, i32 noundef %2, ptr %155, i64 %156) #9
@@ -815,7 +815,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread65.preheader: ; preds = %_ZNK4ll
   br label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread65
 
 _ZNK4llvm14MachineOperand8readsRegEv.exit.thread65: ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread65.preheader, %157
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %157 ], [ %.sroa.055.078, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread65.preheader ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %157 ], [ %.sroa.055.077, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread65.preheader ]
   %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8
   %.not.i.i48 = icmp eq ptr %storemerge.i.i, null

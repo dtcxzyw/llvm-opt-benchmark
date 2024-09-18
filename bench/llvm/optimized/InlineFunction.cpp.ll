@@ -5889,18 +5889,18 @@ _ZN4llvm7objcarc26getAttachedARCFunctionKindEPKNS_8CallBaseE.exit: ; preds = %.l
   br label %1803
 
 1803:                                             ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i953, %.lr.ph.i950
-  %.0179.i = phi ptr [ %1779, %.lr.ph.i950 ], [ %2049, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i953 ]
-  %1804 = load ptr, ptr %.0179.i, align 8
+  %.0175.i = phi ptr [ %1779, %.lr.ph.i950 ], [ %2049, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i953 ]
+  %1804 = load ptr, ptr %.0175.i, align 8
   br label %1805
 
 1805:                                             ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i, %1803
-  %.sink203.i = phi ptr [ %1804, %1803 ], [ %1812, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i ]
-  %1806 = getelementptr inbounds nuw i8, ptr %.sink203.i, i64 4
+  %.sink199.i = phi ptr [ %1804, %1803 ], [ %1812, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i ]
+  %1806 = getelementptr inbounds nuw i8, ptr %.sink199.i, i64 4
   %1807 = load i32, ptr %1806, align 4
   %1808 = and i32 %1807, 134217727
   %1809 = zext nneg i32 %1808 to i64
   %1810 = sub nsw i64 0, %1809
-  %1811 = getelementptr inbounds %"class.llvm::Use", ptr %.sink203.i, i64 %1810
+  %1811 = getelementptr inbounds %"class.llvm::Use", ptr %.sink199.i, i64 %1810
   %.0.i.i.i951 = load ptr, ptr %1811, align 8
   %1812 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i951) #19
   %1813 = load i8, ptr %1812, align 8
@@ -6025,13 +6025,13 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i: ; preds =
   br label %1865
 
 1865:                                             ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i90.i, %1863
-  %.sink209.i = phi ptr [ %1889, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i90.i ], [ %1864, %1863 ]
-  %.sink204.i = phi ptr [ %1871, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i90.i ], [ %1843, %1863 ]
-  %1866 = load i32, ptr %.sink209.i, align 4
+  %.sink205.i = phi ptr [ %1889, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i90.i ], [ %1864, %1863 ]
+  %.sink200.i = phi ptr [ %1871, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i90.i ], [ %1843, %1863 ]
+  %1866 = load i32, ptr %.sink205.i, align 4
   %1867 = and i32 %1866, 134217727
   %1868 = zext nneg i32 %1867 to i64
   %1869 = sub nsw i64 0, %1868
-  %1870 = getelementptr inbounds %"class.llvm::Use", ptr %.sink204.i, i64 %1869
+  %1870 = getelementptr inbounds %"class.llvm::Use", ptr %.sink200.i, i64 %1869
   %.0.i.i88.i = load ptr, ptr %1870, align 8
   %1871 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i88.i) #19
   %1872 = load i8, ptr %1871, align 8
@@ -6419,7 +6419,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit126
   br label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i953
 
 _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i953: ; preds = %2048, %.critedge.i
-  %2049 = getelementptr inbounds i8, ptr %.0179.i, i64 8
+  %2049 = getelementptr inbounds i8, ptr %.0175.i, i64 8
   %.not.i954 = icmp eq ptr %2049, %1781
   br i1 %.not.i954, label %_ZL26inlineRetainOrClaimRVCallsRN4llvm8CallBaseENS_7objcarc11ARCInstKindERKNS_15SmallVectorImplIPNS_10ReturnInstEEE.exit, label %1803
 

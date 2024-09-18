@@ -1349,13 +1349,13 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS
 .preheader:                                       ; preds = %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS4_EppEv.exit.i.us.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEEMS6_KFbvERK3$_5LPv0EEMS6_FRS4_vEL24hb_function_sortedness_t0ELSD_0EESF_EppEv.exit", %5
   %19 = load i32, ptr %1, align 4
   %.not1245 = icmp eq i32 %19, 0
-  br i1 %.not1245, label %.loopexit, label %.lr.ph49
+  br i1 %.not1245, label %.loopexit, label %.lr.ph48
 
-.lr.ph49:                                         ; preds = %.preheader
+.lr.ph48:                                         ; preds = %.preheader
   %20 = getelementptr inbounds i8, ptr %7, i64 28
   %21 = load ptr, ptr %9, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %.lr.ph49.split
+  br i1 %22, label %.loopexit, label %.lr.ph48.split
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEEMS6_KFbvERK3$_5LPv0EEMS6_FRS4_vEL24hb_function_sortedness_t0ELSD_0EESF_EppEv.exit"
   %.sroa.522.043 = phi i32 [ %.sroa.522.2, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEEMS6_KFbvERK3$_5LPv0EEMS6_FRS4_vEL24hb_function_sortedness_t0ELSD_0EESF_EppEv.exit" ], [ %.sroa.3.sroa.0.0.i, %.lr.ph.preheader ]
@@ -1392,8 +1392,8 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS
   %30 = getelementptr inbounds i8, ptr %.sroa.021.1, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 1
-  %.not64 = icmp eq i32 %32, 0
-  br i1 %.not64, label %27, label %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEEMS6_KFbvERK3$_5LPv0EEMS6_FRS4_vEL24hb_function_sortedness_t0ELSD_0EESF_EppEv.exit", !llvm.loop !19
+  %.not63 = icmp eq i32 %32, 0
+  br i1 %.not63, label %27, label %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEEMS6_KFbvERK3$_5LPv0EEMS6_FRS4_vEL24hb_function_sortedness_t0ELSD_0EESF_EppEv.exit", !llvm.loop !19
 
 "_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEEMS6_KFbvERK3$_5LPv0EEMS6_FRS4_vEL24hb_function_sortedness_t0ELSD_0EESF_EppEv.exit": ; preds = %27, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS4_EppEv.exit.i.i.i.i, %"_ZNK4$_13clIRMN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEKFbvERS4_EEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSA_OSB_.exit.i.i.i.i"
   %.sroa.021.2 = phi ptr [ %scevgep, %27 ], [ %29, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS4_EppEv.exit.i.i.i.i ], [ %29, %"_ZNK4$_13clIRMN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEKFbvERS4_EEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSA_OSB_.exit.i.i.i.i" ]
@@ -1403,19 +1403,19 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS
   %34 = or i1 %.not.i.i.i, %33
   br i1 %34, label %.lr.ph, label %.preheader
 
-.lr.ph49.splitthread-pre-split:                   ; preds = %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread
+.lr.ph48.splitthread-pre-split:                   ; preds = %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread
   %.pr = load ptr, ptr %9, align 8
-  br label %.lr.ph49.split
+  br label %.lr.ph48.split
 
-.lr.ph49.split:                                   ; preds = %.lr.ph49, %.lr.ph49.splitthread-pre-split
-  %35 = phi ptr [ %.pr, %.lr.ph49.splitthread-pre-split ], [ %21, %.lr.ph49 ]
-  %36 = phi i32 [ %67, %.lr.ph49.splitthread-pre-split ], [ %19, %.lr.ph49 ]
-  %.048 = phi ptr [ %66, %.lr.ph49.splitthread-pre-split ], [ %1, %.lr.ph49 ]
-  %.01147 = phi i32 [ %.1, %.lr.ph49.splitthread-pre-split ], [ 0, %.lr.ph49 ]
+.lr.ph48.split:                                   ; preds = %.lr.ph48, %.lr.ph48.splitthread-pre-split
+  %35 = phi ptr [ %.pr, %.lr.ph48.splitthread-pre-split ], [ %21, %.lr.ph48 ]
+  %36 = phi i32 [ %67, %.lr.ph48.splitthread-pre-split ], [ %19, %.lr.ph48 ]
+  %.047 = phi ptr [ %66, %.lr.ph48.splitthread-pre-split ], [ %1, %.lr.ph48 ]
+  %.01146 = phi i32 [ %.1, %.lr.ph48.splitthread-pre-split ], [ 0, %.lr.ph48 ]
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread, label %37
 
-37:                                               ; preds = %.lr.ph49.split
+37:                                               ; preds = %.lr.ph48.split
   %38 = mul i32 %36, 506952113
   %39 = and i32 %38, 1073741823
   %40 = load i32, ptr %20, align 4
@@ -1461,19 +1461,19 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS
   br i1 %.not.i.i20, label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread, label %50, !llvm.loop !20
 
 63:                                               ; preds = %._crit_edge.i
-  %64 = add nsw i32 %.01147, 1
+  %64 = add nsw i32 %.01146, 1
   %65 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %35, i64 %53, i32 2, i32 1
-  store i32 %.01147, ptr %65, align 8
+  store i32 %.01146, ptr %65, align 8
   br label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread
 
-_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread: ; preds = %.lr.ph.i, %._crit_edge.i, %37, %.lr.ph49.split, %63
-  %.1 = phi i32 [ %64, %63 ], [ %.01147, %.lr.ph49.split ], [ %.01147, %37 ], [ %.01147, %._crit_edge.i ], [ %.01147, %.lr.ph.i ]
-  %66 = getelementptr inbounds i8, ptr %.048, i64 4
+_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread: ; preds = %.lr.ph.i, %._crit_edge.i, %37, %.lr.ph48.split, %63
+  %.1 = phi i32 [ %64, %63 ], [ %.01146, %.lr.ph48.split ], [ %.01146, %37 ], [ %.01146, %._crit_edge.i ], [ %.01146, %.lr.ph.i ]
+  %66 = getelementptr inbounds i8, ptr %.047, i64 4
   %67 = load i32, ptr %66, align 4
   %.not12 = icmp eq i32 %67, 0
-  br i1 %.not12, label %.loopexit, label %.lr.ph49.splitthread-pre-split, !llvm.loop !61
+  br i1 %.not12, label %.loopexit, label %.lr.ph48.splitthread-pre-split, !llvm.loop !61
 
-.loopexit:                                        ; preds = %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread, %.lr.ph49, %.preheader, %2
+.loopexit:                                        ; preds = %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread, %.lr.ph48, %.preheader, %2
   ret void
 }
 

@@ -1760,22 +1760,22 @@ _ZN4llvm15SmallVectorImplIiE6assignEmi.exit.us:   ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %exitcond.not, label %.preheader143, label %.split.us, !llvm.loop !17
 
 .preheader143:                                    ; preds = %._crit_edge.us, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit
-  %.not163 = icmp eq i32 %4, 0
-  br i1 %.not163, label %._crit_edge, label %.lr.ph
+  %.not159 = icmp eq i32 %4, 0
+  br i1 %.not159, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader143
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %umax175 = call i32 @llvm.umax.i32(i32 %3, i32 1)
-  %wide.trip.count181 = zext i32 %4 to i64
-  %wide.trip.count176 = zext i32 %umax175 to i64
+  %umax171 = call i32 @llvm.umax.i32(i32 %3, i32 1)
+  %wide.trip.count177 = zext i32 %4 to i64
+  %wide.trip.count172 = zext i32 %umax171 to i64
   br label %95
 
 .split:                                           ; preds = %8, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit
-  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit ], [ 0, %8 ]
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit ], [ 0, %8 ]
   %89 = load ptr, ptr %9, align 8
-  %90 = getelementptr inbounds %"class.llvm::SmallVector.15", ptr %89, i64 %indvars.iv167
+  %90 = getelementptr inbounds %"class.llvm::SmallVector.15", ptr %89, i64 %indvars.iv163
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %17, i64 noundef 12) #20
   call void @_ZN4llvm15SmallVectorImplINS_11SmallVectorIiLj12EEEE6assignEmRKS2_(ptr noundef nonnull align 8 dereferenceable(16) %90, i64 noundef %16, ptr noundef nonnull align 8 dereferenceable(64) %10)
   %91 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
@@ -1788,14 +1788,14 @@ _ZN4llvm15SmallVectorImplIiE6assignEmi.exit.us:   ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit
 
 _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %.split, %94
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next168, %11
-  br i1 %exitcond171.not, label %.preheader143, label %.split, !llvm.loop !17
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %exitcond167.not = icmp eq i64 %indvars.iv.next164, %11
+  br i1 %exitcond167.not, label %.preheader143, label %.split, !llvm.loop !17
 
 95:                                               ; preds = %.lr.ph, %.loopexit
-  %indvars.iv178 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next179, %.loopexit ]
+  %indvars.iv174 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next175, %.loopexit ]
   %96 = load ptr, ptr %9, align 8
-  %97 = getelementptr inbounds %"class.llvm::SmallVector.15", ptr %96, i64 %indvars.iv178
+  %97 = getelementptr inbounds %"class.llvm::SmallVector.15", ptr %96, i64 %indvars.iv174
   %98 = load ptr, ptr %97, align 8
   %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #20
   %100 = getelementptr inbounds %"class.llvm::SmallVector.20", ptr %98, i64 %99
@@ -1920,12 +1920,12 @@ _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %.split, %94
   %146 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.028.i.i.i.i) #20
   %147 = load ptr, ptr %6, align 8
   %148 = load i64, ptr %86, align 8
-  %149 = trunc nuw i64 %indvars.iv178 to i32
+  %149 = trunc nuw i64 %indvars.iv174 to i32
   call void %147(i64 noundef %148, ptr %145, i64 %146, i32 noundef %144, i32 noundef %149) #20
   br label %.loopexit
 
 .preheader:                                       ; preds = %"_ZN4llvm8count_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_0EEDaOT_T0_.exit", %.preheader.backedge
-  %indvars.iv172 = phi i64 [ %indvars.iv172.be, %.preheader.backedge ], [ 0, %"_ZN4llvm8count_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_0EEDaOT_T0_.exit" ]
+  %indvars.iv168 = phi i64 [ %indvars.iv168.be, %.preheader.backedge ], [ 0, %"_ZN4llvm8count_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_0EEDaOT_T0_.exit" ]
   %.090155 = phi i32 [ %.090155.be, %.preheader.backedge ], [ -1, %"_ZN4llvm8count_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_0EEDaOT_T0_.exit" ]
   %.091154 = phi i32 [ %.091154.be, %.preheader.backedge ], [ -1, %"_ZN4llvm8count_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_0EEDaOT_T0_.exit" ]
   %.sroa.0129.2151 = phi ptr [ %.sroa.0129.2151.be, %.preheader.backedge ], [ null, %"_ZN4llvm8count_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_0EEDaOT_T0_.exit" ]
@@ -1933,7 +1933,7 @@ _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %.split, %94
   %.sroa.0125.2149 = phi ptr [ %.sroa.0125.2149.be, %.preheader.backedge ], [ null, %"_ZN4llvm8count_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_0EEDaOT_T0_.exit" ]
   %.sroa.7.2148 = phi i64 [ %.sroa.7.2148.be, %.preheader.backedge ], [ 0, %"_ZN4llvm8count_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_0EEDaOT_T0_.exit" ]
   %150 = load ptr, ptr %97, align 8
-  %151 = getelementptr inbounds %"class.llvm::SmallVector.20", ptr %150, i64 %indvars.iv172
+  %151 = getelementptr inbounds %"class.llvm::SmallVector.20", ptr %150, i64 %indvars.iv168
   %152 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %151) #20
   br i1 %152, label %181, label %153
 
@@ -1944,7 +1944,7 @@ _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %.split, %94
   br i1 %154, label %157, label %159
 
 157:                                              ; preds = %153
-  %158 = trunc nuw i64 %indvars.iv172 to i32
+  %158 = trunc nuw i64 %indvars.iv168 to i32
   br label %181
 
 159:                                              ; preds = %153
@@ -1955,7 +1955,7 @@ _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %.split, %94
 "_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_2clENS_15MutableArrayRefIiEES1_.exit.thread": ; preds = %159
   %162 = load ptr, ptr %7, align 8
   %163 = load i64, ptr %87, align 8
-  %164 = trunc nuw i64 %indvars.iv172 to i32
+  %164 = trunc nuw i64 %indvars.iv168 to i32
   call void %162(i64 noundef %163, ptr %.sroa.0129.2151, i64 %.sroa.7130.2150, i32 noundef %.091154, i32 noundef %164) #20
   br label %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit"
 
@@ -1984,7 +1984,7 @@ _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %.split, %94
 "_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_2clENS_15MutableArrayRefIiEES1_.exit": ; preds = %170
   %171 = load ptr, ptr %7, align 8
   %172 = load i64, ptr %87, align 8
-  %173 = trunc nuw i64 %indvars.iv172 to i32
+  %173 = trunc nuw i64 %indvars.iv168 to i32
   call void %171(i64 noundef %172, ptr %.sroa.0129.2151, i64 %.sroa.7130.2150, i32 noundef %.091154, i32 noundef %173) #20
   br label %.lr.ph.i100
 
@@ -2018,12 +2018,12 @@ _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %.split, %94
   %.sroa.0129.3 = phi ptr [ %.sroa.0129.2151, %.preheader ], [ %155, %157 ], [ %.sroa.0129.2151, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
   %.192 = phi i32 [ %.091154, %.preheader ], [ %158, %157 ], [ %.091154, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
   %.1 = phi i32 [ %.090155, %.preheader ], [ %.090155, %157 ], [ %.091154, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond177.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count176
-  br i1 %exitcond177.not, label %182, label %.preheader.backedge
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond173.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count172
+  br i1 %exitcond173.not, label %182, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %181, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit120"
-  %indvars.iv172.be = phi i64 [ %indvars.iv.next173, %181 ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit120" ]
+  %indvars.iv168.be = phi i64 [ %indvars.iv.next169, %181 ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit120" ]
   %.090155.be = phi i32 [ %.1, %181 ], [ -1, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit120" ]
   %.091154.be = phi i32 [ %.192, %181 ], [ -1, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit120" ]
   %.sroa.0129.2151.be = phi ptr [ %.sroa.0129.3, %181 ], [ null, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit120" ]
@@ -2110,9 +2110,9 @@ _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %.split, %94
   br i1 %184, label %.preheader.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEES6_ENK3$_3clENS_15MutableArrayRefIiEE.exit120", %"_ZN4llvm8count_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_0EEDaOT_T0_.exit.thread", %"_ZN4llvm7find_ifIRNS_11SmallVectorINS1_IiLj12EEELj1EEEZNS_19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS7_IFvS6_jjEEESB_E3$_1EEDaOT_T0_.exit"
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %._crit_edge, label %95, !llvm.loop !23
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
+  %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
+  br i1 %exitcond178.not, label %._crit_edge, label %95, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader143
   call void @_ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #20

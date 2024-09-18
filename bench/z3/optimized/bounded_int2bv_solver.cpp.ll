@@ -7400,8 +7400,8 @@ invoke.cont.lr.ph:                                ; preds = %_ZNK13bound_manager
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %_ZN8rationalD2Ev.exit198
-  %it.0216 = phi ptr [ %0, %invoke.cont.lr.ph ], [ %incdec.ptr, %_ZN8rationalD2Ev.exit198 ]
-  %3 = load ptr, ptr %it.0216, align 8
+  %it.0215 = phi ptr [ %0, %invoke.cont.lr.ph ], [ %incdec.ptr, %_ZN8rationalD2Ev.exit198 ]
+  %3 = load ptr, ptr %it.0215, align 8
   store i32 0, ptr %lo, align 8
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
   %bf.clear3.i.i.i = and i8 %bf.load.i.i.i, -4
@@ -8237,7 +8237,7 @@ terminate.lpad.i195:                              ; preds = %.noexc.i196, %_ZN8r
   unreachable
 
 _ZN8rationalD2Ev.exit198:                         ; preds = %.noexc.i196
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.0216, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.0215, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp.not, label %for.end, label %invoke.cont, !llvm.loop !29
 

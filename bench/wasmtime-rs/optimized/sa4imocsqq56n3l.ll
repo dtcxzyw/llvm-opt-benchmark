@@ -22253,7 +22253,7 @@ define hidden void @_ZN17cranelift_codegen3isa6unwind7systemv29create_unwind_inf
   invoke void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$$LP$u32$C$cranelift_codegen..isa..unwind..systemv..CallFrameInstruction$RP$$GT$$GT$17h6ea649d7cbee0d25E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #42
           to label %181 unwind label %179
 
-default.unreachable270:                           ; preds = %17
+default.unreachable269:                           ; preds = %17
   unreachable
 
 ._crit_edge:                                      ; preds = %102, %5
@@ -22267,13 +22267,13 @@ default.unreachable270:                           ; preds = %17
 
 17:                                               ; preds = %.lr.ph, %102
   %18 = phi i64 [ 0, %.lr.ph ], [ %103, %102 ]
-  %.0259 = phi i32 [ 0, %.lr.ph ], [ %.1, %102 ]
+  %.0258 = phi i32 [ 0, %.lr.ph ], [ %.1, %102 ]
   %.sroa.0.0257 = phi ptr [ %1, %.lr.ph ], [ %19, %102 ]
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0257, i64 16
   %20 = load i32, ptr %.sroa.0.0257, align 4, !noundef !4
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0257, i64 4
   %22 = load i8, ptr %21, align 4, !range !2178, !noundef !4
-  switch i8 %22, label %default.unreachable270 [
+  switch i8 %22, label %default.unreachable269 [
     i8 0, label %24
     i8 1, label %105
     i8 2, label %102
@@ -22528,7 +22528,7 @@ _ZN5alloc7raw_vec11finish_grow17hf686cf92243996f7E.exit.i.i.i102: ; preds = %96,
 
 102:                                              ; preds = %17, %99, %176, %173, %129
   %103 = phi i64 [ %.pre-phi.i78, %176 ], [ %.pre-phi.i174, %173 ], [ %.pre-phi.i135, %129 ], [ %.pre-phi.i97, %99 ], [ %18, %17 ]
-  %.1 = phi i32 [ %.0259, %176 ], [ %.0259, %173 ], [ %132, %129 ], [ %.0259, %99 ], [ %.0259, %17 ]
+  %.1 = phi i32 [ %.0258, %176 ], [ %.0258, %173 ], [ %132, %129 ], [ %.0258, %99 ], [ %.0258, %17 ]
   %104 = icmp eq ptr %19, %11
   br i1 %104, label %._crit_edge, label %17
 
@@ -22625,7 +22625,7 @@ _ZN5alloc7raw_vec11finish_grow17hf686cf92243996f7E.exit.i.i.i140: ; preds = %126
 
 141:                                              ; preds = %.noexc169
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !2243
-  %142 = sub i32 %49, %.0259
+  %142 = sub i32 %49, %.0258
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2247)
   %143 = load i64, ptr %10, align 8, !alias.scope !2247, !noalias !2250, !noundef !4
   %144 = load i64, ptr %8, align 8, !alias.scope !2247, !noalias !2250, !noundef !4

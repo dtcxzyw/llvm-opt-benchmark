@@ -39586,9 +39586,9 @@ define void @UpdateModelAnimation(ptr nocapture noundef readonly byval(%struct.M
   %17 = getelementptr inbounds i8, ptr %0, i64 64
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph213, label %.loopexit
+  br i1 %19, label %.lr.ph185, label %.loopexit
 
-.lr.ph213:                                        ; preds = %16
+.lr.ph185:                                        ; preds = %16
   %20 = getelementptr inbounds i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 112
@@ -39598,9 +39598,9 @@ define void @UpdateModelAnimation(ptr nocapture noundef readonly byval(%struct.M
   %wide.trip.count = zext nneg i32 %18 to i64
   br label %26
 
-26:                                               ; preds = %.lr.ph213, %.critedge
-  %indvars.iv216 = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next217, %.critedge ]
-  %27 = getelementptr inbounds %struct.Mesh, ptr %21, i64 %indvars.iv216
+26:                                               ; preds = %.lr.ph185, %.critedge
+  %indvars.iv188 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next189, %.critedge ]
+  %27 = getelementptr inbounds %struct.Mesh, ptr %21, i64 %indvars.iv188
   %.sroa.4129.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
   %.sroa.4129.0.copyload = load ptr, ptr %.sroa.4129.0..sroa_idx, align 8
   %.sroa.7133.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 32
@@ -39621,7 +39621,7 @@ define void @UpdateModelAnimation(ptr nocapture noundef readonly byval(%struct.M
   br i1 %or.cond8, label %30, label %32
 
 30:                                               ; preds = %26
-  %31 = trunc nuw nsw i64 %indvars.iv216 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv188 to i32
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.95, i32 noundef %31) #53
   br label %.critedge
 
@@ -39637,21 +39637,21 @@ define void @UpdateModelAnimation(ptr nocapture noundef readonly byval(%struct.M
   br label %35
 
 35:                                               ; preds = %.lr.ph, %108
-  %indvars.iv214 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next215, %108 ]
-  %.0165210 = phi i1 [ false, %.lr.ph ], [ %.2, %108 ]
-  %.0166195 = phi i32 [ 0, %.lr.ph ], [ %56, %108 ]
-  %36 = getelementptr inbounds float, ptr %.sroa.11137.0.copyload, i64 %indvars.iv214
+  %indvars.iv186 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next187, %108 ]
+  %.0165182 = phi i1 [ false, %.lr.ph ], [ %.2, %108 ]
+  %.0166181 = phi i32 [ 0, %.lr.ph ], [ %56, %108 ]
+  %36 = getelementptr inbounds float, ptr %.sroa.11137.0.copyload, i64 %indvars.iv186
   store float 0.000000e+00, ptr %36, align 4
-  %37 = add nuw nsw i64 %indvars.iv214, 1
+  %37 = add nuw nsw i64 %indvars.iv186, 1
   %38 = getelementptr inbounds float, ptr %.sroa.11137.0.copyload, i64 %37
   store float 0.000000e+00, ptr %38, align 4
-  %39 = add nuw nsw i64 %indvars.iv214, 2
+  %39 = add nuw nsw i64 %indvars.iv186, 2
   %40 = getelementptr inbounds float, ptr %.sroa.11137.0.copyload, i64 %39
   store float 0.000000e+00, ptr %40, align 4
   br i1 %.not175, label %45, label %41
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds float, ptr %.sroa.18.0.copyload, i64 %indvars.iv214
+  %42 = getelementptr inbounds float, ptr %.sroa.18.0.copyload, i64 %indvars.iv186
   store float 0.000000e+00, ptr %42, align 4
   %43 = getelementptr inbounds float, ptr %.sroa.18.0.copyload, i64 %37
   store float 0.000000e+00, ptr %43, align 4
@@ -39660,22 +39660,22 @@ define void @UpdateModelAnimation(ptr nocapture noundef readonly byval(%struct.M
   br label %45
 
 45:                                               ; preds = %41, %35
-  %46 = getelementptr inbounds float, ptr %.sroa.4129.0.copyload, i64 %indvars.iv214
+  %46 = getelementptr inbounds float, ptr %.sroa.4129.0.copyload, i64 %indvars.iv186
   %47 = getelementptr inbounds float, ptr %.sroa.4129.0.copyload, i64 %37
   %48 = getelementptr inbounds float, ptr %.sroa.4129.0.copyload, i64 %39
-  %49 = getelementptr inbounds float, ptr %.sroa.7133.0.copyload, i64 %indvars.iv214
+  %49 = getelementptr inbounds float, ptr %.sroa.7133.0.copyload, i64 %indvars.iv186
   %50 = getelementptr inbounds float, ptr %.sroa.7133.0.copyload, i64 %37
   %51 = getelementptr inbounds float, ptr %.sroa.7133.0.copyload, i64 %39
-  %52 = getelementptr inbounds float, ptr %.sroa.18.0.copyload, i64 %indvars.iv214
+  %52 = getelementptr inbounds float, ptr %.sroa.18.0.copyload, i64 %indvars.iv186
   %53 = getelementptr inbounds float, ptr %.sroa.18.0.copyload, i64 %37
   %54 = getelementptr inbounds float, ptr %.sroa.18.0.copyload, i64 %39
-  %55 = sext i32 %.0166195 to i64
-  %56 = add i32 %.0166195, 4
+  %55 = sext i32 %.0166181 to i64
+  %56 = add i32 %.0166181, 4
   br label %57
 
 57:                                               ; preds = %45, %107
   %indvars.iv = phi i64 [ %55, %45 ], [ %indvars.iv.next, %107 ]
-  %.1193 = phi i1 [ %.0165210, %45 ], [ %.2, %107 ]
+  %.1179 = phi i1 [ %.0165182, %45 ], [ %.2, %107 ]
   %58 = getelementptr inbounds float, ptr %.sroa.28.0.copyload, i64 %indvars.iv
   %59 = load float, ptr %58, align 4
   %60 = fcmp oeq float %59, 0.000000e+00
@@ -39771,15 +39771,15 @@ define void @UpdateModelAnimation(ptr nocapture noundef readonly byval(%struct.M
   br label %107
 
 107:                                              ; preds = %61, %90, %57
-  %.2 = phi i1 [ %.1193, %57 ], [ true, %90 ], [ true, %61 ]
+  %.2 = phi i1 [ %.1179, %57 ], [ true, %90 ], [ true, %61 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %56, %lftr.wideiv
   br i1 %exitcond.not, label %108, label %57
 
 108:                                              ; preds = %107
-  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 3
-  %109 = trunc nuw i64 %indvars.iv.next215 to i32
+  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 3
+  %109 = trunc nuw i64 %indvars.iv.next187 to i32
   %110 = icmp sgt i32 %33, %109
   br i1 %110, label %35, label %._crit_edge
 
@@ -39796,9 +39796,9 @@ define void @UpdateModelAnimation(ptr nocapture noundef readonly byval(%struct.M
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %._crit_edge, %111, %30
-  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %exitcond219.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count
-  br i1 %exitcond219.not, label %.loopexit, label %26
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %exitcond191.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count
+  br i1 %exitcond191.not, label %.loopexit, label %26
 
 .loopexit:                                        ; preds = %.critedge, %16, %3
   ret void
@@ -41745,7 +41745,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %33 = sitofp i32 %12 to float
   %34 = fdiv float %3, %33
   %35 = icmp sgt i32 %9, 1
-  br i1 %35, label %.preheader.lr.ph, label %._crit_edge272
+  br i1 %35, label %.preheader.lr.ph, label %._crit_edge266
 
 .preheader.lr.ph:                                 ; preds = %4
   %invariant.gep = getelementptr i8, ptr %20, i64 12
@@ -41759,53 +41759,53 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %invariant.gep252 = getelementptr i8, ptr %27, i64 16
   %invariant.gep254 = getelementptr i8, ptr %27, i64 20
   %36 = icmp sgt i32 %7, 1
-  br i1 %36, label %.preheader.us.preheader, label %._crit_edge272
+  br i1 %36, label %.preheader.us.preheader, label %._crit_edge266
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %37 = zext nneg i32 %7 to i64
-  %wide.trip.count295 = zext nneg i32 %12 to i64
+  %wide.trip.count289 = zext nneg i32 %12 to i64
   %wide.trip.count = zext i32 %11 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv292 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next293, %._crit_edge.us ]
-  %.0271.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next278, %._crit_edge.us ]
-  %.0230270.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next280, %._crit_edge.us ]
-  %.0232269.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next282, %._crit_edge.us ]
-  %38 = mul nuw nsw i64 %indvars.iv292, %37
-  %39 = trunc nuw nsw i64 %indvars.iv292 to i32
+  %indvars.iv286 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next287, %._crit_edge.us ]
+  %.0265.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next272, %._crit_edge.us ]
+  %.0230264.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next274, %._crit_edge.us ]
+  %.0232263.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next276, %._crit_edge.us ]
+  %38 = mul nuw nsw i64 %indvars.iv286, %37
+  %39 = trunc nuw nsw i64 %indvars.iv286 to i32
   %40 = uitofp nneg i32 %39 to float
   %41 = fmul float %34, %40
-  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
-  %42 = mul nuw nsw i64 %indvars.iv.next293, %37
-  %43 = trunc nuw nsw i64 %indvars.iv.next293 to i32
+  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
+  %42 = mul nuw nsw i64 %indvars.iv.next287, %37
+  %43 = trunc nuw nsw i64 %indvars.iv.next287 to i32
   %44 = uitofp nneg i32 %43 to float
   %45 = fmul float %34, %44
   %46 = fdiv float %40, %33
   %47 = fdiv float %44, %33
-  %sext = shl i64 %.0271.us, 32
+  %sext = shl i64 %.0265.us, 32
   %48 = ashr exact i64 %sext, 32
-  %sext297 = shl i64 %.0230270.us, 32
-  %49 = ashr exact i64 %sext297, 32
-  %sext298 = shl i64 %.0232269.us, 32
-  %50 = ashr exact i64 %sext298, 32
-  %invariant.gep299 = getelementptr inbounds %struct.Color, ptr %10, i64 %38
-  %invariant.gep300 = getelementptr inbounds %struct.Color, ptr %10, i64 %42
-  %invariant.gep302 = getelementptr inbounds %struct.Color, ptr %10, i64 %38
-  %invariant.gep304 = getelementptr inbounds %struct.Color, ptr %10, i64 %42
+  %sext291 = shl i64 %.0230264.us, 32
+  %49 = ashr exact i64 %sext291, 32
+  %sext292 = shl i64 %.0232263.us, 32
+  %50 = ashr exact i64 %sext292, 32
+  %invariant.gep293 = getelementptr inbounds %struct.Color, ptr %10, i64 %38
+  %invariant.gep294 = getelementptr inbounds %struct.Color, ptr %10, i64 %42
+  %invariant.gep296 = getelementptr inbounds %struct.Color, ptr %10, i64 %38
+  %invariant.gep298 = getelementptr inbounds %struct.Color, ptr %10, i64 %42
   br label %51
 
 51:                                               ; preds = %.preheader.us, %132
-  %indvars.iv283 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next284, %132 ]
-  %indvars.iv281 = phi i64 [ %50, %.preheader.us ], [ %indvars.iv.next282, %132 ]
-  %indvars.iv279 = phi i64 [ %49, %.preheader.us ], [ %indvars.iv.next280, %132 ]
-  %indvars.iv277 = phi i64 [ %48, %.preheader.us ], [ %indvars.iv.next278, %132 ]
-  %52 = trunc nuw nsw i64 %indvars.iv283 to i32
+  %indvars.iv277 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next278, %132 ]
+  %indvars.iv275 = phi i64 [ %50, %.preheader.us ], [ %indvars.iv.next276, %132 ]
+  %indvars.iv273 = phi i64 [ %49, %.preheader.us ], [ %indvars.iv.next274, %132 ]
+  %indvars.iv271 = phi i64 [ %48, %.preheader.us ], [ %indvars.iv.next272, %132 ]
+  %52 = trunc nuw nsw i64 %indvars.iv277 to i32
   %53 = uitofp nneg i32 %52 to float
   %54 = fmul float %31, %53
-  %55 = getelementptr inbounds float, ptr %20, i64 %indvars.iv277
+  %55 = getelementptr inbounds float, ptr %20, i64 %indvars.iv271
   store float %54, ptr %55, align 4
-  %gep = getelementptr inbounds %struct.Color, ptr %invariant.gep299, i64 %indvars.iv283
+  %gep = getelementptr inbounds %struct.Color, ptr %invariant.gep293, i64 %indvars.iv277
   %56 = load i8, ptr %gep, align 1
   %57 = zext i8 %56 to i32
   %58 = getelementptr inbounds i8, ptr %gep, i64 1
@@ -41823,49 +41823,49 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   store float %68, ptr %69, align 4
   %70 = getelementptr i8, ptr %55, i64 8
   store float %41, ptr %70, align 4
-  %gep.us = getelementptr float, ptr %invariant.gep, i64 %indvars.iv277
+  %gep.us = getelementptr float, ptr %invariant.gep, i64 %indvars.iv271
   store float %54, ptr %gep.us, align 4
-  %gep301 = getelementptr inbounds %struct.Color, ptr %invariant.gep300, i64 %indvars.iv283
-  %71 = load i8, ptr %gep301, align 1
+  %gep295 = getelementptr inbounds %struct.Color, ptr %invariant.gep294, i64 %indvars.iv277
+  %71 = load i8, ptr %gep295, align 1
   %72 = zext i8 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %gep301, i64 1
+  %73 = getelementptr inbounds i8, ptr %gep295, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %75, %72
-  %77 = getelementptr inbounds i8, ptr %gep301, i64 2
+  %77 = getelementptr inbounds i8, ptr %gep295, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = add nuw nsw i32 %76, %79
   %81 = uitofp nneg i32 %80 to float
   %82 = fdiv float %81, 3.000000e+00
   %83 = fmul float %32, %82
-  %gep239.us = getelementptr float, ptr %invariant.gep238, i64 %indvars.iv277
+  %gep239.us = getelementptr float, ptr %invariant.gep238, i64 %indvars.iv271
   store float %83, ptr %gep239.us, align 4
-  %gep241.us = getelementptr float, ptr %invariant.gep240, i64 %indvars.iv277
+  %gep241.us = getelementptr float, ptr %invariant.gep240, i64 %indvars.iv271
   store float %45, ptr %gep241.us, align 4
-  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
-  %84 = trunc nuw nsw i64 %indvars.iv.next284 to i32
+  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
+  %84 = trunc nuw nsw i64 %indvars.iv.next278 to i32
   %85 = uitofp nneg i32 %84 to float
   %86 = fmul float %31, %85
-  %gep243.us = getelementptr float, ptr %invariant.gep242, i64 %indvars.iv277
+  %gep243.us = getelementptr float, ptr %invariant.gep242, i64 %indvars.iv271
   store float %86, ptr %gep243.us, align 4
-  %gep303 = getelementptr inbounds %struct.Color, ptr %invariant.gep302, i64 %indvars.iv.next284
-  %87 = load i8, ptr %gep303, align 1
+  %gep297 = getelementptr inbounds %struct.Color, ptr %invariant.gep296, i64 %indvars.iv.next278
+  %87 = load i8, ptr %gep297, align 1
   %88 = zext i8 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %gep303, i64 1
+  %89 = getelementptr inbounds i8, ptr %gep297, i64 1
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = add nuw nsw i32 %91, %88
-  %93 = getelementptr inbounds i8, ptr %gep303, i64 2
+  %93 = getelementptr inbounds i8, ptr %gep297, i64 2
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = add nuw nsw i32 %92, %95
   %97 = uitofp nneg i32 %96 to float
   %98 = fdiv float %97, 3.000000e+00
   %99 = fmul float %32, %98
-  %gep245.us = getelementptr float, ptr %invariant.gep244, i64 %indvars.iv277
+  %gep245.us = getelementptr float, ptr %invariant.gep244, i64 %indvars.iv271
   store float %99, ptr %gep245.us, align 4
-  %gep247.us = getelementptr float, ptr %invariant.gep246, i64 %indvars.iv277
+  %gep247.us = getelementptr float, ptr %invariant.gep246, i64 %indvars.iv271
   store float %41, ptr %gep247.us, align 4
   %100 = getelementptr i8, ptr %55, i64 36
   store float %86, ptr %100, align 4
@@ -41881,14 +41881,14 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   store float %45, ptr %105, align 4
   %106 = getelementptr i8, ptr %55, i64 60
   store float %86, ptr %106, align 4
-  %gep305 = getelementptr inbounds %struct.Color, ptr %invariant.gep304, i64 %indvars.iv.next284
-  %107 = load i8, ptr %gep305, align 1
+  %gep299 = getelementptr inbounds %struct.Color, ptr %invariant.gep298, i64 %indvars.iv.next278
+  %107 = load i8, ptr %gep299, align 1
   %108 = zext i8 %107 to i32
-  %109 = getelementptr inbounds i8, ptr %gep305, i64 1
+  %109 = getelementptr inbounds i8, ptr %gep299, i64 1
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = add nuw nsw i32 %111, %108
-  %113 = getelementptr inbounds i8, ptr %gep305, i64 2
+  %113 = getelementptr inbounds i8, ptr %gep299, i64 2
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = add nuw nsw i32 %112, %115
@@ -41900,18 +41900,18 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %121 = getelementptr i8, ptr %55, i64 68
   store float %45, ptr %121, align 4
   %122 = fdiv float %53, %30
-  %123 = getelementptr inbounds float, ptr %27, i64 %indvars.iv279
+  %123 = getelementptr inbounds float, ptr %27, i64 %indvars.iv273
   store float %122, ptr %123, align 4
   %124 = getelementptr i8, ptr %123, i64 4
   store float %46, ptr %124, align 4
-  %gep249.us = getelementptr float, ptr %invariant.gep248, i64 %indvars.iv279
+  %gep249.us = getelementptr float, ptr %invariant.gep248, i64 %indvars.iv273
   store float %122, ptr %gep249.us, align 4
-  %gep251.us = getelementptr float, ptr %invariant.gep250, i64 %indvars.iv279
+  %gep251.us = getelementptr float, ptr %invariant.gep250, i64 %indvars.iv273
   store float %47, ptr %gep251.us, align 4
   %125 = fdiv float %85, %30
-  %gep253.us = getelementptr float, ptr %invariant.gep252, i64 %indvars.iv279
+  %gep253.us = getelementptr float, ptr %invariant.gep252, i64 %indvars.iv273
   store float %125, ptr %gep253.us, align 4
-  %gep255.us = getelementptr float, ptr %invariant.gep254, i64 %indvars.iv279
+  %gep255.us = getelementptr float, ptr %invariant.gep254, i64 %indvars.iv273
   store float %46, ptr %gep255.us, align 4
   %126 = getelementptr i8, ptr %123, i64 24
   store float %125, ptr %126, align 4
@@ -41928,15 +41928,15 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   br label %133
 
 132:                                              ; preds = %133
-  %indvars.iv.next278 = add nsw i64 %indvars.iv277, 18
-  %indvars.iv.next280 = add nsw i64 %indvars.iv279, 12
-  %indvars.iv.next282 = add nsw i64 %indvars.iv281, 18
-  %exitcond.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count
+  %indvars.iv.next272 = add nsw i64 %indvars.iv271, 18
+  %indvars.iv.next274 = add nsw i64 %indvars.iv273, 12
+  %indvars.iv.next276 = add nsw i64 %indvars.iv275, 18
+  %exitcond.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %51
 
 133:                                              ; preds = %133, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %133 ], [ 0, %51 ]
-  %134 = add nsw i64 %indvars.iv, %indvars.iv281
+  %134 = add nsw i64 %indvars.iv, %indvars.iv275
   %135 = getelementptr inbounds float, ptr %20, i64 %134
   %136 = load float, ptr %135, align 4
   %.sroa.0114.0.vec.insert.us = insertelement <2 x float> poison, float %136, i64 0
@@ -42006,10 +42006,10 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   br i1 %174, label %133, label %132
 
 ._crit_edge.us:                                   ; preds = %132
-  %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
-  br i1 %exitcond296.not, label %._crit_edge272, label %.preheader.us
+  %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count289
+  br i1 %exitcond290.not, label %._crit_edge266, label %.preheader.us
 
-._crit_edge272:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
+._crit_edge266:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   tail call void @UnloadImageColors(ptr noundef %10) #53
   tail call void @UploadMesh(ptr noundef nonnull %0, i1 noundef zeroext false)
   ret void

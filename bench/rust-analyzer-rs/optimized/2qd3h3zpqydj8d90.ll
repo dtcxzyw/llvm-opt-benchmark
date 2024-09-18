@@ -7757,7 +7757,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %344, %.lr.ph.i.i.i.lr.ph.i
-  %.promoted.i.i.i706.i = phi i64 [ %242, %.lr.ph.i.i.i.lr.ph.i ], [ %.promoted.i.i.i.i, %344 ]
+  %.promoted.i.i.i700.i = phi i64 [ %242, %.lr.ph.i.i.i.lr.ph.i ], [ %.promoted.i.i.i.i, %344 ]
   %263 = phi i64 [ %81, %.lr.ph.i.i.i.lr.ph.i ], [ %345, %344 ]
   %.sroa.9.0699.i = phi i8 [ 1, %.lr.ph.i.i.i.lr.ph.i ], [ %.sroa.9.1.i, %344 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1926)
@@ -7765,7 +7765,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %265
 
 265:                                              ; preds = %269, %.lr.ph.i.i.i.i
-  %266 = phi i64 [ %.promoted.i.i.i706.i, %.lr.ph.i.i.i.i ], [ %270, %269 ]
+  %266 = phi i64 [ %.promoted.i.i.i700.i, %.lr.ph.i.i.i.i ], [ %270, %269 ]
   %267 = getelementptr inbounds [0 x i8], ptr %264, i64 0, i64 %266
   %268 = load i8, ptr %267, align 1, !noalias !1936, !noundef !7
   switch i8 %268, label %.loopexit33.i.i.i [
@@ -10634,7 +10634,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %239, %.lr.ph.i.i.i.lr.ph.i
-  %.promoted.i.i.i208.i = phi i64 [ %159, %.lr.ph.i.i.i.lr.ph.i ], [ %.promoted.i.i.i.i65, %239 ]
+  %.promoted.i.i.i207.i = phi i64 [ %159, %.lr.ph.i.i.i.lr.ph.i ], [ %.promoted.i.i.i.i65, %239 ]
   %166 = phi i64 [ %43, %.lr.ph.i.i.i.lr.ph.i ], [ %240, %239 ]
   %.sroa.5141.0206.i = phi i8 [ 1, %.lr.ph.i.i.i.lr.ph.i ], [ %.sroa.5141.1.i, %239 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2682)
@@ -10642,7 +10642,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %168
 
 168:                                              ; preds = %172, %.lr.ph.i.i.i.i64
-  %169 = phi i64 [ %.promoted.i.i.i208.i, %.lr.ph.i.i.i.i64 ], [ %173, %172 ]
+  %169 = phi i64 [ %.promoted.i.i.i207.i, %.lr.ph.i.i.i.i64 ], [ %173, %172 ]
   %170 = getelementptr inbounds [0 x i8], ptr %167, i64 0, i64 %169
   %171 = load i8, ptr %170, align 1, !noalias !2692, !noundef !7
   switch i8 %171, label %.loopexit39.i.i.i [
@@ -10671,8 +10671,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.loopexit178.i
 
 .loopexit39.i.i.i:                                ; preds = %168
-  %.pre237.i = trunc nuw i8 %.sroa.5141.0206.i to i1
-  br i1 %.pre237.i, label %.loopexit.i.i.i, label %185
+  %.pre236.i = trunc nuw i8 %.sroa.5141.0206.i to i1
+  br i1 %.pre236.i, label %.loopexit.i.i.i, label %185
 
 175:                                              ; preds = %168
   %176 = trunc nuw i8 %.sroa.5141.0206.i to i1

@@ -1197,13 +1197,13 @@ _ZN4llvm5TwineC2EPKc.exit211.i:                   ; preds = %355, %350
 .preheader250.i:                                  ; preds = %362
   %.not153251.i = icmp eq i64 %310, 0
   %.pre.i = load i24, ptr %94, align 8
-  %.pre260.i = zext i24 %.pre.i to i32
+  %.pre258.i = zext i24 %.pre.i to i32
   br i1 %.not153251.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader250.i, %365
   %.0141253.i = phi i32 [ %374, %365 ], [ 2, %.preheader250.i ]
   %.2242252.i = phi i32 [ %375, %365 ], [ %321, %.preheader250.i ]
-  %.not154.i = icmp ult i32 %.0141253.i, %.pre260.i
+  %.not154.i = icmp ult i32 %.0141253.i, %.pre258.i
   br i1 %.not154.i, label %365, label %._crit_edge.i
 
 365:                                              ; preds = %.lr.ph.i
@@ -1222,7 +1222,7 @@ _ZN4llvm5TwineC2EPKc.exit211.i:                   ; preds = %355, %350
 
 ._crit_edge.i:                                    ; preds = %365, %.lr.ph.i, %.preheader250.i
   %.0141.lcssa.i = phi i32 [ 2, %.preheader250.i ], [ %374, %365 ], [ %.0141253.i, %.lr.ph.i ]
-  %.not155.i = icmp ult i32 %.0141.lcssa.i, %.pre260.i
+  %.not155.i = icmp ult i32 %.0141.lcssa.i, %.pre258.i
   br i1 %.not155.i, label %376, label %.critedge171.i
 
 376:                                              ; preds = %._crit_edge.i
@@ -1377,36 +1377,36 @@ _ZN4llvm11raw_ostreamlsEPKc.exit223.i:            ; preds = %446, %444
   br label %.critedge169.i.backedge
 
 .critedge169.i.backedge:                          ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit223.i, %410, %406, %395, %388, %362, %297, %268, %266, %260, %258, %256, %254, %246, %_ZN4llvm11raw_ostreamlsEc.exit177.i, %219, %217, %208, %.critedge.i
-  %.0136.i.be = phi ptr [ %.0143.i, %208 ], [ %.0143.i, %.critedge.i ], [ %298, %297 ], [ %.4.i, %_ZN4llvm11raw_ostreamlsEPKc.exit223.i ], [ %.4.i, %388 ], [ %.4.i, %395 ], [ %.4.i, %410 ], [ %.4.i, %362 ], [ %214, %217 ], [ %214, %219 ], [ %.4.i, %406 ], [ %249, %258 ], [ %247, %246 ], [ %235, %_ZN4llvm11raw_ostreamlsEc.exit177.i ], [ %261, %260 ], [ %249, %254 ], [ %249, %256 ], [ %261, %266 ], [ %261, %268 ]
-  %.0.i76.be = phi i32 [ %.0.i76, %208 ], [ %.0.i76, %.critedge.i ], [ %.0.i76, %297 ], [ %.0.i76, %_ZN4llvm11raw_ostreamlsEPKc.exit223.i ], [ %.0.i76, %388 ], [ %.0.i76, %395 ], [ %.0.i76, %410 ], [ %.0.i76, %362 ], [ %.0.i76, %217 ], [ %.0.i76, %219 ], [ %.0.i76, %406 ], [ %259, %258 ], [ 0, %246 ], [ %.0.i76, %_ZN4llvm11raw_ostreamlsEc.exit177.i ], [ -1, %260 ], [ -1, %254 ], [ -1, %256 ], [ -1, %266 ], [ -1, %268 ]
+  %.0136.i.be = phi ptr [ %298, %297 ], [ %.4.i, %_ZN4llvm11raw_ostreamlsEPKc.exit223.i ], [ %.4.i, %410 ], [ %.0143.i, %.critedge.i ], [ %.0143.i, %208 ], [ %.4.i, %362 ], [ %.4.i, %395 ], [ %.4.i, %388 ], [ %214, %217 ], [ %214, %219 ], [ %.4.i, %406 ], [ %261, %268 ], [ %261, %266 ], [ %249, %256 ], [ %249, %254 ], [ %261, %260 ], [ %235, %_ZN4llvm11raw_ostreamlsEc.exit177.i ], [ %247, %246 ], [ %249, %258 ]
+  %.0.i76.be = phi i32 [ %.0.i76, %297 ], [ %.0.i76, %_ZN4llvm11raw_ostreamlsEPKc.exit223.i ], [ %.0.i76, %410 ], [ %.0.i76, %.critedge.i ], [ %.0.i76, %208 ], [ %.0.i76, %362 ], [ %.0.i76, %395 ], [ %.0.i76, %388 ], [ %.0.i76, %217 ], [ %.0.i76, %219 ], [ %.0.i76, %406 ], [ -1, %268 ], [ -1, %266 ], [ -1, %256 ], [ -1, %254 ], [ -1, %260 ], [ %.0.i76, %_ZN4llvm11raw_ostreamlsEc.exit177.i ], [ 0, %246 ], [ %259, %258 ]
   br label %.critedge169.i, !llvm.loop !8
 
 452:                                              ; preds = %.critedge169.i
-  %.pre259.i = load ptr, ptr %189, align 8
+  %.pre257.i = load ptr, ptr %189, align 8
   br i1 %151, label %453, label %_ZN4llvm11raw_ostreamlsEPKc.exit227.i
 
 453:                                              ; preds = %452
   %454 = load ptr, ptr %190, align 8
   %455 = ptrtoint ptr %454 to i64
-  %456 = ptrtoint ptr %.pre259.i to i64
+  %456 = ptrtoint ptr %.pre257.i to i64
   %457 = sub i64 %455, %456
   %458 = icmp ult i64 %457, 13
   br i1 %458, label %459, label %461
 
 459:                                              ; preds = %453
   %460 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull @.str.20, i64 noundef 13) #16
-  %.pre258.i = load ptr, ptr %189, align 8
+  %.pre256.i = load ptr, ptr %189, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit227.i
 
 461:                                              ; preds = %453
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.pre259.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.20, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.pre257.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.20, i64 13, i1 false)
   %462 = load ptr, ptr %189, align 8
   %463 = getelementptr inbounds i8, ptr %462, i64 13
   store ptr %463, ptr %189, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit227.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit227.i:            ; preds = %461, %459, %452
-  %464 = phi ptr [ %463, %461 ], [ %.pre258.i, %459 ], [ %.pre259.i, %452 ]
+  %464 = phi ptr [ %463, %461 ], [ %.pre256.i, %459 ], [ %.pre257.i, %452 ]
   %465 = load ptr, ptr %190, align 8
   %.not.i228.i = icmp ult ptr %464, %465
   br i1 %.not.i228.i, label %468, label %466

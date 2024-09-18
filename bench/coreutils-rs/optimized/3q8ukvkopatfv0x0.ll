@@ -13662,7 +13662,7 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
   %35 = getelementptr inbounds i8, ptr %4, i64 8
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   %37 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.4120.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.4119.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
   br label %49
 
 .thread96:                                        ; preds = %113, %121, %161, %168, %171
@@ -13715,11 +13715,11 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
   unreachable
 
 49:                                               ; preds = %.lr.ph, %110
-  %.sroa.6.sroa.6.0.copyload118 = phi i64 [ 0, %.lr.ph ], [ %111, %110 ]
-  %.017114 = phi i64 [ 0, %.lr.ph ], [ %.118, %110 ]
-  %.sroa.0.0113 = phi ptr [ %25, %.lr.ph ], [ %50, %110 ]
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.0113, i64 1
-  %51 = load i8, ptr %.sroa.0.0113, align 1, !noundef !5
+  %.sroa.6.sroa.6.0.copyload117 = phi i64 [ 0, %.lr.ph ], [ %111, %110 ]
+  %.017113 = phi i64 [ 0, %.lr.ph ], [ %.118, %110 ]
+  %.sroa.0.0112 = phi ptr [ %25, %.lr.ph ], [ %50, %110 ]
+  %50 = getelementptr inbounds i8, ptr %.sroa.0.0112, i64 1
+  %51 = load i8, ptr %.sroa.0.0112, align 1, !noundef !5
   %52 = icmp eq i8 %51, 12
   br i1 %52, label %106, label %108
 
@@ -13908,15 +13908,15 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
   unreachable
 
 106:                                              ; preds = %49
-  %107 = add i64 %.017114, 1
+  %107 = add i64 %.017113, 1
   br label %110
 
 108:                                              ; preds = %49
-  %109 = icmp eq i64 %.017114, 0
+  %109 = icmp eq i64 %.017113, 0
   br i1 %109, label %116, label %113
 
 110:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfa3efa205058c078E.exit", %106
-  %111 = phi i64 [ %.sroa.6.sroa.6.0.copyload118, %106 ], [ %126, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfa3efa205058c078E.exit" ]
+  %111 = phi i64 [ %.sroa.6.sroa.6.0.copyload117, %106 ], [ %126, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfa3efa205058c078E.exit" ]
   %.118 = phi i64 [ %107, %106 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfa3efa205058c078E.exit" ]
   %112 = icmp eq ptr %50, %28
   br i1 %112, label %._crit_edge, label %49
@@ -13928,11 +13928,11 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
   call void @llvm.experimental.noalias.scope.decl(metadata !3408)
   call void @llvm.experimental.noalias.scope.decl(metadata !3411)
   %114 = load ptr, ptr %22, align 8, !alias.scope !3411, !noalias !3408, !nonnull !5, !noundef !5
-  %115 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6e12c04aa8d7e2aeE"(i64 noundef %.sroa.6.sroa.6.0.copyload118, i1 noundef zeroext false)
+  %115 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6e12c04aa8d7e2aeE"(i64 noundef %.sroa.6.sroa.6.0.copyload117, i1 noundef zeroext false)
           to label %127 unwind label %.thread96
 
 116:                                              ; preds = %108, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit54"
-  %117 = phi i64 [ %.sroa.6.sroa.6.0.copyload118, %108 ], [ 0, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit54" ]
+  %117 = phi i64 [ %.sroa.6.sroa.6.0.copyload117, %108 ], [ 0, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit54" ]
   %118 = phi i8 [ %51, %108 ], [ %.pre, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit54" ]
   %119 = load i64, ptr %18, align 8, !alias.scope !3413, !noundef !5
   %120 = icmp eq i64 %117, %119
@@ -13961,14 +13961,14 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
   %129 = extractvalue { i64, ptr } %115, 1
   %130 = icmp ne ptr %129, null
   call void @llvm.assume(i1 %130)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull readonly align 1 %114, i64 %.sroa.6.sroa.6.0.copyload118, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull readonly align 1 %114, i64 %.sroa.6.sroa.6.0.copyload117, i1 false)
   store i64 %128, ptr %16, align 8, !alias.scope !3416, !noalias !3419
   store ptr %129, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !3416, !noalias !3419
-  store i64 %.sroa.6.sroa.6.0.copyload118, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !3416, !noalias !3419
+  store i64 %.sroa.6.sroa.6.0.copyload117, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !3416, !noalias !3419
   call void @llvm.experimental.noalias.scope.decl(metadata !3421)
   call void @llvm.experimental.noalias.scope.decl(metadata !3424)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !3426
-  invoke void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %129, i64 noundef %.sroa.6.sroa.6.0.copyload118)
+  invoke void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %129, i64 noundef %.sroa.6.sroa.6.0.copyload117)
           to label %133 unwind label %131, !noalias !3426
 
 131:                                              ; preds = %127
@@ -14031,7 +14031,7 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
   unreachable
 
 146:                                              ; preds = %.thread104, %137
-  %.sroa.6.sroa.6.0 = phi i64 [ %138, %137 ], [ %.sroa.6.sroa.6.0.copyload118, %.thread104 ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %138, %137 ], [ %.sroa.6.sroa.6.0.copyload117, %.thread104 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.sroa.0)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
@@ -14041,8 +14041,8 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
   store i64 0, ptr %.sroa.53.0..sroa_idx.i40, align 8, !alias.scope !3434
   store i64 0, ptr %32, align 8, !alias.scope !3434
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
-  store i64 %.sroa.6.sroa.6.0, ptr %.sroa.4120.0..sroa_idx, align 8
-  store i64 %.017114, ptr %34, align 8
+  store i64 %.sroa.6.sroa.6.0, ptr %.sroa.4119.0..sroa_idx, align 8
+  store i64 %.017113, ptr %34, align 8
   %147 = load i64, ptr %21, align 8, !alias.scope !3437, !noalias !3440, !noundef !5
   %148 = load i64, ptr %19, align 8, !alias.scope !3437, !noalias !3440, !noundef !5
   %149 = icmp eq i64 %147, %148
@@ -14135,7 +14135,7 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
 "_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit54": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i50", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb5370038ee4f72e3E.exit.i.i48"
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
   store i64 0, ptr %23, align 8
-  %.pre = load i8, ptr %.sroa.0.0113, align 1
+  %.pre = load i8, ptr %.sroa.0.0112, align 1
   br label %116
 
 .thread89:                                        ; preds = %.body27, %58, %43, %38, %.thread92

@@ -5006,10 +5006,10 @@ define dso_local void @_ZNK4llvm15StackSafetyInfo16getParamAccessesERNS_18Module
   %7 = getelementptr inbounds i8, ptr %6, i64 72
   %.val = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 56
-  %.not63 = icmp eq ptr %.val, %8
-  br i1 %.not63, label %._crit_edge73, label %.lr.ph68
+  %.not55 = icmp eq ptr %.val, %8
+  br i1 %.not55, label %._crit_edge62, label %.lr.ph57
 
-.lr.ph68:                                         ; preds = %3
+.lr.ph57:                                         ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 223
@@ -5018,10 +5018,10 @@ define dso_local void @_ZNK4llvm15StackSafetyInfo16getParamAccessesERNS_18Module
   %14 = getelementptr inbounds i8, ptr %2, i64 40
   br label %15
 
-15:                                               ; preds = %.lr.ph68, %.loopexit
-  %.sroa.045.064 = phi ptr [ %.val, %.lr.ph68 ], [ %143, %.loopexit ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.045.064, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.045.064, i64 40
+15:                                               ; preds = %.lr.ph57, %.loopexit
+  %.sroa.045.056 = phi ptr [ %.val, %.lr.ph57 ], [ %143, %.loopexit ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.045.056, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.045.056, i64 40
   %18 = call noundef zeroext i1 @_ZNK4llvm13ConstantRange9isFullSetEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #25
   br i1 %18, label %.loopexit, label %19
 
@@ -5037,7 +5037,7 @@ define dso_local void @_ZNK4llvm15StackSafetyInfo16getParamAccessesERNS_18Module
   store i64 %24, ptr %20, align 8
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.045.064, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.045.056, i64 48
   %28 = load i32, ptr %27, align 8
   store i32 %28, ptr %26, align 8
   %29 = icmp ult i32 %28, 65
@@ -5054,9 +5054,9 @@ define dso_local void @_ZNK4llvm15StackSafetyInfo16getParamAccessesERNS_18Module
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i:            ; preds = %32, %30
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.045.064, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.045.056, i64 56
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.045.064, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.045.056, i64 64
   %37 = load i32, ptr %36, align 8
   store i32 %37, ptr %35, align 8
   %38 = icmp ult i32 %37, 65
@@ -5087,14 +5087,14 @@ _ZNSt16allocator_traitsISaIN4llvm15FunctionSummary11ParamAccessEEE9constructIS2_
 _ZNSt6vectorIN4llvm15FunctionSummary11ParamAccessESaIS2_EE12emplace_backIJRKjRKNS0_13ConstantRangeEEEERS2_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4llvm15FunctionSummary11ParamAccessEEE9constructIS2_JRKjRKNS0_13ConstantRangeEEEEvRS3_PT_DpOT0_.exit.i, %45
   %46 = phi ptr [ %44, %_ZNSt16allocator_traitsISaIN4llvm15FunctionSummary11ParamAccessEEE9constructIS2_JRKjRKNS0_13ConstantRangeEEEEvRS3_PT_DpOT0_.exit.i ], [ %.pre, %45 ]
   %47 = getelementptr inbounds i8, ptr %46, i64 -24
-  %48 = getelementptr i8, ptr %.sroa.045.064, i64 160
+  %48 = getelementptr i8, ptr %.sroa.045.056, i64 160
   %.val29 = load i64, ptr %48, align 8
   call void @_ZNSt6vectorIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %.val29)
-  %49 = getelementptr i8, ptr %.sroa.045.064, i64 144
+  %49 = getelementptr i8, ptr %.sroa.045.056, i64 144
   %.val25 = load ptr, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %.sroa.045.064, i64 128
-  %.not5256 = icmp eq ptr %.val25, %50
-  br i1 %.not5256, label %.loopexit, label %.lr.ph
+  %50 = getelementptr inbounds i8, ptr %.sroa.045.056, i64 128
+  %.not5253 = icmp eq ptr %.val25, %50
+  br i1 %.not5253, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN4llvm15FunctionSummary11ParamAccessESaIS2_EE12emplace_backIJRKjRKNS0_13ConstantRangeEEEERS2_DpOT_.exit
   %51 = getelementptr inbounds i8, ptr %46, i64 -16
@@ -5102,8 +5102,8 @@ _ZNSt6vectorIN4llvm15FunctionSummary11ParamAccessESaIS2_EE12emplace_backIJRKjRKN
   br label %53
 
 53:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE12emplace_backIJRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEERS3_DpOT_.exit
-  %.sroa.043.058 = phi ptr [ %.val25, %.lr.ph ], [ %142, %_ZNSt6vectorIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE12emplace_backIJRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEERS3_DpOT_.exit ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.043.058, i64 48
+  %.sroa.043.054 = phi ptr [ %.val25, %.lr.ph ], [ %142, %_ZNSt6vectorIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE12emplace_backIJRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEERS3_DpOT_.exit ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.043.054, i64 48
   %55 = call noundef zeroext i1 @_ZNK4llvm13ConstantRange9isFullSetEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   br i1 %55, label %56, label %_ZN4llvm22GlobalValueSummaryInfoC2Eb.exit.i
 
@@ -5115,8 +5115,8 @@ _ZNSt6vectorIN4llvm15FunctionSummary11ParamAccessESaIS2_EE12emplace_backIJRKjRKN
   br label %.loopexit
 
 _ZN4llvm22GlobalValueSummaryInfoC2Eb.exit.i:      ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.043.058, i64 32
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.043.058, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.043.054, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.043.054, i64 40
   %61 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNK4llvm11GlobalValue19getGlobalIdentifierB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %61) #25
@@ -5264,7 +5264,7 @@ _ZN4llvm18ModuleSummaryIndex19getOrInsertValuePtrEm.exit: ; preds = %.thread.i, 
   store i64 %116, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.043.058, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.043.054, i64 56
   %125 = load i32, ptr %124, align 8
   store i32 %125, ptr %123, align 8
   %126 = icmp ult i32 %125, 65
@@ -5281,9 +5281,9 @@ _ZN4llvm18ModuleSummaryIndex19getOrInsertValuePtrEm.exit: ; preds = %.thread.i, 
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i33:          ; preds = %129, %127
   %130 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.043.058, i64 64
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.043.054, i64 64
   %132 = getelementptr inbounds nuw i8, ptr %117, i64 40
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.043.058, i64 72
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.043.054, i64 72
   %134 = load i32, ptr %133, align 8
   store i32 %134, ptr %132, align 8
   %135 = icmp ult i32 %134, 65
@@ -5309,31 +5309,31 @@ _ZNSt16allocator_traitsISaIN4llvm15FunctionSummary11ParamAccess4CallEEE9construc
   br label %_ZNSt6vectorIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE12emplace_backIJRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEERS3_DpOT_.exit
 
 _ZNSt6vectorIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE12emplace_backIJRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEERS3_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4llvm15FunctionSummary11ParamAccess4CallEEE9constructIS3_JRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEEvRS4_PT_DpOT0_.exit.i, %141
-  %142 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.043.058) #29
+  %142 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.043.054) #29
   %.not52 = icmp eq ptr %142, %50
   br i1 %.not52, label %.loopexit, label %53
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE12emplace_backIJRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEERS3_DpOT_.exit, %_ZNSt6vectorIN4llvm15FunctionSummary11ParamAccessESaIS2_EE12emplace_backIJRKjRKNS0_13ConstantRangeEEEERS2_DpOT_.exit, %56, %15
-  %143 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.045.064) #29
+  %143 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.045.056) #29
   %.not = icmp eq ptr %143, %8
   br i1 %.not, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %.pre77 = load ptr, ptr %0, align 8
-  %.pre78 = load ptr, ptr %9, align 8
-  %.not5169 = icmp eq ptr %.pre77, %.pre78
-  br i1 %.not5169, label %._crit_edge73, label %.lr.ph72
+  %.pre63 = load ptr, ptr %0, align 8
+  %.pre64 = load ptr, ptr %9, align 8
+  %.not5158 = icmp eq ptr %.pre63, %.pre64
+  br i1 %.not5158, label %._crit_edge62, label %.lr.ph61
 
-.lr.ph72:                                         ; preds = %._crit_edge, %"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit"
-  %.sroa.039.070 = phi ptr [ %220, %"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit" ], [ %.pre77, %._crit_edge ]
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.039.070, i64 40
+.lr.ph61:                                         ; preds = %._crit_edge, %"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit"
+  %.sroa.039.059 = phi ptr [ %220, %"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit" ], [ %.pre63, %._crit_edge ]
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.039.059, i64 40
   %.val30 = load ptr, ptr %144, align 8
-  %145 = getelementptr i8, ptr %.sroa.039.070, i64 48
+  %145 = getelementptr i8, ptr %.sroa.039.059, i64 48
   %.val31 = load ptr, ptr %145, align 8
   %.not.i.i.i.i = icmp eq ptr %.val30, %.val31
   br i1 %.not.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit", label %146
 
-146:                                              ; preds = %.lr.ph72
+146:                                              ; preds = %.lr.ph61
   %147 = ptrtoint ptr %.val31 to i64
   %148 = ptrtoint ptr %.val30 to i64
   %149 = sub i64 %147, %148
@@ -5489,12 +5489,12 @@ _ZN4llvm5APIntaSEOS0_.exit.i.i2.i:                ; preds = %209, %206, %"_ZN9__
   call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm15FunctionSummary11ParamAccess4CallESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EEEvT_SI_T0_"(ptr %.val30, ptr %.val31)
   br label %"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit"
 
-"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm15FunctionSummary11ParamAccess4CallESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS2_15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EEEvT_T0_.exit", %.lr.ph72, %155, %219
-  %220 = getelementptr inbounds i8, ptr %.sroa.039.070, i64 64
-  %.not51 = icmp eq ptr %220, %.pre78
-  br i1 %.not51, label %._crit_edge73, label %.lr.ph72
+"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm15FunctionSummary11ParamAccess4CallESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS2_15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EEEvT_T0_.exit", %.lr.ph61, %155, %219
+  %220 = getelementptr inbounds i8, ptr %.sroa.039.059, i64 64
+  %.not51 = icmp eq ptr %220, %.pre64
+  br i1 %.not51, label %._crit_edge62, label %.lr.ph61
 
-._crit_edge73:                                    ; preds = %"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit", %3, %._crit_edge
+._crit_edge62:                                    ; preds = %"_ZN4llvm4sortIRSt6vectorINS_15FunctionSummary11ParamAccess4CallESaIS4_EEZNKS_15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexEE3$_0EEvOT_T0_.exit", %3, %._crit_edge
   ret void
 }
 

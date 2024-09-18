@@ -3686,15 +3686,15 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_4LoopEPKNS_4SCEVEELb1EE9push_back
   store ptr %3, ptr %32, align 8
   %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   %.not49 = icmp eq i64 %33, 0
-  br i1 %.not49, label %._crit_edge54, label %.lr.ph53
+  br i1 %.not49, label %._crit_edge53, label %.lr.ph52
 
-.lr.ph53:                                         ; preds = %._crit_edge
+.lr.ph52:                                         ; preds = %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 28
   br label %35
 
-35:                                               ; preds = %.lr.ph53, %119
-  %.03751 = phi ptr [ null, %.lr.ph53 ], [ %.1, %119 ]
-  %.not10 = icmp eq ptr %.03751, null
+35:                                               ; preds = %.lr.ph52, %119
+  %.03750 = phi ptr [ null, %.lr.ph52 ], [ %.1, %119 ]
+  %.not10 = icmp eq ptr %.03750, null
   br i1 %.not10, label %36, label %38
 
 36:                                               ; preds = %35
@@ -3710,7 +3710,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_4LoopEPKNS_4SCEVEELb1EE9push_back
 
 43:                                               ; preds = %38
   %44 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %9) #18
-  %45 = call noundef ptr @_ZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEb(ptr noundef nonnull align 8 dereferenceable(816) %0, i32 noundef 15, ptr noundef %44, ptr noundef nonnull %.03751, i32 noundef 0, i1 noundef zeroext true)
+  %45 = call noundef ptr @_ZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEb(ptr noundef nonnull align 8 dereferenceable(816) %0, i32 noundef 15, ptr noundef %44, ptr noundef nonnull %.03750, i32 noundef 0, i1 noundef zeroext true)
   %46 = load ptr, ptr %4, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   store ptr %47, ptr %4, align 8
@@ -3718,7 +3718,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_4LoopEPKNS_4SCEVEELb1EE9push_back
 
 48:                                               ; preds = %38
   %49 = call fastcc noundef ptr @"_ZZN4llvm12SCEVExpander12visitMulExprEPKNS_11SCEVMulExprEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %50 = load i8, ptr %.03751, align 8
+  %50 = load i8, ptr %.03750, align 8
   %51 = icmp ult i8 %50, 22
   br i1 %51, label %52, label %thread-pre-split
 
@@ -3728,8 +3728,8 @@ thread-pre-split:                                 ; preds = %48
 
 52:                                               ; preds = %48, %thread-pre-split
   %53 = phi i8 [ %.pr, %thread-pre-split ], [ %50, %48 ]
-  %.2 = phi ptr [ %.03751, %thread-pre-split ], [ %49, %48 ]
-  %.036 = phi ptr [ %49, %thread-pre-split ], [ %.03751, %48 ]
+  %.2 = phi ptr [ %.03750, %thread-pre-split ], [ %49, %48 ]
+  %.036 = phi ptr [ %49, %thread-pre-split ], [ %.03750, %48 ]
   %.not.i = icmp eq i8 %53, 17
   br i1 %.not.i, label %54, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i
 
@@ -3809,7 +3809,7 @@ _ZN4llvm12PatternMatch11api_pred_tyINS0_9is_power2EE5matchINS_5ValueEEEbPT_.exit
   %97 = sub nsw i32 0, %96
   %98 = icmp eq i32 %.neg.i.i.i, %97
   %99 = and i32 %89, 3
-  %spec.select56 = select i1 %98, i32 %99, i32 %89
+  %spec.select55 = select i1 %98, i32 %99, i32 %89
   %.neg.i.i.i14 = add nsw i32 %91, -64
   %100 = load i64, ptr %.sink.i, align 8
   %101 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %100, i1 false)
@@ -3826,13 +3826,13 @@ _ZN4llvm12PatternMatch11api_pred_tyINS0_9is_power2EE5matchINS_5ValueEEEbPT_.exit
   br label %_ZNK4llvm5APInt8logBase2Ev.exit15
 
 _ZNK4llvm5APInt8logBase2Ev.exit15:                ; preds = %93, %104
-  %spec.select57 = phi i32 [ %spec.select56, %93 ], [ %spec.select, %104 ]
+  %spec.select56 = phi i32 [ %spec.select55, %93 ], [ %spec.select, %104 ]
   %.0.i.i.i13 = phi i32 [ %103, %93 ], [ %108, %104 ]
   %109 = xor i32 %.0.i.i.i13, -1
   %110 = add i32 %91, %109
   %111 = zext i32 %110 to i64
   %112 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %9, i64 noundef %111, i1 noundef zeroext false) #18
-  %113 = call noundef ptr @_ZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEb(ptr noundef nonnull align 8 dereferenceable(816) %0, i32 noundef 25, ptr noundef %.2, ptr noundef %112, i32 noundef %spec.select57, i1 noundef zeroext true)
+  %113 = call noundef ptr @_ZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEb(ptr noundef nonnull align 8 dereferenceable(816) %0, i32 noundef 25, ptr noundef %.2, ptr noundef %112, i32 noundef %spec.select56, i1 noundef zeroext true)
   br label %119
 
 114:                                              ; preds = %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i, %84, %74, %72, %81
@@ -3849,20 +3849,20 @@ _ZNK4llvm5APInt8logBase2Ev.exit15:                ; preds = %93, %104
   %122 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   %123 = getelementptr inbounds %"struct.std::pair.199", ptr %121, i64 %122
   %.not = icmp eq ptr %120, %123
-  br i1 %.not, label %._crit_edge54, label %35, !llvm.loop !40
+  br i1 %.not, label %._crit_edge53, label %35, !llvm.loop !40
 
-._crit_edge54:                                    ; preds = %119, %._crit_edge
+._crit_edge53:                                    ; preds = %119, %._crit_edge
   %.037.lcssa = phi ptr [ null, %._crit_edge ], [ %.1, %119 ]
   %124 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   %125 = load ptr, ptr %3, align 8
   %126 = icmp eq ptr %125, %10
   br i1 %126, label %_ZN4llvm11SmallVectorISt4pairIPKNS_4LoopEPKNS_4SCEVEELj8EED2Ev.exit, label %127
 
-127:                                              ; preds = %._crit_edge54
+127:                                              ; preds = %._crit_edge53
   call void @free(ptr noundef %125) #18
   br label %_ZN4llvm11SmallVectorISt4pairIPKNS_4LoopEPKNS_4SCEVEELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairIPKNS_4LoopEPKNS_4SCEVEELj8EED2Ev.exit: ; preds = %._crit_edge54, %127
+_ZN4llvm11SmallVectorISt4pairIPKNS_4LoopEPKNS_4SCEVEELj8EED2Ev.exit: ; preds = %._crit_edge53, %127
   ret ptr %.037.lcssa
 }
 

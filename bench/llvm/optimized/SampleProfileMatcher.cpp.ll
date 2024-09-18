@@ -428,11 +428,11 @@ define dso_local void @_ZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8Func
   %9 = alloca %"class.llvm::sampleprof::FunctionId", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.0109.0131 = load ptr, ptr %10, align 8
-  %.not118132 = icmp eq ptr %.sroa.0109.0131, %11
-  br i1 %.not118132, label %._crit_edge138, label %.lr.ph137
+  %.sroa.0109.0128 = load ptr, ptr %10, align 8
+  %.not118129 = icmp eq ptr %.sroa.0109.0128, %11
+  br i1 %.not118129, label %._crit_edge133, label %.lr.ph132
 
-.lr.ph137:                                        ; preds = %3
+.lr.ph132:                                        ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0..sroa_idx.i74 = getelementptr inbounds i8, ptr %7, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -445,10 +445,10 @@ define dso_local void @_ZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8Func
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph137, %._crit_edge
-  %.sroa.0109.0135 = phi ptr [ %.sroa.0109.0131, %.lr.ph137 ], [ %.sroa.0109.0, %._crit_edge ]
-  %22 = icmp eq ptr %.sroa.0109.0135, null
-  %23 = getelementptr inbounds i8, ptr %.sroa.0109.0135, i64 -24
+21:                                               ; preds = %.lr.ph132, %._crit_edge
+  %.sroa.0109.0130 = phi ptr [ %.sroa.0109.0128, %.lr.ph132 ], [ %.sroa.0109.0, %._crit_edge ]
+  %22 = icmp eq ptr %.sroa.0109.0130, null
+  %23 = getelementptr inbounds i8, ptr %.sroa.0109.0130, i64 -24
   %24 = select i1 %22, ptr null, ptr %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -457,9 +457,9 @@ define dso_local void @_ZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8Func
   br i1 %.not119126, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %.critedge
-  %.sroa.0105.0129 = phi ptr [ %.sroa.0105.0, %.critedge ], [ %.sroa.0105.0125, %21 ]
-  %27 = icmp eq ptr %.sroa.0105.0129, null
-  %28 = getelementptr inbounds i8, ptr %.sroa.0105.0129, i64 -24
+  %.sroa.0105.0127 = phi ptr [ %.sroa.0105.0, %.critedge ], [ %.sroa.0105.0125, %21 ]
+  %27 = icmp eq ptr %.sroa.0105.0127, null
+  %28 = getelementptr inbounds i8, ptr %.sroa.0105.0127, i64 -24
   %29 = select i1 %27, ptr null, ptr %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %30) #19
@@ -1163,18 +1163,18 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91: ; preds = %_ZN4llvm16dyn_cast_
   br label %.critedge
 
 .critedge:                                        ; preds = %211, %.thread.i, %245, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread, %35, %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.exit92", %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit82", %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit56, %.lr.ph
-  %370 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0129, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0127, i64 8
   %.sroa.0105.0 = load ptr, ptr %370, align 8
   %.not119 = icmp eq ptr %.sroa.0105.0, %26
   br i1 %.not119, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge, %21
-  %371 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0135, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0130, i64 8
   %.sroa.0109.0 = load ptr, ptr %371, align 8
   %.not118 = icmp eq ptr %.sroa.0109.0, %11
-  br i1 %.not118, label %._crit_edge138, label %21
+  br i1 %.not118, label %._crit_edge133, label %21
 
-._crit_edge138:                                   ; preds = %._crit_edge, %3
+._crit_edge133:                                   ; preds = %._crit_edge, %3
   ret void
 }
 

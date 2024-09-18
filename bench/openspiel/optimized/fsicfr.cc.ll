@@ -3076,7 +3076,7 @@ define void @_ZN10open_spiel10algorithms12FSICFRSolver12BackwardPassEv(ptr nocap
   %15 = sdiv exact i64 %14, 264
   %16 = trunc i64 %15 to i32
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %_ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit.lr.ph, label %._crit_edge112
+  br i1 %17, label %_ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit.lr.ph, label %._crit_edge109
 
 _ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit.lr.ph: ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5040
@@ -3084,12 +3084,12 @@ _ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit.lr.ph: ; preds = %1
   br label %_ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit
 
 _ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit: ; preds = %_ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit.lr.ph, %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %indvars.iv131 = phi i64 [ %19, %_ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit.lr.ph ], [ %indvars.iv.next132, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
-  %indvars.iv.next132 = add nsw i64 %indvars.iv131, -1
+  %indvars.iv128 = phi i64 [ %19, %_ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit.lr.ph ], [ %indvars.iv.next129, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %indvars.iv.next129 = add nsw i64 %indvars.iv128, -1
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.next132
+  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.next129
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, -1
   tail call void @llvm.assume(i1 %25)
@@ -3157,22 +3157,22 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %49
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %64, i8 0, i64 %68, i1 false)
   %69 = getelementptr inbounds i8, ptr %64, i64 %62
   %.pre = load i32, ptr %42, align 8
-  %.pre134 = load ptr, ptr %57, align 8
-  %.pre135 = load ptr, ptr %56, align 8
-  %.pre136 = sub nsw i32 1, %.pre
-  %.pre137 = sext i32 %.pre136 to i64
+  %.pre131 = load ptr, ptr %57, align 8
+  %.pre132 = load ptr, ptr %56, align 8
+  %.pre133 = sub nsw i32 1, %.pre
+  %.pre134 = sext i32 %.pre133 to i64
   %70 = ptrtoint ptr %69 to i64
   br label %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
 
 _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc67, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %.pre-phi138 = phi i64 [ %.pre137, %.noexc67 ], [ %52, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %71 = phi ptr [ %.pre135, %.noexc67 ], [ %59, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %72 = phi ptr [ %.pre134, %.noexc67 ], [ %58, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.pre-phi135 = phi i64 [ %.pre134, %.noexc67 ], [ %52, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %71 = phi ptr [ %.pre132, %.noexc67 ], [ %59, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %72 = phi ptr [ %.pre131, %.noexc67 ], [ %58, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.sroa.12.2 = phi i64 [ %70, %.noexc67 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.sroa.080.2 = phi ptr [ %64, %.noexc67 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %73 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 192
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds double, ptr %74, i64 %.pre-phi138
+  %75 = getelementptr inbounds double, ptr %74, i64 %.pre-phi135
   %76 = load double, ptr %75, align 8
   %.not = icmp eq ptr %72, %71
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3186,8 +3186,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc67, %_ZNSt6ve
   br label %85
 
 .preheader:                                       ; preds = %194
-  %.not113 = icmp eq ptr %201, %202
-  br i1 %.not113, label %._crit_edge, label %.lr.ph106
+  %.not110 = icmp eq ptr %201, %202
+  br i1 %.not110, label %._crit_edge, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %.preheader
   %82 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 60
@@ -3405,16 +3405,16 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4p
   br i1 %207, label %85, label %.preheader, !llvm.loop !33
 
 208:                                              ; preds = %.lr.ph106, %208
-  %indvars.iv128 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next129, %208 ]
+  %indvars.iv125 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next126, %208 ]
   %209 = load i32, ptr %82, align 4
   %210 = sitofp i32 %209 to double
   %211 = load ptr, ptr %83, align 8
-  %212 = getelementptr inbounds double, ptr %211, i64 %indvars.iv128
+  %212 = getelementptr inbounds double, ptr %211, i64 %indvars.iv125
   %213 = load double, ptr %212, align 8
   %214 = load i32, ptr %84, align 8
   %215 = sitofp i32 %214 to double
   %216 = fmul double %76, %215
-  %217 = getelementptr inbounds double, ptr %.sroa.080.2, i64 %indvars.iv128
+  %217 = getelementptr inbounds double, ptr %.sroa.080.2, i64 %indvars.iv125
   %218 = load double, ptr %217, align 8
   %219 = load double, ptr %50, align 8
   %220 = fsub double %218, %219
@@ -3424,14 +3424,14 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4p
   %224 = sitofp i32 %223 to double
   %225 = fdiv double %222, %224
   store double %225, ptr %212, align 8
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %226 = load ptr, ptr %57, align 8
   %227 = load ptr, ptr %56, align 8
   %228 = ptrtoint ptr %226 to i64
   %229 = ptrtoint ptr %227 to i64
   %230 = sub i64 %228, %229
   %231 = ashr exact i64 %230, 3
-  %232 = icmp ugt i64 %231, %indvars.iv.next129
+  %232 = icmp ugt i64 %231, %indvars.iv.next126
   br i1 %232, label %208, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %208, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit, %.preheader
@@ -3468,10 +3468,10 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4p
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit75
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %241, %._crit_edge, %_ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit, %39
-  %248 = icmp sgt i64 %indvars.iv131, 1
-  br i1 %248, label %_ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit, label %._crit_edge112, !llvm.loop !35
+  %248 = icmp sgt i64 %indvars.iv128, 1
+  br i1 %248, label %_ZNK10open_spiel10algorithms11FSICFRGraph7GetNodeEi.exit, label %._crit_edge109, !llvm.loop !35
 
-._crit_edge112:                                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %1
+._crit_edge109:                                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %1
   ret void
 
 _ZNSt6vectorIdSaIdEED2Ev.exit75:                  ; preds = %245, %244

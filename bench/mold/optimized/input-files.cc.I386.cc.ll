@@ -2137,8 +2137,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond243.preheader:                            ; preds = %for.inc
-  %cmp246312.not = icmp eq i64 %49, 0
-  br i1 %cmp246312.not, label %for.end283, label %for.body247.lr.ph
+  %cmp246310.not = icmp eq i64 %49, 0
+  br i1 %cmp246310.not, label %for.end283, label %for.body247.lr.ph
 
 for.body247.lr.ph:                                ; preds = %for.cond243.preheader
   %sections259 = getelementptr inbounds i8, ptr %this, i64 312
@@ -2146,9 +2146,9 @@ for.body247.lr.ph:                                ; preds = %for.cond243.prehead
   br label %for.body247
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %storemerge310 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %storemerge308 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %1 = load ptr, ptr %elf_sections, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %1, i64 %storemerge310
+  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %1, i64 %storemerge308
   %sh_flags = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %x.0.copyload.i = load i32, ptr %sh_flags, align 1
   %2 = and i32 %x.0.copyload.i, -2147483646
@@ -2282,7 +2282,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcE
   %call3.i.i = call noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE6lookupILb1ES6_PFPNSH_4nodeERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS9_EEEbRKT0_ST_PNSH_14const_accessorEbT1_SK_(ptr noundef nonnull align 8 dereferenceable(569) %comdat_groups, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp66, ptr noundef nonnull %second.i, ptr noundef nonnull %acc, i1 noundef zeroext false, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE28allocate_node_move_constructERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS9_, ptr noundef null)
   %12 = load ptr, ptr %my_node.i, align 8
   %second = getelementptr inbounds i8, ptr %12, i64 32
-  %conv73 = trunc i64 %storemerge310 to i32
+  %conv73 = trunc i64 %storemerge308 to i32
   %sub.i = add i64 %11, -1
   %add.ptr.i72 = getelementptr inbounds i8, ptr %10, i64 4
   %13 = load ptr, ptr %_M_finish.i.i, align 8
@@ -2390,7 +2390,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i76
   br label %for.inc
 
 sw.default:                                       ; preds = %land.lhs.true9, %if.end
-  %sh_type14325 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %sh_type14323 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %22 = load ptr, ptr %_M_str.i, align 8
   %x.0.copyload.i79 = load i32, ptr %add.ptr.i, align 1
   %idx.ext80 = zext i32 %x.0.copyload.i79 to i64
@@ -2572,9 +2572,9 @@ land.lhs.true149:                                 ; preds = %if.end146
 
 if.end155:                                        ; preds = %land.lhs.true149, %if.end146
   %call.i = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #28, !noalias !23
-  call void @_ZN4mold3elf12InputSectionINS0_4I386EEC1ERNS0_7ContextIS2_EERNS0_10ObjectFileIS2_EEl(ptr noundef nonnull align 8 dereferenceable(94) %call.i, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull align 8 dereferenceable(704) %this, i64 noundef %storemerge310) #14, !noalias !23
+  call void @_ZN4mold3elf12InputSectionINS0_4I386EEC1ERNS0_7ContextIS2_EERNS0_10ObjectFileIS2_EEl(ptr noundef nonnull align 8 dereferenceable(94) %call.i, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull align 8 dereferenceable(704) %this, i64 noundef %storemerge308) #14, !noalias !23
   %33 = load ptr, ptr %sections, align 8
-  %add.ptr.i174 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %33, i64 %storemerge310
+  %add.ptr.i174 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %33, i64 %storemerge308
   %34 = load ptr, ptr %add.ptr.i174, align 8
   store ptr %call.i, ptr %add.ptr.i174, align 8
   %tobool.not.i.i.i.i175 = icmp eq ptr %34, null
@@ -2585,7 +2585,7 @@ _ZNKSt14default_deleteIN4mold3elf12InputSectionINS1_4I386EEEEclEPS4_.exit.i.i.i.
   br label %_ZNSt10unique_ptrIN4mold3elf12InputSectionINS1_4I386EEESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4mold3elf12InputSectionINS1_4I386EEESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4mold3elf12InputSectionINS1_4I386EEEEclEPS4_.exit.i.i.i.i, %if.end155
-  %x.0.copyload.i177 = load i32, ptr %sh_type14325, align 1
+  %x.0.copyload.i177 = load i32, ptr %sh_type14323, align 1
   switch i32 %x.0.copyload.i177, label %if.end183 [
     i32 1879002115, label %land.lhs.true162
     i32 14, label %if.then182
@@ -2600,7 +2600,7 @@ land.lhs.true162:                                 ; preds = %_ZNSt10unique_ptrIN
 
 if.then166:                                       ; preds = %land.lhs.true162
   %36 = load ptr, ptr %sections, align 8
-  %add.ptr.i178 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %36, i64 %storemerge310
+  %add.ptr.i178 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %36, i64 %storemerge308
   %37 = load ptr, ptr %add.ptr.i178, align 8
   store ptr null, ptr %add.ptr.i178, align 8
   %38 = load ptr, ptr %llvm_addrsig, align 8
@@ -2663,7 +2663,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i210: ; preds = %if.end196
 
 if.then200:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i210
   %39 = load ptr, ptr %sections, align 8
-  %add.ptr.i215 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %39, i64 %storemerge310
+  %add.ptr.i215 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %39, i64 %storemerge308
   %40 = load ptr, ptr %add.ptr.i215, align 8
   store ptr %40, ptr %ref.tmp201, align 8
   call void @_ZNSt6vectorIPN4mold3elf12InputSectionINS1_4I386EEESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %eh_frame_sections, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp201)
@@ -2676,7 +2676,7 @@ if.end205:                                        ; preds = %_ZNSt11char_traitsI
 
 if.then208:                                       ; preds = %if.end205
   %42 = load ptr, ptr %sections, align 8
-  %add.ptr.i216 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %42, i64 %storemerge310
+  %add.ptr.i216 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %42, i64 %storemerge308
   %43 = load ptr, ptr %add.ptr.i216, align 8
   %agg.tmp212.sroa.0.0.copyload = load i64, ptr %name, align 8
   %agg.tmp212.sroa.2.0.copyload = load ptr, ptr %_M_str.i81, align 8
@@ -2760,16 +2760,16 @@ if.then.i260:                                     ; preds = %init.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end52, %if.then.i260, %init.end, %_ZNKSt14default_deleteIN4mold3elf12InputSectionINS1_4I386EEEEclEPS4_.exit.i.i.i.i180, %if.then166, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i140, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i130, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i120, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110, %if.else.i.i.i, %if.then.i.i.i77, %_ZNSt6vectorIN4mold3elf14ComdatGroupRefINS1_4I386EEESaIS4_EE9push_backEOS4_.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %land.lhs.true149, %_ZN4mold3elfL16is_debug_sectionINS0_4I386EEEbRKNS0_7ElfShdrIT_EESt17basic_string_viewIcSt11char_traitsIcEE.exit, %if.then88, %if.end103, %land.lhs.true12, %if.then109
-  %inc = add nuw nsw i64 %storemerge310, 1
+  %inc = add nuw nsw i64 %storemerge308, 1
   %49 = load i64, ptr %_M_extent.i, align 8
   %cmp = icmp ult i64 %inc, %49
   br i1 %cmp, label %for.body, label %for.cond243.preheader, !llvm.loop !27
 
 for.body247:                                      ; preds = %for.body247.lr.ph, %for.inc281
   %50 = phi i64 [ %49, %for.body247.lr.ph ], [ %55, %for.inc281 ]
-  %i242.0313 = phi i64 [ 0, %for.body247.lr.ph ], [ %inc282, %for.inc281 ]
+  %i242.0311 = phi i64 [ 0, %for.body247.lr.ph ], [ %inc282, %for.inc281 ]
   %51 = load ptr, ptr %elf_sections, align 8
-  %add.ptr.i263 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %51, i64 %i242.0313
+  %add.ptr.i263 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %51, i64 %i242.0311
   %sh_type251 = getelementptr inbounds i8, ptr %add.ptr.i263, i64 4
   %x.0.copyload.i264 = load i32, ptr %sh_type251, align 1
   %cmp253.not = icmp eq i32 %x.0.copyload.i264, 9
@@ -2806,7 +2806,7 @@ if.end270:                                        ; preds = %if.end255
   br i1 %cmp.i272.not, label %for.inc281, label %if.then277
 
 if.then277:                                       ; preds = %if.end270
-  %conv278 = trunc i64 %i242.0313 to i32
+  %conv278 = trunc i64 %i242.0311 to i32
   %relsec_idx = getelementptr inbounds i8, ptr %54, i64 60
   store i32 %conv278, ptr %relsec_idx, align 4
   %.pre = load i64, ptr %_M_extent.i, align 8
@@ -2814,7 +2814,7 @@ if.then277:                                       ; preds = %if.end270
 
 for.inc281:                                       ; preds = %if.end270, %if.then277, %for.body247
   %55 = phi i64 [ %50, %if.end270 ], [ %.pre, %if.then277 ], [ %50, %for.body247 ]
-  %inc282 = add nuw nsw i64 %i242.0313, 1
+  %inc282 = add nuw nsw i64 %i242.0311, 1
   %cmp246 = icmp ult i64 %inc282, %55
   br i1 %cmp246, label %for.body247, label %for.end283, !llvm.loop !28
 

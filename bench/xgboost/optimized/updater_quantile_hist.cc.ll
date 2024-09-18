@@ -123776,8 +123776,8 @@ define linkonce_odr void @_ZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0
   br label %63
 
 63:                                               ; preds = %.lr.ph, %_ZNSt6vectorImSaImEED2Ev.exit
-  %.048148 = phi i64 [ %2, %.lr.ph ], [ %219, %_ZNSt6vectorImSaImEED2Ev.exit ]
-  %64 = icmp ult i64 %.048148, %43
+  %.048145 = phi i64 [ %2, %.lr.ph ], [ %219, %_ZNSt6vectorImSaImEED2Ev.exit ]
+  %64 = icmp ult i64 %.048145, %43
   br i1 %64, label %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit, label %65
 
 65:                                               ; preds = %63
@@ -123785,7 +123785,7 @@ define linkonce_odr void @_ZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNS0
   unreachable
 
 _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit: ; preds = %63
-  %66 = getelementptr inbounds i32, ptr %39, i64 %.048148
+  %66 = getelementptr inbounds i32, ptr %39, i64 %.048145
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %45, align 8
   %69 = load i64, ptr %68, align 8
@@ -124007,18 +124007,18 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
   store ptr %9, ptr %.sroa.3.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %.pre178 = ptrtoint ptr %.0.i.i.i.i.i98 to i64
-  %.pre179 = ptrtoint ptr %.sroa.061.293 to i64
-  %.pre181 = sub i64 %.pre178, %.pre179
-  %.pre183 = ashr exact i64 %.pre181, 3
+  %.pre175 = ptrtoint ptr %.0.i.i.i.i.i98 to i64
+  %.pre176 = ptrtoint ptr %.sroa.061.293 to i64
+  %.pre178 = sub i64 %.pre175, %.pre176
+  %.pre180 = ashr exact i64 %.pre178, 3
   br i1 %.not.i.i.i.i, label %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit._crit_edge, label %172
 
 172:                                              ; preds = %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit
-  %173 = icmp sgt i64 %.pre183, 0
+  %173 = icmp sgt i64 %.pre180, 0
   br i1 %173, label %.lr.ph.i.i.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %172, %select.unfold.i.i.i.i
-  %storemerge26.i.i.in.in.i.i = phi i64 [ %storemerge26.i.i.i.i, %select.unfold.i.i.i.i ], [ %.pre183, %172 ]
+  %storemerge26.i.i.in.in.i.i = phi i64 [ %storemerge26.i.i.i.i, %select.unfold.i.i.i.i ], [ %.pre180, %172 ]
   %storemerge26.i.i.in.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i, 1
   %storemerge26.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i, 1
   %174 = shl nuw nsw i64 %storemerge26.i.i.i.i, 3
@@ -124053,18 +124053,18 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
   %179 = shl i64 %.sroa.1.021.i.i, 3
   call void @_ZdlPvm(ptr noundef %.sroa.6.018.i.i, i64 noundef %179) #19
   %.pre = load i64, ptr %7, align 8
-  %.pre176 = load ptr, ptr %51, align 8
-  %.pre177 = load ptr, ptr %52, align 8
+  %.pre173 = load ptr, ptr %51, align 8
+  %.pre174 = load ptr, ptr %52, align 8
   br label %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit._crit_edge
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit._crit_edge: ; preds = %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit, %.loopexit._crit_edge.i.i
-  %180 = phi ptr [ %.pre177, %.loopexit._crit_edge.i.i ], [ %171, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit ]
-  %181 = phi ptr [ %.pre176, %.loopexit._crit_edge.i.i ], [ %166, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit ]
+  %180 = phi ptr [ %.pre174, %.loopexit._crit_edge.i.i ], [ %171, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit ]
+  %181 = phi ptr [ %.pre173, %.loopexit._crit_edge.i.i ], [ %166, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit ]
   %182 = phi i64 [ %.pre, %.loopexit._crit_edge.i.i ], [ %163, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %183 = load ptr, ptr %49, align 8
-  store i64 %.pre183, ptr %10, align 8
+  store i64 %.pre180, ptr %10, align 8
   store ptr %.sroa.061.293, ptr %58, align 8
   store i64 %182, ptr %11, align 8
   store ptr %181, ptr %59, align 8
@@ -124073,7 +124073,7 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
 
 184:                                              ; preds = %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EE7subspanEmm.exit._crit_edge
   %185 = load ptr, ptr %49, align 8
-  store i64 %.pre183, ptr %12, align 8
+  store i64 %.pre180, ptr %12, align 8
   store ptr %.sroa.061.293, ptr %60, align 8
   %186 = load i64, ptr %7, align 8
   store i64 %186, ptr %13, align 8
@@ -124088,7 +124088,7 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
   br i1 %.not.i.i.i58, label %_ZNSt6vectorImSaImEED2Ev.exit, label %190
 
 190:                                              ; preds = %189
-  %191 = sub i64 %.sroa.16.289, %.pre179
+  %191 = sub i64 %.sroa.16.289, %.pre176
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.061.293, i64 noundef %191) #38
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
@@ -124144,7 +124144,7 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %116, %.lr.ph.i.i.i.i.i, %95, %213, %143, %100, %190, %189, %198
-  %219 = add nuw i64 %.048148, 1
+  %219 = add nuw i64 %.048145, 1
   %exitcond.not = icmp eq i64 %219, %3
   br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !2100
 
@@ -124271,262 +124271,259 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
   br label %72
 
 72:                                               ; preds = %.lr.ph, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48
-  %73 = phi float [ 0.000000e+00, %.lr.ph ], [ %145, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
-  %74 = phi i8 [ 0, %.lr.ph ], [ %146, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
-  %75 = phi float [ 0.000000e+00, %.lr.ph ], [ %147, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
-  %76 = phi i32 [ 0, %.lr.ph ], [ %148, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
-  %77 = phi float [ 0.000000e+00, %.lr.ph ], [ %149, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
-  %78 = phi i32 [ 0, %.lr.ph ], [ %150, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
+  %73 = phi i8 [ 0, %.lr.ph ], [ %143, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
+  %74 = phi float [ 0.000000e+00, %.lr.ph ], [ %144, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
+  %75 = phi i32 [ 0, %.lr.ph ], [ %145, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
+  %76 = phi float [ 0.000000e+00, %.lr.ph ], [ %146, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
+  %77 = phi i32 [ 0, %.lr.ph ], [ %147, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
   %indvars.iv = phi i64 [ %71, %.lr.ph ], [ %indvars.iv.next, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48 ]
-  %79 = load ptr, ptr %17, align 8
-  %80 = getelementptr inbounds float, ptr %79, i64 %indvars.iv
-  %81 = load float, ptr %80, align 4
-  %82 = load i64, ptr %2, align 8
-  %83 = icmp ugt i64 %82, %indvars.iv
-  br i1 %83, label %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit, label %84
+  %78 = load ptr, ptr %17, align 8
+  %79 = getelementptr inbounds float, ptr %78, i64 %indvars.iv
+  %80 = load float, ptr %79, align 4
+  %81 = load i64, ptr %2, align 8
+  %82 = icmp ugt i64 %81, %indvars.iv
+  br i1 %82, label %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit, label %83
 
-84:                                               ; preds = %72
+83:                                               ; preds = %72
   call void @_ZSt9terminatev() #36
   unreachable
 
 _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit: ; preds = %72
-  %85 = load ptr, ptr %.in.i, align 8
-  %86 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal", ptr %85, i64 %indvars.iv
-  %87 = load double, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %86, i64 8
-  %89 = load double, ptr %88, align 8
-  %90 = load double, ptr %61, align 8
-  %91 = fsub double %90, %87
-  %92 = load double, ptr %64, align 8
-  %93 = fsub double %92, %89
-  %94 = load ptr, ptr %67, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 36
-  %96 = load float, ptr %95, align 4
-  %97 = fpext float %96 to double
-  %98 = fcmp oge double %93, %97
-  %99 = fcmp oge double %89, %97
-  %100 = and i1 %98, %99
-  br i1 %100, label %101, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
+  %84 = load ptr, ptr %.in.i, align 8
+  %85 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal", ptr %84, i64 %indvars.iv
+  %86 = load double, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  %88 = load double, ptr %87, align 8
+  %89 = load double, ptr %61, align 8
+  %90 = fsub double %89, %86
+  %91 = load double, ptr %64, align 8
+  %92 = fsub double %91, %88
+  %93 = load ptr, ptr %67, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 36
+  %95 = load float, ptr %94, align 4
+  %96 = fpext float %95 to double
+  %97 = fcmp oge double %92, %96
+  %98 = fcmp oge double %88, %96
+  %99 = and i1 %97, %98
+  br i1 %99, label %100, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
-101:                                              ; preds = %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit
-  store double %91, ptr %9, align 8
-  store double %93, ptr %.sroa.7.0..sroa_idx, align 8
-  store double %87, ptr %10, align 8
-  store double %89, ptr %.sroa.10.0..sroa_idx, align 8
-  %102 = call noundef float @_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcSplitGainINS0_9GradStatsEEEfRKS3_ijRKT_SB_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(144) %94, i32 noundef %4, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %103 = load float, ptr %68, align 8
-  %104 = fsub float %102, %103
-  %105 = call float @llvm.fabs.f32(float %104)
-  %106 = fcmp oeq float %105, 0x7FF0000000000000
-  br i1 %106, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit, label %107
+100:                                              ; preds = %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit
+  store double %90, ptr %9, align 8
+  store double %92, ptr %.sroa.7.0..sroa_idx, align 8
+  store double %86, ptr %10, align 8
+  store double %88, ptr %.sroa.10.0..sroa_idx, align 8
+  %101 = call noundef float @_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcSplitGainINS0_9GradStatsEEEfRKS3_ijRKT_SB_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(144) %93, i32 noundef %4, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %102 = load float, ptr %68, align 8
+  %103 = fsub float %101, %102
+  %104 = call float @llvm.fabs.f32(float %103)
+  %105 = fcmp oeq float %104, 0x7FF0000000000000
+  br i1 %105, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit, label %106
 
-107:                                              ; preds = %101
-  %108 = and i32 %78, 2147483647
-  %.not.i.i = icmp ugt i32 %108, %3
-  br i1 %.not.i.i, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %109
+106:                                              ; preds = %100
+  %107 = and i32 %77, 2147483647
+  %.not.i.i = icmp ugt i32 %107, %3
+  br i1 %.not.i.i, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %108
 
-109:                                              ; preds = %107
-  %110 = fcmp ogt float %104, %77
-  br i1 %110, label %112, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
+108:                                              ; preds = %106
+  %109 = fcmp ogt float %103, %76
+  br i1 %109, label %111, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
-_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: ; preds = %107
-  %111 = fcmp ule float %77, %104
-  br i1 %111, label %112, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
+_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: ; preds = %106
+  %110 = fcmp ule float %76, %103
+  br i1 %110, label %111, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
-112:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %109
-  store float %104, ptr %8, align 8
+111:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %108
+  store float %103, ptr %8, align 8
   store i32 %69, ptr %27, align 4
-  store float %81, ptr %28, align 8
+  store float %80, ptr %28, align 8
   store i8 1, ptr %31, align 8
-  store double %91, ptr %30, align 8
-  store double %93, ptr %.sroa.7.0..sroa_idx93, align 8
-  store double %87, ptr %70, align 8
-  store double %89, ptr %.sroa.10.0..sroa_idx79, align 8
+  store double %90, ptr %30, align 8
+  store double %92, ptr %.sroa.7.0..sroa_idx93, align 8
+  store double %86, ptr %70, align 8
+  store double %88, ptr %.sroa.10.0..sroa_idx79, align 8
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
-113:                                              ; preds = %182, %153
+112:                                              ; preds = %179, %150
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   %.pre107 = load ptr, ptr %29, align 8
   %.not.i.i.i.i53 = icmp eq ptr %.pre107, null
-  br i1 %.not.i.i.i.i53, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit54, label %200
+  br i1 %.not.i.i.i.i53, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit54, label %197
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit: ; preds = %112, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %109, %101, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit
-  %114 = phi float [ %81, %112 ], [ %73, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %73, %109 ], [ %73, %101 ], [ %73, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
-  %115 = phi i8 [ 1, %112 ], [ %74, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %74, %109 ], [ %74, %101 ], [ %74, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
-  %116 = phi float [ %104, %112 ], [ %75, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %75, %109 ], [ %75, %101 ], [ %75, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
-  %117 = phi i32 [ %69, %112 ], [ %76, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %76, %109 ], [ %76, %101 ], [ %76, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
-  %118 = phi float [ %104, %112 ], [ %77, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %77, %109 ], [ %77, %101 ], [ %77, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
-  %119 = phi i32 [ %69, %112 ], [ %78, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %78, %109 ], [ %78, %101 ], [ %78, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
-  %120 = fadd double %63, %87
-  %121 = fadd double %66, %89
-  %122 = load double, ptr %61, align 8
-  %123 = fsub double %122, %120
-  %124 = load double, ptr %64, align 8
-  %125 = fsub double %124, %121
-  %126 = load ptr, ptr %67, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 36
-  %128 = load float, ptr %127, align 4
-  %129 = fpext float %128 to double
-  %130 = fcmp oge double %125, %129
-  %131 = fcmp oge double %121, %129
-  %132 = and i1 %130, %131
-  br i1 %132, label %133, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit: ; preds = %111, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %108, %100, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit
+  %113 = phi i8 [ 1, %111 ], [ %73, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %73, %108 ], [ %73, %100 ], [ %73, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
+  %114 = phi float [ %103, %111 ], [ %74, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %74, %108 ], [ %74, %100 ], [ %74, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
+  %115 = phi i32 [ %69, %111 ], [ %75, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %75, %108 ], [ %75, %100 ], [ %75, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
+  %116 = phi float [ %103, %111 ], [ %76, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %76, %108 ], [ %76, %100 ], [ %76, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
+  %117 = phi i32 [ %69, %111 ], [ %77, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %77, %108 ], [ %77, %100 ], [ %77, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit ]
+  %118 = fadd double %63, %86
+  %119 = fadd double %66, %88
+  %120 = load double, ptr %61, align 8
+  %121 = fsub double %120, %118
+  %122 = load double, ptr %64, align 8
+  %123 = fsub double %122, %119
+  %124 = load ptr, ptr %67, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 36
+  %126 = load float, ptr %125, align 4
+  %127 = fpext float %126 to double
+  %128 = fcmp oge double %123, %127
+  %129 = fcmp oge double %119, %127
+  %130 = and i1 %128, %129
+  br i1 %130, label %131, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48
 
-133:                                              ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
-  store double %123, ptr %11, align 8
-  store double %125, ptr %.sroa.7.0..sroa_idx91, align 8
-  store double %120, ptr %12, align 8
-  store double %121, ptr %.sroa.10.0..sroa_idx77, align 8
-  %134 = call noundef float @_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcSplitGainINS0_9GradStatsEEEfRKS3_ijRKT_SB_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(144) %126, i32 noundef %4, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
-  %135 = load float, ptr %68, align 8
-  %136 = fsub float %134, %135
-  %137 = call float @llvm.fabs.f32(float %136)
-  %138 = fcmp oeq float %137, 0x7FF0000000000000
-  br i1 %138, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48, label %139
+131:                                              ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
+  store double %121, ptr %11, align 8
+  store double %123, ptr %.sroa.7.0..sroa_idx91, align 8
+  store double %118, ptr %12, align 8
+  store double %119, ptr %.sroa.10.0..sroa_idx77, align 8
+  %132 = call noundef float @_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE13CalcSplitGainINS0_9GradStatsEEEfRKS3_ijRKT_SB_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(144) %124, i32 noundef %4, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %133 = load float, ptr %68, align 8
+  %134 = fsub float %132, %133
+  %135 = call float @llvm.fabs.f32(float %134)
+  %136 = fcmp oeq float %135, 0x7FF0000000000000
+  br i1 %136, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48, label %137
 
-139:                                              ; preds = %133
-  %140 = and i32 %117, 2147483647
-  %.not.i.i45 = icmp ugt i32 %140, %3
-  br i1 %.not.i.i45, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47, label %141
+137:                                              ; preds = %131
+  %138 = and i32 %115, 2147483647
+  %.not.i.i45 = icmp ugt i32 %138, %3
+  br i1 %.not.i.i45, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47, label %139
 
-141:                                              ; preds = %139
-  %142 = fcmp ogt float %136, %116
-  br i1 %142, label %144, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48
+139:                                              ; preds = %137
+  %140 = fcmp ogt float %134, %114
+  br i1 %140, label %142, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48
 
-_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47: ; preds = %139
-  %143 = fcmp ule float %116, %136
-  br i1 %143, label %144, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48
+_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47: ; preds = %137
+  %141 = fcmp ule float %114, %134
+  br i1 %141, label %142, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48
 
-144:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47, %141
-  store float %136, ptr %8, align 8
+142:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47, %139
+  store float %134, ptr %8, align 8
   store i32 %3, ptr %27, align 4
-  store float %81, ptr %28, align 8
+  store float %80, ptr %28, align 8
   store i8 1, ptr %31, align 8
-  store double %123, ptr %30, align 8
-  store double %125, ptr %.sroa.7.0..sroa_idx93, align 8
-  store double %120, ptr %70, align 8
-  store double %121, ptr %.sroa.10.0..sroa_idx79, align 8
+  store double %121, ptr %30, align 8
+  store double %123, ptr %.sroa.7.0..sroa_idx93, align 8
+  store double %118, ptr %70, align 8
+  store double %119, ptr %.sroa.10.0..sroa_idx79, align 8
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48: ; preds = %144, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47, %141, %133, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
-  %145 = phi float [ %81, %144 ], [ %114, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %114, %141 ], [ %114, %133 ], [ %114, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %146 = phi i8 [ 1, %144 ], [ %115, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %115, %141 ], [ %115, %133 ], [ %115, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %147 = phi float [ %136, %144 ], [ %116, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %116, %141 ], [ %116, %133 ], [ %116, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %148 = phi i32 [ %3, %144 ], [ %117, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %117, %141 ], [ %117, %133 ], [ %117, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %149 = phi float [ %136, %144 ], [ %116, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %116, %141 ], [ %118, %133 ], [ %118, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %150 = phi i32 [ %3, %144 ], [ %117, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %117, %141 ], [ %119, %133 ], [ %119, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48: ; preds = %142, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47, %139, %131, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
+  %143 = phi i8 [ 1, %142 ], [ %113, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %113, %139 ], [ %113, %131 ], [ %113, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %144 = phi float [ %134, %142 ], [ %114, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %114, %139 ], [ %114, %131 ], [ %114, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %145 = phi i32 [ %3, %142 ], [ %115, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %115, %139 ], [ %115, %131 ], [ %115, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %146 = phi float [ %134, %142 ], [ %114, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %114, %139 ], [ %116, %131 ], [ %116, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %147 = phi i32 [ %3, %142 ], [ %115, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i47 ], [ %115, %139 ], [ %117, %131 ], [ %117, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %151 = trunc nsw i64 %indvars.iv.next to i32
-  %.not = icmp eq i32 %25, %151
+  %148 = trunc nsw i64 %indvars.iv.next to i32
+  %.not = icmp eq i32 %25, %148
   br i1 %.not, label %._crit_edge, label %72, !llvm.loop !2105
 
 ._crit_edge:                                      ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit48
-  %152 = trunc nuw i8 %146 to i1
-  br i1 %152, label %153, label %._crit_edge.thread
+  %149 = trunc nuw i8 %143 to i1
+  br i1 %149, label %150, label %._crit_edge.thread
 
-153:                                              ; preds = %._crit_edge
-  %154 = add nsw i32 %26, 1
-  %155 = sext i32 %154 to i64
-  %156 = uitofp i64 %155 to double
-  %157 = fmul double %156, 3.125000e-02
-  %158 = call double @llvm.ceil.f64(double %157)
-  %159 = fptoui double %158 to i64
+150:                                              ; preds = %._crit_edge
+  %151 = add nsw i32 %26, 1
+  %152 = sext i32 %151 to i64
+  %153 = uitofp i64 %152 to double
+  %154 = fmul double %153, 3.125000e-02
+  %155 = call double @llvm.ceil.f64(double %154)
+  %156 = fptoui double %155 to i64
   store i32 0, ptr %13, align 4
-  %.not108 = icmp ne i64 %159, 0
+  %.not108 = icmp ne i64 %156, 0
   call void @llvm.assume(i1 %.not108)
-  invoke void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr null, i64 noundef %159, ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge104 unwind label %113
+  invoke void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr null, i64 noundef %156, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge104 unwind label %112
 
-._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge104: ; preds = %153
+._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge104: ; preds = %150
   %.pre = load ptr, ptr %29, align 8
   %.pre105 = load float, ptr %28, align 8
-  %160 = fptoui float %.pre105 to i64
-  %161 = lshr i64 %160, 5
-  %162 = and i64 %160, 31
-  %163 = xor i64 %162, 31
-  %164 = getelementptr inbounds i32, ptr %.pre, i64 %161
-  %165 = shl nuw nsw i64 1, %163
-  %166 = trunc nuw i64 %165 to i32
-  %167 = load i32, ptr %164, align 4
-  %168 = or i32 %167, %166
-  store i32 %168, ptr %164, align 4
+  %157 = fptoui float %.pre105 to i64
+  %158 = lshr i64 %157, 5
+  %159 = and i64 %157, 31
+  %160 = xor i64 %159, 31
+  %161 = getelementptr inbounds i32, ptr %.pre, i64 %158
+  %162 = shl nuw nsw i64 1, %160
+  %163 = trunc nuw i64 %162 to i32
+  %164 = load i32, ptr %161, align 4
+  %165 = or i32 %164, %163
+  store i32 %165, ptr %161, align 4
   %.pre106 = load float, ptr %8, align 8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.loopexit98, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge104, %._crit_edge
-  %169 = phi float [ %.pre106, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge104 ], [ %147, %._crit_edge ], [ 0.000000e+00, %.loopexit98 ]
-  %170 = call float @llvm.fabs.f32(float %169)
-  %171 = fcmp oeq float %170, 0x7FF0000000000000
-  br i1 %171, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit, label %172
+  %166 = phi float [ %.pre106, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge104 ], [ %144, %._crit_edge ], [ 0.000000e+00, %.loopexit98 ]
+  %167 = call float @llvm.fabs.f32(float %166)
+  %168 = fcmp oeq float %167, 0x7FF0000000000000
+  br i1 %168, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit, label %169
 
-172:                                              ; preds = %._crit_edge.thread
-  %173 = load i32, ptr %27, align 4
+169:                                              ; preds = %._crit_edge.thread
+  %170 = load i32, ptr %27, align 4
+  %171 = and i32 %170, 2147483647
+  %172 = getelementptr inbounds i8, ptr %6, i64 4
+  %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 2147483647
-  %175 = getelementptr inbounds i8, ptr %6, i64 4
-  %176 = load i32, ptr %175, align 4
-  %177 = and i32 %176, 2147483647
-  %.not.i.i50 = icmp ugt i32 %177, %174
-  %178 = load float, ptr %6, align 8
-  br i1 %.not.i.i50, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i51, label %179
+  %.not.i.i50 = icmp ugt i32 %174, %171
+  %175 = load float, ptr %6, align 8
+  br i1 %.not.i.i50, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i51, label %176
 
-179:                                              ; preds = %172
-  %180 = fcmp ogt float %169, %178
-  br i1 %180, label %182, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
+176:                                              ; preds = %169
+  %177 = fcmp ogt float %166, %175
+  br i1 %177, label %179, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
-_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i51: ; preds = %172
-  %181 = fcmp ule float %178, %169
-  br i1 %181, label %182, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
+_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i51: ; preds = %169
+  %178 = fcmp ule float %175, %166
+  br i1 %178, label %179, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
-182:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i51, %179
-  store float %169, ptr %6, align 8
-  store i32 %173, ptr %175, align 4
-  %183 = load float, ptr %28, align 8
-  %184 = getelementptr inbounds i8, ptr %6, i64 8
-  store float %183, ptr %184, align 8
-  %185 = load i8, ptr %31, align 8
-  %186 = getelementptr inbounds i8, ptr %6, i64 40
-  %187 = and i8 %185, 1
-  store i8 %187, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %6, i64 16
-  %189 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %188, ptr noundef nonnull align 8 dereferenceable(24) %29)
-          to label %.noexc52 unwind label %113
+179:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i51, %176
+  store float %166, ptr %6, align 8
+  store i32 %170, ptr %172, align 4
+  %180 = load float, ptr %28, align 8
+  %181 = getelementptr inbounds i8, ptr %6, i64 8
+  store float %180, ptr %181, align 8
+  %182 = load i8, ptr %31, align 8
+  %183 = getelementptr inbounds i8, ptr %6, i64 40
+  %184 = and i8 %182, 1
+  store i8 %184, ptr %183, align 8
+  %185 = getelementptr inbounds i8, ptr %6, i64 16
+  %186 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef nonnull align 8 dereferenceable(24) %29)
+          to label %.noexc52 unwind label %112
 
-.noexc52:                                         ; preds = %182
-  %190 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
-  %191 = getelementptr inbounds i8, ptr %8, i64 64
-  %192 = getelementptr inbounds i8, ptr %6, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull align 8 dereferenceable(16) %191, i64 16, i1 false)
+.noexc52:                                         ; preds = %179
+  %187 = getelementptr inbounds i8, ptr %6, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
+  %188 = getelementptr inbounds i8, ptr %8, i64 64
+  %189 = getelementptr inbounds i8, ptr %6, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull align 8 dereferenceable(16) %188, i64 16, i1 false)
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit: ; preds = %.noexc52, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i51, %179, %._crit_edge.thread
-  %193 = load ptr, ptr %29, align 8
-  %.not.i.i.i.i = icmp eq ptr %193, null
-  br i1 %.not.i.i.i.i, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit, label %194
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit: ; preds = %.noexc52, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i51, %176, %._crit_edge.thread
+  %190 = load ptr, ptr %29, align 8
+  %.not.i.i.i.i = icmp eq ptr %190, null
+  br i1 %.not.i.i.i.i, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit, label %191
 
-194:                                              ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
-  %195 = getelementptr inbounds i8, ptr %8, i64 32
-  %196 = load ptr, ptr %195, align 8
-  %197 = ptrtoint ptr %196 to i64
-  %198 = ptrtoint ptr %193 to i64
-  %199 = sub i64 %197, %198
-  call void @_ZdlPvm(ptr noundef nonnull %193, i64 noundef %199) #38
+191:                                              ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
+  %192 = getelementptr inbounds i8, ptr %8, i64 32
+  %193 = load ptr, ptr %192, align 8
+  %194 = ptrtoint ptr %193 to i64
+  %195 = ptrtoint ptr %190 to i64
+  %196 = sub i64 %194, %195
+  call void @_ZdlPvm(ptr noundef nonnull %190, i64 noundef %196) #38
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit: ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit, %194
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit: ; preds = %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit, %191
   ret void
 
-200:                                              ; preds = %113
-  %201 = getelementptr inbounds i8, ptr %8, i64 32
-  %202 = load ptr, ptr %201, align 8
-  %203 = ptrtoint ptr %202 to i64
-  %204 = ptrtoint ptr %.pre107 to i64
-  %205 = sub i64 %203, %204
-  call void @_ZdlPvm(ptr noundef nonnull %.pre107, i64 noundef %205) #38
+197:                                              ; preds = %112
+  %198 = getelementptr inbounds i8, ptr %8, i64 32
+  %199 = load ptr, ptr %198, align 8
+  %200 = ptrtoint ptr %199 to i64
+  %201 = ptrtoint ptr %.pre107 to i64
+  %202 = sub i64 %200, %201
+  call void @_ZdlPvm(ptr noundef nonnull %.pre107, i64 noundef %202) #38
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit54
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit54: ; preds = %113, %200
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit54: ; preds = %112, %197
   resume { ptr, i32 } %lpad.loopexit.split-lp
 }
 

@@ -3788,11 +3788,11 @@ define internal fastcc void @_ZN6syntax7parsing9reparsing12merge_errors17h27e57d
   br label %.thread66
 
 36:                                               ; preds = %.lr.ph, %95
-  %.sroa.0.097 = phi ptr [ %1, %.lr.ph ], [ %37, %95 ]
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.097, i64 32
+  %.sroa.0.093 = phi ptr [ %1, %.lr.ph ], [ %37, %95 ]
+  %37 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !585)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i), !noalias !588
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.0.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.097)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.0.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.093)
           to label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8038b305ebe133E.exit" unwind label %38
 
 38:                                               ; preds = %97, %36
@@ -3801,9 +3801,9 @@ define internal fastcc void @_ZN6syntax7parsing9reparsing12merge_errors17h27e57d
   br label %.thread66
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8038b305ebe133E.exit": ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.097, i64 24
+  %40 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 24
   %41 = load i32, ptr %40, align 8, !alias.scope !593, !noalias !596, !noundef !4
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.097, i64 28
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 28
   %43 = load i32, ptr %42, align 4, !alias.scope !593, !noalias !596, !noundef !4
   %.sroa.046.0.copyload47 = load i64, ptr %.sroa.0.i.i, align 8, !noalias !598
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa.0.i.i.sroa_idx, i64 16, i1 false), !noalias !598

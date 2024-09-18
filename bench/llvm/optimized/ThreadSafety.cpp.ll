@@ -3676,8 +3676,8 @@ _ZN12_GLOBAL__N_116LocalVariableMap11traverseCFGEPN5clang3CFGEPKNS1_16PostOrderC
   br i1 %.not1824.i, label %_ZL18findBlockLocationsPN5clang3CFGEPKNS_16PostOrderCFGViewERSt6vectorIN12_GLOBAL__N_112CFGBlockInfoESaIS7_EE.exit, label %.lr.ph.i191
 
 .lr.ph.i191:                                      ; preds = %_ZN12_GLOBAL__N_116LocalVariableMap11traverseCFGEPN5clang3CFGEPKNS1_16PostOrderCFGViewERSt6vectorINS_12CFGBlockInfoESaIS8_EE.exit, %.loopexit.i
-  %.sroa.011.026.i = phi ptr [ %1062, %.loopexit.i ], [ %.val171, %_ZN12_GLOBAL__N_116LocalVariableMap11traverseCFGEPN5clang3CFGEPKNS1_16PostOrderCFGViewERSt6vectorINS_12CFGBlockInfoESaIS8_EE.exit ]
-  %1062 = getelementptr inbounds i8, ptr %.sroa.011.026.i, i64 -8
+  %.sroa.011.025.i = phi ptr [ %1062, %.loopexit.i ], [ %.val171, %_ZN12_GLOBAL__N_116LocalVariableMap11traverseCFGEPN5clang3CFGEPKNS1_16PostOrderCFGViewERSt6vectorINS_12CFGBlockInfoESaIS8_EE.exit ]
+  %1062 = getelementptr inbounds i8, ptr %.sroa.011.025.i, i64 -8
   %1063 = load ptr, ptr %1062, align 8
   %1064 = getelementptr inbounds nuw i8, ptr %1063, i64 48
   %1065 = load i32, ptr %1064, align 8

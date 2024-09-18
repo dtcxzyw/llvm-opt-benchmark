@@ -160577,49 +160577,49 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   %57 = getelementptr inbounds i8, ptr %33, i64 8
   %58 = getelementptr inbounds i8, ptr %33, i64 24
   %59 = load i32, ptr %58, align 8
-  %.not547.not617 = icmp eq i32 %59, 0
-  br i1 %.not547.not617, label %.critedge576, label %.lr.ph625.preheader
+  %.not547.not615 = icmp eq i32 %59, 0
+  br i1 %.not547.not615, label %.critedge576, label %.lr.ph621.preheader
 
-.lr.ph625.preheader:                              ; preds = %56
+.lr.ph621.preheader:                              ; preds = %56
   %60 = getelementptr inbounds i8, ptr %33, i64 16
   %61 = load ptr, ptr %60, align 8
-  br label %.lr.ph625
+  br label %.lr.ph621
 
-.lr.ph625:                                        ; preds = %.lr.ph625.preheader, %143
-  %.0476624 = phi i32 [ %.1477, %143 ], [ %27, %.lr.ph625.preheader ]
-  %.0480623 = phi ptr [ %.1481, %143 ], [ null, %.lr.ph625.preheader ]
-  %.0484621 = phi ptr [ %.1485, %143 ], [ %61, %.lr.ph625.preheader ]
-  %.0487620 = phi i32 [ %144, %143 ], [ %59, %.lr.ph625.preheader ]
+.lr.ph621:                                        ; preds = %.lr.ph621.preheader, %143
+  %.0476620 = phi i32 [ %.1477, %143 ], [ %27, %.lr.ph621.preheader ]
+  %.0480619 = phi ptr [ %.1481, %143 ], [ null, %.lr.ph621.preheader ]
+  %.0484617 = phi ptr [ %.1485, %143 ], [ %61, %.lr.ph621.preheader ]
+  %.0487616 = phi i32 [ %144, %143 ], [ %59, %.lr.ph621.preheader ]
   %62 = load i32, ptr %57, align 8
   %63 = and i32 %62, 4
   %.not548 = icmp eq i32 %63, 0
   br i1 %.not548, label %66, label %64
 
-64:                                               ; preds = %.lr.ph625
-  %65 = getelementptr inbounds i8, ptr %.0484621, i64 16
+64:                                               ; preds = %.lr.ph621
+  %65 = getelementptr inbounds i8, ptr %.0484617, i64 16
   br label %70
 
-66:                                               ; preds = %.lr.ph625
-  %67 = getelementptr inbounds i8, ptr %.0484621, i64 32
-  %68 = getelementptr inbounds i8, ptr %.0484621, i64 24
+66:                                               ; preds = %.lr.ph621
+  %67 = getelementptr inbounds i8, ptr %.0484617, i64 32
+  %68 = getelementptr inbounds i8, ptr %.0484617, i64 24
   %69 = load ptr, ptr %68, align 8
   br label %70
 
 70:                                               ; preds = %66, %64
   %.1485 = phi ptr [ %65, %64 ], [ %67, %66 ]
-  %.1481 = phi ptr [ %.0480623, %64 ], [ %69, %66 ]
-  %71 = getelementptr inbounds i8, ptr %.0484621, i64 8
+  %.1481 = phi ptr [ %.0480619, %64 ], [ %69, %66 ]
+  %71 = getelementptr inbounds i8, ptr %.0484617, i64 8
   %72 = load i8, ptr %71, align 8
   %73 = icmp eq i8 %72, 0
   br i1 %73, label %143, label %74
 
 74:                                               ; preds = %70
   %.not549 = icmp eq ptr %.1481, null
-  %.pre653 = load ptr, ptr %23, align 8
+  %.pre645 = load ptr, ptr %23, align 8
   br i1 %.not549, label %123, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %.pre653, i64 24
+  %76 = getelementptr inbounds i8, ptr %.pre645, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.critedge, label %79
@@ -160639,10 +160639,10 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br i1 %.not550, label %.preheader, label %93
 
 .preheader:                                       ; preds = %84
-  %.not633 = icmp eq i32 %81, 0
-  br i1 %.not633, label %.loopexit592, label %.lr.ph614
+  %.not629 = icmp eq i32 %81, 0
+  br i1 %.not629, label %.loopexit592, label %.lr.ph612
 
-.lr.ph614:                                        ; preds = %.preheader
+.lr.ph612:                                        ; preds = %.preheader
   %88 = getelementptr inbounds i8, ptr %77, i64 40
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %.1481, i64 16
@@ -160652,18 +160652,18 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %110
 
 93:                                               ; preds = %84, %79
-  %.not634 = icmp eq i32 %81, 0
-  br i1 %.not634, label %.loopexit592, label %.lr.ph616
+  %.not630 = icmp eq i32 %81, 0
+  br i1 %.not630, label %.loopexit592, label %.lr.ph614
 
-.lr.ph616:                                        ; preds = %93
+.lr.ph614:                                        ; preds = %93
   %94 = getelementptr inbounds i8, ptr %77, i64 40
   %95 = getelementptr inbounds i8, ptr %.1481, i64 16
   br label %96
 
-96:                                               ; preds = %.lr.ph616, %.critedge2
-  %.0464615 = phi i32 [ 0, %.lr.ph616 ], [ %109, %.critedge2 ]
+96:                                               ; preds = %.lr.ph614, %.critedge2
+  %.0464613 = phi i32 [ 0, %.lr.ph614 ], [ %109, %.critedge2 ]
   %97 = load ptr, ptr %94, align 8
-  %98 = zext i32 %.0464615 to i64
+  %98 = zext i32 %.0464613 to i64
   %99 = getelementptr inbounds %struct._zend_arg_info, ptr %97, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %.1481, %100
@@ -160681,12 +160681,12 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br i1 %108, label %.critedge, label %.critedge2
 
 .critedge2:                                       ; preds = %102, %107
-  %109 = add nuw i32 %.0464615, 1
-  %exitcond649.not = icmp eq i32 %109, %81
-  br i1 %exitcond649.not, label %.loopexit592, label %96
+  %109 = add nuw i32 %.0464613, 1
+  %exitcond641.not = icmp eq i32 %109, %81
+  br i1 %exitcond641.not, label %.loopexit592, label %96
 
-110:                                              ; preds = %.lr.ph614, %.critedge4
-  %indvars.iv = phi i64 [ 0, %.lr.ph614 ], [ %indvars.iv.next, %.critedge4 ]
+110:                                              ; preds = %.lr.ph612, %.critedge4
+  %indvars.iv = phi i64 [ 0, %.lr.ph612 ], [ %indvars.iv.next, %.critedge4 ]
   %111 = getelementptr inbounds %struct._zend_internal_arg_info, ptr %89, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8
   %113 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #28
@@ -160696,7 +160696,7 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
 115:                                              ; preds = %110
   %bcmp = tail call i32 @bcmp(ptr nonnull %92, ptr %112, i64 %91)
   %.not551 = icmp eq i32 %bcmp, 0
-  br i1 %.not551, label %.critedge.loopexit635, label %.critedge4
+  br i1 %.not551, label %.critedge.loopexit631, label %.critedge4
 
 .critedge4:                                       ; preds = %110, %115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -160714,19 +160714,19 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   %120 = load i32, ptr %80, align 8
   br label %.critedge
 
-.critedge.loopexit635:                            ; preds = %115
+.critedge.loopexit631:                            ; preds = %115
   %121 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %107, %96, %.critedge.loopexit635, %.loopexit592, %75, %119
-  %.0463 = phi i32 [ %120, %119 ], [ 0, %75 ], [ -1, %.loopexit592 ], [ %121, %.critedge.loopexit635 ], [ %.0464615, %96 ], [ %.0464615, %107 ]
+.critedge:                                        ; preds = %107, %96, %.critedge.loopexit631, %.loopexit592, %75, %119
+  %.0463 = phi i32 [ %120, %119 ], [ 0, %75 ], [ -1, %.loopexit592 ], [ %121, %.critedge.loopexit631 ], [ %.0464613, %96 ], [ %.0464613, %107 ]
   %122 = add i32 %.0463, 1
-  %.pre652 = load ptr, ptr %23, align 8
+  %.pre644 = load ptr, ptr %23, align 8
   br label %123
 
 123:                                              ; preds = %.critedge, %74
-  %124 = phi ptr [ %.pre652, %.critedge ], [ %.pre653, %74 ]
-  %.2478 = phi i32 [ %122, %.critedge ], [ %.0476624, %74 ]
+  %124 = phi ptr [ %.pre644, %.critedge ], [ %.pre645, %74 ]
+  %.2478 = phi i32 [ %122, %.critedge ], [ %.0476620, %74 ]
   %125 = getelementptr inbounds i8, ptr %124, i64 24
   %126 = load ptr, ptr %125, align 8
   %127 = add i32 %.2478, -1
@@ -160758,10 +160758,10 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %143
 
 143:                                              ; preds = %70, %.critedge574
-  %.1477 = phi i32 [ %.0476624, %70 ], [ %142, %.critedge574 ]
-  %144 = add i32 %.0487620, -1
+  %.1477 = phi i32 [ %.0476620, %70 ], [ %142, %.critedge574 ]
+  %144 = add i32 %.0487616, -1
   %.not547.not = icmp eq i32 %144, 0
-  br i1 %.not547.not, label %.critedge576, label %.lr.ph625
+  br i1 %.not547.not, label %.critedge576, label %.lr.ph621
 
 145:                                              ; preds = %135
   %146 = load ptr, ptr %.0467, align 8
@@ -160783,47 +160783,47 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   %155 = load i32, ptr %146, align 4
   %156 = add i32 %155, -1
   store i32 %156, ptr %146, align 4
-  %.pre654 = load ptr, ptr %.0467, align 8
+  %.pre646 = load ptr, ptr %.0467, align 8
   br label %.critedge576
 
 .critedge576:                                     ; preds = %143, %149, %154, %145, %56, %49, %52
-  %.0468 = phi ptr [ %33, %52 ], [ %33, %49 ], [ %33, %56 ], [ %146, %145 ], [ %.pre654, %154 ], [ %150, %149 ], [ %33, %143 ]
+  %.0468 = phi ptr [ %33, %52 ], [ %33, %49 ], [ %33, %56 ], [ %146, %145 ], [ %.pre646, %154 ], [ %150, %149 ], [ %33, %143 ]
   %157 = getelementptr inbounds i8, ptr %.0468, i64 8
   %158 = getelementptr inbounds i8, ptr %.0468, i64 24
   %159 = load i32, ptr %158, align 8
-  %.not555626 = icmp eq i32 %159, 0
-  br i1 %.not555626, label %.loopexit, label %.lr.ph632.preheader
+  %.not555622 = icmp eq i32 %159, 0
+  br i1 %.not555622, label %.loopexit, label %.lr.ph628.preheader
 
-.lr.ph632.preheader:                              ; preds = %.critedge576
+.lr.ph628.preheader:                              ; preds = %.critedge576
   %160 = getelementptr inbounds i8, ptr %.0468, i64 16
   %161 = load ptr, ptr %160, align 8
-  br label %.lr.ph632
+  br label %.lr.ph628
 
-.lr.ph632:                                        ; preds = %.lr.ph632.preheader, %305
-  %162 = phi i32 [ %306, %305 ], [ %27, %.lr.ph632.preheader ]
-  %.0472631 = phi i1 [ %.1473, %305 ], [ false, %.lr.ph632.preheader ]
-  %.0488630 = phi ptr [ %.1489, %305 ], [ null, %.lr.ph632.preheader ]
-  %.0492628 = phi ptr [ %.1493, %305 ], [ %161, %.lr.ph632.preheader ]
-  %.0494627 = phi i32 [ %307, %305 ], [ %159, %.lr.ph632.preheader ]
+.lr.ph628:                                        ; preds = %.lr.ph628.preheader, %305
+  %162 = phi i32 [ %306, %305 ], [ %27, %.lr.ph628.preheader ]
+  %.0472627 = phi i1 [ %.1473, %305 ], [ false, %.lr.ph628.preheader ]
+  %.0488626 = phi ptr [ %.1489, %305 ], [ null, %.lr.ph628.preheader ]
+  %.0492624 = phi ptr [ %.1493, %305 ], [ %161, %.lr.ph628.preheader ]
+  %.0494623 = phi i32 [ %307, %305 ], [ %159, %.lr.ph628.preheader ]
   %163 = load i32, ptr %157, align 8
   %164 = and i32 %163, 4
   %.not559 = icmp eq i32 %164, 0
   br i1 %.not559, label %167, label %165
 
-165:                                              ; preds = %.lr.ph632
-  %166 = getelementptr inbounds i8, ptr %.0492628, i64 16
+165:                                              ; preds = %.lr.ph628
+  %166 = getelementptr inbounds i8, ptr %.0492624, i64 16
   br label %171
 
-167:                                              ; preds = %.lr.ph632
-  %168 = getelementptr inbounds i8, ptr %.0492628, i64 32
-  %169 = getelementptr inbounds i8, ptr %.0492628, i64 24
+167:                                              ; preds = %.lr.ph628
+  %168 = getelementptr inbounds i8, ptr %.0492624, i64 32
+  %169 = getelementptr inbounds i8, ptr %.0492624, i64 24
   %170 = load ptr, ptr %169, align 8
   br label %171
 
 171:                                              ; preds = %167, %165
   %.1493 = phi ptr [ %166, %165 ], [ %168, %167 ]
-  %.1489 = phi ptr [ %.0488630, %165 ], [ %170, %167 ]
-  %172 = getelementptr inbounds i8, ptr %.0492628, i64 8
+  %.1489 = phi ptr [ %.0488626, %165 ], [ %170, %167 ]
+  %172 = getelementptr inbounds i8, ptr %.0492624, i64 8
   %173 = load i8, ptr %172, align 8
   %174 = icmp eq i8 %173, 0
   br i1 %174, label %305, label %175
@@ -160839,7 +160839,7 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br i1 %.not564, label %178, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %176
-  %.pre655 = load i32, ptr %2, align 4
+  %.pre647 = load i32, ptr %2, align 4
   br label %225
 
 178:                                              ; preds = %176
@@ -160879,7 +160879,7 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %584
 
 197:                                              ; preds = %175
-  br i1 %.0472631, label %198, label %217
+  br i1 %.0472627, label %198, label %217
 
 198:                                              ; preds = %197
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.134) #27
@@ -160930,7 +160930,7 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %225
 
 225:                                              ; preds = %._crit_edge, %217
-  %226 = phi i32 [ %.pre655, %._crit_edge ], [ %162, %217 ]
+  %226 = phi i32 [ %.pre647, %._crit_edge ], [ %162, %217 ]
   %.0469 = phi ptr [ %177, %._crit_edge ], [ %221, %217 ]
   %227 = load ptr, ptr %23, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 24
@@ -160965,15 +160965,15 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br i1 %247, label %248, label %256
 
 248:                                              ; preds = %245
-  %249 = getelementptr inbounds i8, ptr %.0492628, i64 9
+  %249 = getelementptr inbounds i8, ptr %.0492624, i64 9
   %250 = load i8, ptr %249, align 1
   %251 = icmp ne i8 %250, 0
   tail call void @llvm.assume(i1 %251)
-  %252 = load ptr, ptr %.0492628, align 8
+  %252 = load ptr, ptr %.0492624, align 8
   %253 = load i32, ptr %252, align 4
   %254 = add i32 %253, 1
   store i32 %254, ptr %252, align 4
-  %255 = load ptr, ptr %.0492628, align 8
+  %255 = load ptr, ptr %.0492624, align 8
   br label %302
 
 256:                                              ; preds = %245
@@ -160988,25 +160988,25 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   %261 = getelementptr inbounds i8, ptr %260, i64 4
   store i32 26, ptr %261, align 4
   %262 = getelementptr inbounds i8, ptr %260, i64 8
-  %263 = load ptr, ptr %.0492628, align 8
+  %263 = load ptr, ptr %.0492624, align 8
   %264 = load i32, ptr %172, align 8
   store ptr %263, ptr %262, align 8
   %265 = getelementptr inbounds i8, ptr %260, i64 16
   store i32 %264, ptr %265, align 8
   %266 = getelementptr inbounds i8, ptr %260, i64 24
   store ptr null, ptr %266, align 8
-  store ptr %260, ptr %.0492628, align 8
+  store ptr %260, ptr %.0492624, align 8
   store i32 266, ptr %172, align 8
   br label %302
 
 267:                                              ; preds = %256
-  %268 = getelementptr inbounds i8, ptr %.0492628, i64 9
+  %268 = getelementptr inbounds i8, ptr %.0492624, i64 9
   %269 = load i8, ptr %268, align 1
   %.not569 = icmp eq i8 %269, 0
   br i1 %.not569, label %274, label %270
 
 270:                                              ; preds = %267
-  %271 = load ptr, ptr %.0492628, align 8
+  %271 = load ptr, ptr %.0492624, align 8
   %272 = load i32, ptr %271, align 4
   %273 = add i32 %272, 1
   store i32 %273, ptr %271, align 4
@@ -161018,7 +161018,7 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   %276 = getelementptr inbounds i8, ptr %275, i64 4
   store i32 26, ptr %276, align 4
   %277 = getelementptr inbounds i8, ptr %275, i64 8
-  %278 = load ptr, ptr %.0492628, align 8
+  %278 = load ptr, ptr %.0492624, align 8
   %279 = load i32, ptr %172, align 8
   store ptr %278, ptr %277, align 8
   %280 = getelementptr inbounds i8, ptr %275, i64 16
@@ -161039,7 +161039,7 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br i1 %286, label %287, label %.sink.split
 
 287:                                              ; preds = %284
-  %288 = load ptr, ptr %.0492628, align 8
+  %288 = load ptr, ptr %.0492624, align 8
   %289 = getelementptr inbounds i8, ptr %288, i64 8
   %290 = getelementptr inbounds i8, ptr %288, i64 16
   %291 = load i32, ptr %290, align 8
@@ -161049,39 +161049,39 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
 
 .sink.split:                                      ; preds = %284, %287
   %.sink = phi i32 [ %291, %287 ], [ %282, %284 ]
-  %.sink669 = phi ptr [ %289, %287 ], [ %.0492628, %284 ]
+  %.sink661 = phi ptr [ %289, %287 ], [ %.0492624, %284 ]
   %293 = and i32 %.sink, 65280
   %294 = icmp ne i32 %293, 0
   tail call void @llvm.assume(i1 %294)
-  %295 = load ptr, ptr %.sink669, align 8
+  %295 = load ptr, ptr %.sink661, align 8
   %296 = load i32, ptr %295, align 4
   %297 = add i32 %296, 1
   store i32 %297, ptr %295, align 4
   br label %298
 
 298:                                              ; preds = %.sink.split, %.critedge578, %287
-  %.0486 = phi ptr [ %289, %287 ], [ %.0492628, %.critedge578 ], [ %.sink669, %.sink.split ]
+  %.0486 = phi ptr [ %289, %287 ], [ %.0492624, %.critedge578 ], [ %.sink661, %.sink.split ]
   %299 = load ptr, ptr %.0486, align 8
   %300 = getelementptr inbounds i8, ptr %.0486, i64 8
   %301 = load i32, ptr %300, align 8
   br label %302
 
 302:                                              ; preds = %248, %274, %259, %298
-  %.sink673 = phi ptr [ %255, %248 ], [ %275, %274 ], [ %260, %259 ], [ %299, %298 ]
-  %.sink671 = phi i32 [ 266, %248 ], [ 266, %274 ], [ 266, %259 ], [ %301, %298 ]
-  store ptr %.sink673, ptr %.0469, align 8
+  %.sink665 = phi ptr [ %255, %248 ], [ %275, %274 ], [ %260, %259 ], [ %299, %298 ]
+  %.sink663 = phi i32 [ 266, %248 ], [ 266, %274 ], [ 266, %259 ], [ %301, %298 ]
+  store ptr %.sink665, ptr %.0469, align 8
   %303 = getelementptr inbounds i8, ptr %.0469, i64 8
-  store i32 %.sink671, ptr %303, align 8
+  store i32 %.sink663, ptr %303, align 8
   %304 = add i32 %226, 1
   store i32 %304, ptr %2, align 4
   br label %305
 
 305:                                              ; preds = %171, %302
   %306 = phi i32 [ %162, %171 ], [ %304, %302 ]
-  %.1473 = phi i1 [ %.0472631, %171 ], [ %.not560, %302 ]
-  %307 = add i32 %.0494627, -1
+  %.1473 = phi i1 [ %.0472627, %171 ], [ %.not560, %302 ]
+  %307 = add i32 %.0494623, -1
   %.not555 = icmp eq i32 %307, 0
-  br i1 %.not555, label %.loopexit, label %.lr.ph632
+  br i1 %.not555, label %.loopexit, label %.lr.ph628
 
 308:                                              ; preds = %28
   %309 = load ptr, ptr %.0467, align 8
@@ -161145,8 +161145,8 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   %338 = load ptr, ptr %337, align 8
   %339 = getelementptr inbounds i8, ptr %338, i64 24
   %340 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.86, ptr noundef nonnull %339) #27
-  %.pre651 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %341 = icmp ne ptr %.pre651, null
+  %.pre643 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %341 = icmp ne ptr %.pre643, null
   br label %342
 
 342:                                              ; preds = %336, %334
@@ -161172,9 +161172,9 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   %353 = tail call i32 %352(ptr noundef nonnull %317) #27
   %354 = icmp eq i32 %353, 0
   %355 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not521608 = icmp eq ptr %355, null
-  %or.cond609 = select i1 %354, i1 %.not521608, i1 false
-  br i1 %or.cond609, label %.lr.ph, label %.loopexit595
+  %.not521606 = icmp eq ptr %355, null
+  %or.cond607 = select i1 %354, i1 %.not521606, i1 false
+  br i1 %or.cond607, label %.lr.ph, label %.loopexit595
 
 .lr.ph:                                           ; preds = %350
   %356 = getelementptr inbounds i8, ptr %346, i64 16
@@ -161185,7 +161185,7 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
 
 360:                                              ; preds = %.lr.ph, %540
   %361 = phi i32 [ %27, %.lr.ph ], [ %543, %540 ]
-  %.0474610 = phi i1 [ false, %.lr.ph ], [ %.1475, %540 ]
+  %.0474608 = phi i1 [ false, %.lr.ph ], [ %.1475, %540 ]
   %362 = load ptr, ptr %356, align 8
   %363 = call ptr %362(ptr noundef nonnull %317) #27
   %364 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -161349,11 +161349,11 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %446
 
 446:                                              ; preds = %.critedge580, %431
-  %.sink676 = phi ptr [ %444, %.critedge580 ], [ %437, %431 ]
-  %.sink674 = phi i32 [ %445, %.critedge580 ], [ 266, %431 ]
-  store ptr %.sink676, ptr %375, align 8
+  %.sink668 = phi ptr [ %444, %.critedge580 ], [ %437, %431 ]
+  %.sink666 = phi i32 [ %445, %.critedge580 ], [ 266, %431 ]
+  store ptr %.sink668, ptr %375, align 8
   %447 = getelementptr inbounds i8, ptr %375, i64 8
-  store i32 %.sink674, ptr %447, align 8
+  store i32 %.sink666, ptr %447, align 8
   %448 = getelementptr inbounds i8, ptr %373, i64 4
   %449 = load i32, ptr %448, align 4
   %450 = and i32 %449, 64
@@ -161383,7 +161383,7 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %540
 
 .thread:                                          ; preds = %365, %369, %372
-  br i1 %.0474610, label %460, label %461
+  br i1 %.0474608, label %460, label %461
 
 460:                                              ; preds = %.thread
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.134) #27
@@ -161440,11 +161440,11 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   %491 = load i32, ptr %490, align 4
   %492 = add i32 %491, 1
   store i32 %492, ptr %490, align 4
-  %.pre650 = load ptr, ptr %23, align 8
+  %.pre642 = load ptr, ptr %23, align 8
   br label %493
 
 493:                                              ; preds = %485, %489
-  %494 = phi ptr [ %475, %485 ], [ %.pre650, %489 ]
+  %494 = phi ptr [ %475, %485 ], [ %.pre642, %489 ]
   %495 = getelementptr inbounds i8, ptr %494, i64 24
   %496 = load ptr, ptr %495, align 8
   %497 = add i32 %361, -1
@@ -161510,11 +161510,11 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %534
 
 534:                                              ; preds = %.critedge582, %519
-  %.sink679 = phi ptr [ %532, %.critedge582 ], [ %525, %519 ]
-  %.sink677 = phi i32 [ %533, %.critedge582 ], [ 266, %519 ]
-  store ptr %.sink679, ptr %478, align 8
+  %.sink671 = phi ptr [ %532, %.critedge582 ], [ %525, %519 ]
+  %.sink669 = phi i32 [ %533, %.critedge582 ], [ 266, %519 ]
+  store ptr %.sink671, ptr %478, align 8
   %535 = getelementptr i8, ptr %477, i64 72
-  store i32 %.sink677, ptr %535, align 8
+  store i32 %.sink669, ptr %535, align 8
   %536 = load ptr, ptr %23, align 8
   %537 = getelementptr inbounds i8, ptr %536, i64 44
   %538 = load i32, ptr %537, align 4

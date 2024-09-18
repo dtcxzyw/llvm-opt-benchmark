@@ -3173,10 +3173,10 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   %496 = load ptr, ptr %495, align 8
   %497 = getelementptr inbounds nuw i8, ptr %494, i64 184
   %498 = load ptr, ptr %497, align 8
-  %.not112.i = icmp eq ptr %496, %498
-  br i1 %.not112.i, label %_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter18populateAbbrevsMapEv.exit, label %.lr.ph118.i
+  %.not101.i = icmp eq ptr %496, %498
+  br i1 %.not101.i, label %_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter18populateAbbrevsMapEv.exit, label %.lr.ph104.i
 
-.lr.ph118.i:                                      ; preds = %._crit_edge216
+.lr.ph104.i:                                      ; preds = %._crit_edge216
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %500 = getelementptr inbounds i8, ptr %0, i64 336
   %501 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3192,17 +3192,17 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   %.sroa.056.i.4.i.4.i.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.056.i, i64 4
   br label %507
 
-507:                                              ; preds = %._crit_edge108.i, %.lr.ph118.i
-  %.0116.i = phi ptr [ %496, %.lr.ph118.i ], [ %689, %._crit_edge108.i ]
-  %508 = load ptr, ptr %.0116.i, align 8
-  %509 = getelementptr inbounds nuw i8, ptr %.0116.i, i64 8
+507:                                              ; preds = %._crit_edge100.i, %.lr.ph104.i
+  %.0102.i = phi ptr [ %496, %.lr.ph104.i ], [ %689, %._crit_edge100.i ]
+  %508 = load ptr, ptr %.0102.i, align 8
+  %509 = getelementptr inbounds nuw i8, ptr %.0102.i, i64 8
   %510 = load ptr, ptr %509, align 8
-  %.not90101.i = icmp eq ptr %508, %510
-  br i1 %.not90101.i, label %._crit_edge108.i, label %.lr.ph107.i
+  %.not9096.i = icmp eq ptr %508, %510
+  br i1 %.not9096.i, label %._crit_edge100.i, label %.lr.ph99.i
 
-.lr.ph107.i:                                      ; preds = %507, %._crit_edge.i
-  %.sroa.070.0105.i = phi ptr [ %688, %._crit_edge.i ], [ %508, %507 ]
-  %511 = load ptr, ptr %.sroa.070.0105.i, align 8
+.lr.ph99.i:                                       ; preds = %507, %._crit_edge.i
+  %.sroa.070.097.i = phi ptr [ %688, %._crit_edge.i ], [ %508, %507 ]
+  %511 = load ptr, ptr %.sroa.070.097.i, align 8
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 16
   %513 = load ptr, ptr %512, align 8, !noalias !62
   %514 = getelementptr inbounds nuw i8, ptr %511, i64 24
@@ -3210,9 +3210,9 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   %.not9194.i = icmp eq ptr %513, %515
   br i1 %.not9194.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph107.i, %_ZN4llvm16DebugNamesAbbrevD2Ev.exit.i
-  %.sroa.062.098.i = phi ptr [ %687, %_ZN4llvm16DebugNamesAbbrevD2Ev.exit.i ], [ %513, %.lr.ph107.i ]
-  %516 = load ptr, ptr %.sroa.062.098.i, align 8
+.lr.ph.i:                                         ; preds = %.lr.ph99.i, %_ZN4llvm16DebugNamesAbbrevD2Ev.exit.i
+  %.sroa.062.095.i = phi ptr [ %687, %_ZN4llvm16DebugNamesAbbrevD2Ev.exit.i ], [ %513, %.lr.ph99.i ]
+  %516 = load ptr, ptr %.sroa.062.095.i, align 8
   %517 = load ptr, ptr %57, align 8
   %518 = load i64, ptr %499, align 8
   %519 = call { i64, i64 } %517(i64 noundef %518, ptr noundef nonnull align 8 dereferenceable(48) %516) #18
@@ -3339,8 +3339,8 @@ _ZL19getFormForIdxParentRKN4llvm8DenseSetINS_15OffsetAndUnitIDENS_12DenseMapInfo
   store i32 0, ptr %502, align 4
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %503, ptr noundef nonnull %504, i64 noundef 1) #18
   %580 = and i64 %521, 4294967296
-  %.not121.i = icmp eq i64 %580, 0
-  br i1 %.not121.i, label %591, label %581
+  %.not107.i = icmp eq i64 %580, 0
+  br i1 %.not107.i, label %591, label %581
 
 581:                                              ; preds = %_ZL19getFormForIdxParentRKN4llvm8DenseSetINS_15OffsetAndUnitIDENS_12DenseMapInfoIS1_vEEEESt8optionalIS1_E.exit.i
   %.sroa.056.i.4..sroa.056.i.4..sroa.056.i.4..sroa.056.4..sroa.056.4..sroa.056.4..sroa.0.0.copyload.i39.i = load i64, ptr %.sroa.056.i.4.i.4.i.4..sroa_idx, align 4
@@ -3554,21 +3554,21 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit.i:            ; preds = %682, %672
   br label %_ZN4llvm16DebugNamesAbbrevD2Ev.exit.i
 
 _ZN4llvm16DebugNamesAbbrevD2Ev.exit.i:            ; preds = %686, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i
-  %687 = getelementptr inbounds i8, ptr %.sroa.062.098.i, i64 8
+  %687 = getelementptr inbounds i8, ptr %.sroa.062.095.i, i64 8
   %.not91.i = icmp eq ptr %687, %515
   br i1 %.not91.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %_ZN4llvm16DebugNamesAbbrevD2Ev.exit.i, %.lr.ph107.i
-  %688 = getelementptr inbounds i8, ptr %.sroa.070.0105.i, i64 8
+._crit_edge.i:                                    ; preds = %_ZN4llvm16DebugNamesAbbrevD2Ev.exit.i, %.lr.ph99.i
+  %688 = getelementptr inbounds i8, ptr %.sroa.070.097.i, i64 8
   %.not90.i = icmp eq ptr %688, %510
-  br i1 %.not90.i, label %._crit_edge108.i, label %.lr.ph107.i
+  br i1 %.not90.i, label %._crit_edge100.i, label %.lr.ph99.i
 
-._crit_edge108.i:                                 ; preds = %._crit_edge.i, %507
-  %689 = getelementptr inbounds i8, ptr %.0116.i, i64 24
+._crit_edge100.i:                                 ; preds = %._crit_edge.i, %507
+  %689 = getelementptr inbounds i8, ptr %.0102.i, i64 24
   %.not.i = icmp eq ptr %689, %498
   br i1 %.not.i, label %_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter18populateAbbrevsMapEv.exit, label %507
 
-_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter18populateAbbrevsMapEv.exit: ; preds = %._crit_edge108.i, %._crit_edge216
+_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter18populateAbbrevsMapEv.exit: ; preds = %._crit_edge100.i, %._crit_edge216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.056.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)

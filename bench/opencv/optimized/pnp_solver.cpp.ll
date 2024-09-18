@@ -2749,8 +2749,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %331
 
 331:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %656
-  %.0315.idx549 = phi i64 [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %.0315.add, %656 ]
-  %.0315.ptr = getelementptr inbounds i8, ptr %16, i64 %.0315.idx549
+  %.0315.idx540 = phi i64 [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %.0315.add, %656 ]
+  %.0315.ptr = getelementptr inbounds i8, ptr %16, i64 %.0315.idx540
   %332 = load double, ptr %.0315.ptr, align 8
   %333 = fcmp ugt double %332, 0.000000e+00
   br i1 %333, label %334, label %656
@@ -3429,7 +3429,7 @@ _ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit442: ; preds = %639
   br label %656
 
 656:                                              ; preds = %358, %371, %384, %334, %331, %655
-  %.0315.add = add nuw nsw i64 %.0315.idx549, 8
+  %.0315.add = add nuw nsw i64 %.0315.idx540, 8
   %.not = icmp eq i64 %.0315.add, 32
   br i1 %.not, label %657, label %331
 

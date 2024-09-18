@@ -1787,7 +1787,7 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix13MatricesValidEv(ptr nocap
   %4 = getelementptr inbounds i8, ptr %3, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.preheader.lr.ph, label %._crit_edge198
+  br i1 %6, label %.preheader.lr.ph, label %._crit_edge193
 
 .preheader.lr.ph:                                 ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1795,15 +1795,15 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix13MatricesValidEv(ptr nocap
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.preheader, label %._crit_edge198
+  br i1 %11, label %.preheader, label %._crit_edge193
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %12 = phi ptr [ %134, %._crit_edge ], [ %3, %.preheader.lr.ph ]
-  %indvars.iv202 = phi i64 [ %indvars.iv.next203, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.038196 = phi i1 [ %.139, %._crit_edge ], [ true, %.preheader.lr.ph ]
-  %.sroa.066.0194 = phi ptr [ %.sroa.066.4, %._crit_edge ], [ undef, %.preheader.lr.ph ]
-  %.sroa.071.0193 = phi ptr [ %.sroa.071.4, %._crit_edge ], [ undef, %.preheader.lr.ph ]
-  %.sroa.076.0192 = phi ptr [ %.sroa.076.4, %._crit_edge ], [ undef, %.preheader.lr.ph ]
+  %indvars.iv197 = phi i64 [ %indvars.iv.next198, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.038191 = phi i1 [ %.139, %._crit_edge ], [ true, %.preheader.lr.ph ]
+  %.sroa.066.0190 = phi ptr [ %.sroa.066.4, %._crit_edge ], [ undef, %.preheader.lr.ph ]
+  %.sroa.071.0189 = phi ptr [ %.sroa.071.4, %._crit_edge ], [ undef, %.preheader.lr.ph ]
+  %.sroa.076.0188 = phi ptr [ %.sroa.076.4, %._crit_edge ], [ undef, %.preheader.lr.ph ]
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
@@ -1812,11 +1812,11 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix13MatricesValidEv(ptr nocap
 .lr.ph:                                           ; preds = %.preheader, %128
   %indvars.iv = phi i64 [ %indvars.iv.next, %128 ], [ 0, %.preheader ]
   %16 = phi ptr [ %129, %128 ], [ %12, %.preheader ]
-  %.sroa.066.1174 = phi ptr [ %.sroa.066.3102159161170, %128 ], [ %.sroa.066.0194, %.preheader ]
-  %.sroa.071.1173 = phi ptr [ %.sroa.071.399166168, %128 ], [ %.sroa.071.0193, %.preheader ]
-  %.sroa.076.1172 = phi ptr [ %.sroa.076.396171, %128 ], [ %.sroa.076.0192, %.preheader ]
+  %.sroa.066.1174 = phi ptr [ %.sroa.066.3102159161170, %128 ], [ %.sroa.066.0190, %.preheader ]
+  %.sroa.071.1173 = phi ptr [ %.sroa.071.399166168, %128 ], [ %.sroa.071.0189, %.preheader ]
+  %.sroa.076.1172 = phi ptr [ %.sroa.076.396171, %128 ], [ %.sroa.076.0188, %.preheader ]
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %"class.std::vector.25", ptr %17, i64 %indvars.iv202
+  %18 = getelementptr inbounds %"class.std::vector.25", ptr %17, i64 %indvars.iv197
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds %"class.Ipopt::SmartPtr.35", ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -1825,7 +1825,7 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix13MatricesValidEv(ptr nocap
 
 _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %.lr.ph
   %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %"class.std::vector.30", ptr %22, i64 %indvars.iv202
+  %23 = getelementptr inbounds %"class.std::vector.30", ptr %22, i64 %indvars.iv197
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds %"class.Ipopt::SmartPtr.36", ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
@@ -1835,7 +1835,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %.lr.ph
 27:                                               ; preds = %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit
   %28 = getelementptr inbounds i8, ptr %16, i64 32
   %29 = load ptr, ptr %28, align 8, !noalias !23
-  %30 = getelementptr inbounds %"class.std::vector.59", ptr %29, i64 %indvars.iv202
+  %30 = getelementptr inbounds %"class.std::vector.59", ptr %29, i64 %indvars.iv197
   %31 = load ptr, ptr %30, align 8, !noalias !23
   %32 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !noalias !23
@@ -1850,7 +1850,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %.lr.ph
   %38 = load ptr, ptr %2, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8, !noalias !26
-  %41 = getelementptr inbounds %"class.std::vector.59", ptr %40, i64 %indvars.iv202
+  %41 = getelementptr inbounds %"class.std::vector.59", ptr %40, i64 %indvars.iv197
   %42 = load ptr, ptr %41, align 8, !noalias !26
   %43 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !noalias !26
@@ -1874,7 +1874,7 @@ _ZNK5Ipopt19CompoundMatrixSpace12GetCompSpaceEii.exit44: ; preds = %45, %34
   %53 = load ptr, ptr %2, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8, !noalias !29
-  %56 = getelementptr inbounds %"class.std::vector.59", ptr %55, i64 %indvars.iv202
+  %56 = getelementptr inbounds %"class.std::vector.59", ptr %55, i64 %indvars.iv197
   %57 = load ptr, ptr %56, align 8, !noalias !29
   %58 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !noalias !29
@@ -1902,7 +1902,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread: ; preds = %.lr.ph, %27, %_Z
   %.027 = phi i1 [ true, %_ZNK5Ipopt19CompoundMatrixSpace12GetCompSpaceEii.exit46 ], [ true, %_ZNK5Ipopt19CompoundMatrixSpace12GetCompSpaceEii.exit44 ], [ false, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit ], [ false, %27 ], [ false, %.lr.ph ]
   %.026 = phi i1 [ true, %_ZNK5Ipopt19CompoundMatrixSpace12GetCompSpaceEii.exit46 ], [ false, %_ZNK5Ipopt19CompoundMatrixSpace12GetCompSpaceEii.exit44 ], [ false, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit ], [ false, %27 ], [ false, %.lr.ph ]
   %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds %"class.std::vector.25", ptr %67, i64 %indvars.iv202
+  %68 = getelementptr inbounds %"class.std::vector.25", ptr %67, i64 %indvars.iv197
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds %"class.Ipopt::SmartPtr.35", ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8
@@ -1911,7 +1911,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread: ; preds = %.lr.ph, %27, %_Z
 
 _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit49:   ; preds = %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread
   %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds %"class.std::vector.30", ptr %72, i64 %indvars.iv202
+  %73 = getelementptr inbounds %"class.std::vector.30", ptr %72, i64 %indvars.iv197
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds %"class.Ipopt::SmartPtr.36", ptr %74, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
@@ -1922,7 +1922,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit49.thread: ; preds = %_ZNK5Ipopt14Co
   %77 = load ptr, ptr %2, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8, !noalias !32
-  %80 = getelementptr inbounds %"class.std::vector.59", ptr %79, i64 %indvars.iv202
+  %80 = getelementptr inbounds %"class.std::vector.59", ptr %79, i64 %indvars.iv197
   %81 = load ptr, ptr %80, align 8, !noalias !32
   %82 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %81, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !noalias !32
@@ -2061,24 +2061,24 @@ _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit57: ; preds = %118, %116, %111, %
   %.sroa.076.4.ph = phi ptr [ %.sroa.076.396171, %128 ], [ %.sroa.076.396, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit57 ], [ %.sroa.076.394130152165, %123 ]
   %.sroa.071.4.ph = phi ptr [ %.sroa.071.399166168, %128 ], [ %.sroa.071.399166, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit57 ], [ %.sroa.071.399167, %123 ]
   %.sroa.066.4.ph = phi ptr [ %.sroa.066.3102159161170, %128 ], [ %.sroa.066.3102159161, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit57 ], [ %.sroa.066.3102159162, %123 ]
-  %.139.ph = phi i1 [ %.038196, %128 ], [ false, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit57 ], [ false, %123 ]
+  %.139.ph = phi i1 [ %.038191, %128 ], [ false, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit57 ], [ false, %123 ]
   %.pre = load ptr, ptr %2, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %134 = phi ptr [ %12, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
-  %.sroa.076.4 = phi ptr [ %.sroa.076.0192, %.preheader ], [ %.sroa.076.4.ph, %._crit_edge.loopexit ]
-  %.sroa.071.4 = phi ptr [ %.sroa.071.0193, %.preheader ], [ %.sroa.071.4.ph, %._crit_edge.loopexit ]
-  %.sroa.066.4 = phi ptr [ %.sroa.066.0194, %.preheader ], [ %.sroa.066.4.ph, %._crit_edge.loopexit ]
-  %.139 = phi i1 [ %.038196, %.preheader ], [ %.139.ph, %._crit_edge.loopexit ]
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
+  %.sroa.076.4 = phi ptr [ %.sroa.076.0188, %.preheader ], [ %.sroa.076.4.ph, %._crit_edge.loopexit ]
+  %.sroa.071.4 = phi ptr [ %.sroa.071.0189, %.preheader ], [ %.sroa.071.4.ph, %._crit_edge.loopexit ]
+  %.sroa.066.4 = phi ptr [ %.sroa.066.0190, %.preheader ], [ %.sroa.066.4.ph, %._crit_edge.loopexit ]
+  %.139 = phi i1 [ %.038191, %.preheader ], [ %.139.ph, %._crit_edge.loopexit ]
+  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %135 = getelementptr inbounds i8, ptr %134, i64 20
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %136 to i64
-  %138 = icmp slt i64 %indvars.iv.next203, %137
-  br i1 %138, label %.preheader, label %._crit_edge198, !llvm.loop !36
+  %138 = icmp slt i64 %indvars.iv.next198, %137
+  br i1 %138, label %.preheader, label %._crit_edge193, !llvm.loop !36
 
-._crit_edge198:                                   ; preds = %._crit_edge, %.preheader.lr.ph, %1
+._crit_edge193:                                   ; preds = %._crit_edge, %.preheader.lr.ph, %1
   %.038.lcssa = phi i1 [ true, %1 ], [ true, %.preheader.lr.ph ], [ %.139, %._crit_edge ]
   ret i1 %.038.lcssa
 }
@@ -5177,21 +5177,21 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %63, %66
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheaderthread-pre-split
   %77 = phi i32 [ %.pr, %.preheaderthread-pre-split ], [ %75, %.preheader.lr.ph ]
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit33.thread79
   %79 = phi i32 [ %106, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit33.thread79 ], [ %77, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit33.thread79 ], [ 0, %.preheader ]
-  %80 = icmp eq i64 %indvars.iv101, %indvars.iv
+  %80 = icmp eq i64 %indvars.iv88, %indvars.iv
   %81 = load ptr, ptr %30, align 8, !noalias !97
-  %82 = getelementptr inbounds %"class.std::vector.59", ptr %81, i64 %indvars.iv101
+  %82 = getelementptr inbounds %"class.std::vector.59", ptr %81, i64 %indvars.iv88
   %83 = load ptr, ptr %82, align 8, !noalias !97
   br i1 %80, label %84, label %87
 
 84:                                               ; preds = %.lr.ph
-  %85 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %83, i64 %indvars.iv101
+  %85 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %83, i64 %indvars.iv88
   %86 = load ptr, ptr %85, align 8, !noalias !98
   %.not.i.i.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit33.thread74, label %98
@@ -5234,17 +5234,17 @@ _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit33.thread74: ; preds = %84, %90, 
   br label %.loopexit
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit33.thread79: ; preds = %102, %98, %87
-  %106 = phi i32 [ %79, %87 ], [ %79, %98 ], [ %.pre, %102 ]
+  %106 = phi i32 [ %.pre, %102 ], [ %79, %98 ], [ %79, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next, %107
   br i1 %108, label %.lr.ph, label %.loopexit, !llvm.loop !104
 
 .loopexit:                                        ; preds = %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit33.thread79, %.preheader, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit33.thread74
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %109 = load i32, ptr %71, align 4
   %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv.next102, %110
+  %111 = icmp slt i64 %indvars.iv.next89, %110
   br i1 %111, label %.preheaderthread-pre-split, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader.lr.ph, %_ZNSt14_Bit_referenceaSEb.exit

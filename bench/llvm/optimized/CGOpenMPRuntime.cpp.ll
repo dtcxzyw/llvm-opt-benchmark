@@ -21513,12 +21513,12 @@ _ZNK5clang11OMPChildren15getCapturedStmtEN4llvm3omp9DirectiveENS1_8ArrayRefIS3_E
 _ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit: ; preds = %_ZNK5clang11OMPChildren15getCapturedStmtEN4llvm3omp9DirectiveENS1_8ArrayRefIS3_EE.exit.i, %84
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @_ZN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoC2ERKNS_12CapturedStmtENS_18CapturedRegionKindE(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa.i.i, i32 noundef 0)
-  %.sroa.2181.4..sroa_idx262 = getelementptr inbounds i8, ptr %.sroa.2181, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.2181.4..sroa_idx262, i8 0, i64 24, i1 false), !alias.scope !484
-  %.sroa.6183.7..sroa_idx261 = getelementptr inbounds i8, ptr %.sroa.6183, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6183.7..sroa_idx261, i8 0, i64 16, i1 false), !alias.scope !484
-  %.sroa.17191.4..sroa_idx260 = getelementptr inbounds i8, ptr %.sroa.17191, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.17191.4..sroa_idx260, i8 0, i64 32, i1 false)
+  %.sroa.2181.4..sroa_idx256 = getelementptr inbounds i8, ptr %.sroa.2181, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.2181.4..sroa_idx256, i8 0, i64 24, i1 false), !alias.scope !484
+  %.sroa.6183.7..sroa_idx255 = getelementptr inbounds i8, ptr %.sroa.6183, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6183.7..sroa_idx255, i8 0, i64 16, i1 false), !alias.scope !484
+  %.sroa.17191.4..sroa_idx254 = getelementptr inbounds i8, ptr %.sroa.17191, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.17191.4..sroa_idx254, i8 0, i64 32, i1 false)
   %85 = load i32, ptr %50, align 8
   %86 = call noundef zeroext i1 @_ZN5clang37isOpenMPTargetDataManagementDirectiveEN4llvm3omp9DirectiveE(i32 noundef %85) #28
   br i1 %86, label %.critedge, label %87
@@ -21727,32 +21727,32 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %.sroa.14160.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 88
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 92
   %.sroa.16161.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 128
-  %.sroa.6.7..sroa_idx259 = getelementptr inbounds i8, ptr %.sroa.6, i64 7
+  %.sroa.6.7..sroa_idx253 = getelementptr inbounds i8, ptr %.sroa.6, i64 7
   br label %166
 
 166:                                              ; preds = %.lr.ph, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit
-  %.0243 = phi ptr [ %.0.val, %.lr.ph ], [ %420, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
-  %.sroa.0195.0242 = phi ptr [ %127, %.lr.ph ], [ %.sroa.0195.5, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
-  %.sroa.4.0241 = phi i8 [ undef, %.lr.ph ], [ %.sroa.4.3, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
-  %.sroa.5.0237 = phi i8 [ undef, %.lr.ph ], [ %.sroa.5.3, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
-  %.sroa.520.0234 = phi i8 [ undef, %.lr.ph ], [ %.sroa.520.3, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
-  %167 = getelementptr inbounds nuw i8, ptr %.0243, i64 8
+  %.0237 = phi ptr [ %.0.val, %.lr.ph ], [ %420, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %.sroa.0195.0236 = phi ptr [ %127, %.lr.ph ], [ %.sroa.0195.5, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %.sroa.4.0235 = phi i8 [ undef, %.lr.ph ], [ %.sroa.4.3, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %.sroa.5.0234 = phi i8 [ undef, %.lr.ph ], [ %.sroa.5.3, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %.sroa.520.0233 = phi i8 [ undef, %.lr.ph ], [ %.sroa.520.3, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %167 = getelementptr inbounds nuw i8, ptr %.0237, i64 8
   %168 = load ptr, ptr %167, align 8
   %.not.i = icmp eq ptr %168, null
-  %169 = getelementptr inbounds nuw i8, ptr %.0243, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %.0237, i64 24
   %170 = load ptr, ptr %169, align 8
   %.not1.i = icmp eq ptr %170, null
   %or.cond.i = select i1 %.not.i, i1 %.not1.i, i1 false
   br i1 %or.cond.i, label %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit, label %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread
 
 _ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit: ; preds = %166
-  %171 = getelementptr inbounds nuw i8, ptr %.0243, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %.0237, i64 32
   %172 = load ptr, ptr %171, align 8
   %.not2.i = icmp eq ptr %172, null
   br i1 %.not2.i, label %173, label %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread
 
 173:                                              ; preds = %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit
-  %174 = getelementptr inbounds nuw i8, ptr %.sroa.0195.0242, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %.sroa.0195.0236, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %174, align 8
   %175 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %176 = inttoptr i64 %175 to ptr
@@ -21797,14 +21797,14 @@ _ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread: ; preds = %1
   br i1 %192, label %407, label %193
 
 193:                                              ; preds = %191, %187
-  call void @_ZN5clang7CodeGen15CodeGenFunction18EmitLValueForFieldENS0_6LValueEPKNS_9FieldDeclE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %21, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %16, ptr noundef %.sroa.0195.0242) #28
-  %194 = getelementptr inbounds nuw i8, ptr %.0243, i64 32
+  call void @_ZN5clang7CodeGen15CodeGenFunction18EmitLValueForFieldENS0_6LValueEPKNS_9FieldDeclE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %21, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %16, ptr noundef %.sroa.0195.0236) #28
+  %194 = getelementptr inbounds nuw i8, ptr %.0237, i64 32
   %195 = load ptr, ptr %194, align 8
   %.not79 = icmp eq ptr %195, null
   br i1 %.not79, label %406, label %196
 
 196:                                              ; preds = %193
-  %197 = getelementptr inbounds nuw i8, ptr %.0243, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %.0237, i64 16
   %198 = load ptr, ptr %197, align 8
   %.sroa.0.0.copyload.i86 = load i64, ptr %129, align 8
   %199 = load ptr, ptr %198, align 8
@@ -21954,7 +21954,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %279 = sext i32 %278 to i64
   %280 = or i64 %277, %279
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.36, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.4216, i64 36, i1 false)
-  %281 = and i8 %.sroa.520.0234, -128
+  %281 = and i8 %.sroa.520.0233, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.16, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7209, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.4216)
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.7209)
@@ -21985,8 +21985,8 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.36, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.36.0..sroa_idx, i64 36, i1 false)
   %284 = call i64 @_ZNK5clang10ASTContext12getDeclAlignEPKNS_4DeclEb(ptr noundef nonnull align 8 dereferenceable(23096) %35, ptr noundef nonnull %198, i1 noundef zeroext false) #28
   %285 = and i64 %.sroa.841.0.copyload, -4
-  %286 = and i8 %.sroa.4.0241, -64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.7..sroa_idx259, i8 0, i64 16, i1 false), !alias.scope !509
+  %286 = and i8 %.sroa.4.0235, -64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.7..sroa_idx253, i8 0, i64 16, i1 false), !alias.scope !509
   %287 = load ptr, ptr %32, align 8, !noalias !512
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 144
   %289 = load ptr, ptr %288, align 8, !noalias !512
@@ -22015,7 +22015,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %303 = shl i32 %301, 4
   %304 = sext i32 %303 to i64
   %305 = or i64 %302, %304
-  %306 = and i8 %.sroa.5.0237, -128
+  %306 = and i8 %.sroa.5.0234, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.16, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6, i64 23, i1 false)
   br label %342
 
@@ -22125,18 +22125,18 @@ _ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread: 
   %.sroa.633.0 = phi i32 [ undef, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ undef, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.633.0.copyload35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.633.0.copyload37, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.14.1 = phi i8 [ %.sroa.4213.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %286, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.14.0.copyload69, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.14.0.copyload71, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.17.0 = phi ptr [ undef, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ undef, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.17.0.copyload82, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.17.0.copyload84, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
-  %.sroa.520.1 = phi i8 [ %281, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %.sroa.520.0234, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.520.0234, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.520.0234, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
+  %.sroa.520.1 = phi i8 [ %281, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %.sroa.520.0233, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.520.0233, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.520.0233, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.2599.0 = phi i8 [ %281, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %306, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.2599.0.copyload101, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.2599.0.copyload103, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.29.0 = phi i32 [ 2, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ 0, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.29.0.copyload111, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.29.0.copyload113, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.32.0 = phi i32 [ %.sroa.0215.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %.sroa.32.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.32.0.copyload117, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.32.0.copyload119, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.37.0 = phi ptr [ null, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ null, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.37.0.copyload128, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.37.0.copyload130, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.23.1 = phi i64 [ %280, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %305, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.23.0.copyload94, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.23.0.copyload96, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.19.1 = phi i64 [ %.sroa.0.0.copyload.i86, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %.sroa.19.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.19.0.copyload88, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.19.0.copyload90, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
-  %.sroa.5.1 = phi i8 [ %.sroa.5.0237, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %306, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.5.0237, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.5.0237, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
+  %.sroa.5.1 = phi i8 [ %.sroa.5.0234, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %306, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.5.0234, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.5.0234, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.13.1 = phi i64 [ %.sroa.3212.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %284, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.13.0.copyload60, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.13.0.copyload62, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.12.1 = phi ptr [ %.sroa.2211.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %.sroa.12.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.12.0.copyload51, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.12.0.copyload53, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %.sroa.841.1 = phi i64 [ %.sroa.0210.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %285, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.841.0.copyload43, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.841.0.copyload45, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
-  %.sroa.4.1 = phi i8 [ %.sroa.4.0241, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %286, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.4.0241, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.4.0241, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
+  %.sroa.4.1 = phi i8 [ %.sroa.4.0235, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit93 ], [ %286, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit ], [ %.sroa.4.0235, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5countES5_.exit ], [ %.sroa.4.0235, %_ZN4llvm15isa_and_nonnullIJN5clang9BlockDeclEEPKNS1_4DeclEEEbRKT0_.exit.thread ]
   %343 = and i64 %.sroa.0.0.copyload.i86, -16
   %344 = inttoptr i64 %343 to ptr
   %345 = load ptr, ptr %344, align 16
@@ -22312,10 +22312,10 @@ _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit: ; preds = 
   br label %407
 
 407:                                              ; preds = %406, %_ZN5clang7CodeGen15CodeGenFunction19EmitAggregateAssignENS0_6LValueES2_NS_8QualTypeE.exit, %373, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit, %191, %188, %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread
-  %.sroa.520.2 = phi i8 [ %.sroa.520.0234, %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread ], [ %.sroa.520.0234, %191 ], [ %.sroa.520.0234, %406 ], [ %.sroa.520.1, %_ZN5clang7CodeGen15CodeGenFunction19EmitAggregateAssignENS0_6LValueES2_NS_8QualTypeE.exit ], [ %.sroa.520.1, %373 ], [ %.sroa.520.1, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit ], [ %.sroa.520.0234, %188 ]
-  %.sroa.5.2 = phi i8 [ %.sroa.5.0237, %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread ], [ %.sroa.5.0237, %191 ], [ %.sroa.5.0237, %406 ], [ %.sroa.5.1, %_ZN5clang7CodeGen15CodeGenFunction19EmitAggregateAssignENS0_6LValueES2_NS_8QualTypeE.exit ], [ %.sroa.5.1, %373 ], [ %.sroa.5.1, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit ], [ %.sroa.5.0237, %188 ]
-  %.sroa.4.2 = phi i8 [ %.sroa.4.0241, %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread ], [ %.sroa.4.0241, %191 ], [ %.sroa.4.0241, %406 ], [ %.sroa.4.1, %_ZN5clang7CodeGen15CodeGenFunction19EmitAggregateAssignENS0_6LValueES2_NS_8QualTypeE.exit ], [ %.sroa.4.1, %373 ], [ %.sroa.4.1, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit ], [ %.sroa.4.0241, %188 ]
-  %408 = getelementptr inbounds nuw i8, ptr %.sroa.0195.0242, i64 8
+  %.sroa.520.2 = phi i8 [ %.sroa.520.0233, %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread ], [ %.sroa.520.0233, %191 ], [ %.sroa.520.0233, %406 ], [ %.sroa.520.1, %_ZN5clang7CodeGen15CodeGenFunction19EmitAggregateAssignENS0_6LValueES2_NS_8QualTypeE.exit ], [ %.sroa.520.1, %373 ], [ %.sroa.520.1, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit ], [ %.sroa.520.0233, %188 ]
+  %.sroa.5.2 = phi i8 [ %.sroa.5.0234, %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread ], [ %.sroa.5.0234, %191 ], [ %.sroa.5.0234, %406 ], [ %.sroa.5.1, %_ZN5clang7CodeGen15CodeGenFunction19EmitAggregateAssignENS0_6LValueES2_NS_8QualTypeE.exit ], [ %.sroa.5.1, %373 ], [ %.sroa.5.1, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit ], [ %.sroa.5.0234, %188 ]
+  %.sroa.4.2 = phi i8 [ %.sroa.4.0235, %_ZNK12_GLOBAL__N_116PrivateHelpersTy14isLocalPrivateEv.exit.thread ], [ %.sroa.4.0235, %191 ], [ %.sroa.4.0235, %406 ], [ %.sroa.4.1, %_ZN5clang7CodeGen15CodeGenFunction19EmitAggregateAssignENS0_6LValueES2_NS_8QualTypeE.exit ], [ %.sroa.4.1, %373 ], [ %.sroa.4.1, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit ], [ %.sroa.4.0235, %188 ]
+  %408 = getelementptr inbounds nuw i8, ptr %.sroa.0195.0236, i64 8
   %.0.copyload.i.i.i.i.i.i113 = load i64, ptr %408, align 8
   %409 = and i64 %.0.copyload.i.i.i.i.i.i113, -8
   %410 = inttoptr i64 %409 to ptr
@@ -22340,11 +22340,11 @@ _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit: ; preds = 
   br i1 %.not.i.i117, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, label %.lr.ph.i.i115, !llvm.loop !273
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds = %416, %.lr.ph.i.i115, %182, %.lr.ph.i.i85, %407, %173
-  %.sroa.520.3 = phi i8 [ %.sroa.520.0234, %173 ], [ %.sroa.520.2, %407 ], [ %.sroa.520.0234, %.lr.ph.i.i85 ], [ %.sroa.520.0234, %182 ], [ %.sroa.520.2, %.lr.ph.i.i115 ], [ %.sroa.520.2, %416 ]
-  %.sroa.5.3 = phi i8 [ %.sroa.5.0237, %173 ], [ %.sroa.5.2, %407 ], [ %.sroa.5.0237, %.lr.ph.i.i85 ], [ %.sroa.5.0237, %182 ], [ %.sroa.5.2, %.lr.ph.i.i115 ], [ %.sroa.5.2, %416 ]
-  %.sroa.4.3 = phi i8 [ %.sroa.4.0241, %173 ], [ %.sroa.4.2, %407 ], [ %.sroa.4.0241, %.lr.ph.i.i85 ], [ %.sroa.4.0241, %182 ], [ %.sroa.4.2, %.lr.ph.i.i115 ], [ %.sroa.4.2, %416 ]
+  %.sroa.520.3 = phi i8 [ %.sroa.520.0233, %173 ], [ %.sroa.520.2, %407 ], [ %.sroa.520.0233, %.lr.ph.i.i85 ], [ %.sroa.520.0233, %182 ], [ %.sroa.520.2, %.lr.ph.i.i115 ], [ %.sroa.520.2, %416 ]
+  %.sroa.5.3 = phi i8 [ %.sroa.5.0234, %173 ], [ %.sroa.5.2, %407 ], [ %.sroa.5.0234, %.lr.ph.i.i85 ], [ %.sroa.5.0234, %182 ], [ %.sroa.5.2, %.lr.ph.i.i115 ], [ %.sroa.5.2, %416 ]
+  %.sroa.4.3 = phi i8 [ %.sroa.4.0235, %173 ], [ %.sroa.4.2, %407 ], [ %.sroa.4.0235, %.lr.ph.i.i85 ], [ %.sroa.4.0235, %182 ], [ %.sroa.4.2, %.lr.ph.i.i115 ], [ %.sroa.4.2, %416 ]
   %.sroa.0195.5 = phi ptr [ %176, %173 ], [ %410, %407 ], [ %185, %182 ], [ %.sroa.0195.1, %.lr.ph.i.i85 ], [ %419, %416 ], [ %.sroa.0195.3, %.lr.ph.i.i115 ]
-  %420 = getelementptr inbounds i8, ptr %.0243, i64 40
+  %420 = getelementptr inbounds i8, ptr %.0237, i64 40
   %.not77 = icmp eq ptr %420, %128
   br i1 %.not77, label %._crit_edge, label %166
 
@@ -56324,13 +56324,13 @@ _ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit: 
   %.sroa.16.0..sroa_idx101 = getelementptr inbounds i8, ptr %19, i64 88
   %.sroa.18.0..sroa_idx103 = getelementptr inbounds i8, ptr %19, i64 92
   %.sroa.19.0..sroa_idx104 = getelementptr inbounds i8, ptr %19, i64 128
-  %.sroa.18.4..sroa_idx194 = getelementptr inbounds i8, ptr %.sroa.18, i64 4
+  %.sroa.18.4..sroa_idx191 = getelementptr inbounds i8, ptr %.sroa.18, i64 4
   br label %176
 
 176:                                              ; preds = %.lr.ph, %.critedge2
-  %.0158 = phi ptr [ %157, %.lr.ph ], [ %366, %.critedge2 ]
-  %.sroa.5.0155 = phi i8 [ undef, %.lr.ph ], [ %.sroa.5.1, %.critedge2 ]
-  %177 = load ptr, ptr %.0158, align 8
+  %.0155 = phi ptr [ %157, %.lr.ph ], [ %366, %.critedge2 ]
+  %.sroa.5.0154 = phi i8 [ undef, %.lr.ph ], [ %.sroa.5.1, %.critedge2 ]
+  %177 = load ptr, ptr %.0155, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 32
   %180 = load ptr, ptr %179, align 8
@@ -56400,7 +56400,7 @@ _ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEENS_8Den
   br i1 %216, label %.loopexit.i60, label %217
 
 217:                                              ; preds = %_ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit.thread
-  %218 = load ptr, ptr %.0158, align 8
+  %218 = load ptr, ptr %.0155, align 8
   %219 = ptrtoint ptr %218 to i64
   %220 = trunc i64 %219 to i32
   %221 = lshr i32 %220, 4
@@ -56543,7 +56543,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit: ; pre
   %.sroa.3129.0..sroa_idx130 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 32
   %.sroa.3129.0.copyload131 = load i8, ptr %.sroa.3129.0..sroa_idx130, align 8
   %.sroa.4132.0..sroa_idx133 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.18.4..sroa_idx194, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.18.4..sroa_idx191, i8 0, i64 32, i1 false)
   %294 = getelementptr inbounds nuw i8, ptr %181, i64 48
   %.sroa.0.0.copyload.i62 = load i64, ptr %294, align 8
   %295 = and i64 %.sroa.0.0.copyload.i62, -16
@@ -56676,11 +56676,11 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i: ; preds = %_ZNK5clang4Type6c
   %342 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i67, i64 32
   %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i = load i64, ptr %342, align 8
   %.pre = and i64 %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, -16
-  %.pre168 = inttoptr i64 %.pre to ptr
+  %.pre165 = inttoptr i64 %.pre to ptr
   br label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit
 
 _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %324, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i
-  %.pre-phi169 = phi ptr [ %296, %324 ], [ %.pre168, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
+  %.pre-phi166 = phi ptr [ %296, %324 ], [ %.pre165, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
   %.sroa.0.0.in.i.sroa.speculated = phi i64 [ %.sroa.0.0.copyload.i62, %324 ], [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %343 = load ptr, ptr %21, align 8, !noalias !1299
@@ -56691,7 +56691,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %324, %_ZNK5clang13R
   %344 = load ptr, ptr %21, align 8, !noalias !1302
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 144
   %346 = load ptr, ptr %345, align 8, !noalias !1302
-  %347 = getelementptr inbounds nuw i8, ptr %.pre-phi169, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %.pre-phi166, i64 8
   %.0.copyload.i.i.i.i.i.i.i.i.i.i68 = load i64, ptr %347, align 8, !noalias !1305
   %348 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i68, 8
   %.not.i.i.i.i.i.i69 = icmp eq i64 %348, 0
@@ -56715,7 +56715,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %359 = sext i32 %358 to i64
   %360 = or i64 %357, %359
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.18, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.4141, i64 36, i1 false)
-  %361 = and i8 %.sroa.5.0155, -128
+  %361 = and i8 %.sroa.5.0154, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.2.sroa.0.4..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0125, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.786, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.3127, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.4141)
@@ -56728,14 +56728,14 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %.sroa.583.2 = phi i8 [ %.sroa.583.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.3129.0.copyload131, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
   %.sroa.888.0 = phi ptr [ %.sroa.888.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ undef, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
   %.sroa.12.0 = phi i8 [ %.sroa.12.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %361, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
-  %.sroa.5.2 = phi i8 [ %.sroa.5.0155, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %361, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
+  %.sroa.5.2 = phi i8 [ %.sroa.5.0154, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %361, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
   %.sroa.14.0 = phi i32 [ %.sroa.14.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ 0, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
   %.sroa.16.0 = phi i32 [ %.sroa.16.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.0140.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
   %.sroa.19.0 = phi ptr [ %.sroa.19.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ null, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
   %.sroa.11.2 = phi i64 [ %.sroa.11.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %360, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
   %.sroa.991.2 = phi i64 [ %.sroa.991.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.0.0.in.i.sroa.speculated, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %18, ptr noundef nonnull align 8 dereferenceable(136) %175, i64 136, i1 false)
-  %363 = getelementptr inbounds nuw i8, ptr %.0158, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %.0155, i64 8
   %364 = load ptr, ptr %363, align 8
   %365 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %363) #28
   store i32 %.sroa.079.0, ptr %19, align 8
@@ -56759,8 +56759,8 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   br label %.critedge2
 
 .critedge2:                                       ; preds = %176, %_ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit, %362
-  %.sroa.5.1 = phi i8 [ %.sroa.5.0155, %_ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit ], [ %.sroa.5.2, %362 ], [ %.sroa.5.0155, %176 ]
-  %366 = getelementptr inbounds i8, ptr %.0158, i64 48
+  %.sroa.5.1 = phi i8 [ %.sroa.5.0154, %_ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit ], [ %.sroa.5.2, %362 ], [ %.sroa.5.0154, %176 ]
+  %366 = getelementptr inbounds i8, ptr %.0155, i64 48
   %.not49 = icmp eq ptr %366, %159
   br i1 %.not49, label %._crit_edge, label %176
 

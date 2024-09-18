@@ -2889,249 +2889,247 @@ define internal fastcc noundef i32 @_ZL25assignInteractionsForAtomILb1EEiRK12Ato
 
 32:                                               ; preds = %.lr.ph24, %.critedge
   %.022 = phi i32 [ 0, %.lr.ph24 ], [ %.1, %.critedge ]
-  %.05421 = phi i32 [ %16, %.lr.ph24 ], [ %158, %.critedge ]
-  %33 = phi i32 [ undef, %.lr.ph24 ], [ %156, %.critedge ]
-  %34 = sext i32 %.05421 to i64
-  %35 = getelementptr i32, ptr %10, i64 %34
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr i8, ptr %35, i64 4
-  %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %38, i32 2
-  %40 = load i32, ptr %39, align 16
-  %41 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %38, i32 5
-  %42 = load i32, ptr %41, align 4
-  %43 = and i32 %42, 2
-  %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %49, label %44
+  %.05421 = phi i32 [ %16, %.lr.ph24 ], [ %156, %.critedge ]
+  %33 = sext i32 %.05421 to i64
+  %34 = getelementptr i32, ptr %10, i64 %33
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr i8, ptr %34, i64 4
+  %37 = sext i32 %35 to i64
+  %38 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %37, i32 2
+  %39 = load i32, ptr %38, align 16
+  %40 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %37, i32 5
+  %41 = load i32, ptr %40, align 4
+  %42 = and i32 %41, 2
+  %.not = icmp eq i32 %42, 0
+  br i1 %.not, label %48, label %43
 
-44:                                               ; preds = %32
-  br i1 %22, label %45, label %.critedge
+43:                                               ; preds = %32
+  br i1 %22, label %44, label %.critedge
 
-45:                                               ; preds = %44
-  store ptr %37, ptr %8, align 8
-  %46 = ptrtoint ptr %37 to i64
-  %47 = sub i64 %24, %46
-  %48 = getelementptr inbounds i8, ptr %37, i64 %47
-  store ptr %48, ptr %23, align 8
-  tail call fastcc void @_ZL9add_vsiteRK11gmx_ga2la_tRK15reverse_ilist_tiibRK12AtomIndexSetN3gmx8ArrayRefIKiEEP22InteractionDefinitions(ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %36, i32 noundef %40, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull byval(%"class.gmx::ArrayRef.267") align 8 %8, ptr noundef %3)
+44:                                               ; preds = %43
+  store ptr %36, ptr %8, align 8
+  %45 = ptrtoint ptr %36 to i64
+  %46 = sub i64 %24, %45
+  %47 = getelementptr inbounds i8, ptr %36, i64 %46
+  store ptr %47, ptr %23, align 8
+  tail call fastcc void @_ZL9add_vsiteRK11gmx_ga2la_tRK15reverse_ilist_tiibRK12AtomIndexSetN3gmx8ArrayRefIKiEEP22InteractionDefinitions(ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %35, i32 noundef %39, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull byval(%"class.gmx::ArrayRef.267") align 8 %8, ptr noundef %3)
   br label %.critedge
 
-49:                                               ; preds = %32
-  %50 = load i32, ptr %37, align 4
-  switch i32 %40, label %.preheader [
-    i32 1, label %64
-    i32 2, label %69
+48:                                               ; preds = %32
+  %49 = load i32, ptr %36, align 4
+  switch i32 %39, label %.preheader [
+    i32 1, label %63
+    i32 2, label %68
   ]
 
-.preheader:                                       ; preds = %49
-  %.not5816 = icmp slt i32 %40, 1
+.preheader:                                       ; preds = %48
+  %.not5816 = icmp slt i32 %39, 1
   br i1 %.not5816, label %.loopexit, label %.lr.ph18
 
 .lr.ph18:                                         ; preds = %.preheader
-  %51 = load i32, ptr %25, align 4
-  %52 = load i32, ptr %11, align 4
-  %invariant.op = sub i32 %51, %52
-  %53 = load i8, ptr %27, align 8
-  %54 = trunc i8 %53 to i1
-  %55 = load i32, ptr %28, align 8
-  %56 = load ptr, ptr %2, align 8
-  %57 = add nuw i32 %40, 1
-  %wide.trip.count35 = zext i32 %57 to i64
-  br i1 %54, label %_ZNK11gmx_ga2la_t4findEi.exit64.us, label %.lr.ph18.split
+  %50 = load i32, ptr %25, align 4
+  %51 = load i32, ptr %11, align 4
+  %invariant.op = sub i32 %50, %51
+  %52 = load i8, ptr %27, align 8
+  %53 = trunc i8 %52 to i1
+  %54 = load i32, ptr %28, align 8
+  %55 = load ptr, ptr %2, align 8
+  %56 = add nuw i32 %39, 1
+  %wide.trip.count35 = zext i32 %56 to i64
+  br i1 %53, label %_ZNK11gmx_ga2la_t4findEi.exit64.us, label %.lr.ph18.split
 
 _ZNK11gmx_ga2la_t4findEi.exit64.us:               ; preds = %.lr.ph18, %_ZNK11gmx_ga2la_t4findEi.exit64.us
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %_ZNK11gmx_ga2la_t4findEi.exit64.us ], [ 1, %.lr.ph18 ]
-  %58 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv32
-  %59 = load i32, ptr %58, align 4
-  %.reass.us = add i32 %59, %invariant.op
-  %60 = sext i32 %.reass.us to i64
-  %61 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %56, i64 %60
-  %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds [7 x i32], ptr %7, i64 0, i64 %indvars.iv32
-  store i32 %62, ptr %63, align 4
+  %57 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv32
+  %58 = load i32, ptr %57, align 4
+  %.reass.us = add i32 %58, %invariant.op
+  %59 = sext i32 %.reass.us to i64
+  %60 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %55, i64 %59
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds [7 x i32], ptr %7, i64 0, i64 %indvars.iv32
+  store i32 %61, ptr %62, align 4
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
   br i1 %exitcond36.not, label %.loopexit, label %_ZNK11gmx_ga2la_t4findEi.exit64.us, !llvm.loop !25
 
-64:                                               ; preds = %49
-  %65 = and i32 %36, -2
-  %66 = icmp eq i32 %65, 52
-  %or.cond3 = or i1 %30, %66
-  br i1 %or.cond3, label %.critedge, label %67
+63:                                               ; preds = %48
+  %64 = and i32 %35, -2
+  %65 = icmp eq i32 %64, 52
+  %or.cond3 = or i1 %30, %65
+  br i1 %or.cond3, label %.critedge, label %66
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %0, align 4
-  store i32 %68, ptr %26, align 4
+66:                                               ; preds = %63
+  %67 = load i32, ptr %0, align 4
+  store i32 %67, ptr %26, align 4
   br label %.loopexit
 
-69:                                               ; preds = %49
-  %70 = load i32, ptr %25, align 4
-  %71 = getelementptr i8, ptr %35, i64 12
-  %72 = load i32, ptr %71, align 4
-  %73 = add nsw i32 %72, %70
-  %74 = load i32, ptr %11, align 4
-  %75 = sub i32 %73, %74
-  %76 = load i32, ptr %0, align 4
-  store i32 %76, ptr %26, align 4
-  %77 = load i8, ptr %27, align 8
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %86
+68:                                               ; preds = %48
+  %69 = load i32, ptr %25, align 4
+  %70 = getelementptr i8, ptr %34, i64 12
+  %71 = load i32, ptr %70, align 4
+  %72 = add nsw i32 %71, %69
+  %73 = load i32, ptr %11, align 4
+  %74 = sub i32 %72, %73
+  %75 = load i32, ptr %0, align 4
+  store i32 %75, ptr %26, align 4
+  %76 = load i8, ptr %27, align 8
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %85
 
-79:                                               ; preds = %69
-  %80 = sext i32 %75 to i64
-  %81 = load ptr, ptr %2, align 8
-  %82 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %81, i64 %80
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = icmp eq i32 %84, -1
-  %spec.select.i60 = select i1 %85, ptr null, ptr %82
+78:                                               ; preds = %68
+  %79 = sext i32 %74 to i64
+  %80 = load ptr, ptr %2, align 8
+  %81 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %80, i64 %79
+  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp eq i32 %83, -1
+  %spec.select.i60 = select i1 %84, ptr null, ptr %81
   br label %_ZNK11gmx_ga2la_t4findEi.exit
 
-86:                                               ; preds = %69
-  %87 = load i32, ptr %28, align 8
-  %88 = and i32 %87, %75
-  %89 = load ptr, ptr %2, align 8
-  %90 = sext i32 %88 to i64
-  %91 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %89, i64 %90
-  %92 = load i32, ptr %91, align 4
-  %93 = icmp eq i32 %92, %75
-  br i1 %93, label %._crit_edge, label %.lr.ph
+85:                                               ; preds = %68
+  %86 = load i32, ptr %28, align 8
+  %87 = and i32 %86, %74
+  %88 = load ptr, ptr %2, align 8
+  %89 = sext i32 %87 to i64
+  %90 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %88, i64 %89
+  %91 = load i32, ptr %90, align 4
+  %92 = icmp eq i32 %91, %74
+  br i1 %92, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %86
-  %94 = phi i64 [ %90, %86 ], [ %100, %.lr.ph ]
-  %95 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %89, i64 %94, i32 1
+._crit_edge:                                      ; preds = %.lr.ph, %85
+  %93 = phi i64 [ %89, %85 ], [ %99, %.lr.ph ]
+  %94 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %88, i64 %93, i32 1
   br label %_ZNK11gmx_ga2la_t4findEi.exit
 
-.lr.ph:                                           ; preds = %86, %.lr.ph
-  %96 = phi i64 [ %100, %.lr.ph ], [ %90, %86 ]
-  %97 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %89, i64 %96, i32 2
-  %98 = load i32, ptr %97, align 4
-  %99 = icmp sgt i32 %98, -1
-  tail call void @llvm.assume(i1 %99)
-  %100 = zext nneg i32 %98 to i64
-  %101 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %89, i64 %100
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp eq i32 %102, %75
-  br i1 %103, label %._crit_edge, label %.lr.ph
+.lr.ph:                                           ; preds = %85, %.lr.ph
+  %95 = phi i64 [ %99, %.lr.ph ], [ %89, %85 ]
+  %96 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %88, i64 %95, i32 2
+  %97 = load i32, ptr %96, align 4
+  %98 = icmp sgt i32 %97, -1
+  tail call void @llvm.assume(i1 %98)
+  %99 = zext nneg i32 %97 to i64
+  %100 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %88, i64 %99
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp eq i32 %101, %74
+  br i1 %102, label %._crit_edge, label %.lr.ph
 
-_ZNK11gmx_ga2la_t4findEi.exit:                    ; preds = %79, %._crit_edge
-  %.0.i = phi ptr [ %95, %._crit_edge ], [ %spec.select.i60, %79 ]
-  %104 = load i32, ptr %.0.i, align 4
-  store i32 %104, ptr %29, align 8
+_ZNK11gmx_ga2la_t4findEi.exit:                    ; preds = %78, %._crit_edge
+  %.0.i = phi ptr [ %94, %._crit_edge ], [ %spec.select.i60, %78 ]
+  %103 = load i32, ptr %.0.i, align 4
+  store i32 %103, ptr %29, align 8
   br label %.loopexit
 
 .lr.ph18.split:                                   ; preds = %.lr.ph18, %_ZNK11gmx_ga2la_t4findEi.exit64
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK11gmx_ga2la_t4findEi.exit64 ], [ 1, %.lr.ph18 ]
-  %105 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv
-  %106 = load i32, ptr %105, align 4
-  %.reass = add i32 %106, %invariant.op
-  %107 = and i32 %55, %.reass
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %56, i64 %108
-  %110 = load i32, ptr %109, align 4
-  %111 = icmp eq i32 %110, %.reass
-  br i1 %111, label %_ZNK11gmx_ga2la_t4findEi.exit64, label %.lr.ph13
+  %104 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
+  %105 = load i32, ptr %104, align 4
+  %.reass = add i32 %105, %invariant.op
+  %106 = and i32 %54, %.reass
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %55, i64 %107
+  %109 = load i32, ptr %108, align 4
+  %110 = icmp eq i32 %109, %.reass
+  br i1 %110, label %_ZNK11gmx_ga2la_t4findEi.exit64, label %.lr.ph13
 
 _ZNK11gmx_ga2la_t4findEi.exit64:                  ; preds = %.lr.ph13, %.lr.ph18.split
-  %112 = phi i64 [ %108, %.lr.ph18.split ], [ %120, %.lr.ph13 ]
-  %113 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %56, i64 %112, i32 1
-  %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds [7 x i32], ptr %7, i64 0, i64 %indvars.iv
-  store i32 %114, ptr %115, align 4
+  %111 = phi i64 [ %107, %.lr.ph18.split ], [ %119, %.lr.ph13 ]
+  %112 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %55, i64 %111, i32 1
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds [7 x i32], ptr %7, i64 0, i64 %indvars.iv
+  store i32 %113, ptr %114, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph18.split, !llvm.loop !25
 
 .lr.ph13:                                         ; preds = %.lr.ph18.split, %.lr.ph13
-  %116 = phi i64 [ %120, %.lr.ph13 ], [ %108, %.lr.ph18.split ]
-  %117 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %56, i64 %116, i32 2
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp sgt i32 %118, -1
-  tail call void @llvm.assume(i1 %119)
-  %120 = zext nneg i32 %118 to i64
-  %121 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %56, i64 %120
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp eq i32 %122, %.reass
-  br i1 %123, label %_ZNK11gmx_ga2la_t4findEi.exit64, label %.lr.ph13
+  %115 = phi i64 [ %119, %.lr.ph13 ], [ %107, %.lr.ph18.split ]
+  %116 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %55, i64 %115, i32 2
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp sgt i32 %117, -1
+  tail call void @llvm.assume(i1 %118)
+  %119 = zext nneg i32 %117 to i64
+  %120 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %55, i64 %119
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp eq i32 %121, %.reass
+  br i1 %122, label %_ZNK11gmx_ga2la_t4findEi.exit64, label %.lr.ph13
 
-.loopexit:                                        ; preds = %_ZNK11gmx_ga2la_t4findEi.exit64, %_ZNK11gmx_ga2la_t4findEi.exit64.us, %.preheader, %67, %_ZNK11gmx_ga2la_t4findEi.exit
-  %124 = getelementptr inbounds [94 x %struct.InteractionList], ptr %31, i64 0, i64 %38
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = load ptr, ptr %124, align 8
+.loopexit:                                        ; preds = %_ZNK11gmx_ga2la_t4findEi.exit64, %_ZNK11gmx_ga2la_t4findEi.exit64.us, %.preheader, %66, %_ZNK11gmx_ga2la_t4findEi.exit
+  %123 = getelementptr inbounds [94 x %struct.InteractionList], ptr %31, i64 0, i64 %37
+  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = load ptr, ptr %123, align 8
+  %127 = ptrtoint ptr %125 to i64
   %128 = ptrtoint ptr %126 to i64
-  %129 = ptrtoint ptr %127 to i64
-  %130 = sub i64 %128, %129
-  %131 = ashr exact i64 %130, 2
-  %132 = add nsw i64 %131, 1
-  %133 = sext i32 %40 to i64
-  %134 = add nsw i64 %132, %133
-  %135 = icmp ugt i64 %134, %131
-  br i1 %135, label %136, label %138
+  %129 = sub i64 %127, %128
+  %130 = ashr exact i64 %129, 2
+  %131 = add nsw i64 %130, 1
+  %132 = sext i32 %39 to i64
+  %133 = add nsw i64 %131, %132
+  %134 = icmp ugt i64 %133, %130
+  br i1 %134, label %135, label %137
 
-136:                                              ; preds = %.loopexit
-  %137 = sub nuw nsw i64 %134, %131
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %124, i64 noundef %137)
-  %.pre.i = load ptr, ptr %124, align 8
+135:                                              ; preds = %.loopexit
+  %136 = sub nuw nsw i64 %133, %130
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %123, i64 noundef %136)
+  %.pre.i = load ptr, ptr %123, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
-138:                                              ; preds = %.loopexit
-  %139 = icmp ult i64 %134, %131
-  br i1 %139, label %140, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
+137:                                              ; preds = %.loopexit
+  %138 = icmp ult i64 %133, %130
+  br i1 %138, label %139, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
-140:                                              ; preds = %138
-  %141 = getelementptr inbounds i32, ptr %127, i64 %134
-  %.not.i.i.i = icmp eq ptr %126, %141
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, label %142
+139:                                              ; preds = %137
+  %140 = getelementptr inbounds i32, ptr %126, i64 %133
+  %.not.i.i.i = icmp eq ptr %125, %140
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, label %141
 
-142:                                              ; preds = %140
-  store ptr %141, ptr %125, align 8
+141:                                              ; preds = %139
+  store ptr %140, ptr %124, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
-_ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %142, %140, %138, %136
-  %143 = phi ptr [ %.pre.i, %136 ], [ %127, %138 ], [ %127, %140 ], [ %127, %142 ]
-  %144 = getelementptr inbounds i8, ptr %143, i64 %130
-  store i32 %50, ptr %144, align 4
-  %145 = icmp sgt i32 %40, 0
-  br i1 %145, label %.lr.ph.preheader.i, label %_ZN15InteractionList9push_backEiiPKi.exit
+_ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %141, %139, %137, %135
+  %142 = phi ptr [ %.pre.i, %135 ], [ %126, %137 ], [ %126, %139 ], [ %126, %141 ]
+  %143 = getelementptr inbounds i8, ptr %142, i64 %129
+  store i32 %49, ptr %143, align 4
+  %144 = icmp sgt i32 %39, 0
+  br i1 %144, label %.lr.ph.preheader.i, label %_ZN15InteractionList9push_backEiiPKi.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
-  %wide.trip.count.i = zext nneg i32 %40 to i64
+  %wide.trip.count.i = zext nneg i32 %39 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %146 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv.i
-  %147 = load i32, ptr %146, align 4
-  %148 = load ptr, ptr %124, align 8
-  %149 = getelementptr i32, ptr %148, i64 %132
-  %150 = getelementptr i32, ptr %149, i64 %indvars.iv.i
-  store i32 %147, ptr %150, align 4
+  %145 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv.i
+  %146 = load i32, ptr %145, align 4
+  %147 = load ptr, ptr %123, align 8
+  %148 = getelementptr i32, ptr %147, i64 %131
+  %149 = getelementptr i32, ptr %148, i64 %indvars.iv.i
+  store i32 %146, ptr %149, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN15InteractionList9push_backEiiPKi.exit, label %.lr.ph.i, !llvm.loop !26
 
 _ZN15InteractionList9push_backEiiPKi.exit:        ; preds = %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
-  br i1 %5, label %154, label %151
+  br i1 %5, label %153, label %150
 
-151:                                              ; preds = %_ZN15InteractionList9push_backEiiPKi.exit
-  %152 = load i32, ptr %41, align 4
-  %153 = and i32 %152, 512
-  %.not59 = icmp eq i32 %153, 0
-  br i1 %.not59, label %154, label %.critedge
+150:                                              ; preds = %_ZN15InteractionList9push_backEiiPKi.exit
+  %151 = load i32, ptr %40, align 4
+  %152 = and i32 %151, 512
+  %.not59 = icmp eq i32 %152, 0
+  br i1 %.not59, label %153, label %.critedge
 
-154:                                              ; preds = %151, %_ZN15InteractionList9push_backEiiPKi.exit
-  %155 = add nsw i32 %.022, 1
+153:                                              ; preds = %150, %_ZN15InteractionList9push_backEiiPKi.exit
+  %154 = add nsw i32 %.022, 1
   br label %.critedge
 
-.critedge:                                        ; preds = %64, %154, %151, %44, %45
-  %156 = phi i32 [ %33, %45 ], [ %33, %44 ], [ %50, %154 ], [ %50, %151 ], [ %50, %64 ]
-  %.1 = phi i32 [ %.022, %45 ], [ %.022, %44 ], [ %155, %154 ], [ %.022, %151 ], [ %.022, %64 ]
-  %157 = tail call noundef i32 @_Z7nral_rti(i32 noundef %36)
+.critedge:                                        ; preds = %63, %153, %150, %43, %44
+  %.1 = phi i32 [ %.022, %44 ], [ %.022, %43 ], [ %154, %153 ], [ %.022, %150 ], [ %.022, %63 ]
+  %155 = tail call noundef i32 @_Z7nral_rti(i32 noundef %35)
   %.reass19 = add i32 %.05421, 2
-  %158 = add i32 %.reass19, %157
-  %159 = icmp slt i32 %158, %18
-  br i1 %159, label %32, label %._crit_edge25, !llvm.loop !27
+  %156 = add i32 %.reass19, %155
+  %157 = icmp slt i32 %156, %18
+  br i1 %157, label %32, label %._crit_edge25, !llvm.loop !27
 
 ._crit_edge25:                                    ; preds = %.critedge, %6
   %.0.lcssa = phi i32 [ 0, %6 ], [ %.1, %.critedge ]

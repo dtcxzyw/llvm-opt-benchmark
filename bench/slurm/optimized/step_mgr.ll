@@ -5535,9 +5535,9 @@ _is_mem_resv.exit:                                ; preds = %46, %47
   br label %79
 
 79:                                               ; preds = %.lr.ph, %237
-  %.0122187 = phi i32 [ -1, %.lr.ph ], [ %.1, %237 ]
-  %.0125186 = phi i32 [ -1, %.lr.ph ], [ %.1126, %237 ]
-  %.0131185 = phi i32 [ 0, %.lr.ph ], [ %.1132, %237 ]
+  %.0122186 = phi i32 [ -1, %.lr.ph ], [ %.1, %237 ]
+  %.0125185 = phi i32 [ -1, %.lr.ph ], [ %.1126, %237 ]
+  %.0131184 = phi i32 [ 0, %.lr.ph ], [ %.1132, %237 ]
   store i32 0, ptr %11, align 4
   store i8 0, ptr %43, align 4
   store ptr %11, ptr %25, align 8
@@ -5686,18 +5686,18 @@ _use_one_thread_per_core.exit:                    ; preds = %133, %130, %127, %1
   %.0121 = phi i16 [ %155, %.thread176 ], [ %.val160, %145 ], [ %151, %149 ], [ %.val160, %.thread172 ]
   %157 = call i16 @llvm.umax.i16(i16 %4, i16 %.0121)
   %.3.in = select i1 %75, i16 %157, i16 %4
-  %158 = icmp eq i32 %.0125186, -1
+  %158 = icmp eq i32 %.0125185, -1
   br i1 %158, label %163, label %159
 
 159:                                              ; preds = %156
-  %160 = sext i32 %.0125186 to i64
+  %160 = sext i32 %.0125185 to i64
   %161 = getelementptr inbounds i16, ptr %14, i64 %160
   %162 = load i16, ptr %161, align 2
   %.not151 = icmp eq i16 %162, %.3.in
   br i1 %.not151, label %168, label %163
 
 163:                                              ; preds = %159, %156
-  %164 = add nsw i32 %.0125186, 1
+  %164 = add nsw i32 %.0125185, 1
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds i16, ptr %14, i64 %165
   store i16 %.3.in, ptr %166, align 2
@@ -5713,7 +5713,7 @@ _use_one_thread_per_core.exit:                    ; preds = %133, %130, %127, %1
   br label %172
 
 172:                                              ; preds = %163, %168, %137
-  %.2127 = phi i32 [ %.0125186, %137 ], [ %164, %163 ], [ %.0125186, %168 ]
+  %.2127 = phi i32 [ %.0125185, %137 ], [ %164, %163 ], [ %.0125185, %168 ]
   %.0124 = phi i16 [ %142, %137 ], [ %110, %163 ], [ %110, %168 ]
   %.0123 = phi i16 [ %143, %137 ], [ %113, %163 ], [ %113, %168 ]
   %173 = load i32, ptr %76, align 8
@@ -5820,11 +5820,11 @@ _is_mem_resv.exit169:                             ; preds = %199, %200
   br label %215
 
 215:                                              ; preds = %214, %211
-  %216 = icmp eq i32 %.0122187, -1
+  %216 = icmp eq i32 %.0122186, -1
   br i1 %216, label %222, label %217
 
 217:                                              ; preds = %215
-  %218 = sext i32 %.0122187 to i64
+  %218 = sext i32 %.0122186 to i64
   %219 = getelementptr inbounds i16, ptr %13, i64 %218
   %220 = load i16, ptr %219, align 2
   %221 = zext i16 %220 to i32
@@ -5832,7 +5832,7 @@ _is_mem_resv.exit169:                             ; preds = %199, %200
   br i1 %.not157, label %228, label %222
 
 222:                                              ; preds = %217, %215
-  %223 = add nsw i32 %.0122187, 1
+  %223 = add nsw i32 %.0122186, 1
   %224 = trunc i32 %.2130 to i16
   %225 = sext i32 %223 to i64
   %226 = getelementptr inbounds i16, ptr %13, i64 %225
@@ -5849,8 +5849,8 @@ _is_mem_resv.exit169:                             ; preds = %199, %200
   br label %232
 
 232:                                              ; preds = %228, %222
-  %.2 = phi i32 [ %223, %222 ], [ %.0122187, %228 ]
-  %233 = add nsw i32 %.0131185, 1
+  %.2 = phi i32 [ %223, %222 ], [ %.0122186, %228 ]
+  %233 = add nsw i32 %.0131184, 1
   store i8 0, ptr %26, align 8
   %234 = load i32, ptr %35, align 8
   %235 = add nsw i32 %234, -1
@@ -5859,9 +5859,9 @@ _is_mem_resv.exit169:                             ; preds = %199, %200
   br i1 %236, label %._crit_edge, label %237
 
 237:                                              ; preds = %232, %172, %79
-  %.1132 = phi i32 [ %.0131185, %172 ], [ %233, %232 ], [ %.0131185, %79 ]
-  %.1126 = phi i32 [ %.2127, %172 ], [ %.2127, %232 ], [ %.0125186, %79 ]
-  %.1 = phi i32 [ %.0122187, %172 ], [ %.2, %232 ], [ %.0122187, %79 ]
+  %.1132 = phi i32 [ %.0131184, %172 ], [ %233, %232 ], [ %.0131184, %79 ]
+  %.1126 = phi i32 [ %.2127, %172 ], [ %.2127, %232 ], [ %.0125185, %79 ]
+  %.1 = phi i32 [ %.0122186, %172 ], [ %.2, %232 ], [ %.0122186, %79 ]
   %238 = load i32, ptr %10, align 4
   %239 = add nsw i32 %238, 1
   store i32 %239, ptr %10, align 4

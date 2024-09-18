@@ -8156,9 +8156,9 @@ define hidden void @_ZN7uu_sort5merge5merge17h4e8bf83c1affe87aE(ptr noalias noca
   store i64 -9223372036854775808, ptr %41, align 8, !noalias !1266
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !1266
   %42 = icmp eq ptr %4, null
-  br i1 %42, label %.thread389.i, label %43
+  br i1 %42, label %.thread388.i, label %43
 
-.thread389.i:                                     ; preds = %7
+.thread388.i:                                     ; preds = %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40), !noalias !1266
   br label %379
 
@@ -8356,7 +8356,7 @@ _ZN3std2fs12canonicalize17h2341b874b4153c0fE.exit90.i: ; preds = %93
   br i1 %111, label %112, label %.noexc92._crit_edge.i
 
 .noexc92._crit_edge.i:                            ; preds = %.noexc92.i
-  %.pre381.i = load i8, ptr %63, align 8, !range !1291, !alias.scope !1292, !noalias !1295
+  %.pre380.i = load i8, ptr %63, align 8, !range !1291, !alias.scope !1292, !noalias !1295
   br label %120
 
 112:                                              ; preds = %.noexc92.i
@@ -8369,11 +8369,11 @@ _ZN3std2fs12canonicalize17h2341b874b4153c0fE.exit90.i: ; preds = %93
   %118 = load i8, ptr %62, align 1, !range !14, !alias.scope !1287, !noalias !1290
   %119 = icmp eq i8 %118, 2
   %or.cond7.i.i.i = select i1 %or.cond.i.i.i, i1 %119, i1 false
-  %.pre382.i = load i8, ptr %63, align 8, !range !1291, !alias.scope !1284, !noalias !1289
+  %.pre381.i = load i8, ptr %63, align 8, !range !1291, !alias.scope !1284, !noalias !1289
   br i1 %or.cond7.i.i.i, label %189, label %120
 
 120:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit.i.i.i", %189, %112, %.noexc92._crit_edge.i
-  %121 = phi i8 [ %.pre381.i, %.noexc92._crit_edge.i ], [ %.pre382.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit.i.i.i" ], [ %.pre382.i, %189 ], [ %.pre382.i, %112 ]
+  %121 = phi i8 [ %.pre380.i, %.noexc92._crit_edge.i ], [ %.pre381.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit.i.i.i" ], [ %.pre381.i, %189 ], [ %.pre381.i, %112 ]
   %122 = icmp eq i8 %121, 6
   br i1 %122, label %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit.i.i.i", label %123
 
@@ -8607,7 +8607,7 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
           to label %194 unwind label %.thread208.loopexit.split-lp.i
 
 189:                                              ; preds = %112
-  %switch.i.i.i.i.i.i = icmp ult i8 %.pre382.i, 3
+  %switch.i.i.i.i.i.i = icmp ult i8 %.pre381.i, 3
   %190 = load i8, ptr %64, align 8, !range !1291, !alias.scope !1374, !noalias !1290, !noundef !5
   %switch.i.i.i14.i.i.i = icmp ult i8 %190, 3
   %191 = xor i1 %switch.i.i.i.i.i.i, %switch.i.i.i14.i.i.i
@@ -9159,10 +9159,10 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
           to label %45 unwind label %302
 
 351:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3854525e2e28c0bdE.exit173.i", %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17h55017153a4a3382aE.exit170.i", %362, %48
-  %.pr388.i = load i64, ptr %41, align 8, !alias.scope !1565, !noalias !1266
+  %.pr387.i = load i64, ptr %41, align 8, !alias.scope !1565, !noalias !1266
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40), !noalias !1266
   call void @llvm.experimental.noalias.scope.decl(metadata !1565)
-  %352 = icmp eq i64 %.pr388.i, -9223372036854775808
+  %352 = icmp eq i64 %.pr387.i, -9223372036854775808
   br i1 %352, label %379, label %353
 
 353:                                              ; preds = %351
@@ -9245,7 +9245,7 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
 378:                                              ; preds = %45
   resume { ptr, i32 } %.pn83.i
 
-379:                                              ; preds = %.thread389.i, %351, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3854525e2e28c0bdE.exit.i160.i"
+379:                                              ; preds = %.thread388.i, %351, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3854525e2e28c0bdE.exit.i160.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !1266
   %380 = getelementptr inbounds i8, ptr %3, i64 48
   %381 = load i64, ptr %380, align 8, !range !261, !noundef !5

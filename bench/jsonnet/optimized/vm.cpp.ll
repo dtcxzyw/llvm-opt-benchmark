@@ -5341,20 +5341,20 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.e
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr inbounds i8, ptr %.0, i64 136
   %367 = load ptr, ptr %366, align 8
-  %.not30566082 = icmp eq ptr %365, %367
-  br i1 %.not30566082, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, label %.lr.ph6084
+  %.not30565007 = icmp eq ptr %365, %367
+  br i1 %.not30565007, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, label %.lr.ph5009
 
-.lr.ph6084:                                       ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit
+.lr.ph5009:                                       ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit
   %368 = getelementptr inbounds i8, ptr %362, i64 24
   %369 = getelementptr inbounds i8, ptr %362, i64 32
   br label %370
 
-370:                                              ; preds = %.lr.ph6084, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit
-  %.sroa.02739.06083 = phi ptr [ %365, %.lr.ph6084 ], [ %414, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit ]
+370:                                              ; preds = %.lr.ph5009, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit
+  %.sroa.02739.05008 = phi ptr [ %365, %.lr.ph5009 ], [ %414, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit ]
   %.val1478 = load ptr, ptr %236, align 8
-  %.val1481 = load ptr, ptr %.sroa.02739.06083, align 8
+  %.val1481 = load ptr, ptr %.sroa.02739.05008, align 8
   %371 = call fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.val1478, ptr %.02749, i32 %.02750, ptr %.val1481)
-  %372 = load ptr, ptr %.sroa.02739.06083, align 8
+  %372 = load ptr, ptr %.sroa.02739.05008, align 8
   %373 = getelementptr inbounds i8, ptr %372, i64 104
   %.val1496 = load ptr, ptr %373, align 8
   %374 = getelementptr i8, ptr %372, i64 112
@@ -5463,7 +5463,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_in
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit: ; preds = %389, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
-  %414 = getelementptr inbounds i8, ptr %.sroa.02739.06083, i64 32
+  %414 = getelementptr inbounds i8, ptr %.sroa.02739.05008, i64 32
   %.not3056 = icmp eq ptr %414, %367
   br i1 %.not3056, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, label %370
 
@@ -5494,8 +5494,8 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   unreachable
 
 429:                                              ; preds = %418
-  %.not8296 = icmp eq ptr %421, %422
-  br i1 %.not8296, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i
+  %.not6146 = icmp eq ptr %421, %422
+  br i1 %.not6146, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i: ; preds = %429
   %430 = shl nuw nsw i64 %425, 1
@@ -5503,8 +5503,8 @@ _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE
           to label %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i unwind label %.loopexit.split-lp3149.loopexit
 
 _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i
-  %.pre8257.pre = load ptr, ptr %420, align 8
-  %.pre8256.pre = load ptr, ptr %419, align 8
+  %.pre6107.pre = load ptr, ptr %420, align 8
+  %.pre6106.pre = load ptr, ptr %419, align 8
   store ptr %431, ptr %10, align 8
   store ptr %431, ptr %245, align 8
   %432 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure::Param", ptr %431, i64 %426
@@ -5512,23 +5512,23 @@ _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE
   br label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit
 
 _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i, %429
-  %.promoted6072 = phi ptr [ %431, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ null, %429 ]
-  %.promoted6066 = phi ptr [ %432, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ null, %429 ]
-  %433 = phi ptr [ %.pre8257.pre, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ %421, %429 ]
-  %434 = phi ptr [ %.pre8256.pre, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ %422, %429 ]
-  %.not30556076 = icmp eq ptr %434, %433
-  br i1 %.not30556076, label %._crit_edge6079, label %.lr.ph6078
+  %.promoted4997 = phi ptr [ %431, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ null, %429 ]
+  %.promoted4991 = phi ptr [ %432, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ null, %429 ]
+  %433 = phi ptr [ %.pre6107.pre, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ %421, %429 ]
+  %434 = phi ptr [ %.pre6106.pre, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ %422, %429 ]
+  %.not30555001 = icmp eq ptr %434, %433
+  br i1 %.not30555001, label %._crit_edge5004, label %.lr.ph5003
 
-.lr.ph6078:                                       ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit
-  %435 = phi ptr [ %462, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ], [ %.promoted6072, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ]
-  %.sroa.02734.06077 = phi ptr [ %465, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ], [ %434, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ]
-  %436 = phi ptr [ %464, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ], [ %.promoted6066, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ]
-  %437 = phi ptr [ %463, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ], [ %.promoted6072, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ]
-  %.val1526 = load ptr, ptr %.sroa.02734.06077, align 8
+.lr.ph5003:                                       ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit
+  %435 = phi ptr [ %462, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ], [ %.promoted4997, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ]
+  %.sroa.02734.05002 = phi ptr [ %465, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ], [ %434, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ]
+  %436 = phi ptr [ %464, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ], [ %.promoted4991, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ]
+  %437 = phi ptr [ %463, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ], [ %.promoted4997, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ]
+  %.val1526 = load ptr, ptr %.sroa.02734.05002, align 8
   %.not.i1628 = icmp eq ptr %435, %436
   br i1 %.not.i1628, label %441, label %438
 
-438:                                              ; preds = %.lr.ph6078
+438:                                              ; preds = %.lr.ph5003
   store ptr %.val1526, ptr %435, align 8
   %439 = getelementptr inbounds i8, ptr %435, i64 8
   store ptr null, ptr %439, align 8
@@ -5536,7 +5536,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserv
   store ptr %440, ptr %245, align 8
   br label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit
 
-441:                                              ; preds = %.lr.ph6078
+441:                                              ; preds = %.lr.ph5003
   %442 = ptrtoint ptr %435 to i64
   %443 = ptrtoint ptr %437 to i64
   %444 = sub i64 %442, %443
@@ -5601,9 +5601,9 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12empla
   %462 = phi ptr [ %459, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE17_M_realloc_insertIJRKPKNS1_10IdentifierEDnEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %440, %438 ]
   %463 = phi ptr [ %454, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE17_M_realloc_insertIJRKPKNS1_10IdentifierEDnEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %437, %438 ]
   %464 = phi ptr [ %461, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE17_M_realloc_insertIJRKPKNS1_10IdentifierEDnEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %436, %438 ]
-  %465 = getelementptr inbounds i8, ptr %.sroa.02734.06077, i64 8
+  %465 = getelementptr inbounds i8, ptr %.sroa.02734.05002, i64 8
   %.not3055 = icmp eq ptr %465, %433
-  br i1 %.not3055, label %._crit_edge6079, label %.lr.ph6078
+  br i1 %.not3055, label %._crit_edge5004, label %.lr.ph5003
 
 .loopexit3148:                                    ; preds = %_ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit3150 = landingpad { ptr, i32 }
@@ -5612,20 +5612,20 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12empla
   store ptr %437, ptr %10, align 8
   br label %.loopexit.split-lp3149
 
-.loopexit.split-lp3149.loopexit:                  ; preds = %._crit_edge6079, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i
+.loopexit.split-lp3149.loopexit:                  ; preds = %._crit_edge5004, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i
   %lpad.loopexit3172 = landingpad { ptr, i32 }
           cleanup
   %.val1527.pre = load ptr, ptr %10, align 8
   br label %.loopexit.split-lp3149
 
 .loopexit.split-lp3149.loopexit.split-lp:         ; preds = %446, %428
-  %.val15278261 = phi ptr [ %437, %446 ], [ null, %428 ]
+  %.val15276111 = phi ptr [ %437, %446 ], [ null, %428 ]
   %lpad.loopexit.split-lp3173 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp3149
 
 .loopexit.split-lp3149:                           ; preds = %.loopexit.split-lp3149.loopexit, %.loopexit.split-lp3149.loopexit.split-lp, %.loopexit3148
-  %.val1527 = phi ptr [ %437, %.loopexit3148 ], [ %.val1527.pre, %.loopexit.split-lp3149.loopexit ], [ %.val15278261, %.loopexit.split-lp3149.loopexit.split-lp ]
+  %.val1527 = phi ptr [ %437, %.loopexit3148 ], [ %.val1527.pre, %.loopexit.split-lp3149.loopexit ], [ %.val15276111, %.loopexit.split-lp3149.loopexit.split-lp ]
   %lpad.phi3152 = phi { ptr, i32 } [ %lpad.loopexit3150, %.loopexit3148 ], [ %lpad.loopexit3172, %.loopexit.split-lp3149.loopexit ], [ %lpad.loopexit.split-lp3173, %.loopexit.split-lp3149.loopexit.split-lp ]
   %.not.i.i.i1633 = icmp eq ptr %.val1527, null
   br i1 %.not.i.i.i1633, label %common.resume, label %466
@@ -5634,23 +5634,23 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12empla
   call void @_ZdlPv(ptr noundef nonnull %.val1527) #35
   br label %common.resume
 
-._crit_edge6079:                                  ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit
-  %.lcssa6073 = phi ptr [ %.promoted6072, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ], [ %463, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ]
-  %.lcssa6067 = phi ptr [ %.promoted6066, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ], [ %464, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ]
-  store ptr %.lcssa6067, ptr %244, align 8
-  store ptr %.lcssa6073, ptr %10, align 8
+._crit_edge5004:                                  ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit
+  %.lcssa4998 = phi ptr [ %.promoted4997, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ], [ %463, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ]
+  %.lcssa4992 = phi ptr [ %.promoted4991, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit ], [ %464, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierEDnEEERS4_DpOT_.exit ]
+  store ptr %.lcssa4992, ptr %244, align 8
+  store ptr %.lcssa4998, ptr %10, align 8
   %467 = getelementptr inbounds i8, ptr %.0, i64 128
   %468 = invoke fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter11makeBuiltinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS1_11HeapClosure5ParamESaISD_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(32) %467, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %._crit_edge6079._crit_edge unwind label %.loopexit.split-lp3149.loopexit
+          to label %._crit_edge5004._crit_edge unwind label %.loopexit.split-lp3149.loopexit
 
-._crit_edge6079._crit_edge:                       ; preds = %._crit_edge6079
+._crit_edge5004._crit_edge:                       ; preds = %._crit_edge5004
   store i32 17, ptr %198, align 8
   store ptr %468, ptr %199, align 8
   %.val1529 = load ptr, ptr %10, align 8
   %.not.i.i.i1634 = icmp eq ptr %.val1529, null
   br i1 %.not.i.i.i1634, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, label %469
 
-469:                                              ; preds = %._crit_edge6079._crit_edge
+469:                                              ; preds = %._crit_edge5004._crit_edge
   call void @_ZdlPv(ptr noundef nonnull %.val1529) #35
   br label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635
 
@@ -5724,8 +5724,8 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.e
   unreachable
 
 505:                                              ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit1642
-  %.not8295 = icmp eq ptr %497, %498
-  br i1 %.not8295, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657, label %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i1645
+  %.not6145 = icmp eq ptr %497, %498
+  br i1 %.not6145, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657, label %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i1645
 
 _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i1645: ; preds = %505
   %506 = shl nuw nsw i64 %502, 4
@@ -5733,8 +5733,8 @@ _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE
           to label %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654 unwind label %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654: ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i1645
-  %.pre8250.pre = load ptr, ptr %496, align 8
-  %.pre8249.pre = load ptr, ptr %495, align 8
+  %.pre6100.pre = load ptr, ptr %496, align 8
+  %.pre6099.pre = load ptr, ptr %495, align 8
   store ptr %507, ptr %12, align 8
   store ptr %507, ptr %242, align 8
   %508 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure::Param", ptr %507, i64 %502
@@ -5742,26 +5742,26 @@ _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE
   br label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657
 
 _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657: ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654, %505
-  %.promoted6057 = phi ptr [ %507, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654 ], [ null, %505 ]
+  %.promoted4982 = phi ptr [ %507, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654 ], [ null, %505 ]
   %.promoted = phi ptr [ %508, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654 ], [ null, %505 ]
-  %509 = phi ptr [ %.pre8250.pre, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654 ], [ %497, %505 ]
-  %510 = phi ptr [ %.pre8249.pre, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654 ], [ %498, %505 ]
-  %.not30546061 = icmp eq ptr %510, %509
-  br i1 %.not30546061, label %._crit_edge6064, label %.lr.ph6063
+  %509 = phi ptr [ %.pre6100.pre, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654 ], [ %497, %505 ]
+  %510 = phi ptr [ %.pre6099.pre, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE13_M_deallocateEPS4_m.exit.i1654 ], [ %498, %505 ]
+  %.not30544986 = icmp eq ptr %510, %509
+  br i1 %.not30544986, label %._crit_edge4989, label %.lr.ph4988
 
-.lr.ph6063:                                       ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit
-  %511 = phi ptr [ %540, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ], [ %.promoted6057, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ]
-  %.sroa.02728.06062 = phi ptr [ %543, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ], [ %510, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ]
+.lr.ph4988:                                       ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit
+  %511 = phi ptr [ %540, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ], [ %.promoted4982, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ]
+  %.sroa.02728.04987 = phi ptr [ %543, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ], [ %510, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ]
   %512 = phi ptr [ %542, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ], [ %.promoted, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ]
-  %513 = phi ptr [ %541, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ], [ %.promoted6057, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ]
-  %514 = getelementptr inbounds i8, ptr %.sroa.02728.06062, i64 24
-  %515 = getelementptr inbounds i8, ptr %.sroa.02728.06062, i64 56
+  %513 = phi ptr [ %541, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ], [ %.promoted4982, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ]
+  %514 = getelementptr inbounds i8, ptr %.sroa.02728.04987, i64 24
+  %515 = getelementptr inbounds i8, ptr %.sroa.02728.04987, i64 56
   %.val1545 = load ptr, ptr %514, align 8
   %.val1546 = load ptr, ptr %515, align 8
   %.not.i1658 = icmp eq ptr %511, %512
   br i1 %.not.i1658, label %519, label %516
 
-516:                                              ; preds = %.lr.ph6063
+516:                                              ; preds = %.lr.ph4988
   store ptr %.val1545, ptr %511, align 8
   %517 = getelementptr inbounds i8, ptr %511, i64 8
   store ptr %.val1546, ptr %517, align 8
@@ -5769,7 +5769,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserv
   store ptr %518, ptr %242, align 8
   br label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit
 
-519:                                              ; preds = %.lr.ph6063
+519:                                              ; preds = %.lr.ph4988
   %520 = ptrtoint ptr %511 to i64
   %521 = ptrtoint ptr %513 to i64
   %522 = sub i64 %520, %521
@@ -5834,9 +5834,9 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12empla
   %540 = phi ptr [ %537, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE17_M_realloc_insertIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %518, %516 ]
   %541 = phi ptr [ %532, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE17_M_realloc_insertIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %513, %516 ]
   %542 = phi ptr [ %539, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE17_M_realloc_insertIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %512, %516 ]
-  %543 = getelementptr inbounds i8, ptr %.sroa.02728.06062, i64 88
+  %543 = getelementptr inbounds i8, ptr %.sroa.02728.04987, i64 88
   %.not3054 = icmp eq ptr %543, %509
-  br i1 %.not3054, label %._crit_edge6064, label %.lr.ph6063
+  br i1 %.not3054, label %._crit_edge4989, label %.lr.ph4988
 
 .loopexit3153:                                    ; preds = %.lr.ph15.i.i
   %lpad.loopexit3155 = landingpad { ptr, i32 }
@@ -5855,20 +5855,20 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12empla
   store ptr %513, ptr %12, align 8
   br label %.body
 
-.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %607, %.noexc1678, %605, %575, %._crit_edge6064, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i1645
-  %.val15318255 = phi ptr [ %.val1533, %607 ], [ %.val1533, %.noexc1678 ], [ %.val1533, %605 ], [ %.val1533, %575 ], [ %.val1533, %._crit_edge6064 ], [ null, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i1645 ]
+.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %607, %.noexc1678, %605, %575, %._crit_edge4989, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i1645
+  %.val15316105 = phi ptr [ %.val1533, %607 ], [ %.val1533, %.noexc1678 ], [ %.val1533, %605 ], [ %.val1533, %575 ], [ %.val1533, %._crit_edge4989 ], [ null, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_M_allocateEm.exit.i1645 ]
   %lpad.loopexit3169 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %568, %524, %504
-  %.val15318254 = phi ptr [ %.val1533, %568 ], [ %513, %524 ], [ null, %504 ]
+  %.val15316104 = phi ptr [ %.val1533, %568 ], [ %513, %524 ], [ null, %504 ]
   %lpad.loopexit.split-lp3170 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit3153, %.loopexit.split-lp3154.loopexit.split-lp.loopexit, %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp3154.loopexit, %.body.i.i.i
-  %.val1531 = phi ptr [ %.val1533, %.body.i.i.i ], [ %.val1533, %.loopexit3153 ], [ %.val1533, %.loopexit.split-lp3154.loopexit ], [ %513, %.loopexit.split-lp3154.loopexit.split-lp.loopexit ], [ %.val15318255, %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.val15318254, %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.val1531 = phi ptr [ %.val1533, %.body.i.i.i ], [ %.val1533, %.loopexit3153 ], [ %.val1533, %.loopexit.split-lp3154.loopexit ], [ %513, %.loopexit.split-lp3154.loopexit.split-lp.loopexit ], [ %.val15316105, %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.val15316104, %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %.body.i.i.i ], [ %lpad.loopexit3155, %.loopexit3153 ], [ %lpad.loopexit3158, %.loopexit.split-lp3154.loopexit ], [ %lpad.loopexit3161, %.loopexit.split-lp3154.loopexit.split-lp.loopexit ], [ %lpad.loopexit3169, %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp3170, %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i1669 = icmp eq ptr %.val1531, null
   br i1 %.not.i.i.i1669, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1670, label %544
@@ -5882,10 +5882,10 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.ex
   call fastcc void @_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val1340)
   br label %common.resume
 
-._crit_edge6064:                                  ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657
-  %.val1533 = phi ptr [ %.promoted6057, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ], [ %541, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ]
-  %.lcssa6052 = phi ptr [ %.promoted, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ], [ %542, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ]
-  store ptr %.lcssa6052, ptr %241, align 8
+._crit_edge4989:                                  ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657
+  %.val1533 = phi ptr [ %.promoted4982, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ], [ %541, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ]
+  %.lcssa4977 = phi ptr [ %.promoted, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE7reserveEm.exit1657 ], [ %542, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12emplace_backIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEERS4_DpOT_.exit ]
+  store ptr %.lcssa4977, ptr %241, align 8
   store ptr %.val1533, ptr %12, align 8
   %545 = getelementptr inbounds i8, ptr %.0, i64 208
   %546 = load ptr, ptr %545, align 8
@@ -5894,7 +5894,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.ex
   %547 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #36
           to label %.noexc1675 unwind label %.loopexit.split-lp3154.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc1675:                                       ; preds = %._crit_edge6064
+.noexc1675:                                       ; preds = %._crit_edge4989
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #34
   %548 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc.i.i.i unwind label %586
@@ -6587,22 +6587,22 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter6importERKNS0_13LocationRangeEPKN
   %.val1547 = load ptr, ptr %13, align 8
   %.val1548 = load i64, ptr %237, align 8
   %795 = invoke fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeStringERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.val1547, i64 %.val1548)
-          to label %._crit_edge9645 unwind label %800
+          to label %._crit_edge7495 unwind label %800
 
-._crit_edge9645:                                  ; preds = %789
+._crit_edge7495:                                  ; preds = %789
   store i32 19, ptr %198, align 8
   store ptr %795, ptr %199, align 8
   %796 = load ptr, ptr %13, align 8
   %797 = icmp eq ptr %796, %238
   br i1 %797, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i: ; preds = %._crit_edge9645
+_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i: ; preds = %._crit_edge7495
   %798 = load i64, ptr %237, align 8
   %799 = icmp ult i64 %798, 4
   call void @llvm.assume(i1 %799)
   br label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635
 
-_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i: ; preds = %._crit_edge9645
+_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i: ; preds = %._crit_edge7495
   call void @_ZdlPv(ptr noundef %796) #35
   br label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635
 
@@ -6685,16 +6685,16 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE13_M_dea
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE7reserveEm.exit: ; preds = %816, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE13_M_deallocateEPS4_m.exit.i
   %833 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %812) #34
   %834 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %812) #34
-  %.not30536049 = icmp eq ptr %833, %834
-  br i1 %.not30536049, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, label %.lr.ph6051
+  %.not30534974 = icmp eq ptr %833, %834
+  br i1 %.not30534974, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, label %.lr.ph4976
 
-.lr.ph6051:                                       ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE7reserveEm.exit
+.lr.ph4976:                                       ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE7reserveEm.exit
   %835 = getelementptr inbounds i8, ptr %810, i64 24
   br label %836
 
-836:                                              ; preds = %.lr.ph6051, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1754
-  %.sroa.02719.06050 = phi ptr [ %833, %.lr.ph6051 ], [ %877, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1754 ]
-  %837 = load i8, ptr %.sroa.02719.06050, align 1
+836:                                              ; preds = %.lr.ph4976, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1754
+  %.sroa.02719.04975 = phi ptr [ %833, %.lr.ph4976 ], [ %877, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1754 ]
+  %837 = load i8, ptr %.sroa.02719.04975, align 1
   %.val1557 = load ptr, ptr %236, align 8
   %838 = call fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRPKNS0_10IdentifierEDniDnEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.val1557, i32 0)
   %839 = load ptr, ptr %835, align 8
@@ -6787,7 +6787,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   store ptr %873, ptr %875, align 8
   %876 = getelementptr inbounds i8, ptr %838, i64 80
   store i64 0, ptr %876, align 8
-  %877 = getelementptr inbounds i8, ptr %.sroa.02719.06050, i64 1
+  %877 = getelementptr inbounds i8, ptr %.sroa.02719.04975, i64 1
   %.not3053 = icmp eq ptr %877, %834
   br i1 %.not3053, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, label %836
 
@@ -6841,17 +6841,17 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.e
   %902 = load ptr, ptr %901, align 8
   %903 = getelementptr inbounds i8, ptr %.0, i64 136
   %904 = load ptr, ptr %903, align 8
-  %.not30516042 = icmp eq ptr %902, %904
-  br i1 %.not30516042, label %._crit_edge6048, label %.lr.ph
+  %.not30514967 = icmp eq ptr %902, %904
+  br i1 %.not30514967, label %._crit_edge4973, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit1766
   %905 = getelementptr inbounds i8, ptr %.val1450, i64 -48
   br label %906
 
 906:                                              ; preds = %.lr.ph, %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRKPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_.exit
-  %.sroa.02709.06043 = phi ptr [ %902, %.lr.ph ], [ %1013, %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRKPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_.exit ]
-  %907 = getelementptr inbounds i8, ptr %.sroa.02709.06043, i64 24
-  %908 = getelementptr inbounds i8, ptr %.sroa.02709.06043, i64 56
+  %.sroa.02709.04968 = phi ptr [ %902, %.lr.ph ], [ %1013, %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRKPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_.exit ]
+  %907 = getelementptr inbounds i8, ptr %.sroa.02709.04968, i64 24
+  %908 = getelementptr inbounds i8, ptr %.sroa.02709.04968, i64 56
   %.val1559 = load ptr, ptr %907, align 8
   %.val1562 = load ptr, ptr %908, align 8
   %909 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #36
@@ -7105,26 +7105,26 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap5sweepEv.exit.i: ; preds = %1005, %._crit
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRKPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_.exit: ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_14Heap10makeEntityINS1_9HeapThunkEJRKPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_.exit.i, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.i, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap5sweepEv.exit.i
   %1012 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %905, ptr noundef nonnull align 8 dereferenceable(8) %907)
   store ptr %909, ptr %1012, align 8
-  %1013 = getelementptr inbounds i8, ptr %.sroa.02709.06043, i64 176
+  %1013 = getelementptr inbounds i8, ptr %.sroa.02709.04968, i64 176
   %.not3051 = icmp eq ptr %1013, %904
   br i1 %.not3051, label %._crit_edge, label %906
 
 ._crit_edge:                                      ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRKPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_.exit
   %.pre = load ptr, ptr %901, align 8
-  %.pre8247 = load ptr, ptr %903, align 8
-  %.not30526044 = icmp eq ptr %.pre, %.pre8247
-  br i1 %.not30526044, label %._crit_edge6048, label %.lr.ph6047
+  %.pre6097 = load ptr, ptr %903, align 8
+  %.not30524969 = icmp eq ptr %.pre, %.pre6097
+  br i1 %.not30524969, label %._crit_edge4973, label %.lr.ph4972
 
-.lr.ph6047:                                       ; preds = %._crit_edge
+.lr.ph4972:                                       ; preds = %._crit_edge
   %1014 = getelementptr inbounds i8, ptr %.val1450, i64 -48
   br label %1015
 
-1015:                                             ; preds = %.lr.ph6047, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEaSEOSE_.exit1777
-  %.sroa.02705.06045 = phi ptr [ %.pre, %.lr.ph6047 ], [ %1035, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEaSEOSE_.exit1777 ]
-  %1016 = getelementptr inbounds i8, ptr %.sroa.02705.06045, i64 24
+1015:                                             ; preds = %.lr.ph4972, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEaSEOSE_.exit1777
+  %.sroa.02705.04970 = phi ptr [ %.pre, %.lr.ph4972 ], [ %1035, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEaSEOSE_.exit1777 ]
+  %1016 = getelementptr inbounds i8, ptr %.sroa.02705.04970, i64 24
   %1017 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %1014, ptr noundef nonnull align 8 dereferenceable(8) %1016)
   %1018 = load ptr, ptr %1017, align 8
-  %1019 = getelementptr inbounds i8, ptr %.sroa.02705.06045, i64 56
+  %1019 = getelementptr inbounds i8, ptr %.sroa.02705.04970, i64 56
   %1020 = load ptr, ptr %1019, align 8
   %1021 = getelementptr inbounds i8, ptr %1020, i64 104
   %.val1500 = load ptr, ptr %1021, align 8
@@ -7166,11 +7166,11 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRKPKNS0
 
 _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEaSEOSE_.exit1777: ; preds = %1015, %1029
   call fastcc void @_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef null)
-  %1035 = getelementptr inbounds i8, ptr %.sroa.02705.06045, i64 176
-  %.not3052 = icmp eq ptr %1035, %.pre8247
-  br i1 %.not3052, label %._crit_edge6048, label %1015
+  %1035 = getelementptr inbounds i8, ptr %.sroa.02705.04970, i64 176
+  %.not3052 = icmp eq ptr %1035, %.pre6097
+  br i1 %.not3052, label %._crit_edge4973, label %1015
 
-._crit_edge6048:                                  ; preds = %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEaSEOSE_.exit1777, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit1766, %._crit_edge
+._crit_edge4973:                                  ; preds = %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEaSEOSE_.exit1777, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit1766, %._crit_edge
   %1036 = getelementptr inbounds i8, ptr %.0, i64 152
   %1037 = load ptr, ptr %1036, align 8
   br label %.backedge.backedge
@@ -7624,24 +7624,24 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack9lookUpVarEPKNS0_10IdentifierE.exit.thre
   call void @abort() #33
   unreachable
 
-_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1754, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE7reserveEm.exit, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i, %469, %._crit_edge6079._crit_edge, %1182, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit1816, %_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev.exit, %1052, %1048, %1043, %1038, %779, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1684
-  %.val15636173 = load ptr, ptr %196, align 8
-  %.val15646174 = load ptr, ptr %197, align 8
-  %1199 = ptrtoint ptr %.val15646174 to i64
-  %1200 = ptrtoint ptr %.val15636173 to i64
+_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1754, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE7reserveEm.exit, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i, %469, %._crit_edge5004._crit_edge, %1182, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit1816, %_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev.exit, %1052, %1048, %1043, %1038, %779, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1684
+  %.val15635094 = load ptr, ptr %196, align 8
+  %.val15645095 = load ptr, ptr %197, align 8
+  %1199 = ptrtoint ptr %.val15645095 to i64
+  %1200 = ptrtoint ptr %.val15635094 to i64
   %1201 = sub i64 %1199, %1200
   %1202 = sdiv exact i64 %1201, 400
   %1203 = trunc i64 %1202 to i32
   %1204 = icmp ult i32 %2, %1203
-  br i1 %1204, label %.lr.ph6187, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635._crit_edge
+  br i1 %1204, label %.lr.ph5099, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635._crit_edge
 
-.lr.ph6187:                                       ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, %3910
+.lr.ph5099:                                       ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, %3910
   %1205 = phi i32 [ %3915, %3910 ], [ %1203, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635 ]
   %1206 = phi i64 [ %3914, %3910 ], [ %1202, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635 ]
-  %.val15646186 = phi ptr [ %.val1564, %3910 ], [ %.val15646174, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635 ]
-  %.val15636185 = phi ptr [ %.val1563, %3910 ], [ %.val15636173, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635 ]
-  %.16184 = phi ptr [ %.3, %3910 ], [ %.0, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635 ]
-  %1207 = getelementptr inbounds i8, ptr %.val15646186, i64 -400
+  %.val15645098 = phi ptr [ %.val1564, %3910 ], [ %.val15645095, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635 ]
+  %.val15635097 = phi ptr [ %.val1563, %3910 ], [ %.val15635094, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635 ]
+  %.15096 = phi ptr [ %.3, %3910 ], [ %.0, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635 ]
+  %1207 = getelementptr inbounds i8, ptr %.val15645098, i64 -400
   %1208 = load i32, ptr %1207, align 8
   switch i32 %1208, label %3899 [
     i32 0, label %1209
@@ -7669,8 +7669,8 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.ex
     i32 22, label %3897
   ]
 
-1209:                                             ; preds = %.lr.ph6187
-  %1210 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+1209:                                             ; preds = %.lr.ph5099
+  %1210 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %1211 = load ptr, ptr %1210, align 8
   %1212 = load i32, ptr %198, align 8
   %.not1302 = icmp eq i32 %1212, 17
@@ -7731,18 +7731,18 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   %.val1535 = load ptr, ptr %1225, align 8
   %1226 = getelementptr i8, ptr %1224, i64 88
   %.val1537 = load ptr, ptr %1226, align 8
-  %.not30696124 = icmp eq ptr %.val1535, %.val1537
-  br i1 %.not30696124, label %._crit_edge6128, label %.lr.ph6127
+  %.not30695046 = icmp eq ptr %.val1535, %.val1537
+  br i1 %.not30695046, label %._crit_edge5050, label %.lr.ph5049
 
-.lr.ph6127:                                       ; preds = %1223, %1247
-  %.sroa.02701.06125 = phi ptr [ %1248, %1247 ], [ %.val1535, %1223 ]
+.lr.ph5049:                                       ; preds = %1223, %1247
+  %.sroa.02701.05047 = phi ptr [ %1248, %1247 ], [ %.val1535, %1223 ]
   %.02022.i.i.i = load ptr, ptr %309, align 8
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
-  %.pre.i.pre.pre.i.i = load ptr, ptr %.sroa.02701.06125, align 8
+  %.pre.i.pre.pre.i.i = load ptr, ptr %.sroa.02701.05047, align 8
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i1827
 
-.lr.ph.i.i.i1827:                                 ; preds = %.lr.ph6127, %.lr.ph.i.i.i1827
-  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i1827 ], [ %.02022.i.i.i, %.lr.ph6127 ]
+.lr.ph.i.i.i1827:                                 ; preds = %.lr.ph5049, %.lr.ph.i.i.i1827
+  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i1827 ], [ %.02022.i.i.i, %.lr.ph5049 ]
   %1227 = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 32
   %1228 = load ptr, ptr %1227, align 8
   %1229 = icmp ult ptr %.pre.i.pre.pre.i.i, %1228
@@ -7755,8 +7755,8 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i1827
   br i1 %1229, label %._crit_edge.thread.i.i.i, label %1234
 
-._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.lr.ph6127
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %308, %.lr.ph6127 ]
+._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.lr.ph5049
+  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %308, %.lr.ph5049 ]
   %1230 = load ptr, ptr %310, align 8
   %1231 = icmp eq ptr %.019.lcssa28.i.i.i, %1230
   br i1 %1231, label %select.unfold.i.i, label %1232
@@ -7799,16 +7799,16 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9_IdentityIS4_ESt4lessIS4_E
   br label %1247
 
 1247:                                             ; preds = %.noexc1831, %1234
-  %1248 = getelementptr inbounds i8, ptr %.sroa.02701.06125, i64 16
+  %1248 = getelementptr inbounds i8, ptr %.sroa.02701.05047, i64 16
   %.not3069 = icmp eq ptr %1248, %.val1537
-  br i1 %.not3069, label %._crit_edge6128, label %.lr.ph6127
+  br i1 %.not3069, label %._crit_edge5050, label %.lr.ph5049
 
 1249:                                             ; preds = %_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i
   %1250 = landingpad { ptr, i32 }
           cleanup
   br label %1749
 
-._crit_edge6128:                                  ; preds = %1247, %1223
+._crit_edge5050:                                  ; preds = %1247, %1223
   store i32 0, ptr %313, align 8
   store ptr null, ptr %314, align 8
   store ptr %313, ptr %315, align 8
@@ -7818,28 +7818,28 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9_IdentityIS4_ESt4lessIS4_E
   %1252 = getelementptr inbounds i8, ptr %1211, i64 168
   %1253 = load ptr, ptr %1252, align 8
   %1254 = load ptr, ptr %1251, align 8
-  %.not6192 = icmp eq ptr %1253, %1254
-  br i1 %.not6192, label %._crit_edge6133, label %.lr.ph6132
+  %.not5104 = icmp eq ptr %1253, %1254
+  br i1 %.not5104, label %._crit_edge5055, label %.lr.ph5054
 
-.lr.ph6132:                                       ; preds = %._crit_edge6128
+.lr.ph5054:                                       ; preds = %._crit_edge5050
   %1255 = getelementptr inbounds i8, ptr %1224, i64 104
-  %1256 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
-  %1257 = getelementptr inbounds i8, ptr %.val15646186, i64 -160
-  %1258 = getelementptr inbounds i8, ptr %.val15646186, i64 -152
+  %1256 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
+  %1257 = getelementptr inbounds i8, ptr %.val15645098, i64 -160
+  %1258 = getelementptr inbounds i8, ptr %.val15645098, i64 -152
   br label %1259
 
-1259:                                             ; preds = %.lr.ph6132, %1437
-  %1260 = phi ptr [ %1254, %.lr.ph6132 ], [ %1440, %1437 ]
-  %.09436130 = phi i1 [ false, %.lr.ph6132 ], [ %.not1309, %1437 ]
-  %.09456129 = phi i64 [ 0, %.lr.ph6132 ], [ %1438, %1437 ]
-  %1261 = getelementptr inbounds %"struct.jsonnet::internal::ArgParam", ptr %1260, i64 %.09456129
+1259:                                             ; preds = %.lr.ph5054, %1437
+  %1260 = phi ptr [ %1254, %.lr.ph5054 ], [ %1440, %1437 ]
+  %.09435052 = phi i1 [ false, %.lr.ph5054 ], [ %.not1309, %1437 ]
+  %.09455051 = phi i64 [ 0, %.lr.ph5054 ], [ %1438, %1437 ]
+  %1261 = getelementptr inbounds %"struct.jsonnet::internal::ArgParam", ptr %1260, i64 %.09455051
   %1262 = getelementptr inbounds i8, ptr %1261, i64 24
   %1263 = load ptr, ptr %1262, align 8
   %.not1309 = icmp ne ptr %1263, null
   br i1 %.not1309, label %1315, label %1264
 
 1264:                                             ; preds = %1259
-  br i1 %.09436130, label %1265, label %1283
+  br i1 %.09435052, label %1265, label %1283
 
 1265:                                             ; preds = %1264
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %27)
@@ -7851,7 +7851,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9_IdentityIS4_ESt4lessIS4_E
           to label %1269 unwind label %1276
 
 1269:                                             ; preds = %1266
-  %1270 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1268, i64 noundef %.09456129)
+  %1270 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1268, i64 noundef %.09455051)
           to label %1271 unwind label %1276
 
 1271:                                             ; preds = %1269
@@ -7917,7 +7917,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   %1285 = ptrtoint ptr %.val1522 to i64
   %1286 = sub i64 %1284, %1285
   %1287 = ashr exact i64 %1286, 4
-  %.not1310 = icmp ult i64 %.09456129, %1287
+  %.not1310 = icmp ult i64 %.09455051, %1287
   br i1 %.not1310, label %1312, label %1288
 
 1288:                                             ; preds = %1283
@@ -7990,7 +7990,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2019
 
 1312:                                             ; preds = %1283
-  %1313 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure::Param", ptr %.val1522, i64 %.09456129
+  %1313 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure::Param", ptr %.val1522, i64 %.09455051
   %1314 = load ptr, ptr %1313, align 8
   br label %1315
 
@@ -8356,7 +8356,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2019
 
 1437:                                             ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE4findERKS4_.exit
-  %1438 = add nuw i64 %.09456129, 1
+  %1438 = add nuw i64 %.09455051, 1
   %1439 = load ptr, ptr %1252, align 8
   %1440 = load ptr, ptr %1251, align 8
   %1441 = ptrtoint ptr %1439 to i64
@@ -8364,29 +8364,29 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   %1443 = sub i64 %1441, %1442
   %1444 = sdiv exact i64 %1443, 88
   %1445 = icmp ult i64 %1438, %1444
-  br i1 %1445, label %1259, label %._crit_edge6133, !llvm.loop !34
+  br i1 %1445, label %1259, label %._crit_edge5055, !llvm.loop !34
 
-._crit_edge6133:                                  ; preds = %1437, %._crit_edge6128
+._crit_edge5055:                                  ; preds = %1437, %._crit_edge5050
   %.val1536 = load ptr, ptr %1225, align 8
   %.val1538 = load ptr, ptr %1226, align 8
-  %.not30706134 = icmp eq ptr %.val1536, %.val1538
-  br i1 %.not30706134, label %._crit_edge6141, label %.lr.ph6140
+  %.not30705056 = icmp eq ptr %.val1536, %.val1538
+  br i1 %.not30705056, label %._crit_edge5063, label %.lr.ph5062
 
-.lr.ph6140:                                       ; preds = %._crit_edge6133
+.lr.ph5062:                                       ; preds = %._crit_edge5055
   %1446 = getelementptr inbounds i8, ptr %1224, i64 104
   %1447 = getelementptr inbounds i8, ptr %1224, i64 64
   %1448 = getelementptr inbounds i8, ptr %1224, i64 72
-  %1449 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
-  %1450 = getelementptr inbounds i8, ptr %.val15646186, i64 -160
-  %1451 = getelementptr inbounds i8, ptr %.val15646186, i64 -152
+  %1449 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
+  %1450 = getelementptr inbounds i8, ptr %.val15645098, i64 -160
+  %1451 = getelementptr inbounds i8, ptr %.val15645098, i64 -152
   br label %1452
 
-1452:                                             ; preds = %.lr.ph6140, %1639
-  %.sroa.02689.26138 = phi ptr [ null, %.lr.ph6140 ], [ %.sroa.02689.4, %1639 ]
-  %.sroa.62690.26137 = phi ptr [ null, %.lr.ph6140 ], [ %.sroa.62690.3, %1639 ]
-  %.sroa.11.26136 = phi ptr [ null, %.lr.ph6140 ], [ %.sroa.11.3, %1639 ]
-  %.sroa.02688.06135 = phi ptr [ %.val1536, %.lr.ph6140 ], [ %1640, %1639 ]
-  %.val1586 = load ptr, ptr %.sroa.02688.06135, align 8
+1452:                                             ; preds = %.lr.ph5062, %1639
+  %.sroa.02689.25060 = phi ptr [ null, %.lr.ph5062 ], [ %.sroa.02689.4, %1639 ]
+  %.sroa.62690.25059 = phi ptr [ null, %.lr.ph5062 ], [ %.sroa.62690.3, %1639 ]
+  %.sroa.11.25058 = phi ptr [ null, %.lr.ph5062 ], [ %.sroa.11.3, %1639 ]
+  %.sroa.02688.05057 = phi ptr [ %.val1536, %.lr.ph5062 ], [ %1640, %1639 ]
+  %.val1586 = load ptr, ptr %.sroa.02688.05057, align 8
   %.val.i.i1875 = load ptr, ptr %314, align 8
   %.not2.i.i.i1876 = icmp eq ptr %.val.i.i1875, null
   br i1 %.not2.i.i.i1876, label %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888.thread, label %.lr.ph.i.i.i1877
@@ -8426,7 +8426,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1977, %1486, %1517, %1543, %.noexc1949, %1545, %1605, %1627
-  %.sroa.02689.3.ph.ph.ph = phi ptr [ %.sroa.02689.26138, %1486 ], [ %.sroa.02689.26138, %1517 ], [ %.sroa.02689.26138, %1543 ], [ %.sroa.02689.26138, %.noexc1949 ], [ %.sroa.02689.26138, %1545 ], [ %.sroa.02689.26138, %1605 ], [ %.sroa.02689.26138, %1627 ], [ %.sroa.02689.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1977 ]
+  %.sroa.02689.3.ph.ph.ph = phi ptr [ %.sroa.02689.25060, %1486 ], [ %.sroa.02689.25060, %1517 ], [ %.sroa.02689.25060, %1543 ], [ %.sroa.02689.25060, %.noexc1949 ], [ %.sroa.02689.25060, %1545 ], [ %.sroa.02689.25060, %1605 ], [ %.sroa.02689.25060, %1627 ], [ %.sroa.02689.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1977 ]
   %lpad.loopexit3087 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -8436,13 +8436,13 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke10647, %1462
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke8497, %1462
   %lpad.loopexit.split-lp3144 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888.thread: ; preds = %1452, %_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS6_.exit.i.i1885, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888
-  %1459 = getelementptr inbounds i8, ptr %.sroa.02688.06135, i64 8
+  %1459 = getelementptr inbounds i8, ptr %.sroa.02688.05057, i64 8
   %1460 = load ptr, ptr %1459, align 8
   %1461 = icmp eq ptr %1460, null
   br i1 %1461, label %1462, label %1486
@@ -8457,7 +8457,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
           to label %1466 unwind label %1477
 
 1466:                                             ; preds = %1463
-  %1467 = load ptr, ptr %.sroa.02688.06135, align 8
+  %1467 = load ptr, ptr %.sroa.02688.05057, align 8
   invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %1467)
           to label %1468 unwind label %1477
 
@@ -8574,7 +8574,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   %1508 = ptrtoint ptr %.val16.i.i.i.i.i1938 to i64
   %1509 = sub i64 %1507, %1508
   %1510 = icmp eq i64 %1509, 9223372036854775800
-  br i1 %1510, label %.invoke10647, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i.i1939
+  br i1 %1510, label %.invoke8497, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i.i1939
 
 _ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i.i1939: ; preds = %1506
   %1511 = ashr exact i64 %1509, 3
@@ -8803,7 +8803,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRPKNS0_
   %1597 = ptrtoint ptr %.val17.i.i1955 to i64
   %1598 = sub i64 %1596, %1597
   %1599 = icmp eq i64 %1598, 9223372036854775800
-  br i1 %1599, label %.invoke10647, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i1956
+  br i1 %1599, label %.invoke8497, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i1956
 
 _ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i1956: ; preds = %1595
   %1600 = ashr exact i64 %1598, 3
@@ -8849,25 +8849,25 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_in
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1965
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1965: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1962, %1592
-  %.not.i1966 = icmp eq ptr %.sroa.62690.26137, %.sroa.11.26136
+  %.not.i1966 = icmp eq ptr %.sroa.62690.25059, %.sroa.11.25058
   br i1 %.not.i1966, label %1617, label %1616
 
 1616:                                             ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1965
-  store ptr %1488, ptr %.sroa.62690.26137, align 8
+  store ptr %1488, ptr %.sroa.62690.25059, align 8
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1977
 
 1617:                                             ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1965
-  %1618 = ptrtoint ptr %.sroa.62690.26137 to i64
-  %1619 = ptrtoint ptr %.sroa.02689.26138 to i64
+  %1618 = ptrtoint ptr %.sroa.62690.25059 to i64
+  %1619 = ptrtoint ptr %.sroa.02689.25060 to i64
   %1620 = sub i64 %1618, %1619
   %1621 = icmp eq i64 %1620, 9223372036854775800
-  br i1 %1621, label %.invoke10647, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i1968
+  br i1 %1621, label %.invoke8497, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i1968
 
-.invoke10647:                                     ; preds = %1617, %1595, %1506
+.invoke8497:                                      ; preds = %1617, %1595, %1506
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.95) #37
-          to label %.cont10648 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont8498 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont10648:                                       ; preds = %.invoke10647
+.cont8498:                                        ; preds = %.invoke8497
   unreachable
 
 _ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i1968: ; preds = %1617
@@ -8893,16 +8893,16 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %1632, label %1633, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1972
 
 1633:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1971
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1630, ptr align 8 %.sroa.02689.26138, i64 %1620, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1630, ptr align 8 %.sroa.02689.25060, i64 %1620, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1972
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1972: ; preds = %1633, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1971
   %1634 = getelementptr inbounds i8, ptr %1630, i64 %1620
-  %.not.i22.i.i1973 = icmp eq ptr %.sroa.02689.26138, null
+  %.not.i22.i.i1973 = icmp eq ptr %.sroa.02689.25060, null
   br i1 %.not.i22.i.i1973, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974, label %1635
 
 1635:                                             ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1972
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.02689.26138) #35
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.02689.25060) #35
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974: ; preds = %1635, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1972
@@ -8910,10 +8910,10 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_in
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1977
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1977: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974, %1616
-  %.sroa.11.5 = phi ptr [ %1636, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974 ], [ %.sroa.11.26136, %1616 ]
-  %.pn3073 = phi ptr [ %1634, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974 ], [ %.sroa.62690.26137, %1616 ]
-  %.sroa.02689.7 = phi ptr [ %1630, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974 ], [ %.sroa.02689.26138, %1616 ]
-  %1637 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.02688.06135)
+  %.sroa.11.5 = phi ptr [ %1636, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974 ], [ %.sroa.11.25058, %1616 ]
+  %.pn3073 = phi ptr [ %1634, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974 ], [ %.sroa.62690.25059, %1616 ]
+  %.sroa.02689.7 = phi ptr [ %1630, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i1974 ], [ %.sroa.02689.25060, %1616 ]
+  %1637 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.02688.05057)
           to label %1638 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1638:                                             ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit1977
@@ -8922,16 +8922,16 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   br label %1639
 
 1639:                                             ; preds = %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888, %1638
-  %.sroa.11.3 = phi ptr [ %.sroa.11.26136, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888 ], [ %.sroa.11.5, %1638 ]
-  %.sroa.62690.3 = phi ptr [ %.sroa.62690.26137, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888 ], [ %.sroa.62690.5, %1638 ]
-  %.sroa.02689.4 = phi ptr [ %.sroa.02689.26138, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888 ], [ %.sroa.02689.7, %1638 ]
-  %1640 = getelementptr inbounds i8, ptr %.sroa.02688.06135, i64 16
+  %.sroa.11.3 = phi ptr [ %.sroa.11.25058, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888 ], [ %.sroa.11.5, %1638 ]
+  %.sroa.62690.3 = phi ptr [ %.sroa.62690.25059, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888 ], [ %.sroa.62690.5, %1638 ]
+  %.sroa.02689.4 = phi ptr [ %.sroa.02689.25060, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit1888 ], [ %.sroa.02689.7, %1638 ]
+  %1640 = getelementptr inbounds i8, ptr %.sroa.02688.05057, i64 16
   %.not3070 = icmp eq ptr %1640, %.val1538
-  br i1 %.not3070, label %._crit_edge6141, label %1452
+  br i1 %.not3070, label %._crit_edge5063, label %1452
 
-._crit_edge6141:                                  ; preds = %1639, %._crit_edge6133
-  %.sroa.62690.2.lcssa = phi ptr [ null, %._crit_edge6133 ], [ %.sroa.62690.3, %1639 ]
-  %.sroa.02689.2.lcssa = phi ptr [ null, %._crit_edge6133 ], [ %.sroa.02689.4, %1639 ]
+._crit_edge5063:                                  ; preds = %1639, %._crit_edge5055
+  %.sroa.62690.2.lcssa = phi ptr [ null, %._crit_edge5055 ], [ %.sroa.62690.3, %1639 ]
+  %.sroa.02689.2.lcssa = phi ptr [ null, %._crit_edge5055 ], [ %.sroa.02689.4, %1639 ]
   store i32 0, ptr %323, align 8
   store ptr null, ptr %324, align 8
   store ptr %323, ptr %325, align 8
@@ -8942,7 +8942,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   %.not.i.i1979 = icmp eq ptr %.val.i.i1978, null
   br i1 %.not.i.i1979, label %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit1987, label %1642
 
-1642:                                             ; preds = %._crit_edge6141
+1642:                                             ; preds = %._crit_edge5063
   %1643 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i1978, ptr noundef %323)
           to label %.noexc.i.i1980 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -8972,8 +8972,8 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19
   store ptr %1643, ptr %324, align 8
   br label %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit1987
 
-_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit1987: ; preds = %1649, %._crit_edge6141
-  %.val12.i.pre.i = phi i64 [ %1651, %1649 ], [ 0, %._crit_edge6141 ]
+_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit1987: ; preds = %1649, %._crit_edge5063
+  %.val12.i.pre.i = phi i64 [ %1651, %1649 ], [ 0, %._crit_edge5063 ]
   %.val1369 = load ptr, ptr %315, align 8
   %.not8.i.i1988 = icmp eq ptr %.val1369, %313
   br i1 %.not8.i.i1988, label %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE6insertISt17_Rb_tree_iteratorISC_EEEvT_SI_.exit, label %.lr.ph.i.i1989
@@ -9062,22 +9062,22 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19
   br i1 %.not.i.i1996, label %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE6insertISt17_Rb_tree_iteratorISC_EEEvT_SI_.exit, label %.lr.ph.i.i1989, !llvm.loop !36
 
 _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE6insertISt17_Rb_tree_iteratorISC_EEEvT_SI_.exit: ; preds = %_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE17_M_insert_unique_IRSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit1987
-  %.not30716145 = icmp eq ptr %.sroa.02689.2.lcssa, %.sroa.62690.2.lcssa
-  br i1 %.not30716145, label %._crit_edge6148, label %.lr.ph6147
+  %.not30715066 = icmp eq ptr %.sroa.02689.2.lcssa, %.sroa.62690.2.lcssa
+  br i1 %.not30715066, label %._crit_edge5069, label %.lr.ph5068
 
-.lr.ph6147:                                       ; preds = %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE6insertISt17_Rb_tree_iteratorISC_EEEvT_SI_.exit, %1682
-  %.sroa.02683.06146 = phi ptr [ %1683, %1682 ], [ %.sroa.02689.2.lcssa, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE6insertISt17_Rb_tree_iteratorISC_EEEvT_SI_.exit ]
-  %1679 = load ptr, ptr %.sroa.02683.06146, align 8
+.lr.ph5068:                                       ; preds = %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE6insertISt17_Rb_tree_iteratorISC_EEEvT_SI_.exit, %1682
+  %.sroa.02683.05067 = phi ptr [ %1683, %1682 ], [ %.sroa.02689.2.lcssa, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE6insertISt17_Rb_tree_iteratorISC_EEEvT_SI_.exit ]
+  %1679 = load ptr, ptr %.sroa.02683.05067, align 8
   %1680 = getelementptr inbounds i8, ptr %1679, i64 40
   %1681 = invoke fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %1680, ptr noundef nonnull align 8 dereferenceable(48) %41)
           to label %1682 unwind label %.loopexit3080
 
-1682:                                             ; preds = %.lr.ph6147
-  %1683 = getelementptr inbounds i8, ptr %.sroa.02683.06146, i64 8
+1682:                                             ; preds = %.lr.ph5068
+  %1683 = getelementptr inbounds i8, ptr %.sroa.02683.05067, i64 8
   %.not3071 = icmp eq ptr %1683, %.sroa.62690.2.lcssa
-  br i1 %.not3071, label %._crit_edge6148, label %.lr.ph6147
+  br i1 %.not3071, label %._crit_edge5069, label %.lr.ph5068
 
-.loopexit3080:                                    ; preds = %.lr.ph6147
+.loopexit3080:                                    ; preds = %.lr.ph5068
   %lpad.loopexit3082 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2009
@@ -9097,10 +9097,10 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
           cleanup
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2009
 
-._crit_edge6148:                                  ; preds = %1682, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE6insertISt17_Rb_tree_iteratorISC_EEEvT_SI_.exit
-  %1684 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
+._crit_edge5069:                                  ; preds = %1682, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE6insertISt17_Rb_tree_iteratorISC_EEEvT_SI_.exit
+  %1684 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
   %.val10.i1999 = load ptr, ptr %1684, align 8
-  %1685 = getelementptr inbounds i8, ptr %.val15646186, i64 -160
+  %1685 = getelementptr inbounds i8, ptr %.val15645098, i64 -160
   %.val11.i2000 = load ptr, ptr %1685, align 8
   %1686 = ptrtoint ptr %.val11.i2000 to i64
   %1687 = ptrtoint ptr %.val10.i1999 to i64
@@ -9110,7 +9110,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   %.not.i.i.i.i2001 = icmp eq ptr %.val11.i2000, %.val10.i1999
   br i1 %.not.i.i.i.i2001, label %.noexc2006, label %1690
 
-1690:                                             ; preds = %._crit_edge6148
+1690:                                             ; preds = %._crit_edge5069
   %1691 = icmp ugt i64 %1689, 1152921504606846975
   br i1 %1691, label %.noexc.i.i2004, label %_ZNSt16allocator_traitsISaIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEEE8allocateERS5_m.exit.i.i.i.i
 
@@ -9125,8 +9125,8 @@ _ZNSt16allocator_traitsISaIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEEE8alloca
   %1692 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1688) #36
           to label %.noexc2006 unwind label %.loopexit.split-lp3081.loopexit.split-lp.loopexit
 
-.noexc2006:                                       ; preds = %_ZNSt16allocator_traitsISaIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEEE8allocateERS5_m.exit.i.i.i.i, %._crit_edge6148
-  %1693 = phi ptr [ null, %._crit_edge6148 ], [ %1692, %_ZNSt16allocator_traitsISaIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEEE8allocateERS5_m.exit.i.i.i.i ]
+.noexc2006:                                       ; preds = %_ZNSt16allocator_traitsISaIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEEE8allocateERS5_m.exit.i.i.i.i, %._crit_edge5069
+  %1693 = phi ptr [ null, %._crit_edge5069 ], [ %1692, %_ZNSt16allocator_traitsISaIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEEE8allocateERS5_m.exit.i.i.i.i ]
   store ptr %1693, ptr %42, align 8
   store ptr %1693, ptr %328, align 8
   %1694 = getelementptr inbounds ptr, ptr %1693, i64 %1689
@@ -9240,7 +9240,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit: ; preds = %1699, %1704
 
 thread-pre-split:                                 ; preds = %1714, %1737, %1739
   %switch.ph = phi i1 [ true, %1739 ], [ false, %1737 ], [ false, %1714 ]
-  %.2.ph = phi ptr [ %1740, %1739 ], [ %.16184, %1737 ], [ %.16184, %1714 ]
+  %.2.ph = phi ptr [ %1740, %1739 ], [ %.15096, %1737 ], [ %.15096, %1714 ]
   %.val1426.pr = load ptr, ptr %42, align 8
   br label %1741
 
@@ -9289,7 +9289,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2009: 
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2009, %1485
-  %.sroa.02689.5 = phi ptr [ %.sroa.02689.26138, %1485 ], [ %.sroa.02689.2.lcssa, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2009 ], [ %.sroa.02689.26138, %.loopexit ], [ %.sroa.02689.26138, %.loopexit.split-lp.loopexit ], [ %.sroa.02689.3.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.02689.2.lcssa, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.02689.26138, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.02689.5 = phi ptr [ %.sroa.02689.25060, %1485 ], [ %.sroa.02689.2.lcssa, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2009 ], [ %.sroa.02689.25060, %.loopexit ], [ %.sroa.02689.25060, %.loopexit.split-lp.loopexit ], [ %.sroa.02689.3.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.02689.2.lcssa, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.02689.25060, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn1305.pn.pn = phi { ptr, i32 } [ %.pn1305.pn, %1485 ], [ %.pn1303, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2009 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit3077, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit3087, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3143, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp3144, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i2016 = icmp eq ptr %.sroa.02689.5, null
   br i1 %.not.i.i.i2016, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2019, label %1748
@@ -9309,8 +9309,8 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2019: 
   call void @_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #34
   br label %common.resume
 
-1750:                                             ; preds = %.lr.ph6187
-  %1751 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+1750:                                             ; preds = %.lr.ph5099
+  %1751 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %1752 = load ptr, ptr %1751, align 8
   %1753 = load i32, ptr %198, align 8
   %1754 = icmp eq i32 %1753, 1
@@ -9345,7 +9345,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2019: 
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074
 
 1766:                                             ; preds = %1758, %1762, %1755, %1750
-  %1767 = getelementptr inbounds i8, ptr %.val15646186, i64 -400
+  %1767 = getelementptr inbounds i8, ptr %.val15645098, i64 -400
   store i32 2, ptr %1767, align 8
   %.val1459 = load ptr, ptr %197, align 8
   %1768 = getelementptr inbounds i8, ptr %.val1459, i64 -312
@@ -9354,8 +9354,8 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2019: 
   %1770 = load ptr, ptr %1769, align 8
   br label %.backedge.backedge
 
-1771:                                             ; preds = %.lr.ph6187
-  %1772 = getelementptr inbounds i8, ptr %.val15646186, i64 -296
+1771:                                             ; preds = %.lr.ph5099
+  %1772 = getelementptr inbounds i8, ptr %.val15645098, i64 -296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1772, ptr noundef nonnull align 8 dereferenceable(16) %198, i64 16, i1 false)
   %.val1461 = load ptr, ptr %197, align 8
   %1773 = getelementptr inbounds i8, ptr %.val1461, i64 -400
@@ -9363,9 +9363,9 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2019: 
   %.val1462.pre = load ptr, ptr %197, align 8
   br label %1774
 
-1774:                                             ; preds = %1771, %.lr.ph6187
-  %.val1462 = phi ptr [ %.val1462.pre, %1771 ], [ %.val15646186, %.lr.ph6187 ]
-  %1775 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+1774:                                             ; preds = %1771, %.lr.ph5099
+  %.val1462 = phi ptr [ %.val1462.pre, %1771 ], [ %.val15645098, %.lr.ph5099 ]
+  %1775 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %1776 = load ptr, ptr %1775, align 8
   %1777 = getelementptr inbounds i8, ptr %.val1462, i64 -312
   %1778 = getelementptr inbounds i8, ptr %.val1462, i64 -296
@@ -9377,8 +9377,8 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2019: 
   %1783 = getelementptr inbounds i8, ptr %1776, i64 160
   %1784 = load i32, ptr %1783, align 8
   %1785 = icmp eq i32 %1784, 3
-  %or.cond9628 = select i1 %or.cond, i1 %1785, i1 false
-  br i1 %or.cond9628, label %1786, label %._crit_edge8268
+  %or.cond7478 = select i1 %or.cond, i1 %1785, i1 false
+  br i1 %or.cond7478, label %1786, label %._crit_edge6118
 
 1786:                                             ; preds = %1774
   %1787 = getelementptr inbounds i8, ptr %.val1462, i64 -400
@@ -9388,26 +9388,26 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2019: 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1788, ptr noundef nonnull align 8 dereferenceable(16) %1778, i64 16, i1 false)
   br label %3910
 
-._crit_edge8268:                                  ; preds = %1774
+._crit_edge6118:                                  ; preds = %1774
   switch i32 %1784, label %1829 [
     i32 12, label %1789
     i32 13, label %1792
     i32 11, label %1795
   ]
 
-1789:                                             ; preds = %._crit_edge8268
+1789:                                             ; preds = %._crit_edge6118
   %1790 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.316)
   %1791 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1790, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   call void @abort() #33
   unreachable
 
-1792:                                             ; preds = %._crit_edge8268
+1792:                                             ; preds = %._crit_edge6118
   %1793 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.317)
   %1794 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1793, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   call void @abort() #33
   unreachable
 
-1795:                                             ; preds = %._crit_edge8268
+1795:                                             ; preds = %._crit_edge6118
   br i1 %1780, label %1807, label %1796
 
 1796:                                             ; preds = %1795
@@ -9520,7 +9520,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   call void @__cxa_free_exception(ptr %1820) #34
   br label %common.resume
 
-1829:                                             ; preds = %._crit_edge8268
+1829:                                             ; preds = %._crit_edge6118
   %.not1246 = icmp eq i32 %1779, %1781
   br i1 %.not1246, label %1873, label %1830
 
@@ -9709,25 +9709,25 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   %.val1377 = load ptr, ptr %1880, align 8
   %1881 = getelementptr i8, ptr %1877, i64 24
   %.val1381 = load ptr, ptr %1881, align 8
-  %.not30656102 = icmp eq ptr %.val1377, %.val1381
-  br i1 %.not30656102, label %._crit_edge6109, label %.lr.ph6108
+  %.not30655025 = icmp eq ptr %.val1377, %.val1381
+  br i1 %.not30655025, label %._crit_edge5032, label %.lr.ph5031
 
-.lr.ph6108:                                       ; preds = %1875, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058
-  %.sroa.02676.06106 = phi ptr [ %1905, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ], [ %.val1377, %1875 ]
-  %.sroa.17.46105 = phi ptr [ %.sroa.17.6, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ], [ null, %1875 ]
-  %.sroa.8.46104 = phi ptr [ %.sroa.8.6, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ], [ null, %1875 ]
-  %.sroa.02677.46103 = phi ptr [ %.sroa.02677.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ], [ null, %1875 ]
-  %1882 = load ptr, ptr %.sroa.02676.06106, align 8
-  %.not.i2047 = icmp eq ptr %.sroa.8.46104, %.sroa.17.46105
+.lr.ph5031:                                       ; preds = %1875, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058
+  %.sroa.02676.05029 = phi ptr [ %1905, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ], [ %.val1377, %1875 ]
+  %.sroa.17.45028 = phi ptr [ %.sroa.17.6, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ], [ null, %1875 ]
+  %.sroa.8.45027 = phi ptr [ %.sroa.8.6, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ], [ null, %1875 ]
+  %.sroa.02677.45026 = phi ptr [ %.sroa.02677.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ], [ null, %1875 ]
+  %1882 = load ptr, ptr %.sroa.02676.05029, align 8
+  %.not.i2047 = icmp eq ptr %.sroa.8.45027, %.sroa.17.45028
   br i1 %.not.i2047, label %1884, label %1883
 
-1883:                                             ; preds = %.lr.ph6108
-  store ptr %1882, ptr %.sroa.8.46104, align 8
+1883:                                             ; preds = %.lr.ph5031
+  store ptr %1882, ptr %.sroa.8.45027, align 8
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058
 
-1884:                                             ; preds = %.lr.ph6108
-  %1885 = ptrtoint ptr %.sroa.17.46105 to i64
-  %1886 = ptrtoint ptr %.sroa.02677.46103 to i64
+1884:                                             ; preds = %.lr.ph5031
+  %1885 = ptrtoint ptr %.sroa.17.45028 to i64
+  %1886 = ptrtoint ptr %.sroa.02677.45026 to i64
   %1887 = sub i64 %1885, %1886
   %1888 = icmp eq i64 %1887, 9223372036854775800
   br i1 %1888, label %1889, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i2049
@@ -9762,16 +9762,16 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %1900, label %1901, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2053
 
 1901:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2052
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1898, ptr align 8 %.sroa.02677.46103, i64 %1887, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1898, ptr align 8 %.sroa.02677.45026, i64 %1887, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2053
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2053: ; preds = %1901, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2052
   %1902 = getelementptr inbounds i8, ptr %1898, i64 %1887
-  %.not.i22.i.i2054 = icmp eq ptr %.sroa.02677.46103, null
+  %.not.i22.i.i2054 = icmp eq ptr %.sroa.02677.45026, null
   br i1 %.not.i22.i.i2054, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055, label %1903
 
 1903:                                             ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2053
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.02677.46103) #35
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.02677.45026) #35
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055: ; preds = %1903, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2053
@@ -9779,13 +9779,13 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_in
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055, %1883
-  %.sroa.02677.7 = phi ptr [ %1898, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055 ], [ %.sroa.02677.46103, %1883 ]
-  %.pn3068 = phi ptr [ %1902, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055 ], [ %.sroa.8.46104, %1883 ]
-  %.sroa.17.6 = phi ptr [ %1904, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055 ], [ %.sroa.17.46105, %1883 ]
+  %.sroa.02677.7 = phi ptr [ %1898, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055 ], [ %.sroa.02677.45026, %1883 ]
+  %.pn3068 = phi ptr [ %1902, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055 ], [ %.sroa.8.45027, %1883 ]
+  %.sroa.17.6 = phi ptr [ %1904, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2055 ], [ %.sroa.17.45028, %1883 ]
   %.sroa.8.6 = getelementptr inbounds i8, ptr %.pn3068, i64 8
-  %1905 = getelementptr inbounds i8, ptr %.sroa.02676.06106, i64 8
+  %1905 = getelementptr inbounds i8, ptr %.sroa.02676.05029, i64 8
   %.not3065 = icmp eq ptr %1905, %.val1381
-  br i1 %.not3065, label %._crit_edge6109, label %.lr.ph6108
+  br i1 %.not3065, label %._crit_edge5032, label %.lr.ph5031
 
 .loopexit3094:                                    ; preds = %1922
   %lpad.loopexit3096 = landingpad { ptr, i32 }
@@ -9797,19 +9797,19 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
           cleanup
   br label %.loopexit.split-lp3095
 
-.loopexit.split-lp3095.loopexit.split-lp.loopexit: ; preds = %._crit_edge6120
+.loopexit.split-lp3095.loopexit.split-lp.loopexit: ; preds = %._crit_edge5043
   %lpad.loopexit3140 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp3095
 
 .loopexit.split-lp3095.loopexit.split-lp.loopexit.split-lp: ; preds = %1889, %1916
-  %.sroa.02677.5.ph.ph.ph = phi ptr [ %.sroa.02677.66114, %1916 ], [ %.sroa.02677.46103, %1889 ]
+  %.sroa.02677.5.ph.ph.ph = phi ptr [ %.sroa.02677.65037, %1916 ], [ %.sroa.02677.45026, %1889 ]
   %lpad.loopexit.split-lp3141 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp3095
 
 .loopexit.split-lp3095:                           ; preds = %.loopexit.split-lp3095.loopexit, %.loopexit.split-lp3095.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp3095.loopexit.split-lp.loopexit, %.loopexit3094
-  %.sroa.02677.5 = phi ptr [ %.sroa.02677.66114, %.loopexit3094 ], [ %.sroa.02677.46103, %.loopexit.split-lp3095.loopexit ], [ %.sroa.02677.6.lcssa, %.loopexit.split-lp3095.loopexit.split-lp.loopexit ], [ %.sroa.02677.5.ph.ph.ph, %.loopexit.split-lp3095.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.02677.5 = phi ptr [ %.sroa.02677.65037, %.loopexit3094 ], [ %.sroa.02677.45026, %.loopexit.split-lp3095.loopexit ], [ %.sroa.02677.6.lcssa, %.loopexit.split-lp3095.loopexit.split-lp.loopexit ], [ %.sroa.02677.5.ph.ph.ph, %.loopexit.split-lp3095.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi3098 = phi { ptr, i32 } [ %lpad.loopexit3096, %.loopexit3094 ], [ %lpad.loopexit3099, %.loopexit.split-lp3095.loopexit ], [ %lpad.loopexit3140, %.loopexit.split-lp3095.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp3141, %.loopexit.split-lp3095.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i2059 = icmp eq ptr %.sroa.02677.5, null
   br i1 %.not.i.i.i2059, label %common.resume, label %1906
@@ -9818,7 +9818,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   call void @_ZdlPv(ptr noundef nonnull %.sroa.02677.5) #35
   br label %common.resume
 
-._crit_edge6109:                                  ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058, %1875
+._crit_edge5032:                                  ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058, %1875
   %.sroa.02677.4.lcssa = phi ptr [ null, %1875 ], [ %.sroa.02677.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ]
   %.sroa.8.4.lcssa = phi ptr [ null, %1875 ], [ %.sroa.8.6, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ]
   %.sroa.17.4.lcssa = phi ptr [ null, %1875 ], [ %.sroa.17.6, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2058 ]
@@ -9826,25 +9826,25 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   %.val1378 = load ptr, ptr %1907, align 8
   %1908 = getelementptr i8, ptr %1879, i64 24
   %.val1382 = load ptr, ptr %1908, align 8
-  %.not30666113 = icmp eq ptr %.val1378, %.val1382
-  br i1 %.not30666113, label %._crit_edge6120, label %.lr.ph6119
+  %.not30665036 = icmp eq ptr %.val1378, %.val1382
+  br i1 %.not30665036, label %._crit_edge5043, label %.lr.ph5042
 
-.lr.ph6119:                                       ; preds = %._crit_edge6109, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072
-  %.sroa.02674.06117 = phi ptr [ %1932, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ], [ %.val1378, %._crit_edge6109 ]
-  %.sroa.17.56116 = phi ptr [ %.sroa.17.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ], [ %.sroa.17.4.lcssa, %._crit_edge6109 ]
-  %.sroa.8.56115 = phi ptr [ %.sroa.8.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ], [ %.sroa.8.4.lcssa, %._crit_edge6109 ]
-  %.sroa.02677.66114 = phi ptr [ %.sroa.02677.8, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ], [ %.sroa.02677.4.lcssa, %._crit_edge6109 ]
-  %1909 = load ptr, ptr %.sroa.02674.06117, align 8
-  %.not.i2061 = icmp eq ptr %.sroa.8.56115, %.sroa.17.56116
+.lr.ph5042:                                       ; preds = %._crit_edge5032, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072
+  %.sroa.02674.05040 = phi ptr [ %1932, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ], [ %.val1378, %._crit_edge5032 ]
+  %.sroa.17.55039 = phi ptr [ %.sroa.17.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ], [ %.sroa.17.4.lcssa, %._crit_edge5032 ]
+  %.sroa.8.55038 = phi ptr [ %.sroa.8.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ], [ %.sroa.8.4.lcssa, %._crit_edge5032 ]
+  %.sroa.02677.65037 = phi ptr [ %.sroa.02677.8, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ], [ %.sroa.02677.4.lcssa, %._crit_edge5032 ]
+  %1909 = load ptr, ptr %.sroa.02674.05040, align 8
+  %.not.i2061 = icmp eq ptr %.sroa.8.55038, %.sroa.17.55039
   br i1 %.not.i2061, label %1911, label %1910
 
-1910:                                             ; preds = %.lr.ph6119
-  store ptr %1909, ptr %.sroa.8.56115, align 8
+1910:                                             ; preds = %.lr.ph5042
+  store ptr %1909, ptr %.sroa.8.55038, align 8
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072
 
-1911:                                             ; preds = %.lr.ph6119
-  %1912 = ptrtoint ptr %.sroa.17.56116 to i64
-  %1913 = ptrtoint ptr %.sroa.02677.66114 to i64
+1911:                                             ; preds = %.lr.ph5042
+  %1912 = ptrtoint ptr %.sroa.17.55039 to i64
+  %1913 = ptrtoint ptr %.sroa.02677.65037 to i64
   %1914 = sub i64 %1912, %1913
   %1915 = icmp eq i64 %1914, 9223372036854775800
   br i1 %1915, label %1916, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i2063
@@ -9879,16 +9879,16 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %1927, label %1928, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2067
 
 1928:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2066
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1925, ptr align 8 %.sroa.02677.66114, i64 %1914, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1925, ptr align 8 %.sroa.02677.65037, i64 %1914, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2067
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2067: ; preds = %1928, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2066
   %1929 = getelementptr inbounds i8, ptr %1925, i64 %1914
-  %.not.i22.i.i2068 = icmp eq ptr %.sroa.02677.66114, null
+  %.not.i22.i.i2068 = icmp eq ptr %.sroa.02677.65037, null
   br i1 %.not.i22.i.i2068, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069, label %1930
 
 1930:                                             ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2067
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.02677.66114) #35
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.02677.65037) #35
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069: ; preds = %1930, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2067
@@ -9896,27 +9896,27 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_in
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069, %1910
-  %.sroa.02677.8 = phi ptr [ %1925, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069 ], [ %.sroa.02677.66114, %1910 ]
-  %.pn3067 = phi ptr [ %1929, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069 ], [ %.sroa.8.56115, %1910 ]
-  %.sroa.17.7 = phi ptr [ %1931, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069 ], [ %.sroa.17.56116, %1910 ]
+  %.sroa.02677.8 = phi ptr [ %1925, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069 ], [ %.sroa.02677.65037, %1910 ]
+  %.pn3067 = phi ptr [ %1929, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069 ], [ %.sroa.8.55038, %1910 ]
+  %.sroa.17.7 = phi ptr [ %1931, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2069 ], [ %.sroa.17.55039, %1910 ]
   %.sroa.8.7 = getelementptr inbounds i8, ptr %.pn3067, i64 8
-  %1932 = getelementptr inbounds i8, ptr %.sroa.02674.06117, i64 8
+  %1932 = getelementptr inbounds i8, ptr %.sroa.02674.05040, i64 8
   %.not3066 = icmp eq ptr %1932, %.val1382
-  br i1 %.not3066, label %._crit_edge6120, label %.lr.ph6119
+  br i1 %.not3066, label %._crit_edge5043, label %.lr.ph5042
 
-._crit_edge6120:                                  ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072, %._crit_edge6109
-  %.sroa.02677.6.lcssa = phi ptr [ %.sroa.02677.4.lcssa, %._crit_edge6109 ], [ %.sroa.02677.8, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ]
-  %.sroa.8.5.lcssa = phi ptr [ %.sroa.8.4.lcssa, %._crit_edge6109 ], [ %.sroa.8.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ]
+._crit_edge5043:                                  ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072, %._crit_edge5032
+  %.sroa.02677.6.lcssa = phi ptr [ %.sroa.02677.4.lcssa, %._crit_edge5032 ], [ %.sroa.02677.8, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ]
+  %.sroa.8.5.lcssa = phi ptr [ %.sroa.8.4.lcssa, %._crit_edge5032 ], [ %.sroa.8.7, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2072 ]
   %1933 = invoke fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeArrayERKSt6vectorIPNS1_9HeapThunkESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.sroa.02677.6.lcssa, ptr %.sroa.8.5.lcssa)
-          to label %._crit_edge6120._crit_edge unwind label %.loopexit.split-lp3095.loopexit.split-lp.loopexit
+          to label %._crit_edge5043._crit_edge unwind label %.loopexit.split-lp3095.loopexit.split-lp.loopexit
 
-._crit_edge6120._crit_edge:                       ; preds = %._crit_edge6120
+._crit_edge5043._crit_edge:                       ; preds = %._crit_edge5043
   store i32 16, ptr %198, align 8
   store ptr %1933, ptr %199, align 8
   %.not.i.i.i2073 = icmp eq ptr %.sroa.02677.6.lcssa, null
   br i1 %.not.i.i.i2073, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074, label %1934
 
-1934:                                             ; preds = %._crit_edge6120._crit_edge
+1934:                                             ; preds = %._crit_edge5043._crit_edge
   call void @_ZdlPv(ptr noundef nonnull %.sroa.02677.6.lcssa) #35
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074
 
@@ -10021,11 +10021,11 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   br label %common.resume
 
 1967:                                             ; preds = %1960, %1952, %1944, %1936
-  %.sink9630 = phi ptr [ %1937, %1936 ], [ %1945, %1944 ], [ %1953, %1952 ], [ %1961, %1960 ]
-  %.sink9629 = phi ptr [ %57, %1936 ], [ %59, %1944 ], [ %61, %1952 ], [ %63, %1960 ]
+  %.sink7480 = phi ptr [ %1937, %1936 ], [ %1945, %1944 ], [ %1953, %1952 ], [ %1961, %1960 ]
+  %.sink7479 = phi ptr [ %57, %1936 ], [ %59, %1944 ], [ %61, %1952 ], [ %63, %1960 ]
   %.sink = phi ptr [ %58, %1936 ], [ %60, %1944 ], [ %62, %1952 ], [ %64, %1960 ]
-  %1968 = load ptr, ptr %.sink9630, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink9629) #34
+  %1968 = load ptr, ptr %.sink7480, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink7479) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #34
   %1969 = getelementptr inbounds i8, ptr %1968, i64 10
   %1970 = load i8, ptr %1969, align 2
@@ -10046,8 +10046,8 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
 
 1981:                                             ; preds = %1967
   %1982 = getelementptr inbounds i8, ptr %.val1462, i64 -312
-  %1983 = getelementptr inbounds i8, ptr %.val15646186, i64 -64
-  %1984 = getelementptr inbounds i8, ptr %.val15646186, i64 -56
+  %1983 = getelementptr inbounds i8, ptr %.val15645098, i64 -64
+  %1984 = getelementptr inbounds i8, ptr %.val15645098, i64 -56
   %1985 = getelementptr inbounds i8, ptr %1776, i64 128
   %.val1486 = load ptr, ptr %337, align 8
   %.val1487 = load ptr, ptr %1983, align 8
@@ -10071,7 +10071,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   store ptr %1991, ptr %1993, align 8
   %1994 = getelementptr inbounds i8, ptr %1986, i64 80
   store i64 0, ptr %1994, align 8
-  %1995 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
+  %1995 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
   call fastcc void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %1995, ptr nonnull %1986)
   %1996 = getelementptr inbounds i8, ptr %1776, i64 168
   %.val1490 = load ptr, ptr %337, align 8
@@ -10122,7 +10122,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2079: ; preds = %1981, %2008
   store ptr %2012, ptr %339, align 8
   %2013 = getelementptr i8, ptr %1968, i64 24
   %.0978.val = load ptr, ptr %2013, align 8
-  %2014 = invoke fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter13callSourceValEPKNS0_3ASTEPNS1_9HeapThunkESt6vectorIS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %.16184, ptr %.0978.val, ptr noundef %65)
+  %2014 = invoke fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter13callSourceValEPKNS0_3ASTEPNS1_9HeapThunkESt6vectorIS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %.15096, ptr %.0978.val, ptr noundef %65)
           to label %2015 unwind label %2017
 
 2015:                                             ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2079
@@ -10134,8 +10134,8 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2079: ; preds = %1981, %2008
   call void @_ZdlPv(ptr noundef nonnull %.val1440) #35
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit, %3879, %3888, %3897, %2016, %2015, %342, %415, %470, %473, %781, %878, %881, %._crit_edge6048, %1106, %1114, %1132, %1135, %1184, %1766, %1972, %2605, %2836, %2880, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE5clearEv.exit, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2341, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2362, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2404, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2415, %3341, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack26alreadyExecutingInvariantsEPNS1_10HeapObjectE.exit, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2451, %3372, %3444, %3523, %3645
-  %.0.be = phi ptr [ %3652, %3645 ], [ %3533, %3523 ], [ %3446, %3444 ], [ %3384, %3372 ], [ %3371, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2451 ], [ %3354, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack26alreadyExecutingInvariantsEPNS1_10HeapObjectE.exit ], [ %3350, %3341 ], [ %3211, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2415 ], [ %3180, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2404 ], [ %3006, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2362 ], [ %2952, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2341 ], [ %2888, %2880 ], [ %2893, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE5clearEv.exit ], [ %2844, %2836 ], [ %2607, %2605 ], [ %1980, %1972 ], [ %1770, %1766 ], [ %1192, %1184 ], [ %1137, %1135 ], [ %1134, %1132 ], [ %1116, %1114 ], [ %1111, %1106 ], [ %1037, %._crit_edge6048 ], [ %883, %881 ], [ %880, %878 ], [ %788, %781 ], [ %475, %473 ], [ %472, %470 ], [ %417, %415 ], [ %344, %342 ], [ %2014, %2015 ], [ %2014, %2016 ], [ %.2, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit ], [ %.5, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit ], [ %3887, %3879 ], [ %3896, %3888 ], [ %3898, %3897 ]
+.backedge.backedge:                               ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit, %3879, %3888, %3897, %2016, %2015, %342, %415, %470, %473, %781, %878, %881, %._crit_edge4973, %1106, %1114, %1132, %1135, %1184, %1766, %1972, %2605, %2836, %2880, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE5clearEv.exit, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2341, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2362, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2404, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2415, %3341, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack26alreadyExecutingInvariantsEPNS1_10HeapObjectE.exit, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2451, %3372, %3444, %3523, %3645
+  %.0.be = phi ptr [ %3652, %3645 ], [ %3533, %3523 ], [ %3446, %3444 ], [ %3371, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2451 ], [ %3384, %3372 ], [ %3354, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack26alreadyExecutingInvariantsEPNS1_10HeapObjectE.exit ], [ %3350, %3341 ], [ %3180, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2404 ], [ %3211, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2415 ], [ %3006, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2362 ], [ %2952, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2341 ], [ %2888, %2880 ], [ %2893, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE5clearEv.exit ], [ %2844, %2836 ], [ %2607, %2605 ], [ %1980, %1972 ], [ %1770, %1766 ], [ %1192, %1184 ], [ %1137, %1135 ], [ %1134, %1132 ], [ %1116, %1114 ], [ %1111, %1106 ], [ %1037, %._crit_edge4973 ], [ %883, %881 ], [ %880, %878 ], [ %788, %781 ], [ %475, %473 ], [ %472, %470 ], [ %417, %415 ], [ %344, %342 ], [ %2014, %2015 ], [ %2014, %2016 ], [ %3898, %3897 ], [ %3896, %3888 ], [ %3887, %3879 ], [ %.2, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit ], [ %.5, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit ]
   br label %.backedge
 
 2017:                                             ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2079
@@ -11119,22 +11119,22 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeObjectINS1_18HeapExtendedOb
   %.val1551 = load ptr, ptr %90, align 8
   %.val1552 = load i64, ptr %305, align 8
   %2406 = invoke fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeStringERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.val1551, i64 %.val1552)
-          to label %._crit_edge9642 unwind label %2411
+          to label %._crit_edge7492 unwind label %2411
 
-._crit_edge9642:                                  ; preds = %2405
+._crit_edge7492:                                  ; preds = %2405
   store i32 19, ptr %198, align 8
   store ptr %2406, ptr %199, align 8
   %2407 = load ptr, ptr %90, align 8
   %2408 = icmp eq ptr %2407, %306
   br i1 %2408, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2188, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2187
 
-_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2188: ; preds = %._crit_edge9642
+_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2188: ; preds = %._crit_edge7492
   %2409 = load i64, ptr %305, align 8
   %2410 = icmp ult i64 %2409, 4
   call void @llvm.assume(i1 %2410)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074
 
-_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2187: ; preds = %._crit_edge9642
+_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2187: ; preds = %._crit_edge7492
   call void @_ZdlPv(ptr noundef %2407) #35
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074
 
@@ -11383,12 +11383,12 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   call void @__cxa_free_exception(ptr %2495) #34
   br label %common.resume
 
-2511:                                             ; preds = %.lr.ph6187
-  %2512 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+2511:                                             ; preds = %.lr.ph5099
+  %2512 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %2513 = load ptr, ptr %2512, align 8
-  %2514 = getelementptr inbounds i8, ptr %.val15646186, i64 -304
+  %2514 = getelementptr inbounds i8, ptr %.val15645098, i64 -304
   %2515 = load ptr, ptr %2514, align 8
-  %2516 = getelementptr inbounds i8, ptr %.val15646186, i64 -288
+  %2516 = getelementptr inbounds i8, ptr %.val15645098, i64 -288
   %2517 = load ptr, ptr %2516, align 8
   %2518 = load i32, ptr %198, align 8
   %.not1235 = icmp eq i32 %2518, 1
@@ -11444,17 +11444,17 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br i1 %2531, label %2532, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2248
 
 2532:                                             ; preds = %2529
-  %2533 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
+  %2533 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
   %2534 = getelementptr inbounds i8, ptr %2517, i64 16
-  %2535 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+  %2535 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %2536 = load i32, ptr %2535, align 8
   %2537 = zext i32 %2536 to i64
   %.val1592 = load ptr, ptr %2534, align 8
   %2538 = getelementptr inbounds ptr, ptr %.val1592, i64 %2537
   %.val1521 = load ptr, ptr %2538, align 8
-  %2539 = getelementptr inbounds i8, ptr %.val15646186, i64 -160
+  %2539 = getelementptr inbounds i8, ptr %.val15645098, i64 -160
   %2540 = load ptr, ptr %2539, align 8
-  %2541 = getelementptr inbounds i8, ptr %.val15646186, i64 -152
+  %2541 = getelementptr inbounds i8, ptr %.val15645098, i64 -152
   %2542 = load ptr, ptr %2541, align 8
   %.not.i2239 = icmp eq ptr %2540, %2542
   br i1 %.not.i2239, label %2546, label %2543
@@ -11522,7 +11522,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_in
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2248
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2248: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i2247, %2543, %2529
-  %2568 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+  %2568 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %2569 = load i32, ptr %2568, align 8
   %2570 = add i32 %2569, 1
   store i32 %2570, ptr %2568, align 8
@@ -11539,9 +11539,9 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   br i1 %2578, label %2579, label %2583
 
 2579:                                             ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4_.exit2248
-  %2580 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
+  %2580 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
   %.val1476 = load ptr, ptr %2580, align 8
-  %2581 = getelementptr i8, ptr %.val15646186, i64 -160
+  %2581 = getelementptr i8, ptr %.val15645098, i64 -160
   %.val1477 = load ptr, ptr %2581, align 8
   %2582 = call fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeArrayERKSt6vectorIPNS1_9HeapThunkESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.val1476, ptr %.val1477)
   store i32 16, ptr %198, align 8
@@ -11621,15 +11621,15 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   call fastcc void @_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val1354)
   br label %common.resume
 
-2610:                                             ; preds = %.lr.ph6187
-  %2611 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+2610:                                             ; preds = %.lr.ph5099
+  %2611 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %2612 = load ptr, ptr %2611, align 8
-  %2613 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+  %2613 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %2614 = load i32, ptr %2613, align 8
   %2615 = zext i32 %2614 to i64
-  %2616 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
+  %2616 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
   %.val1400 = load ptr, ptr %2616, align 8
-  %2617 = getelementptr i8, ptr %.val15646186, i64 -160
+  %2617 = getelementptr i8, ptr %.val15645098, i64 -160
   %.val1401 = load ptr, ptr %2617, align 8
   %2618 = ptrtoint ptr %.val1401 to i64
   %2619 = ptrtoint ptr %.val1400 to i64
@@ -11639,33 +11639,33 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   br i1 %2622, label %2623, label %2829
 
 2623:                                             ; preds = %2610
-  %2624 = getelementptr inbounds i8, ptr %.val15646186, i64 -304
+  %2624 = getelementptr inbounds i8, ptr %.val15645098, i64 -304
   %2625 = load ptr, ptr %2624, align 8
   %2626 = getelementptr inbounds i8, ptr %2612, i64 8
   %2627 = getelementptr inbounds i8, ptr %2625, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
   %.val1379 = load ptr, ptr %2616, align 8
   %.val1383 = load ptr, ptr %2617, align 8
-  %.not30606085 = icmp eq ptr %.val1379, %.val1383
-  br i1 %.not30606085, label %._crit_edge6089, label %.lr.ph6088
+  %.not30605010 = icmp eq ptr %.val1379, %.val1383
+  br i1 %.not30605010, label %._crit_edge5014, label %.lr.ph5013
 
-.lr.ph6088:                                       ; preds = %2623, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exit
+.lr.ph5013:                                       ; preds = %2623, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exit
   %2628 = phi ptr [ %2658, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exit ], [ null, %2623 ]
-  %.sroa.02669.06086 = phi ptr [ %2659, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exit ], [ %.val1379, %2623 ]
-  %2629 = load ptr, ptr %.sroa.02669.06086, align 8
+  %.sroa.02669.05011 = phi ptr [ %2659, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exit ], [ %.val1379, %2623 ]
+  %2629 = load ptr, ptr %.sroa.02669.05011, align 8
   %2630 = getelementptr inbounds i8, ptr %2629, i64 16
   %2631 = load ptr, ptr %298, align 8
   %.not.i2258 = icmp eq ptr %2628, %2631
   br i1 %.not.i2258, label %2635, label %2632
 
-2632:                                             ; preds = %.lr.ph6088
+2632:                                             ; preds = %.lr.ph5013
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2628, ptr noundef nonnull readonly align 8 dereferenceable(16) %2630, i64 16, i1 false)
   %2633 = load ptr, ptr %297, align 8
   %2634 = getelementptr inbounds i8, ptr %2633, i64 16
   store ptr %2634, ptr %297, align 8
   br label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exit
 
-2635:                                             ; preds = %.lr.ph6088
+2635:                                             ; preds = %.lr.ph5013
   %.val.i.i2259 = load ptr, ptr %97, align 8
   %2636 = ptrtoint ptr %2628 to i64
   %2637 = ptrtoint ptr %.val.i.i2259 to i64
@@ -11726,9 +11726,9 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE17_M_realloc_insertI
 
 _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %2632
   %2658 = phi ptr [ %2655, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %2634, %2632 ]
-  %2659 = getelementptr inbounds i8, ptr %.sroa.02669.06086, i64 8
+  %2659 = getelementptr inbounds i8, ptr %.sroa.02669.05011, i64 8
   %.not3060 = icmp eq ptr %2659, %.val1383
-  br i1 %.not3060, label %._crit_edge6089, label %.lr.ph6088
+  br i1 %.not3060, label %._crit_edge5014, label %.lr.ph5013
 
 .loopexit3107:                                    ; preds = %2647
   %lpad.loopexit3109 = landingpad { ptr, i32 }
@@ -11745,14 +11745,14 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exi
           cleanup
   br label %.loopexit.split-lp3108
 
-._crit_edge6089:                                  ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exit, %2623
+._crit_edge5014:                                  ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE9push_backERKS3_.exit, %2623
   %.val.i.i2264 = load ptr, ptr %299, align 8
   %.not2.i.i.i2265 = icmp eq ptr %.val.i.i2264, null
   br i1 %.not2.i.i.i2265, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMN7jsonnet8internal12_GLOBAL__N_111InterpreterEFPKNS7_3ASTERKNS7_13LocationRangeERKSt6vectorINS8_5ValueESaISH_EEESt4lessIS5_ESaISt4pairIKS5_SN_EEE4findERSR_.exit.thread, label %.lr.ph.i.i.i2266
 
-.lr.ph.i.i.i2266:                                 ; preds = %._crit_edge6089, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %.04.i.i.i2267 = phi ptr [ %.1.i.i.i2272, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %.val.i.i2264, %._crit_edge6089 ]
-  %.083.i.i.i2268 = phi ptr [ %.19.i.i.i2269, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %300, %._crit_edge6089 ]
+.lr.ph.i.i.i2266:                                 ; preds = %._crit_edge5014, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
+  %.04.i.i.i2267 = phi ptr [ %.1.i.i.i2272, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %.val.i.i2264, %._crit_edge5014 ]
+  %.083.i.i.i2268 = phi ptr [ %.19.i.i.i2269, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %300, %._crit_edge5014 ]
   %2660 = getelementptr inbounds i8, ptr %.04.i.i.i2267, i64 32
   %2661 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2660, ptr noundef nonnull align 8 dereferenceable(32) %2627)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %2662
@@ -11821,10 +11821,10 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMN7jsonnet8interna
 
 2688:                                             ; preds = %2685
   %.not1232 = icmp ne ptr %2687, null
-  %.1. = select i1 %.not1232, ptr %2687, ptr %.16184
+  %.1. = select i1 %.not1232, ptr %2687, ptr %.15096
   br label %_ZNSt6vectorI16JsonnetJsonValueSaIS0_EED2Ev.exit
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMN7jsonnet8internal12_GLOBAL__N_111InterpreterEFPKNS7_3ASTERKNS7_13LocationRangeERKSt6vectorINS8_5ValueESaISH_EEESt4lessIS5_ESaISt4pairIKS5_SN_EEE4findERSR_.exit.thread: ; preds = %._crit_edge6089, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_MN7jsonnet8internal12_GLOBAL__N_111InterpreterEFPKNS9_3ASTERKNS9_13LocationRangeERKSt6vectorINSA_5ValueESaISJ_EEEESt10_Select1stISQ_ESt4lessIS5_ESaISQ_EE14_M_lower_boundEPSt13_Rb_tree_nodeISQ_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMN7jsonnet8internal12_GLOBAL__N_111InterpreterEFPKNS7_3ASTERKNS7_13LocationRangeERKSt6vectorINS8_5ValueESaISH_EEESt4lessIS5_ESaISt4pairIKS5_SN_EEE4findERSR_.exit
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMN7jsonnet8internal12_GLOBAL__N_111InterpreterEFPKNS7_3ASTERKNS7_13LocationRangeERKSt6vectorINS8_5ValueESaISH_EEESt4lessIS5_ESaISt4pairIKS5_SN_EEE4findERSR_.exit.thread: ; preds = %._crit_edge5014, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_MN7jsonnet8internal12_GLOBAL__N_111InterpreterEFPKNS9_3ASTERKNS9_13LocationRangeERKSt6vectorINSA_5ValueESaISJ_EEEESt10_Select1stISQ_ESt4lessIS5_ESaISQ_EE14_M_lower_boundEPSt13_Rb_tree_nodeISQ_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMN7jsonnet8internal12_GLOBAL__N_111InterpreterEFPKNS7_3ASTERKNS7_13LocationRangeERKSt6vectorINS8_5ValueESaISH_EEESt4lessIS5_ESaISt4pairIKS5_SN_EEE4findERSR_.exit
   %2689 = load ptr, ptr %301, align 8
   %.not11.i.i.i = icmp eq ptr %2689, null
   br i1 %.not11.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal16VmNativeCallbackESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit, label %.lr.ph.i.i.i2276
@@ -11878,18 +11878,18 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
   %.val1599 = load ptr, ptr %97, align 8
   %.val1598 = load ptr, ptr %297, align 8
-  %.not30636090 = icmp eq ptr %.val1599, %.val1598
-  br i1 %.not30636090, label %._crit_edge6098, label %.lr.ph6092
+  %.not30635015 = icmp eq ptr %.val1599, %.val1598
+  br i1 %.not30635015, label %._crit_edge5023, label %.lr.ph5017
 
 .preheader:                                       ; preds = %_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE12emplace_backIJNS0_4KindERA1_KcdEEERS0_DpOT_.exit
-  %.pre8264 = load ptr, ptr %303, align 8
-  %.pre8265 = load ptr, ptr %98, align 8
-  %.not6191 = icmp eq ptr %.pre8264, %.pre8265
-  br i1 %.not6191, label %._crit_edge6098, label %.lr.ph6097
+  %.pre6114 = load ptr, ptr %303, align 8
+  %.pre6115 = load ptr, ptr %98, align 8
+  %.not5103 = icmp eq ptr %.pre6114, %.pre6115
+  br i1 %.not5103, label %._crit_edge5023, label %.lr.ph5022
 
-.lr.ph6092:                                       ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal16VmNativeCallbackESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit, %_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE12emplace_backIJNS0_4KindERA1_KcdEEERS0_DpOT_.exit
-  %.sroa.02660.06091 = phi ptr [ %2749, %_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE12emplace_backIJNS0_4KindERA1_KcdEEERS0_DpOT_.exit ], [ %.val1599, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal16VmNativeCallbackESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ]
-  %2704 = load i32, ptr %.sroa.02660.06091, align 8
+.lr.ph5017:                                       ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal16VmNativeCallbackESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit, %_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE12emplace_backIJNS0_4KindERA1_KcdEEERS0_DpOT_.exit
+  %.sroa.02660.05016 = phi ptr [ %2749, %_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE12emplace_backIJNS0_4KindERA1_KcdEEERS0_DpOT_.exit ], [ %.val1599, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal16VmNativeCallbackESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ]
+  %2704 = load i32, ptr %.sroa.02660.05016, align 8
   switch i32 %2704, label %2742 [
     i32 19, label %2705
     i32 1, label %2716
@@ -11897,9 +11897,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal
     i32 0, label %2735
   ]
 
-2705:                                             ; preds = %.lr.ph6092
+2705:                                             ; preds = %.lr.ph5017
   store i32 5, ptr %99, align 4
-  %2706 = getelementptr inbounds i8, ptr %.sroa.02660.06091, i64 8
+  %2706 = getelementptr inbounds i8, ptr %.sroa.02660.05016, i64 8
   %2707 = load ptr, ptr %2706, align 8
   %2708 = getelementptr inbounds i8, ptr %2707, i64 16
   invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias nonnull writable align 8 %100, ptr noundef nonnull align 8 dereferenceable(32) %2708)
@@ -11925,9 +11925,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #34
   br label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2318
 
-2716:                                             ; preds = %.lr.ph6092
+2716:                                             ; preds = %.lr.ph5017
   store i32 1, ptr %102, align 4
-  %2717 = getelementptr inbounds i8, ptr %.sroa.02660.06091, i64 8
+  %2717 = getelementptr inbounds i8, ptr %.sroa.02660.05016, i64 8
   %2718 = load i8, ptr %2717, align 8
   %2719 = trunc i8 %2718 to i1
   %2720 = select i1 %2719, double 1.000000e+00, double 0.000000e+00
@@ -11951,9 +11951,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal
   invoke void @_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE17_M_realloc_insertIJNS0_4KindERA1_KcdEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr %2721, ptr noundef nonnull align 4 dereferenceable(4) %102, ptr noundef nonnull align 1 dereferenceable(1) @.str.83, ptr noundef nonnull align 8 dereferenceable(8) %103)
           to label %_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE12emplace_backIJNS0_4KindERA1_KcdEEERS0_DpOT_.exit unwind label %2712
 
-2727:                                             ; preds = %.lr.ph6092
+2727:                                             ; preds = %.lr.ph5017
   store i32 3, ptr %104, align 4
-  %2728 = getelementptr inbounds i8, ptr %.sroa.02660.06091, i64 8
+  %2728 = getelementptr inbounds i8, ptr %.sroa.02660.05016, i64 8
   %2729 = load ptr, ptr %303, align 8
   %2730 = load ptr, ptr %304, align 8
   %.not.i2291 = icmp eq ptr %2729, %2730
@@ -11973,7 +11973,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal
   invoke void @_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE17_M_realloc_insertIJNS0_4KindERA1_KcRKdEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr %2729, ptr noundef nonnull align 4 dereferenceable(4) %104, ptr noundef nonnull align 1 dereferenceable(1) @.str.83, ptr noundef nonnull align 8 dereferenceable(8) %2728)
           to label %_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE12emplace_backIJNS0_4KindERA1_KcdEEERS0_DpOT_.exit unwind label %2712
 
-2735:                                             ; preds = %.lr.ph6092
+2735:                                             ; preds = %.lr.ph5017
   store i32 2, ptr %105, align 4
   store i32 0, ptr %106, align 4
   %2736 = load ptr, ptr %303, align 8
@@ -11995,7 +11995,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal
   invoke void @_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE17_M_realloc_insertIJNS0_4KindERA1_KciEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr %2736, ptr noundef nonnull align 4 dereferenceable(4) %105, ptr noundef nonnull align 1 dereferenceable(1) @.str.83, ptr noundef nonnull align 4 dereferenceable(4) %106)
           to label %_ZNSt6vectorI16JsonnetJsonValueSaIS0_EE12emplace_backIJNS0_4KindERA1_KcdEEERS0_DpOT_.exit unwind label %2712
 
-2742:                                             ; preds = %.lr.ph6092
+2742:                                             ; preds = %.lr.ph5017
   %2743 = call ptr @__cxa_allocate_exception(i64 56) #34
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %108) #34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull @.str.338, ptr noundef nonnull align 1 dereferenceable(1) %108)
@@ -12029,28 +12029,28 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2318
 
 _ZNSt6vectorI16JsonnetJsonValueSaIS0_EE12emplace_backIJNS0_4KindERA1_KcdEEERS0_DpOT_.exit: ; preds = %2741, %2734, %2726, %.noexc2297, %.noexc2293, %.noexc2289, %2711
-  %2749 = getelementptr inbounds i8, ptr %.sroa.02660.06091, i64 16
+  %2749 = getelementptr inbounds i8, ptr %.sroa.02660.05016, i64 16
   %.not3063 = icmp eq ptr %2749, %.val1598
-  br i1 %.not3063, label %.preheader, label %.lr.ph6092
+  br i1 %.not3063, label %.preheader, label %.lr.ph5017
 
-.lr.ph6097:                                       ; preds = %.preheader, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit
-  %.pre82668292 = phi ptr [ %.pre82668293, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ %.pre8265, %.preheader ]
-  %2750 = phi ptr [ %2774, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ %.pre8265, %.preheader ]
-  %.010246096 = phi i64 [ %2775, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ 0, %.preheader ]
-  %.sroa.10.56095 = phi ptr [ %.sroa.10.6, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
-  %.sroa.6.56094 = phi ptr [ %.sroa.6.6, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
-  %.sroa.02654.56093 = phi ptr [ %.sroa.02654.6, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
-  %2751 = getelementptr inbounds %struct.JsonnetJsonValue, ptr %2750, i64 %.010246096
-  %.not.i.i2301 = icmp eq ptr %.sroa.6.56094, %.sroa.10.56095
+.lr.ph5022:                                       ; preds = %.preheader, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit
+  %.pre61166142 = phi ptr [ %.pre61166143, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ %.pre6115, %.preheader ]
+  %2750 = phi ptr [ %2774, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ %.pre6115, %.preheader ]
+  %.010245021 = phi i64 [ %2775, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ 0, %.preheader ]
+  %.sroa.10.55020 = phi ptr [ %.sroa.10.6, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
+  %.sroa.6.55019 = phi ptr [ %.sroa.6.6, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
+  %.sroa.02654.55018 = phi ptr [ %.sroa.02654.6, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
+  %2751 = getelementptr inbounds %struct.JsonnetJsonValue, ptr %2750, i64 %.010245021
+  %.not.i.i2301 = icmp eq ptr %.sroa.6.55019, %.sroa.10.55020
   br i1 %.not.i.i2301, label %2753, label %2752
 
-2752:                                             ; preds = %.lr.ph6097
-  store ptr %2751, ptr %.sroa.6.56094, align 8
+2752:                                             ; preds = %.lr.ph5022
+  store ptr %2751, ptr %.sroa.6.55019, align 8
   br label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit
 
-2753:                                             ; preds = %.lr.ph6097
-  %2754 = ptrtoint ptr %.sroa.10.56095 to i64
-  %2755 = ptrtoint ptr %.sroa.02654.56093 to i64
+2753:                                             ; preds = %.lr.ph5022
+  %2754 = ptrtoint ptr %.sroa.10.55020 to i64
+  %2755 = ptrtoint ptr %.sroa.02654.55018 to i64
   %2756 = sub i64 %2754, %2755
   %2757 = icmp eq i64 %2756, 9223372036854775800
   br i1 %2757, label %2758, label %_ZNKSt6vectorIPK16JsonnetJsonValueSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -12085,39 +12085,39 @@ _ZNSt12_Vector_baseIPK16JsonnetJsonValueSaIS2_EE11_M_allocateEm.exit.i.i.i: ; pr
   br i1 %2769, label %2770, label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
 2770:                                             ; preds = %_ZNSt12_Vector_baseIPK16JsonnetJsonValueSaIS2_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %2767, ptr align 8 %.sroa.02654.56093, i64 %2756, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %2767, ptr align 8 %.sroa.02654.55018, i64 %2756, i1 false)
   br label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
 _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds = %2770, %_ZNSt12_Vector_baseIPK16JsonnetJsonValueSaIS2_EE11_M_allocateEm.exit.i.i.i
   %2771 = getelementptr inbounds i8, ptr %2767, i64 %2756
-  %.not.i17.i.i.i = icmp eq ptr %.sroa.02654.56093, null
+  %.not.i17.i.i.i = icmp eq ptr %.sroa.02654.55018, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %2772
 
 2772:                                             ; preds = %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.02654.56093) #35
-  %.pre8266.pre = load ptr, ptr %98, align 8
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.02654.55018) #35
+  %.pre6116.pre = load ptr, ptr %98, align 8
   br label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %2772, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  %.pre8266 = phi ptr [ %.pre8266.pre, %2772 ], [ %.pre82668292, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i ]
+  %.pre6116 = phi ptr [ %.pre6116.pre, %2772 ], [ %.pre61166142, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i ]
   %2773 = getelementptr inbounds ptr, ptr %2767, i64 %2763
   br label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %2752
-  %.pre82668293 = phi ptr [ %.pre8266, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.pre82668292, %2752 ]
-  %2774 = phi ptr [ %.pre8266, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %2750, %2752 ]
-  %.sroa.02654.6 = phi ptr [ %2767, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.02654.56093, %2752 ]
-  %.pn3064 = phi ptr [ %2771, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.6.56094, %2752 ]
-  %.sroa.10.6 = phi ptr [ %2773, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.10.56095, %2752 ]
+  %.pre61166143 = phi ptr [ %.pre6116, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.pre61166142, %2752 ]
+  %2774 = phi ptr [ %.pre6116, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %2750, %2752 ]
+  %.sroa.02654.6 = phi ptr [ %2767, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.02654.55018, %2752 ]
+  %.pn3064 = phi ptr [ %2771, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.6.55019, %2752 ]
+  %.sroa.10.6 = phi ptr [ %2773, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.10.55020, %2752 ]
   %.sroa.6.6 = getelementptr inbounds i8, ptr %.pn3064, i64 8
-  %2775 = add nuw i64 %.010246096, 1
+  %2775 = add nuw i64 %.010245021, 1
   %2776 = load ptr, ptr %303, align 8
   %2777 = ptrtoint ptr %2776 to i64
   %2778 = ptrtoint ptr %2774 to i64
   %2779 = sub i64 %2777, %2778
   %2780 = sdiv exact i64 %2779, 120
   %2781 = icmp ult i64 %2775, %2780
-  br i1 %2781, label %.lr.ph6097, label %._crit_edge6098, !llvm.loop !41
+  br i1 %2781, label %.lr.ph5022, label %._crit_edge5023, !llvm.loop !41
 
 .loopexit3102:                                    ; preds = %2764
   %lpad.loopexit3104 = landingpad { ptr, i32 }
@@ -12134,12 +12134,12 @@ _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
           cleanup
   br label %.loopexit.split-lp3103
 
-._crit_edge6098:                                  ; preds = %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal16VmNativeCallbackESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit, %.preheader
+._crit_edge5023:                                  ; preds = %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal16VmNativeCallbackESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit, %.preheader
   %.sroa.02654.5.lcssa = phi ptr [ null, %.preheader ], [ null, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal16VmNativeCallbackESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ], [ %.sroa.02654.6, %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit ]
   %2782 = icmp eq ptr %.sroa.0.0.i.i2286, %302
   br i1 %2782, label %2783, label %2791
 
-2783:                                             ; preds = %._crit_edge6098
+2783:                                             ; preds = %._crit_edge5023
   %2784 = call ptr @__cxa_allocate_exception(i64 56) #34
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %109, ptr noundef nonnull @.str.339, ptr noundef nonnull align 8 dereferenceable(32) %2627)
           to label %2785 unwind label %.thread2896
@@ -12174,7 +12174,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   call void @__cxa_free_exception(ptr %2784) #34
   br label %.loopexit.split-lp3103
 
-2791:                                             ; preds = %._crit_edge6098
+2791:                                             ; preds = %._crit_edge5023
   %2792 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i2286, i64 64
   %2793 = load ptr, ptr %2792, align 8
   %2794 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i2286, i64 72
@@ -12316,7 +12316,7 @@ _ZSt8_DestroyIP16JsonnetJsonValueS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 _ZNSt6vectorI16JsonnetJsonValueSaIS0_EED2Ev.exit: ; preds = %2824, %_ZSt8_DestroyIP16JsonnetJsonValueS0_EvT_S2_RSaIT0_E.exit.i, %2688
   %.1961 = phi i1 [ %.not1232, %2688 ], [ false, %_ZSt8_DestroyIP16JsonnetJsonValueS0_EvT_S2_RSaIT0_E.exit.i ], [ false, %2824 ]
-  %.5 = phi ptr [ %.1., %2688 ], [ %.16184, %_ZSt8_DestroyIP16JsonnetJsonValueS0_EvT_S2_RSaIT0_E.exit.i ], [ %.16184, %2824 ]
+  %.5 = phi ptr [ %.1., %2688 ], [ %.15096, %_ZSt8_DestroyIP16JsonnetJsonValueS0_EvT_S2_RSaIT0_E.exit.i ], [ %.15096, %2824 ]
   %.val1606 = load ptr, ptr %97, align 8
   %.not.i.i.i2316 = icmp eq ptr %.val1606, null
   br i1 %.not.i.i.i2316, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit, label %2825
@@ -12334,13 +12334,13 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit: ; preds =
   br label %.loopexit.split-lp3103
 
 .loopexit.split-lp3103:                           ; preds = %.loopexit3102, %.loopexit.split-lp3103.loopexit.split-lp, %.loopexit.split-lp3103.loopexit, %2788, %2790, %2826
-  %.sroa.02654.53197 = phi ptr [ %.sroa.02654.5.lcssa, %2790 ], [ %.sroa.02654.5.lcssa, %2788 ], [ %.sroa.02654.5.lcssa, %2826 ], [ %.sroa.02654.56093, %.loopexit3102 ], [ %.sroa.02654.5.lcssa, %.loopexit.split-lp3103.loopexit ], [ %.sroa.02654.56093, %.loopexit.split-lp3103.loopexit.split-lp ]
+  %.sroa.02654.53193 = phi ptr [ %.sroa.02654.5.lcssa, %2790 ], [ %.sroa.02654.5.lcssa, %2788 ], [ %.sroa.02654.5.lcssa, %2826 ], [ %.sroa.02654.55018, %.loopexit3102 ], [ %.sroa.02654.5.lcssa, %.loopexit.split-lp3103.loopexit ], [ %.sroa.02654.55018, %.loopexit.split-lp3103.loopexit.split-lp ]
   %.pn1224 = phi { ptr, i32 } [ %.pn12222899, %2790 ], [ %2789, %2788 ], [ %.pn1220, %2826 ], [ %lpad.loopexit3104, %.loopexit3102 ], [ %lpad.loopexit3132, %.loopexit.split-lp3103.loopexit ], [ %lpad.loopexit.split-lp3133, %.loopexit.split-lp3103.loopexit.split-lp ]
-  %.not.i.i.i2317 = icmp eq ptr %.sroa.02654.53197, null
+  %.not.i.i.i2317 = icmp eq ptr %.sroa.02654.53193, null
   br i1 %.not.i.i.i2317, label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2318, label %2827
 
 2827:                                             ; preds = %.loopexit.split-lp3103
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.02654.53197) #35
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.02654.53193) #35
   br label %_ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2318
 
 _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2318: ; preds = %2827, %.loopexit.split-lp3103, %2746, %2748, %2714, %2712
@@ -12380,8 +12380,8 @@ _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2318: ; preds = %2827, %.loope
   %2844 = load ptr, ptr %2843, align 8
   br label %.backedge.backedge
 
-2845:                                             ; preds = %.lr.ph6187
-  %2846 = getelementptr inbounds i8, ptr %.val15646186, i64 -72
+2845:                                             ; preds = %.lr.ph5099
+  %2846 = getelementptr inbounds i8, ptr %.val15645098, i64 -72
   %2847 = load ptr, ptr %2846, align 8
   %2848 = icmp eq ptr %2847, null
   br i1 %2848, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074, label %2849
@@ -12417,12 +12417,12 @@ _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2318: ; preds = %2827, %.loope
   br i1 %.not1213, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074, label %2862
 
 2862:                                             ; preds = %2860
-  %2863 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+  %2863 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %2864 = load i32, ptr %2863, align 8
   %2865 = zext i32 %2864 to i64
-  %2866 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
+  %2866 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
   %.val1402 = load ptr, ptr %2866, align 8
-  %2867 = getelementptr i8, ptr %.val15646186, i64 -160
+  %2867 = getelementptr i8, ptr %.val15645098, i64 -160
   %.val1403 = load ptr, ptr %2867, align 8
   %2868 = ptrtoint ptr %.val1403 to i64
   %2869 = ptrtoint ptr %.val1402 to i64
@@ -12442,7 +12442,7 @@ _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2318: ; preds = %2827, %.loope
   br i1 %2879, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074, label %2880
 
 2880:                                             ; preds = %2873
-  %2881 = getelementptr inbounds i8, ptr %.val15646186, i64 -384
+  %2881 = getelementptr inbounds i8, ptr %.val15645098, i64 -384
   %2882 = getelementptr inbounds i8, ptr %2876, i64 88
   %2883 = load ptr, ptr %2882, align 8
   %2884 = getelementptr inbounds i8, ptr %2876, i64 96
@@ -12458,15 +12458,15 @@ _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2318: ; preds = %2827, %.loope
   br i1 %2890, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE5clearEv.exit
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE5clearEv.exit: ; preds = %2889
-  %2891 = getelementptr i8, ptr %.val15646186, i64 -160
+  %2891 = getelementptr i8, ptr %.val15645098, i64 -160
   store ptr %.val1402, ptr %2891, align 8
   store i32 0, ptr %2863, align 8
   %2892 = getelementptr inbounds i8, ptr %2861, i64 104
   %2893 = load ptr, ptr %2892, align 8
   br label %.backedge.backedge
 
-2894:                                             ; preds = %.lr.ph6187
-  %2895 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+2894:                                             ; preds = %.lr.ph5099
+  %2895 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %2896 = load ptr, ptr %2895, align 8
   %2897 = getelementptr inbounds i8, ptr %116, i64 16
   store ptr %2897, ptr %116, align 8
@@ -12563,8 +12563,8 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
   call void @_ZdlPv(ptr noundef %2926) #35
   br label %common.resume
 
-2930:                                             ; preds = %.lr.ph6187
-  %2931 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+2930:                                             ; preds = %.lr.ph5099
+  %2931 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %2932 = load ptr, ptr %2931, align 8
   %2933 = load i32, ptr %198, align 8
   %.not1204 = icmp eq i32 %2933, 1
@@ -12631,7 +12631,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %common.resume
 
 _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2341: ; preds = %2930
-  %2949 = getelementptr inbounds i8, ptr %.val15646186, i64 -400
+  %2949 = getelementptr inbounds i8, ptr %.val15645098, i64 -400
   %2950 = load i8, ptr %199, align 8
   %2951 = trunc i8 %2950 to i1
   %.in.v = select i1 %2951, i64 160, i64 192
@@ -12641,8 +12641,8 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2341: ; preds = %2930
   call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15FrameD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %2949) #34
   br label %.backedge.backedge
 
-2953:                                             ; preds = %.lr.ph6187
-  %2954 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+2953:                                             ; preds = %.lr.ph5099
+  %2954 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %2955 = load ptr, ptr %2954, align 8
   br label %2956
 
@@ -12655,7 +12655,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2341: ; preds = %2930
 
 2959:                                             ; preds = %2956
   %2960 = and i64 %indvars.iv.next.i2345, 2147483647
-  %2961 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::Frame", ptr %.val15636185, i64 %2960
+  %2961 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::Frame", ptr %.val15635097, i64 %2960
   %.val13.i2347 = load i32, ptr %2961, align 8
   %2962 = icmp eq i32 %.val13.i2347, 6
   br i1 %2962, label %2963, label %2956, !llvm.loop !16
@@ -12663,7 +12663,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2341: ; preds = %2930
 2963:                                             ; preds = %2959
   %2964 = getelementptr inbounds i8, ptr %2961, i64 336
   %2965 = load ptr, ptr %2964, align 8
-  %2966 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::Frame", ptr %.val15636185, i64 %2960, i32 16
+  %2966 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::Frame", ptr %.val15635097, i64 %2960, i32 16
   %2967 = load i32, ptr %2966, align 8
   %2968 = add i32 %2967, 1
   br label %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit2349
@@ -12798,8 +12798,8 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2362: ; preds = %2995, %3002
   %3006 = call fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter11objectIndexERKNS0_13LocationRangeEPNS1_10HeapObjectEPKNS0_10IdentifierEj(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(64) %3005, ptr noundef %.02754, ptr noundef %2999, i32 noundef %.02753)
   br label %.backedge.backedge
 
-3007:                                             ; preds = %.lr.ph6187
-  %3008 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+3007:                                             ; preds = %.lr.ph5099
+  %3008 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %3009 = load ptr, ptr %3008, align 8
   br label %3010
 
@@ -12812,7 +12812,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2362: ; preds = %2995, %3002
 
 3013:                                             ; preds = %3010
   %3014 = and i64 %indvars.iv.next.i2366, 2147483647
-  %3015 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::Frame", ptr %.val15636185, i64 %3014
+  %3015 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::Frame", ptr %.val15635097, i64 %3014
   %.val13.i2368 = load i32, ptr %3015, align 8
   %3016 = icmp eq i32 %.val13.i2368, 6
   br i1 %3016, label %3017, label %3010, !llvm.loop !16
@@ -12820,7 +12820,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2362: ; preds = %2995, %3002
 3017:                                             ; preds = %3013
   %3018 = getelementptr inbounds i8, ptr %3015, i64 336
   %3019 = load ptr, ptr %3018, align 8
-  %3020 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::Frame", ptr %.val15636185, i64 %3014, i32 16
+  %3020 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::Frame", ptr %.val15635097, i64 %3014, i32 16
   %3021 = load i32, ptr %3020, align 8
   %3022 = add i32 %3021, 1
   br label %_ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit2370
@@ -12916,10 +12916,10 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   store ptr %3049, ptr %199, align 8
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074
 
-3050:                                             ; preds = %.lr.ph6187
-  %3051 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+3050:                                             ; preds = %.lr.ph5099
+  %3051 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %3052 = load ptr, ptr %3051, align 8
-  %3053 = getelementptr inbounds i8, ptr %.val15646186, i64 -312
+  %3053 = getelementptr inbounds i8, ptr %.val15645098, i64 -312
   %3054 = load i32, ptr %3053, align 8
   switch i32 %3054, label %3290 [
     i32 16, label %3055
@@ -13097,7 +13097,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %common.resume
 
 3106:                                             ; preds = %3055
-  %3107 = getelementptr inbounds i8, ptr %.val15646186, i64 -304
+  %3107 = getelementptr inbounds i8, ptr %.val15645098, i64 -304
   %3108 = load ptr, ptr %3107, align 8
   %3109 = load double, ptr %199, align 8
   %3110 = call double @llvm.floor.f64(double %3109)
@@ -13259,7 +13259,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074
 
 _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2404: ; preds = %3163
-  %3172 = getelementptr inbounds i8, ptr %.val15646186, i64 -400
+  %3172 = getelementptr inbounds i8, ptr %.val15645098, i64 -400
   store ptr %3172, ptr %197, align 8
   call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15FrameD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3172) #34
   %3173 = getelementptr inbounds i8, ptr %3052, i64 8
@@ -13339,7 +13339,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %common.resume
 
 3198:                                             ; preds = %3181
-  %3199 = getelementptr inbounds i8, ptr %.val15646186, i64 -304
+  %3199 = getelementptr inbounds i8, ptr %.val15645098, i64 -304
   %3200 = load ptr, ptr %3199, align 8
   %3201 = load ptr, ptr %199, align 8
   %3202 = getelementptr inbounds i8, ptr %3201, i64 16
@@ -13430,7 +13430,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %common.resume
 
 3229:                                             ; preds = %3212
-  %3230 = getelementptr inbounds i8, ptr %.val15646186, i64 -304
+  %3230 = getelementptr inbounds i8, ptr %.val15645098, i64 -304
   %3231 = load ptr, ptr %3230, align 8
   %3232 = getelementptr inbounds i8, ptr %3231, i64 24
   %3233 = load i64, ptr %3232, align 8
@@ -13569,22 +13569,22 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i:
   %.val1553 = load ptr, ptr %151, align 8
   %.val1554 = load i64, ptr %296, align 8
   %3279 = invoke fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeStringERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.val1553, i64 %.val1554)
-          to label %._crit_edge9640 unwind label %3284
+          to label %._crit_edge7490 unwind label %3284
 
-._crit_edge9640:                                  ; preds = %3277
+._crit_edge7490:                                  ; preds = %3277
   store i32 19, ptr %198, align 8
   store ptr %3279, ptr %199, align 8
   %3280 = load ptr, ptr %151, align 8
   %3281 = icmp eq ptr %3280, %295
   br i1 %3281, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2432, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2431
 
-_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2432: ; preds = %._crit_edge9640
+_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2432: ; preds = %._crit_edge7490
   %3282 = load i64, ptr %296, align 8
   %3283 = icmp ult i64 %3282, 4
   call void @llvm.assume(i1 %3283)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074
 
-_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2431: ; preds = %._crit_edge9640
+_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2431: ; preds = %._crit_edge7490
   call void @_ZdlPv(ptr noundef %3280) #35
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074
 
@@ -13611,8 +13611,8 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
   call void @abort() #33
   unreachable
 
-3293:                                             ; preds = %.lr.ph6187
-  %3294 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+3293:                                             ; preds = %.lr.ph5099
+  %3294 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %3295 = load ptr, ptr %3294, align 8
   %3296 = load i32, ptr %198, align 8
   switch i32 %3296, label %3297 [
@@ -13682,8 +13682,8 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %common.resume
 
 3312:                                             ; preds = %3293, %3293, %3293
-  %3313 = getelementptr inbounds i8, ptr %.val15646186, i64 -400
-  %3314 = getelementptr inbounds i8, ptr %.val15646186, i64 -312
+  %3313 = getelementptr inbounds i8, ptr %.val15645098, i64 -400
+  %3314 = getelementptr inbounds i8, ptr %.val15645098, i64 -312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3314, ptr noundef nonnull align 8 dereferenceable(16) %198, i64 16, i1 false)
   store i32 11, ptr %3313, align 8
   %3315 = load i32, ptr %198, align 8
@@ -13772,13 +13772,13 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack26alreadyExecutingInvariantsEPNS1_10Heap
   %3354 = load ptr, ptr %3353, align 8
   br label %.backedge.backedge
 
-3355:                                             ; preds = %.lr.ph6187
-  %3356 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+3355:                                             ; preds = %.lr.ph5099
+  %3356 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %3357 = load i32, ptr %3356, align 8
   %3358 = zext i32 %3357 to i64
-  %3359 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
+  %3359 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
   %.val1410 = load ptr, ptr %3359, align 8
-  %3360 = getelementptr i8, ptr %.val15646186, i64 -160
+  %3360 = getelementptr i8, ptr %.val15645098, i64 -160
   %.val1411 = load ptr, ptr %3360, align 8
   %3361 = ptrtoint ptr %.val1411 to i64
   %3362 = ptrtoint ptr %.val1410 to i64
@@ -13792,7 +13792,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack26alreadyExecutingInvariantsEPNS1_10Heap
   br i1 %3366, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074, label %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2451
 
 _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2451: ; preds = %3365
-  %3367 = getelementptr inbounds i8, ptr %.val15646186, i64 -400
+  %3367 = getelementptr inbounds i8, ptr %.val15645098, i64 -400
   store ptr %3367, ptr %197, align 8
   call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15FrameD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3367) #34
   %.val1467 = load ptr, ptr %197, align 8
@@ -13803,12 +13803,12 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2451: ; preds = %3365
   br label %.backedge.backedge
 
 3372:                                             ; preds = %3355
-  %3373 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+  %3373 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %3374 = add i32 %3357, 1
   store i32 %3374, ptr %3373, align 8
   %3375 = getelementptr inbounds ptr, ptr %.val1410, i64 %3358
   %3376 = load ptr, ptr %3375, align 8
-  %3377 = getelementptr inbounds i8, ptr %.val15646186, i64 -384
+  %3377 = getelementptr inbounds i8, ptr %.val15645098, i64 -384
   %3378 = getelementptr inbounds i8, ptr %3376, i64 88
   %3379 = load ptr, ptr %3378, align 8
   %3380 = getelementptr inbounds i8, ptr %3376, i64 96
@@ -13819,8 +13819,8 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2451: ; preds = %3365
   %3384 = load ptr, ptr %3383, align 8
   br label %.backedge.backedge
 
-3385:                                             ; preds = %.lr.ph6187
-  %3386 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+3385:                                             ; preds = %.lr.ph5099
+  %3386 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %3387 = load ptr, ptr %3386, align 8
   %3388 = load i32, ptr %198, align 8
   switch i32 %3388, label %3389 [
@@ -13868,10 +13868,10 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   %3400 = load ptr, ptr %239, align 8
   %3401 = call noundef ptr @_ZN7jsonnet8internal9Allocator14makeIdentifierERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr noundef nonnull align 8 dereferenceable(72) %3400, ptr noundef nonnull align 8 dereferenceable(32) %3399)
   store ptr %3401, ptr %159, align 8
-  %3402 = getelementptr inbounds i8, ptr %.val15646186, i64 -272
-  %3403 = getelementptr inbounds i8, ptr %.val15646186, i64 -256
+  %3402 = getelementptr inbounds i8, ptr %.val15645098, i64 -272
+  %3403 = getelementptr inbounds i8, ptr %.val15645098, i64 -256
   %.val.i.i2454 = load ptr, ptr %3403, align 8
-  %3404 = getelementptr inbounds i8, ptr %.val15646186, i64 -264
+  %3404 = getelementptr inbounds i8, ptr %.val15645098, i64 -264
   %.not2.i.i.i2455 = icmp eq ptr %.val.i.i2454, null
   br i1 %.not2.i.i.i2455, label %_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit.thread, label %.lr.ph.i.i.i2456
 
@@ -13954,7 +13954,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %common.resume
 
 _ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit.thread: ; preds = %3397, %_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_NS1_12_GLOBAL__N_116HeapSimpleObject5FieldEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS6_.exit.i.i, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit
-  %3429 = getelementptr inbounds i8, ptr %.val15646186, i64 -280
+  %3429 = getelementptr inbounds i8, ptr %.val15645098, i64 -280
   %3430 = load ptr, ptr %3429, align 8
   %3431 = load i32, ptr %3430, align 8
   %3432 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %3402, ptr noundef nonnull align 8 dereferenceable(8) %159)
@@ -13968,7 +13968,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5
   br label %3438
 
 3438:                                             ; preds = %3385, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit.thread
-  %3439 = getelementptr inbounds i8, ptr %.val15646186, i64 -280
+  %3439 = getelementptr inbounds i8, ptr %.val15645098, i64 -280
   %3440 = load ptr, ptr %3439, align 8
   %3441 = getelementptr inbounds i8, ptr %3440, i64 24
   store ptr %3441, ptr %3439, align 8
@@ -14032,7 +14032,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   store ptr %286, ptr %288, align 8
   store ptr %286, ptr %289, align 8
   store i64 0, ptr %290, align 8
-  %3459 = getelementptr inbounds i8, ptr %.val15646186, i64 -256
+  %3459 = getelementptr inbounds i8, ptr %.val15645098, i64 -256
   %.val.i.i2482 = load ptr, ptr %3459, align 8
   %.not.i.i2483 = icmp eq ptr %.val.i.i2482, null
   br i1 %.not.i.i2483, label %_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit2491, label %3460
@@ -14061,7 +14061,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_NS1_12_GLOBAL__N_116
 
 3467:                                             ; preds = %3464
   store ptr %.0.i.i7.i.i.i.i2488, ptr %289, align 8
-  %3468 = getelementptr inbounds i8, ptr %.val15646186, i64 -232
+  %3468 = getelementptr inbounds i8, ptr %.val15645098, i64 -232
   %3469 = load i64, ptr %3468, align 8
   store i64 %3469, ptr %290, align 8
   store ptr %3461, ptr %287, align 8
@@ -14177,8 +14177,8 @@ _ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev.exit2510: ; preds = %.lr
   call fastcc void @_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val1358)
   br label %common.resume
 
-3496:                                             ; preds = %.lr.ph6187
-  %3497 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+3496:                                             ; preds = %.lr.ph5099
+  %3497 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %3498 = load ptr, ptr %3497, align 8
   %3499 = load i32, ptr %198, align 8
   %.not1133 = icmp eq i32 %3499, 16
@@ -14251,9 +14251,9 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   store ptr %274, ptr %277, align 8
   store i64 0, ptr %278, align 8
   %3520 = invoke fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeObjectINS1_23HeapComprehensionObjectEJSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS8_ESaISt4pairIKS8_SA_EEEPNS0_3ASTES8_SH_EEENS1_5ValueEDpT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %169, ptr noundef %3517, ptr noundef %3519, ptr noundef %170)
-          to label %._crit_edge9650 unwind label %3521
+          to label %._crit_edge7500 unwind label %3521
 
-._crit_edge9650:                                  ; preds = %3515
+._crit_edge7500:                                  ; preds = %3515
   store i32 18, ptr %198, align 8
   store ptr %3520, ptr %199, align 8
   %.val1359 = load ptr, ptr %275, align 8
@@ -14272,27 +14272,27 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br label %common.resume
 
 3523:                                             ; preds = %3510
-  %3524 = getelementptr inbounds i8, ptr %.val15646186, i64 -400
+  %3524 = getelementptr inbounds i8, ptr %.val15645098, i64 -400
   %3525 = getelementptr inbounds i8, ptr %3511, i64 16
   store i32 16, ptr %3524, align 8
-  %3526 = getelementptr inbounds i8, ptr %.val15646186, i64 -312
+  %3526 = getelementptr inbounds i8, ptr %.val15645098, i64 -312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3526, ptr noundef nonnull align 8 dereferenceable(16) %198, i64 16, i1 false)
   %.val1613 = load ptr, ptr %3525, align 8
   %3527 = load ptr, ptr %.val1613, align 8
-  %3528 = getelementptr inbounds i8, ptr %.val15646186, i64 -48
+  %3528 = getelementptr inbounds i8, ptr %.val15645098, i64 -48
   %3529 = getelementptr inbounds i8, ptr %3498, i64 144
   %3530 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %3528, ptr noundef nonnull align 8 dereferenceable(8) %3529)
   store ptr %3527, ptr %3530, align 8
-  %3531 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+  %3531 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   store i32 0, ptr %3531, align 8
   %3532 = getelementptr inbounds i8, ptr %3498, i64 128
   %3533 = load ptr, ptr %3532, align 8
   br label %.backedge.backedge
 
-3534:                                             ; preds = %.lr.ph6187
-  %3535 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+3534:                                             ; preds = %.lr.ph5099
+  %3535 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %3536 = load ptr, ptr %3535, align 8
-  %3537 = getelementptr inbounds i8, ptr %.val15646186, i64 -304
+  %3537 = getelementptr inbounds i8, ptr %.val15645098, i64 -304
   %3538 = load ptr, ptr %3537, align 8
   %3539 = load i32, ptr %198, align 8
   switch i32 %3539, label %3540 [
@@ -14374,10 +14374,10 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   %3562 = load ptr, ptr %239, align 8
   %3563 = call noundef ptr @_ZN7jsonnet8internal9Allocator14makeIdentifierERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr noundef nonnull align 8 dereferenceable(72) %3562, ptr noundef nonnull align 8 dereferenceable(32) %3561)
   store ptr %3563, ptr %174, align 8
-  %3564 = getelementptr inbounds i8, ptr %.val15646186, i64 -216
-  %3565 = getelementptr inbounds i8, ptr %.val15646186, i64 -200
+  %3564 = getelementptr inbounds i8, ptr %.val15645098, i64 -216
+  %3565 = getelementptr inbounds i8, ptr %.val15645098, i64 -200
   %.val.i.i2527 = load ptr, ptr %3565, align 8
-  %3566 = getelementptr inbounds i8, ptr %.val15646186, i64 -208
+  %3566 = getelementptr inbounds i8, ptr %.val15645098, i64 -208
   %.not2.i.i.i2528 = icmp eq ptr %.val.i.i2527, null
   br i1 %.not2.i.i.i2528, label %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit2540.thread, label %.lr.ph.i.i.i2529
 
@@ -14465,7 +14465,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit2540.thread: ; preds = %3559, %_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS6_.exit.i.i2537, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit2540
   %3590 = getelementptr inbounds i8, ptr %3538, i64 16
-  %3591 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+  %3591 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %3592 = load i32, ptr %3591, align 8
   %3593 = zext i32 %3592 to i64
   %.val1614 = load ptr, ptr %3590, align 8
@@ -14476,7 +14476,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   br label %3597
 
 3597:                                             ; preds = %3534, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEE4findERSB_.exit2540.thread
-  %3598 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+  %3598 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %3599 = load i32, ptr %3598, align 8
   %3600 = add i32 %3599, 1
   store i32 %3600, ptr %3598, align 8
@@ -14546,7 +14546,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   store ptr %264, ptr %266, align 8
   store ptr %264, ptr %267, align 8
   store i64 0, ptr %268, align 8
-  %3625 = getelementptr inbounds i8, ptr %.val15646186, i64 -200
+  %3625 = getelementptr inbounds i8, ptr %.val15645098, i64 -200
   %.val.i.i2557 = load ptr, ptr %3625, align 8
   %.not.i.i2558 = icmp eq ptr %.val.i.i2557, null
   br i1 %.not.i.i2558, label %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit2566, label %3626
@@ -14575,7 +14575,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19
 
 3633:                                             ; preds = %3630
   store ptr %.0.i.i7.i.i.i.i2563, ptr %267, align 8
-  %3634 = getelementptr inbounds i8, ptr %.val15646186, i64 -176
+  %3634 = getelementptr inbounds i8, ptr %.val15645098, i64 -176
   %3635 = load i64, ptr %3634, align 8
   store i64 %3635, ptr %268, align 8
   store ptr %3627, ptr %265, align 8
@@ -14628,7 +14628,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
 3645:                                             ; preds = %3597
   %3646 = getelementptr inbounds ptr, ptr %.val1414, i64 %3601
   %3647 = load ptr, ptr %3646, align 8
-  %3648 = getelementptr inbounds i8, ptr %.val15646186, i64 -48
+  %3648 = getelementptr inbounds i8, ptr %.val15645098, i64 -48
   %3649 = getelementptr inbounds i8, ptr %3536, i64 144
   %3650 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %3648, ptr noundef nonnull align 8 dereferenceable(8) %3649)
   store ptr %3647, ptr %3650, align 8
@@ -14636,10 +14636,10 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   %3652 = load ptr, ptr %3651, align 8
   br label %.backedge.backedge
 
-3653:                                             ; preds = %.lr.ph6187
-  %3654 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+3653:                                             ; preds = %.lr.ph5099
+  %3654 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %3655 = load ptr, ptr %3654, align 8
-  %3656 = getelementptr inbounds i8, ptr %.val15646186, i64 -312
+  %3656 = getelementptr inbounds i8, ptr %.val15645098, i64 -312
   store ptr %251, ptr %181, align 8
   store i64 0, ptr %252, align 8
   store i32 0, ptr %251, align 8
@@ -14648,7 +14648,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   br i1 %3658, label %3659, label %3675
 
 3659:                                             ; preds = %3653
-  %3660 = getelementptr inbounds i8, ptr %.val15646186, i64 -304
+  %3660 = getelementptr inbounds i8, ptr %.val15645098, i64 -304
   %3661 = load ptr, ptr %3660, align 8
   %3662 = getelementptr inbounds i8, ptr %3661, i64 16
   %3663 = load ptr, ptr %3662, align 8
@@ -14689,11 +14689,11 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i:
           to label %._ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE6appendERKS4_.exit_crit_edge unwind label %.loopexit3114
 
 ._ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE6appendERKS4_.exit_crit_edge: ; preds = %3672
-  %.pre8263 = load ptr, ptr %181, align 8
+  %.pre6113 = load ptr, ptr %181, align 8
   br label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE6appendERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE6appendERKS4_.exit: ; preds = %._ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE6appendERKS4_.exit_crit_edge, %3667, %3668, %3670
-  %3673 = phi ptr [ %.pre8263, %._ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE6appendERKS4_.exit_crit_edge ], [ %251, %3667 ], [ %251, %3668 ], [ %251, %3670 ]
+  %3673 = phi ptr [ %.pre6113, %._ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE6appendERKS4_.exit_crit_edge ], [ %251, %3667 ], [ %251, %3668 ], [ %251, %3670 ]
   store i64 %3665, ptr %252, align 8
   %3674 = getelementptr inbounds i32, ptr %3673, i64 %3665
   store i32 0, ptr %3674, align 4
@@ -15030,8 +15030,8 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
   call void @_ZdlPv(ptr noundef %3786) #35
   br label %common.resume
 
-3790:                                             ; preds = %.lr.ph6187
-  %3791 = getelementptr inbounds i8, ptr %.val15646186, i64 -392
+3790:                                             ; preds = %.lr.ph5099
+  %3791 = getelementptr inbounds i8, ptr %.val15645098, i64 -392
   %3792 = load ptr, ptr %3791, align 8
   %3793 = load i32, ptr %198, align 8
   switch i32 %3793, label %3854 [
@@ -15298,12 +15298,12 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   call void @__cxa_free_exception(ptr %3855) #34
   br label %common.resume
 
-3879:                                             ; preds = %.lr.ph6187
-  %3880 = getelementptr inbounds i8, ptr %.val15646186, i64 -112
-  %3881 = getelementptr inbounds i8, ptr %.val15646186, i64 -144
-  %3882 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+3879:                                             ; preds = %.lr.ph5099
+  %3880 = getelementptr inbounds i8, ptr %.val15645098, i64 -112
+  %3881 = getelementptr inbounds i8, ptr %.val15645098, i64 -144
+  %3882 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %3883 = load i32, ptr %3882, align 8
-  %3884 = getelementptr i8, ptr %.val15646186, i64 -304
+  %3884 = getelementptr i8, ptr %.val15645098, i64 -304
   %.val1619 = load ptr, ptr %3884, align 8
   call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10joinStringERbRNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERKNS1_5ValueEjSD_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 1 dereferenceable(1) %3880, ptr noundef nonnull align 8 dereferenceable(32) %3881, ptr %.val1619, i32 noundef %3883, ptr noundef nonnull align 8 dereferenceable(16) %198)
   %3885 = load i32, ptr %3882, align 8
@@ -15313,12 +15313,12 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   %.not1104 = icmp eq ptr %3887, null
   br i1 %.not1104, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074, label %.backedge.backedge
 
-3888:                                             ; preds = %.lr.ph6187
-  %3889 = getelementptr inbounds i8, ptr %.val15646186, i64 -112
-  %3890 = getelementptr inbounds i8, ptr %.val15646186, i64 -168
-  %3891 = getelementptr inbounds i8, ptr %.val15646186, i64 -224
+3888:                                             ; preds = %.lr.ph5099
+  %3889 = getelementptr inbounds i8, ptr %.val15645098, i64 -112
+  %3890 = getelementptr inbounds i8, ptr %.val15645098, i64 -168
+  %3891 = getelementptr inbounds i8, ptr %.val15645098, i64 -224
   %3892 = load i32, ptr %3891, align 8
-  %3893 = getelementptr i8, ptr %.val15646186, i64 -304
+  %3893 = getelementptr i8, ptr %.val15645098, i64 -304
   %.val1620 = load ptr, ptr %3893, align 8
   call fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9joinArrayERbRSt6vectorIPNS1_9HeapThunkESaIS6_EERKNS1_5ValueEjSC_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 1 dereferenceable(1) %3889, ptr noundef nonnull align 8 dereferenceable(24) %3890, ptr %.val1620, i32 noundef %3892, ptr noundef nonnull align 8 dereferenceable(16) %198)
   %3894 = load i32, ptr %3891, align 8
@@ -15328,13 +15328,13 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   %.not1103 = icmp eq ptr %3896, null
   br i1 %.not1103, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074, label %.backedge.backedge
 
-3897:                                             ; preds = %.lr.ph6187
+3897:                                             ; preds = %.lr.ph5099
   %3898 = call fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10decodeUTF8Ev(ptr noundef nonnull align 8 dereferenceable(480) %0)
   %.not = icmp eq ptr %3898, null
   br i1 %.not, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074, label %.backedge.backedge
 
-3899:                                             ; preds = %.lr.ph6187
-  %3900 = getelementptr inbounds i8, ptr %.val15646186, i64 -400
+3899:                                             ; preds = %.lr.ph5099
+  %3900 = getelementptr inbounds i8, ptr %.val15645098, i64 -400
   %3901 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.363)
   %3902 = load i32, ptr %3900, align 8
   %3903 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3901, i32 noundef %3902)
@@ -15342,8 +15342,8 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   call void @abort() #33
   unreachable
 
-_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074: ; preds = %2845, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2607, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2608, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2431, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2432, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2187, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2188, %1934, %._crit_edge6120._crit_edge, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit, %2579, %_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev.exit2510, %._crit_edge9650, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit2566._crit_edge, %_ZStleIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZStgeIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZStltIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZStgtIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %2078, %2086, %2094, %2114, %2132, %2154, %2164, %2175, %2186, %2197, %2204, %2211, %2218, %2039, %2049, %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeObjectINS1_18HeapExtendedObjectEJPNS1_10HeapObjectES6_EEENS1_5ValueEDpT0_.exit, %1873, %2829, %2860, %2889, %2873, %2851, %3042, %3041, %3170, %3365, %.lr.ph6187, %3824, %3829, %3821, %3798, %3879, %3888, %3897, %1808, %1765, %1761
-  %.4 = phi ptr [ %.16184, %3897 ], [ %.16184, %3888 ], [ %.16184, %3879 ], [ %.16184, %3829 ], [ %.16184, %3824 ], [ %.16184, %3821 ], [ %.16184, %3798 ], [ %.16184, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit2566._crit_edge ], [ %.16184, %._crit_edge9650 ], [ %.16184, %_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev.exit2510 ], [ %.16184, %.lr.ph6187 ], [ %.16184, %3365 ], [ %.16184, %3170 ], [ %.16184, %3042 ], [ %.16184, %3041 ], [ %.16184, %2860 ], [ %.16184, %2873 ], [ %.16184, %2889 ], [ %.16184, %2851 ], [ %.5, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit ], [ %.16184, %2829 ], [ %.16184, %2579 ], [ %.16184, %1873 ], [ %.16184, %_ZStgtIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.16184, %_ZStltIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.16184, %_ZStgeIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.16184, %_ZStleIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.16184, %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeObjectINS1_18HeapExtendedObjectEJPNS1_10HeapObjectES6_EEENS1_5ValueEDpT0_.exit ], [ %.16184, %2218 ], [ %.16184, %2211 ], [ %.16184, %2204 ], [ %.16184, %2197 ], [ %.16184, %2186 ], [ %.16184, %2175 ], [ %.16184, %2164 ], [ %.16184, %2154 ], [ %.16184, %2132 ], [ %.16184, %2114 ], [ %.16184, %2094 ], [ %.16184, %2086 ], [ %.16184, %2078 ], [ %.16184, %2049 ], [ %.16184, %2039 ], [ %.16184, %1808 ], [ %.16184, %1765 ], [ %.16184, %1761 ], [ %.16184, %._crit_edge6120._crit_edge ], [ %.16184, %1934 ], [ %.16184, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2188 ], [ %.16184, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2187 ], [ %.16184, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2432 ], [ %.16184, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2431 ], [ %.16184, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2608 ], [ %.16184, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2607 ], [ %.16184, %2845 ]
+_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit2074: ; preds = %2845, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2607, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2608, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2431, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2432, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2187, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2188, %1934, %._crit_edge5043._crit_edge, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit, %2579, %_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev.exit2510, %._crit_edge7500, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit2566._crit_edge, %_ZStleIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZStgeIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZStltIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZStgtIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %2078, %2086, %2094, %2114, %2132, %2154, %2164, %2175, %2186, %2197, %2204, %2211, %2218, %2039, %2049, %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeObjectINS1_18HeapExtendedObjectEJPNS1_10HeapObjectES6_EEENS1_5ValueEDpT0_.exit, %1873, %2829, %2860, %2889, %2873, %2851, %3042, %3041, %3170, %3365, %.lr.ph5099, %3824, %3829, %3821, %3798, %3879, %3888, %3897, %1808, %1765, %1761
+  %.4 = phi ptr [ %.15096, %3897 ], [ %.15096, %3888 ], [ %.15096, %3879 ], [ %.15096, %3829 ], [ %.15096, %3824 ], [ %.15096, %3821 ], [ %.15096, %3798 ], [ %.15096, %_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_.exit2566._crit_edge ], [ %.15096, %._crit_edge7500 ], [ %.15096, %_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev.exit2510 ], [ %.15096, %.lr.ph5099 ], [ %.15096, %3365 ], [ %.15096, %3170 ], [ %.15096, %3041 ], [ %.15096, %3042 ], [ %.15096, %2851 ], [ %.15096, %2873 ], [ %.15096, %2889 ], [ %.15096, %2860 ], [ %.5, %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EED2Ev.exit ], [ %.15096, %2829 ], [ %.15096, %2579 ], [ %.15096, %1873 ], [ %.15096, %_ZStgtIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.15096, %_ZStltIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.15096, %_ZStgeIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.15096, %_ZStleIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.15096, %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeObjectINS1_18HeapExtendedObjectEJPNS1_10HeapObjectES6_EEENS1_5ValueEDpT0_.exit ], [ %.15096, %2218 ], [ %.15096, %2211 ], [ %.15096, %2204 ], [ %.15096, %2197 ], [ %.15096, %2186 ], [ %.15096, %2175 ], [ %.15096, %2164 ], [ %.15096, %2154 ], [ %.15096, %2132 ], [ %.15096, %2114 ], [ %.15096, %2094 ], [ %.15096, %2086 ], [ %.15096, %2078 ], [ %.15096, %2049 ], [ %.15096, %2039 ], [ %.15096, %1808 ], [ %.15096, %1765 ], [ %.15096, %1761 ], [ %.15096, %._crit_edge5043._crit_edge ], [ %.15096, %1934 ], [ %.15096, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2188 ], [ %.15096, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2187 ], [ %.15096, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2432 ], [ %.15096, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2431 ], [ %.15096, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i2608 ], [ %.15096, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i2607 ], [ %.15096, %2845 ]
   %.val1.i2637 = load ptr, ptr %197, align 8
   %3905 = getelementptr inbounds i8, ptr %.val1.i2637, i64 -400
   %.val.i2638 = load i32, ptr %3905, align 8
@@ -15362,7 +15362,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2639: ; preds = %_ZNSt6vector
   br label %3910
 
 3910:                                             ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2639, %1786
-  %.3 = phi ptr [ %.4, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2639 ], [ %.16184, %1786 ], [ %.2, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit ]
+  %.3 = phi ptr [ %.4, %_ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2639 ], [ %.15096, %1786 ], [ %.2, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit ]
   %.val1563 = load ptr, ptr %196, align 8
   %.val1564 = load ptr, ptr %197, align 8
   %3911 = ptrtoint ptr %.val1564 to i64
@@ -15371,7 +15371,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2639: ; preds = %_ZNSt6vector
   %3914 = sdiv exact i64 %3913, 400
   %3915 = trunc i64 %3914 to i32
   %3916 = icmp ult i32 %2, %3915
-  br i1 %3916, label %.lr.ph6187, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635._crit_edge, !llvm.loop !46
+  br i1 %3916, label %.lr.ph5099, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635._crit_edge, !llvm.loop !46
 
 _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635._crit_edge: ; preds = %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.exit1635, %3910
   ret void

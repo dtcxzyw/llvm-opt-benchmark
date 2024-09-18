@@ -9628,15 +9628,15 @@ entry:
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %entry, %for.inc212
-  %storemerge1012 = phi i64 [ 0, %entry ], [ %inc, %for.inc212 ]
+  %storemerge967 = phi i64 [ 0, %entry ], [ %inc, %for.inc212 ]
   br label %for.body5
 
 for.body5:                                        ; preds = %for.cond3.preheader, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit
-  %__begin2.0.idx1005 = phi i64 [ 0, %for.cond3.preheader ], [ %__begin2.0.add, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit ]
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_145GaussianDistributionTest_AlgorithmBounds_Test8TestBodyEv.kValues, i64 %__begin2.0.idx1005
+  %__begin2.0.idx965 = phi i64 [ 0, %for.cond3.preheader ], [ %__begin2.0.add, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit ]
+  %__begin2.0.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_145GaussianDistributionTest_AlgorithmBounds_Test8TestBodyEv.kValues, i64 %__begin2.0.idx965
   %0 = load i64, ptr %__begin2.0.ptr, align 8
   %and.i = and i64 %0, -128
-  %or.i = or disjoint i64 %and.i, %storemerge1012
+  %or.i = or disjoint i64 %and.i, %storemerge967
   %call5.i.i.i.i2.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #37
   store i64 %or.i, ptr %call5.i.i.i.i2.i.i, align 8
   %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 8
@@ -9699,8 +9699,8 @@ do.body.i.i:                                      ; preds = %if.end.i, %do.body.
   %shr.i.i.i = lshr i64 %shl.i.i.i, 11
   %and2.i.i.i = and i64 %shr.i.i.i, 4503599627370495
   %14 = shl nuw nsw i64 %13, 52
-  %reass.sub1014 = sub nsw i64 %and2.i.i.i, %14
-  %or3.i.i.i = add nsw i64 %reass.sub1014, 4602678819172646912
+  %reass.sub969 = sub nsw i64 %and2.i.i.i, %14
+  %or3.i.i.i = add nsw i64 %reass.sub969, 4602678819172646912
   %15 = bitcast i64 %or3.i.i.i to double
   %call3.i.i = call double @log(double noundef %15) #34
   %mul.i.i = fmul double %call3.i.i, 0x3FD2972A8AFC6175
@@ -9714,8 +9714,8 @@ do.body.i.i:                                      ; preds = %if.end.i, %do.body.
   %shr.i19.i.i = lshr i64 %shl.i17.i.i, 11
   %and2.i22.i.i = and i64 %shr.i19.i.i, 4503599627370495
   %18 = shl nuw nsw i64 %17, 52
-  %reass.sub1015 = sub nsw i64 %and2.i22.i.i, %18
-  %or3.i23.i.i = add nsw i64 %reass.sub1015, 4602678819172646912
+  %reass.sub970 = sub nsw i64 %and2.i22.i.i, %18
+  %or3.i23.i.i = add nsw i64 %reass.sub970, 4602678819172646912
   %19 = bitcast i64 %or3.i23.i.i to double
   %call7.i.i = call double @log(double noundef %19) #34
   %fneg.i.i = fneg double %call7.i.i
@@ -9799,7 +9799,7 @@ if.else:                                          ; preds = %invoke.cont11
 invoke.cont15:                                    ; preds = %if.else
   %31 = load ptr, ptr %ref.tmp13, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %31, i64 16
-  %call2.i74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %storemerge1012)
+  %call2.i74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %storemerge967)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -9934,7 +9934,7 @@ if.else38:                                        ; preds = %invoke.cont35
 invoke.cont41:                                    ; preds = %if.else38
   %46 = load ptr, ptr %ref.tmp39, align 8
   %add.ptr.i91 = getelementptr inbounds i8, ptr %46, i64 16
-  %call2.i92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i91, i64 noundef %storemerge1012)
+  %call2.i92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i91, i64 noundef %storemerge967)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont41
@@ -10059,7 +10059,7 @@ if.else67:                                        ; preds = %invoke.cont64
 invoke.cont70:                                    ; preds = %if.else67
   %61 = load ptr, ptr %ref.tmp68, align 8
   %add.ptr.i129 = getelementptr inbounds i8, ptr %61, i64 16
-  %call2.i130 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i129, i64 noundef %storemerge1012)
+  %call2.i130 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i129, i64 noundef %storemerge967)
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont70
@@ -10159,17 +10159,17 @@ ehcleanup89:                                      ; preds = %_ZN7testing7Message
   br label %_ZN4absl15random_internal13sequence_urbgD2Ev.exit166
 
 _ZN4absl15random_internal13sequence_urbgD2Ev.exit.sink.split: ; preds = %if.end88, %if.end59
-  %.sink1111 = phi ptr [ %58, %if.end59 ], [ %73, %if.end88 ]
+  %.sink1066 = phi ptr [ %58, %if.end59 ], [ %73, %if.end88 ]
   %message_.i.i141.sink.ph = phi ptr [ %message_.i.i103, %if.end59 ], [ %message_.i.i141, %if.end88 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1111) #34
-  call void @_ZdlPv(ptr noundef nonnull %.sink1111) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1066) #34
+  call void @_ZdlPv(ptr noundef nonnull %.sink1066) #35
   br label %_ZN4absl15random_internal13sequence_urbgD2Ev.exit
 
 _ZN4absl15random_internal13sequence_urbgD2Ev.exit: ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit.sink.split, %if.end88, %if.end59
   %message_.i.i141.sink = phi ptr [ %message_.i.i103, %if.end59 ], [ %message_.i.i141, %if.end88 ], [ %message_.i.i141.sink.ph, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit.sink.split ]
   store ptr null, ptr %message_.i.i141.sink, align 8
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i) #35
-  %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx1005, 8
+  %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx965, 8
   %cmp4.not = icmp eq i64 %__begin2.0.add, 96
   br i1 %cmp4.not, label %for.end, label %for.body5
 
@@ -10179,16 +10179,16 @@ _ZN4absl15random_internal13sequence_urbgD2Ev.exit166: ; preds = %ehcleanup89, %e
   br label %common.resume
 
 for.end:                                          ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit
-  %74 = add nsw i64 %storemerge1012, -11
+  %74 = add nsw i64 %storemerge967, -11
   %or.cond = icmp ult i64 %74, 89
   br i1 %or.cond, label %for.body100, label %for.inc212
 
 for.body100:                                      ; preds = %for.end, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit305
-  %__begin3.0.idx1006 = phi i64 [ %__begin3.0.add, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit305 ], [ 0, %for.end ]
-  %__begin3.0.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_145GaussianDistributionTest_AlgorithmBounds_Test8TestBodyEv.kExtraValues, i64 %__begin3.0.idx1006
+  %__begin3.0.idx966 = phi i64 [ %__begin3.0.add, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit305 ], [ 0, %for.end ]
+  %__begin3.0.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_145GaussianDistributionTest_AlgorithmBounds_Test8TestBodyEv.kExtraValues, i64 %__begin3.0.idx966
   %75 = load i64, ptr %__begin3.0.ptr, align 8
   %and.i167 = and i64 %75, -128
-  %or.i168 = or disjoint i64 %and.i167, %storemerge1012
+  %or.i168 = or disjoint i64 %and.i167, %storemerge967
   %call5.i.i.i.i2.i.i170 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #37
   store i64 %or.i168, ptr %call5.i.i.i.i2.i.i170, align 8
   %ref.tmp104.sroa.2.0.call5.i.i.i.i2.i.i170.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i170, i64 8
@@ -10247,8 +10247,8 @@ do.body.i.i825:                                   ; preds = %if.end.i804, %do.bo
   %shr.i.i.i835 = lshr i64 %shl.i.i.i834, 11
   %and2.i.i.i836 = and i64 %shr.i.i.i835, 4503599627370495
   %89 = shl nuw nsw i64 %88, 52
-  %reass.sub1017 = sub nsw i64 %and2.i.i.i836, %89
-  %or3.i.i.i838 = add nsw i64 %reass.sub1017, 4602678819172646912
+  %reass.sub972 = sub nsw i64 %and2.i.i.i836, %89
+  %or3.i.i.i838 = add nsw i64 %reass.sub972, 4602678819172646912
   %90 = bitcast i64 %or3.i.i.i838 to double
   %call3.i.i839 = call double @log(double noundef %90) #34
   %mul.i.i840 = fmul double %call3.i.i839, 0x3FD2972A8AFC6175
@@ -10262,8 +10262,8 @@ do.body.i.i825:                                   ; preds = %if.end.i804, %do.bo
   %shr.i19.i.i850 = lshr i64 %shl.i17.i.i849, 11
   %and2.i22.i.i851 = and i64 %shr.i19.i.i850, 4503599627370495
   %93 = shl nuw nsw i64 %92, 52
-  %reass.sub1018 = sub nsw i64 %and2.i22.i.i851, %93
-  %or3.i23.i.i853 = add nsw i64 %reass.sub1018, 4602678819172646912
+  %reass.sub973 = sub nsw i64 %and2.i22.i.i851, %93
+  %or3.i23.i.i853 = add nsw i64 %reass.sub973, 4602678819172646912
   %94 = bitcast i64 %or3.i23.i.i853 to double
   %call7.i.i854 = call double @log(double noundef %94) #34
   %fneg.i.i855 = fneg double %call7.i.i854
@@ -10290,8 +10290,8 @@ if.end10.i806:                                    ; preds = %if.end.i804
   %shr.i28.i812 = lshr i64 %shl.i26.i811, 11
   %and2.i30.i813 = and i64 %shr.i28.i812, 4503599627370495
   %97 = shl nuw nsw i64 %96, 52
-  %reass.sub1016 = sub nsw i64 %and2.i30.i813, %97
-  %or3.i.i815 = add nsw i64 %reass.sub1016, 4602678819172646912
+  %reass.sub971 = sub nsw i64 %and2.i30.i813, %97
+  %or3.i.i815 = add nsw i64 %reass.sub971, 4602678819172646912
   %98 = bitcast i64 %or3.i.i815 to double
   %arrayidx16.i816 = getelementptr inbounds [129 x double], ptr getelementptr inbounds (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %idxprom4.i801
   %99 = load double, ptr %arrayidx16.i816, align 8
@@ -10347,7 +10347,7 @@ if.else123:                                       ; preds = %invoke.cont120
 invoke.cont126:                                   ; preds = %if.else123
   %106 = load ptr, ptr %ref.tmp124, align 8
   %add.ptr.i192 = getelementptr inbounds i8, ptr %106, i64 16
-  %call2.i193 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i192, i64 noundef %storemerge1012)
+  %call2.i193 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i192, i64 noundef %storemerge967)
           to label %invoke.cont128 unwind label %lpad127
 
 invoke.cont128:                                   ; preds = %invoke.cont126
@@ -10482,7 +10482,7 @@ if.else154:                                       ; preds = %invoke.cont151
 invoke.cont157:                                   ; preds = %if.else154
   %121 = load ptr, ptr %ref.tmp155, align 8
   %add.ptr.i231 = getelementptr inbounds i8, ptr %121, i64 16
-  %call2.i232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i231, i64 noundef %storemerge1012)
+  %call2.i232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i231, i64 noundef %storemerge967)
           to label %invoke.cont159 unwind label %lpad158
 
 invoke.cont159:                                   ; preds = %invoke.cont157
@@ -10607,7 +10607,7 @@ if.else183:                                       ; preds = %invoke.cont180
 invoke.cont186:                                   ; preds = %if.else183
   %136 = load ptr, ptr %ref.tmp184, align 8
   %add.ptr.i270 = getelementptr inbounds i8, ptr %136, i64 16
-  %call2.i271 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i270, i64 noundef %storemerge1012)
+  %call2.i271 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i270, i64 noundef %storemerge967)
           to label %invoke.cont188 unwind label %lpad187
 
 invoke.cont188:                                   ; preds = %invoke.cont186
@@ -10707,17 +10707,17 @@ ehcleanup205:                                     ; preds = %_ZN7testing7Message
   br label %_ZN4absl15random_internal13sequence_urbgD2Ev.exit309
 
 _ZN4absl15random_internal13sequence_urbgD2Ev.exit305.sink.split: ; preds = %if.end204, %if.end175
-  %.sink1113 = phi ptr [ %133, %if.end175 ], [ %148, %if.end204 ]
+  %.sink1068 = phi ptr [ %133, %if.end175 ], [ %148, %if.end204 ]
   %message_.i.i282.sink.ph = phi ptr [ %message_.i.i243, %if.end175 ], [ %message_.i.i282, %if.end204 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1113) #34
-  call void @_ZdlPv(ptr noundef nonnull %.sink1113) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1068) #34
+  call void @_ZdlPv(ptr noundef nonnull %.sink1068) #35
   br label %_ZN4absl15random_internal13sequence_urbgD2Ev.exit305
 
 _ZN4absl15random_internal13sequence_urbgD2Ev.exit305: ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit305.sink.split, %if.end204, %if.end175
   %message_.i.i282.sink = phi ptr [ %message_.i.i243, %if.end175 ], [ %message_.i.i282, %if.end204 ], [ %message_.i.i282.sink.ph, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit305.sink.split ]
   store ptr null, ptr %message_.i.i282.sink, align 8
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i170) #35
-  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx1006, 8
+  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx966, 8
   %cmp99.not = icmp eq i64 %__begin3.0.add, 64
   br i1 %cmp99.not, label %for.inc212, label %for.body100
 
@@ -10727,7 +10727,7 @@ _ZN4absl15random_internal13sequence_urbgD2Ev.exit309: ; preds = %ehcleanup205, %
   br label %common.resume
 
 for.inc212:                                       ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit305, %for.end
-  %inc = add nuw nsw i64 %storemerge1012, 1
+  %inc = add nuw nsw i64 %storemerge967, 1
   %exitcond.not = icmp eq i64 %inc, 127
   br i1 %exitcond.not, label %for.end213, label %for.cond3.preheader, !llvm.loop !266
 

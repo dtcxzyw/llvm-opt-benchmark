@@ -492,19 +492,19 @@ _ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit: ; pr
 
 for.end:                                          ; preds = %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit
   %.pre = load ptr, ptr %premises, align 8, !noalias !8
-  %.pre47 = load ptr, ptr %m_nodes.i.i, align 8, !noalias !8
+  %.pre46 = load ptr, ptr %m_nodes.i.i, align 8, !noalias !8
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %cmp.i.i.i12 = icmp eq ptr %.pre47, null
+  %cmp.i.i.i12 = icmp eq ptr %.pre46, null
   br i1 %cmp.i.i.i12, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.end
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre47, i64 -4
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre46, i64 -4
   %27 = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !8
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %while.body.i.i.i, %invoke.cont2, %if.end.i.i.i, %for.end
   %28 = phi ptr [ %.pre, %if.end.i.i.i ], [ %.pre, %for.end ], [ %0, %invoke.cont2 ], [ %0, %while.body.i.i.i ]
-  %29 = phi ptr [ %.pre47, %if.end.i.i.i ], [ null, %for.end ], [ null, %invoke.cont2 ], [ null, %while.body.i.i.i ]
+  %29 = phi ptr [ %.pre46, %if.end.i.i.i ], [ null, %for.end ], [ null, %invoke.cont2 ], [ null, %while.body.i.i.i ]
   %retval.0.i.i.i13 = phi i32 [ %27, %if.end.i.i.i ], [ 0, %for.end ], [ 0, %invoke.cont2 ], [ 0, %while.body.i.i.i ]
   %call3.i16 = invoke noundef ptr @_Z6mk_andR11ast_managerjPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %28, i32 noundef %retval.0.i.i.i13, ptr noundef %29)
           to label %call3.i.noexc unwind label %lpad.loopexit.split-lp

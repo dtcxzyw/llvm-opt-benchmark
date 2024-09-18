@@ -3893,23 +3893,23 @@ define noalias noundef ptr @Sdb_StoIterCuts(ptr nocapture noundef readonly %0) l
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph142, label %.critedge
+  br i1 %10, label %.lr.ph141, label %.critedge
 
-.lr.ph142:                                        ; preds = %1
+.lr.ph141:                                        ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   br label %13
 
-13:                                               ; preds = %.lr.ph142, %Sdb_StoIterCutsOne.exit.thread
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next174, %Sdb_StoIterCutsOne.exit.thread ]
-  %14 = phi ptr [ %7, %.lr.ph142 ], [ %97, %Sdb_StoIterCutsOne.exit.thread ]
+13:                                               ; preds = %.lr.ph141, %Sdb_StoIterCutsOne.exit.thread
+  %indvars.iv169 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next170, %Sdb_StoIterCutsOne.exit.thread ]
+  %14 = phi ptr [ %7, %.lr.ph141 ], [ %97, %Sdb_StoIterCutsOne.exit.thread ]
   %15 = getelementptr i8, ptr %14, i64 32
   %.val74 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %.val74, null
   br i1 %.not, label %.critedge.loopexit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val74, i64 %indvars.iv173
+  %17 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val74, i64 %indvars.iv169
   %.val75 = load i64, ptr %17, align 4
   %18 = and i64 %.val75, 2147483648
   %.not.i = icmp ne i64 %18, 0
@@ -3922,7 +3922,7 @@ define noalias noundef ptr @Sdb_StoIterCuts(ptr nocapture noundef readonly %0) l
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr i8, ptr %22, i64 8
   %.val.i = load ptr, ptr %23, align 8
-  %24 = getelementptr %struct.Vec_Int_t_, ptr %.val.i, i64 %indvars.iv173, i32 2
+  %24 = getelementptr %struct.Vec_Int_t_, ptr %.val.i, i64 %indvars.iv169, i32 2
   %.val94.i = load ptr, ptr %24, align 8
   %25 = load i32, ptr %.val94.i, align 4
   %26 = icmp sgt i32 %25, 0
@@ -4067,12 +4067,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not73.not, label %64, label %Sdb_StoIterCutsOne.exit.thread, !llvm.loop !62
 
 Sdb_StoIterCutsOne.exit.thread:                   ; preds = %.thread98.i, %Vec_IntPush.exit, %Sdb_StoIterCutsOne.exit, %21, %16
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
+  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %97 = load ptr, ptr %6, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 24
   %99 = load i32, ptr %98, align 8
   %100 = sext i32 %99 to i64
-  %101 = icmp slt i64 %indvars.iv.next174, %100
+  %101 = icmp slt i64 %indvars.iv.next170, %100
   br i1 %101, label %13, label %.critedge.loopexit, !llvm.loop !63
 
 .critedge.loopexit:                               ; preds = %Sdb_StoIterCutsOne.exit.thread, %13
@@ -4087,26 +4087,26 @@ Sdb_StoIterCutsOne.exit.thread:                   ; preds = %.thread98.i, %Vec_I
   %105 = getelementptr inbounds i8, ptr %104, i64 24
   %106 = load i32, ptr %105, align 8
   %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %.lr.ph153, label %.critedge2
+  br i1 %107, label %.lr.ph150, label %.critedge2
 
-.lr.ph153:                                        ; preds = %.critedge
+.lr.ph150:                                        ; preds = %.critedge
   %108 = getelementptr inbounds i8, ptr %0, i64 40
   %109 = getelementptr inbounds i8, ptr %0, i64 48
   br label %110
 
-110:                                              ; preds = %.lr.ph153, %Sdb_StoIterCutsOne.exit92
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next180, %Sdb_StoIterCutsOne.exit92 ]
-  %111 = phi ptr [ %104, %.lr.ph153 ], [ %236, %Sdb_StoIterCutsOne.exit92 ]
-  %.0152 = phi i32 [ 0, %.lr.ph153 ], [ %.1, %Sdb_StoIterCutsOne.exit92 ]
-  %.052151 = phi i32 [ -1, %.lr.ph153 ], [ %.153, %Sdb_StoIterCutsOne.exit92 ]
-  %.055150 = phi i32 [ -1, %.lr.ph153 ], [ %.156, %Sdb_StoIterCutsOne.exit92 ]
+110:                                              ; preds = %.lr.ph150, %Sdb_StoIterCutsOne.exit92
+  %indvars.iv175 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next176, %Sdb_StoIterCutsOne.exit92 ]
+  %111 = phi ptr [ %104, %.lr.ph150 ], [ %236, %Sdb_StoIterCutsOne.exit92 ]
+  %.0149 = phi i32 [ 0, %.lr.ph150 ], [ %.1, %Sdb_StoIterCutsOne.exit92 ]
+  %.052148 = phi i32 [ -1, %.lr.ph150 ], [ %.153, %Sdb_StoIterCutsOne.exit92 ]
+  %.055147 = phi i32 [ -1, %.lr.ph150 ], [ %.156, %Sdb_StoIterCutsOne.exit92 ]
   %112 = getelementptr i8, ptr %111, i64 32
   %.val = load ptr, ptr %112, align 8
   %.not66 = icmp eq ptr %.val, null
   br i1 %.not66, label %.critedge2.loopexit, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv179
+  %114 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv175
   %.val76 = load i64, ptr %114, align 4
   %115 = and i64 %.val76, 2147483648
   %.not.i80 = icmp ne i64 %115, 0
@@ -4119,7 +4119,7 @@ Sdb_StoIterCutsOne.exit.thread:                   ; preds = %.thread98.i, %Vec_I
   %119 = load ptr, ptr %108, align 8
   %120 = getelementptr i8, ptr %119, i64 8
   %.val.i82 = load ptr, ptr %120, align 8
-  %121 = getelementptr %struct.Vec_Int_t_, ptr %.val.i82, i64 %indvars.iv179, i32 2
+  %121 = getelementptr %struct.Vec_Int_t_, ptr %.val.i82, i64 %indvars.iv175, i32 2
   %.val94.i83 = load ptr, ptr %121, align 8
   %122 = load i32, ptr %.val94.i83, align 4
   %123 = icmp sgt i32 %122, 0
@@ -4206,14 +4206,14 @@ Sdb_StoIterCutsOne.exit.thread:                   ; preds = %.thread98.i, %Vec_I
   br i1 %exitcond128.not.i90, label %Sdb_StoIterCutsOne.exit92, label %125, !llvm.loop !61
 
 .loopexit:                                        ; preds = %151, %.preheader125, %.preheader
-  %.2 = phi i32 [ 1, %.preheader ], [ %.0152, %.preheader125 ], [ %.0152, %151 ]
+  %.2 = phi i32 [ 1, %.preheader ], [ %.0149, %.preheader125 ], [ %.0149, %151 ]
   %167 = tail call i32 @Sdb_StoDiffExactlyOne(ptr noundef nonnull %2, i32 noundef %.val78, ptr noundef nonnull %.087109.i86)
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %Sdb_StoIterCutsOne.exit92, label %169
 
 169:                                              ; preds = %.loopexit
-  %..055 = select i1 %154, i32 %167, i32 %.055150
-  %.052. = select i1 %154, i32 %.052151, i32 %167
+  %..055 = select i1 %154, i32 %167, i32 %.055147
+  %.052. = select i1 %154, i32 %.052148, i32 %167
   %170 = tail call fastcc ptr @Vec_WecPushLevel(ptr noundef nonnull %2)
   %171 = getelementptr inbounds i8, ptr %170, i64 4
   %172 = load i32, ptr %171, align 4
@@ -4282,16 +4282,16 @@ Vec_IntPush.exit99:                               ; preds = %.Vec_IntGrow.exit10
   %201 = getelementptr inbounds i32, ptr %197, i64 %200
   store i32 0, ptr %201, align 4
   %202 = load i32, ptr %.087109.i86, align 4
-  %.not71145 = icmp slt i32 %202, 1
-  br i1 %.not71145, label %Sdb_StoIterCutsOne.exit92, label %.lr.ph147
+  %.not71143 = icmp slt i32 %202, 1
+  br i1 %.not71143, label %Sdb_StoIterCutsOne.exit92, label %.lr.ph145
 
-.lr.ph147:                                        ; preds = %Vec_IntPush.exit99
+.lr.ph145:                                        ; preds = %Vec_IntPush.exit99
   %.phi.trans.insert.i101 = getelementptr inbounds i8, ptr %170, i64 8
   br label %203
 
-203:                                              ; preds = %.lr.ph147, %Vec_IntPush.exit106
-  %indvars.iv176 = phi i64 [ 1, %.lr.ph147 ], [ %indvars.iv.next177, %Vec_IntPush.exit106 ]
-  %204 = getelementptr inbounds i32, ptr %.087109.i86, i64 %indvars.iv176
+203:                                              ; preds = %.lr.ph145, %Vec_IntPush.exit106
+  %indvars.iv172 = phi i64 [ 1, %.lr.ph145 ], [ %indvars.iv.next173, %Vec_IntPush.exit106 ]
+  %204 = getelementptr inbounds i32, ptr %.087109.i86, i64 %indvars.iv172
   %205 = load i32, ptr %204, align 4
   %206 = load i32, ptr %171, align 4
   %207 = load i32, ptr %170, align 8
@@ -4355,28 +4355,28 @@ Vec_IntPush.exit106:                              ; preds = %.Vec_IntGrow.exit10
   %232 = sext i32 %230 to i64
   %233 = getelementptr inbounds i32, ptr %229, i64 %232
   store i32 %205, ptr %233, align 4
-  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %234 = load i32, ptr %.087109.i86, align 4
   %235 = sext i32 %234 to i64
-  %.not71.not = icmp slt i64 %indvars.iv176, %235
+  %.not71.not = icmp slt i64 %indvars.iv172, %235
   br i1 %.not71.not, label %203, label %Sdb_StoIterCutsOne.exit92, !llvm.loop !64
 
 Sdb_StoIterCutsOne.exit92:                        ; preds = %.thread98.i89, %Vec_IntPush.exit106, %Vec_IntPush.exit99, %118, %113, %.loopexit
-  %.156 = phi i32 [ %.055150, %113 ], [ %.055150, %.loopexit ], [ %.055150, %118 ], [ %..055, %Vec_IntPush.exit99 ], [ %..055, %Vec_IntPush.exit106 ], [ %.055150, %.thread98.i89 ]
-  %.153 = phi i32 [ %.052151, %113 ], [ %.052151, %.loopexit ], [ %.052151, %118 ], [ %.052., %Vec_IntPush.exit99 ], [ %.052., %Vec_IntPush.exit106 ], [ %.052151, %.thread98.i89 ]
-  %.1 = phi i32 [ %.0152, %113 ], [ %.0152, %.loopexit ], [ %.0152, %118 ], [ %.2, %Vec_IntPush.exit99 ], [ %.2, %Vec_IntPush.exit106 ], [ %.0152, %.thread98.i89 ]
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
+  %.156 = phi i32 [ %.055147, %.loopexit ], [ %.055147, %113 ], [ %.055147, %118 ], [ %..055, %Vec_IntPush.exit99 ], [ %..055, %Vec_IntPush.exit106 ], [ %.055147, %.thread98.i89 ]
+  %.153 = phi i32 [ %.052148, %.loopexit ], [ %.052148, %113 ], [ %.052148, %118 ], [ %.052., %Vec_IntPush.exit99 ], [ %.052., %Vec_IntPush.exit106 ], [ %.052148, %.thread98.i89 ]
+  %.1 = phi i32 [ %.0149, %.loopexit ], [ %.0149, %113 ], [ %.0149, %118 ], [ %.2, %Vec_IntPush.exit99 ], [ %.2, %Vec_IntPush.exit106 ], [ %.0149, %.thread98.i89 ]
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %236 = load ptr, ptr %6, align 8
   %237 = getelementptr inbounds i8, ptr %236, i64 24
   %238 = load i32, ptr %237, align 8
   %239 = sext i32 %238 to i64
-  %240 = icmp slt i64 %indvars.iv.next180, %239
+  %240 = icmp slt i64 %indvars.iv.next176, %239
   br i1 %240, label %110, label %.critedge2.loopexit, !llvm.loop !65
 
 .critedge2.loopexit:                              ; preds = %Sdb_StoIterCutsOne.exit92, %110
-  %.055.lcssa.ph = phi i32 [ %.055150, %110 ], [ %.156, %Sdb_StoIterCutsOne.exit92 ]
-  %.052.lcssa.ph = phi i32 [ %.052151, %110 ], [ %.153, %Sdb_StoIterCutsOne.exit92 ]
-  %.0.lcssa.ph = phi i32 [ %.0152, %110 ], [ %.1, %Sdb_StoIterCutsOne.exit92 ]
+  %.055.lcssa.ph = phi i32 [ %.055147, %110 ], [ %.156, %Sdb_StoIterCutsOne.exit92 ]
+  %.052.lcssa.ph = phi i32 [ %.052148, %110 ], [ %.153, %Sdb_StoIterCutsOne.exit92 ]
+  %.0.lcssa.ph = phi i32 [ %.0149, %110 ], [ %.1, %Sdb_StoIterCutsOne.exit92 ]
   %241 = icmp eq i32 %.0.lcssa.ph, 0
   br label %.critedge2
 
@@ -4484,8 +4484,8 @@ Vec_WecPrint.exit:                                ; preds = %.critedge2.i, %Vec_
 
 275:                                              ; preds = %274, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond182.not = icmp eq i64 %indvars.iv.next.i.i, %271
-  br i1 %exitcond182.not, label %._crit_edge.i.i.thread, label %.lr.ph.i.i, !llvm.loop !68
+  %exitcond178.not = icmp eq i64 %indvars.iv.next.i.i, %271
+  br i1 %exitcond178.not, label %._crit_edge.i.i.thread, label %.lr.ph.i.i, !llvm.loop !68
 
 ._crit_edge.i.i:                                  ; preds = %267
   %.not.i.i = icmp eq ptr %.pre, null

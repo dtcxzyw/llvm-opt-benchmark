@@ -682,15 +682,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -717,7 +717,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -734,19 +734,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -760,7 +760,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -773,19 +773,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -795,37 +795,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !11
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !11
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi12EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -3984,15 +3984,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -4019,7 +4019,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -4036,19 +4036,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -4062,7 +4062,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -4075,19 +4075,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !39
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -4097,37 +4097,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !41
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !41
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi12EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -4344,15 +4344,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -4379,7 +4379,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -4396,19 +4396,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -4422,7 +4422,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -4435,19 +4435,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !42
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -4457,37 +4457,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !44
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !44
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi12EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -4704,15 +4704,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -4739,7 +4739,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -4756,19 +4756,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -4782,7 +4782,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -4795,19 +4795,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !45
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -4817,37 +4817,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !47
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !47
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi12EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -5064,15 +5064,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -5099,7 +5099,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -5116,19 +5116,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -5142,7 +5142,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -5155,19 +5155,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !48
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -5177,37 +5177,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !50
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !50
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi12EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -5424,15 +5424,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -5459,7 +5459,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -5476,19 +5476,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -5502,7 +5502,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -5515,19 +5515,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !51
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !51
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -5537,37 +5537,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !53
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !53
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi12EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -5784,15 +5784,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -5819,7 +5819,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -5836,19 +5836,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -5862,7 +5862,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -5875,19 +5875,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !54
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !54
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -5897,37 +5897,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !56
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !56
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi12EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -6144,15 +6144,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -6179,7 +6179,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -6196,19 +6196,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -6222,7 +6222,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -6235,19 +6235,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !57
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -6257,37 +6257,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !59
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !59
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi12EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -6504,15 +6504,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -6539,7 +6539,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -6556,19 +6556,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -6582,7 +6582,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -6595,19 +6595,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !60
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !60
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -6617,37 +6617,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !62
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !62
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi13EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -6978,15 +6978,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -7013,7 +7013,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -7030,19 +7030,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -7056,7 +7056,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -7069,19 +7069,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !65
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !65
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -7091,37 +7091,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !67
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !67
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi15EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -7452,15 +7452,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -7487,7 +7487,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -7504,19 +7504,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -7530,7 +7530,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -7543,19 +7543,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !70
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !70
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -7565,37 +7565,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !72
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !72
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi16EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -7926,15 +7926,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -7961,7 +7961,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -7978,19 +7978,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -8004,7 +8004,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -8017,19 +8017,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !75
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !75
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -8039,37 +8039,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !77
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !77
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi18EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -8400,15 +8400,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -8435,7 +8435,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -8452,19 +8452,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -8478,7 +8478,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -8491,19 +8491,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !80
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !80
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -8513,37 +8513,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !82
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !82
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi19EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -8874,15 +8874,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -8909,7 +8909,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -8926,19 +8926,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -8952,7 +8952,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -8965,19 +8965,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !85
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !85
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -8987,37 +8987,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !87
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !87
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi20EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -9348,15 +9348,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -9383,7 +9383,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -9400,19 +9400,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -9426,7 +9426,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -9439,19 +9439,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !90
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !90
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -9461,37 +9461,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !92
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !92
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi20EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -9708,15 +9708,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -9743,7 +9743,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -9760,19 +9760,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -9786,7 +9786,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -9799,19 +9799,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !93
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !93
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -9821,37 +9821,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !95
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !95
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi20EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -10068,15 +10068,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -10103,7 +10103,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -10120,19 +10120,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -10146,7 +10146,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -10159,19 +10159,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !96
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !96
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -10181,37 +10181,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !98
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !98
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi20EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 
@@ -10428,15 +10428,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge70, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge66, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge70:                                    ; preds = %20
+._crit_edge66:                                    ; preds = %20
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge70, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre, %._crit_edge70 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge66, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre, %._crit_edge66 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 6
@@ -10463,7 +10463,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre71 = load i32, ptr %25, align 8
+  %.pre67 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -10480,19 +10480,19 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre71, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
+  %51 = phi i32 [ %.pre67, %44 ], [ %26, %46 ], [ %26, %48 ], [ %26, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph59
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
-  %.03158 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+.lr.ph56:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.loopexit
+  %.03155 = phi i32 [ %86, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   %53 = load i64, ptr %29, align 8
   %54 = load i64, ptr %31, align 8
   %55 = add i64 %54, 1
   %.not45 = icmp slt i64 %53, %55
   br i1 %.not45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %56
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph56
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   %59 = load i8, ptr %58, align 1
@@ -10506,7 +10506,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 63:                                               ; preds = %56
-  %64 = add i32 %62, %.03158
+  %64 = add i32 %62, %.03155
   %65 = load i32, ptr %25, align 8
   %.not = icmp ult i32 %64, %65
   br i1 %.not, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
@@ -10519,19 +10519,19 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %67 = trunc nuw nsw i64 %indvars.iv to i32
-  %68 = add i32 %.03158, %67
+  %68 = add i32 %.03155, %67
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %69
   store i32 0, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %.loopexit, label %.preheader, !llvm.loop !99
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !99
 
 .lr.ph:                                           ; preds = %56, %74
   %72 = phi i64 [ %73, %74 ], [ %55, %56 ]
-  %.054 = phi i32 [ %78, %74 ], [ 0, %56 ]
-  %.02853 = phi i32 [ %82, %74 ], [ %62, %56 ]
+  %.053 = phi i32 [ %78, %74 ], [ 0, %56 ]
+  %.02852 = phi i32 [ %82, %74 ], [ %62, %56 ]
   %73 = add i64 %72, 1
   %.not46 = icmp slt i64 %53, %73
   br i1 %.not46, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
@@ -10541,37 +10541,37 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8
   %77 = zext i8 %76 to i32
-  %78 = add nuw nsw i32 %.054, 1
+  %78 = add nuw nsw i32 %.053, 1
   %79 = shl nuw nsw i32 %78, 3
   %80 = add nsw i32 %79, -2
   %81 = shl nuw nsw i32 %77, %80
-  %82 = or i32 %81, %.02853
+  %82 = or i32 %81, %.02852
   %exitcond.not = icmp eq i32 %78, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %74, %56
   %.028.lcssa = phi i32 [ %62, %56 ], [ %82, %74 ]
-  %83 = zext i32 %.03158 to i64
+  %83 = zext i32 %.03155 to i64
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i32, ptr %84, i64 %83
   store i32 %.028.lcssa, ptr %85, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  %.1 = phi i32 [ %.03158, %._crit_edge ], [ %64, %.preheader ]
+  %.1 = phi i32 [ %.03155, %._crit_edge ], [ %64, %.preheader ]
   %86 = add i32 %.1, 1
   %87 = load i32, ptr %25, align 8
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph59, label %._crit_edge60, !llvm.loop !101
+  br i1 %88, label %.lr.ph56, label %._crit_edge57, !llvm.loop !101
 
-._crit_edge60:                                    ; preds = %.loopexit
+._crit_edge57:                                    ; preds = %.loopexit
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZN5draco11RAnsDecoderILi20EE24rans_build_look_up_tableEPKjj(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull %90, i32 noundef %87)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph59, %63, %.lr.ph, %8, %._crit_edge60, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge60 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph59 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph56, %63, %.lr.ph, %8, %._crit_edge57, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.029 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %91, %._crit_edge57 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %63 ], [ false, %.lr.ph56 ]
   ret i1 %.029
 }
 

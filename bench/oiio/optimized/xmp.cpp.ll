@@ -2751,9 +2751,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc109
-  %list.val159 = phi ptr [ %list.val150, %for.body.lr.ph ], [ %list.val, %for.inc109 ]
+  %list.val158 = phi ptr [ %list.val150, %for.body.lr.ph ], [ %list.val, %for.inc109 ]
   %li.0157 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc109 ]
-  %add.ptr.i47 = getelementptr inbounds %"struct.std::pair.50", ptr %list.val159, i64 %li.0157
+  %add.ptr.i47 = getelementptr inbounds %"struct.std::pair.50", ptr %list.val158, i64 %li.0157
   %7 = load ptr, ptr %add.ptr.i47, align 8
   %second = getelementptr inbounds i8, ptr %add.ptr.i47, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -2960,15 +2960,15 @@ lpad52:                                           ; preds = %invoke.cont51
 
 for.end:                                          ; preds = %invoke.cont53
   %.pre = load ptr, ptr %vals, align 8
-  %.pre160 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %.pre, %.pre160
+  %.pre159 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %.pre, %.pre159
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i82, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.end, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %.pre, %for.end ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #25
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre160
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre159
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !62
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
@@ -3240,9 +3240,9 @@ invoke.cont168:                                   ; preds = %if.then156
   br label %if.end172.sink.split
 
 if.end172.sink.split:                             ; preds = %invoke.cont136, %invoke.cont168, %invoke.cont152
-  %ref.tmp141.sink162 = phi ptr [ %ref.tmp141, %invoke.cont152 ], [ %ref.tmp157, %invoke.cont168 ], [ %ref.tmp129, %invoke.cont136 ]
-  %call153 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %xmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141.sink162) #25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141.sink162) #25
+  %ref.tmp141.sink161 = phi ptr [ %ref.tmp141, %invoke.cont152 ], [ %ref.tmp157, %invoke.cont168 ], [ %ref.tmp129, %invoke.cont136 ]
+  %call153 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %xmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141.sink161) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141.sink161) #25
   br label %if.end172
 
 if.end172:                                        ; preds = %if.end172.sink.split, %if.then126

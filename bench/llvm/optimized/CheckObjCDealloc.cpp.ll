@@ -9641,7 +9641,7 @@ _ZNK12_GLOBAL__N_118ObjCDeallocChecker21getContainingObjCImplEPKN5clang15Locatio
   br label %78
 
 78:                                               ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.exit.i, %.lr.ph.i
-  %.sroa.073.1126.i = phi ptr [ %.sroa.073.0.i, %.lr.ph.i ], [ %.sroa.073.2.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.exit.i ]
+  %.sroa.073.1124.i = phi ptr [ %.sroa.073.0.i, %.lr.ph.i ], [ %.sroa.073.2.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.exit.i ]
   %.sroa.069.0123.i = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph.i ], [ %.sroa.069.2.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.exit.i ]
   %79 = call fastcc noundef i32 @_ZNK12_GLOBAL__N_118ObjCDeallocChecker28getDeallocReleaseRequirementEPKN5clang20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %.sroa.069.0123.i)
   %.not26.i = icmp eq i32 %79, 0
@@ -9682,8 +9682,8 @@ _ZNK12_GLOBAL__N_118ObjCDeallocChecker21getContainingObjCImplEPKN5clang15Locatio
   br i1 %97, label %98, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i
 
 98:                                               ; preds = %94
-  store ptr %.sroa.073.1126.i, ptr %8, align 8
-  %.not.i.i.i35.i = icmp eq ptr %.sroa.073.1126.i, null
+  store ptr %.sroa.073.1124.i, ptr %8, align 8
+  %.not.i.i.i35.i = icmp eq ptr %.sroa.073.1124.i, null
   br i1 %.not.i.i.i35.i, label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEaSEOS8_.exit.thread.i, label %100
 
 _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEaSEOS8_.exit.thread.i: ; preds = %98
@@ -9693,7 +9693,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEaSEOS
   br label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit.i
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.073.1126.i, i64 60
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.073.1124.i, i64 60
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 4
@@ -9707,7 +9707,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEaSEOS
   br i1 %107, label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEaSEOS8_.exit.i, label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit.i
 
 _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEaSEOS8_.exit.i: ; preds = %100
-  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.073.1126.i)
+  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.073.1124.i)
   %.pr.pre.i = load ptr, ptr %7, align 8
   %.not.i.i.i38.i = icmp eq ptr %.pr.pre.i, null
   br i1 %.not.i.i.i38.i, label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit.i, label %108
@@ -9743,7 +9743,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.
   br label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i
 
 _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i: ; preds = %121, %116, %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit.i, %94, %91, %80, %78
-  %.sroa.073.2.i = phi ptr [ %.sroa.073.1126.i, %91 ], [ %.sroa.073.1126.i, %94 ], [ %.sroa.073.1126.i, %78 ], [ %.sroa.073.1126.i, %80 ], [ %114, %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit.i ], [ %114, %116 ], [ %114, %121 ]
+  %.sroa.073.2.i = phi ptr [ %.sroa.073.1124.i, %91 ], [ %.sroa.073.1124.i, %94 ], [ %.sroa.073.1124.i, %78 ], [ %.sroa.073.1124.i, %80 ], [ %114, %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit.i ], [ %114, %116 ], [ %114, %121 ]
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.069.0123.i, i64 8
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %122, align 8
   %123 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8

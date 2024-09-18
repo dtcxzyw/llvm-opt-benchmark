@@ -18450,8 +18450,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK14core_hashtabl
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN14core_hashtableI18default_hash_entryIN5smtfd5f_appEENS1_10f_app_hashENS1_8f_app_eqEE8iteratorppEv.exit
-  %__begin2.sroa.0.043 = phi ptr [ %retval.sroa.0.1.i, %for.body.lr.ph ], [ %__begin2.sroa.0.2, %_ZN14core_hashtableI18default_hash_entryIN5smtfd5f_appEENS1_10f_app_hashENS1_8f_app_eqEE8iteratorppEv.exit ]
-  %m_data.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 8
+  %__begin2.sroa.0.041 = phi ptr [ %retval.sroa.0.1.i, %for.body.lr.ph ], [ %__begin2.sroa.0.2, %_ZN14core_hashtableI18default_hash_entryIN5smtfd5f_appEENS1_10f_app_hashENS1_8f_app_eqEE8iteratorppEv.exit ]
+  %m_data.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 8
   %3 = load ptr, ptr %m_context, align 8
   %m_nodes.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %m_nodes.i.i, align 8
@@ -18472,7 +18472,7 @@ _ZNK5smtfd14plugin_context6at_maxEv.exit:         ; preds = %for.body, %if.end.i
 
 if.end:                                           ; preds = %_ZNK5smtfd14plugin_context6at_maxEv.exit
   %call6 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %t)
-  %m_t = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 16
+  %m_t = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 16
   %7 = load ptr, ptr %m_t, align 8
   %m_args.i = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load ptr, ptr %m_args.i, align 8
@@ -18490,7 +18490,7 @@ lor.lhs.false:                                    ; preds = %if.end10
   %fT.sroa.1.0.copyload = load ptr, ptr %fT.sroa.1.0.m_data.i.i14.sroa_idx, align 8
   %fT.sroa.231.0.m_data.i.i14.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 32
   %fT.sroa.231.0.copyload = load i32, ptr %fT.sroa.231.0.m_data.i.i14.sroa_idx, align 8
-  %m_val_offset.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 32
+  %m_val_offset.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 32
   %9 = load i32, ptr %m_val_offset.i, align 8
   %10 = load ptr, ptr %m_t, align 8
   %m_num_args.i.i = getelementptr inbounds i8, ptr %10, i64 24
@@ -18547,7 +18547,7 @@ if.then16:                                        ; preds = %for.body.i, %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %for.cond.i, %lor.lhs.false, %if.then16, %if.end
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 40
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 40
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not2.i.i, label %_ZN14core_hashtableI18default_hash_entryIN5smtfd5f_appEENS1_10f_app_hashENS1_8f_app_eqEE8iteratorppEv.exit, label %land.rhs.i.i
 

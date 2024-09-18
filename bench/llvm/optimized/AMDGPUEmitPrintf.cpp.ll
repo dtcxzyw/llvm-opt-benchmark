@@ -517,15 +517,15 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i: ; preds = %
   br label %227
 
 227:                                              ; preds = %359, %.lr.ph.i
-  %.1162.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.3.i, %359 ]
-  %.169161.i = phi i64 [ %.068.i, %.lr.ph.i ], [ %.270.i, %359 ]
-  %.071160.i = phi i64 [ 1, %.lr.ph.i ], [ %360, %359 ]
+  %.1160.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.3.i, %359 ]
+  %.169159.i = phi i64 [ %.068.i, %.lr.ph.i ], [ %.270.i, %359 ]
+  %.071158.i = phi i64 [ 1, %.lr.ph.i ], [ %360, %359 ]
   %228 = load ptr, ptr %64, align 8
   %229 = icmp eq ptr %228, %64
   br i1 %229, label %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread.i, label %230
 
 230:                                              ; preds = %227
-  %231 = trunc i64 %.071160.i to i32
+  %231 = trunc i64 %.071158.i to i32
   %232 = lshr i32 %231, 3
   %233 = load ptr, ptr %91, align 8
   %234 = icmp eq ptr %233, %64
@@ -600,7 +600,7 @@ _ZNK4llvm15SparseBitVectorILj8EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.si
   br i1 %.not.i77.i, label %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.i, label %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread.i
 
 _ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.i:   ; preds = %257
-  %260 = and i64 %.071160.i, 7
+  %260 = and i64 %.071158.i, 7
   %261 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 24
   %262 = load i64, ptr %261, align 8
   %263 = shl nuw nsw i64 1, %260
@@ -610,7 +610,7 @@ _ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.i:   ; preds = %257
 
 265:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
-  %266 = getelementptr inbounds ptr, ptr %1, i64 %.071160.i
+  %266 = getelementptr inbounds ptr, ptr %1, i64 %.071158.i
   %267 = load ptr, ptr %266, align 8
   %268 = call noundef zeroext i1 @_ZN4llvm21getConstantStringInfoEPKNS_5ValueERNS_9StringRefEb(ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(16) %50, i1 noundef zeroext true) #13
   br i1 %268, label %269, label %278
@@ -630,7 +630,7 @@ _ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.i:   ; preds = %257
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %224, i8 0, i64 16, i1 false)
   store i8 1, ptr %225, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseI10StringDataLb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(33) %51)
-  %277 = add i64 %276, %.169161.i
+  %277 = add i64 %276, %.169159.i
   br label %359
 
 278:                                              ; preds = %265
@@ -723,7 +723,7 @@ _ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit83.i: ; preds
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit93.i: ; preds = %.lr.ph.i.i.i90.i, %309, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit83.i
   %.0.i85.i = phi ptr [ %308, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit83.i ], [ %310, %309 ], [ %310, %.lr.ph.i.i.i90.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %45)
-  %.not73.i = icmp eq ptr %.1162.i, null
+  %.not73.i = icmp eq ptr %.1160.i, null
   br i1 %.not73.i, label %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit96.i, label %322
 
 322:                                              ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit93.i
@@ -734,7 +734,7 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit93.i: ; preds =
   %324 = load ptr, ptr %323, align 8
   %325 = getelementptr inbounds i8, ptr %324, i64 32
   %326 = load ptr, ptr %325, align 8
-  %327 = call noundef ptr %326(ptr noundef nonnull align 8 dereferenceable(8) %323, i32 noundef 13, ptr noundef %.0.i85.i, ptr noundef nonnull %.1162.i, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %327 = call noundef ptr %326(ptr noundef nonnull align 8 dereferenceable(8) %323, i32 noundef 13, ptr noundef %.0.i85.i, ptr noundef nonnull %.1160.i, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %.not.i94.i = icmp eq ptr %327, null
   br i1 %.not.i94.i, label %328, label %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit96.i
 
@@ -742,7 +742,7 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit93.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %42)
   store i8 1, ptr %218, align 8
   store i8 1, ptr %219, align 1
-  %329 = call noundef ptr @_ZN4llvm14BinaryOperator6CreateENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineENS_14InsertPositionE(i32 noundef 13, ptr noundef %.0.i85.i, ptr noundef nonnull %.1162.i, ptr noundef nonnull align 8 dereferenceable(34) %42, ptr null, i64 0) #13
+  %329 = call noundef ptr @_ZN4llvm14BinaryOperator6CreateENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineENS_14InsertPositionE(i32 noundef 13, ptr noundef %.0.i85.i, ptr noundef nonnull %.1160.i, ptr noundef nonnull align 8 dereferenceable(34) %42, ptr null, i64 0) #13
   %330 = load ptr, ptr %212, align 8
   %.sroa.0.0.copyload.i.i118.i = load ptr, ptr %213, align 8
   %.sroa.2.0.copyload.i.i120.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i111.i, align 8
@@ -780,7 +780,7 @@ _ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit96.i: ; preds
   br label %359
 
 _ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread.i: ; preds = %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.i, %257, %_ZNK4llvm15SparseBitVectorILj8EE19FindLowerBoundConstEj.exit.i.i, %227
-  %341 = getelementptr inbounds ptr, ptr %1, i64 %.071160.i
+  %341 = getelementptr inbounds ptr, ptr %1, i64 %.071158.i
   %342 = load ptr, ptr %341, align 8
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %344 = load ptr, ptr %343, align 8
@@ -803,13 +803,13 @@ _ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread.i: ; preds = %_ZNK4llvm15Spa
   %356 = trunc i64 %355 to i32
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %356, i32 8)
   %357 = zext nneg i32 %.sroa.speculated.i to i64
-  %358 = add i64 %.169161.i, %357
+  %358 = add i64 %.169159.i, %357
   br label %359
 
 359:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread.i, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit96.i, %269
-  %.270.i = phi i64 [ %277, %269 ], [ %.169161.i, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit96.i ], [ %358, %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread.i ]
-  %.3.i = phi ptr [ %.1162.i, %269 ], [ %.2.i, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit96.i ], [ %.1162.i, %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread.i ]
-  %360 = add nuw i64 %.071160.i, 1
+  %.270.i = phi i64 [ %277, %269 ], [ %.169159.i, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit96.i ], [ %358, %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread.i ]
+  %.3.i = phi ptr [ %.1160.i, %269 ], [ %.2.i, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit96.i ], [ %.1160.i, %_ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread.i ]
+  %360 = add nuw i64 %.071158.i, 1
   %exitcond.not.i = icmp eq i64 %360, %2
   br i1 %exitcond.not.i, label %._crit_edge.i, label %227, !llvm.loop !9
 

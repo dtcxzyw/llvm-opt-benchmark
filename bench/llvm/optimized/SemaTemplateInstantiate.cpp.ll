@@ -19399,8 +19399,8 @@ _ZZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE31TransformNest
   br label %35
 
 35:                                               ; preds = %.lr.ph, %186
-  %.sroa.036.0117 = phi i64 [ %3, %.lr.ph ], [ 0, %186 ]
-  %.0116 = phi ptr [ %4, %.lr.ph ], [ null, %186 ]
+  %.sroa.036.0115 = phi i64 [ %3, %.lr.ph ], [ 0, %186 ]
+  %.0114 = phi ptr [ %4, %.lr.ph ], [ null, %186 ]
   %36 = load ptr, ptr %6, align 8
   %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   %38 = getelementptr inbounds %"class.clang::NestedNameSpecifierLoc", ptr %36, i64 %37
@@ -19437,13 +19437,13 @@ _ZZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE31TransformNest
   %50 = call i64 @_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   %.sroa.1.0.extract.shift.i = lshr i64 %50, 32
   %.sroa.1.0.extract.trunc.i = trunc nuw i64 %.sroa.1.0.extract.shift.i to i32
-  %51 = inttoptr i64 %.sroa.036.0117 to ptr
+  %51 = inttoptr i64 %.sroa.036.0115 to ptr
   store ptr %51, ptr %9, align 8
   store ptr %.0.i, ptr %32, align 8
   store i32 %.sroa.0.0.extract.trunc.i, ptr %33, align 8
   store i32 %.sroa.1.0.extract.trunc.i, ptr %34, align 4
   %52 = load ptr, ptr %0, align 8
-  %53 = call noundef zeroext i1 @_ZN5clang4Sema27BuildCXXNestedNameSpecifierEPNS_5ScopeERNS0_18NestedNameSpecInfoEbRNS_12CXXScopeSpecEPNS_9NamedDeclEbPbb(ptr noundef nonnull align 8 dereferenceable(17560) %52, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %9, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %.0116, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext false) #23
+  %53 = call noundef zeroext i1 @_ZN5clang4Sema27BuildCXXNestedNameSpecifierEPNS_5ScopeERNS0_18NestedNameSpecInfoEbRNS_12CXXScopeSpecEPNS_9NamedDeclEbPbb(ptr noundef nonnull align 8 dereferenceable(17560) %52, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %9, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %.0114, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext false) #23
   br i1 %53, label %.loopexit, label %186
 
 54:                                               ; preds = %35
@@ -19525,7 +19525,7 @@ _ZZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE31TransformNest
   br label %_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE26TransformTypeInObjectScopeENS_7TypeLocENS_8QualTypeEPNS_9NamedDeclERNS_12CXXScopeSpecE.exit
 
 _ZN12_GLOBAL__N_120TemplateInstantiator18AlreadyTransformedEN5clang8QualTypeE.exit: ; preds = %89
-  %97 = call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE25TransformTSIInObjectScopeENS_7TypeLocENS_8QualTypeEPNS_9NamedDeclERNS_12CXXScopeSpecE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %86, ptr %87, i64 %.sroa.036.0117, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %97 = call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE25TransformTSIInObjectScopeENS_7TypeLocENS_8QualTypeEPNS_9NamedDeclERNS_12CXXScopeSpecE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %86, ptr %87, i64 %.sroa.036.0115, ptr noundef nonnull align 8 dereferenceable(48) %7)
   %.not.i51 = icmp eq ptr %97, null
   br i1 %.not.i51, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE26TransformTypeInObjectScopeENS_7TypeLocENS_8QualTypeEPNS_9NamedDeclERNS_12CXXScopeSpecE.exit.thread, label %98
 
@@ -19561,14 +19561,14 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE26TransformTypeI
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %109, align 8
   %110 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
   %111 = inttoptr i64 %110 to ptr
-  br i1 %.not110, label %112, label %._crit_edge118
+  br i1 %.not110, label %112, label %._crit_edge116
 
 112:                                              ; preds = %101
   %113 = load ptr, ptr %111, align 16
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i8, ptr %114, align 16
   %116 = icmp eq i8 %115, 47
-  br i1 %116, label %._crit_edge118, label %117
+  br i1 %116, label %._crit_edge116, label %117
 
 117:                                              ; preds = %112
   %118 = load ptr, ptr %0, align 8
@@ -19579,29 +19579,29 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE26TransformTypeI
   %.not = icmp ne i64 %122, 0
   %123 = icmp eq i8 %115, 46
   %or.cond = and i1 %123, %.not
-  br i1 %or.cond, label %._crit_edge118, label %171
+  br i1 %or.cond, label %._crit_edge116, label %171
 
-._crit_edge118:                                   ; preds = %101, %117, %112
+._crit_edge116:                                   ; preds = %101, %117, %112
   %124 = load ptr, ptr %111, align 16
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load i8, ptr %125, align 16
   %127 = icmp eq i8 %126, 46
   br i1 %127, label %128, label %132
 
-128:                                              ; preds = %._crit_edge118
+128:                                              ; preds = %._crit_edge116
   %129 = load ptr, ptr %0, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 8
   %131 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #23
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %130, i32 %131, i32 noundef 6345, i1 noundef zeroext false) #23
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #23
   %.pre = load ptr, ptr %10, align 8
-  %.pre123 = ptrtoint ptr %.pre to i64
+  %.pre121 = ptrtoint ptr %.pre to i64
   br label %132
 
-132:                                              ; preds = %128, %._crit_edge118
-  %.pre-phi124 = phi i64 [ %.pre123, %128 ], [ %102, %._crit_edge118 ]
-  %133 = phi ptr [ %.pre, %128 ], [ %.sroa.097.2, %._crit_edge118 ]
-  %134 = and i64 %.pre-phi124, 15
+132:                                              ; preds = %128, %._crit_edge116
+  %.pre-phi122 = phi i64 [ %.pre121, %128 ], [ %102, %._crit_edge116 ]
+  %133 = phi ptr [ %.pre, %128 ], [ %.sroa.097.2, %._crit_edge116 ]
+  %134 = and i64 %.pre-phi122, 15
   %.not.i.i = icmp eq i64 %134, 0
   br i1 %.not.i.i, label %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17ElaboratedTypeLocENS_14ElaboratedTypeENS_17ElaboratedLocInfoEE6isKindERKNS_7TypeLocE.exit.i, label %_ZNK5clang7TypeLoc5getAsINS_17ElaboratedTypeLocEEET_v.exit.thread
 

@@ -3358,7 +3358,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h06
   br label %53
 
 53:                                               ; preds = %256, %3
-  %54 = phi i8 [ %.pre, %3 ], [ %258, %256 ]
+  %54 = phi i8 [ %258, %256 ], [ %.pre, %3 ]
   %55 = and i8 %54, 2
   %.not = icmp eq i8 %55, 0
   br i1 %.not, label %56, label %61
@@ -4064,7 +4064,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h21
   br label %55
 
 55:                                               ; preds = %267, %3
-  %56 = phi i8 [ %.pre, %3 ], [ %269, %267 ]
+  %56 = phi i8 [ %269, %267 ], [ %.pre, %3 ]
   %57 = and i8 %56, 2
   %.not = icmp eq i8 %57, 0
   br i1 %.not, label %58, label %63
@@ -4785,7 +4785,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h72
   br label %55
 
 55:                                               ; preds = %267, %3
-  %56 = phi i8 [ %.pre, %3 ], [ %269, %267 ]
+  %56 = phi i8 [ %269, %267 ], [ %.pre, %3 ]
   %57 = and i8 %56, 2
   %.not = icmp eq i8 %57, 0
   br i1 %.not, label %58, label %63
@@ -5505,7 +5505,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h81
   br label %53
 
 53:                                               ; preds = %256, %3
-  %54 = phi i8 [ %.pre, %3 ], [ %258, %256 ]
+  %54 = phi i8 [ %258, %256 ], [ %.pre, %3 ]
   %55 = and i8 %54, 2
   %.not = icmp eq i8 %55, 0
   br i1 %.not, label %56, label %61
@@ -6210,7 +6210,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17he9
   br label %53
 
 53:                                               ; preds = %256, %3
-  %54 = phi i8 [ %.pre, %3 ], [ %258, %256 ]
+  %54 = phi i8 [ %258, %256 ], [ %.pre, %3 ]
   %55 = and i8 %54, 2
   %.not = icmp eq i8 %55, 0
   br i1 %.not, label %56, label %61

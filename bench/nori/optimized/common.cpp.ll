@@ -2357,33 +2357,30 @@ define hidden void @_ZNK4nori9TransformmlERKS0_(ptr dead_on_unwind noalias nocap
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4nori18sphericalDirectionEff(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::TVector") align 4 %0, float noundef %1, float noundef %2) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+define hidden void @_ZN4nori18sphericalDirectionEff(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::TVector") align 4 %0, float noundef %1, float noundef %2) local_unnamed_addr #15 {
   %4 = alloca float, align 4
   %5 = alloca float, align 4
   %6 = alloca float, align 4
-  %7 = alloca float, align 4
-  call void @sincosf(float noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #28
-  call void @sincosf(float noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #28
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @sincosf(float noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %7) #28
+  call void @sincosf(float noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #28
   %8 = load float, ptr %4, align 4
-  %9 = load float, ptr %7, align 4
+  %9 = load float, ptr %6, align 4
   %10 = fmul float %8, %9
-  %11 = load float, ptr %6, align 4
+  %11 = load float, ptr %5, align 4
   %12 = fmul float %8, %11
-  %13 = load float, ptr %5, align 4
   store float %10, ptr %0, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
-  store float %12, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store float %13, ptr %15, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %12, ptr %13, align 4
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @sincosf(float noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare void @sincosf(float noundef, ptr nocapture noundef writeonly, ptr nocapture noundef writeonly) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN4nori20sphericalCoordinatesERKNS_7TVectorIfLi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::TPoint") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori20sphericalCoordinatesERKNS_7TVectorIfLi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::TPoint") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #17 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load float, ptr %3, align 4
   %5 = tail call noundef float @acosf(float noundef %4) #28
@@ -2401,7 +2398,7 @@ define hidden void @_ZN4nori20sphericalCoordinatesERKNS_7TVectorIfLi3EEE(ptr dea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %2) local_unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %2) local_unnamed_addr #18 personality ptr @__gxx_personality_v0 {
   %4 = load float, ptr %0, align 4
   %5 = tail call noundef float @llvm.fabs.f32(float %4)
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -2461,7 +2458,7 @@ define hidden void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define hidden noundef float @_ZN4nori7fresnelEfff(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #17 {
+define hidden noundef float @_ZN4nori7fresnelEfff(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #15 {
   %4 = fcmp oeq float %1, %2
   br i1 %4, label %30, label %5
 
@@ -3031,23 +3028,23 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #18 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #19 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
   tail call void @_ZSt9terminatev() #33
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #19
+declare void @_ZSt9terminatev() local_unnamed_addr #20
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #20
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #21
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #20
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt8_DestroyIPN10filesystem4pathEEvT_S3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -3204,7 +3201,7 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #21
+declare ptr @__errno_location() local_unnamed_addr #22
 
 declare void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
@@ -4544,7 +4541,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @powf(float noundef, float noundef) local_unnamed_addr #22
+declare float @powf(float noundef, float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #12
@@ -4552,16 +4549,16 @@ declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #12
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @acosf(float noundef) local_unnamed_addr #22
+declare float @acosf(float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #22
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #22
+declare float @sqrtf(float noundef) local_unnamed_addr #16
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -4573,7 +4570,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5978,14 +5975,14 @@ attributes #11 = { mustprogress nofree nounwind memory(write, argmem: readwrite)
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold nofree noreturn }
-attributes #20 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { cold nofree noreturn }
+attributes #21 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -6877,9 +6877,9 @@ define dso_local void @stbtt_PackSetOversampling(ptr nocapture noundef writeonly
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 {
   %6 = icmp sgt i32 %3, 0
-  br i1 %6, label %.lr.ph91, label %._crit_edge92
+  br i1 %6, label %.lr.ph85, label %._crit_edge86
 
-.lr.ph91:                                         ; preds = %5
+.lr.ph85:                                         ; preds = %5
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = getelementptr inbounds i8, ptr %1, i64 28
   %9 = getelementptr inbounds i8, ptr %1, i64 36
@@ -6893,10 +6893,10 @@ define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef read
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %17
 
-17:                                               ; preds = %.lr.ph91, %._crit_edge
-  %indvars.iv99 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next100, %._crit_edge ]
-  %.04688 = phi i32 [ 0, %.lr.ph91 ], [ %.1.lcssa, %._crit_edge ]
-  %18 = getelementptr inbounds %struct.stbtt_pack_range, ptr %2, i64 %indvars.iv99
+17:                                               ; preds = %.lr.ph85, %._crit_edge
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next94, %._crit_edge ]
+  %.04682 = phi i32 [ 0, %.lr.ph85 ], [ %.1.lcssa, %._crit_edge ]
+  %18 = getelementptr inbounds %struct.stbtt_pack_range, ptr %2, i64 %indvars.iv93
   %19 = load float, ptr %18, align 8
   %20 = fcmp ogt float %19, 0.000000e+00
   br i1 %20, label %21, label %43
@@ -6965,11 +6965,11 @@ define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef read
 .lr.ph:                                           ; preds = %57
   %68 = getelementptr inbounds i8, ptr %18, i64 8
   %69 = getelementptr inbounds i8, ptr %18, i64 4
-  %70 = sext i32 %.04688 to i64
+  %70 = sext i32 %.04682 to i64
   br label %71
 
 71:                                               ; preds = %.lr.ph, %stbtt_GetGlyphBitmapBoxSubpixel.exit
-  %indvars.iv94 = phi i64 [ %70, %.lr.ph ], [ %indvars.iv.next95, %stbtt_GetGlyphBitmapBoxSubpixel.exit ]
+  %indvars.iv88 = phi i64 [ %70, %.lr.ph ], [ %indvars.iv.next89, %stbtt_GetGlyphBitmapBoxSubpixel.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %stbtt_GetGlyphBitmapBoxSubpixel.exit ]
   %72 = load ptr, ptr %68, align 8
   %73 = icmp eq ptr %72, null
@@ -7154,7 +7154,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %157, %91, %81, %160
   %210 = add i32 %.063, %84
   %211 = add i32 %210, %.061
   %212 = add i32 %211, %209
-  %213 = getelementptr inbounds %struct.stbrp_rect, ptr %4, i64 %indvars.iv94
+  %213 = getelementptr inbounds %struct.stbrp_rect, ptr %4, i64 %indvars.iv88
   %214 = getelementptr inbounds i8, ptr %213, i64 12
   store i32 %212, ptr %214, align 4
   %215 = load i32, ptr %16, align 4
@@ -7164,7 +7164,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %157, %91, %81, %160
   %219 = add i32 %218, %216
   %220 = getelementptr inbounds i8, ptr %213, i64 16
   store i32 %219, ptr %220, align 4
-  %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
+  %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %221 = load i32, ptr %65, align 8
   %222 = sext i32 %221 to i64
@@ -7172,16 +7172,16 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %157, %91, %81, %160
   br i1 %223, label %71, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %stbtt_GetGlyphBitmapBoxSubpixel.exit
-  %224 = trunc nsw i64 %indvars.iv.next95 to i32
+  %224 = trunc nsw i64 %indvars.iv.next89 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %57
-  %.1.lcssa = phi i32 [ %.04688, %57 ], [ %224, %._crit_edge.loopexit ]
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge92, label %17, !llvm.loop !35
+  %.1.lcssa = phi i32 [ %.04682, %57 ], [ %224, %._crit_edge.loopexit ]
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge86, label %17, !llvm.loop !35
 
-._crit_edge92:                                    ; preds = %._crit_edge, %5
+._crit_edge86:                                    ; preds = %._crit_edge, %5
   %.046.lcssa = phi i32 [ 0, %5 ], [ %.1.lcssa, %._crit_edge ]
   ret i32 %.046.lcssa
 }
@@ -7197,9 +7197,9 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr no
   %12 = getelementptr inbounds i8, ptr %0, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %3, 0
-  br i1 %14, label %.lr.ph259, label %._crit_edge260
+  br i1 %14, label %.lr.ph250, label %._crit_edge251
 
-.lr.ph259:                                        ; preds = %5
+.lr.ph250:                                        ; preds = %5
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = getelementptr inbounds i8, ptr %1, i64 28
   %17 = getelementptr inbounds i8, ptr %1, i64 36
@@ -7217,11 +7217,11 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr no
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %29
 
-29:                                               ; preds = %.lr.ph259, %._crit_edge
-  %indvars.iv286 = phi i64 [ 0, %.lr.ph259 ], [ %indvars.iv.next287, %._crit_edge ]
-  %.0124256 = phi i32 [ 0, %.lr.ph259 ], [ %.1.lcssa, %._crit_edge ]
-  %.0125255 = phi i32 [ 1, %.lr.ph259 ], [ %.1126.lcssa, %._crit_edge ]
-  %30 = getelementptr inbounds %struct.stbtt_pack_range, ptr %2, i64 %indvars.iv286
+29:                                               ; preds = %.lr.ph250, %._crit_edge
+  %indvars.iv277 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next278, %._crit_edge ]
+  %.0124247 = phi i32 [ 0, %.lr.ph250 ], [ %.1.lcssa, %._crit_edge ]
+  %.0125246 = phi i32 [ 1, %.lr.ph250 ], [ %.1126.lcssa, %._crit_edge ]
+  %30 = getelementptr inbounds %struct.stbtt_pack_range, ptr %2, i64 %indvars.iv277
   %31 = load float, ptr %30, align 8
   %32 = fcmp ogt float %31, 0.000000e+00
   br i1 %32, label %33, label %55
@@ -7307,15 +7307,15 @@ stbtt__oversample_shift.exit:                     ; preds = %55, %33
   %91 = getelementptr inbounds i8, ptr %30, i64 24
   %92 = getelementptr inbounds i8, ptr %30, i64 8
   %93 = getelementptr inbounds i8, ptr %30, i64 4
-  %94 = sext i32 %.0124256 to i64
+  %94 = sext i32 %.0124247 to i64
   br label %95
 
 95:                                               ; preds = %.lr.ph, %613
   %96 = phi i32 [ %89, %.lr.ph ], [ %614, %613 ]
-  %indvars.iv281 = phi i64 [ %94, %.lr.ph ], [ %indvars.iv.next282, %613 ]
+  %indvars.iv272 = phi i64 [ %94, %.lr.ph ], [ %indvars.iv.next273, %613 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %613 ]
-  %.1126244 = phi i32 [ %.0125255, %.lr.ph ], [ %.2, %613 ]
-  %97 = getelementptr inbounds %struct.stbrp_rect, ptr %4, i64 %indvars.iv281
+  %.1126241 = phi i32 [ %.0125246, %.lr.ph ], [ %.2, %613 ]
+  %97 = getelementptr inbounds %struct.stbrp_rect, ptr %4, i64 %indvars.iv272
   %98 = getelementptr inbounds i8, ptr %97, i64 20
   %99 = load i32, ptr %98, align 4
   %.not = icmp eq i32 %99, 0
@@ -7680,7 +7680,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %365 = load i32, ptr %10, align 8
   %366 = icmp ugt i32 %365, 1
-  %.pre289.pre291 = load i32, ptr %97, align 4
+  %.pre280.pre282 = load i32, ptr %97, align 4
   br i1 %366, label %367, label %469
 
 367:                                              ; preds = %stbtt_MakeGlyphBitmapSubpixel.exit
@@ -7695,7 +7695,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   br i1 %373, label %.lr.ph148.i, label %stbtt__h_prefilter.exit
 
 .lr.ph148.i:                                      ; preds = %367
-  %374 = sext i32 %.pre289.pre291 to i64
+  %374 = sext i32 %.pre280.pre282 to i64
   %375 = getelementptr inbounds i8, ptr %368, i64 %374
   %376 = mul nsw i32 %370, %369
   %377 = sext i32 %376 to i64
@@ -7884,16 +7884,16 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   br i1 %exitcond187.not.i, label %stbtt__h_prefilter.exit.loopexit, label %383, !llvm.loop !42
 
 stbtt__h_prefilter.exit.loopexit:                 ; preds = %._crit_edge.i
-  %.pre289.pre.pre = load i32, ptr %97, align 4
+  %.pre280.pre.pre = load i32, ptr %97, align 4
   br label %stbtt__h_prefilter.exit
 
 stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.exit.loopexit, %367
-  %.pre289.pre = phi i32 [ %.pre289.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre289.pre291, %367 ]
+  %.pre280.pre = phi i32 [ %.pre280.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre280.pre282, %367 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %469
 
 469:                                              ; preds = %stbtt__h_prefilter.exit, %stbtt_MakeGlyphBitmapSubpixel.exit
-  %.pre289 = phi i32 [ %.pre289.pre, %stbtt__h_prefilter.exit ], [ %.pre289.pre291, %stbtt_MakeGlyphBitmapSubpixel.exit ]
+  %.pre280 = phi i32 [ %.pre280.pre, %stbtt__h_prefilter.exit ], [ %.pre280.pre282, %stbtt_MakeGlyphBitmapSubpixel.exit ]
   %470 = load i32, ptr %12, align 4
   %471 = icmp ugt i32 %470, 1
   br i1 %471, label %472, label %578
@@ -7910,7 +7910,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
   br i1 %478, label %.lr.ph163.i, label %stbtt__v_prefilter.exit
 
 .lr.ph163.i:                                      ; preds = %472
-  %479 = sext i32 %.pre289 to i64
+  %479 = sext i32 %.pre280 to i64
   %480 = getelementptr inbounds i8, ptr %473, i64 %479
   %481 = mul nsw i32 %475, %474
   %482 = sext i32 %481 to i64
@@ -8109,12 +8109,12 @@ stbtt__v_prefilter.exit.loopexit:                 ; preds = %._crit_edge.i147
   br label %stbtt__v_prefilter.exit
 
 stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.exit.loopexit, %472
-  %.pre = phi i32 [ %.pre.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre289, %472 ]
+  %.pre = phi i32 [ %.pre.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre280, %472 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %578
 
 578:                                              ; preds = %stbtt__v_prefilter.exit, %469
-  %579 = phi i32 [ %.pre, %stbtt__v_prefilter.exit ], [ %.pre289, %469 ]
+  %579 = phi i32 [ %.pre, %stbtt__v_prefilter.exit ], [ %.pre280, %469 ]
   %580 = trunc i32 %579 to i16
   store i16 %580, ptr %102, align 4
   %581 = load i32, ptr %117, align 4
@@ -8157,30 +8157,30 @@ stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.
   %611 = tail call float @llvm.fmuladd.f32(float %610, float %79, float %.0.i134)
   %612 = getelementptr inbounds i8, ptr %102, i64 24
   store float %611, ptr %612, align 4
-  %.pre290 = load i32, ptr %88, align 8
+  %.pre281 = load i32, ptr %88, align 8
   br label %613
 
 613:                                              ; preds = %95, %578
-  %614 = phi i32 [ %96, %95 ], [ %.pre290, %578 ]
-  %.2 = phi i32 [ 0, %95 ], [ %.1126244, %578 ]
-  %indvars.iv.next282 = add nsw i64 %indvars.iv281, 1
+  %614 = phi i32 [ %.pre281, %578 ], [ %96, %95 ]
+  %.2 = phi i32 [ %.1126241, %578 ], [ 0, %95 ]
+  %indvars.iv.next273 = add nsw i64 %indvars.iv272, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %615 = sext i32 %614 to i64
   %616 = icmp slt i64 %indvars.iv.next, %615
   br i1 %616, label %95, label %._crit_edge.loopexit, !llvm.loop !50
 
 ._crit_edge.loopexit:                             ; preds = %613
-  %617 = trunc nsw i64 %indvars.iv.next282 to i32
+  %617 = trunc nsw i64 %indvars.iv.next273 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %stbtt__oversample_shift.exit
-  %.1126.lcssa = phi i32 [ %.0125255, %stbtt__oversample_shift.exit ], [ %.2, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.0124256, %stbtt__oversample_shift.exit ], [ %617, %._crit_edge.loopexit ]
-  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge260, label %29, !llvm.loop !51
+  %.1126.lcssa = phi i32 [ %.0125246, %stbtt__oversample_shift.exit ], [ %.2, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.0124247, %stbtt__oversample_shift.exit ], [ %617, %._crit_edge.loopexit ]
+  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge251, label %29, !llvm.loop !51
 
-._crit_edge260:                                   ; preds = %._crit_edge, %5
+._crit_edge251:                                   ; preds = %._crit_edge, %5
   %.0125.lcssa = phi i32 [ 1, %5 ], [ %.1126.lcssa, %._crit_edge ]
   store i32 %11, ptr %10, align 8
   store i32 %13, ptr %12, align 4

@@ -16798,7 +16798,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 16:                                               ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i", %.lr.ph.i.i
   %17 = phi ptr [ %10, %.lr.ph.i.i ], [ %39, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
   %18 = phi ptr [ %11, %.lr.ph.i.i ], [ %38, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
-  %.sroa.12.049.i.i = phi ptr [ undef, %.lr.ph.i.i ], [ %.sroa.12.127.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
+  %.sroa.12.047.i.i = phi ptr [ undef, %.lr.ph.i.i ], [ %.sroa.12.127.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
   %.sroa.7.046.i.i = phi ptr [ undef, %.lr.ph.i.i ], [ %.sroa.7.124.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr %19, ptr %1, align 8, !alias.scope !5571, !noalias !5574
@@ -16851,13 +16851,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.i.i"
   %.pre.i.i = load ptr, ptr %9, align 8, !alias.scope !5571, !noalias !5574
-  %.pre56.i.i = load ptr, ptr %1, align 8, !alias.scope !5571, !noalias !5574
+  %.pre54.i.i = load ptr, ptr %1, align 8, !alias.scope !5571, !noalias !5574
   br label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i"
 
 "_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i", %36, %34
-  %38 = phi ptr [ %.pre56.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %19, %36 ], [ %19, %34 ]
+  %38 = phi ptr [ %.pre54.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %19, %36 ], [ %19, %34 ]
   %39 = phi ptr [ %.pre.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %17, %36 ], [ %17, %34 ]
-  %.sroa.12.127.i.i = phi ptr [ %.sroa.12.0.copyload13.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %.sroa.12.049.i.i, %36 ], [ %.sroa.12.049.i.i, %34 ]
+  %.sroa.12.127.i.i = phi ptr [ %.sroa.12.0.copyload13.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %.sroa.12.047.i.i, %36 ], [ %.sroa.12.047.i.i, %34 ]
   %.sroa.7.124.i.i = phi ptr [ %.sroa.7.0.copyload8.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %.sroa.7.046.i.i, %36 ], [ %.sroa.7.046.i.i, %34 ]
   %40 = icmp eq ptr %38, %39
   br i1 %40, label %.loopexit23, label %16
@@ -16881,7 +16881,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           to label %89 unwind label %87
 
 .loopexit22:                                      ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.i.i", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i"
-  %.sroa.10.0 = phi ptr [ %.sroa.12.049.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i" ], [ %.sroa.12.0.copyload13.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.i.i" ]
+  %.sroa.10.0 = phi ptr [ %.sroa.12.047.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i" ], [ %.sroa.12.0.copyload13.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.i.i" ]
   %.sroa.7.0 = phi i64 [ 36, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i" ], [ %.sroa.8.0.copyload10.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.i.i" ]
   %.sroa.6.0 = phi ptr [ %.sroa.7.046.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i" ], [ %.sroa.7.0.copyload8.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.i.i" ]
   %.sroa.5.0 = phi i32 [ %33, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i" ], [ %.sroa.6.0.copyload6.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.i.i" ]
@@ -16942,7 +16942,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.backedge, %.lr.ph.i.i.lr.ph.i.i
   %56 = phi ptr [ %.sroa.011.0.copyload, %.lr.ph.i.i.lr.ph.i.i ], [ %57, %.lr.ph.i.i.i.i.backedge ]
-  %.sroa.12.049.i.i.i.i = phi ptr [ undef, %.lr.ph.i.i.lr.ph.i.i ], [ %.sroa.12.049.i.i.i.i.be, %.lr.ph.i.i.i.i.backedge ]
+  %.sroa.12.047.i.i.i.i = phi ptr [ undef, %.lr.ph.i.i.lr.ph.i.i ], [ %.sroa.12.047.i.i.i.i.be, %.lr.ph.i.i.i.i.backedge ]
   %.sroa.7.046.i.i.i.i = phi ptr [ undef, %.lr.ph.i.i.lr.ph.i.i ], [ %.sroa.7.046.i.i.i.i.be, %.lr.ph.i.i.i.i.backedge ]
   %57 = getelementptr inbounds i8, ptr %56, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !5610)
@@ -16997,18 +16997,18 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %.not3.i.i.i.i, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dcfff379acf3217E.exit.i.i"
 
 "_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i": ; preds = %.noexc7, %70, %.noexc5
-  %.sroa.12.127.i.i.i.i = phi ptr [ %.sroa.12.049.i.i.i.i, %.noexc5 ], [ %.sroa.12.049.i.i.i.i, %70 ], [ %.sroa.12.0.copyload13.i.i.i.i, %.noexc7 ]
+  %.sroa.12.127.i.i.i.i = phi ptr [ %.sroa.12.047.i.i.i.i, %.noexc5 ], [ %.sroa.12.047.i.i.i.i, %70 ], [ %.sroa.12.0.copyload13.i.i.i.i, %.noexc7 ]
   %.sroa.7.124.i.i.i.i = phi ptr [ %.sroa.7.046.i.i.i.i, %.noexc5 ], [ %.sroa.7.046.i.i.i.i, %70 ], [ %.sroa.7.0.copyload8.i.i.i.i, %.noexc7 ]
   %72 = icmp eq ptr %57, %.sroa.713.0.copyload
   br i1 %72, label %.loopexit, label %.lr.ph.i.i.i.i.backedge
 
 .lr.ph.i.i.i.i.backedge:                          ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1fc74d2d012bd5c9E.exit.i.i"
-  %.sroa.12.049.i.i.i.i.be = phi ptr [ %.sroa.12.127.i.i.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i" ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1fc74d2d012bd5c9E.exit.i.i" ]
+  %.sroa.12.047.i.i.i.i.be = phi ptr [ %.sroa.12.127.i.i.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i" ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1fc74d2d012bd5c9E.exit.i.i" ]
   %.sroa.7.046.i.i.i.i.be = phi ptr [ %.sroa.7.124.i.i.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i" ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1fc74d2d012bd5c9E.exit.i.i" ]
   br label %.lr.ph.i.i.i.i
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dcfff379acf3217E.exit.i.i": ; preds = %.noexc7, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i.i.i"
-  %.sroa.12.1.i.i = phi ptr [ %.sroa.12.049.i.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i.i.i" ], [ %.sroa.12.0.copyload13.i.i.i.i, %.noexc7 ]
+  %.sroa.12.1.i.i = phi ptr [ %.sroa.12.047.i.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i.i.i" ], [ %.sroa.12.0.copyload13.i.i.i.i, %.noexc7 ]
   %.sroa.8.0.i.i = phi i64 [ 36, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i.i.i" ], [ %.sroa.8.0.copyload10.i.i.i.i, %.noexc7 ]
   %.sroa.6.1.i.i = phi ptr [ %.sroa.7.046.i.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i.i.i" ], [ %.sroa.7.0.copyload8.i.i.i.i, %.noexc7 ]
   %.sroa.5.1.i.i = phi i32 [ %67, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4c620ae450ce1f0E.exit.thread28.i.i.i.i" ], [ %.sroa.6.0.copyload6.i.i.i.i, %.noexc7 ]
@@ -21777,7 +21777,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 16:                                               ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i", %.lr.ph.i.i
   %17 = phi ptr [ %10, %.lr.ph.i.i ], [ %39, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
   %18 = phi ptr [ %11, %.lr.ph.i.i ], [ %38, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
-  %.sroa.12.049.i.i = phi ptr [ undef, %.lr.ph.i.i ], [ %.sroa.12.127.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
+  %.sroa.12.047.i.i = phi ptr [ undef, %.lr.ph.i.i ], [ %.sroa.12.127.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
   %.sroa.7.046.i.i = phi ptr [ undef, %.lr.ph.i.i ], [ %.sroa.7.124.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i" ]
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr %19, ptr %1, align 8, !alias.scope !7256, !noalias !7259
@@ -21830,13 +21830,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.i.i"
   %.pre.i.i = load ptr, ptr %9, align 8, !alias.scope !7256, !noalias !7259
-  %.pre56.i.i = load ptr, ptr %1, align 8, !alias.scope !7256, !noalias !7259
+  %.pre54.i.i = load ptr, ptr %1, align 8, !alias.scope !7256, !noalias !7259
   br label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i"
 
 "_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i", %36, %34
-  %38 = phi ptr [ %.pre56.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %19, %36 ], [ %19, %34 ]
+  %38 = phi ptr [ %.pre54.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %19, %36 ], [ %19, %34 ]
   %39 = phi ptr [ %.pre.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %17, %36 ], [ %17, %34 ]
-  %.sroa.12.127.i.i = phi ptr [ %.sroa.12.0.copyload13.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %.sroa.12.049.i.i, %36 ], [ %.sroa.12.049.i.i, %34 ]
+  %.sroa.12.127.i.i = phi ptr [ %.sroa.12.0.copyload13.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %.sroa.12.047.i.i, %36 ], [ %.sroa.12.047.i.i, %34 ]
   %.sroa.7.124.i.i = phi ptr [ %.sroa.7.0.copyload8.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit._ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit_crit_edge.i.i" ], [ %.sroa.7.046.i.i, %36 ], [ %.sroa.7.046.i.i, %34 ]
   %40 = icmp eq ptr %38, %39
   br i1 %40, label %.loopexit23, label %16
@@ -21860,7 +21860,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           to label %89 unwind label %87
 
 .loopexit22:                                      ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.i.i", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i"
-  %.sroa.10.0 = phi ptr [ %.sroa.12.049.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i" ], [ %.sroa.12.0.copyload13.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.i.i" ]
+  %.sroa.10.0 = phi ptr [ %.sroa.12.047.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i" ], [ %.sroa.12.0.copyload13.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.i.i" ]
   %.sroa.7.0 = phi i64 [ 36, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i" ], [ %.sroa.8.0.copyload10.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.i.i" ]
   %.sroa.6.0 = phi ptr [ %.sroa.7.046.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i" ], [ %.sroa.7.0.copyload8.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.i.i" ]
   %.sroa.5.0 = phi i32 [ %33, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i" ], [ %.sroa.6.0.copyload6.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.i.i" ]
@@ -21921,7 +21921,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.backedge, %.lr.ph.i.i.lr.ph.i.i
   %56 = phi ptr [ %.sroa.011.0.copyload, %.lr.ph.i.i.lr.ph.i.i ], [ %57, %.lr.ph.i.i.i.i.backedge ]
-  %.sroa.12.049.i.i.i.i = phi ptr [ undef, %.lr.ph.i.i.lr.ph.i.i ], [ %.sroa.12.049.i.i.i.i.be, %.lr.ph.i.i.i.i.backedge ]
+  %.sroa.12.047.i.i.i.i = phi ptr [ undef, %.lr.ph.i.i.lr.ph.i.i ], [ %.sroa.12.047.i.i.i.i.be, %.lr.ph.i.i.i.i.backedge ]
   %.sroa.7.046.i.i.i.i = phi ptr [ undef, %.lr.ph.i.i.lr.ph.i.i ], [ %.sroa.7.046.i.i.i.i.be, %.lr.ph.i.i.i.i.backedge ]
   %57 = getelementptr inbounds i8, ptr %56, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !7295)
@@ -21976,18 +21976,18 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %.not3.i.i.i.i, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h370e9890d0112ef2E.exit.i.i"
 
 "_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i": ; preds = %.noexc7, %70, %.noexc5
-  %.sroa.12.127.i.i.i.i = phi ptr [ %.sroa.12.049.i.i.i.i, %.noexc5 ], [ %.sroa.12.049.i.i.i.i, %70 ], [ %.sroa.12.0.copyload13.i.i.i.i, %.noexc7 ]
+  %.sroa.12.127.i.i.i.i = phi ptr [ %.sroa.12.047.i.i.i.i, %.noexc5 ], [ %.sroa.12.047.i.i.i.i, %70 ], [ %.sroa.12.0.copyload13.i.i.i.i, %.noexc7 ]
   %.sroa.7.124.i.i.i.i = phi ptr [ %.sroa.7.046.i.i.i.i, %.noexc5 ], [ %.sroa.7.046.i.i.i.i, %70 ], [ %.sroa.7.0.copyload8.i.i.i.i, %.noexc7 ]
   %72 = icmp eq ptr %57, %.sroa.713.0.copyload
   br i1 %72, label %.loopexit, label %.lr.ph.i.i.i.i.backedge
 
 .lr.ph.i.i.i.i.backedge:                          ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1fc74d2d012bd5c9E.exit.i.i"
-  %.sroa.12.049.i.i.i.i.be = phi ptr [ %.sroa.12.127.i.i.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i" ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1fc74d2d012bd5c9E.exit.i.i" ]
+  %.sroa.12.047.i.i.i.i.be = phi ptr [ %.sroa.12.127.i.i.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i" ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1fc74d2d012bd5c9E.exit.i.i" ]
   %.sroa.7.046.i.i.i.i.be = phi ptr [ %.sroa.7.124.i.i.i.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$ide_assists..handlers..destructure_tuple_binding..EditTupleUsage$GT$$GT$17h1696caafdd9a91a9E.exit.i.i.i.i" ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1fc74d2d012bd5c9E.exit.i.i" ]
   br label %.lr.ph.i.i.i.i
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h370e9890d0112ef2E.exit.i.i": ; preds = %.noexc7, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i.i.i"
-  %.sroa.12.1.i.i = phi ptr [ %.sroa.12.049.i.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i.i.i" ], [ %.sroa.12.0.copyload13.i.i.i.i, %.noexc7 ]
+  %.sroa.12.1.i.i = phi ptr [ %.sroa.12.047.i.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i.i.i" ], [ %.sroa.12.0.copyload13.i.i.i.i, %.noexc7 ]
   %.sroa.8.0.i.i = phi i64 [ 36, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i.i.i" ], [ %.sroa.8.0.copyload10.i.i.i.i, %.noexc7 ]
   %.sroa.6.1.i.i = phi ptr [ %.sroa.7.046.i.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i.i.i" ], [ %.sroa.7.0.copyload8.i.i.i.i, %.noexc7 ]
   %.sroa.5.1.i.i = phi i32 [ %67, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he4e720a276f0b903E.exit.thread28.i.i.i.i" ], [ %.sroa.6.0.copyload6.i.i.i.i, %.noexc7 ]

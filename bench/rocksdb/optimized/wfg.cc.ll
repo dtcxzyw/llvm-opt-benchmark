@@ -81,7 +81,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK4toku3omtIPNS_3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.017 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.016 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load i8, ptr %this, align 8
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, label %if.else.i.i3
@@ -93,7 +93,7 @@ if.else.i.i3:                                     ; preds = %for.body
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i: ; preds = %for.body
   %5 = load i32, ptr %num_values.i.i, align 4
-  %cmp.not.i = icmp ult i32 %i.017, %5
+  %cmp.not.i = icmp ult i32 %i.016, %5
   br i1 %cmp.not.i, label %if.then2.i, label %for.inc
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i: ; preds = %if.else.i.i3
@@ -101,20 +101,20 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i: ; preds = %if.else.
   %idxprom.i.i.i = zext i32 %4 to i64
   %weight.i.i.i = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %6, i64 %idxprom.i.i.i, i32 1
   %7 = load i32, ptr %weight.i.i.i, align 8
-  %cmp.not15.i = icmp ult i32 %i.017, %7
+  %cmp.not15.i = icmp ult i32 %i.016, %7
   br i1 %cmp.not15.i, label %tailrecurse.outer.i.i, label %for.inc
 
 if.then2.i:                                       ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i
   %8 = load ptr, ptr %nodes.i.i.i, align 8
   %9 = load i32, ptr %d2.i.i, align 8
-  %add.i.i = add i32 %9, %i.017
+  %add.i.i = add i32 %9, %i.016
   %idxprom.i.i5 = zext i32 %add.i.i to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom.i.i5
   br label %if.end
 
 tailrecurse.outer.i.i:                            ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i, %if.else8.i.i
   %.pre.i.i = phi i32 [ %.pre.i.pre.i, %if.else8.i.i ], [ %4, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i ]
-  %i.tr.ph.i.i = phi i32 [ %sub9.i.i, %if.else8.i.i ], [ %i.017, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i ]
+  %i.tr.ph.i.i = phi i32 [ %sub9.i.i, %if.else8.i.i ], [ %i.016, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i ]
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i.i, %tailrecurse.outer.i.i
@@ -154,7 +154,7 @@ if.end:                                           ; preds = %if.else.i10.i, %if.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else.i.i3, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %if.end
-  %inc = add nuw i32 %i.017, 1
+  %inc = add nuw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, %retval.0.i
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
@@ -922,7 +922,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK4toku3omtIPNS_3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.013 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.012 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load i8, ptr %this, align 8
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, label %if.else.i.i4
@@ -934,7 +934,7 @@ if.else.i.i4:                                     ; preds = %for.body
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i: ; preds = %for.body
   %5 = load i32, ptr %num_values.i.i, align 4
-  %cmp.not.i = icmp ult i32 %i.013, %5
+  %cmp.not.i = icmp ult i32 %i.012, %5
   br i1 %cmp.not.i, label %if.then2.i, label %for.end
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i: ; preds = %if.else.i.i4
@@ -942,20 +942,20 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i: ; preds = %if.else.
   %idxprom.i.i.i = zext i32 %4 to i64
   %weight.i.i.i = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %6, i64 %idxprom.i.i.i, i32 1
   %7 = load i32, ptr %weight.i.i.i, align 8
-  %cmp.not15.i = icmp ult i32 %i.013, %7
+  %cmp.not15.i = icmp ult i32 %i.012, %7
   br i1 %cmp.not15.i, label %tailrecurse.outer.i.i, label %for.end
 
 if.then2.i:                                       ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i
   %8 = load ptr, ptr %nodes.i.i.i, align 8
   %9 = load i32, ptr %d2.i.i, align 8
-  %add.i.i = add i32 %9, %i.013
+  %add.i.i = add i32 %9, %i.012
   %idxprom.i.i6 = zext i32 %add.i.i to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom.i.i6
   br label %for.inc
 
 tailrecurse.outer.i.i:                            ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i, %if.else8.i.i
   %.pre.i.i = phi i32 [ %.pre.i.pre.i, %if.else8.i.i ], [ %4, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i ]
-  %i.tr.ph.i.i = phi i32 [ %sub9.i.i, %if.else8.i.i ], [ %i.013, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i ]
+  %i.tr.ph.i.i = phi i32 [ %sub9.i.i, %if.else8.i.i ], [ %i.012, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i ]
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i.i, %tailrecurse.outer.i.i
@@ -992,7 +992,7 @@ for.inc:                                          ; preds = %if.else.i10.i, %if.
   %15 = load i64, ptr %14, align 8
   %call5 = tail call noundef i32 %fn(i64 noundef %15, ptr noundef %extra)
   %16 = icmp eq i32 %call5, 0
-  %inc = add nuw i32 %i.013, 1
+  %inc = add nuw i32 %i.012, 1
   %cmp = icmp ult i32 %inc, %retval.0.i
   %17 = and i1 %16, %cmp
   br i1 %17, label %for.body, label %for.end, !llvm.loop !8

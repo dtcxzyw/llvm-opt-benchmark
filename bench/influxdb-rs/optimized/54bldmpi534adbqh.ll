@@ -15386,7 +15386,7 @@ common.ret:                                       ; preds = %349, %285, %60, %32
   br label %"_ZN4core3ptr225drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd90d9e9303a32a04E.exit183"
 
 "_ZN4core3ptr225drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd90d9e9303a32a04E.exit183": ; preds = %"_ZN4core3ptr203drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$17h9f57c8309fbe2ae5E.llvm.12494526139044184965.exit.i179._ZN4core3ptr225drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd90d9e9303a32a04E.exit183_crit_edge", %35
-  %47 = phi i64 [ %43, %35 ], [ %.pre, %"_ZN4core3ptr203drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$17h9f57c8309fbe2ae5E.llvm.12494526139044184965.exit.i179._ZN4core3ptr225drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd90d9e9303a32a04E.exit183_crit_edge" ]
+  %47 = phi i64 [ %.pre, %"_ZN4core3ptr203drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$17h9f57c8309fbe2ae5E.llvm.12494526139044184965.exit.i179._ZN4core3ptr225drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd90d9e9303a32a04E.exit183_crit_edge" ], [ %43, %35 ]
   %.not = icmp eq i64 %47, 0
   br i1 %.not, label %"_ZN4core3ptr225drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd90d9e9303a32a04E.exit", label %182
 
@@ -15563,8 +15563,8 @@ common.ret:                                       ; preds = %349, %285, %60, %32
   br label %105
 
 105:                                              ; preds = %315, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h37803ea1e433439dE.exit"
-  %106 = phi ptr [ %.pre296, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h37803ea1e433439dE.exit" ], [ %.val163, %315 ]
-  %107 = phi ptr [ %.pre294, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h37803ea1e433439dE.exit" ], [ %319, %315 ]
+  %106 = phi ptr [ %.val163, %315 ], [ %.pre296, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h37803ea1e433439dE.exit" ]
+  %107 = phi ptr [ %319, %315 ], [ %.pre294, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h37803ea1e433439dE.exit" ]
   %108 = icmp eq ptr %106, %107
   br i1 %108, label %109, label %113
 
@@ -16016,7 +16016,7 @@ common.ret:                                       ; preds = %349, %285, %60, %32
   br label %272
 
 272:                                              ; preds = %29, %270
-  %273 = phi ptr [ %1, %270 ], [ %.pre292, %29 ]
+  %273 = phi ptr [ %.pre292, %29 ], [ %1, %270 ]
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %23)
   call void @llvm.experimental.noalias.scope.decl(metadata !2576)
   call void @llvm.experimental.noalias.scope.decl(metadata !2702)
@@ -16181,8 +16181,8 @@ common.ret:                                       ; preds = %349, %285, %60, %32
   br label %330
 
 330:                                              ; preds = %30, %325
-  %331 = phi ptr [ %327, %325 ], [ %.pre300, %30 ]
-  %332 = phi ptr [ %326, %325 ], [ %.pre298, %30 ]
+  %331 = phi ptr [ %.pre300, %30 ], [ %327, %325 ]
+  %332 = phi ptr [ %.pre298, %30 ], [ %326, %325 ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %20)
   %333 = getelementptr inbounds i8, ptr %1, i64 160
   call void @llvm.experimental.noalias.scope.decl(metadata !2729)

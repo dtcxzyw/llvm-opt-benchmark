@@ -50033,24 +50033,24 @@ common.ret:                                       ; preds = %1165, %1162, %247
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64), !noalias !6476
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 184
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !6480, !noalias !6485
-  %.phi.trans.insert1352.i = getelementptr inbounds i8, ptr %1, i64 192
-  %.pre1353.i = load ptr, ptr %.phi.trans.insert1352.i, align 8, !alias.scope !6480, !noalias !6485
+  %.phi.trans.insert1331.i = getelementptr inbounds i8, ptr %1, i64 192
+  %.pre1332.i = load ptr, ptr %.phi.trans.insert1331.i, align 8, !alias.scope !6480, !noalias !6485
   br label %688
 
 259:                                              ; preds = %254
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %62), !noalias !6476
-  %.phi.trans.insert1360.i = getelementptr inbounds i8, ptr %1, i64 328
-  %.pre1361.i = load ptr, ptr %.phi.trans.insert1360.i, align 8, !alias.scope !6488, !noalias !6493
-  %.phi.trans.insert1362.i = getelementptr inbounds i8, ptr %1, i64 336
-  %.pre1363.i = load ptr, ptr %.phi.trans.insert1362.i, align 8, !alias.scope !6488, !noalias !6493
+  %.phi.trans.insert1339.i = getelementptr inbounds i8, ptr %1, i64 328
+  %.pre1340.i = load ptr, ptr %.phi.trans.insert1339.i, align 8, !alias.scope !6488, !noalias !6493
+  %.phi.trans.insert1341.i = getelementptr inbounds i8, ptr %1, i64 336
+  %.pre1342.i = load ptr, ptr %.phi.trans.insert1341.i, align 8, !alias.scope !6488, !noalias !6493
   br label %801
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17he10a8981e76ccae7E.exit.sink.split.i": ; preds = %"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..poll..Pollable$GT$$GT$$GT$17h792ea755aabcc19fE.exit.i", %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit.i", %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit488.i"
-  %.sink1466.i = phi ptr [ %917, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit.i" ], [ %678, %"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..poll..Pollable$GT$$GT$$GT$17h792ea755aabcc19fE.exit.i" ], [ %678, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit488.i" ]
+  %.sink1445.i = phi ptr [ %917, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit.i" ], [ %678, %"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..poll..Pollable$GT$$GT$$GT$17h792ea755aabcc19fE.exit.i" ], [ %678, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit488.i" ]
   %.sroa.0770.0.ph.i = phi i32 [ 0, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit.i" ], [ 1, %"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..poll..Pollable$GT$$GT$$GT$17h792ea755aabcc19fE.exit.i" ], [ 1, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit488.i" ]
   %.sroa.33.0.ph.i = phi i32 [ %904, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit.i" ], [ undef, %"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..poll..Pollable$GT$$GT$$GT$17h792ea755aabcc19fE.exit.i" ], [ undef, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit488.i" ]
   %.sroa.34.0.ph.i = phi ptr [ undef, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit.i" ], [ %.sroa.34.3.i, %"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..poll..Pollable$GT$$GT$$GT$17h792ea755aabcc19fE.exit.i" ], [ %.sroa.34.3.i, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit488.i" ]
-  store i8 0, ptr %.sink1466.i, align 2, !noalias !6476
+  store i8 0, ptr %.sink1445.i, align 2, !noalias !6476
   br label %1161
 
 260:                                              ; preds = %254
@@ -50155,8 +50155,8 @@ common.ret:                                       ; preds = %1165, %1162, %247
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 24
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 28
   store i32 %312, ptr %.sroa.10.0..sroa_idx.i, align 4, !noalias !6476
-  %.not1248.i = icmp eq i32 %312, 0
-  br i1 %.not1248.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab3c0b2c6d235cc6E.exit.thread.i", label %.lr.ph.i
+  %.not1227.i = icmp eq i32 %312, 0
+  br i1 %.not1227.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab3c0b2c6d235cc6E.exit.thread.i", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %304
   %.sroa.9502.0..sroa_idx503.i = getelementptr inbounds i8, ptr %52, i64 4
@@ -50434,7 +50434,7 @@ common.ret:                                       ; preds = %1165, %1162, %247
   br i1 %395, label %._crit_edge.i, label %396
 
 ._crit_edge.i:                                    ; preds = %390
-  %.pre1364.i = zext i32 %392 to i64
+  %.pre1343.i = zext i32 %392 to i64
   br label %400
 
 396:                                              ; preds = %390
@@ -50445,7 +50445,7 @@ common.ret:                                       ; preds = %1165, %1162, %247
   br i1 %or.cond.i, label %400, label %.thread.i
 
 400:                                              ; preds = %396, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre1364.i, %._crit_edge.i ], [ %398, %396 ]
+  %.pre-phi.i = phi i64 [ %.pre1343.i, %._crit_edge.i ], [ %398, %396 ]
   %401 = mul nuw i64 %391, 1000000000
   %402 = sub i64 %401, %.sroa.9509.8.copyload.i
   %403 = add i64 %402, %.pre-phi.i
@@ -51217,9 +51217,9 @@ _ZN4core3mem4drop17h956b6ab2a4373c5bE.exit320.i:  ; preds = %"_ZN4core3ptr57drop
   br label %607
 
 607:                                              ; preds = %632, %606
-  %storemerge1366.i = phi ptr [ %595, %606 ], [ %621, %632 ]
+  %storemerge1345.i = phi ptr [ %595, %606 ], [ %621, %632 ]
   %storemerge.i = phi i64 [ %.sroa.9629.8.copyload.i, %606 ], [ %.sroa.9620.8.copyload.i, %632 ]
-  store ptr %storemerge1366.i, ptr %65, align 8, !noalias !6476
+  store ptr %storemerge1345.i, ptr %65, align 8, !noalias !6476
   store i64 %storemerge.i, ptr %.sroa.10624.8..sroa_idx.i, align 8, !noalias !6476
   call void @llvm.experimental.noalias.scope.decl(metadata !6719)
   call void @llvm.experimental.noalias.scope.decl(metadata !6722)
@@ -51533,7 +51533,7 @@ _ZN4core3mem4drop17h956b6ab2a4373c5bE.exit320.i:  ; preds = %"_ZN4core3ptr57drop
   unreachable
 
 688:                                              ; preds = %352, %258
-  %689 = phi ptr [ %.pre1353.i, %258 ], [ @anon.0af95c1f9456ea7116a16e4f925340d1.217.llvm.10002545943538650143, %352 ]
+  %689 = phi ptr [ %.pre1332.i, %258 ], [ @anon.0af95c1f9456ea7116a16e4f925340d1.217.llvm.10002545943538650143, %352 ]
   %690 = phi ptr [ %.pre.i, %258 ], [ %343, %352 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %63), !noalias !6476
   %691 = getelementptr inbounds i8, ptr %1, i64 184
@@ -51741,9 +51741,9 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
   br label %755
 
 755:                                              ; preds = %897, %737
-  %756 = phi i32 [ %.pre1359.i, %897 ], [ %745, %737 ]
-  %757 = phi i32 [ %.pre1357.i, %897 ], [ 0, %737 ]
-  %758 = phi i32 [ %.pre1355.i, %897 ], [ 0, %737 ]
+  %756 = phi i32 [ %.pre1338.i, %897 ], [ %745, %737 ]
+  %757 = phi i32 [ %.pre1336.i, %897 ], [ 0, %737 ]
+  %758 = phi i32 [ %.pre1334.i, %897 ], [ 0, %737 ]
   %759 = getelementptr inbounds i8, ptr %1, i64 376
   %760 = getelementptr inbounds i8, ptr %1, i64 504
   call void @llvm.experimental.noalias.scope.decl(metadata !6840)
@@ -51904,8 +51904,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
   br label %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hf9c9903f218a4f75E.exit488.i"
 
 801:                                              ; preds = %1039, %259
-  %802 = phi ptr [ %.pre1363.i, %259 ], [ @anon.0af95c1f9456ea7116a16e4f925340d1.112.llvm.10002545943538650143, %1039 ]
-  %803 = phi ptr [ %.pre1361.i, %259 ], [ %1028, %1039 ]
+  %802 = phi ptr [ %.pre1342.i, %259 ], [ @anon.0af95c1f9456ea7116a16e4f925340d1.112.llvm.10002545943538650143, %1039 ]
+  %803 = phi ptr [ %.pre1340.i, %259 ], [ %1028, %1039 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %57), !noalias !6476
   %804 = getelementptr inbounds i8, ptr %1, i64 328
   call void @llvm.experimental.noalias.scope.decl(metadata !6932)
@@ -52175,12 +52175,12 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
   %899 = getelementptr inbounds i8, ptr %1, i64 181
   store i8 0, ptr %899, align 1, !noalias !6476
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %62), !noalias !6476
-  %.phi.trans.insert1354.i = getelementptr inbounds i8, ptr %1, i64 432
-  %.pre1355.i = load i32, ptr %.phi.trans.insert1354.i, align 8, !alias.scope !6867, !noalias !6874
-  %.phi.trans.insert1356.i = getelementptr inbounds i8, ptr %1, i64 400
-  %.pre1357.i = load i32, ptr %.phi.trans.insert1356.i, align 8, !alias.scope !6984, !noalias !6889
-  %.phi.trans.insert1358.i = getelementptr inbounds i8, ptr %1, i64 404
-  %.pre1359.i = load i32, ptr %.phi.trans.insert1358.i, align 4, !alias.scope !6986, !noalias !6909
+  %.phi.trans.insert1333.i = getelementptr inbounds i8, ptr %1, i64 432
+  %.pre1334.i = load i32, ptr %.phi.trans.insert1333.i, align 8, !alias.scope !6867, !noalias !6874
+  %.phi.trans.insert1335.i = getelementptr inbounds i8, ptr %1, i64 400
+  %.pre1336.i = load i32, ptr %.phi.trans.insert1335.i, align 8, !alias.scope !6984, !noalias !6889
+  %.phi.trans.insert1337.i = getelementptr inbounds i8, ptr %1, i64 404
+  %.pre1338.i = load i32, ptr %.phi.trans.insert1337.i, align 4, !alias.scope !6986, !noalias !6909
   br label %755
 
 .loopexit.i:                                      ; preds = %771, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab3c0b2c6d235cc6E.exit.i.i.i.i.i.i.i.i"

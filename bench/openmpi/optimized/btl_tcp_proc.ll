@@ -859,11 +859,11 @@ opal_obj_run_destructors.exit140.i.i:             ; preds = %.lr.ph.i137.i.i, %2
   br i1 %282, label %.lr.ph191.split.us.i.us.i, label %._crit_edge192.i.us.loopexit.i, !llvm.loop !10
 
 ._crit_edge192.i.us.loopexit.i:                   ; preds = %279
-  %.pre82.i = load i32, ptr %230, align 8
+  %.pre81.i = load i32, ptr %230, align 8
   br label %._crit_edge192.i.us.i
 
 ._crit_edge192.i.us.i:                            ; preds = %._crit_edge192.i.us.loopexit.i, %.preheader.i.us.i
-  %283 = phi i32 [ %257, %.preheader.i.us.i ], [ %.pre82.i, %._crit_edge192.i.us.loopexit.i ]
+  %283 = phi i32 [ %257, %.preheader.i.us.i ], [ %.pre81.i, %._crit_edge192.i.us.loopexit.i ]
   %284 = phi i32 [ %258, %.preheader.i.us.i ], [ %280, %._crit_edge192.i.us.loopexit.i ]
   %285 = phi i32 [ %259, %.preheader.i.us.i ], [ %280, %._crit_edge192.i.us.loopexit.i ]
   %.1.lcssa.i.us.i = phi i32 [ %.093196.i.us.i, %.preheader.i.us.i ], [ %.2.us.i.us.i, %._crit_edge192.i.us.loopexit.i ]

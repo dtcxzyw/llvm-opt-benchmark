@@ -8322,29 +8322,29 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.else.i103
-  %list.0153 = phi ptr [ %0, %while.body.lr.ph ], [ %incdec.ptr, %if.else.i103 ]
-  %num_extra_edges.0152 = phi i32 [ 0, %while.body.lr.ph ], [ %num_extra_edges.1, %if.else.i103 ]
+  %list.0151 = phi ptr [ %0, %while.body.lr.ph ], [ %incdec.ptr, %if.else.i103 ]
+  %num_extra_edges.0150 = phi i32 [ 0, %while.body.lr.ph ], [ %num_extra_edges.1, %if.else.i103 ]
   %2 = load ptr, ptr %progress, align 8
   %3 = load i64, ptr %progress_cnt, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %progress_cnt, align 8
   call void @display_progress(ptr noundef %2, i64 noundef %inc) #22
   %4 = load ptr, ptr %data, align 8
-  %5 = load ptr, ptr %list.0153, align 8
+  %5 = load ptr, ptr %list.0151, align 8
   %call.i = call i32 @repo_parse_commit_internal(ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 0) #22
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
   %call5 = call fastcc ptr @_(ptr noundef nonnull @.str.95)
-  %6 = load ptr, ptr %list.0153, align 8
+  %6 = load ptr, ptr %list.0151, align 8
   %oid = getelementptr inbounds i8, ptr %6, i64 4
   %call6 = call ptr @oid_to_hex(ptr noundef nonnull %oid) #22
   call void (ptr, ...) @die(ptr noundef %call5, ptr noundef %call6) #23
   unreachable
 
 if.end:                                           ; preds = %while.body
-  %7 = load ptr, ptr %list.0153, align 8
+  %7 = load ptr, ptr %list.0151, align 8
   %call7 = call ptr @get_commit_tree_oid(ptr noundef %7) #22
   %8 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds i8, ptr %8, i64 256
@@ -8353,7 +8353,7 @@ if.end:                                           ; preds = %while.body
   %10 = load i64, ptr %rawsz, align 8
   %conv = trunc i64 %10 to i32
   call void @hashwrite(ptr noundef %f, ptr noundef %call7, i32 noundef %conv) #22
-  %11 = load ptr, ptr %list.0153, align 8
+  %11 = load ptr, ptr %list.0151, align 8
   %parents = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load ptr, ptr %parents, align 8
   %tobool8.not = icmp eq ptr %12, null
@@ -8376,11 +8376,11 @@ if.then19:                                        ; preds = %if.else
 if.else20:                                        ; preds = %if.else
   %17 = load ptr, ptr %new_base_graph, align 8
   %tobool21.not = icmp eq ptr %17, null
-  %.pre164 = load ptr, ptr %12, align 8
+  %.pre162 = load ptr, ptr %12, align 8
   br i1 %tobool21.not, label %if.then33, label %if.then22
 
 if.then22:                                        ; preds = %if.else20
-  %18 = getelementptr i8, ptr %.pre164, i64 64
+  %18 = getelementptr i8, ptr %.pre162, i64 64
   %c.val.i.i = load i32, ptr %18, align 8
   %div.i.i.i.i = udiv i32 %c.val.i.i, 32766
   %rem.i.i.i.i = urem i32 %c.val.i.i, 32766
@@ -8404,7 +8404,7 @@ commit_graph_position.exit.i:                     ; preds = %if.end12.i.i.i.i
   br i1 %cmp.not.i, label %if.else.i, label %if.end30
 
 if.else.i:                                        ; preds = %commit_graph_position.exit.i, %if.end12.i.i.i.i, %if.then22
-  %oid.i = getelementptr inbounds i8, ptr %.pre164, i64 4
+  %oid.i = getelementptr inbounds i8, ptr %.pre162, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i)
   br label %land.rhs.i.i
 
@@ -8445,14 +8445,14 @@ if.end30:                                         ; preds = %commit_graph_positi
   br i1 %cmp31, label %if.end30.if.then33_crit_edge, label %if.end42
 
 if.end30.if.then33_crit_edge:                     ; preds = %if.end30
-  %.pre163 = load ptr, ptr %12, align 8
+  %.pre161 = load ptr, ptr %12, align 8
   br label %if.then33
 
 if.then33:                                        ; preds = %if.else20, %if.end30.if.then33_crit_edge
-  %30 = phi ptr [ %.pre163, %if.end30.if.then33_crit_edge ], [ %.pre164, %if.else20 ]
+  %30 = phi ptr [ %.pre161, %if.end30.if.then33_crit_edge ], [ %.pre162, %if.else20 ]
   %oid36 = getelementptr inbounds i8, ptr %30, i64 4
   %call37 = call ptr @oid_to_hex(ptr noundef nonnull %oid36) #22
-  %31 = load ptr, ptr %list.0153, align 8
+  %31 = load ptr, ptr %list.0151, align 8
   %oid39 = getelementptr inbounds i8, ptr %31, i64 4
   %call40 = call ptr @oid_to_hex(ptr noundef nonnull %oid39) #22
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.45, i32 noundef 1243, ptr noundef nonnull @.str.96, ptr noundef %call37, ptr noundef %call40) #23
@@ -8483,7 +8483,7 @@ if.else48:                                        ; preds = %if.end42
   br i1 %tobool50.not, label %if.else52, label %if.then51
 
 if.then51:                                        ; preds = %if.else48
-  %or = or i32 %num_extra_edges.0152, -2147483648
+  %or = or i32 %num_extra_edges.0150, -2147483648
   br label %if.end91
 
 if.else52:                                        ; preds = %if.else48
@@ -8503,11 +8503,11 @@ if.then63:                                        ; preds = %if.else52
 if.else66:                                        ; preds = %if.else52
   %39 = load ptr, ptr %new_base_graph, align 8
   %tobool68.not = icmp eq ptr %39, null
-  %.pre162 = load ptr, ptr %33, align 8
+  %.pre160 = load ptr, ptr %33, align 8
   br i1 %tobool68.not, label %if.then81, label %if.then69
 
 if.then69:                                        ; preds = %if.else66
-  %40 = getelementptr i8, ptr %.pre162, i64 64
+  %40 = getelementptr i8, ptr %.pre160, i64 64
   %c.val.i.i59 = load i32, ptr %40, align 8
   %div.i.i.i.i60 = udiv i32 %c.val.i.i59, 32766
   %rem.i.i.i.i61 = urem i32 %c.val.i.i59, 32766
@@ -8531,7 +8531,7 @@ commit_graph_position.exit.i87:                   ; preds = %if.end12.i.i.i.i83
   br i1 %cmp.not.i91, label %if.else.i63, label %if.end78
 
 if.else.i63:                                      ; preds = %commit_graph_position.exit.i87, %if.end12.i.i.i.i83, %if.then69
-  %oid.i64 = getelementptr inbounds i8, ptr %.pre162, i64 4
+  %oid.i64 = getelementptr inbounds i8, ptr %.pre160, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i58)
   br label %land.rhs.i.i66
 
@@ -8576,10 +8576,10 @@ if.end78.if.then81_crit_edge:                     ; preds = %if.end78
   br label %if.then81
 
 if.then81:                                        ; preds = %if.else66, %if.end78.if.then81_crit_edge
-  %52 = phi ptr [ %.pre, %if.end78.if.then81_crit_edge ], [ %.pre162, %if.else66 ]
+  %52 = phi ptr [ %.pre, %if.end78.if.then81_crit_edge ], [ %.pre160, %if.else66 ]
   %oid84 = getelementptr inbounds i8, ptr %52, i64 4
   %call85 = call ptr @oid_to_hex(ptr noundef nonnull %oid84) #22
-  %53 = load ptr, ptr %list.0153, align 8
+  %53 = load ptr, ptr %list.0151, align 8
   %oid87 = getelementptr inbounds i8, ptr %53, i64 4
   %call88 = call ptr @oid_to_hex(ptr noundef nonnull %oid87) #22
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.45, i32 noundef 1274, ptr noundef nonnull @.str.96, ptr noundef %call85, ptr noundef %call88) #23
@@ -8597,7 +8597,7 @@ if.end91:                                         ; preds = %if.end45.thread, %i
   br i1 %tobool92.not, label %if.end97, label %do.body
 
 do.body:                                          ; preds = %if.end91, %do.body
-  %num_extra_edges.2 = phi i32 [ %inc94, %do.body ], [ %num_extra_edges.0152, %if.end91 ]
+  %num_extra_edges.2 = phi i32 [ %inc94, %do.body ], [ %num_extra_edges.0150, %if.end91 ]
   %parent.1 = phi ptr [ %55, %do.body ], [ %parent.0129, %if.end91 ]
   %inc94 = add i32 %num_extra_edges.2, 1
   %next95 = getelementptr inbounds i8, ptr %parent.1, i64 8
@@ -8606,8 +8606,8 @@ do.body:                                          ; preds = %if.end91, %do.body
   br i1 %tobool96.not, label %if.end97, label %do.body, !llvm.loop !67
 
 if.end97:                                         ; preds = %do.body, %if.end91
-  %num_extra_edges.1 = phi i32 [ %num_extra_edges.0152, %if.end91 ], [ %inc94, %do.body ]
-  %56 = load ptr, ptr %list.0153, align 8
+  %num_extra_edges.1 = phi i32 [ %num_extra_edges.0150, %if.end91 ], [ %inc94, %do.body ]
+  %56 = load ptr, ptr %list.0151, align 8
   %date = getelementptr inbounds i8, ptr %56, i64 40
   %57 = load i64, ptr %date, align 8
   %shr = lshr i64 %57, 32
@@ -8690,14 +8690,14 @@ if.else.i103:                                     ; preds = %if.end20.i.i, %if.e
   %76 = load i32, ptr %packedDate, align 4
   %or104 = or i32 %76, %75
   store i32 %or104, ptr %packedDate, align 4
-  %77 = load ptr, ptr %list.0153, align 8
+  %77 = load ptr, ptr %list.0151, align 8
   %date105 = getelementptr inbounds i8, ptr %77, i64 40
   %78 = load i64, ptr %date105, align 8
   %conv106 = trunc i64 %78 to i32
   %79 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv106) #24, !srcloc !5
   store i32 %79, ptr %arrayidx108, align 4
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %packedDate, i32 noundef 8) #22
-  %incdec.ptr = getelementptr inbounds i8, ptr %list.0153, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %list.0151, i64 8
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !68
 
@@ -8835,8 +8835,8 @@ entry:
   %nr = getelementptr inbounds i8, ptr %data, i64 64
   %1 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
-  %cmp55 = icmp sgt i64 %1, 0
-  br i1 %cmp55, label %while.body.lr.ph, label %while.end
+  %cmp52 = icmp sgt i64 %1, 0
+  br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %progress = getelementptr inbounds i8, ptr %data, i64 96
@@ -8846,25 +8846,25 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %list.057 = phi ptr [ %0, %while.body.lr.ph ], [ %list.0.be, %while.cond.backedge ]
+  %list.053 = phi ptr [ %0, %while.body.lr.ph ], [ %list.0.be, %while.cond.backedge ]
   %2 = load ptr, ptr %progress, align 8
   %3 = load i64, ptr %progress_cnt, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %progress_cnt, align 8
   call void @display_progress(ptr noundef %2, i64 noundef %inc) #22
-  %4 = load ptr, ptr %list.057, align 8
+  %4 = load ptr, ptr %list.053, align 8
   %parents = getelementptr inbounds i8, ptr %4, i64 48
-  %parent.046 = load ptr, ptr %parents, align 8
-  %tobool47.not = icmp eq ptr %parent.046, null
-  br i1 %tobool47.not, label %while.cond.backedge, label %for.body
+  %parent.045 = load ptr, ptr %parents, align 8
+  %tobool46.not = icmp eq ptr %parent.045, null
+  br i1 %tobool46.not, label %while.cond.backedge, label %for.body
 
 for.body:                                         ; preds = %while.body, %for.body
-  %parent.049 = phi ptr [ %parent.0, %for.body ], [ %parent.046, %while.body ]
-  %num_parents.048 = phi i32 [ %inc6, %for.body ], [ 0, %while.body ]
-  %inc6 = add nuw nsw i32 %num_parents.048, 1
-  %next = getelementptr inbounds i8, ptr %parent.049, i64 8
+  %parent.048 = phi ptr [ %parent.0, %for.body ], [ %parent.045, %while.body ]
+  %num_parents.047 = phi i32 [ %inc6, %for.body ], [ 0, %while.body ]
+  %inc6 = add nuw nsw i32 %num_parents.047, 1
+  %next = getelementptr inbounds i8, ptr %parent.048, i64 8
   %parent.0 = load ptr, ptr %next, align 8
-  %cmp5 = icmp ult i32 %num_parents.048, 2
+  %cmp5 = icmp ult i32 %num_parents.047, 2
   %tobool = icmp ne ptr %parent.0, null
   %5 = select i1 %cmp5, i1 %tobool, i1 false
   br i1 %5, label %for.body, label %for.end, !llvm.loop !71
@@ -8873,19 +8873,19 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp5, label %while.cond.backedge, label %if.end
 
 while.cond.backedge:                              ; preds = %if.else38, %if.end, %for.end, %while.body
-  %list.0.be = getelementptr inbounds i8, ptr %list.057, i64 8
+  %list.0.be = getelementptr inbounds i8, ptr %list.053, i64 8
   %cmp = icmp ult ptr %list.0.be, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !72
 
 if.end:                                           ; preds = %for.end
-  %next9 = getelementptr inbounds i8, ptr %parent.046, i64 8
-  %parent.150 = load ptr, ptr %next9, align 8
-  %tobool11.not51 = icmp eq ptr %parent.150, null
-  br i1 %tobool11.not51, label %while.cond.backedge, label %for.body12
+  %next9 = getelementptr inbounds i8, ptr %parent.045, i64 8
+  %parent.149 = load ptr, ptr %next9, align 8
+  %tobool11.not50 = icmp eq ptr %parent.149, null
+  br i1 %tobool11.not50, label %while.cond.backedge, label %for.body12
 
 for.body12:                                       ; preds = %if.end, %if.else38
-  %parent.153 = phi ptr [ %parent.1, %if.else38 ], [ %parent.150, %if.end ]
-  %6 = load ptr, ptr %parent.153, align 8
+  %parent.151 = phi ptr [ %parent.1, %if.else38 ], [ %parent.149, %if.end ]
+  %6 = load ptr, ptr %parent.151, align 8
   %oid = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load ptr, ptr %commits, align 8
   %8 = load i64, ptr %nr, align 8
@@ -8901,11 +8901,11 @@ if.then18:                                        ; preds = %for.body12
 if.else:                                          ; preds = %for.body12
   %10 = load ptr, ptr %new_base_graph, align 8
   %tobool19.not = icmp eq ptr %10, null
-  %.pre61 = load ptr, ptr %parent.153, align 8
+  %.pre57 = load ptr, ptr %parent.151, align 8
   br i1 %tobool19.not, label %if.then30, label %if.then20
 
 if.then20:                                        ; preds = %if.else
-  %11 = getelementptr i8, ptr %.pre61, i64 64
+  %11 = getelementptr i8, ptr %.pre57, i64 64
   %c.val.i.i = load i32, ptr %11, align 8
   %div.i.i.i.i = udiv i32 %c.val.i.i, 32766
   %rem.i.i.i.i = urem i32 %c.val.i.i, 32766
@@ -8929,7 +8929,7 @@ commit_graph_position.exit.i:                     ; preds = %if.end12.i.i.i.i
   br i1 %cmp.not.i, label %if.else.i, label %if.end28
 
 if.else.i:                                        ; preds = %commit_graph_position.exit.i, %if.end12.i.i.i.i, %if.then20
-  %oid.i = getelementptr inbounds i8, ptr %.pre61, i64 4
+  %oid.i = getelementptr inbounds i8, ptr %.pre57, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i)
   br label %land.rhs.i.i
 
@@ -8970,21 +8970,21 @@ if.end28:                                         ; preds = %commit_graph_positi
   br i1 %cmp29, label %if.end28.if.then30_crit_edge, label %if.else38
 
 if.end28.if.then30_crit_edge:                     ; preds = %if.end28
-  %.pre = load ptr, ptr %parent.153, align 8
+  %.pre = load ptr, ptr %parent.151, align 8
   br label %if.then30
 
 if.then30:                                        ; preds = %if.else, %if.end28.if.then30_crit_edge
-  %23 = phi ptr [ %.pre, %if.end28.if.then30_crit_edge ], [ %.pre61, %if.else ]
+  %23 = phi ptr [ %.pre, %if.end28.if.then30_crit_edge ], [ %.pre57, %if.else ]
   %oid33 = getelementptr inbounds i8, ptr %23, i64 4
   %call34 = call ptr @oid_to_hex(ptr noundef nonnull %oid33) #22
-  %24 = load ptr, ptr %list.057, align 8
+  %24 = load ptr, ptr %list.053, align 8
   %oid36 = getelementptr inbounds i8, ptr %24, i64 4
   %call37 = call ptr @oid_to_hex(ptr noundef nonnull %oid36) #22
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.45, i32 noundef 1387, ptr noundef nonnull @.str.96, ptr noundef %call34, ptr noundef %call37) #23
   unreachable
 
 if.else38:                                        ; preds = %if.end28
-  %next39 = getelementptr inbounds i8, ptr %parent.153, i64 8
+  %next39 = getelementptr inbounds i8, ptr %parent.151, i64 8
   %25 = load ptr, ptr %next39, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i)
   %tobool40.not = icmp eq ptr %25, null

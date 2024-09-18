@@ -59350,15 +59350,15 @@ common.resume:                                    ; preds = %33, %.body
   br label %79
 
 79:                                               ; preds = %.backedge.i, %.lr.ph.i
-  %.sroa.0.047.i = phi ptr [ %70, %.lr.ph.i ], [ %80, %.backedge.i ]
-  %.sroa.7.046.i = phi i64 [ 0, %.lr.ph.i ], [ %81, %.backedge.i ]
-  %80 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 104
-  %81 = add nuw nsw i64 %.sroa.7.046.i, 1
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 64
+  %.sroa.0.045.i = phi ptr [ %70, %.lr.ph.i ], [ %80, %.backedge.i ]
+  %.sroa.7.044.i = phi i64 [ 0, %.lr.ph.i ], [ %81, %.backedge.i ]
+  %80 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 104
+  %81 = add nuw nsw i64 %.sroa.7.044.i, 1
+  %82 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 64
   %83 = tail call noundef i16 @_ZN4http6header3map15hash_elem_using17h384882228e7f6cecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %82)
   %84 = and i16 %83, %75
   %85 = zext nneg i16 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 96
+  %86 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 96
   store i16 %83, ptr %86, align 8, !noalias !12987
   br label %.outer38
 
@@ -59394,7 +59394,7 @@ common.resume:                                    ; preds = %33, %.body
   br label %.outer38
 
 103:                                              ; preds = %92
-  %104 = trunc i64 %.sroa.7.046.i to i16
+  %104 = trunc i64 %.sroa.7.044.i to i16
   br label %.outer
 
 .outer:                                           ; preds = %111, %103
@@ -59435,7 +59435,7 @@ _ZN4http6header3map19do_insert_phase_two17h308a8335b041ef36E.exit.i: ; preds = %
   br i1 %117, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hce0980b240edddbfE.exit", label %79
 
 118:                                              ; preds = %89
-  %119 = trunc i64 %.sroa.7.046.i to i16
+  %119 = trunc i64 %.sroa.7.044.i to i16
   store i16 %119, ptr %90, align 2, !noalias !12987
   br label %.backedge.i
 
@@ -59638,15 +59638,15 @@ common.resume:                                    ; preds = %33, %.body
   br label %79
 
 79:                                               ; preds = %.backedge.i, %.lr.ph.i
-  %.sroa.0.047.i = phi ptr [ %70, %.lr.ph.i ], [ %80, %.backedge.i ]
-  %.sroa.7.046.i = phi i64 [ 0, %.lr.ph.i ], [ %81, %.backedge.i ]
-  %80 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 104
-  %81 = add nuw nsw i64 %.sroa.7.046.i, 1
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 64
+  %.sroa.0.045.i = phi ptr [ %70, %.lr.ph.i ], [ %80, %.backedge.i ]
+  %.sroa.7.044.i = phi i64 [ 0, %.lr.ph.i ], [ %81, %.backedge.i ]
+  %80 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 104
+  %81 = add nuw nsw i64 %.sroa.7.044.i, 1
+  %82 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 64
   %83 = tail call fastcc noundef i16 @_ZN4http6header3map15hash_elem_using17h372a69fb613e0163E(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %82)
   %84 = and i16 %83, %75
   %85 = zext nneg i16 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 96
+  %86 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 96
   store i16 %83, ptr %86, align 8, !noalias !13010
   br label %.outer38
 
@@ -59682,7 +59682,7 @@ common.resume:                                    ; preds = %33, %.body
   br label %.outer38
 
 103:                                              ; preds = %92
-  %104 = trunc i64 %.sroa.7.046.i to i16
+  %104 = trunc i64 %.sroa.7.044.i to i16
   br label %.outer
 
 .outer:                                           ; preds = %111, %103
@@ -59723,7 +59723,7 @@ _ZN4http6header3map19do_insert_phase_two17hca1c28cb8379d381E.exit.i: ; preds = %
   br i1 %117, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h13689eaee523f5e8E.exit", label %79
 
 118:                                              ; preds = %89
-  %119 = trunc i64 %.sroa.7.046.i to i16
+  %119 = trunc i64 %.sroa.7.044.i to i16
   store i16 %119, ptr %90, align 2, !noalias !13010
   br label %.backedge.i
 

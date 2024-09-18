@@ -3063,7 +3063,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117print_export_planERKSt3mapIN5vcp
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %7, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.split89.us, label %.split
+  br i1 %11, label %.split86.us, label %.split
 
 .splitthread-pre-split:                           ; preds = %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit
   %.pr = load ptr, ptr %7, align 8
@@ -3071,8 +3071,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_117print_export_planERKSt3mapIN5vcp
 
 .split:                                           ; preds = %1, %.splitthread-pre-split
   %12 = phi ptr [ %.pr, %.splitthread-pre-split ], [ %10, %1 ]
-  %.0.idx87 = phi i64 [ %.0.add, %.splitthread-pre-split ], [ 0, %1 ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZZN12_GLOBAL__N_117print_export_planERKSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS1_16ExportPlanActionESaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEE5ORDER, i64 %.0.idx87
+  %.0.idx84 = phi i64 [ %.0.add, %.splitthread-pre-split ], [ 0, %1 ]
+  %.0.ptr = getelementptr inbounds i8, ptr @_ZZN12_GLOBAL__N_117print_export_planERKSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS1_16ExportPlanActionESaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEE5ORDER, i64 %.0.idx84
   %13 = load i32, ptr %.0.ptr, align 4
   %.not10.i.i.i = icmp eq ptr %12, null
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i
@@ -3122,29 +3122,29 @@ _ZNKSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS0_16ExportPlanActionESaIS5_EESt
 _ZNSt16allocator_traitsISaIPKN5vcpkg16ExportPlanActionEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %29
   %31 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #21
   %.pre = load ptr, ptr %22, align 8
-  %.pre104 = load ptr, ptr %23, align 8
-  %.pre105 = ptrtoint ptr %.pre104 to i64
-  %.pre106 = ptrtoint ptr %.pre to i64
-  %.pre108 = sub i64 %.pre105, %.pre106
+  %.pre101 = load ptr, ptr %23, align 8
+  %.pre102 = ptrtoint ptr %.pre101 to i64
+  %.pre103 = ptrtoint ptr %.pre to i64
+  %.pre105 = sub i64 %.pre102, %.pre103
   br label %32
 
 32:                                               ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg16ExportPlanActionEEE8allocateERS4_m.exit.i.i.i.i, %21
-  %.pre-phi109 = phi i64 [ %.pre108, %_ZNSt16allocator_traitsISaIPKN5vcpkg16ExportPlanActionEEE8allocateERS4_m.exit.i.i.i.i ], [ %28, %21 ]
-  %33 = phi ptr [ %.pre104, %_ZNSt16allocator_traitsISaIPKN5vcpkg16ExportPlanActionEEE8allocateERS4_m.exit.i.i.i.i ], [ %24, %21 ]
+  %.pre-phi106 = phi i64 [ %.pre105, %_ZNSt16allocator_traitsISaIPKN5vcpkg16ExportPlanActionEEE8allocateERS4_m.exit.i.i.i.i ], [ %28, %21 ]
+  %33 = phi ptr [ %.pre101, %_ZNSt16allocator_traitsISaIPKN5vcpkg16ExportPlanActionEEE8allocateERS4_m.exit.i.i.i.i ], [ %24, %21 ]
   %34 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIPKN5vcpkg16ExportPlanActionEEE8allocateERS4_m.exit.i.i.i.i ], [ %25, %21 ]
   %35 = phi ptr [ %31, %_ZNSt16allocator_traitsISaIPKN5vcpkg16ExportPlanActionEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %21 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %33, %34
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EEC2ERKS5_.exit.thread, label %37
 
 _ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EEC2ERKS5_.exit.thread: ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %35, i64 %.pre-phi109
+  %36 = getelementptr inbounds i8, ptr %35, i64 %.pre-phi106
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg16ExportPlanActionESt6vectorIS5_SaIS5_EEEEPFbPKNS2_11BasicActionESD_EEvT_SG_T0_.exit
 
 37:                                               ; preds = %32
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %34, i64 %.pre-phi109, i1 false)
-  %38 = getelementptr inbounds i8, ptr %35, i64 %.pre-phi109
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %34, i64 %.pre-phi106, i1 false)
+  %38 = getelementptr inbounds i8, ptr %35, i64 %.pre-phi106
   %39 = ptrtoint ptr %35 to i64
-  %40 = ashr exact i64 %.pre-phi109, 3
+  %40 = ashr exact i64 %.pre-phi106, 3
   %41 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %40, i1 true)
   %42 = shl nuw nsw i64 %41, 1
   %43 = xor i64 %42, 126
@@ -3152,7 +3152,7 @@ _ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EEC2ERKS5_.exit.thread: ; preds =
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %37
-  %44 = icmp sgt i64 %.pre-phi109, 128
+  %44 = icmp sgt i64 %.pre-phi106, 128
   br i1 %44, label %.lr.ph.i.i, label %64
 
 .lr.ph.i.i:                                       ; preds = %.noexc
@@ -3240,7 +3240,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg16Expor
   br i1 %.not.i12.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg16ExportPlanActionESt6vectorIS5_SaIS5_EEEEPFbPKNS2_11BasicActionESD_EEvT_SG_T0_.exit, label %.lr.ph.i10.i, !llvm.loop !49
 
 64:                                               ; preds = %.noexc
-  %.not19.i19.i = icmp eq i64 %.pre-phi109, 8
+  %.not19.i19.i = icmp eq i64 %.pre-phi106, 8
   br i1 %.not19.i19.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg16ExportPlanActionESt6vectorIS5_SaIS5_EEEEPFbPKNS2_11BasicActionESD_EEvT_SG_T0_.exit, label %.lr.ph.i20.i.preheader
 
 .lr.ph.i20.i.preheader:                           ; preds = %64
@@ -3381,9 +3381,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg16ExportPlanActionESt6vectorI
   unreachable
 
 86:                                               ; preds = %82, %81
-  %.sink127 = phi ptr [ %3, %81 ], [ %4, %82 ]
-  %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sink127) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink127) #22
+  %.sink124 = phi ptr [ %3, %81 ], [ %4, %82 ]
+  %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sink124) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink124) #22
   %88 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext 10)
           to label %.preheader unwind label %.loopexit.split-lp55.loopexit
 
@@ -3437,9 +3437,9 @@ _ZN5vcpkg3msg5printERKNS_15LocalizedStringE.exit: ; preds = %._crit_edge
   br label %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit: ; preds = %.split, %_ZNKSt8_Rb_treeIN5vcpkg14ExportPlanTypeESt4pairIKS1_St6vectorIPKNS0_16ExportPlanActionESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %103, %_ZN5vcpkg3msg5printERKNS_15LocalizedStringE.exit, %_ZNKSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS0_16ExportPlanActionESaIS5_EESt4lessIS1_ESaISt4pairIKS1_S7_EEE4findERSB_.exit
-  %.0.add = add nuw nsw i64 %.0.idx87, 4
+  %.0.add = add nuw nsw i64 %.0.idx84, 4
   %.not = icmp eq i64 %.0.add, 8
-  br i1 %.not, label %.split89.us, label %.splitthread-pre-split, !llvm.loop !50
+  br i1 %.not, label %.split86.us, label %.splitthread-pre-split, !llvm.loop !50
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %.loopexit.split-lp55
   %.pn = phi { ptr, i32 } [ %lpad.phi58, %.loopexit.split-lp55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit49, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit52, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit59, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp65, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
@@ -3447,15 +3447,15 @@ _ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit: ; preds = %.split, %
   br i1 %.not.i.i.i23, label %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit24, label %.loopexit.split-lp.thread
 
 .loopexit.split-lp.thread:                        ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp
-  %.pn112 = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit62, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ]
+  %.pn109 = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit62, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ]
   call void @_ZdlPv(ptr noundef nonnull %35) #25
   br label %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit24
 
 _ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit24: ; preds = %.loopexit.split-lp, %.loopexit.split-lp.thread
-  %.pn113 = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %.pn112, %.loopexit.split-lp.thread ]
-  resume { ptr, i32 } %.pn113
+  %.pn110 = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %.pn109, %.loopexit.split-lp.thread ]
+  resume { ptr, i32 } %.pn110
 
-.split89.us:                                      ; preds = %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit, %1
+.split86.us:                                      ; preds = %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit, %1
   ret void
 }
 

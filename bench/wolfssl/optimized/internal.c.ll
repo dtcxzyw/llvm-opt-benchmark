@@ -15987,7 +15987,7 @@ if.then861:                                       ; preds = %if.end858
   br label %return
 
 sw.epilog881:                                     ; preds = %DoHandShakeMsg.exit.thread536, %DoHandShakeMsg.exit, %if.end858, %if.end828, %if.end792, %if.end578, %if.then638
-  %ret.15 = phi i32 [ 0, %if.end858 ], [ 0, %if.end828 ], [ 0, %if.end792 ], [ %ret.6, %if.then638 ], [ 0, %if.end578 ], [ 0, %DoHandShakeMsg.exit ], [ 0, %DoHandShakeMsg.exit.thread536 ]
+  %ret.15 = phi i32 [ 0, %if.end828 ], [ %ret.6, %if.then638 ], [ 0, %if.end792 ], [ 0, %if.end578 ], [ 0, %if.end858 ], [ 0, %DoHandShakeMsg.exit ], [ 0, %DoHandShakeMsg.exit.thread536 ]
   store i8 0, ptr %processReply, align 8
   %241 = load i32, ptr %idx, align 4
   %242 = load i32, ptr %length, align 16

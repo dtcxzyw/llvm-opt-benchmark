@@ -3455,8 +3455,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cx
   br label %14
 
 14:                                               ; preds = %6, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread
-  %.0.idx55 = phi i64 [ 0, %6 ], [ %.0.add, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread ]
-  %.0.ptr = getelementptr inbounds i8, ptr %9, i64 %.0.idx55
+  %.0.idx53 = phi i64 [ 0, %6 ], [ %.0.add, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread ]
+  %.0.ptr = getelementptr inbounds i8, ptr %9, i64 %.0.idx53
   %.sroa.012.0.copyload = load ptr, ptr %.0.ptr, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0.ptr, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
@@ -3568,7 +3568,7 @@ _ZNK4llvm9StringRef5countEc.exit.thread.i:        ; preds = %46, %_ZNK4llvm9Stri
   br i1 %.not.i34, label %_ZN12_GLOBAL__N_19escapeRSTB5cxx11EN4llvm9StringRefE.exit, label %.lr.ph.i
 
 _ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread: ; preds = %22, %26, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit, %14, %30
-  %.0.add = add nuw nsw i64 %.0.idx55, 16
+  %.0.add = add nuw nsw i64 %.0.idx53, 16
   %.not = icmp eq i64 %.0.add, 32
   br i1 %.not, label %48, label %14
 

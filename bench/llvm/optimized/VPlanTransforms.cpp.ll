@@ -15469,7 +15469,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12VPRecipeBaseELb1EE9push_backES2_.exit: ;
   br i1 %22, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.loopexit
-  %.sroa.037.0.ph66 = phi i8 [ undef, %.lr.ph.lr.ph ], [ %.sroa.037.1, %.loopexit ]
+  %.sroa.037.0.ph65 = phi i8 [ undef, %.lr.ph.lr.ph ], [ %.sroa.037.1, %.loopexit ]
   br label %23
 
 23:                                               ; preds = %.lr.ph, %.backedge
@@ -15511,9 +15511,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12VPRecipeBaseELb1EE9push_backES2_.exit: ;
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %46 = load i32, ptr %45, align 8, !noalias !312
   %47 = icmp ult i32 %38, %46
-  br i1 %47, label %.critedge75, label %_ZN4llvm15SmallPtrSetImplIPNS_12VPRecipeBaseEE6insertES2_.exit
+  br i1 %47, label %.critedge73, label %_ZN4llvm15SmallPtrSetImplIPNS_12VPRecipeBaseEE6insertES2_.exit
 
-.critedge75:                                      ; preds = %._crit_edge.i.i
+.critedge73:                                      ; preds = %._crit_edge.i.i
   %48 = add nuw i32 %38, 1
   store i32 %48, ptr %37, align 4, !noalias !312
   store ptr %28, ptr %40, align 8, !noalias !312
@@ -15529,7 +15529,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12VPRecipeBaseEE6insertES2_.exit: ; preds = %._cri
   %51 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
   br i1 %51, label %.outer._crit_edge, label %23, !llvm.loop !315
 
-52:                                               ; preds = %.critedge75, %_ZN4llvm15SmallPtrSetImplIPNS_12VPRecipeBaseEE6insertES2_.exit
+52:                                               ; preds = %.critedge73, %_ZN4llvm15SmallPtrSetImplIPNS_12VPRecipeBaseEE6insertES2_.exit
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %54 = load i8, ptr %53, align 8
   %.fr = freeze i8 %54
@@ -15618,7 +15618,7 @@ _ZN4llvm17VPlanPatternMatch6detail20MatchRecipeAndOpcodeILj29EJNS_13VPWidenRecip
   %87 = getelementptr inbounds i8, ptr %28, i64 24
   store ptr %76, ptr %5, align 8
   store ptr %79, ptr %20, align 8
-  %88 = and i8 %.sroa.037.0.ph66, -4
+  %88 = and i8 %.sroa.037.0.ph65, -4
   call void @llvm.experimental.noalias.scope.decl(metadata !316)
   %89 = getelementptr inbounds nuw i8, ptr %28, i64 96
   %90 = load ptr, ptr %89, align 8, !noalias !316
@@ -15711,7 +15711,7 @@ switch.lookup:                                    ; preds = %.critedge
   br label %_ZN4llvm19VPRecipeWithIRFlags25dropPoisonGeneratingFlagsEv.exit
 
 _ZN4llvm19VPRecipeWithIRFlags25dropPoisonGeneratingFlagsEv.exit: ; preds = %switch.early.test, %.critedge, %switch.lookup, %_ZN4llvm8DebugLocD2Ev.exit
-  %.sroa.037.1 = phi i8 [ %88, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.sroa.037.0.ph66, %.critedge ], [ %.sroa.037.0.ph66, %switch.lookup ], [ %.sroa.037.0.ph66, %switch.early.test ]
+  %.sroa.037.1 = phi i8 [ %88, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.sroa.037.0.ph65, %.critedge ], [ %.sroa.037.0.ph65, %switch.lookup ], [ %.sroa.037.0.ph65, %switch.early.test ]
   %.053 = phi ptr [ %94, %_ZN4llvm8DebugLocD2Ev.exit ], [ %28, %.critedge ], [ %28, %switch.lookup ], [ %28, %switch.early.test ]
   %120 = getelementptr inbounds i8, ptr %.053, i64 48
   %121 = load ptr, ptr %120, align 8

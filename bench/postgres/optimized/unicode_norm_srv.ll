@@ -227,18 +227,18 @@ get_canonical_class.exit99:                       ; preds = %88
 104:                                              ; preds = %102
   %105 = load i32, ptr %22, align 4
   store i32 %105, ptr %103, align 4
-  br i1 %32, label %.lr.ph155.preheader, label %._crit_edge156
+  br i1 %32, label %.lr.ph154.preheader, label %._crit_edge155
 
-.lr.ph155.preheader:                              ; preds = %104
+.lr.ph154.preheader:                              ; preds = %104
   %wide.trip.count = zext nneg i32 %.066.lcssa to i64
-  br label %.lr.ph155
+  br label %.lr.ph154
 
-.lr.ph155:                                        ; preds = %.lr.ph155.preheader, %208
-  %indvars.iv = phi i64 [ 1, %.lr.ph155.preheader ], [ %indvars.iv.next, %208 ]
-  %.070152 = phi i32 [ -1, %.lr.ph155.preheader ], [ %.171, %208 ]
-  %.072151 = phi i32 [ 0, %.lr.ph155.preheader ], [ %.173, %208 ]
-  %.074150 = phi i32 [ 1, %.lr.ph155.preheader ], [ %.175, %208 ]
-  %.076148 = phi i32 [ %105, %.lr.ph155.preheader ], [ %.177, %208 ]
+.lr.ph154:                                        ; preds = %.lr.ph154.preheader, %208
+  %indvars.iv = phi i64 [ 1, %.lr.ph154.preheader ], [ %indvars.iv.next, %208 ]
+  %.070151 = phi i32 [ -1, %.lr.ph154.preheader ], [ %.171, %208 ]
+  %.072150 = phi i32 [ 0, %.lr.ph154.preheader ], [ %.173, %208 ]
+  %.074149 = phi i32 [ 1, %.lr.ph154.preheader ], [ %.175, %208 ]
+  %.076147 = phi i32 [ %105, %.lr.ph154.preheader ], [ %.177, %208 ]
   %106 = getelementptr i32, ptr %22, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -246,11 +246,11 @@ get_canonical_class.exit99:                       ; preds = %88
   store i32 %108, ptr %4, align 4
   br label %109
 
-109:                                              ; preds = %109, %.lr.ph155
-  %.014.i.i.i100 = phi ptr [ %4, %.lr.ph155 ], [ %111, %109 ]
-  %.0813.i.i.i101 = phi i32 [ 1, %.lr.ph155 ], [ %117, %109 ]
-  %.0912.i.i.i102 = phi i32 [ 0, %.lr.ph155 ], [ %115, %109 ]
-  %.01011.i.i.i103 = phi i64 [ 4, %.lr.ph155 ], [ %110, %109 ]
+109:                                              ; preds = %109, %.lr.ph154
+  %.014.i.i.i100 = phi ptr [ %4, %.lr.ph154 ], [ %111, %109 ]
+  %.0813.i.i.i101 = phi i32 [ 1, %.lr.ph154 ], [ %117, %109 ]
+  %.0912.i.i.i102 = phi i32 [ 0, %.lr.ph154 ], [ %115, %109 ]
+  %.01011.i.i.i103 = phi i64 [ 4, %.lr.ph154 ], [ %110, %109 ]
   %110 = add nsw i64 %.01011.i.i.i103, -1
   %111 = getelementptr i8, ptr %.014.i.i.i100, i64 1
   %112 = load i8, ptr %.014.i.i.i100, align 1
@@ -297,12 +297,12 @@ get_code_entry.exit.i110:                         ; preds = %129
 get_canonical_class.exit111:                      ; preds = %get_code_entry.exit.thread.i108, %get_code_entry.exit.i110
   %.0.i109 = phi i8 [ %134, %get_code_entry.exit.i110 ], [ 0, %get_code_entry.exit.thread.i108 ]
   %135 = zext i8 %.0.i109 to i32
-  %136 = icmp slt i32 %.070152, %135
+  %136 = icmp slt i32 %.070151, %135
   br i1 %136, label %137, label %203
 
 137:                                              ; preds = %get_canonical_class.exit111
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %138 = add i32 %.076148, -4352
+  %138 = add i32 %.076147, -4352
   %or.cond.i = icmp ult i32 %138, 19
   %139 = add i32 %107, -4449
   %140 = icmp ult i32 %139, 21
@@ -310,14 +310,14 @@ get_canonical_class.exit111:                      ; preds = %get_code_entry.exit
   br i1 %or.cond5.i, label %141, label %146
 
 141:                                              ; preds = %137
-  %142 = mul nuw nsw i32 %.076148, 21
+  %142 = mul nuw nsw i32 %.076147, 21
   %143 = add nuw nsw i32 %107, %142
   %144 = mul nuw nsw i32 %143, 28
   %145 = add nsw i32 %144, -2639516
   br label %200
 
 146:                                              ; preds = %137
-  %147 = add i32 %.076148, -44032
+  %147 = add i32 %.076147, -44032
   %or.cond7.i = icmp ult i32 %147, 11172
   br i1 %or.cond7.i, label %148, label %155
 
@@ -331,11 +331,11 @@ get_canonical_class.exit111:                      ; preds = %get_code_entry.exit
   br i1 %or.cond11.i, label %153, label %155
 
 153:                                              ; preds = %148
-  %154 = add nuw nsw i32 %151, %.076148
+  %154 = add nuw nsw i32 %151, %.076147
   br label %200
 
 155:                                              ; preds = %148, %146
-  %156 = zext i32 %.076148 to i64
+  %156 = zext i32 %.076147 to i64
   %157 = shl nuw i64 %156, 32
   %158 = zext i32 %107 to i64
   %159 = or disjoint i64 %157, %158
@@ -385,7 +385,7 @@ Recomp_hash_func.exit.i:                          ; preds = %161
   %189 = zext i16 %188 to i64
   %190 = getelementptr [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %189
   %191 = load i32, ptr %190, align 4
-  %192 = icmp eq i32 %.076148, %191
+  %192 = icmp eq i32 %.076147, %191
   br i1 %192, label %193, label %recompose_code.exit
 
 193:                                              ; preds = %181
@@ -406,43 +406,43 @@ recompose_code.exit:                              ; preds = %Recomp_hash_func.ex
 200:                                              ; preds = %198, %153, %141
   %.3.ph = phi i32 [ %145, %141 ], [ %154, %153 ], [ %199, %198 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %201 = sext i32 %.072151 to i64
+  %201 = sext i32 %.072150 to i64
   %202 = getelementptr i32, ptr %103, i64 %201
   store i32 %.3.ph, ptr %202, align 4
   br label %208
 
 203:                                              ; preds = %recompose_code.exit, %get_canonical_class.exit111
   %204 = icmp eq i8 %.0.i109, 0
-  %205 = add i32 %.074150, 1
-  %206 = sext i32 %.074150 to i64
+  %205 = add i32 %.074149, 1
+  %206 = sext i32 %.074149 to i64
   %207 = getelementptr i32, ptr %103, i64 %206
   store i32 %107, ptr %207, align 4
-  %..076148 = select i1 %204, i32 %107, i32 %.076148
-  %.074150..072151 = select i1 %204, i32 %.074150, i32 %.072151
+  %..076147 = select i1 %204, i32 %107, i32 %.076147
+  %.074149..072150 = select i1 %204, i32 %.074149, i32 %.072150
   %. = select i1 %204, i32 -1, i32 %135
   br label %208
 
 208:                                              ; preds = %203, %200
-  %.177 = phi i32 [ %.3.ph, %200 ], [ %..076148, %203 ]
-  %.175 = phi i32 [ %.074150, %200 ], [ %205, %203 ]
-  %.173 = phi i32 [ %.072151, %200 ], [ %.074150..072151, %203 ]
-  %.171 = phi i32 [ %.070152, %200 ], [ %., %203 ]
+  %.177 = phi i32 [ %.3.ph, %200 ], [ %..076147, %203 ]
+  %.175 = phi i32 [ %.074149, %200 ], [ %205, %203 ]
+  %.173 = phi i32 [ %.072150, %200 ], [ %.074149..072150, %203 ]
+  %.171 = phi i32 [ %.070151, %200 ], [ %., %203 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge156.loopexit, label %.lr.ph155, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge155.loopexit, label %.lr.ph154, !llvm.loop !11
 
-._crit_edge156.loopexit:                          ; preds = %208
+._crit_edge155.loopexit:                          ; preds = %208
   %209 = sext i32 %.175 to i64
-  br label %._crit_edge156
+  br label %._crit_edge155
 
-._crit_edge156:                                   ; preds = %._crit_edge156.loopexit, %104
-  %.074.lcssa = phi i64 [ 1, %104 ], [ %209, %._crit_edge156.loopexit ]
+._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %104
+  %.074.lcssa = phi i64 [ 1, %104 ], [ %209, %._crit_edge155.loopexit ]
   %210 = getelementptr i32, ptr %103, i64 %.074.lcssa
   store i32 0, ptr %210, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %102, %._crit_edge156
-  %.0.ph = phi ptr [ %103, %._crit_edge156 ], [ null, %102 ]
+.sink.split:                                      ; preds = %102, %._crit_edge155
+  %.0.ph = phi ptr [ %103, %._crit_edge155 ], [ null, %102 ]
   tail call void @pfree(ptr noundef nonnull %22) #7
   br label %211
 

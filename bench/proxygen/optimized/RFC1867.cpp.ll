@@ -232,8 +232,8 @@ init.end:                                         ; preds = %invoke.cont, %init.
 while.cond.preheader:                             ; preds = %init.end
   %head_.i = getelementptr inbounds i8, ptr %this, i64 536
   %3 = load ptr, ptr %head_.i, align 8
-  %cmp.i.not.i554 = icmp eq ptr %3, null
-  br i1 %cmp.i.not.i554, label %while.end309, label %lor.rhs.i.lr.ph
+  %cmp.i.not.i538 = icmp eq ptr %3, null
+  br i1 %cmp.i.not.i538, label %while.end309, label %lor.rhs.i.lr.ph
 
 lor.rhs.i.lr.ph:                                  ; preds = %while.cond.preheader
   %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 552
@@ -828,11 +828,11 @@ if.then.i.i.i92:                                  ; preds = %if.then79
   %add.i.i.i.i98 = add i64 %sub.ptr.sub.i.i.i97, %82
   store i64 %add.i.i.i.i98, ptr %81, align 8, !noalias !23
   %.pre.i99 = load ptr, ptr %cachePtr_.i, align 8, !noalias !20
-  %.pre631 = load i64, ptr %head_.i, align 8, !noalias !20
+  %.pre595 = load i64, ptr %head_.i, align 8, !noalias !20
   br label %_ZN5folly10IOBufQueue4moveEv.exit103
 
 _ZN5folly10IOBufQueue4moveEv.exit103:             ; preds = %if.then79, %if.then.i.i.i92
-  %83 = phi i64 [ %80, %if.then79 ], [ %.pre631, %if.then.i.i.i92 ]
+  %83 = phi i64 [ %80, %if.then79 ], [ %.pre595, %if.then.i.i.i92 ]
   %84 = phi ptr [ %78, %if.then79 ], [ %.pre.i99, %if.then.i.i.i92 ]
   store i64 %83, ptr %agg.result, align 8, !alias.scope !20
   %reusableTail_5.i.i.i.i.i102 = getelementptr inbounds i8, ptr %this, i64 584
@@ -888,8 +888,8 @@ cleanup.done:                                     ; preds = %invoke.cont93
 
 sw.bb113:                                         ; preds = %while.body.sw.bb113_crit_edge, %cleanup.done
   %88 = phi i8 [ %.pre, %while.body.sw.bb113_crit_edge ], [ %86, %cleanup.done ]
-  %tobool116553 = trunc i8 %88 to i1
-  br i1 %tobool116553, label %while.end, label %land.lhs.true
+  %tobool116537 = trunc i8 %88 to i1
+  br i1 %tobool116537, label %while.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb113, %invoke.cont131
   %89 = load ptr, ptr %tailStart_.i, align 8
@@ -926,7 +926,7 @@ invoke.cont118:                                   ; preds = %if.then.i.i107, %la
   br i1 %or.cond, label %while.body123, label %invoke.cont118.while.end.loopexit_crit_edge
 
 invoke.cont118.while.end.loopexit_crit_edge:      ; preds = %invoke.cont118
-  %.pre630.pre = load i8, ptr %parseError_, align 8
+  %.pre594.pre = load i8, ptr %parseError_, align 8
   br label %while.end
 
 while.body123:                                    ; preds = %invoke.cont118
@@ -950,11 +950,11 @@ if.then.i.i122:                                   ; preds = %while.body123
   %105 = load ptr, ptr %tailStart_.i, align 8
   %add.ptr22.i.i131 = getelementptr inbounds i8, ptr %105, i64 %sub.ptr.sub.i.i127
   store ptr %add.ptr22.i.i131, ptr %tailStart_.i, align 8
-  %.pre629 = load ptr, ptr %head_.i, align 8
+  %.pre593 = load ptr, ptr %head_.i, align 8
   br label %invoke.cont126
 
 invoke.cont126:                                   ; preds = %if.then.i.i122, %while.body123
-  %106 = phi ptr [ %.pre629, %if.then.i.i122 ], [ %98, %while.body123 ]
+  %106 = phi ptr [ %.pre593, %if.then.i.i122 ], [ %98, %while.body123 ]
   %call129 = invoke noundef i64 @_ZN8proxygen11HTTP1xCodec9onIngressERKN5folly5IOBufE(ptr noundef nonnull align 8 dereferenceable(428) %headerParser_, ptr noundef nonnull align 8 dereferenceable(56) %106)
           to label %invoke.cont128 unwind label %lpad4.loopexit
 
@@ -971,7 +971,7 @@ invoke.cont131:                                   ; preds = %invoke.cont128
   br i1 %tobool116, label %while.end, label %land.lhs.true, !llvm.loop !27
 
 while.end:                                        ; preds = %invoke.cont131, %invoke.cont118.while.end.loopexit_crit_edge, %sw.bb113
-  %109 = phi i8 [ %88, %sw.bb113 ], [ %.pre630.pre, %invoke.cont118.while.end.loopexit_crit_edge ], [ %108, %invoke.cont131 ]
+  %109 = phi i8 [ %88, %sw.bb113 ], [ %.pre594.pre, %invoke.cont118.while.end.loopexit_crit_edge ], [ %108, %invoke.cont131 ]
   %tobool135 = trunc i8 %109 to i1
   br i1 %tobool135, label %if.then136, label %sw.epilog
 

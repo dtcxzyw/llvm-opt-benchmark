@@ -15945,13 +15945,13 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %127, %.body, %121, %119
-  %.pn.pn = phi { ptr, i32 } [ %120, %119 ], [ %122, %121 ], [ %.pn, %.body ], [ %.pn, %127 ]
+  %.pn.pn = phi { ptr, i32 } [ %122, %121 ], [ %120, %119 ], [ %.pn, %.body ], [ %.pn, %127 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn, 1
   %.024 = extractvalue { ptr, i32 } %.pn.pn, 0
   %128 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #19
   %129 = icmp eq i32 %.023, %128
   %130 = call ptr @__cxa_begin_catch(ptr %.024) #19
-  br i1 %129, label %131, label %.invoke61
+  br i1 %129, label %131, label %.invoke58
 
 131:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit40
   %132 = load ptr, ptr %130, align 8
@@ -15959,13 +15959,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %127, %.body, %121, 
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef ptr %134(ptr noundef nonnull align 8 dereferenceable(8) %130) #19
   invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %135)
-          to label %.invoke61 unwind label %.loopexit
+          to label %.invoke58 unwind label %.loopexit
 
-.invoke61:                                        ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit40, %131
+.invoke58:                                        ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit40, %131
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %.invoke unwind label %.loopexit
 
-.invoke:                                          ; preds = %.invoke61
+.invoke:                                          ; preds = %.invoke58
   invoke void @__cxa_end_catch()
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %.loopexit
 
@@ -15989,7 +15989,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.invoke, %118, %117
 _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit:        ; preds = %139, %._crit_edge, %8
   ret void
 
-.loopexit:                                        ; preds = %.invoke61, %.invoke, %131
+.loopexit:                                        ; preds = %.invoke58, %.invoke, %131
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %140

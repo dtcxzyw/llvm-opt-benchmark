@@ -28225,10 +28225,10 @@ if.then.i423:                                     ; preds = %land.end.i393
   br label %if.end.i400
 
 if.end.i400:                                      ; preds = %if.then.i423, %land.end.i393
-  %p.sroa.2.0.copyload.i125206.i = phi float [ %conv5.i9.i.i, %if.then.i423 ], [ %p.sroa.2.0.copyload.i.i397, %land.end.i393 ]
-  %p.sroa.0.0.copyload.i123203.i = phi float [ %conv5.i.i.i, %if.then.i423 ], [ %p.sroa.0.0.copyload.i.i395, %land.end.i393 ]
-  %cmp.i112.i = fcmp oge float %p.sroa.0.0.copyload.i123203.i, -2.560000e+05
-  %cmp1.i113.i = fcmp oge float %p.sroa.2.0.copyload.i125206.i, -2.560000e+05
+  %p.sroa.2.0.copyload.i125205.i = phi float [ %conv5.i9.i.i, %if.then.i423 ], [ %p.sroa.2.0.copyload.i.i397, %land.end.i393 ]
+  %p.sroa.0.0.copyload.i123202.i = phi float [ %conv5.i.i.i, %if.then.i423 ], [ %p.sroa.0.0.copyload.i.i395, %land.end.i393 ]
+  %cmp.i112.i = fcmp oge float %p.sroa.0.0.copyload.i123202.i, -2.560000e+05
+  %cmp1.i113.i = fcmp oge float %p.sroa.2.0.copyload.i125205.i, -2.560000e+05
   %924 = select i1 %cmp.i112.i, i1 %cmp1.i113.i, i1 false
   br i1 %924, label %land.lhs.true.i421, label %if.else.i401
 
@@ -28243,8 +28243,8 @@ land.lhs.true.i421:                               ; preds = %if.end.i400
   br i1 %925, label %if.then8.i, label %if.else.i401
 
 if.then8.i:                                       ; preds = %land.lhs.true.i421
-  %sub.i.i422 = fsub float %p.sroa.0.0.copyload.i123203.i, %p.sroa.0.0.copyload.i115.i
-  %sub3.i.i = fsub float %p.sroa.2.0.copyload.i125206.i, %p.sroa.2.0.copyload.i117.i
+  %sub.i.i422 = fsub float %p.sroa.0.0.copyload.i123202.i, %p.sroa.0.0.copyload.i115.i
+  %sub3.i.i = fsub float %p.sroa.2.0.copyload.i125205.i, %p.sroa.2.0.copyload.i117.i
   %retval.sroa.0.0.vec.insert.i120.i = insertelement <2 x float> poison, float %sub.i.i422, i64 0
   %retval.sroa.0.4.vec.insert.i121.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i120.i, float %sub3.i.i, i64 1
   %MouseDelta.i = getelementptr inbounds i8, ptr %858, i64 232
@@ -28312,10 +28312,10 @@ if.end28.i:                                       ; preds = %if.then27.i, %cond.
   br label %for.body.i410
 
 for.body.i410:                                    ; preds = %for.inc.i413, %if.end28.i
-  %p.sroa.2.0.copyload.i125.i = phi float [ %p.sroa.2.0.copyload.i125206.i, %if.end28.i ], [ %p.sroa.2.0.copyload.i125205.i, %for.inc.i413 ]
-  %p.sroa.0.0.copyload.i123.i = phi float [ %p.sroa.0.0.copyload.i123203.i, %if.end28.i ], [ %p.sroa.0.0.copyload.i123202.i, %for.inc.i413 ]
-  %p.sroa.2.0.copyload.i137.i = phi float [ %p.sroa.2.0.copyload.i125206.i, %if.end28.i ], [ %p.sroa.2.0.copyload.i137199.i, %for.inc.i413 ]
-  %p.sroa.0.0.copyload.i135.i = phi float [ %p.sroa.0.0.copyload.i123203.i, %if.end28.i ], [ %p.sroa.0.0.copyload.i135196.i, %for.inc.i413 ]
+  %p.sroa.2.0.copyload.i125.i = phi float [ %p.sroa.2.0.copyload.i125205.i, %if.end28.i ], [ %p.sroa.2.0.copyload.i125204.i, %for.inc.i413 ]
+  %p.sroa.0.0.copyload.i123.i = phi float [ %p.sroa.0.0.copyload.i123202.i, %if.end28.i ], [ %p.sroa.0.0.copyload.i123201.i, %for.inc.i413 ]
+  %p.sroa.2.0.copyload.i137.i = phi float [ %p.sroa.2.0.copyload.i125205.i, %if.end28.i ], [ %p.sroa.2.0.copyload.i137198.i, %for.inc.i413 ]
+  %p.sroa.0.0.copyload.i135.i = phi float [ %p.sroa.0.0.copyload.i123202.i, %if.end28.i ], [ %p.sroa.0.0.copyload.i135195.i, %for.inc.i413 ]
   %indvars.iv.i411 = phi i64 [ 0, %if.end28.i ], [ %indvars.iv.next.i414, %for.inc.i413 ]
   %arrayidx.i412 = getelementptr inbounds [5 x i8], ptr %MouseDown.i409, i64 0, i64 %indvars.iv.i411
   %931 = load i8, ptr %arrayidx.i412, align 1
@@ -28459,10 +28459,10 @@ cond.end150.i:                                    ; preds = %cond.true141.i, %if
   br label %if.end160.i
 
 if.end160.i:                                      ; preds = %cond.end150.i, %if.else133.i, %if.end116.i
-  %p.sroa.2.0.copyload.i125205.i = phi float [ %952, %if.end116.i ], [ %p.sroa.2.0.copyload.i125.i, %cond.end150.i ], [ %p.sroa.2.0.copyload.i125.i, %if.else133.i ]
-  %p.sroa.0.0.copyload.i123202.i = phi float [ %949, %if.end116.i ], [ %p.sroa.0.0.copyload.i123.i, %cond.end150.i ], [ %p.sroa.0.0.copyload.i123.i, %if.else133.i ]
-  %p.sroa.2.0.copyload.i137199.i = phi float [ %952, %if.end116.i ], [ %p.sroa.2.0.copyload.i137.i, %cond.end150.i ], [ %p.sroa.2.0.copyload.i137.i, %if.else133.i ]
-  %p.sroa.0.0.copyload.i135196.i = phi float [ %949, %if.end116.i ], [ %p.sroa.0.0.copyload.i135.i, %cond.end150.i ], [ %p.sroa.0.0.copyload.i135.i, %if.else133.i ]
+  %p.sroa.2.0.copyload.i125204.i = phi float [ %952, %if.end116.i ], [ %p.sroa.2.0.copyload.i125.i, %cond.end150.i ], [ %p.sroa.2.0.copyload.i125.i, %if.else133.i ]
+  %p.sroa.0.0.copyload.i123201.i = phi float [ %949, %if.end116.i ], [ %p.sroa.0.0.copyload.i123.i, %cond.end150.i ], [ %p.sroa.0.0.copyload.i123.i, %if.else133.i ]
+  %p.sroa.2.0.copyload.i137198.i = phi float [ %952, %if.end116.i ], [ %p.sroa.2.0.copyload.i137.i, %cond.end150.i ], [ %p.sroa.2.0.copyload.i137.i, %if.else133.i ]
+  %p.sroa.0.0.copyload.i135195.i = phi float [ %949, %if.end116.i ], [ %p.sroa.0.0.copyload.i135.i, %cond.end150.i ], [ %p.sroa.0.0.copyload.i135.i, %if.else133.i ]
   %arrayidx40155166182.i = phi ptr [ %arrayidx40152.i, %if.end116.i ], [ %arrayidx40152.i, %cond.end150.i ], [ %arrayidx40.i, %if.else133.i ]
   %arrayidx37154168180.i = phi ptr [ %arrayidx37150.i, %if.end116.i ], [ %arrayidx37150.i, %cond.end150.i ], [ %arrayidx37.i, %if.else133.i ]
   %960 = load i16, ptr %arrayidx40155166182.i, align 2
@@ -33399,8 +33399,8 @@ for.body.lr.ph.i637:                              ; preds = %if.end28.i
 
 for.body.i641:                                    ; preds = %for.inc.i, %for.body.lr.ph.i637
   %indvars.iv.i642 = phi i64 [ 0, %for.body.lr.ph.i637 ], [ %indvars.iv.next.i659, %for.inc.i ]
-  %ret_auto_fit_mask.0571.i = phi i32 [ 0, %for.body.lr.ph.i637 ], [ %ret_auto_fit_mask.1.i, %for.inc.i ]
-  %pos_target.sroa.0.0569.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %for.body.lr.ph.i637 ], [ %pos_target.sroa.0.1.i, %for.inc.i ]
+  %ret_auto_fit_mask.0570.i = phi i32 [ 0, %for.body.lr.ph.i637 ], [ %ret_auto_fit_mask.1.i, %for.inc.i ]
+  %pos_target.sroa.0.0568.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %for.body.lr.ph.i637 ], [ %pos_target.sroa.0.1.i, %for.inc.i ]
   %call5.i565567.i = phi <2 x float> [ %size_target.promoted.i, %for.body.lr.ph.i637 ], [ %call5.i564.i, %for.inc.i ]
   %arrayidx.i643 = getelementptr inbounds [4 x %struct.ImGuiResizeGripDef], ptr @_ZL15resize_grip_def, i64 0, i64 %indvars.iv.i642
   %Pos.val.i644 = load float, ptr %Pos656, align 4
@@ -33506,9 +33506,9 @@ _ZN11ImGuiWindow5GetIDEi.exit.i:                  ; preds = %if.then.i.i689, %_Z
   br i1 %tobool65.i, label %if.end72.i, label %lor.lhs.false66.i
 
 lor.lhs.false66.i:                                ; preds = %_ZN11ImGuiWindow5GetIDEi.exit.i
-  br i1 %.pre.i658, label %if.end72.thread600.i, label %if.end138.i
+  br i1 %.pre.i658, label %if.end72.thread598.i, label %if.end138.i
 
-if.end72.thread600.i:                             ; preds = %lor.lhs.false66.i
+if.end72.thread598.i:                             ; preds = %lor.lhs.false66.i
   %384 = sub i32 6, %371
   store i32 %384, ptr %MouseCursor.i, align 8
   br label %land.lhs.true.i678
@@ -33518,7 +33518,7 @@ if.end72.i:                                       ; preds = %_ZN11ImGuiWindow5Ge
   store i32 %385, ptr %MouseCursor.i, align 8
   br i1 %.pre.i658, label %land.lhs.true.i678, label %if.end138.i
 
-land.lhs.true.i678:                               ; preds = %if.end72.i, %if.end72.thread600.i
+land.lhs.true.i678:                               ; preds = %if.end72.i, %if.end72.thread598.i
   %386 = load i8, ptr %MouseDoubleClicked.i, align 1
   %tobool76.i = trunc i8 %386 to i1
   br i1 %tobool76.i, label %if.then77.i, label %if.then81.i
@@ -33599,50 +33599,50 @@ if.then11.i.i:                                    ; preds = %if.then81.i
 
 if.end138.i:                                      ; preds = %if.then11.i.i, %if.then81.i, %if.then77.i, %if.end72.i, %lor.lhs.false66.i
   %call5.i564.i = phi <2 x float> [ %call79.i, %if.then77.i ], [ %call5.i565567.i, %if.end72.i ], [ %call5.i.i, %if.then81.i ], [ %call5.i.i, %if.then11.i.i ], [ %call5.i565567.i, %lor.lhs.false66.i ]
-  %pos_target.sroa.0.1.i = phi <2 x float> [ %pos_target.sroa.0.0569.i, %if.then77.i ], [ %pos_target.sroa.0.0569.i, %if.end72.i ], [ %pos_target.sroa.0.5.i, %if.then81.i ], [ %pos_target.sroa.0.4.vec.insert544.i, %if.then11.i.i ], [ %pos_target.sroa.0.0569.i, %lor.lhs.false66.i ]
-  %ret_auto_fit_mask.1.i = phi i32 [ 3, %if.then77.i ], [ %ret_auto_fit_mask.0571.i, %if.end72.i ], [ %ret_auto_fit_mask.0571.i, %if.then81.i ], [ %ret_auto_fit_mask.0571.i, %if.then11.i.i ], [ %ret_auto_fit_mask.0571.i, %lor.lhs.false66.i ]
+  %pos_target.sroa.0.1.i = phi <2 x float> [ %pos_target.sroa.0.0568.i, %if.then77.i ], [ %pos_target.sroa.0.0568.i, %if.end72.i ], [ %pos_target.sroa.0.5.i, %if.then81.i ], [ %pos_target.sroa.0.4.vec.insert544.i, %if.then11.i.i ], [ %pos_target.sroa.0.0568.i, %lor.lhs.false66.i ]
+  %ret_auto_fit_mask.1.i = phi i32 [ 3, %if.then77.i ], [ %ret_auto_fit_mask.0570.i, %if.end72.i ], [ %ret_auto_fit_mask.0570.i, %if.then81.i ], [ %ret_auto_fit_mask.0570.i, %if.then11.i.i ], [ %ret_auto_fit_mask.0570.i, %lor.lhs.false66.i ]
   %cmp139.i = icmp eq i64 %indvars.iv.i642, 0
-  %.pre587.i = load i8, ptr %held.i, align 1
-  %.pre587.fr.i = freeze i8 %.pre587.i
+  %.pre585.i = load i8, ptr %held.i, align 1
+  %.pre585.fr.i = freeze i8 %.pre585.i
   br i1 %cmp139.i, label %if.then144.i, label %lor.lhs.false140.i
 
 lor.lhs.false140.i:                               ; preds = %if.end138.i
-  %tobool141.i = trunc i8 %.pre587.fr.i to i1
+  %tobool141.i = trunc i8 %.pre585.fr.i to i1
   br i1 %tobool141.i, label %if.then144.thread.i, label %lor.lhs.false142.i
 
 if.then144.thread.i:                              ; preds = %lor.lhs.false140.i
   %394 = load ptr, ptr @GImGui, align 8
-  %Style.i604.i = getelementptr inbounds i8, ptr %394, i64 14576
-  %Colors.i605.i = getelementptr inbounds i8, ptr %394, i64 14804
+  %Style.i602.i = getelementptr inbounds i8, ptr %394, i64 14576
+  %Colors.i603.i = getelementptr inbounds i8, ptr %394, i64 14804
   br label %398
 
 lor.lhs.false142.i:                               ; preds = %lor.lhs.false140.i
-  %.pre589.i = load i8, ptr %hovered.i, align 1
-  %tobool143.i = trunc i8 %.pre589.i to i1
-  br i1 %tobool143.i, label %if.then144.thread611.i, label %for.inc.i
+  %.pre587.i = load i8, ptr %hovered.i, align 1
+  %tobool143.i = trunc i8 %.pre587.i to i1
+  br i1 %tobool143.i, label %if.then144.thread609.i, label %for.inc.i
 
-if.then144.thread611.i:                           ; preds = %lor.lhs.false142.i
+if.then144.thread609.i:                           ; preds = %lor.lhs.false142.i
   %395 = load ptr, ptr @GImGui, align 8
-  %Style.i614.i = getelementptr inbounds i8, ptr %395, i64 14576
-  %Colors.i615.i = getelementptr inbounds i8, ptr %395, i64 14804
+  %Style.i612.i = getelementptr inbounds i8, ptr %395, i64 14576
+  %Colors.i613.i = getelementptr inbounds i8, ptr %395, i64 14804
   br label %398
 
 if.then144.i:                                     ; preds = %if.end138.i
-  %.pre588.i = load i8, ptr %hovered.i, align 1
-  %.pre594.i = trunc i8 %.pre587.fr.i to i1
-  %tobool148.i = trunc i8 %.pre588.i to i1
+  %.pre586.i = load i8, ptr %hovered.i, align 1
+  %.pre592.i = trunc i8 %.pre585.fr.i to i1
+  %tobool148.i = trunc i8 %.pre586.i to i1
   %396 = select i1 %tobool148.i, i64 31, i64 30
   %397 = load ptr, ptr @GImGui, align 8
   %Style.i.i = getelementptr inbounds i8, ptr %397, i64 14576
   %Colors.i.i = getelementptr inbounds i8, ptr %397, i64 14804
-  %spec.select.i = select i1 %.pre594.i, i64 32, i64 %396
+  %spec.select.i = select i1 %.pre592.i, i64 32, i64 %396
   br label %398
 
-398:                                              ; preds = %if.then144.i, %if.then144.thread611.i, %if.then144.thread.i
-  %Colors.i609.i = phi ptr [ %Colors.i615.i, %if.then144.thread611.i ], [ %Colors.i605.i, %if.then144.thread.i ], [ %Colors.i.i, %if.then144.i ]
-  %Style.i607.i = phi ptr [ %Style.i614.i, %if.then144.thread611.i ], [ %Style.i604.i, %if.then144.thread.i ], [ %Style.i.i, %if.then144.i ]
-  %399 = phi i64 [ 31, %if.then144.thread611.i ], [ 32, %if.then144.thread.i ], [ %spec.select.i, %if.then144.i ]
-  %arrayidx.i.i675 = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i609.i, i64 0, i64 %399
+398:                                              ; preds = %if.then144.i, %if.then144.thread609.i, %if.then144.thread.i
+  %Colors.i607.i = phi ptr [ %Colors.i613.i, %if.then144.thread609.i ], [ %Colors.i603.i, %if.then144.thread.i ], [ %Colors.i.i, %if.then144.i ]
+  %Style.i605.i = phi ptr [ %Style.i612.i, %if.then144.thread609.i ], [ %Style.i602.i, %if.then144.thread.i ], [ %Style.i.i, %if.then144.i ]
+  %399 = phi i64 [ 31, %if.then144.thread609.i ], [ 32, %if.then144.thread.i ], [ %spec.select.i, %if.then144.i ]
+  %arrayidx.i.i675 = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i607.i, i64 0, i64 %399
   %c.sroa.0.0.copyload.i.i = load float, ptr %arrayidx.i.i675, align 4
   %c.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i675, i64 4
   %c.sroa.2.0.copyload.i.i = load float, ptr %c.sroa.2.0.arrayidx.sroa_idx.i.i, align 4
@@ -33650,7 +33650,7 @@ if.then144.i:                                     ; preds = %if.end138.i
   %c.sroa.3.0.copyload.i.i = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i.i, align 4
   %c.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i675, i64 12
   %c.sroa.4.0.copyload.i.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i.i, align 4
-  %400 = load float, ptr %Style.i607.i, align 4
+  %400 = load float, ptr %Style.i605.i, align 4
   %mul1.i272.i = fmul float %c.sroa.4.0.copyload.i.i, %400
   %cmp.i.i.i.i676 = fcmp olt float %c.sroa.0.0.copyload.i.i, 0.000000e+00
   %cmp1.i.i.i.i = fcmp ogt float %c.sroa.0.0.copyload.i.i, 1.000000e+00
@@ -33746,20 +33746,20 @@ if.end173.i:                                      ; preds = %if.else168.i, %if.t
 for.body176.i:                                    ; preds = %for.inc388.i, %if.end173.i
   %border_held.1 = phi i32 [ -1, %if.end173.i ], [ %border_held.2, %for.inc388.i ]
   %border_hovered.1 = phi i32 [ -1, %if.end173.i ], [ %border_hovered.3, %for.inc388.i ]
-  %indvars.iv582.i = phi i64 [ 0, %if.end173.i ], [ %indvars.iv.next583.i, %for.inc388.i ]
-  %ret_auto_fit_mask.2578.i = phi i32 [ %ret_auto_fit_mask.0.lcssa.i, %if.end173.i ], [ %ret_auto_fit_mask.3.i, %for.inc388.i ]
-  %pos_target.sroa.0.2575.i = phi <2 x float> [ %pos_target.sroa.0.0.lcssa.i, %if.end173.i ], [ %pos_target.sroa.0.3.i, %for.inc388.i ]
-  %411 = trunc nuw nsw i64 %indvars.iv582.i to i32
+  %indvars.iv580.i = phi i64 [ 0, %if.end173.i ], [ %indvars.iv.next581.i, %for.inc388.i ]
+  %ret_auto_fit_mask.2576.i = phi i32 [ %ret_auto_fit_mask.0.lcssa.i, %if.end173.i ], [ %ret_auto_fit_mask.3.i, %for.inc388.i ]
+  %pos_target.sroa.0.2573.i = phi <2 x float> [ %pos_target.sroa.0.0.lcssa.i, %if.end173.i ], [ %pos_target.sroa.0.3.i, %for.inc388.i ]
+  %411 = trunc nuw nsw i64 %indvars.iv580.i to i32
   %shl.i = shl nuw nsw i32 1, %411
   %and177.i = and i32 %shl.i, %resize_border_mask.0.i
   %cmp178.i = icmp eq i32 %and177.i, 0
   br i1 %cmp178.i, label %for.inc388.i, label %if.end180.i
 
 if.end180.i:                                      ; preds = %for.body176.i
-  %arrayidx183.i = getelementptr inbounds [4 x %struct.ImGuiResizeBorderDef], ptr @_ZL17resize_border_def, i64 0, i64 %indvars.iv582.i
-  %cmp184.i = icmp eq i64 %indvars.iv582.i, 0
-  %cmp185.i = icmp eq i64 %indvars.iv582.i, 1
-  %412 = icmp ugt i64 %indvars.iv582.i, 1
+  %arrayidx183.i = getelementptr inbounds [4 x %struct.ImGuiResizeBorderDef], ptr @_ZL17resize_border_def, i64 0, i64 %indvars.iv580.i
+  %cmp184.i = icmp eq i64 %indvars.iv580.i, 0
+  %cmp185.i = icmp eq i64 %indvars.iv580.i, 1
+  %412 = icmp ugt i64 %indvars.iv580.i, 1
   %cond186.i = zext i1 %412 to i32
   %413 = load float, ptr %Pos656, align 8
   %414 = load float, ptr %339, align 4
@@ -33816,7 +33816,7 @@ _ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i: ; preds = %if.then43.i.i, %if.
   %retval.sroa.10.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.10.8.vec.insert.i.i, float %sub10.i.sink.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i281.i, ptr %border_rect.i, align 8
   store <2 x float> %retval.sroa.10.12.vec.insert.i.i, ptr %408, align 8
-  %417 = or disjoint i64 %indvars.iv582.i, 4
+  %417 = or disjoint i64 %indvars.iv580.i, 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.addr.i282.i)
   %418 = trunc nuw nsw i64 %417 to i32
   store i32 %418, ptr %n.addr.i282.i, align 4
@@ -33878,23 +33878,23 @@ if.end198.thread.i:                               ; preds = %land.lhs.true195.i
   br label %lor.lhs.false200.i
 
 lor.lhs.false200.i:                               ; preds = %_ZN11ImGuiWindow5GetIDEi.exit307.i, %if.end198.thread.i
-  %.pre590.pre619.i = load i8, ptr %held188.i, align 1
-  %tobool201.i = trunc i8 %.pre590.pre619.i to i1
-  br i1 %tobool201.i, label %if.end206.thread621.i, label %if.end381.i
+  %.pre588.pre617.i = load i8, ptr %held188.i, align 1
+  %tobool201.i = trunc i8 %.pre588.pre617.i to i1
+  br i1 %tobool201.i, label %if.end206.thread619.i, label %if.end381.i
 
-if.end206.thread621.i:                            ; preds = %lor.lhs.false200.i
-  %cond204623.i = select i1 %412, i32 3, i32 4
-  store i32 %cond204623.i, ptr %MouseCursor205.i, align 8
+if.end206.thread619.i:                            ; preds = %lor.lhs.false200.i
+  %cond204621.i = select i1 %412, i32 3, i32 4
+  store i32 %cond204621.i, ptr %MouseCursor205.i, align 8
   br label %land.lhs.true208.i
 
 if.end206.i:                                      ; preds = %land.lhs.true195.i
-  %.pre590.pre.i1450 = load i8, ptr %held188.i, align 1
-  %.pre595.i = trunc i8 %.pre590.pre.i1450 to i1
+  %.pre588.pre.i1450 = load i8, ptr %held188.i, align 1
+  %.pre593.i = trunc i8 %.pre588.pre.i1450 to i1
   %cond204.i = select i1 %412, i32 3, i32 4
   store i32 %cond204.i, ptr %MouseCursor205.i, align 8
-  br i1 %.pre595.i, label %land.lhs.true208.i, label %if.end381.i
+  br i1 %.pre593.i, label %land.lhs.true208.i, label %if.end381.i
 
-land.lhs.true208.i:                               ; preds = %if.end206.i, %if.end206.thread621.i
+land.lhs.true208.i:                               ; preds = %if.end206.i, %if.end206.thread619.i
   %432 = load i8, ptr %MouseDoubleClicked210.i, align 1
   %tobool212.i = trunc i8 %432 to i1
   br i1 %tobool212.i, label %if.then213.i, label %if.then229.i
@@ -33914,13 +33914,13 @@ if.then217.i:                                     ; preds = %if.then213.i, %if.t
   %arrayidx.i309.i = getelementptr inbounds float, ptr %size_target.i, i64 %conv220.i
   store float %433, ptr %arrayidx.i309.i, align 4
   %shl224.i = shl nuw nsw i32 1, %cond186.i
-  %or225.i = or i32 %shl224.i, %ret_auto_fit_mask.2578.i
+  %or225.i = or i32 %shl224.i, %ret_auto_fit_mask.2576.i
   store i8 0, ptr %held188.i, align 1
   store i8 0, ptr %hovered187.i, align 1
   br label %if.end226.i
 
 if.end226.i:                                      ; preds = %if.then217.i, %if.then213.i
-  %ret_auto_fit_mask.4.i = phi i32 [ %or225.i, %if.then217.i ], [ %ret_auto_fit_mask.2578.i, %if.then213.i ]
+  %ret_auto_fit_mask.4.i = phi i32 [ %or225.i, %if.then217.i ], [ %ret_auto_fit_mask.2576.i, %if.then213.i ]
   call void @_ZN5ImGui11SetActiveIDEjP11ImGuiWindow(i32 noundef 0, ptr noundef null)
   br label %if.end381.i
 
@@ -34066,7 +34066,7 @@ cond.true314.i:                                   ; preds = %land.lhs.true312.i,
 cond.end318.i:                                    ; preds = %cond.true314.i, %land.lhs.true312.i, %if.end300.i
   %cond319.i = phi float [ %clamp_rect.sroa.4.0.i, %cond.true314.i ], [ 0xC7EFFFFFE0000000, %land.lhs.true312.i ], [ 0xC7EFFFFFE0000000, %if.end300.i ]
   %cond327.i = select i1 %cmp184.i, float %sub.i588, float 0x47EFFFFFE0000000
-  %cmp328.i = icmp eq i64 %indvars.iv582.i, 2
+  %cmp328.i = icmp eq i64 %indvars.iv580.i, 2
   %cond334.i = select i1 %cmp328.i, float %sub3.i589, float 0x47EFFFFFE0000000
   %border_target.val.i = load float, ptr %border_target.i, align 8
   %border_target.val207.i = load float, ptr %409, align 4
@@ -34154,8 +34154,8 @@ _ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i: 
   br label %if.end381.i
 
 if.end381.i:                                      ; preds = %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i, %if.end372.i, %if.end226.i, %if.end206.i, %lor.lhs.false200.i
-  %pos_target.sroa.0.4.i = phi <2 x float> [ %pos_target.sroa.0.2575.i, %if.end226.i ], [ %pos_target.sroa.0.2575.i, %if.end372.i ], [ %pos_target.sroa.0.8.i, %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i ], [ %pos_target.sroa.0.2575.i, %if.end206.i ], [ %pos_target.sroa.0.2575.i, %lor.lhs.false200.i ]
-  %ret_auto_fit_mask.5.i = phi i32 [ %ret_auto_fit_mask.4.i, %if.end226.i ], [ %ret_auto_fit_mask.2578.i, %if.end372.i ], [ %ret_auto_fit_mask.2578.i, %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i ], [ %ret_auto_fit_mask.2578.i, %if.end206.i ], [ %ret_auto_fit_mask.2578.i, %lor.lhs.false200.i ]
+  %pos_target.sroa.0.4.i = phi <2 x float> [ %pos_target.sroa.0.2573.i, %if.end226.i ], [ %pos_target.sroa.0.2573.i, %if.end372.i ], [ %pos_target.sroa.0.8.i, %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i ], [ %pos_target.sroa.0.2573.i, %if.end206.i ], [ %pos_target.sroa.0.2573.i, %lor.lhs.false200.i ]
+  %ret_auto_fit_mask.5.i = phi i32 [ %ret_auto_fit_mask.4.i, %if.end226.i ], [ %ret_auto_fit_mask.2576.i, %if.end372.i ], [ %ret_auto_fit_mask.2576.i, %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i ], [ %ret_auto_fit_mask.2576.i, %if.end206.i ], [ %ret_auto_fit_mask.2576.i, %lor.lhs.false200.i ]
   %465 = load i8, ptr %hovered187.i, align 1
   %tobool382.i = trunc i8 %465 to i1
   %spec.select1478 = select i1 %tobool382.i, i32 %411, i32 %border_hovered.1
@@ -34167,11 +34167,11 @@ if.end381.i:                                      ; preds = %_ZL30CalcResizePosS
 for.inc388.i:                                     ; preds = %if.end381.i, %for.body176.i
   %border_held.2 = phi i32 [ %border_held.1, %for.body176.i ], [ %spec.select1482, %if.end381.i ]
   %border_hovered.3 = phi i32 [ %border_hovered.1, %for.body176.i ], [ %spec.select1478, %if.end381.i ]
-  %pos_target.sroa.0.3.i = phi <2 x float> [ %pos_target.sroa.0.2575.i, %for.body176.i ], [ %pos_target.sroa.0.4.i, %if.end381.i ]
-  %ret_auto_fit_mask.3.i = phi i32 [ %ret_auto_fit_mask.2578.i, %for.body176.i ], [ %ret_auto_fit_mask.5.i, %if.end381.i ]
-  %indvars.iv.next583.i = add nuw nsw i64 %indvars.iv582.i, 1
-  %exitcond586.not.i = icmp eq i64 %indvars.iv.next583.i, 4
-  br i1 %exitcond586.not.i, label %for.end390.i, label %for.body176.i, !llvm.loop !97
+  %pos_target.sroa.0.3.i = phi <2 x float> [ %pos_target.sroa.0.2573.i, %for.body176.i ], [ %pos_target.sroa.0.4.i, %if.end381.i ]
+  %ret_auto_fit_mask.3.i = phi i32 [ %ret_auto_fit_mask.2576.i, %for.body176.i ], [ %ret_auto_fit_mask.5.i, %if.end381.i ]
+  %indvars.iv.next581.i = add nuw nsw i64 %indvars.iv580.i, 1
+  %exitcond584.not.i = icmp eq i64 %indvars.iv.next581.i, 4
+  br i1 %exitcond584.not.i, label %for.end390.i, label %for.body176.i, !llvm.loop !97
 
 for.end390.i:                                     ; preds = %for.inc388.i
   %467 = load ptr, ptr @GImGui, align 8
@@ -34208,18 +34208,18 @@ land.lhs.true399.i:                               ; preds = %if.then397.i
   br i1 %tobool401.i, label %if.end411.sink.split.i, label %if.end411.i
 
 if.end411.sink.split.i:                           ; preds = %land.lhs.true399.i, %if.then397.i
-  %.sink629.i = phi i64 [ 11928, %land.lhs.true399.i ], [ 13912, %if.then397.i ]
-  %.sink628.i = phi i64 [ 11912, %land.lhs.true399.i ], [ 13896, %if.then397.i ]
+  %.sink627.i = phi i64 [ 11928, %land.lhs.true399.i ], [ 13912, %if.then397.i ]
+  %.sink626.i = phi i64 [ 11912, %land.lhs.true399.i ], [ 13896, %if.then397.i ]
   %.sink.i = phi i64 [ 11960, %land.lhs.true399.i ], [ 13944, %if.then397.i ]
-  %.sink625.i = phi i64 [ 11944, %land.lhs.true399.i ], [ 13928, %if.then397.i ]
-  %AnalogValue.i.i = getelementptr inbounds i8, ptr %467, i64 %.sink629.i
+  %.sink623.i = phi i64 [ 11944, %land.lhs.true399.i ], [ 13928, %if.then397.i ]
+  %AnalogValue.i.i = getelementptr inbounds i8, ptr %467, i64 %.sink627.i
   %474 = load float, ptr %AnalogValue.i.i, align 4
-  %AnalogValue2.i.i = getelementptr inbounds i8, ptr %467, i64 %.sink628.i
+  %AnalogValue2.i.i = getelementptr inbounds i8, ptr %467, i64 %.sink626.i
   %475 = load float, ptr %AnalogValue2.i.i, align 4
   %AnalogValue4.i.i = getelementptr inbounds i8, ptr %467, i64 %.sink.i
   %476 = load float, ptr %AnalogValue4.i.i, align 4
   %sub.i399.i = fsub float %474, %475
-  %AnalogValue6.i.i = getelementptr inbounds i8, ptr %467, i64 %.sink625.i
+  %AnalogValue6.i.i = getelementptr inbounds i8, ptr %467, i64 %.sink623.i
   %477 = load float, ptr %AnalogValue6.i.i, align 4
   %sub7.i.i = fsub float %476, %477
   %retval.sroa.0.0.vec.insert.i400.i = insertelement <2 x float> poison, float %sub.i399.i, i64 0

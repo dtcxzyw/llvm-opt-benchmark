@@ -5959,8 +5959,8 @@ _ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit:   ; preds = %invoke.cont
   %arrayidx.i13 = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i13, align 4
   %15 = load i32, ptr %m_qhead, align 8
-  %cmp398 = icmp ult i32 %15, %14
-  br i1 %cmp398, label %for.body.preheader, label %for.end96
+  %cmp374 = icmp ult i32 %15, %14
+  br i1 %cmp374, label %for.body.preheader, label %for.end96
 
 for.body.preheader:                               ; preds = %_ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit
   %16 = zext i32 %15 to i64
@@ -5969,7 +5969,7 @@ for.body.preheader:                               ; preds = %_ZNK6vectorI14justi
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc95
   %indvars.iv = phi i64 [ %16, %for.body.preheader ], [ %indvars.iv.next, %for.inc95 ]
-  %change.1404 = phi i1 [ false, %for.body.preheader ], [ %change.2, %for.inc95 ]
+  %change.1376 = phi i1 [ false, %for.body.preheader ], [ %change.2, %for.inc95 ]
   %17 = load ptr, ptr %m_formulas, align 8
   %arrayidx.i14 = getelementptr inbounds %class.justified_expr, ptr %17, i64 %indvars.iv
   %m_fml.i = getelementptr inbounds i8, ptr %arrayidx.i14, i64 8
@@ -6274,16 +6274,16 @@ if.then48.critedge:                               ; preds = %_ZNK11ast_manager6i
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
   %m_args.i.add = add nuw nsw i64 %add.ptr.i.idx, 32
   %add.ptr.i.ptr = getelementptr inbounds i8, ptr %b.5, i64 %m_args.i.add
-  %cmp56.not396 = icmp eq i32 %75, 0
-  br i1 %cmp56.not396, label %for.inc95, label %for.body57.preheader
+  %cmp56.not372 = icmp eq i32 %75, 0
+  br i1 %cmp56.not372, label %for.inc95, label %for.body57.preheader
 
 for.body57.preheader:                             ; preds = %if.then48.critedge
   %m_args.i.ptr = getelementptr inbounds i8, ptr %b.5, i64 32
   br label %for.body57
 
 for.body57:                                       ; preds = %for.body57.preheader, %_ZN14justified_exprD2Ev.exit
-  %__begin4.0397 = phi ptr [ %incdec.ptr, %_ZN14justified_exprD2Ev.exit ], [ %m_args.i.ptr, %for.body57.preheader ]
-  %76 = load ptr, ptr %__begin4.0397, align 8
+  %__begin4.0373 = phi ptr [ %incdec.ptr, %_ZN14justified_exprD2Ev.exit ], [ %m_args.i.ptr, %for.body57.preheader ]
+  %76 = load ptr, ptr %__begin4.0373, align 8
   %77 = load ptr, ptr %this, align 8
   %m_kind.i.i.i.i.i123 = getelementptr inbounds i8, ptr %76, i64 4
   %bf.load.i.i.i.i.i124 = load i32, ptr %m_kind.i.i.i.i.i123, align 4
@@ -6403,10 +6403,10 @@ invoke.cont66:                                    ; preds = %if.end.i145
 
 if.then.i.i152:                                   ; preds = %if.then.i4.i.i, %_ZN11ast_manager7inc_refEP3ast.exit.i.i
   %95 = load ptr, ptr %new_fmls, align 8
-  %arrayidx10.i411 = getelementptr inbounds i8, ptr %95, i64 -4
-  %96 = load i32, ptr %arrayidx10.i411, align 4
-  %inc.i412 = add i32 %96, 1
-  store i32 %inc.i412, ptr %arrayidx10.i411, align 4
+  %arrayidx10.i380 = getelementptr inbounds i8, ptr %95, i64 -4
+  %96 = load i32, ptr %arrayidx10.i380, align 4
+  %inc.i381 = add i32 %96, 1
+  store i32 %inc.i381, ptr %arrayidx10.i380, align 4
   %m_ref_count.i.i.i153 = getelementptr inbounds i8, ptr %call.i140, i64 8
   %97 = load i32, ptr %m_ref_count.i.i.i153, align 4
   %dec.i.i.i = add i32 %97, -1
@@ -6427,7 +6427,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i
 
 _ZN14justified_exprD2Ev.exit:                     ; preds = %if.then.i.i152, %if.then2.i.i, %invoke.cont66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_fml.i141, i8 0, i64 16, i1 false)
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.0397, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.0373, i64 8
   %cmp56.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp56.not, label %for.inc95, label %for.body57
 
@@ -6690,7 +6690,7 @@ _ZN6vectorI14justified_exprLb1EjE9push_backERKS0_.exit310: ; preds = %_ZN11ast_m
   br label %for.inc95
 
 for.inc95:                                        ; preds = %_ZN14justified_exprD2Ev.exit, %if.then48.critedge, %_ZN6vectorI14justified_exprLb1EjE9push_backERKS0_.exit310, %_ZN14justified_exprD2Ev.exit280
-  %change.2 = phi i1 [ true, %_ZN14justified_exprD2Ev.exit280 ], [ %change.1404, %_ZN6vectorI14justified_exprLb1EjE9push_backERKS0_.exit310 ], [ true, %if.then48.critedge ], [ true, %_ZN14justified_exprD2Ev.exit ]
+  %change.2 = phi i1 [ true, %_ZN14justified_exprD2Ev.exit280 ], [ %change.1376, %_ZN6vectorI14justified_exprLb1EjE9push_backERKS0_.exit310 ], [ true, %if.then48.critedge ], [ true, %_ZN14justified_exprD2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end96, label %for.body, !llvm.loop !16

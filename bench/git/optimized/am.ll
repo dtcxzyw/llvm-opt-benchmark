@@ -4984,7 +4984,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %entry
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end27
-  %subject_printed.0.ph24 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %subject_printed.1, %if.end27 ]
+  %subject_printed.0.ph23 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %subject_printed.1, %if.end27 ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %str_isspace.exit
@@ -5054,7 +5054,7 @@ if.then14:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end27
 
 if.else17:                                        ; preds = %lor.lhs.false
-  %tobool18.not = icmp eq i32 %subject_printed.0.ph24, 0
+  %tobool18.not = icmp eq i32 %subject_printed.0.ph23, 0
   %10 = load ptr, ptr %buf, align 8
   br i1 %tobool18.not, label %if.then19, label %if.else22
 
@@ -5067,7 +5067,7 @@ if.else22:                                        ; preds = %if.else17
   br label %while.end
 
 if.end27:                                         ; preds = %if.then5, %if.then19, %if.then14
-  %subject_printed.1 = phi i32 [ %subject_printed.0.ph24, %if.then5 ], [ %subject_printed.0.ph24, %if.then14 ], [ 1, %if.then19 ]
+  %subject_printed.1 = phi i32 [ %subject_printed.0.ph23, %if.then5 ], [ %subject_printed.0.ph23, %if.then14 ], [ 1, %if.then19 ]
   %call19 = call i32 @strbuf_getline_lf(ptr noundef nonnull %sb, ptr noundef %in) #21
   %tobool.not20 = icmp eq i32 %call19, 0
   br i1 %tobool.not20, label %while.body.lr.ph, label %while.end, !llvm.loop !17
@@ -5085,9 +5085,9 @@ if.then4.i:                                       ; preds = %while.end
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %while.end, %if.then4.i
-  %call2925 = call i64 @strbuf_fread(ptr noundef nonnull %sb, i64 noundef 8192, ptr noundef %in) #21
-  %cmp.not26 = icmp eq i64 %call2925, 0
-  br i1 %cmp.not26, label %while.end33, label %while.body30
+  %call2924 = call i64 @strbuf_fread(ptr noundef nonnull %sb, i64 noundef 8192, ptr noundef %in) #21
+  %cmp.not25 = icmp eq i64 %call2924, 0
+  br i1 %cmp.not25, label %while.end33, label %while.body30
 
 while.body30:                                     ; preds = %strbuf_setlen.exit, %strbuf_setlen.exit12
   %12 = load ptr, ptr %buf.i, align 8

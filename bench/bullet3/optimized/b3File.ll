@@ -2710,8 +2710,8 @@ if.end4:                                          ; preds = %entry
   %arrayidx8 = getelementptr inbounds i8, ptr %call, i64 2
   %4 = load i16, ptr %arrayidx8, align 2
   %conv = sext i16 %4 to i32
-  %cmp977 = icmp sgt i16 %4, 0
-  br i1 %cmp977, label %for.body.lr.ph, label %for.end74
+  %cmp978 = icmp sgt i16 %4, 0
+  br i1 %cmp978, label %for.body.lr.ph, label %for.end74
 
 for.body.lr.ph:                                   ; preds = %if.end4
   %arrayidx.i = getelementptr inbounds i8, ptr %call5, i64 2
@@ -2839,8 +2839,8 @@ if.then.i:                                        ; preds = %_ZN6bParse4bDNA14ge
   %call14.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) %call13) #29
   %cmp15.i = icmp ne i32 %call14.i, 0
   %tobool.not = icmp eq ptr %data.addr.017.i, null
-  %or.cond95 = select i1 %cmp15.i, i1 true, i1 %tobool.not
-  br i1 %or.cond95, label %for.inc71, label %if.then36
+  %or.cond68 = select i1 %cmp15.i, i1 true, i1 %tobool.not
+  br i1 %or.cond68, label %for.inc71, label %if.then36
 
 if.end19.i:                                       ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit.i
   %m_dim06.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 12
@@ -2901,25 +2901,25 @@ _ZN6bParse4bDNA14getElementSizeEss.exit62:        ; preds = %cond.true.i60, %con
   br i1 %cmp46, label %if.then47, label %for.cond49.preheader
 
 for.cond49.preheader:                             ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit62
-  %cmp5072 = icmp sgt i32 %mul.i, 0
-  br i1 %cmp5072, label %for.body51, label %for.inc71
+  %cmp5073 = icmp sgt i32 %mul.i, 0
+  br i1 %cmp5073, label %for.body51, label %for.inc71
 
 if.then47:                                        ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit62
   tail call void @_ZN6bParse5bFile11parseStructEPcS1_iib(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %cpc.081, ptr noundef nonnull %data.addr.017.i, i32 noundef %call41, i32 noundef %call24, i1 noundef zeroext %fixupPointers)
   br label %for.inc71
 
 for.body51:                                       ; preds = %for.cond49.preheader, %for.body51
-  %i.075 = phi i32 [ %inc, %for.body51 ], [ 0, %for.cond49.preheader ]
-  %tmpCpo.074 = phi ptr [ %add.ptr56, %for.body51 ], [ %data.addr.017.i, %for.cond49.preheader ]
-  %tmpCpc.073 = phi ptr [ %add.ptr53, %for.body51 ], [ %cpc.081, %for.cond49.preheader ]
-  tail call void @_ZN6bParse5bFile11parseStructEPcS1_iib(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %tmpCpc.073, ptr noundef %tmpCpo.074, i32 noundef %call41, i32 noundef %call24, i1 noundef zeroext %fixupPointers)
+  %i.076 = phi i32 [ %inc, %for.body51 ], [ 0, %for.cond49.preheader ]
+  %tmpCpo.075 = phi ptr [ %add.ptr56, %for.body51 ], [ %data.addr.017.i, %for.cond49.preheader ]
+  %tmpCpc.074 = phi ptr [ %add.ptr53, %for.body51 ], [ %cpc.081, %for.cond49.preheader ]
+  tail call void @_ZN6bParse5bFile11parseStructEPcS1_iib(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %tmpCpc.074, ptr noundef %tmpCpo.075, i32 noundef %call41, i32 noundef %call24, i1 noundef zeroext %fixupPointers)
   %div = sdiv i32 %mul9.i, %mul.i
   %idx.ext = sext i32 %div to i64
-  %add.ptr53 = getelementptr inbounds i8, ptr %tmpCpc.073, i64 %idx.ext
+  %add.ptr53 = getelementptr inbounds i8, ptr %tmpCpc.074, i64 %idx.ext
   %div54 = sdiv i32 %mul9.i59, %mul.i
   %idx.ext55 = sext i32 %div54 to i64
-  %add.ptr56 = getelementptr inbounds i8, ptr %tmpCpo.074, i64 %idx.ext55
-  %inc = add nuw nsw i32 %i.075, 1
+  %add.ptr56 = getelementptr inbounds i8, ptr %tmpCpo.075, i64 %idx.ext55
+  %inc = add nuw nsw i32 %i.076, 1
   %exitcond.not = icmp eq i32 %inc, %mul.i
   br i1 %exitcond.not, label %for.inc71, label %for.body51, !llvm.loop !30
 

@@ -27,8 +27,8 @@ define weak_odr void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoul
   %.sroa.41843 = alloca <8 x float>, align 32
   %.sroa.0.i = alloca <8 x float>, align 32
   %.sroa.2.i = alloca <8 x float>, align 32
-  %.sroa.02624 = alloca <8 x float>, align 32
-  %.sroa.72625 = alloca <8 x float>, align 32
+  %.sroa.02541 = alloca <8 x float>, align 32
+  %.sroa.72542 = alloca <8 x float>, align 32
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.7 = alloca <8 x float>, align 32
   %6 = getelementptr inbounds i8, ptr %4, i64 8
@@ -56,8 +56,8 @@ define weak_odr void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoul
   br i1 %15, label %14, label %_ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERKN16nbnxn_atomdata_t9SimdMasksE.exit, !llvm.loop !8
 
 _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERKN16nbnxn_atomdata_t9SimdMasksE.exit: ; preds = %14
-  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i209624062626 = load <8 x i32>, ptr %.sroa.0.i, align 32
-  %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i209724072627 = load <8 x i32>, ptr %.sroa.2.i, align 32
+  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i209623232543 = load <8 x i32>, ptr %.sroa.0.i, align 32
+  %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i209723242544 = load <8 x i32>, ptr %.sroa.2.i, align 32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.2.i)
   %19 = getelementptr inbounds i8, ptr %1, i64 360
@@ -92,10 +92,10 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 88
   %47 = load ptr, ptr %46, align 8
-  %.not20982313 = icmp eq ptr %45, %47
-  br i1 %.not20982313, label %._crit_edge, label %.lr.ph2341
+  %.not20982265 = icmp eq ptr %45, %47
+  br i1 %.not20982265, label %._crit_edge, label %.lr.ph2269
 
-.lr.ph2341:                                       ; preds = %_ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERKN16nbnxn_atomdata_t9SimdMasksE.exit
+.lr.ph2269:                                       ; preds = %_ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERKN16nbnxn_atomdata_t9SimdMasksE.exit
   %48 = getelementptr inbounds i8, ptr %2, i64 108
   %49 = load float, ptr %48, align 4
   %50 = insertelement <8 x float> poison, float %49, i64 0
@@ -104,19 +104,19 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %invariant.gep2112 = getelementptr i8, ptr %41, i64 32
   br label %52
 
-52:                                               ; preds = %.lr.ph2341, %.loopexit
-  %.sroa.01768.02340 = phi ptr [ %45, %.lr.ph2341 ], [ %1132, %.loopexit ]
-  %.sroa.5.02339 = phi <8 x float> [ undef, %.lr.ph2341 ], [ %.sroa.5.1, %.loopexit ]
-  %.sroa.01715.02338 = phi <8 x float> [ undef, %.lr.ph2341 ], [ %.sroa.01715.1, %.loopexit ]
-  %53 = getelementptr inbounds i8, ptr %.sroa.01768.02340, i64 4
+52:                                               ; preds = %.lr.ph2269, %.loopexit
+  %.sroa.01768.02268 = phi ptr [ %45, %.lr.ph2269 ], [ %1132, %.loopexit ]
+  %.sroa.5.02267 = phi <8 x float> [ undef, %.lr.ph2269 ], [ %.sroa.5.1, %.loopexit ]
+  %.sroa.01715.02266 = phi <8 x float> [ undef, %.lr.ph2269 ], [ %.sroa.01715.1, %.loopexit ]
+  %53 = getelementptr inbounds i8, ptr %.sroa.01768.02268, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 127
   %56 = mul nuw nsw i32 %55, 3
-  %57 = getelementptr inbounds i8, ptr %.sroa.01768.02340, i64 8
+  %57 = getelementptr inbounds i8, ptr %.sroa.01768.02268, i64 8
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %.sroa.01768.02340, i64 12
+  %59 = getelementptr inbounds i8, ptr %.sroa.01768.02268, i64 12
   %60 = load i32, ptr %59, align 4
-  %61 = load i32, ptr %.sroa.01768.02340, align 4
+  %61 = load i32, ptr %.sroa.01768.02268, align 4
   %62 = icmp eq i32 %55, 22
   %63 = select i1 %62, i32 %61, i32 -1
   %64 = zext nneg i32 %56 to i64
@@ -220,8 +220,8 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br label %142
 
 142:                                              ; preds = %127, %52
-  %.sroa.01715.1 = phi <8 x float> [ %135, %127 ], [ %.sroa.01715.02338, %52 ]
-  %.sroa.5.1 = phi <8 x float> [ %141, %127 ], [ %.sroa.5.02339, %52 ]
+  %.sroa.01715.1 = phi <8 x float> [ %135, %127 ], [ %.sroa.01715.02266, %52 ]
+  %.sroa.5.1 = phi <8 x float> [ %141, %127 ], [ %.sroa.5.02267, %52 ]
   %143 = sext i32 %82 to i64
   %144 = getelementptr inbounds float, ptr %11, i64 %143
   %145 = or disjoint i32 %82, 4
@@ -232,7 +232,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
 148:                                              ; preds = %142, %148
   %149 = phi i1 [ true, %142 ], [ false, %148 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %142 ], [ %.sroa.7, %148 ]
-  %indvars.iv.sroa.phi2622 = phi ptr [ %.sroa.02624, %142 ], [ %.sroa.72625, %148 ]
+  %indvars.iv.sroa.phi2539 = phi ptr [ %.sroa.02541, %142 ], [ %.sroa.72542, %148 ]
   %indvars.iv = phi i64 [ 0, %142 ], [ 2, %148 ]
   %150 = getelementptr inbounds float, ptr %144, i64 %indvars.iv
   %.val.i = load float, ptr %150, align 1
@@ -241,7 +241,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %152 = insertelement <4 x float> poison, float %.val.i, i64 0
   %153 = insertelement <4 x float> poison, float %.val2.i, i64 0
   %154 = shufflevector <4 x float> %152, <4 x float> %153, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
-  store <8 x float> %154, ptr %indvars.iv.sroa.phi2622, align 32
+  store <8 x float> %154, ptr %indvars.iv.sroa.phi2539, align 32
   %155 = getelementptr inbounds float, ptr %147, i64 %indvars.iv
   %.val.i526 = load float, ptr %155, align 1
   %156 = getelementptr i8, ptr %155, i64 4
@@ -257,31 +257,31 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br i1 %spec.select, label %.preheader, label %500
 
 .preheader:                                       ; preds = %160
-  br i1 %161, label %.lr.ph2264, label %.critedge
+  br i1 %161, label %.lr.ph2228, label %.critedge
 
-.lr.ph2264:                                       ; preds = %.preheader
-  %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i565 = load <8 x float>, ptr %.sroa.02624, align 32
+.lr.ph2228:                                       ; preds = %.preheader
+  %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i565 = load <8 x float>, ptr %.sroa.02541, align 32
   %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i567 = load <8 x float>, ptr %.sroa.0, align 32
   %162 = sext i32 %58 to i64
-  %wide.trip.count2395 = sext i32 %60 to i64
+  %wide.trip.count2312 = sext i32 %60 to i64
   br label %163
 
-163:                                              ; preds = %.lr.ph2264, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit
-  %indvars.iv2392 = phi i64 [ %162, %.lr.ph2264 ], [ %indvars.iv.next2393, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
-  %.sroa.141703.12262 = phi <8 x float> [ zeroinitializer, %.lr.ph2264 ], [ %316, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
-  %.sroa.01696.12261 = phi <8 x float> [ zeroinitializer, %.lr.ph2264 ], [ %315, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
-  %.sroa.141689.12260 = phi <8 x float> [ zeroinitializer, %.lr.ph2264 ], [ %318, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
-  %.sroa.01682.12259 = phi <8 x float> [ zeroinitializer, %.lr.ph2264 ], [ %317, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
-  %.sroa.14.12258 = phi <8 x float> [ zeroinitializer, %.lr.ph2264 ], [ %320, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
-  %.sroa.01669.12257 = phi <8 x float> [ zeroinitializer, %.lr.ph2264 ], [ %319, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
+163:                                              ; preds = %.lr.ph2228, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit
+  %indvars.iv2309 = phi i64 [ %162, %.lr.ph2228 ], [ %indvars.iv.next2310, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
+  %.sroa.141703.12226 = phi <8 x float> [ zeroinitializer, %.lr.ph2228 ], [ %316, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
+  %.sroa.01696.12225 = phi <8 x float> [ zeroinitializer, %.lr.ph2228 ], [ %315, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
+  %.sroa.141689.12224 = phi <8 x float> [ zeroinitializer, %.lr.ph2228 ], [ %318, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
+  %.sroa.01682.12223 = phi <8 x float> [ zeroinitializer, %.lr.ph2228 ], [ %317, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
+  %.sroa.14.12222 = phi <8 x float> [ zeroinitializer, %.lr.ph2228 ], [ %320, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
+  %.sroa.01669.12221 = phi <8 x float> [ zeroinitializer, %.lr.ph2228 ], [ %319, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ]
   %164 = load ptr, ptr %42, align 8
-  %165 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %164, i64 %indvars.iv2392, i32 1
+  %165 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %164, i64 %indvars.iv2309, i32 1
   %166 = load i32, ptr %165, align 4
   %.not511 = icmp eq i32 %166, -1
   br i1 %.not511, label %.critedge.loopexit, label %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit.critedge
 
 _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit.critedge: ; preds = %163
-  %167 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2392
+  %167 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2309
   %168 = load i32, ptr %167, align 4
   %169 = shl nsw i32 %168, 2
   %170 = mul nsw i32 %168, 12
@@ -290,18 +290,18 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %173 = insertelement <8 x i32> poison, i32 %172, i64 0
   %174 = shufflevector <8 x i32> %173, <8 x i32> poison, <8 x i32> zeroinitializer
   %175 = and <8 x i32> %.sroa.0.0.copyload, %174
-  %.not2410 = icmp eq <8 x i32> %175, zeroinitializer
+  %.not2327 = icmp eq <8 x i32> %175, zeroinitializer
   %176 = and <8 x i32> %.sroa.4.0.copyload, %174
-  %.not2411 = icmp eq <8 x i32> %176, zeroinitializer
+  %.not2328 = icmp eq <8 x i32> %176, zeroinitializer
   %177 = sext i32 %170 to i64
   %178 = getelementptr inbounds float, ptr %41, i64 %177
   %.val.i528 = load <4 x float>, ptr %178, align 1
   %179 = shufflevector <4 x float> %.val.i528, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2246 = getelementptr float, ptr %invariant.gep, i64 %177
-  %.val.i529 = load <4 x float>, ptr %gep2246, align 1
+  %gep2214 = getelementptr float, ptr %invariant.gep, i64 %177
+  %.val.i529 = load <4 x float>, ptr %gep2214, align 1
   %180 = shufflevector <4 x float> %.val.i529, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2248 = getelementptr float, ptr %invariant.gep2112, i64 %177
-  %.val.i530 = load <4 x float>, ptr %gep2248, align 1
+  %gep2216 = getelementptr float, ptr %invariant.gep2112, i64 %177
+  %.val.i530 = load <4 x float>, ptr %gep2216, align 1
   %181 = shufflevector <4 x float> %.val.i530, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %182 = fsub <8 x float> %94, %179
   %183 = fsub <8 x float> %100, %179
@@ -324,8 +324,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %200 = fcmp olt <8 x float> %197, %32
   %201 = sext <8 x i1> %200 to <8 x i32>
   %202 = icmp eq i32 %168, %63
-  %203 = select <8 x i1> %198, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i209624062626, <8 x i32> zeroinitializer
-  %204 = select <8 x i1> %200, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i209724072627, <8 x i32> zeroinitializer
+  %203 = select <8 x i1> %198, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i209623232543, <8 x i32> zeroinitializer
+  %204 = select <8 x i1> %200, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i209723242544, <8 x i32> zeroinitializer
   %.sroa.01641.0 = select i1 %202, <8 x i32> %203, <8 x i32> %199
   %.sroa.41643.0 = select i1 %202, <8 x i32> %204, <8 x i32> %201
   %205 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %192, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
@@ -351,7 +351,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %224 = and <8 x i32> %.sroa.41643.0, %218
   %225 = bitcast <8 x i32> %223 to <8 x float>
   %226 = bitcast <8 x i32> %224 to <8 x float>
-  %227 = select <8 x i1> %.not2410, <8 x i32> zeroinitializer, <8 x i32> %223
+  %227 = select <8 x i1> %.not2327, <8 x i32> zeroinitializer, <8 x i32> %223
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.01846)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.41847)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.01842)
@@ -417,7 +417,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %267 = fmul <8 x float> %.sroa.5.1, %221
   %268 = fmul <8 x float> %225, %225
   %269 = fmul <8 x float> %226, %226
-  %270 = select <8 x i1> %.not2411, <8 x i32> zeroinitializer, <8 x i32> %224
+  %270 = select <8 x i1> %.not2328, <8 x i32> zeroinitializer, <8 x i32> %224
   %271 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %231, i32 3)
   %272 = fsub <8 x float> %231, %271
   %273 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %230, i32 3)
@@ -453,11 +453,11 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %294 = getelementptr inbounds float, ptr %11, i64 %293
   %.val.i564 = load <4 x float>, ptr %294, align 1
   %295 = shufflevector <4 x float> %.val.i564, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %296 = fmul <8 x float> %291, %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i565
+  %296 = fmul <8 x float> %291, %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i565
   %297 = fmul <8 x float> %295, %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i567
   %298 = fmul <8 x float> %268, %268
   %299 = fmul <8 x float> %268, %298
-  %300 = select <8 x i1> %.not2410, <8 x float> zeroinitializer, <8 x float> %299
+  %300 = select <8 x i1> %.not2327, <8 x float> zeroinitializer, <8 x float> %299
   %301 = fmul <8 x float> %300, %300
   %302 = fneg <8 x float> %300
   %303 = fmul <8 x float> %296, %302
@@ -472,12 +472,12 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %312 = fmul <8 x float> %185, %308
   %313 = fmul <8 x float> %186, %307
   %314 = fmul <8 x float> %187, %308
-  %315 = fadd <8 x float> %.sroa.01696.12261, %309
-  %316 = fadd <8 x float> %.sroa.141703.12262, %310
-  %317 = fadd <8 x float> %.sroa.01682.12259, %311
-  %318 = fadd <8 x float> %.sroa.141689.12260, %312
-  %319 = fadd <8 x float> %.sroa.01669.12257, %313
-  %320 = fadd <8 x float> %.sroa.14.12258, %314
+  %315 = fadd <8 x float> %.sroa.01696.12225, %309
+  %316 = fadd <8 x float> %.sroa.141703.12226, %310
+  %317 = fadd <8 x float> %.sroa.01682.12223, %311
+  %318 = fadd <8 x float> %.sroa.141689.12224, %312
+  %319 = fadd <8 x float> %.sroa.01669.12221, %313
+  %320 = fadd <8 x float> %.sroa.14.12222, %314
   %321 = getelementptr inbounds float, ptr %7, i64 %177
   %322 = fadd <8 x float> %310, %309
   %323 = fadd <8 x float> %312, %311
@@ -502,41 +502,41 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %340 = load <4 x float>, ptr %336, align 16
   %341 = fsub <4 x float> %340, %339
   store <4 x float> %341, ptr %336, align 16
-  %indvars.iv.next2393 = add nsw i64 %indvars.iv2392, 1
-  %exitcond2396.not = icmp eq i64 %indvars.iv.next2393, %wide.trip.count2395
-  br i1 %exitcond2396.not, label %.loopexit, label %163, !llvm.loop !30
+  %indvars.iv.next2310 = add nsw i64 %indvars.iv2309, 1
+  %exitcond2313.not = icmp eq i64 %indvars.iv.next2310, %wide.trip.count2312
+  br i1 %exitcond2313.not, label %.loopexit, label %163, !llvm.loop !30
 
 .critedge.loopexit:                               ; preds = %163
-  %342 = trunc nsw i64 %indvars.iv2392 to i32
+  %342 = trunc nsw i64 %indvars.iv2309 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.sroa.01669.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.01669.12257, %.critedge.loopexit ]
-  %.sroa.14.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.14.12258, %.critedge.loopexit ]
-  %.sroa.01682.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.01682.12259, %.critedge.loopexit ]
-  %.sroa.141689.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.141689.12260, %.critedge.loopexit ]
-  %.sroa.01696.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.01696.12261, %.critedge.loopexit ]
-  %.sroa.141703.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.141703.12262, %.critedge.loopexit ]
+  %.sroa.01669.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.01669.12221, %.critedge.loopexit ]
+  %.sroa.14.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.14.12222, %.critedge.loopexit ]
+  %.sroa.01682.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.01682.12223, %.critedge.loopexit ]
+  %.sroa.141689.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.141689.12224, %.critedge.loopexit ]
+  %.sroa.01696.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.01696.12225, %.critedge.loopexit ]
+  %.sroa.141703.1.lcssa = phi <8 x float> [ zeroinitializer, %.preheader ], [ %.sroa.141703.12226, %.critedge.loopexit ]
   %.0506.lcssa = phi i32 [ %58, %.preheader ], [ %342, %.critedge.loopexit ]
   %343 = icmp slt i32 %.0506.lcssa, %60
   br i1 %343, label %.preheader.i646.critedge.lr.ph, label %.loopexit
 
 .preheader.i646.critedge.lr.ph:                   ; preds = %.critedge
-  %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i672 = load <8 x float>, ptr %.sroa.02624, align 32
+  %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i672 = load <8 x float>, ptr %.sroa.02541, align 32
   %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i674 = load <8 x float>, ptr %.sroa.0, align 32
   %344 = sext i32 %.0506.lcssa to i64
-  %wide.trip.count2400 = sext i32 %60 to i64
+  %wide.trip.count2317 = sext i32 %60 to i64
   br label %.preheader.i646.critedge
 
 .preheader.i646.critedge:                         ; preds = %.preheader.i646.critedge.lr.ph, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663
-  %indvars.iv2397 = phi i64 [ %344, %.preheader.i646.critedge.lr.ph ], [ %indvars.iv.next2398, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
-  %.sroa.141703.22301 = phi <8 x float> [ %.sroa.141703.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %474, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
-  %.sroa.01696.22300 = phi <8 x float> [ %.sroa.01696.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %473, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
-  %.sroa.141689.22299 = phi <8 x float> [ %.sroa.141689.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %476, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
-  %.sroa.01682.22298 = phi <8 x float> [ %.sroa.01682.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %475, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
-  %.sroa.14.22297 = phi <8 x float> [ %.sroa.14.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %478, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
-  %.sroa.01669.22296 = phi <8 x float> [ %.sroa.01669.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %477, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
-  %345 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2397
+  %indvars.iv2314 = phi i64 [ %344, %.preheader.i646.critedge.lr.ph ], [ %indvars.iv.next2315, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
+  %.sroa.141703.22257 = phi <8 x float> [ %.sroa.141703.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %474, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
+  %.sroa.01696.22256 = phi <8 x float> [ %.sroa.01696.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %473, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
+  %.sroa.141689.22255 = phi <8 x float> [ %.sroa.141689.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %476, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
+  %.sroa.01682.22254 = phi <8 x float> [ %.sroa.01682.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %475, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
+  %.sroa.14.22253 = phi <8 x float> [ %.sroa.14.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %478, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
+  %.sroa.01669.22252 = phi <8 x float> [ %.sroa.01669.1.lcssa, %.preheader.i646.critedge.lr.ph ], [ %477, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ]
+  %345 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2314
   %346 = load i32, ptr %345, align 4
   %347 = shl nsw i32 %346, 2
   %348 = mul nsw i32 %346, 12
@@ -544,11 +544,11 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %350 = getelementptr inbounds float, ptr %41, i64 %349
   %.val.i603 = load <4 x float>, ptr %350, align 1
   %351 = shufflevector <4 x float> %.val.i603, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2293 = getelementptr float, ptr %invariant.gep, i64 %349
-  %.val.i604 = load <4 x float>, ptr %gep2293, align 1
+  %gep2249 = getelementptr float, ptr %invariant.gep, i64 %349
+  %.val.i604 = load <4 x float>, ptr %gep2249, align 1
   %352 = shufflevector <4 x float> %.val.i604, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2295 = getelementptr float, ptr %invariant.gep2112, i64 %349
-  %.val.i605 = load <4 x float>, ptr %gep2295, align 1
+  %gep2251 = getelementptr float, ptr %invariant.gep2112, i64 %349
+  %.val.i605 = load <4 x float>, ptr %gep2251, align 1
   %353 = shufflevector <4 x float> %.val.i605, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %354 = fsub <8 x float> %94, %351
   %355 = fsub <8 x float> %100, %351
@@ -685,7 +685,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %453 = getelementptr inbounds float, ptr %11, i64 %452
   %.val.i671 = load <4 x float>, ptr %453, align 1
   %454 = shufflevector <4 x float> %.val.i671, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %455 = fmul <8 x float> %450, %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i672
+  %455 = fmul <8 x float> %450, %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i672
   %456 = fmul <8 x float> %454, %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i674
   %457 = fmul <8 x float> %430, %430
   %458 = fmul <8 x float> %430, %457
@@ -703,12 +703,12 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %470 = fmul <8 x float> %357, %466
   %471 = fmul <8 x float> %358, %465
   %472 = fmul <8 x float> %359, %466
-  %473 = fadd <8 x float> %.sroa.01696.22300, %467
-  %474 = fadd <8 x float> %.sroa.141703.22301, %468
-  %475 = fadd <8 x float> %.sroa.01682.22298, %469
-  %476 = fadd <8 x float> %.sroa.141689.22299, %470
-  %477 = fadd <8 x float> %.sroa.01669.22296, %471
-  %478 = fadd <8 x float> %.sroa.14.22297, %472
+  %473 = fadd <8 x float> %.sroa.01696.22256, %467
+  %474 = fadd <8 x float> %.sroa.141703.22257, %468
+  %475 = fadd <8 x float> %.sroa.01682.22254, %469
+  %476 = fadd <8 x float> %.sroa.141689.22255, %470
+  %477 = fadd <8 x float> %.sroa.01669.22252, %471
+  %478 = fadd <8 x float> %.sroa.14.22253, %472
   %479 = getelementptr inbounds float, ptr %7, i64 %349
   %480 = fadd <8 x float> %468, %467
   %481 = fadd <8 x float> %470, %469
@@ -733,9 +733,9 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %498 = load <4 x float>, ptr %494, align 16
   %499 = fsub <4 x float> %498, %497
   store <4 x float> %499, ptr %494, align 16
-  %indvars.iv.next2398 = add nsw i64 %indvars.iv2397, 1
-  %exitcond2401.not = icmp eq i64 %indvars.iv.next2398, %wide.trip.count2400
-  br i1 %exitcond2401.not, label %.loopexit, label %.preheader.i646.critedge, !llvm.loop !37
+  %indvars.iv.next2315 = add nsw i64 %indvars.iv2314, 1
+  %exitcond2318.not = icmp eq i64 %indvars.iv.next2315, %wide.trip.count2317
+  br i1 %exitcond2318.not, label %.loopexit, label %.preheader.i646.critedge, !llvm.loop !37
 
 500:                                              ; preds = %160
   br i1 %84, label %.preheader2106, label %.preheader2108
@@ -744,8 +744,8 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   br i1 %161, label %.lr.ph, label %.critedge4
 
 .lr.ph:                                           ; preds = %.preheader2108
-  %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i1016 = load <8 x float>, ptr %.sroa.02624, align 32
-  %.sroa.72625.0..sroa.72625.32..sroa.01.0.copyload.i1.i1018 = load <8 x float>, ptr %.sroa.72625, align 32
+  %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i1016 = load <8 x float>, ptr %.sroa.02541, align 32
+  %.sroa.72542.0..sroa.72542.32..sroa.01.0.copyload.i1.i1018 = load <8 x float>, ptr %.sroa.72542, align 32
   %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i1019 = load <8 x float>, ptr %.sroa.0, align 32
   %.sroa.7.0..sroa.7.32..sroa.01.0.copyload.i1.i1021 = load <8 x float>, ptr %.sroa.7, align 32
   %501 = sext i32 %58 to i64
@@ -753,33 +753,33 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   br label %861
 
 .preheader2106:                                   ; preds = %500
-  br i1 %161, label %.lr.ph2196, label %.critedge2
+  br i1 %161, label %.lr.ph2176, label %.critedge2
 
-.lr.ph2196:                                       ; preds = %.preheader2106
-  %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i798 = load <8 x float>, ptr %.sroa.02624, align 32
-  %.sroa.72625.0..sroa.72625.32..sroa.01.0.copyload.i1.i800 = load <8 x float>, ptr %.sroa.72625, align 32
+.lr.ph2176:                                       ; preds = %.preheader2106
+  %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i798 = load <8 x float>, ptr %.sroa.02541, align 32
+  %.sroa.72542.0..sroa.72542.32..sroa.01.0.copyload.i1.i800 = load <8 x float>, ptr %.sroa.72542, align 32
   %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i801 = load <8 x float>, ptr %.sroa.0, align 32
   %.sroa.7.0..sroa.7.32..sroa.01.0.copyload.i1.i803 = load <8 x float>, ptr %.sroa.7, align 32
   %502 = sext i32 %58 to i64
-  %wide.trip.count2385 = sext i32 %60 to i64
+  %wide.trip.count2302 = sext i32 %60 to i64
   br label %503
 
-503:                                              ; preds = %.lr.ph2196, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788
-  %indvars.iv2382 = phi i64 [ %502, %.lr.ph2196 ], [ %indvars.iv.next2383, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
-  %.sroa.141703.42194 = phi <8 x float> [ zeroinitializer, %.lr.ph2196 ], [ %666, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
-  %.sroa.01696.42193 = phi <8 x float> [ zeroinitializer, %.lr.ph2196 ], [ %665, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
-  %.sroa.141689.42192 = phi <8 x float> [ zeroinitializer, %.lr.ph2196 ], [ %668, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
-  %.sroa.01682.42191 = phi <8 x float> [ zeroinitializer, %.lr.ph2196 ], [ %667, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
-  %.sroa.14.42190 = phi <8 x float> [ zeroinitializer, %.lr.ph2196 ], [ %670, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
-  %.sroa.01669.42189 = phi <8 x float> [ zeroinitializer, %.lr.ph2196 ], [ %669, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
+503:                                              ; preds = %.lr.ph2176, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788
+  %indvars.iv2299 = phi i64 [ %502, %.lr.ph2176 ], [ %indvars.iv.next2300, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
+  %.sroa.141703.42174 = phi <8 x float> [ zeroinitializer, %.lr.ph2176 ], [ %666, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
+  %.sroa.01696.42173 = phi <8 x float> [ zeroinitializer, %.lr.ph2176 ], [ %665, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
+  %.sroa.141689.42172 = phi <8 x float> [ zeroinitializer, %.lr.ph2176 ], [ %668, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
+  %.sroa.01682.42171 = phi <8 x float> [ zeroinitializer, %.lr.ph2176 ], [ %667, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
+  %.sroa.14.42170 = phi <8 x float> [ zeroinitializer, %.lr.ph2176 ], [ %670, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
+  %.sroa.01669.42169 = phi <8 x float> [ zeroinitializer, %.lr.ph2176 ], [ %669, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ]
   %504 = load ptr, ptr %42, align 8
-  %505 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %504, i64 %indvars.iv2382, i32 1
+  %505 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %504, i64 %indvars.iv2299, i32 1
   %506 = load i32, ptr %505, align 4
   %.not510 = icmp eq i32 %506, -1
   br i1 %.not510, label %.critedge2.loopexit, label %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit718.critedge
 
 _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit718.critedge: ; preds = %503
-  %507 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2382
+  %507 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2299
   %508 = load i32, ptr %507, align 4
   %509 = shl nsw i32 %508, 2
   %510 = mul nsw i32 %508, 12
@@ -790,16 +790,16 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %515 = and <8 x i32> %.sroa.0.0.copyload, %514
   %.not = icmp eq <8 x i32> %515, zeroinitializer
   %516 = and <8 x i32> %.sroa.4.0.copyload, %514
-  %.not2409 = icmp eq <8 x i32> %516, zeroinitializer
+  %.not2326 = icmp eq <8 x i32> %516, zeroinitializer
   %517 = sext i32 %510 to i64
   %518 = getelementptr inbounds float, ptr %41, i64 %517
   %.val.i719 = load <4 x float>, ptr %518, align 1
   %519 = shufflevector <4 x float> %.val.i719, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2178 = getelementptr float, ptr %invariant.gep, i64 %517
-  %.val.i720 = load <4 x float>, ptr %gep2178, align 1
+  %gep2162 = getelementptr float, ptr %invariant.gep, i64 %517
+  %.val.i720 = load <4 x float>, ptr %gep2162, align 1
   %520 = shufflevector <4 x float> %.val.i720, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2180 = getelementptr float, ptr %invariant.gep2112, i64 %517
-  %.val.i721 = load <4 x float>, ptr %gep2180, align 1
+  %gep2164 = getelementptr float, ptr %invariant.gep2112, i64 %517
+  %.val.i721 = load <4 x float>, ptr %gep2164, align 1
   %521 = shufflevector <4 x float> %.val.i721, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %522 = fsub <8 x float> %94, %519
   %523 = fsub <8 x float> %100, %519
@@ -822,8 +822,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %540 = fcmp olt <8 x float> %537, %32
   %541 = sext <8 x i1> %540 to <8 x i32>
   %542 = icmp eq i32 %508, %63
-  %543 = select <8 x i1> %538, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i209624062626, <8 x i32> zeroinitializer
-  %544 = select <8 x i1> %540, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i209724072627, <8 x i32> zeroinitializer
+  %543 = select <8 x i1> %538, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i209623232543, <8 x i32> zeroinitializer
+  %544 = select <8 x i1> %540, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i209723242544, <8 x i32> zeroinitializer
   %.sroa.01475.0 = select i1 %542, <8 x i32> %543, <8 x i32> %539
   %.sroa.41477.0 = select i1 %542, <8 x i32> %544, <8 x i32> %541
   %545 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %532, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
@@ -915,7 +915,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %607 = fmul <8 x float> %.sroa.5.1, %561
   %608 = fmul <8 x float> %565, %565
   %609 = fmul <8 x float> %566, %566
-  %610 = select <8 x i1> %.not2409, <8 x i32> zeroinitializer, <8 x i32> %564
+  %610 = select <8 x i1> %.not2326, <8 x i32> zeroinitializer, <8 x i32> %564
   %611 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %571, i32 3)
   %612 = fsub <8 x float> %571, %611
   %613 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %570, i32 3)
@@ -952,8 +952,8 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %635 = getelementptr inbounds float, ptr %11, i64 %634
   %.val.i797 = load <4 x float>, ptr %635, align 1
   %636 = shufflevector <4 x float> %.val.i797, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %637 = fmul <8 x float> %632, %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i798
-  %638 = fmul <8 x float> %632, %.sroa.72625.0..sroa.72625.32..sroa.01.0.copyload.i1.i800
+  %637 = fmul <8 x float> %632, %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i798
+  %638 = fmul <8 x float> %632, %.sroa.72542.0..sroa.72542.32..sroa.01.0.copyload.i1.i800
   %639 = fmul <8 x float> %636, %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i801
   %640 = fmul <8 x float> %636, %.sroa.7.0..sroa.7.32..sroa.01.0.copyload.i1.i803
   %641 = fmul <8 x float> %608, %608
@@ -962,7 +962,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %644 = fmul <8 x float> %609, %643
   %.sroa.01.0.copyload.i.i.cast.i.i = select <8 x i1> %.not, <8 x float> zeroinitializer, <8 x float> %642
   %645 = fmul <8 x float> %.sroa.01.0.copyload.i.i.cast.i.i, %.sroa.01.0.copyload.i.i.cast.i.i
-  %.sroa.01.0.copyload.i1.i.cast.i.i = select <8 x i1> %.not2409, <8 x float> zeroinitializer, <8 x float> %644
+  %.sroa.01.0.copyload.i1.i.cast.i.i = select <8 x i1> %.not2326, <8 x float> zeroinitializer, <8 x float> %644
   %646 = fmul <8 x float> %.sroa.01.0.copyload.i1.i.cast.i.i, %.sroa.01.0.copyload.i1.i.cast.i.i
   %647 = fneg <8 x float> %.sroa.01.0.copyload.i.i.cast.i.i
   %648 = fmul <8 x float> %637, %647
@@ -982,12 +982,12 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %662 = fmul <8 x float> %525, %658
   %663 = fmul <8 x float> %526, %655
   %664 = fmul <8 x float> %527, %658
-  %665 = fadd <8 x float> %.sroa.01696.42193, %659
-  %666 = fadd <8 x float> %.sroa.141703.42194, %660
-  %667 = fadd <8 x float> %.sroa.01682.42191, %661
-  %668 = fadd <8 x float> %.sroa.141689.42192, %662
-  %669 = fadd <8 x float> %.sroa.01669.42189, %663
-  %670 = fadd <8 x float> %.sroa.14.42190, %664
+  %665 = fadd <8 x float> %.sroa.01696.42173, %659
+  %666 = fadd <8 x float> %.sroa.141703.42174, %660
+  %667 = fadd <8 x float> %.sroa.01682.42171, %661
+  %668 = fadd <8 x float> %.sroa.141689.42172, %662
+  %669 = fadd <8 x float> %.sroa.01669.42169, %663
+  %670 = fadd <8 x float> %.sroa.14.42170, %664
   %671 = getelementptr inbounds float, ptr %7, i64 %517
   %672 = fadd <8 x float> %659, %660
   %673 = fadd <8 x float> %661, %662
@@ -1012,43 +1012,43 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %690 = load <4 x float>, ptr %686, align 16
   %691 = fsub <4 x float> %690, %689
   store <4 x float> %691, ptr %686, align 16
-  %indvars.iv.next2383 = add nsw i64 %indvars.iv2382, 1
-  %exitcond2386.not = icmp eq i64 %indvars.iv.next2383, %wide.trip.count2385
-  br i1 %exitcond2386.not, label %.loopexit, label %503, !llvm.loop !44
+  %indvars.iv.next2300 = add nsw i64 %indvars.iv2299, 1
+  %exitcond2303.not = icmp eq i64 %indvars.iv.next2300, %wide.trip.count2302
+  br i1 %exitcond2303.not, label %.loopexit, label %503, !llvm.loop !44
 
 .critedge2.loopexit:                              ; preds = %503
-  %692 = trunc nsw i64 %indvars.iv2382 to i32
+  %692 = trunc nsw i64 %indvars.iv2299 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader2106
-  %.sroa.01669.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.01669.42189, %.critedge2.loopexit ]
-  %.sroa.14.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.14.42190, %.critedge2.loopexit ]
-  %.sroa.01682.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.01682.42191, %.critedge2.loopexit ]
-  %.sroa.141689.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.141689.42192, %.critedge2.loopexit ]
-  %.sroa.01696.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.01696.42193, %.critedge2.loopexit ]
-  %.sroa.141703.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.141703.42194, %.critedge2.loopexit ]
+  %.sroa.01669.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.01669.42169, %.critedge2.loopexit ]
+  %.sroa.14.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.14.42170, %.critedge2.loopexit ]
+  %.sroa.01682.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.01682.42171, %.critedge2.loopexit ]
+  %.sroa.141689.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.141689.42172, %.critedge2.loopexit ]
+  %.sroa.01696.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.01696.42173, %.critedge2.loopexit ]
+  %.sroa.141703.4.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2106 ], [ %.sroa.141703.42174, %.critedge2.loopexit ]
   %.2.lcssa = phi i32 [ %58, %.preheader2106 ], [ %692, %.critedge2.loopexit ]
   %693 = icmp slt i32 %.2.lcssa, %60
   br i1 %693, label %.preheader.i892.critedge.lr.ph, label %.loopexit
 
 .preheader.i892.critedge.lr.ph:                   ; preds = %.critedge2
-  %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i919 = load <8 x float>, ptr %.sroa.02624, align 32, !noalias !45
-  %.sroa.72625.0..sroa.72625.32..sroa.01.0.copyload.i1.i921 = load <8 x float>, ptr %.sroa.72625, align 32, !noalias !45
+  %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i919 = load <8 x float>, ptr %.sroa.02541, align 32, !noalias !45
+  %.sroa.72542.0..sroa.72542.32..sroa.01.0.copyload.i1.i921 = load <8 x float>, ptr %.sroa.72542, align 32, !noalias !45
   %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i922 = load <8 x float>, ptr %.sroa.0, align 32, !noalias !48
   %.sroa.7.0..sroa.7.32..sroa.01.0.copyload.i1.i924 = load <8 x float>, ptr %.sroa.7, align 32, !noalias !48
   %694 = sext i32 %.2.lcssa to i64
-  %wide.trip.count2390 = sext i32 %60 to i64
+  %wide.trip.count2307 = sext i32 %60 to i64
   br label %.preheader.i892.critedge
 
 .preheader.i892.critedge:                         ; preds = %.preheader.i892.critedge.lr.ph, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909
-  %indvars.iv2387 = phi i64 [ %694, %.preheader.i892.critedge.lr.ph ], [ %indvars.iv.next2388, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
-  %.sroa.141703.52233 = phi <8 x float> [ %.sroa.141703.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %835, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
-  %.sroa.01696.52232 = phi <8 x float> [ %.sroa.01696.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %834, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
-  %.sroa.141689.52231 = phi <8 x float> [ %.sroa.141689.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %837, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
-  %.sroa.01682.52230 = phi <8 x float> [ %.sroa.01682.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %836, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
-  %.sroa.14.52229 = phi <8 x float> [ %.sroa.14.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %839, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
-  %.sroa.01669.52228 = phi <8 x float> [ %.sroa.01669.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %838, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
-  %695 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2387
+  %indvars.iv2304 = phi i64 [ %694, %.preheader.i892.critedge.lr.ph ], [ %indvars.iv.next2305, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
+  %.sroa.141703.52205 = phi <8 x float> [ %.sroa.141703.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %835, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
+  %.sroa.01696.52204 = phi <8 x float> [ %.sroa.01696.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %834, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
+  %.sroa.141689.52203 = phi <8 x float> [ %.sroa.141689.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %837, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
+  %.sroa.01682.52202 = phi <8 x float> [ %.sroa.01682.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %836, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
+  %.sroa.14.52201 = phi <8 x float> [ %.sroa.14.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %839, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
+  %.sroa.01669.52200 = phi <8 x float> [ %.sroa.01669.4.lcssa, %.preheader.i892.critedge.lr.ph ], [ %838, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ]
+  %695 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2304
   %696 = load i32, ptr %695, align 4
   %697 = shl nsw i32 %696, 2
   %698 = mul nsw i32 %696, 12
@@ -1056,11 +1056,11 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %700 = getelementptr inbounds float, ptr %41, i64 %699
   %.val.i849 = load <4 x float>, ptr %700, align 1
   %701 = shufflevector <4 x float> %.val.i849, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2225 = getelementptr float, ptr %invariant.gep, i64 %699
-  %.val.i850 = load <4 x float>, ptr %gep2225, align 1
+  %gep2197 = getelementptr float, ptr %invariant.gep, i64 %699
+  %.val.i850 = load <4 x float>, ptr %gep2197, align 1
   %702 = shufflevector <4 x float> %.val.i850, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2227 = getelementptr float, ptr %invariant.gep2112, i64 %699
-  %.val.i851 = load <4 x float>, ptr %gep2227, align 1
+  %gep2199 = getelementptr float, ptr %invariant.gep2112, i64 %699
+  %.val.i851 = load <4 x float>, ptr %gep2199, align 1
   %703 = shufflevector <4 x float> %.val.i851, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %704 = fsub <8 x float> %94, %701
   %705 = fsub <8 x float> %100, %701
@@ -1198,8 +1198,8 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %804 = getelementptr inbounds float, ptr %11, i64 %803
   %.val.i918 = load <4 x float>, ptr %804, align 1
   %805 = shufflevector <4 x float> %.val.i918, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %806 = fmul <8 x float> %801, %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i919
-  %807 = fmul <8 x float> %801, %.sroa.72625.0..sroa.72625.32..sroa.01.0.copyload.i1.i921
+  %806 = fmul <8 x float> %801, %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i919
+  %807 = fmul <8 x float> %801, %.sroa.72542.0..sroa.72542.32..sroa.01.0.copyload.i1.i921
   %808 = fmul <8 x float> %805, %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i922
   %809 = fmul <8 x float> %805, %.sroa.7.0..sroa.7.32..sroa.01.0.copyload.i1.i924
   %810 = fmul <8 x float> %780, %780
@@ -1226,12 +1226,12 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %831 = fmul <8 x float> %707, %827
   %832 = fmul <8 x float> %708, %824
   %833 = fmul <8 x float> %709, %827
-  %834 = fadd <8 x float> %.sroa.01696.52232, %828
-  %835 = fadd <8 x float> %.sroa.141703.52233, %829
-  %836 = fadd <8 x float> %.sroa.01682.52230, %830
-  %837 = fadd <8 x float> %.sroa.141689.52231, %831
-  %838 = fadd <8 x float> %.sroa.01669.52228, %832
-  %839 = fadd <8 x float> %.sroa.14.52229, %833
+  %834 = fadd <8 x float> %.sroa.01696.52204, %828
+  %835 = fadd <8 x float> %.sroa.141703.52205, %829
+  %836 = fadd <8 x float> %.sroa.01682.52202, %830
+  %837 = fadd <8 x float> %.sroa.141689.52203, %831
+  %838 = fadd <8 x float> %.sroa.01669.52200, %832
+  %839 = fadd <8 x float> %.sroa.14.52201, %833
   %840 = getelementptr inbounds float, ptr %7, i64 %699
   %841 = fadd <8 x float> %828, %829
   %842 = fadd <8 x float> %830, %831
@@ -1256,26 +1256,26 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %859 = load <4 x float>, ptr %855, align 16
   %860 = fsub <4 x float> %859, %858
   store <4 x float> %860, ptr %855, align 16
-  %indvars.iv.next2388 = add nsw i64 %indvars.iv2387, 1
-  %exitcond2391.not = icmp eq i64 %indvars.iv.next2388, %wide.trip.count2390
-  br i1 %exitcond2391.not, label %.loopexit, label %.preheader.i892.critedge, !llvm.loop !57
+  %indvars.iv.next2305 = add nsw i64 %indvars.iv2304, 1
+  %exitcond2308.not = icmp eq i64 %indvars.iv.next2305, %wide.trip.count2307
+  br i1 %exitcond2308.not, label %.loopexit, label %.preheader.i892.critedge, !llvm.loop !57
 
 861:                                              ; preds = %.lr.ph, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge
-  %indvars.iv2374 = phi i64 [ %501, %.lr.ph ], [ %indvars.iv.next2375, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
-  %.sroa.141703.62127 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %952, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
-  %.sroa.01696.62126 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %951, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
-  %.sroa.141689.62125 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %954, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
-  %.sroa.01682.62124 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %953, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
-  %.sroa.14.62123 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %956, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
-  %.sroa.01669.62122 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %955, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
+  %indvars.iv2291 = phi i64 [ %501, %.lr.ph ], [ %indvars.iv.next2292, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
+  %.sroa.141703.62123 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %952, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
+  %.sroa.01696.62122 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %951, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
+  %.sroa.141689.62121 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %954, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
+  %.sroa.01682.62120 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %953, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
+  %.sroa.14.62119 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %956, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
+  %.sroa.01669.62118 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %955, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
   %862 = load ptr, ptr %42, align 8
-  %863 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %862, i64 %indvars.iv2374, i32 1
+  %863 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %862, i64 %indvars.iv2291, i32 1
   %864 = load i32, ptr %863, align 4
   %.not509 = icmp eq i32 %864, -1
   br i1 %.not509, label %.critedge4.loopexit, label %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge
 
 _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge: ; preds = %861
-  %865 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2374
+  %865 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2291
   %866 = load i32, ptr %865, align 4
   %867 = mul nsw i32 %866, 12
   %868 = getelementptr inbounds i8, ptr %865, i64 4
@@ -1315,7 +1315,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %897 = fcmp olt <8 x float> %891, %32
   %898 = fcmp olt <8 x float> %896, %32
   %narrow = select <8 x i1> %897, <8 x i1> %873, <8 x i1> zeroinitializer
-  %narrow2408 = select <8 x i1> %898, <8 x i1> %875, <8 x i1> zeroinitializer
+  %narrow2325 = select <8 x i1> %898, <8 x i1> %875, <8 x i1> zeroinitializer
   %899 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %891, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %900 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %896, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %901 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %899)
@@ -1330,7 +1330,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %910 = fmul <8 x float> %908, %909
   %911 = select <8 x i1> %narrow, <8 x float> %905, <8 x float> zeroinitializer
   %912 = fmul <8 x float> %911, %911
-  %913 = select <8 x i1> %narrow2408, <8 x float> %910, <8 x float> zeroinitializer
+  %913 = select <8 x i1> %narrow2325, <8 x float> %910, <8 x float> zeroinitializer
   %914 = fmul <8 x float> %913, %913
   %915 = fcmp olt <8 x float> %899, %37
   %916 = fcmp olt <8 x float> %900, %37
@@ -1344,8 +1344,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %923 = getelementptr inbounds float, ptr %11, i64 %922
   %.val.i1015 = load <4 x float>, ptr %923, align 1
   %924 = shufflevector <4 x float> %.val.i1015, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %925 = fmul <8 x float> %920, %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i1016
-  %926 = fmul <8 x float> %920, %.sroa.72625.0..sroa.72625.32..sroa.01.0.copyload.i1.i1018
+  %925 = fmul <8 x float> %920, %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i1016
+  %926 = fmul <8 x float> %920, %.sroa.72542.0..sroa.72542.32..sroa.01.0.copyload.i1.i1018
   %927 = fmul <8 x float> %924, %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i1019
   %928 = fmul <8 x float> %924, %.sroa.7.0..sroa.7.32..sroa.01.0.copyload.i1.i1021
   %929 = fmul <8 x float> %912, %912
@@ -1370,12 +1370,12 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %948 = fmul <8 x float> %884, %944
   %949 = fmul <8 x float> %885, %942
   %950 = fmul <8 x float> %886, %944
-  %951 = fadd <8 x float> %.sroa.01696.62126, %945
-  %952 = fadd <8 x float> %.sroa.141703.62127, %946
-  %953 = fadd <8 x float> %.sroa.01682.62124, %947
-  %954 = fadd <8 x float> %.sroa.141689.62125, %948
-  %955 = fadd <8 x float> %.sroa.01669.62122, %949
-  %956 = fadd <8 x float> %.sroa.14.62123, %950
+  %951 = fadd <8 x float> %.sroa.01696.62122, %945
+  %952 = fadd <8 x float> %.sroa.141703.62123, %946
+  %953 = fadd <8 x float> %.sroa.01682.62120, %947
+  %954 = fadd <8 x float> %.sroa.141689.62121, %948
+  %955 = fadd <8 x float> %.sroa.01669.62118, %949
+  %956 = fadd <8 x float> %.sroa.14.62119, %950
   %957 = getelementptr inbounds float, ptr %7, i64 %876
   %958 = fadd <8 x float> %945, %946
   %959 = fadd <8 x float> %947, %948
@@ -1400,54 +1400,54 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %976 = load <4 x float>, ptr %972, align 16
   %977 = fsub <4 x float> %976, %975
   store <4 x float> %977, ptr %972, align 16
-  %indvars.iv.next2375 = add nsw i64 %indvars.iv2374, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next2375, %wide.trip.count
+  %indvars.iv.next2292 = add nsw i64 %indvars.iv2291, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next2292, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %861, !llvm.loop !58
 
 .critedge4.loopexit:                              ; preds = %861
-  %978 = trunc nsw i64 %indvars.iv2374 to i32
+  %978 = trunc nsw i64 %indvars.iv2291 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.preheader2108
-  %.sroa.01669.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.01669.62122, %.critedge4.loopexit ]
-  %.sroa.14.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.14.62123, %.critedge4.loopexit ]
-  %.sroa.01682.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.01682.62124, %.critedge4.loopexit ]
-  %.sroa.141689.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.141689.62125, %.critedge4.loopexit ]
-  %.sroa.01696.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.01696.62126, %.critedge4.loopexit ]
-  %.sroa.141703.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.141703.62127, %.critedge4.loopexit ]
+  %.sroa.01669.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.01669.62118, %.critedge4.loopexit ]
+  %.sroa.14.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.14.62119, %.critedge4.loopexit ]
+  %.sroa.01682.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.01682.62120, %.critedge4.loopexit ]
+  %.sroa.141689.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.141689.62121, %.critedge4.loopexit ]
+  %.sroa.01696.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.01696.62122, %.critedge4.loopexit ]
+  %.sroa.141703.6.lcssa = phi <8 x float> [ zeroinitializer, %.preheader2108 ], [ %.sroa.141703.62123, %.critedge4.loopexit ]
   %.4.lcssa = phi i32 [ %58, %.preheader2108 ], [ %978, %.critedge4.loopexit ]
   %979 = icmp slt i32 %.4.lcssa, %60
-  br i1 %979, label %.lr.ph2166, label %.loopexit
+  br i1 %979, label %.lr.ph2154, label %.loopexit
 
-.lr.ph2166:                                       ; preds = %.critedge4
-  %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i1104 = load <8 x float>, ptr %.sroa.02624, align 32, !noalias !59
-  %.sroa.72625.0..sroa.72625.32..sroa.01.0.copyload.i1.i1106 = load <8 x float>, ptr %.sroa.72625, align 32, !noalias !59
+.lr.ph2154:                                       ; preds = %.critedge4
+  %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i1104 = load <8 x float>, ptr %.sroa.02541, align 32, !noalias !59
+  %.sroa.72542.0..sroa.72542.32..sroa.01.0.copyload.i1.i1106 = load <8 x float>, ptr %.sroa.72542, align 32, !noalias !59
   %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i1107 = load <8 x float>, ptr %.sroa.0, align 32, !noalias !62
   %.sroa.7.0..sroa.7.32..sroa.01.0.copyload.i1.i1109 = load <8 x float>, ptr %.sroa.7, align 32, !noalias !62
   %980 = sext i32 %.4.lcssa to i64
-  %wide.trip.count2380 = sext i32 %60 to i64
+  %wide.trip.count2297 = sext i32 %60 to i64
   br label %981
 
-981:                                              ; preds = %.lr.ph2166, %981
-  %indvars.iv2377 = phi i64 [ %980, %.lr.ph2166 ], [ %indvars.iv.next2378, %981 ]
-  %.sroa.141703.72164 = phi <8 x float> [ %.sroa.141703.6.lcssa, %.lr.ph2166 ], [ %1061, %981 ]
-  %.sroa.01696.72163 = phi <8 x float> [ %.sroa.01696.6.lcssa, %.lr.ph2166 ], [ %1060, %981 ]
-  %.sroa.141689.72162 = phi <8 x float> [ %.sroa.141689.6.lcssa, %.lr.ph2166 ], [ %1063, %981 ]
-  %.sroa.01682.72161 = phi <8 x float> [ %.sroa.01682.6.lcssa, %.lr.ph2166 ], [ %1062, %981 ]
-  %.sroa.14.72160 = phi <8 x float> [ %.sroa.14.6.lcssa, %.lr.ph2166 ], [ %1065, %981 ]
-  %.sroa.01669.72159 = phi <8 x float> [ %.sroa.01669.6.lcssa, %.lr.ph2166 ], [ %1064, %981 ]
-  %982 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2377
+981:                                              ; preds = %.lr.ph2154, %981
+  %indvars.iv2294 = phi i64 [ %980, %.lr.ph2154 ], [ %indvars.iv.next2295, %981 ]
+  %.sroa.141703.72152 = phi <8 x float> [ %.sroa.141703.6.lcssa, %.lr.ph2154 ], [ %1061, %981 ]
+  %.sroa.01696.72151 = phi <8 x float> [ %.sroa.01696.6.lcssa, %.lr.ph2154 ], [ %1060, %981 ]
+  %.sroa.141689.72150 = phi <8 x float> [ %.sroa.141689.6.lcssa, %.lr.ph2154 ], [ %1063, %981 ]
+  %.sroa.01682.72149 = phi <8 x float> [ %.sroa.01682.6.lcssa, %.lr.ph2154 ], [ %1062, %981 ]
+  %.sroa.14.72148 = phi <8 x float> [ %.sroa.14.6.lcssa, %.lr.ph2154 ], [ %1065, %981 ]
+  %.sroa.01669.72147 = phi <8 x float> [ %.sroa.01669.6.lcssa, %.lr.ph2154 ], [ %1064, %981 ]
+  %982 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv2294
   %983 = load i32, ptr %982, align 4
   %984 = mul nsw i32 %983, 12
   %985 = sext i32 %984 to i64
   %986 = getelementptr inbounds float, ptr %41, i64 %985
   %.val.i1067 = load <4 x float>, ptr %986, align 1
   %987 = shufflevector <4 x float> %.val.i1067, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2156 = getelementptr float, ptr %invariant.gep, i64 %985
-  %.val.i1068 = load <4 x float>, ptr %gep2156, align 1
+  %gep2144 = getelementptr float, ptr %invariant.gep, i64 %985
+  %.val.i1068 = load <4 x float>, ptr %gep2144, align 1
   %988 = shufflevector <4 x float> %.val.i1068, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %gep2158 = getelementptr float, ptr %invariant.gep2112, i64 %985
-  %.val.i1069 = load <4 x float>, ptr %gep2158, align 1
+  %gep2146 = getelementptr float, ptr %invariant.gep2112, i64 %985
+  %.val.i1069 = load <4 x float>, ptr %gep2146, align 1
   %989 = shufflevector <4 x float> %.val.i1069, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %990 = fsub <8 x float> %94, %987
   %991 = fsub <8 x float> %100, %987
@@ -1495,8 +1495,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1032 = getelementptr inbounds float, ptr %11, i64 %1031
   %.val.i1103 = load <4 x float>, ptr %1032, align 1
   %1033 = shufflevector <4 x float> %.val.i1103, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %1034 = fmul <8 x float> %1029, %.sroa.02624.0..sroa.02624.0..sroa.01.0.copyload.i.i1104
-  %1035 = fmul <8 x float> %1029, %.sroa.72625.0..sroa.72625.32..sroa.01.0.copyload.i1.i1106
+  %1034 = fmul <8 x float> %1029, %.sroa.02541.0..sroa.02541.0..sroa.01.0.copyload.i.i1104
+  %1035 = fmul <8 x float> %1029, %.sroa.72542.0..sroa.72542.32..sroa.01.0.copyload.i1.i1106
   %1036 = fmul <8 x float> %1033, %.sroa.0.0..sroa.0.0..sroa.01.0.copyload.i.i1107
   %1037 = fmul <8 x float> %1033, %.sroa.7.0..sroa.7.32..sroa.01.0.copyload.i1.i1109
   %1038 = fmul <8 x float> %1021, %1021
@@ -1521,12 +1521,12 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1057 = fmul <8 x float> %993, %1053
   %1058 = fmul <8 x float> %994, %1051
   %1059 = fmul <8 x float> %995, %1053
-  %1060 = fadd <8 x float> %.sroa.01696.72163, %1054
-  %1061 = fadd <8 x float> %.sroa.141703.72164, %1055
-  %1062 = fadd <8 x float> %.sroa.01682.72161, %1056
-  %1063 = fadd <8 x float> %.sroa.141689.72162, %1057
-  %1064 = fadd <8 x float> %.sroa.01669.72159, %1058
-  %1065 = fadd <8 x float> %.sroa.14.72160, %1059
+  %1060 = fadd <8 x float> %.sroa.01696.72151, %1054
+  %1061 = fadd <8 x float> %.sroa.141703.72152, %1055
+  %1062 = fadd <8 x float> %.sroa.01682.72149, %1056
+  %1063 = fadd <8 x float> %.sroa.141689.72150, %1057
+  %1064 = fadd <8 x float> %.sroa.01669.72147, %1058
+  %1065 = fadd <8 x float> %.sroa.14.72148, %1059
   %1066 = getelementptr inbounds float, ptr %7, i64 %985
   %1067 = fadd <8 x float> %1054, %1055
   %1068 = fadd <8 x float> %1056, %1057
@@ -1551,9 +1551,9 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1085 = load <4 x float>, ptr %1081, align 16
   %1086 = fsub <4 x float> %1085, %1084
   store <4 x float> %1086, ptr %1081, align 16
-  %indvars.iv.next2378 = add nsw i64 %indvars.iv2377, 1
-  %exitcond2381.not = icmp eq i64 %indvars.iv.next2378, %wide.trip.count2380
-  br i1 %exitcond2381.not, label %.loopexit, label %981, !llvm.loop !65
+  %indvars.iv.next2295 = add nsw i64 %indvars.iv2294, 1
+  %exitcond2298.not = icmp eq i64 %indvars.iv.next2295, %wide.trip.count2297
+  br i1 %exitcond2298.not, label %.loopexit, label %981, !llvm.loop !65
 
 .loopexit:                                        ; preds = %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge, %981, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663, %.critedge4, %.critedge2, %.critedge
   %.sroa.01669.3 = phi <8 x float> [ %.sroa.01669.1.lcssa, %.critedge ], [ %.sroa.01669.4.lcssa, %.critedge2 ], [ %.sroa.01669.6.lcssa, %.critedge4 ], [ %477, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit663 ], [ %319, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit ], [ %838, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit909 ], [ %669, %_ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9SimdFloatEXT_EERKS6_S8_S8_RKS4_INS_9SimdFBoolEXT_EE.exit788 ], [ %1064, %981 ], [ %955, %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit974.critedge ]
@@ -1587,8 +1587,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   store <4 x float> %1106, ptr %1099, align 16
   %1107 = shufflevector <4 x float> %1104, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %1108 = fadd <4 x float> %1104, %1107
-  %shift2558 = shufflevector <4 x float> %1108, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %1109 = fadd <4 x float> %1108, %shift2558
+  %shift2475 = shufflevector <4 x float> %1108, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %1109 = fadd <4 x float> %1108, %shift2475
   %1110 = extractelement <4 x float> %1109, i64 0
   %1111 = getelementptr inbounds float, ptr %7, i64 %114
   %1112 = tail call noundef <8 x float> @llvm.x86.avx.hadd.ps.256(<8 x float> %.sroa.01669.3, <8 x float> %.sroa.14.3)
@@ -1601,8 +1601,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   store <4 x float> %1118, ptr %1111, align 16
   %1119 = shufflevector <4 x float> %1116, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %1120 = fadd <4 x float> %1116, %1119
-  %shift2559 = shufflevector <4 x float> %1120, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %1121 = fadd <4 x float> %1120, %shift2559
+  %shift2476 = shufflevector <4 x float> %1120, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %1121 = fadd <4 x float> %1120, %shift2476
   %1122 = extractelement <4 x float> %1121, i64 0
   %1123 = getelementptr inbounds float, ptr %9, i64 %64
   %1124 = load float, ptr %1123, align 4
@@ -1616,7 +1616,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1130 = load float, ptr %1129, align 4
   %1131 = fadd float %1122, %1130
   store float %1131, ptr %1129, align 4
-  %1132 = getelementptr inbounds i8, ptr %.sroa.01768.02340, i64 16
+  %1132 = getelementptr inbounds i8, ptr %.sroa.01768.02268, i64 16
   %.not2098 = icmp eq ptr %1132, %47
   br i1 %.not2098, label %._crit_edge, label %52
 

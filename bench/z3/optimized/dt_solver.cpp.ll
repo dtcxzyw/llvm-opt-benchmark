@@ -5771,9 +5771,9 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc45
-  %__begin1.0156 = phi ptr [ %m_args.i.ptr, %for.body.lr.ph ], [ %incdec.ptr46, %for.inc45 ]
+  %__begin1.0155 = phi ptr [ %m_args.i.ptr, %for.body.lr.ph ], [ %incdec.ptr46, %for.inc45 ]
   %found.0154 = phi i1 [ false, %for.body.lr.ph ], [ %found.4, %for.inc45 ]
-  %16 = load ptr, ptr %__begin1.0156, align 8
+  %16 = load ptr, ptr %__begin1.0155, align 8
   %m_root.i.i16 = getelementptr inbounds i8, ptr %16, i64 64
   %17 = load ptr, ptr %m_root.i.i16, align 8
   %18 = load ptr, ptr %m_root.i1.i, align 8
@@ -6128,7 +6128,7 @@ _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit120: ; preds = %lo
 
 for.inc45:                                        ; preds = %land.lhs.true21, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i70, %if.end18, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %_ZNK8seq_util6is_seqEP4sort.exit.i, %_ZNK8datatype4util11is_datatypeEPK4sort.exit74, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit120, %for.end36
   %found.4 = phi i1 [ %found.3.lcssa, %for.end36 ], [ %found.3.lcssa, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit120 ], [ %found.1, %_ZNK8datatype4util11is_datatypeEPK4sort.exit74 ], [ %found.1, %_ZNK8seq_util6is_seqEP4sort.exit.i ], [ %found.1, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ %found.1, %if.end18 ], [ %found.1, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i70 ], [ %found.1, %land.lhs.true21 ]
-  %incdec.ptr46 = getelementptr inbounds i8, ptr %__begin1.0156, i64 8
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %__begin1.0155, i64 8
   %cmp6.not = icmp eq ptr %incdec.ptr46, %add.ptr.i15.ptr
   br i1 %cmp6.not, label %for.end47, label %for.body
 
@@ -6395,8 +6395,8 @@ for.body.lr.ph:                                   ; preds = %_ZN2dt6solver16oc_m
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc59
-  %__begin1.0114 = phi ptr [ %m_args.i.ptr, %for.body.lr.ph ], [ %incdec.ptr60, %for.inc59 ]
-  %20 = load ptr, ptr %__begin1.0114, align 8
+  %__begin1.0113 = phi ptr [ %m_args.i.ptr, %for.body.lr.ph ], [ %incdec.ptr60, %for.inc59 ]
+  %20 = load ptr, ptr %__begin1.0113, align 8
   %m_root.i.i27 = getelementptr inbounds i8, ptr %20, i64 64
   %21 = load ptr, ptr %m_root.i.i27, align 8
   %m_mark2.i.i = getelementptr inbounds i8, ptr %21, i64 9
@@ -6671,7 +6671,7 @@ for.body48:                                       ; preds = %_ZNK6vectorIPN3euf5
   br i1 %call50, label %return, label %for.cond46
 
 for.inc59:                                        ; preds = %for.cond30, %for.cond46, %if.then42, %if.then26, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit85, %if.end17, %_Z15get_array_rangePK4sort.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i75, %if.else36, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i59, %_ZN2dt6solver13oc_push_stackEPN3euf5enodeE.exit, %_ZNK17array_recognizers8is_arrayEP4sort.exit, %_ZNK8datatype4util11is_datatypeEPK4sort.exit79, %for.body
-  %incdec.ptr60 = getelementptr inbounds i8, ptr %__begin1.0114, i64 8
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %__begin1.0113, i64 8
   %cmp11.not = icmp eq ptr %incdec.ptr60, %add.ptr.i.ptr
   br i1 %cmp11.not, label %return, label %for.body
 

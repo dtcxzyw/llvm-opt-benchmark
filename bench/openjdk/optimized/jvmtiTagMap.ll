@@ -12745,15 +12745,15 @@ _ZN15CallbackInvoker30report_constant_pool_referenceEP7oopDescS1_i.exit: ; preds
   %158 = load ptr, ptr %157, align 8
   %159 = load i32, ptr %158, align 8
   %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %.lr.ph121, label %._crit_edge122
+  br i1 %160, label %.lr.ph120, label %._crit_edge121
 
-.lr.ph121:                                        ; preds = %._crit_edge
+.lr.ph120:                                        ; preds = %._crit_edge
   %161 = getelementptr inbounds i8, ptr %158, i64 8
   br label %162
 
-162:                                              ; preds = %.lr.ph121, %_ZNK5Klass11java_mirrorEv.exit103.thread
-  %indvars.iv129 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next130, %_ZNK5Klass11java_mirrorEv.exit103.thread ]
-  %163 = getelementptr inbounds ptr, ptr %161, i64 %indvars.iv129
+162:                                              ; preds = %.lr.ph120, %_ZNK5Klass11java_mirrorEv.exit103.thread
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next129, %_ZNK5Klass11java_mirrorEv.exit103.thread ]
+  %163 = getelementptr inbounds ptr, ptr %161, i64 %indvars.iv128
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 112
   %166 = load ptr, ptr %165, align 8
@@ -12780,29 +12780,29 @@ _ZN15CallbackInvoker26report_interface_referenceEP7oopDescS1_.exit: ; preds = %1
   br i1 %176, label %_ZNK5Klass11java_mirrorEv.exit103.thread, label %.loopexit
 
 _ZNK5Klass11java_mirrorEv.exit103.thread:         ; preds = %162, %174, %_ZN15CallbackInvoker26report_interface_referenceEP7oopDescS1_.exit, %_ZNK5Klass11java_mirrorEv.exit103
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %177 = load i32, ptr %158, align 8
   %178 = sext i32 %177 to i64
-  %179 = icmp slt i64 %indvars.iv.next130, %178
-  br i1 %179, label %162, label %._crit_edge122, !llvm.loop !62
+  %179 = icmp slt i64 %indvars.iv.next129, %178
+  br i1 %179, label %162, label %._crit_edge121, !llvm.loop !62
 
-._crit_edge122:                                   ; preds = %_ZNK5Klass11java_mirrorEv.exit103.thread, %._crit_edge
+._crit_edge121:                                   ; preds = %_ZNK5Klass11java_mirrorEv.exit103.thread, %._crit_edge
   %180 = call noundef ptr @_ZN13ClassFieldMap27create_map_of_static_fieldsEP5Klass(ptr noundef nonnull %5)
   %181 = load ptr, ptr %180, align 8
   %182 = load i32, ptr %181, align 4
   %183 = icmp sgt i32 %182, 0
-  br i1 %183, label %.lr.ph125, label %.loopexit.sink.split
+  br i1 %183, label %.lr.ph124, label %.loopexit.sink.split
 
-.lr.ph125:                                        ; preds = %._crit_edge122
+.lr.ph124:                                        ; preds = %._crit_edge121
   %184 = getelementptr inbounds i8, ptr %0, i64 105
   br label %185
 
-185:                                              ; preds = %.lr.ph125, %216
-  %indvars.iv132 = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next133, %216 ]
-  %186 = phi ptr [ %181, %.lr.ph125 ], [ %217, %216 ]
+185:                                              ; preds = %.lr.ph124, %216
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next132, %216 ]
+  %186 = phi ptr [ %181, %.lr.ph124 ], [ %217, %216 ]
   %187 = getelementptr inbounds i8, ptr %186, i64 8
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds ptr, ptr %188, i64 %indvars.iv132
+  %189 = getelementptr inbounds ptr, ptr %188, i64 %indvars.iv131
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 8
   %192 = load i8, ptr %191, align 4
@@ -12849,15 +12849,15 @@ _ZN15CallbackInvoker29report_static_field_referenceEP7oopDescS1_i.exit: ; preds 
   br i1 %215, label %216, label %.loopexit.sink.split
 
 216:                                              ; preds = %203, %_ZN15CallbackInvoker29report_static_field_referenceEP7oopDescS1_i.exit, %193, %209, %206
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %217 = load ptr, ptr %180, align 8
   %218 = load i32, ptr %217, align 4
   %219 = sext i32 %218 to i64
-  %220 = icmp slt i64 %indvars.iv.next133, %219
+  %220 = icmp slt i64 %indvars.iv.next132, %219
   br i1 %220, label %185, label %.loopexit.sink.split, !llvm.loop !63
 
-.loopexit.sink.split:                             ; preds = %216, %209, %_ZN15CallbackInvoker29report_static_field_referenceEP7oopDescS1_i.exit, %203, %._crit_edge122
-  %.0.ph = phi i1 [ true, %._crit_edge122 ], [ false, %203 ], [ false, %_ZN15CallbackInvoker29report_static_field_referenceEP7oopDescS1_i.exit ], [ false, %209 ], [ true, %216 ]
+.loopexit.sink.split:                             ; preds = %216, %209, %_ZN15CallbackInvoker29report_static_field_referenceEP7oopDescS1_i.exit, %203, %._crit_edge121
+  %.0.ph = phi i1 [ true, %._crit_edge121 ], [ false, %203 ], [ false, %_ZN15CallbackInvoker29report_static_field_referenceEP7oopDescS1_i.exit ], [ false, %209 ], [ true, %216 ]
   call void @_ZN13ClassFieldMapD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %180) #14
   call void @_Z8FreeHeapPv(ptr noundef nonnull %180) #14
   br label %.loopexit

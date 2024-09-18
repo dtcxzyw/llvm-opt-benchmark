@@ -320,8 +320,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121RegUsageInfoCollector20ru
   %27 = add i32 %26, 31
   store i32 -1, ptr %4, align 4
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.not106 = icmp ult i32 %27, 32
-  br i1 %.not106, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %29
+  %.not103 = icmp ult i32 %27, 32
+  br i1 %.not103, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %29
 
 29:                                               ; preds = %23
   %30 = lshr i32 %27, 5
@@ -413,13 +413,13 @@ _ZNK4llvm4Pass11getAnalysisINS_25PhysicalRegisterUsageInfoEEERT_v.exit: ; preds 
   %77 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 16
   %78 = load i64, ptr %77, align 8
   %.not34.i.i.i.i.i.i.i.i.i = icmp eq i64 %78, 0
-  br i1 %.not34.i.i.i.i.i.i.i.i.i, label %79, label %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit107
+  br i1 %.not34.i.i.i.i.i.i.i.i.i, label %79, label %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit104
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 24
   %81 = load i64, ptr %80, align 8
   %.not35.i.i.i.i.i.i.i.i.i = icmp eq i64 %81, 0
-  br i1 %.not35.i.i.i.i.i.i.i.i.i, label %82, label %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit109
+  br i1 %.not35.i.i.i.i.i.i.i.i.i, label %82, label %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit106
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 32
@@ -469,16 +469,16 @@ _ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit: ; preds = %73
   %97 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 8
   br label %_ZNK4llvm9BitVector4noneEv.exit.i
 
-_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit107: ; preds = %76
+_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit104: ; preds = %76
   %98 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 16
   br label %_ZNK4llvm9BitVector4noneEv.exit.i
 
-_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit109: ; preds = %79
+_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit106: ; preds = %79
   %99 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 24
   br label %_ZNK4llvm9BitVector4noneEv.exit.i
 
-_ZNK4llvm9BitVector4noneEv.exit.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit107, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit109, %95, %91, %87
-  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %87 ], [ %.1.i.i.i.i.i.i.i.i.i, %91 ], [ %.2.i.i.i.i.i.i.i.i.i, %95 ], [ %97, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit ], [ %98, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit107 ], [ %99, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit109 ], [ %.02946.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+_ZNK4llvm9BitVector4noneEv.exit.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit104, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit106, %95, %91, %87
+  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %87 ], [ %.1.i.i.i.i.i.i.i.i.i, %91 ], [ %.2.i.i.i.i.i.i.i.i.i, %95 ], [ %97, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit ], [ %98, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit104 ], [ %99, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit106 ], [ %.02946.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.not.i.i47 = icmp eq ptr %68, %.028.i.i.i.i.i.i.i.i.i
   br i1 %.not.i.i47, label %_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit, label %100
 
@@ -610,16 +610,16 @@ _ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVect
 ._crit_edge90:                                    ; preds = %._crit_edge, %_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit
   %175 = load i32, ptr %25, align 8
   %176 = icmp ugt i32 %175, 1
-  br i1 %176, label %.lr.ph98, label %._crit_edge99
+  br i1 %176, label %.lr.ph96, label %._crit_edge97
 
-.lr.ph98:                                         ; preds = %._crit_edge90
+.lr.ph96:                                         ; preds = %._crit_edge90
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %178 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %wide.trip.count = zext i32 %175 to i64
   br label %179
 
-179:                                              ; preds = %.lr.ph98, %.loopexit
-  %indvars.iv = phi i64 [ 1, %.lr.ph98 ], [ %indvars.iv.next, %.loopexit ]
+179:                                              ; preds = %.lr.ph96, %.loopexit
+  %indvars.iv = phi i64 [ 1, %.lr.ph96 ], [ %indvars.iv.next, %.loopexit ]
   %180 = trunc nuw i64 %indvars.iv to i32
   %181 = and i64 %indvars.iv, 63
   %182 = shl nuw i64 1, %181
@@ -729,13 +729,13 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread: ; preds = %1
 .loopexit:                                        ; preds = %229, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread70, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread, %235, %179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge99, label %179, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge97, label %179, !llvm.loop !12
 
-._crit_edge99:                                    ; preds = %.loopexit, %._crit_edge90
+._crit_edge97:                                    ; preds = %.loopexit, %._crit_edge90
   %244 = call noundef zeroext i1 @_ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %32) #14
   br i1 %244, label %245, label %255
 
-245:                                              ; preds = %._crit_edge99
+245:                                              ; preds = %._crit_edge97
   %246 = load ptr, ptr %8, align 8
   %247 = load ptr, ptr %246, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 136
@@ -747,7 +747,7 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread: ; preds = %1
   %254 = call noundef zeroext i1 %253(ptr noundef nonnull align 8 dereferenceable(21) %250, ptr noundef nonnull align 8 dereferenceable(136) %32) #14
   br label %255
 
-255:                                              ; preds = %245, %._crit_edge99
+255:                                              ; preds = %245, %._crit_edge97
   %256 = load ptr, ptr %3, align 8
   %257 = load ptr, ptr %28, align 8
   %258 = ptrtoint ptr %257 to i64

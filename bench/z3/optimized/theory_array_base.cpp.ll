@@ -2828,8 +2828,8 @@ for.body31.lr.ph:                                 ; preds = %_ZNK3smt5enode13con
   br label %for.body31
 
 for.body31:                                       ; preds = %for.body31.lr.ph, %for.inc53
-  %__begin125.062 = phi ptr [ %30, %for.body31.lr.ph ], [ %incdec.ptr54, %for.inc53 ]
-  %33 = load ptr, ptr %__begin125.062, align 8
+  %__begin125.061 = phi ptr [ %30, %for.body31.lr.ph ], [ %incdec.ptr54, %for.inc53 ]
+  %33 = load ptr, ptr %__begin125.061, align 8
   store ptr %33, ptr %parent32, align 8
   %m_cg.i22 = getelementptr inbounds i8, ptr %33, i64 24
   %34 = load ptr, ptr %m_cg.i22, align 8
@@ -2894,7 +2894,7 @@ if.then47:                                        ; preds = %land.lhs.true44
   br i1 %call49, label %return, label %for.inc53
 
 for.inc53:                                        ; preds = %land.lhs.true37, %land.lhs.true44, %for.body31, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit31, %_ZNK3smt17theory_array_base9is_selectEPK3app.exit40, %land.lhs.true40, %if.then47
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %__begin125.062, i64 8
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %__begin125.061, i64 8
   %cmp30.not.not = icmp eq ptr %incdec.ptr54, %add.ptr.i.i.i20
   br i1 %cmp30.not.not, label %return, label %for.body31
 

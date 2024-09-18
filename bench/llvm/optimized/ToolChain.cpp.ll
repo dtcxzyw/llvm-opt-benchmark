@@ -6699,8 +6699,8 @@ _ZN4llvm3vfs18directory_iteratorD2Ev.exit21:      ; preds = %_ZN4llvm3vfs18direc
 
 80:                                               ; preds = %.lr.ph, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit
   %81 = phi ptr [ %40, %.lr.ph ], [ %162, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit ]
-  %.061 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit ]
-  %.01260 = phi i1 [ false, %.lr.ph ], [ %.113, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit ]
+  %.060 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit ]
+  %.01259 = phi i1 [ false, %.lr.ph ], [ %.113, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %82) #25
   %84 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %82) #25
@@ -6755,7 +6755,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %104, %102
 106:                                              ; preds = %104
   %107 = trunc nuw i64 %105 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %108 = icmp ult i32 %.061, %107
+  %108 = icmp ult i32 %.060, %107
   %109 = icmp ult i32 %107, %25
   %or.cond = and i1 %108, %109
   br i1 %or.cond, label %110, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread
@@ -6768,8 +6768,8 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %104, %102
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %80, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread, %106, %110, %99
-  %.113 = phi i1 [ true, %99 ], [ false, %110 ], [ %.01260, %106 ], [ %.01260, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread ], [ %.01260, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.01260, %80 ]
-  %.1 = phi i32 [ %.061, %99 ], [ %107, %110 ], [ %.061, %106 ], [ %.061, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread ], [ %.061, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.061, %80 ]
+  %.113 = phi i1 [ true, %99 ], [ false, %110 ], [ %.01259, %106 ], [ %.01259, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread ], [ %.01259, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.01259, %80 ]
+  %.1 = phi i32 [ %.060, %99 ], [ %107, %110 ], [ %.060, %106 ], [ %.060, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread ], [ %.060, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.060, %80 ]
   %113 = load ptr, ptr %10, align 8
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 16
@@ -9560,7 +9560,7 @@ _ZN4llvm3vfs18directory_iteratorD2Ev.exit15:      ; preds = %_ZN4llvm3vfs18direc
 
 81:                                               ; preds = %.lr.ph, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit
   %82 = phi ptr [ %41, %.lr.ph ], [ %159, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit ]
-  %.046 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit ]
+  %.045 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN4llvm3vfs18directory_iteratoraSERKS1_.exit ]
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #25
   %85 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #25
@@ -9593,7 +9593,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread: ; preds = %97, %91
 100:                                              ; preds = %97
   %101 = trunc i64 %98 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %102 = icmp slt i32 %.046, %101
+  %102 = icmp slt i32 %.045, %101
   br i1 %102, label %103, label %.critedge2
 
 103:                                              ; preds = %100
@@ -9613,7 +9613,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread: ; preds = %97, %91
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread, %103, %100, %81
-  %.1 = phi i32 [ %101, %103 ], [ %.046, %100 ], [ %.046, %81 ], [ %.046, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread ]
+  %.1 = phi i32 [ %101, %103 ], [ %.045, %100 ], [ %.045, %81 ], [ %.045, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread ]
   %110 = load ptr, ptr %14, align 8
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 16

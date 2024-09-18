@@ -269,7 +269,7 @@ define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %cond.fr, label %185, label %.thread28
 
 .thread28:                                        ; preds = %.loopexit49, %121, %70, %177
-  %178 = phi i32 [ %61, %177 ], [ %38, %121 ], [ %38, %70 ], [ %61, %.loopexit49 ]
+  %178 = phi i32 [ %61, %177 ], [ %38, %70 ], [ %38, %121 ], [ %61, %.loopexit49 ]
   %179 = load double, ptr %42, align 8, !tbaa !7
   %180 = fdiv double 1.000000e+00, %179
   store double %180, ptr %8, align 8, !tbaa !7

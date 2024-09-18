@@ -318,8 +318,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm14VirtRegAuxInfo18isRematerializabl
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #13
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
-  %.not80 = icmp eq i64 %15, 0
-  br i1 %.not80, label %.critedge, label %.lr.ph
+  %.not69 = icmp eq i64 %15, 0
+  br i1 %.not69, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -329,9 +329,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm14VirtRegAuxInfo18isRematerializabl
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread
-  %.03286 = phi ptr [ %14, %.lr.ph ], [ %125, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread ]
-  %.sroa.047.081 = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.047.1, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread ]
-  %20 = load ptr, ptr %.03286, align 8
+  %.03271 = phi ptr [ %14, %.lr.ph ], [ %125, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread ]
+  %.sroa.047.070 = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.047.1, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread ]
+  %20 = load ptr, ptr %.03271, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %21, align 8
   %22 = icmp ult i64 %.0.copyload.i.i.i.i.i, 8
@@ -343,7 +343,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14VirtRegAuxInfo18isRematerializabl
   br i1 %25, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %23, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit
-  %.sroa.047.2 = phi i32 [ %50, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %.sroa.047.081, %23 ]
+  %.sroa.047.2 = phi i32 [ %50, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %.sroa.047.070, %23 ]
   %.pn.in.in = phi i64 [ %.0.copyload.i.i.i.i.i.i42, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %.0.copyload.i.i.i.i.i, %23 ]
   %.033 = phi ptr [ %.sroa.0.3, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %20, %23 ]
   %.pn.in = and i64 %.pn.in.in, -8
@@ -537,14 +537,14 @@ _ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exi
   br i1 %124, label %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread, label %.critedge
 
 _ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread: ; preds = %.loopexit, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit, %19
-  %.sroa.047.1 = phi i32 [ %.sroa.047.081, %19 ], [ %.sroa.047.2, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit ], [ %.sroa.047.2, %.loopexit ]
-  %125 = getelementptr inbounds i8, ptr %.03286, i64 8
+  %.sroa.047.1 = phi i32 [ %.sroa.047.070, %19 ], [ %.sroa.047.2, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit ], [ %.sroa.047.2, %.loopexit ]
+  %125 = getelementptr inbounds i8, ptr %.03271, i64 8
   %.not = icmp eq ptr %125, %16
   br i1 %.not, label %.critedge, label %19, !llvm.loop !14
 
 .critedge:                                        ; preds = %23, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread, %115, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit, %52, %48, %43, %4
-  %.not77 = phi i1 [ true, %4 ], [ false, %43 ], [ false, %48 ], [ false, %52 ], [ false, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ false, %23 ], [ false, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit ], [ true, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread ], [ false, %115 ]
-  ret i1 %.not77
+  %.not66 = phi i1 [ true, %4 ], [ false, %43 ], [ false, %48 ], [ false, %52 ], [ false, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ false, %23 ], [ false, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit ], [ true, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.thread ], [ false, %115 ]
+  ret i1 %.not66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

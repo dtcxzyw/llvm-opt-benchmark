@@ -1341,7 +1341,6 @@ define i32 @cli_ac_chklsig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %.0173308.ph = phi i32 [ %.2175240272, %.thread.thread ], [ 0, %6 ]
   %.0177307.ph = phi i32 [ %.2179, %.thread.thread ], [ 0, %6 ]
   %.0182306.ph = phi i32 [ %.0182306, %.thread.thread ], [ 0, %6 ]
-  %.0185305.ph = phi i32 [ %.2187238274, %.thread.thread ], [ 0, %6 ]
   %.0189304.ph = phi i32 [ %.3192237275, %.thread.thread ], [ 0, %6 ]
   %.0193303.ph = phi i32 [ %65, %.thread.thread ], [ 0, %6 ]
   br label %.lr.ph
@@ -1397,7 +1396,6 @@ define i32 @cli_ac_chklsig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 .thread:                                          ; preds = %.lr.ph, %.thread.loopexit, %25, %21, %27
   %.2161242 = phi i8 [ %.0159310.ph, %27 ], [ 41, %25 ], [ %.0159310.ph, %21 ], [ %20, %.thread.loopexit ], [ %.0159310.ph, %.lr.ph ]
   %.2175240 = phi i32 [ %.0173308.ph, %27 ], [ %.0193303, %25 ], [ %.0173308.ph, %21 ], [ %.0193303, %.thread.loopexit ], [ %.0173308.ph, %.lr.ph ]
-  %.2187238 = phi i32 [ %.0193303, %27 ], [ %.0185305.ph, %25 ], [ %.0185305.ph, %21 ], [ %.0185305.ph, %.thread.loopexit ], [ %.0185305.ph, %.lr.ph ]
   %.3192237 = phi i32 [ 0, %27 ], [ %26, %25 ], [ %22, %21 ], [ %.0189304, %.thread.loopexit ], [ %.0189304, %.lr.ph ]
   %28 = icmp eq i8 %.0162309, 0
   %29 = icmp ne i32 %.3192237, 0
@@ -1475,7 +1473,6 @@ define i32 @cli_ac_chklsig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 .thread.thread:                                   ; preds = %.split, %.critedge, %.thread
   %.3192237275 = phi i32 [ %.3192237, %.thread ], [ 0, %.critedge ], [ %.0189304, %.split ]
-  %.2187238274 = phi i32 [ %.2187238, %.thread ], [ %.2187238, %.critedge ], [ %.0185305.ph, %.split ]
   %.2175240272 = phi i32 [ %.2175240, %.thread ], [ %.2175240, %.critedge ], [ %.0173308.ph, %.split ]
   %.2161242270 = phi i8 [ %.2161242, %.thread ], [ %.2161242, %.critedge ], [ %.0159310.ph, %.split ]
   %.3196 = phi i32 [ %.0193303, %.thread ], [ %.1194, %.critedge ], [ %.0193303, %.split ]

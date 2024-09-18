@@ -465,7 +465,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %45, %46
   %75 = getelementptr inbounds nuw i8, ptr %31, i64 1104
   %76 = load ptr, ptr %75, align 8
   %.not464523.i = icmp eq ptr %74, %76
-  br i1 %.not464523.i, label %_ZN12_GLOBAL__N_111FastISelMap15collectPatternsERN4llvm18CodeGenDAGPatternsE.exit.thread, label %.lr.ph539.i
+  br i1 %.not464523.i, label %_ZN12_GLOBAL__N_111FastISelMap15collectPatternsERN4llvm18CodeGenDAGPatternsE.exit.thread, label %.lr.ph531.i
 
 _ZN12_GLOBAL__N_111FastISelMap15collectPatternsERN4llvm18CodeGenDAGPatternsE.exit.thread: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
@@ -491,7 +491,7 @@ _ZN12_GLOBAL__N_111FastISelMap15collectPatternsERN4llvm18CodeGenDAGPatternsE.exi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   br label %_ZN12_GLOBAL__N_111FastISelMap24printImmediatePredicatesERN4llvm11raw_ostreamE.exit
 
-.lr.ph539.i:                                      ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
+.lr.ph531.i:                                      ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   %77 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -526,9 +526,9 @@ _ZN12_GLOBAL__N_111FastISelMap15collectPatternsERN4llvm18CodeGenDAGPatternsE.exi
   %108 = getelementptr inbounds nuw i8, ptr %37, i64 96
   br label %109
 
-109:                                              ; preds = %.loopexit478.i, %.lr.ph539.i
-  %.sroa.0387.0532.i = phi ptr [ %74, %.lr.ph539.i ], [ %1197, %.loopexit478.i ]
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0387.0532.i, i64 24
+109:                                              ; preds = %.loopexit478.i, %.lr.ph531.i
+  %.sroa.0387.0524.i = phi ptr [ %74, %.lr.ph531.i ], [ %1197, %.loopexit478.i ]
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0387.0524.i, i64 24
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %112, align 8
@@ -722,7 +722,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread403.i:    ; preds = %_ZN4llvmneENS_9Stri
 
 210:                                              ; preds = %205, %201, %188
   %.089.i = phi ptr [ %189, %188 ], [ null, %201 ], [ null, %205 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0387.0532.i, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0387.0524.i, i64 16
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i111.i = load i64, ptr %213, align 8
@@ -820,9 +820,9 @@ _ZL13getOpcodeNameB5cxx11PN4llvm6RecordERNS_18CodeGenDAGPatternsE.exit.i: ; pred
   br label %260
 
 260:                                              ; preds = %267, %256
-  %indvars.iv578.i = phi i64 [ %indvars.iv.next579.i, %267 ], [ 0, %256 ]
+  %indvars.iv570.i = phi i64 [ %indvars.iv.next571.i, %267 ], [ 0, %256 ]
   %.132.i.i.i = phi i16 [ %268, %267 ], [ 0, %256 ]
-  %261 = getelementptr inbounds [8 x i64], ptr %259, i64 0, i64 %indvars.iv578.i
+  %261 = getelementptr inbounds [8 x i64], ptr %259, i64 0, i64 %indvars.iv570.i
   %262 = load i64, ptr %261, align 8
   %.not29.i.i.i = icmp eq i64 %262, 0
   br i1 %.not29.i.i.i, label %267, label %263
@@ -835,8 +835,8 @@ _ZL13getOpcodeNameB5cxx11PN4llvm6RecordERNS_18CodeGenDAGPatternsE.exit.i: ; pred
 
 267:                                              ; preds = %260
   %268 = add nuw nsw i16 %.132.i.i.i, 64
-  %indvars.iv.next579.i = add nuw nsw i64 %indvars.iv578.i, 1
-  %.not28.i.i.i = icmp eq i64 %indvars.iv.next579.i, 8
+  %indvars.iv.next571.i = add nuw nsw i64 %indvars.iv570.i, 1
+  %.not28.i.i.i = icmp eq i64 %indvars.iv.next571.i, 8
   br i1 %.not28.i.i.i, label %_ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit.i, label %260, !llvm.loop !20
 
 _ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit.i: ; preds = %267, %263, %_ZL13getOpcodeNameB5cxx11PN4llvm6RecordERNS_18CodeGenDAGPatternsE.exit.i
@@ -862,9 +862,9 @@ _ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit.i: ; preds = %267, %263, %_ZL13
   br label %284
 
 284:                                              ; preds = %291, %277
-  %indvars.iv580.i = phi i64 [ %indvars.iv.next581.i, %291 ], [ 0, %277 ]
+  %indvars.iv572.i = phi i64 [ %indvars.iv.next573.i, %291 ], [ 0, %277 ]
   %.132.i.i118.i = phi i16 [ %292, %291 ], [ 0, %277 ]
-  %285 = getelementptr inbounds [8 x i64], ptr %283, i64 0, i64 %indvars.iv580.i
+  %285 = getelementptr inbounds [8 x i64], ptr %283, i64 0, i64 %indvars.iv572.i
   %286 = load i64, ptr %285, align 8
   %.not29.i.i119.i = icmp eq i64 %286, 0
   br i1 %.not29.i.i119.i, label %291, label %287
@@ -877,8 +877,8 @@ _ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit.i: ; preds = %267, %263, %_ZL13
 
 291:                                              ; preds = %284
   %292 = add nuw nsw i16 %.132.i.i118.i, 64
-  %indvars.iv.next581.i = add nuw nsw i64 %indvars.iv580.i, 1
-  %.not28.i.i121.i = icmp eq i64 %indvars.iv.next581.i, 8
+  %indvars.iv.next573.i = add nuw nsw i64 %indvars.iv572.i, 1
+  %.not28.i.i121.i = icmp eq i64 %indvars.iv.next573.i, 8
   br i1 %.not28.i.i121.i, label %_ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit122.i, label %284, !llvm.loop !20
 
 _ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit122.i: ; preds = %291, %287, %_ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit.i
@@ -1450,10 +1450,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit141.thread410.i: ; preds = %_ZN4llvmeqENS_9Stri
   br label %.lr.ph522.i
 
 .lr.ph522.i:                                      ; preds = %611, %.lr.ph522.preheader.i
-  %indvars.iv582.i = phi i64 [ 0, %.lr.ph522.preheader.i ], [ %indvars.iv.next583.i, %611 ]
+  %indvars.iv574.i = phi i64 [ 0, %.lr.ph522.preheader.i ], [ %indvars.iv.next575.i, %611 ]
   %.093521.i = phi i32 [ 0, %.lr.ph522.preheader.i ], [ %.295.i, %611 ]
   %542 = load ptr, ptr %269, align 8
-  %543 = getelementptr inbounds %"class.llvm::IntrusiveRefCntPtr", ptr %542, i64 %indvars.iv582.i
+  %543 = getelementptr inbounds %"class.llvm::IntrusiveRefCntPtr", ptr %542, i64 %indvars.iv574.i
   %544 = load ptr, ptr %543, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #18
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 56
@@ -1532,7 +1532,7 @@ _ZL13PhyRegForNodeB5cxx11RN4llvm15TreePatternNodeERKNS_13CodeGenTargetE.exit.i: 
   %589 = load ptr, ptr %588, align 8
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 64
   %591 = load ptr, ptr %269, align 8
-  %592 = getelementptr inbounds %"class.llvm::IntrusiveRefCntPtr", ptr %591, i64 %indvars.iv582.i
+  %592 = getelementptr inbounds %"class.llvm::IntrusiveRefCntPtr", ptr %591, i64 %indvars.iv574.i
   %593 = load ptr, ptr %592, align 8
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 64
   %595 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %590) #18
@@ -1580,8 +1580,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 611:                                              ; preds = %610, %607
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #18
-  %indvars.iv.next583.i = add nuw nsw i64 %indvars.iv582.i, 1
-  %.not103.i = icmp eq i64 %indvars.iv.next583.i, %541
+  %indvars.iv.next575.i = add nuw nsw i64 %indvars.iv574.i, 1
+  %.not103.i = icmp eq i64 %indvars.iv.next575.i, %541
   br i1 %.not103.i, label %.loopexit476.i, label %.lr.ph522.i, !llvm.loop !32
 
 .loopexit476.i:                                   ; preds = %611, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit141.thread410.i
@@ -1714,7 +1714,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i332.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %646, label %_ZN4llvm12StringSwitchIbbE5CasesENS_13StringLiteralES2_S2_S2_b.exit.i, label %_ZN4llvm12StringSwitchIbbE5CasesENS_13StringLiteralES2_S2_S2_b.exit.thread.i
 
 _ZN4llvm12StringSwitchIbbE5CasesENS_13StringLiteralES2_S2_S2_b.exit.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i332.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i334.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %.loopexit.i
-  call void @_ZNK4llvm14PatternToMatch17getPredicateCheckB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(100) %.sroa.0387.0532.i) #18
+  call void @_ZNK4llvm14PatternToMatch17getPredicateCheckB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(100) %.sroa.0387.0524.i) #18
   %647 = load ptr, ptr %110, align 8
   %648 = getelementptr inbounds nuw i8, ptr %647, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i169.i = load i64, ptr %648, align 8
@@ -1781,7 +1781,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
-  %671 = call noundef i32 @_ZNK4llvm14PatternToMatch20getPatternComplexityERKNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.0387.0532.i, ptr noundef nonnull align 8 dereferenceable(1212) %31) #18
+  %671 = call noundef i32 @_ZNK4llvm14PatternToMatch20getPatternComplexityERKNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.0387.0524.i, ptr noundef nonnull align 8 dereferenceable(1212) %31) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %23) #18
   store i16 %.0.i, ptr %103, align 8
   store i16 %.0401.i, ptr %104, align 2
@@ -1878,7 +1878,7 @@ _ZNSt5tupleIJN12_GLOBAL__N_117OperandsSignatureENSt7__cxx1112basic_stringIcSt11c
   br i1 %.sroa.3.0.i.i.i, label %711, label %704
 
 704:                                              ; preds = %_ZNSt5tupleIJN12_GLOBAL__N_117OperandsSignatureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm3MVT15SimpleValueTypeESA_S7_EED2Ev.exit.i
-  %705 = load ptr, ptr %.sroa.0387.0532.i, align 8
+  %705 = load ptr, ptr %.sroa.0387.0524.i, align 8
   %706 = call { ptr, i64 } @_ZNK4llvm6Record6getLocEv(ptr noundef nonnull align 8 dereferenceable(192) %705)
   %707 = extractvalue { ptr, i64 } %706, 0
   %708 = extractvalue { ptr, i64 } %706, 1
@@ -3181,13 +3181,13 @@ _ZNSt8multimapIiN12_GLOBAL__N_115InstructionMemoESt4lessIiESaISt4pairIKiS1_EEE7e
   br label %1170
 
 1169:                                             ; preds = %1170
-  %indvars.iv.next586.i = add nuw nsw i64 %indvars.iv585.i, 1
-  %.not.not.i.i = icmp eq i64 %indvars.iv.next586.i, %1168
+  %indvars.iv.next578.i = add nuw nsw i64 %indvars.iv577.i, 1
+  %.not.not.i.i = icmp eq i64 %indvars.iv.next578.i, %1168
   br i1 %.not.not.i.i, label %_ZNK12_GLOBAL__N_117OperandsSignature20hasAnyImmediateCodesEv.exit.thread.i, label %1170, !llvm.loop !45
 
 1170:                                             ; preds = %1169, %.lr.ph.i304.i
-  %indvars.iv585.i = phi i64 [ %indvars.iv.next586.i, %1169 ], [ 0, %.lr.ph.i304.i ]
-  %1171 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i305.i, i64 %indvars.iv585.i
+  %indvars.iv577.i = phi i64 [ %indvars.iv.next578.i, %1169 ], [ 0, %.lr.ph.i304.i ]
+  %1171 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i305.i, i64 %indvars.iv577.i
   %.val10.i.i = load i8, ptr %1171, align 1
   %or.cond.i.i = icmp sgt i8 %.val10.i.i, 2
   br i1 %or.cond.i.i, label %_ZNK12_GLOBAL__N_117OperandsSignature20hasAnyImmediateCodesEv.exit.i, label %1169
@@ -3290,7 +3290,7 @@ _ZN12_GLOBAL__N_117OperandsSignatureD2Ev.exit.i:  ; preds = %1195, %_ZNSt6vector
   br label %.loopexit478.i
 
 .loopexit478.i:                                   ; preds = %174, %1196, %154, %_ZNK4llvm13CodeGenTarget14getInstructionEPKNS_6RecordE.exit.i, %114, %109
-  %1197 = getelementptr inbounds i8, ptr %.sroa.0387.0532.i, i64 104
+  %1197 = getelementptr inbounds i8, ptr %.sroa.0387.0524.i, i64 104
   %.not464.i = icmp eq ptr %1197, %76
   br i1 %.not464.i, label %_ZN12_GLOBAL__N_111FastISelMap15collectPatternsERN4llvm18CodeGenDAGPatternsE.exit, label %109, !llvm.loop !47
 

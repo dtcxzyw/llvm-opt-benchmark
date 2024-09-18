@@ -1081,8 +1081,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 380:                                              ; preds = %375
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
   store ptr %265, ptr %59, align 8
-  %.sroa.5.0..sroa_idx570 = getelementptr inbounds i8, ptr %59, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx570, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  %.sroa.5.0..sroa_idx562 = getelementptr inbounds i8, ptr %59, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx562, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
   %381 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8
   %382 = icmp eq i64 %381, 0
   br i1 %382, label %383, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit309.thread501
@@ -2823,8 +2823,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 380:                                              ; preds = %375
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
   store ptr %265, ptr %59, align 8
-  %.sroa.5.0..sroa_idx570 = getelementptr inbounds i8, ptr %59, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx570, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  %.sroa.5.0..sroa_idx562 = getelementptr inbounds i8, ptr %59, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx562, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
   %381 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8
   %382 = icmp eq i64 %381, 0
   br i1 %382, label %383, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit309.thread501

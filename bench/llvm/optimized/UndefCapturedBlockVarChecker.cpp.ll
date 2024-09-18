@@ -727,11 +727,11 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_9BlockExprEE10_checkStmtI
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %25) #17
   %.pre.i = load ptr, ptr %22, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 56
-  %.pre106.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.pre105.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %26, %21
-  %27 = phi ptr [ null, %21 ], [ %.pre106.i, %26 ]
+  %27 = phi ptr [ null, %21 ], [ %.pre105.i, %26 ]
   %28 = phi ptr [ %23, %21 ], [ %.pre.i, %26 ]
   %.sroa.1.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 24
   %.sroa.1.0.copyload.i.i.i.i = load i64, ptr %.sroa.1.0..sroa_idx.i.i.i.i, align 8
@@ -780,9 +780,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   br label %54
 
 54:                                               ; preds = %_ZNK5clang4ento4SVal5getAsINS0_12UndefinedValEEESt8optionalIT_Ev.exit.i, %.lr.ph.i
-  %.sroa.5.0101.i = phi ptr [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ], [ %189, %_ZNK5clang4ento4SVal5getAsINS0_12UndefinedValEEESt8optionalIT_Ev.exit.i ]
-  %.sroa.073.0100.i = phi ptr [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ], [ %188, %_ZNK5clang4ento4SVal5getAsINS0_12UndefinedValEEESt8optionalIT_Ev.exit.i ]
-  %55 = load ptr, ptr %.sroa.073.0100.i, align 8
+  %.sroa.5.0100.i = phi ptr [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ], [ %189, %_ZNK5clang4ento4SVal5getAsINS0_12UndefinedValEEESt8optionalIT_Ev.exit.i ]
+  %.sroa.073.099.i = phi ptr [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ], [ %188, %_ZNK5clang4ento4SVal5getAsINS0_12UndefinedValEEESt8optionalIT_Ev.exit.i ]
+  %55 = load ptr, ptr %.sroa.073.099.i, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 112
   %58 = load ptr, ptr %57, align 8
@@ -842,7 +842,7 @@ _ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i: ; preds = %80, %73, 
   br i1 %82, label %83, label %_ZNK5clang4ento4SVal5getAsINS0_12UndefinedValEEESt8optionalIT_Ev.exit.i
 
 83:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i
-  %84 = load ptr, ptr %.sroa.5.0101.i, align 8
+  %84 = load ptr, ptr %.sroa.5.0100.i, align 8
   %85 = load ptr, ptr %39, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 96
   %87 = load ptr, ptr %86, align 8
@@ -1060,8 +1060,8 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
   br label %_ZNK5clang4ento4SVal5getAsINS0_12UndefinedValEEESt8optionalIT_Ev.exit.i
 
 _ZNK5clang4ento4SVal5getAsINS0_12UndefinedValEEESt8optionalIT_Ev.exit.i: ; preds = %187, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %83, %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i, %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.i
-  %188 = getelementptr inbounds i8, ptr %.sroa.073.0100.i, i64 8
-  %189 = getelementptr inbounds i8, ptr %.sroa.5.0101.i, i64 8
+  %188 = getelementptr inbounds i8, ptr %.sroa.073.099.i, i64 8
+  %189 = getelementptr inbounds i8, ptr %.sroa.5.0100.i, i64 8
   %.not92.i = icmp eq ptr %.sroa.0.0.copyload.i31.i, %188
   br i1 %.not92.i, label %._crit_edge.i, label %54
 

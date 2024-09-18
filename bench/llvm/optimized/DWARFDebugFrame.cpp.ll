@@ -3128,9 +3128,9 @@ define dso_local void @_ZN4llvm5dwarf11UnwindTable9parseRowsERKNS0_10CFIProgramE
   br label %134
 
 134:                                              ; preds = %.lr.ph, %_ZN4llvm8ExpectedImED2Ev.exit
-  %.sroa.0506.0587 = phi ptr [ %77, %.lr.ph ], [ %549, %_ZN4llvm8ExpectedImED2Ev.exit ]
+  %.sroa.0506.0584 = phi ptr [ %77, %.lr.ph ], [ %549, %_ZN4llvm8ExpectedImED2Ev.exit ]
   %.sroa.0361.0582 = phi i64 [ undef, %.lr.ph ], [ %.sroa.0361.2, %_ZN4llvm8ExpectedImED2Ev.exit ]
-  %135 = load i8, ptr %.sroa.0506.0587, align 8
+  %135 = load i8, ptr %.sroa.0506.0584, align 8
   switch i8 %135, label %_ZN4llvm8ExpectedImED2Ev.exit [
     i8 1, label %136
     i8 64, label %178
@@ -3163,7 +3163,7 @@ define dso_local void @_ZN4llvm5dwarf11UnwindTable9parseRowsERKNS0_10CFIProgramE
   ]
 
 136:                                              ; preds = %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %44, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %44, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %137 = load i8, ptr %133, align 8
   %138 = trunc i8 %137 to i1
   br i1 %138, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %141
@@ -3184,7 +3184,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 144:                                              ; preds = %141
   %145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #25
-  %146 = load i8, ptr %.sroa.0506.0587, align 8
+  %146 = load i8, ptr %.sroa.0506.0584, align 8
   %147 = zext i8 %146 to i32
   %148 = load i32, ptr %103, align 8
   %149 = call { ptr, i64 } @_ZN4llvm5dwarf15CallFrameStringEjNS_6Triple8ArchTypeE(i32 noundef %147, i32 noundef %148) #23
@@ -3200,7 +3200,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   store i64 %154, ptr %48, align 8
   call void @_ZN4llvm17createStringErrorIJPKcmmEEENS_5ErrorESt10error_codeS2_DpRKT_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 22, ptr nonnull %145, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %48)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #23
-  %.pre636 = load i8, ptr %133, align 8
+  %.pre633 = load i8, ptr %133, align 8
   br label %.critedge
 
 155:                                              ; preds = %141
@@ -3339,7 +3339,7 @@ _ZNSt16allocator_traitsISaIN4llvm5dwarf9UnwindRowEEE9constructIS2_JRKS2_EEEvRS3_
   br label %_ZNSt6vectorIN4llvm5dwarf9UnwindRowESaIS2_EE9push_backERKS2_.exit150
 
 _ZNSt6vectorIN4llvm5dwarf9UnwindRowESaIS2_EE9push_backERKS2_.exit150: ; preds = %_ZNSt16allocator_traitsISaIN4llvm5dwarf9UnwindRowEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i149, %200
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %49, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %49, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %201 = load i8, ptr %132, align 8
   %202 = trunc i8 %201 to i1
   br i1 %202, label %_ZN4llvm8ExpectedImED2Ev.exit157, label %203
@@ -3429,12 +3429,12 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %216, %217
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 231:                                              ; preds = %209
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %51, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %51, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %232 = load i8, ptr %126, align 8
   %233 = trunc i8 %232 to i1
-  br i1 %233, label %.thread639, label %236
+  br i1 %233, label %.thread636, label %236
 
-.thread639:                                       ; preds = %231
+.thread636:                                       ; preds = %231
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %234 = load i64, ptr %51, align 8, !noalias !57
   %235 = inttoptr i64 %234 to ptr
@@ -3496,7 +3496,7 @@ _ZNKSt3mapIjN4llvm5dwarf14UnwindLocationESt4lessIjESaISt4pairIKjS2_EEE4findERS6_
   br label %_ZN4llvm8ExpectedImED2Ev.exit
 
 254:                                              ; preds = %134, %134, %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %52, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %52, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %255 = load i8, ptr %122, align 8
   %256 = trunc i8 %255 to i1
   br i1 %256, label %.critedge127, label %259
@@ -3510,7 +3510,7 @@ _ZNKSt3mapIjN4llvm5dwarf14UnwindLocationESt4lessIjESaISt4pairIKjS2_EEE4findERS6_
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 259:                                              ; preds = %254
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %53, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %53, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
   %260 = load i8, ptr %123, align 8
   %261 = trunc i8 %260 to i1
   br i1 %261, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i178, label %262
@@ -3623,7 +3623,7 @@ _ZSt9make_pairIRN4llvm5dwarf14UnwindLocationERNS1_17RegisterLocationsEESt4pairIN
   store ptr null, ptr %116, align 8
   store ptr %115, ptr %117, align 8
   store ptr %115, ptr %118, align 8
-  %.pre635 = load ptr, ptr %109, align 8
+  %.pre632 = load ptr, ptr %109, align 8
   br label %_ZNSt16allocator_traitsISaISt4pairIN4llvm5dwarf14UnwindLocationENS2_17RegisterLocationsEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i
 
 299:                                              ; preds = %285
@@ -3638,7 +3638,7 @@ _ZSt9make_pairIRN4llvm5dwarf14UnwindLocationERNS1_17RegisterLocationsEESt4pairIN
   br label %_ZNSt16allocator_traitsISaISt4pairIN4llvm5dwarf14UnwindLocationENS2_17RegisterLocationsEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt4pairIN4llvm5dwarf14UnwindLocationENS2_17RegisterLocationsEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i: ; preds = %299, %288
-  %304 = phi ptr [ %283, %299 ], [ %.pre635, %288 ]
+  %304 = phi ptr [ %283, %299 ], [ %.pre632, %288 ]
   %.sink.i.i.i.i.i.i.i.i.i.i = phi ptr [ %303, %299 ], [ %119, %288 ]
   store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i, align 8
   %305 = getelementptr inbounds i8, ptr %304, i64 120
@@ -3741,11 +3741,11 @@ _ZNSt8_Rb_treeIjSt4pairIKjN4llvm5dwarf14UnwindLocationEESt10_Select1stIS5_ESt4le
   %337 = phi ptr [ %.pre6.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm5dwarf14UnwindLocationEESt10_Select1stIS5_ESt4lessIjESaIS5_EE7_M_copyILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ERKSB_RT0_.exit.i.i.i ], [ %318, %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm5dwarf14UnwindLocationEESt10_Select1stIS5_ESt4lessIjESaIS5_EE20_Reuse_or_alloc_nodeC2ERSB_.exit.i.i.i ]
   %338 = phi ptr [ %.pre.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm5dwarf14UnwindLocationEESt10_Select1stIS5_ESt4lessIjESaIS5_EE7_M_copyILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ERKSB_RT0_.exit.i.i.i ], [ %86, %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm5dwarf14UnwindLocationEESt10_Select1stIS5_ESt4lessIjESaIS5_EE20_Reuse_or_alloc_nodeC2ERSB_.exit.i.i.i ]
   call void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm5dwarf14UnwindLocationEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %338, ptr noundef %337)
-  %.pre634 = load ptr, ptr %109, align 8
+  %.pre631 = load ptr, ptr %109, align 8
   br label %_ZN4llvm5dwarf17RegisterLocationsaSERKS1_.exit
 
 _ZN4llvm5dwarf17RegisterLocationsaSERKS1_.exit:   ; preds = %314, %336
-  %339 = phi ptr [ %310, %314 ], [ %.pre634, %336 ]
+  %339 = phi ptr [ %310, %314 ], [ %.pre631, %336 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   %340 = getelementptr inbounds i8, ptr %339, i64 -120
   store ptr %340, ptr %109, align 8
@@ -3896,12 +3896,12 @@ _ZNKSt3mapIjN4llvm5dwarf14UnwindLocationESt4lessIjESaISt4pairIKjS2_EEE4findERS6_
   call void @_ZNK4llvm9StringRef3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %59, ptr noundef nonnull align 8 dereferenceable(16) %60)
   %387 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #23
   store ptr %387, ptr %58, align 8
-  call void @_ZN4llvm17createStringErrorIJhPKcEEENS_5ErrorESt10error_codeS2_DpRKT_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 95, ptr nonnull %382, ptr noundef nonnull @.str.35, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(8) %58)
+  call void @_ZN4llvm17createStringErrorIJhPKcEEENS_5ErrorESt10error_codeS2_DpRKT_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 95, ptr nonnull %382, ptr noundef nonnull @.str.35, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(8) %58)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #23
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 388:                                              ; preds = %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %61, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %61, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %389 = load i8, ptr %101, align 8
   %390 = trunc i8 %389 to i1
   br i1 %390, label %_ZN4llvm8ExpectedImED2Ev.exit207, label %391
@@ -3936,7 +3936,7 @@ _ZN4llvm8ExpectedImED2Ev.exit207:                 ; preds = %388
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 399:                                              ; preds = %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %62, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %62, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %400 = load i8, ptr %99, align 8
   %401 = trunc i8 %400 to i1
   br i1 %401, label %_ZN4llvm8ExpectedImED2Ev.exit214, label %402
@@ -3971,7 +3971,7 @@ _ZN4llvm8ExpectedImED2Ev.exit214:                 ; preds = %399
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 410:                                              ; preds = %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %63, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %63, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %411 = load i8, ptr %93, align 8
   %412 = trunc i8 %411 to i1
   br i1 %412, label %.critedge129, label %415
@@ -3985,7 +3985,7 @@ _ZN4llvm8ExpectedImED2Ev.exit214:                 ; preds = %399
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 415:                                              ; preds = %410
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %64, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %64, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
   %416 = load i8, ptr %94, align 8
   %417 = trunc i8 %416 to i1
   br i1 %417, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i227, label %418
@@ -4022,7 +4022,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i227: 
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 428:                                              ; preds = %134, %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %65, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %65, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %429 = load i8, ptr %90, align 8
   %430 = trunc i8 %429 to i1
   br i1 %430, label %.critedge131, label %433
@@ -4036,7 +4036,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i227: 
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 433:                                              ; preds = %428
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %66, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %66, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
   %434 = load i8, ptr %91, align 8
   %435 = trunc i8 %434 to i1
   br i1 %435, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i245, label %436
@@ -4073,7 +4073,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i245: 
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 446:                                              ; preds = %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %67, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %67, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %447 = load i8, ptr %88, align 8
   %448 = trunc i8 %447 to i1
   br i1 %448, label %_ZN4llvm8ExpectedImED2Ev.exit257, label %449
@@ -4081,7 +4081,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i245: 
 449:                                              ; preds = %446
   %450 = load i64, ptr %67, align 8
   %451 = trunc i64 %450 to i32
-  %452 = getelementptr inbounds nuw i8, ptr %.sroa.0506.0587, i64 48
+  %452 = getelementptr inbounds nuw i8, ptr %.sroa.0506.0584, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.5406.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %452, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14)
@@ -4111,7 +4111,7 @@ _ZN4llvm8ExpectedImED2Ev.exit257:                 ; preds = %446
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 458:                                              ; preds = %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %68, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %68, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %459 = load i8, ptr %85, align 8
   %460 = trunc i8 %459 to i1
   br i1 %460, label %_ZN4llvm8ExpectedImED2Ev.exit264, label %461
@@ -4119,7 +4119,7 @@ _ZN4llvm8ExpectedImED2Ev.exit257:                 ; preds = %446
 461:                                              ; preds = %458
   %462 = load i64, ptr %68, align 8
   %463 = trunc i64 %462 to i32
-  %464 = getelementptr inbounds nuw i8, ptr %.sroa.0506.0587, i64 48
+  %464 = getelementptr inbounds nuw i8, ptr %.sroa.0506.0584, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.5397.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %464, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
@@ -4149,7 +4149,7 @@ _ZN4llvm8ExpectedImED2Ev.exit264:                 ; preds = %458
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 470:                                              ; preds = %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %69, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %69, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %471 = load i8, ptr %84, align 8
   %472 = trunc i8 %471 to i1
   br i1 %472, label %_ZN4llvm8ExpectedImED2Ev.exit271, label %473
@@ -4183,7 +4183,7 @@ _ZN4llvm8ExpectedImED2Ev.exit271:                 ; preds = %470
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 481:                                              ; preds = %134, %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %70, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %70, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %482 = load i8, ptr %83, align 8
   %483 = trunc i8 %482 to i1
   br i1 %483, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i273, label %486
@@ -4203,7 +4203,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i273: 
 
 488:                                              ; preds = %486
   %489 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #25
-  %490 = load i8, ptr %.sroa.0506.0587, align 8
+  %490 = load i8, ptr %.sroa.0506.0584, align 8
   %491 = zext i8 %490 to i32
   %492 = load i32, ptr %103, align 8
   %493 = call { ptr, i64 } @_ZN4llvm5dwarf15CallFrameStringEjNS_6Triple8ArchTypeE(i32 noundef %491, i32 noundef %492) #23
@@ -4277,7 +4277,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit277:         ; preds = %495, %496
   br label %_ZN4llvm8ExpectedImED2Ev.exit
 
 513:                                              ; preds = %134, %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %72, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %72, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %514 = load i8, ptr %80, align 8
   %515 = trunc i8 %514 to i1
   br i1 %515, label %.critedge135, label %518
@@ -4291,7 +4291,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit277:         ; preds = %495, %496
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 518:                                              ; preds = %513
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %73, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %73, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
   %519 = load i8, ptr %81, align 8
   %520 = trunc i8 %519 to i1
   br i1 %520, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i294, label %521
@@ -4318,7 +4318,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i294: 
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 528:                                              ; preds = %134, %134
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %74, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %74, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 0)
   %529 = load i8, ptr %96, align 8
   %530 = trunc i8 %529 to i1
   br i1 %530, label %.critedge137, label %533
@@ -4332,7 +4332,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i294: 
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 533:                                              ; preds = %528
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %75, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.47") align 8 %75, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 1)
   %534 = load i8, ptr %97, align 8
   %535 = trunc i8 %534 to i1
   br i1 %535, label %.critedge139, label %538
@@ -4346,7 +4346,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i294: 
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 538:                                              ; preds = %533
-  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %76, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0587, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 2)
+  call void @_ZNK4llvm5dwarf10CFIProgram11Instruction20getOperandAsUnsignedERKS1_j(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.43") align 8 %76, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0506.0584, ptr noundef nonnull align 8 dereferenceable(44) %2, i32 noundef 2)
   %539 = load i8, ptr %98, align 8
   %540 = trunc i8 %539 to i1
   %541 = load i64, ptr %76, align 8
@@ -4376,7 +4376,7 @@ _ZN4llvm8ExpectedImED2Ev.exit334:                 ; preds = %538
   br label %_ZN4llvm8ExpectedImED2Ev.exit
 
 547:                                              ; preds = %134
-  %548 = getelementptr inbounds nuw i8, ptr %.sroa.0506.0587, i64 48
+  %548 = getelementptr inbounds nuw i8, ptr %.sroa.0506.0584, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.5.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %548, i64 32, i1 false)
   store i32 5, ptr %82, align 8
   store i32 -1, ptr %.sroa.2370.0..sroa_idx, align 4
@@ -4389,7 +4389,7 @@ _ZN4llvm8ExpectedImED2Ev.exit334:                 ; preds = %538
 
 _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %374, %252, %247, %478, %477, %_ZN4llvm8ExpectedImED2Ev.exit334, %521, %461, %449, %436, %418, %402, %391, %262, %203, %_ZNSt6vectorIN4llvm5dwarf9UnwindRowESaIS2_EE9push_backERKS2_.exit, %510, %134, %_ZNSt6vectorISt4pairIN4llvm5dwarf14UnwindLocationENS2_17RegisterLocationsEESaIS5_EE9push_backEOS5_.exit, %_ZN4llvm5dwarf17RegisterLocationsaSERKS1_.exit, %547, %358, %370
   %.sroa.0361.2 = phi i64 [ %.sroa.0361.0582, %134 ], [ %.sroa.0361.0.insert.insert, %_ZN4llvm8ExpectedImED2Ev.exit334 ], [ %.sroa.0361.0582, %358 ], [ %.sroa.0361.0582, %370 ], [ %.sroa.0361.0582, %_ZN4llvm5dwarf17RegisterLocationsaSERKS1_.exit ], [ %.sroa.0361.0582, %_ZNSt6vectorISt4pairIN4llvm5dwarf14UnwindLocationENS2_17RegisterLocationsEESaIS5_EE9push_backEOS5_.exit ], [ %.sroa.0361.0582, %547 ], [ %.sroa.0361.0582, %_ZNSt6vectorIN4llvm5dwarf9UnwindRowESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0361.0582, %510 ], [ %.sroa.0361.0582, %203 ], [ %.sroa.0361.0582, %391 ], [ %.sroa.0361.0582, %402 ], [ %.sroa.0361.0582, %449 ], [ %.sroa.0361.0582, %461 ], [ %.sroa.0361.0582, %262 ], [ %.sroa.0361.0582, %418 ], [ %.sroa.0361.0582, %436 ], [ %.sroa.0361.0582, %521 ], [ %.sroa.0361.0582, %477 ], [ %.sroa.0361.0582, %478 ], [ %.sroa.0361.0582, %247 ], [ %.sroa.0361.0582, %252 ], [ %.sroa.0361.0582, %374 ]
-  %549 = getelementptr inbounds i8, ptr %.sroa.0506.0587, i64 88
+  %549 = getelementptr inbounds i8, ptr %.sroa.0506.0584, i64 88
   %.not527 = icmp eq ptr %549, %79
   br i1 %.not527, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %134
 
@@ -4398,7 +4398,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZN4llvm8ExpectedIm
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
 .critedge:                                        ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, %144
-  %550 = phi i8 [ %137, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %.pre636, %144 ]
+  %550 = phi i8 [ %137, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %.pre633, %144 ]
   %551 = trunc i8 %550 to i1
   br i1 %551, label %552, label %_ZN4llvm8ExpectedImED2Ev.exit173
 
@@ -4439,7 +4439,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i341: 
   store ptr null, ptr %70, align 8
   br label %_ZN4llvm8ExpectedImED2Ev.exit173
 
-_ZN4llvm8ExpectedImED2Ev.exit173:                 ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i178, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i227, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i245, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i294, %_ZN4llvm8ExpectedImED2Ev.exit334.thread, %.critedge139, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i341, %.critedge133, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i337, %.critedge, %.critedge137, %.critedge135, %_ZN4llvm8ExpectedImED2Ev.exit271, %_ZN4llvm8ExpectedImED2Ev.exit264, %_ZN4llvm8ExpectedImED2Ev.exit257, %.critedge131, %.critedge129, %_ZN4llvm8ExpectedImED2Ev.exit214, %_ZN4llvm8ExpectedImED2Ev.exit207, %.critedge127, %.thread639, %_ZN4llvm8ExpectedImED2Ev.exit157, %_ZN4llvm12ErrorSuccessD2Ev.exit, %381, %363, %312, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
+_ZN4llvm8ExpectedImED2Ev.exit173:                 ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i178, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i227, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i245, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i294, %_ZN4llvm8ExpectedImED2Ev.exit334.thread, %.critedge139, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i341, %.critedge133, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i337, %.critedge, %.critedge137, %.critedge135, %_ZN4llvm8ExpectedImED2Ev.exit271, %_ZN4llvm8ExpectedImED2Ev.exit264, %_ZN4llvm8ExpectedImED2Ev.exit257, %.critedge131, %.critedge129, %_ZN4llvm8ExpectedImED2Ev.exit214, %_ZN4llvm8ExpectedImED2Ev.exit207, %.critedge127, %.thread636, %_ZN4llvm8ExpectedImED2Ev.exit157, %_ZN4llvm12ErrorSuccessD2Ev.exit, %381, %363, %312, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   %564 = load ptr, ptr %43, align 8
   %565 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %566 = load ptr, ptr %565, align 8

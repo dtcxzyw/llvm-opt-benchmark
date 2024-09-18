@@ -6598,21 +6598,21 @@ _ZNK4llvm15X86RegisterInfo18getGPRsForTailCallERKNS_15MachineFunctionE.exit: ; p
   %47 = zext i24 %46 to i64
   %48 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %44, i64 %47
   %.not57 = icmp eq i24 %46, 0
-  br i1 %.not57, label %._crit_edge, label %.lr.ph61
+  br i1 %.not57, label %._crit_edge, label %.lr.ph59
 
-.lr.ph61:                                         ; preds = %35
+.lr.ph59:                                         ; preds = %35
   %49 = getelementptr inbounds i8, ptr %0, i64 8
   br label %50
 
-50:                                               ; preds = %.lr.ph61, %.loopexit51
-  %.03560 = phi ptr [ %44, %.lr.ph61 ], [ %64, %.loopexit51 ]
-  %51 = load i32, ptr %.03560, align 8
+50:                                               ; preds = %.lr.ph59, %.loopexit51
+  %.03558 = phi ptr [ %44, %.lr.ph59 ], [ %64, %.loopexit51 ]
+  %51 = load i32, ptr %.03558, align 8
   %52 = and i32 %51, 16777471
   %or.cond.not = icmp eq i32 %52, 0
   br i1 %or.cond.not, label %53, label %.loopexit51
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %.03560, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.03558, i64 4
   %55 = load i32, ptr %54, align 4
   %.not38 = icmp eq i32 %55, 0
   br i1 %.not38, label %.loopexit51, label %56
@@ -6636,7 +6636,7 @@ _ZNK4llvm15X86RegisterInfo18getGPRsForTailCallERKNS_15MachineFunctionE.exit: ; p
   br i1 %.not50, label %.loopexit51, label %.lr.ph, !llvm.loop !607
 
 .loopexit51:                                      ; preds = %.lr.ph, %56, %53, %50
-  %64 = getelementptr inbounds i8, ptr %.03560, i64 32
+  %64 = getelementptr inbounds i8, ptr %.03558, i64 32
   %.not = icmp eq ptr %64, %48
   br i1 %.not, label %._crit_edge, label %50
 
@@ -6647,22 +6647,22 @@ _ZNK4llvm15X86RegisterInfo18getGPRsForTailCallERKNS_15MachineFunctionE.exit: ; p
   %68 = load i16, ptr %67, align 4
   %69 = zext i16 %68 to i64
   %70 = getelementptr inbounds i16, ptr %66, i64 %69
-  %.not37.not62 = icmp eq i16 %68, 0
-  br i1 %.not37.not62, label %.loopexit, label %.lr.ph65
+  %.not37.not60 = icmp eq i16 %68, 0
+  br i1 %.not37.not60, label %.loopexit, label %.lr.ph63
 
-.lr.ph65:                                         ; preds = %._crit_edge
+.lr.ph63:                                         ; preds = %._crit_edge
   %71 = load i64, ptr %41, align 8
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %.lr.ph65.split, label %.lr.ph65.split.us
+  br i1 %72, label %.lr.ph63.split, label %.lr.ph63.split.us
 
-.lr.ph65.split.us:                                ; preds = %.lr.ph65
+.lr.ph63.split.us:                                ; preds = %.lr.ph63
   %73 = load ptr, ptr %38, align 8
   %.not10.i.i.i.i.us = icmp eq ptr %73, null
   br i1 %.not10.i.i.i.i.us, label %_ZNKSt3setItSt4lessItESaItEE5countERKt.exit.i.us.us, label %.lr.ph.i.i.i.i.preheader.us
 
-_ZNKSt3setItSt4lessItESaItEE5countERKt.exit.i.us.us: ; preds = %.lr.ph65.split.us, %75
-  %.03463.us.us = phi ptr [ %76, %75 ], [ %66, %.lr.ph65.split.us ]
-  %74 = load i16, ptr %.03463.us.us, align 2
+_ZNKSt3setItSt4lessItESaItEE5countERKt.exit.i.us.us: ; preds = %.lr.ph63.split.us, %75
+  %.03461.us.us = phi ptr [ %76, %75 ], [ %66, %.lr.ph63.split.us ]
+  %74 = load i16, ptr %.03461.us.us, align 2
   switch i16 %74, label %.split.us [
     i16 61, label %75
     i16 58, label %75
@@ -6670,13 +6670,13 @@ _ZNKSt3setItSt4lessItESaItEE5countERKt.exit.i.us.us: ; preds = %.lr.ph65.split.u
   ]
 
 75:                                               ; preds = %_ZNKSt3setItSt4lessItESaItEE5countERKt.exit.i.us.us, %_ZNKSt3setItSt4lessItESaItEE5countERKt.exit.i.us.us, %_ZNKSt3setItSt4lessItESaItEE5countERKt.exit.i.us.us
-  %76 = getelementptr inbounds i8, ptr %.03463.us.us, i64 2
+  %76 = getelementptr inbounds i8, ptr %.03461.us.us, i64 2
   %.not37.not.us.us = icmp eq ptr %76, %70
   br i1 %.not37.not.us.us, label %.loopexit, label %_ZNKSt3setItSt4lessItESaItEE5countERKt.exit.i.us.us
 
-.lr.ph.i.i.i.i.preheader.us:                      ; preds = %.lr.ph65.split.us, %84
-  %.03463.us = phi ptr [ %85, %84 ], [ %66, %.lr.ph65.split.us ]
-  %77 = load i16, ptr %.03463.us, align 2
+.lr.ph.i.i.i.i.preheader.us:                      ; preds = %.lr.ph63.split.us, %84
+  %.03461.us = phi ptr [ %85, %84 ], [ %66, %.lr.ph63.split.us ]
+  %77 = load i16, ptr %.03461.us, align 2
   br label %.lr.ph.i.i.i.i.us
 
 .lr.ph.i.i.i.i.us:                                ; preds = %.lr.ph.i.i.i.i.preheader.us, %.lr.ph.i.i.i.i.us
@@ -6711,22 +6711,22 @@ switch.early.test.us:                             ; preds = %_ZNKSt8_Rb_treeIttS
   ]
 
 84:                                               ; preds = %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %_ZNKSt3setItSt4lessItESaItEE5countERKt.exit.i.us
-  %85 = getelementptr inbounds i8, ptr %.03463.us, i64 2
+  %85 = getelementptr inbounds i8, ptr %.03461.us, i64 2
   %.not37.not.us = icmp eq ptr %85, %70
   br i1 %.not37.not.us, label %.loopexit, label %.lr.ph.i.i.i.i.preheader.us
 
-.lr.ph65.splitthread-pre-split:                   ; preds = %112
+.lr.ph63.splitthread-pre-split:                   ; preds = %112
   %.pr = load i64, ptr %41, align 8
-  br label %.lr.ph65.split
+  br label %.lr.ph63.split
 
-.lr.ph65.split:                                   ; preds = %.lr.ph65, %.lr.ph65.splitthread-pre-split
-  %86 = phi i64 [ %.pr, %.lr.ph65.splitthread-pre-split ], [ 0, %.lr.ph65 ]
-  %.03463 = phi ptr [ %113, %.lr.ph65.splitthread-pre-split ], [ %66, %.lr.ph65 ]
-  %87 = load i16, ptr %.03463, align 2
+.lr.ph63.split:                                   ; preds = %.lr.ph63, %.lr.ph63.splitthread-pre-split
+  %86 = phi i64 [ %.pr, %.lr.ph63.splitthread-pre-split ], [ 0, %.lr.ph63 ]
+  %.03461 = phi ptr [ %113, %.lr.ph63.splitthread-pre-split ], [ %66, %.lr.ph63 ]
+  %87 = load i16, ptr %.03461, align 2
   %88 = icmp eq i64 %86, 0
   br i1 %88, label %89, label %103
 
-89:                                               ; preds = %.lr.ph65.split
+89:                                               ; preds = %.lr.ph63.split
   %90 = load ptr, ptr %4, align 8
   %91 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
   %92 = getelementptr inbounds i16, ptr %90, i64 %91
@@ -6755,10 +6755,10 @@ _ZNK4llvm8SmallSetItLj8ESt4lessItEE5vfindERKt.exit.i: ; preds = %.lr.ph.i.i, %._
   %100 = load ptr, ptr %4, align 8
   %101 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
   %102 = getelementptr inbounds i16, ptr %100, i64 %101
-  %.not99 = icmp eq ptr %.0.i.i, %102
-  br i1 %.not99, label %switch.early.test, label %112
+  %.not96 = icmp eq ptr %.0.i.i, %102
+  br i1 %.not96, label %switch.early.test, label %112
 
-103:                                              ; preds = %.lr.ph65.split
+103:                                              ; preds = %.lr.ph63.split
   %104 = load ptr, ptr %38, align 8
   %.not10.i.i.i.i = icmp eq ptr %104, null
   br i1 %.not10.i.i.i.i, label %switch.early.test, label %.lr.ph.i.i.i.i
@@ -6800,9 +6800,9 @@ switch.early.test:                                ; preds = %103, %_ZNKSt8_Rb_tr
   br label %.loopexit
 
 112:                                              ; preds = %_ZNK4llvm8SmallSetItLj8ESt4lessItEE5vfindERKt.exit.i, %switch.early.test, %switch.early.test, %switch.early.test, %_ZNK4llvm8SmallSetItLj8ESt4lessItEE5countERKt.exit
-  %113 = getelementptr inbounds i8, ptr %.03463, i64 2
+  %113 = getelementptr inbounds i8, ptr %.03461, i64 2
   %.not37.not = icmp eq ptr %113, %70
-  br i1 %.not37.not, label %.loopexit, label %.lr.ph65.splitthread-pre-split, !llvm.loop !610
+  br i1 %.not37.not, label %.loopexit, label %.lr.ph63.splitthread-pre-split, !llvm.loop !610
 
 .loopexit:                                        ; preds = %84, %75, %112, %._crit_edge, %.split.us
   %spec.select = phi i32 [ %111, %.split.us ], [ 0, %._crit_edge ], [ 0, %112 ], [ 0, %75 ], [ 0, %84 ]

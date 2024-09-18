@@ -836,9 +836,6 @@ if.end.i105:                                      ; preds = %if.then119
   store i8 10, ptr %67, align 1
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %if.end.i105, %if.then.i102, %if.then125, %cleanup269, %if.then.i.i223
-  br label %while.cond, !llvm.loop !8
-
 if.end122:                                        ; preds = %while.cond
   %call.i280 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #20
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #20
@@ -861,8 +858,8 @@ if.end122:                                        ; preds = %while.cond
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i109, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Size.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i.i109, ptr %state_.i.i, align 8
-  %call.i.i.i110 = call noalias noundef nonnull dereferenceable(262144) ptr @_Znwm(i64 noundef 262144) #24, !noalias !10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(262144) %call.i.i.i110, i8 0, i64 262144, i1 false), !noalias !10
+  %call.i.i.i110 = call noalias noundef nonnull dereferenceable(262144) ptr @_Znwm(i64 noundef 262144) #24, !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(262144) %call.i.i.i110, i8 0, i64 262144, i1 false), !noalias !8
   %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
   %70 = ptrtoint ptr %call.i.i.i110 to i64
   store i64 %70, ptr %call5.i.i.i.i.i.i, align 8
@@ -983,7 +980,7 @@ land.lhs.true.i:                                  ; preds = %"_ZZL16needsAnother
   br i1 %cmp.i.i.i10.i, label %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i, label %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i
 
 _ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %land.lhs.true.i
-  %84 = load ptr, ptr %_M_node.i9.i.i.i.i.i, align 8, !noalias !13
+  %84 = load ptr, ptr %_M_node.i9.i.i.i.i.i, align 8, !noalias !11
   %add.ptr.i.i.i13.i = getelementptr inbounds i8, ptr %84, i64 -8
   %85 = load ptr, ptr %add.ptr.i.i.i13.i, align 8
   %incdec.ptr.i.i.i11.i = getelementptr inbounds i8, ptr %85, i64 508
@@ -1016,7 +1013,7 @@ _ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3popEv.exit.i: ; pred
 
 sw.epilog.i:                                      ; preds = %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3popEv.exit.i, %if.else.i.i.i.i, %if.then.i.i.i.i, %while.body.i
   %90 = load i32, ptr %call6.i117, align 8
-  br label %while.cond.i, !llvm.loop !16
+  br label %while.cond.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %while.body.i, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i"
   %91 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
@@ -1043,7 +1040,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i23.i, 
   call void @_ZdlPv(ptr noundef %96) #25
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i, %95
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN6hermes6parser9TokenKindESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, !llvm.loop !17
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN6hermes6parser9TokenKindESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, !llvm.loop !16
 
 _ZNSt11_Deque_baseIN6hermes6parser9TokenKindESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %stack.i, align 8
@@ -1169,7 +1166,7 @@ _ZL10printErrorPKcb.exit147:                      ; preds = %if.then.i.i.i141, %
   %vfn6.i139 = getelementptr inbounds i8, ptr %vtable5.i138, i64 24
   %108 = load ptr, ptr %vfn6.i139, align 8
   %call7.i140 = call noundef nonnull align 8 dereferenceable(36) ptr %108(ptr noundef nonnull align 8 dereferenceable(36) %call4.i137) #20
-  br label %cleanup269, !llvm.loop !8
+  br label %cleanup269, !llvm.loop !17
 
 if.end132:                                        ; preds = %if.end127
   %109 = load ptr, ptr %utf16Buf, align 8
@@ -1349,7 +1346,7 @@ _ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit: ; preds 
 
 if.end246:                                        ; preds = %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %if.end193
   %threwException.1 = phi i1 [ %cmp.i154, %if.end193 ], [ %cmp.i154, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit ], [ %threwException.4, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit ]
-  br i1 %threwException.1, label %cleanup268, label %if.end249, !llvm.loop !8
+  br i1 %threwException.1, label %cleanup268, label %if.end249, !llvm.loop !17
 
 if.end249:                                        ; preds = %if.end246
   %146 = load i64, ptr %retval.0.i.i.i.i.i.i81, align 8
@@ -1359,7 +1356,7 @@ if.end249:                                        ; preds = %if.end246
 
 if.then252:                                       ; preds = %if.end249
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #20
-  br label %cleanup268, !llvm.loop !8
+  br label %cleanup268, !llvm.loop !17
 
 if.end253:                                        ; preds = %if.end249
   store ptr %add.ptr.i.i.i.i.i.i197, ptr %tmp, align 8
@@ -1425,6 +1422,9 @@ cleanup269:                                       ; preds = %cleanup268, %_ZL10p
 if.then.i.i223:                                   ; preds = %cleanup269
   call void @free(ptr noundef %158) #20
   br label %while.cond.backedge
+
+while.cond.backedge:                              ; preds = %if.then.i.i223, %cleanup269, %if.end.i105, %if.then.i102, %if.then125
+  br label %while.cond, !llvm.loop !17
 
 cleanup273:                                       ; preds = %if.then.i.i.i98, %if.end116, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit41, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
   %retval.0 = phi i32 [ 1, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 1, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit41 ], [ 0, %if.end116 ], [ 0, %if.then.i.i.i98 ]
@@ -3157,42 +3157,42 @@ attributes #26 = { nounwind returns_twice }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZNKSt10error_code7messageB5cxx11Ev: %agg.result"}
 !7 = distinct !{!7, !"_ZNKSt10error_code7messageB5cxx11Ev"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN6hermes28BacktrackingBumpPtrAllocator4SlabEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!12 = distinct !{!12, !"_ZSt11make_uniqueIN6hermes28BacktrackingBumpPtrAllocator4SlabEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNSt5dequeIN6hermes6parser9TokenKindESaIS2_EE3endEv: %agg.result"}
-!15 = distinct !{!15, !"_ZNSt5dequeIN6hermes6parser9TokenKindESaIS2_EE3endEv"}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN6hermes28BacktrackingBumpPtrAllocator4SlabEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!10 = distinct !{!10, !"_ZSt11make_uniqueIN6hermes28BacktrackingBumpPtrAllocator4SlabEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNSt5dequeIN6hermes6parser9TokenKindESaIS2_EE3endEv: %agg.result"}
+!13 = distinct !{!13, !"_ZNSt5dequeIN6hermes6parser9TokenKindESaIS2_EE3endEv"}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZN6hermes18ConsoleHostContext11dequeueTaskEv: %agg.result"}
 !20 = distinct !{!20, !"_ZN6hermes18ConsoleHostContext11dequeueTaskEv"}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
+!21 = distinct !{!21, !15}
+!22 = distinct !{!22, !15}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE: %agg.result"}
 !25 = distinct !{!25, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE"}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
+!26 = distinct !{!26, !15}
+!27 = distinct !{!27, !15}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = distinct !{!30, !15}
+!31 = distinct !{!31, !15}
+!32 = distinct !{!32, !15}
+!33 = distinct !{!33, !15}
+!34 = distinct !{!34, !15}
 !35 = !{!36}
 !36 = distinct !{!36, !37, !"_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv: %agg.result"}
 !37 = distinct !{!37, !"_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv"}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv: %agg.result"}
 !40 = distinct !{!40, !"_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv"}
-!41 = distinct !{!41, !9}
-!42 = distinct !{!42, !9}
-!43 = distinct !{!43, !9}
-!44 = distinct !{!44, !9}
-!45 = distinct !{!45, !9}
-!46 = distinct !{!46, !9}
+!41 = distinct !{!41, !15}
+!42 = distinct !{!42, !15}
+!43 = distinct !{!43, !15}
+!44 = distinct !{!44, !15}
+!45 = distinct !{!45, !15}
+!46 = distinct !{!46, !15}

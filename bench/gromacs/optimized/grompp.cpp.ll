@@ -8689,11 +8689,11 @@ _Z9PERTURBEDRK6t_atom.exit.thread.loopexit.i.us.us.i: ; preds = %_Z9PERTURBEDRK6
   br i1 %2846, label %.lr.ph98.split.i.us.us.i, label %._crit_edge.i.us.us.loopexit.i, !llvm.loop !54
 
 ._crit_edge.i.us.us.loopexit.i:                   ; preds = %_Z9PERTURBEDRK6t_atom.exit.thread.loopexit.i.us.us.i
-  %.pre66.i = load i32, ptr %2801, align 4, !noalias !51
+  %.pre65.i = load i32, ptr %2801, align 4, !noalias !51
   br label %._crit_edge.i.us.us.i
 
 ._crit_edge.i.us.us.i:                            ; preds = %._crit_edge.i.us.us.loopexit.i, %.preheader.i.us.us.i
-  %2847 = phi i32 [ %2809, %.preheader.i.us.us.i ], [ %.pre66.i, %._crit_edge.i.us.us.loopexit.i ]
+  %2847 = phi i32 [ %2809, %.preheader.i.us.us.i ], [ %.pre65.i, %._crit_edge.i.us.us.loopexit.i ]
   %2848 = phi i32 [ %2810, %.preheader.i.us.us.i ], [ %2844, %._crit_edge.i.us.us.loopexit.i ]
   %2849 = phi i32 [ %2811, %.preheader.i.us.us.i ], [ %2844, %._crit_edge.i.us.us.loopexit.i ]
   %.271.lcssa.i.us.us.i = phi i32 [ %.170107.i.us.us.i, %.preheader.i.us.us.i ], [ %.473.lcssa.i.us.us.i, %._crit_edge.i.us.us.loopexit.i ]

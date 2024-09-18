@@ -5423,7 +5423,7 @@ _ZNSt6vectorIN4LIEF2PE10SignerInfoESaIS2_EE9push_backEOS2_.exit: ; preds = %.noe
   br label %543
 
 543:                                              ; preds = %_ZN4LIEF7logging6Logger4infoIJmEEEvPKcDpRKT_.exit107, %542, %_ZN2tl8expectedISt6vectorIhSaIhEE11lief_errorsED2Ev.exit, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit166, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit135
-  %.256 = phi i32 [ %., %542 ], [ 1, %_ZN2tl8expectedISt6vectorIhSaIhEE11lief_errorsED2Ev.exit ], [ 1, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit166 ], [ %.357, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit135 ], [ 3, %_ZN4LIEF7logging6Logger4infoIJmEEEvPKcDpRKT_.exit107 ]
+  %.256 = phi i32 [ 1, %_ZN2tl8expectedISt6vectorIhSaIhEE11lief_errorsED2Ev.exit ], [ 1, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit166 ], [ %.357, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit135 ], [ 3, %_ZN4LIEF7logging6Logger4infoIJmEEEvPKcDpRKT_.exit107 ], [ %., %542 ]
   %544 = load i8, ptr %71, align 8
   %545 = trunc i8 %544 to i1
   br i1 %545, label %546, label %_ZN2tl8expectedISt6vectorIhSaIhEE11lief_errorsED2Ev.exit197

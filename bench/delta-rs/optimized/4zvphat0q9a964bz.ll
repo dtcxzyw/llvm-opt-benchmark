@@ -29688,7 +29688,7 @@ define hidden void @"_ZN3url13path_segments15PathSegmentsMut6extend28_$u7b$$u7b$
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.backedge
-  %.sroa.4.0165 = phi i64 [ %.sroa.039.sroa.4.0.copyload, %.lr.ph ], [ %.sroa.4.5, %.backedge ]
+  %.sroa.4.0164 = phi i64 [ %.sroa.039.sroa.4.0.copyload, %.lr.ph ], [ %.sroa.4.5, %.backedge ]
   %.sroa.19.0163 = phi i64 [ %.sroa.039.sroa.8.0.copyload, %.lr.ph ], [ %.sroa.19.3, %.backedge ]
   %.sroa.3146.0162 = phi i64 [ %.sroa.039.sroa.10.0.copyload, %.lr.ph ], [ %.sroa.3146.3, %.backedge ]
   %.sroa.842.sroa.1057.0161 = phi i8 [ %.sroa.842.sroa.1057.0.extract.trunc, %.lr.ph ], [ %.sroa.842.sroa.1057.4, %.backedge ]
@@ -29702,7 +29702,7 @@ define hidden void @"_ZN3url13path_segments15PathSegmentsMut6extend28_$u7b$$u7b$
   br i1 %25, label %.loopexit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i"
-  %.sroa.4.1 = phi i64 [ %86, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i" ], [ %.sroa.4.0165, %.preheader.i.i.i.i ]
+  %.sroa.4.1 = phi i64 [ %86, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i" ], [ %.sroa.4.0164, %.preheader.i.i.i.i ]
   %26 = phi i8 [ %28, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i" ], [ %.sroa.842.sroa.0.0160, %.preheader.i.i.i.i ]
   %27 = trunc nuw i8 %26 to i1
   %28 = xor i8 %26, 1
@@ -29854,7 +29854,7 @@ _ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i
   br label %.sink.split.i
 
 106:                                              ; preds = %93
-  %.0.sroa.speculated.i.i31 = call i64 @llvm.umax.i64(i64 %.sroa.4.0165, i64 %94)
+  %.0.sroa.speculated.i.i31 = call i64 @llvm.umax.i64(i64 %.sroa.4.0164, i64 %94)
   br label %108
 
 .sink.split.i:                                    ; preds = %139, %126, %104
@@ -29870,7 +29870,7 @@ _ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i
   br i1 %109, label %128, label %.preheader110
 
 .preheader110:                                    ; preds = %108, %120
-  %.sroa.5.0.i33 = phi i64 [ %114, %120 ], [ %.sroa.4.0165, %108 ]
+  %.sroa.5.0.i33 = phi i64 [ %114, %120 ], [ %.sroa.4.0164, %108 ]
   %110 = icmp ult i64 %94, %.sroa.5.0.i33
   br i1 %110, label %113, label %111
 
@@ -29929,7 +29929,7 @@ _ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i
   unreachable
 
 139:                                              ; preds = %131
-  %reass.sub = sub i64 %96, %.sroa.4.0165
+  %reass.sub = sub i64 %96, %.sroa.4.0164
   %140 = add i64 %reass.sub, 1
   %141 = add i64 %140, %.sroa.04.0.i32
   br label %.sink.split.i
@@ -29945,7 +29945,7 @@ _ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i
   %.sroa.842.sroa.0.0.insert.ext = zext i8 %.sroa.842.sroa.0.0160 to i64
   %143 = or disjoint i64 %.sroa.842.sroa.1057.0.insert.shift, %.sroa.842.sroa.0.0.insert.ext
   %.sroa.842.sroa.0.0.insert.insert = or disjoint i64 %143, %12
-  %144 = add i64 %.sroa.4.0165, -1
+  %144 = add i64 %.sroa.4.0164, -1
   %.first_iter = icmp ult i64 %144, %.sroa.039.sroa.15.0.copyload
   br label %145
 
@@ -29972,12 +29972,12 @@ _ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i
   br i1 %.not37.i, label %145, label %.loopexit
 
 .preheader109:                                    ; preds = %145, %180
-  %.sroa.04.0.i = phi i64 [ %181, %180 ], [ %.sroa.4.0165, %145 ]
+  %.sroa.04.0.i = phi i64 [ %181, %180 ], [ %.sroa.4.0164, %145 ]
   %160 = icmp ult i64 %.sroa.04.0.i, %.sroa.039.sroa.15.0.copyload
   br i1 %160, label %177, label %.preheader
 
 .preheader:                                       ; preds = %.preheader109, %169
-  %.sroa.5.0.i = phi i64 [ %164, %169 ], [ %.sroa.4.0165, %.preheader109 ]
+  %.sroa.5.0.i = phi i64 [ %164, %169 ], [ %.sroa.4.0164, %.preheader109 ]
   %.not108 = icmp eq i64 %.sroa.5.0.i, 0
   br i1 %.not108, label %161, label %163
 
@@ -30029,14 +30029,14 @@ _ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i
   br i1 %.not.i24, label %.preheader109, label %188
 
 186:                                              ; preds = %177
-  %187 = add i64 %147, %.sroa.4.0165
+  %187 = add i64 %147, %.sroa.4.0164
   %umax.i = call i64 @llvm.umax.i64(i64 %.sroa.039.sroa.13.0.copyload, i64 %187)
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %umax.i, i64 noundef %.sroa.039.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fa082ecd109e1e9e48d31b7779f57bae.259) #45, !noalias !3842
   unreachable
 
 188:                                              ; preds = %180
-  %reass.sub169 = sub i64 %147, %.sroa.4.0165
-  %189 = add i64 %reass.sub169, 1
+  %reass.sub167 = sub i64 %147, %.sroa.4.0164
+  %189 = add i64 %reass.sub167, 1
   %190 = add i64 %189, %.sroa.04.0.i
   br label %157
 
@@ -30045,7 +30045,7 @@ _ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i
   %.sroa.842.sroa.1057.2.ph = phi i8 [ %.sroa.842.sroa.1057.0161, %142 ], [ %.sroa.842.sroa.1057.0161, %90 ], [ 1, %.thread.i.i.i.i.i ], [ %.sroa.842.sroa.1057.0161, %.preheader.i.i.i.i ], [ %.sroa.842.sroa.1057.0161, %157 ], [ %.sroa.842.sroa.1057.0161, %.sink.split.i ], [ 1, %78 ]
   %.sroa.3146.1.ph = phi i64 [ -1, %142 ], [ %.sroa.3146.0162, %90 ], [ %.sroa.3146.0162, %.thread.i.i.i.i.i ], [ %.sroa.3146.0162, %.preheader.i.i.i.i ], [ -1, %157 ], [ %.sink.i, %.sink.split.i ], [ %.sroa.3146.0162, %78 ]
   %.sroa.19.1.ph = phi i64 [ %.sroa.039.sroa.13.0.copyload, %142 ], [ %.sroa.039.sroa.13.0.copyload, %90 ], [ %.sroa.19.0163, %.thread.i.i.i.i.i ], [ %.sroa.19.0163, %.preheader.i.i.i.i ], [ %.sroa.039.sroa.13.0.copyload, %157 ], [ %.sroa.039.sroa.13.0.copyload, %.sink.split.i ], [ %.sroa.19.0163, %78 ]
-  %.sroa.4.3.ph = phi i64 [ %.sroa.4.0165, %142 ], [ %.sroa.4.0165, %90 ], [ %.sroa.4.1, %.thread.i.i.i.i.i ], [ %.sroa.4.0165, %.preheader.i.i.i.i ], [ %.sroa.4.0165, %157 ], [ %.sroa.4.0165, %.sink.split.i ], [ %.sroa.4.1, %78 ]
+  %.sroa.4.3.ph = phi i64 [ %.sroa.4.0164, %142 ], [ %.sroa.4.0164, %90 ], [ %.sroa.4.1, %.thread.i.i.i.i.i ], [ %.sroa.4.0164, %.preheader.i.i.i.i ], [ %.sroa.4.0164, %157 ], [ %.sroa.4.0164, %.sink.split.i ], [ %.sroa.4.1, %78 ]
   %.not.i.i.i.i = icmp ne i64 %.sroa.039.sroa.17.0.copyload, %.sroa.41.0158
   %or.cond107.not = select i1 %13, i1 true, i1 %.not.i.i.i.i
   br i1 %or.cond107.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h929aa954f00e5565E.exit", label %._crit_edge
@@ -30064,7 +30064,7 @@ _ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i
   %.sroa.3146.3 = phi i64 [ %.sroa.3146.1.ph, %.loopexit ], [ 0, %111 ], [ -1, %161 ], [ %.sroa.3146.0162, %.thread.i.i.i.i.i ], [ %.sroa.3146.0162, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
   %.sroa.7.2.pn = phi i64 [ %.sroa.039.sroa.17.0.copyload, %.loopexit ], [ %96, %111 ], [ %147, %161 ], [ %.sroa.4.1, %.thread.i.i.i.i.i ], [ %.sroa.4.1, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
   %.sroa.19.3 = phi i64 [ %.sroa.19.1.ph, %.loopexit ], [ %112, %111 ], [ %162, %161 ], [ %.sroa.19.0163, %.thread.i.i.i.i.i ], [ %.sroa.19.0163, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
-  %.sroa.4.5 = phi i64 [ %.sroa.4.3.ph, %.loopexit ], [ %.sroa.4.0165, %111 ], [ %.sroa.4.0165, %161 ], [ %.sroa.4.1, %.thread.i.i.i.i.i ], [ %.sroa.4.1, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
+  %.sroa.4.5 = phi i64 [ %.sroa.4.3.ph, %.loopexit ], [ %.sroa.4.0164, %111 ], [ %.sroa.4.0164, %161 ], [ %.sroa.4.1, %.thread.i.i.i.i.i ], [ %.sroa.4.1, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
   %.sroa.9.1 = sub i64 %.sroa.7.2.pn, %.sroa.41.0158
   %.sroa.867.1 = getelementptr inbounds i8, ptr %.sroa.039.sroa.12.0.copyload, i64 %.sroa.41.0158
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)

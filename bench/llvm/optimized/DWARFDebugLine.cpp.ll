@@ -5486,9 +5486,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %259, %257
 _ZN4llvm14DWARFDebugLine3Row15dumpTableHeaderERNS_11raw_ostreamEj.exit: ; preds = %273, %271, %223
   %276 = load i64, ptr %3, align 8
   %277 = icmp ult i64 %276, %.pre-phi
-  br i1 %277, label %.lr.ph644, label %._crit_edge645
+  br i1 %277, label %.lr.ph638, label %._crit_edge639
 
-.lr.ph644:                                        ; preds = %_ZN4llvm14DWARFDebugLine3Row15dumpTableHeaderERNS_11raw_ostreamEj.exit
+.lr.ph638:                                        ; preds = %_ZN4llvm14DWARFDebugLine3Row15dumpTableHeaderERNS_11raw_ostreamEj.exit
   %278 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %279 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %280 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -5569,9 +5569,9 @@ _ZN4llvm14DWARFDebugLine3Row15dumpTableHeaderERNS_11raw_ostreamEj.exit: ; preds 
   %.sroa.6349.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.6349, i64 8
   br label %349
 
-349:                                              ; preds = %.lr.ph644, %.backedge
-  %350 = phi i64 [ %276, %.lr.ph644 ], [ %1162, %.backedge ]
-  %.0549637 = phi i8 [ 0, %.lr.ph644 ], [ %.1.ph, %.backedge ]
+349:                                              ; preds = %.lr.ph638, %.backedge
+  %350 = phi i64 [ %276, %.lr.ph638 ], [ %1162, %.backedge ]
+  %.0549637 = phi i8 [ 0, %.lr.ph638 ], [ %.1.ph, %.backedge ]
   store i64 %350, ptr %47, align 8
   store ptr null, ptr %278, align 8
   br i1 %8, label %351, label %353
@@ -5630,9 +5630,9 @@ _ZN4llvm14DWARFDebugLine3Row15dumpTableHeaderERNS_11raw_ostreamEj.exit: ; preds 
   %378 = ptrtoint ptr %376 to i64
   %379 = sub i64 %377, %378
   %380 = icmp ult i64 %379, 41
-  br i1 %380, label %_ZN4llvm11raw_ostreamlsEPKc.exit88, label %_ZN4llvm11raw_ostreamlsEPKc.exit88.thread659
+  br i1 %380, label %_ZN4llvm11raw_ostreamlsEPKc.exit88, label %_ZN4llvm11raw_ostreamlsEPKc.exit88.thread653
 
-_ZN4llvm11raw_ostreamlsEPKc.exit88.thread659:     ; preds = %374
+_ZN4llvm11raw_ostreamlsEPKc.exit88.thread653:     ; preds = %374
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %376, ptr noundef nonnull align 1 dereferenceable(41) @.str.48, i64 41, i1 false)
   %381 = load ptr, ptr %286, align 8
   %382 = getelementptr inbounds i8, ptr %381, i64 41
@@ -5688,7 +5688,7 @@ _ZN4llvm5ErrorD2Ev.exit94:                        ; preds = %399, %_ZN4llvm11raw
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit88.thread
 
-_ZN4llvm11raw_ostreamlsEPKc.exit88.thread:        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit88.thread659, %373, %_ZN4llvm5ErrorD2Ev.exit94, %_ZN4llvm11raw_ostreamlsEPKc.exit88
+_ZN4llvm11raw_ostreamlsEPKc.exit88.thread:        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit88.thread653, %373, %_ZN4llvm5ErrorD2Ev.exit94, %_ZN4llvm11raw_ostreamlsEPKc.exit88
   %403 = load i64, ptr %47, align 8
   store i64 %403, ptr %3, align 8
   br label %1156, !llvm.loop !256
@@ -5774,11 +5774,11 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %421, %420, %418, %4
 
 441:                                              ; preds = %440, %439
   call void @_ZN4llvm14DWARFDebugLine12ParsingState17appendRowToMatrixEv(ptr noundef nonnull align 8 dereferenceable(112) %46)
-  %.pre652 = load i8, ptr %289, align 2
+  %.pre646 = load i8, ptr %289, align 2
   br label %"_ZZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPmRKNS_12DWARFContextEPKNS_9DWARFUnitENS_12function_refIFvNS_5ErrorEEEEPNS_11raw_ostreamEbENK3$_0clEv.exit"
 
 "_ZZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPmRKNS_12DWARFContextEPKNS_9DWARFUnitENS_12function_refIFvNS_5ErrorEEEEPNS_11raw_ostreamEbENK3$_0clEv.exit": ; preds = %424, %441
-  %442 = phi i8 [ %426, %424 ], [ %.pre652, %441 ]
+  %442 = phi i8 [ %426, %424 ], [ %.pre646, %441 ]
   %443 = load ptr, ptr %46, align 8
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 35
   %445 = load i8, ptr %444, align 1
@@ -5945,7 +5945,7 @@ _ZN4llvm5ErrorD2Ev.exit104:                       ; preds = %477, %469
   %.3 = phi i8 [ %.0549637, %_ZN4llvm5ErrorD2Ev.exit104 ], [ %490, %481 ], [ %490, %491 ]
   %493 = load ptr, ptr %278, align 8
   %.not.i105 = icmp eq ptr %493, null
-  br i1 %.not.i105, label %494, label %.thread665
+  br i1 %.not.i105, label %494, label %.thread659
 
 494:                                              ; preds = %492
   br i1 %8, label %495, label %_ZN4llvm11raw_ostreamlsEc.exit111.thread
@@ -6123,7 +6123,7 @@ _ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE17_M_realloc_insertIJ
 _ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE9push_backERKS2_.exit: ; preds = %523, %_ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %548 = load ptr, ptr %278, align 8
   %.not.i114 = icmp eq ptr %548, null
-  br i1 %.not.i114, label %549, label %.thread665
+  br i1 %.not.i114, label %549, label %.thread659
 
 549:                                              ; preds = %_ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE9push_backERKS2_.exit
   br i1 %8, label %550, label %_ZN4llvm11raw_ostreamlsEc.exit111.thread
@@ -6281,7 +6281,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit132:              ; preds = %613, %615
   store i32 %631, ptr %300, align 8
   %632 = load ptr, ptr %278, align 8
   %.not.i137 = icmp eq ptr %632, null
-  br i1 %.not.i137, label %633, label %.thread665
+  br i1 %.not.i137, label %633, label %.thread659
 
 633:                                              ; preds = %629
   br i1 %8, label %634, label %_ZN4llvm11raw_ostreamlsEc.exit111.thread
@@ -6356,7 +6356,7 @@ _ZN4llvm11raw_ostreamlsEc.exit111.thread:         ; preds = %633, %549, %494
   %666 = add i64 %369, %368
   br label %669
 
-.thread665:                                       ; preds = %492, %_ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE9push_backERKS2_.exit, %629
+.thread659:                                       ; preds = %492, %_ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE9push_backERKS2_.exit, %629
   %.2.ph575 = phi i8 [ %.3, %492 ], [ %.0549637, %_ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE9push_backERKS2_.exit ], [ %.0549637, %629 ]
   %667 = add i64 %369, %368
   br label %.thread586
@@ -6429,9 +6429,9 @@ _ZN4llvm11raw_ostreamlsEc.exit111:                ; preds = %656, %654, %626, %6
   %686 = icmp eq ptr %.pr585.pre, null
   br i1 %686, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit, label %.thread586
 
-.thread586:                                       ; preds = %.thread665, %_ZN4llvm11raw_ostreamlsEc.exit111, %685
-  %.2566598 = phi i8 [ %.2567, %685 ], [ %.2.ph, %_ZN4llvm11raw_ostreamlsEc.exit111 ], [ %.2.ph575, %.thread665 ]
-  %687 = phi i64 [ %670, %685 ], [ %668, %_ZN4llvm11raw_ostreamlsEc.exit111 ], [ %667, %.thread665 ]
+.thread586:                                       ; preds = %.thread659, %_ZN4llvm11raw_ostreamlsEc.exit111, %685
+  %.2566598 = phi i8 [ %.2567, %685 ], [ %.2.ph, %_ZN4llvm11raw_ostreamlsEc.exit111 ], [ %.2.ph575, %.thread659 ]
+  %687 = phi i64 [ %670, %685 ], [ %668, %_ZN4llvm11raw_ostreamlsEc.exit111 ], [ %667, %.thread659 ]
   br i1 %8, label %688, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit
 
 688:                                              ; preds = %.thread586
@@ -7006,8 +7006,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit230:              ; preds = %967, %965, %957
   %972 = getelementptr i8, ptr %971, i64 %970
   %973 = getelementptr i8, ptr %972, i64 -1
   %974 = load i8, ptr %973, align 1
-  %.not646 = icmp eq i8 %974, 0
-  br i1 %.not646, label %"_ZZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPmRKNS_12DWARFContextEPKNS_9DWARFUnitENS_12function_refIFvNS_5ErrorEEEEPNS_11raw_ostreamEbENK3$_0clEv.exit169", label %.lr.ph
+  %.not640 = icmp eq i8 %974, 0
+  br i1 %.not640, label %"_ZZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPmRKNS_12DWARFContextEPKNS_9DWARFUnitENS_12function_refIFvNS_5ErrorEEEEPNS_11raw_ostreamEbENK3$_0clEv.exit169", label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit230, %_ZNSt6vectorImSaImEE9push_backERKm.exit
   %.060625 = phi i8 [ %1000, %_ZNSt6vectorImSaImEE9push_backERKm.exit ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit230 ]
@@ -7438,15 +7438,15 @@ _ZN4llvm5ErrorD2Ev.exit279:                       ; preds = %1152, %1147
 .backedge:                                        ; preds = %1158, %1156
   %1162 = load i64, ptr %3, align 8
   %1163 = icmp ult i64 %1162, %.pre-phi
-  br i1 %1163, label %349, label %._crit_edge645, !llvm.loop !256
+  br i1 %1163, label %349, label %._crit_edge639, !llvm.loop !256
 
-._crit_edge645:                                   ; preds = %.backedge, %_ZN4llvm14DWARFDebugLine3Row15dumpTableHeaderERNS_11raw_ostreamEj.exit
+._crit_edge639:                                   ; preds = %.backedge, %_ZN4llvm14DWARFDebugLine3Row15dumpTableHeaderERNS_11raw_ostreamEj.exit
   %1164 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %1165 = load i8, ptr %1164, align 8
   %1166 = trunc i8 %1165 to i1
   br i1 %1166, label %1188, label %1167
 
-1167:                                             ; preds = %._crit_edge645
+1167:                                             ; preds = %._crit_edge639
   %1168 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
@@ -7504,7 +7504,7 @@ _ZN4llvm5ErrorD2Ev.exit283:                       ; preds = %1184, %1167
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %1188
 
-1188:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit283, %._crit_edge645
+1188:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit283, %._crit_edge639
   %1189 = load ptr, ptr %83, align 8
   %1190 = load ptr, ptr %85, align 8
   %1191 = icmp eq ptr %1189, %1190
@@ -7823,8 +7823,8 @@ _ZN4llvm4sortIRSt6vectorINS_14DWARFDebugLine8SequenceESaIS3_EEPFbRKS3_S8_EEEvOT_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1297, %1295, %_ZN4llvm4sortIRSt6vectorINS_14DWARFDebugLine8SequenceESaIS3_EEPFbRKS3_S8_EEEvOT_T0_.exit, %_ZN4llvm13DataExtractor6CursorD2Ev.exit280.thread
-  %.sink685 = phi ptr [ %278, %_ZN4llvm13DataExtractor6CursorD2Ev.exit280.thread ], [ %0, %_ZN4llvm4sortIRSt6vectorINS_14DWARFDebugLine8SequenceESaIS3_EEPFbRKS3_S8_EEEvOT_T0_.exit ], [ %0, %1295 ], [ %0, %1297 ]
-  store ptr null, ptr %.sink685, align 8
+  %.sink679 = phi ptr [ %278, %_ZN4llvm13DataExtractor6CursorD2Ev.exit280.thread ], [ %0, %_ZN4llvm4sortIRSt6vectorINS_14DWARFDebugLine8SequenceESaIS3_EEPFbRKS3_S8_EEEvOT_T0_.exit ], [ %0, %1295 ], [ %0, %1297 ]
+  store ptr null, ptr %.sink679, align 8
   %.pr611 = load ptr, ptr %42, align 8
   %1300 = icmp eq ptr %.pr611, null
   br i1 %1300, label %_ZN4llvm5ErrorD2Ev.exit289, label %1301

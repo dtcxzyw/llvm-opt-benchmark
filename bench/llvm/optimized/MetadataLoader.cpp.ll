@@ -15723,8 +15723,8 @@ define linkonce_odr hidden void @_ZN4llvm14MetadataLoader18MetadataLoaderImpl18u
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread
-  %.078 = phi i32 [ 0, %.lr.ph ], [ %63, %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread ]
-  %14 = tail call noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %.078) #24
+  %.076 = phi i32 [ 0, %.lr.ph ], [ %63, %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread ]
+  %14 = tail call noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %.076) #24
   %15 = getelementptr inbounds i8, ptr %14, i64 -16
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 2
@@ -15826,7 +15826,7 @@ _ZN4llvm16dyn_cast_or_nullINS_16DIGlobalVariableENS_9MDOperandEEEDaRKT0_.exit.th
   br label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit, !llvm.loop !588
 
 _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %_ZNK4llvm13DICompileUnit21getRawGlobalVariablesEv.exit, %29
-  %63 = add nuw i32 %.078, 1
+  %63 = add nuw i32 %.076, 1
   %.not42 = icmp eq i32 %63, %11
   br i1 %.not42, label %.loopexit74, label %13, !llvm.loop !589
 
@@ -15834,19 +15834,19 @@ _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread: ; pred
   %64 = load ptr, ptr %7, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %.sroa.056.085 = load ptr, ptr %65, align 8
-  %.not7186 = icmp eq ptr %.sroa.056.085, %66
-  br i1 %.not7186, label %.loopexit, label %.lr.ph91
+  %.sroa.056.080 = load ptr, ptr %65, align 8
+  %.not7181 = icmp eq ptr %.sroa.056.080, %66
+  br i1 %.not7181, label %.loopexit, label %.lr.ph84
 
-.lr.ph91:                                         ; preds = %.loopexit74
+.lr.ph84:                                         ; preds = %.loopexit74
   %67 = getelementptr inbounds i8, ptr %2, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %69
 
-69:                                               ; preds = %.lr.ph91, %_ZN4llvm11SmallVectorIPNS_6MDNodeELj1EED2Ev.exit
-  %.sroa.056.089 = phi ptr [ %.sroa.056.085, %.lr.ph91 ], [ %.sroa.056.0, %_ZN4llvm11SmallVectorIPNS_6MDNodeELj1EED2Ev.exit ]
-  %70 = icmp eq ptr %.sroa.056.089, null
-  %71 = getelementptr inbounds i8, ptr %.sroa.056.089, i64 -56
+69:                                               ; preds = %.lr.ph84, %_ZN4llvm11SmallVectorIPNS_6MDNodeELj1EED2Ev.exit
+  %.sroa.056.082 = phi ptr [ %.sroa.056.080, %.lr.ph84 ], [ %.sroa.056.0, %_ZN4llvm11SmallVectorIPNS_6MDNodeELj1EED2Ev.exit ]
+  %70 = icmp eq ptr %.sroa.056.082, null
+  %71 = getelementptr inbounds i8, ptr %.sroa.056.082, i64 -56
   %72 = select i1 %70, ptr null, ptr %71
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %67, i64 noundef 1) #24
   call void @_ZNK4llvm5Value11getMetadataEjRNS_15SmallVectorImplIPNS_6MDNodeEEE(ptr noundef nonnull align 8 dereferenceable(24) %72, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %2) #24
@@ -15854,28 +15854,28 @@ _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread: ; pred
   %74 = load ptr, ptr %2, align 8
   %75 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
   %76 = getelementptr inbounds ptr, ptr %74, i64 %75
-  %.not4379 = icmp eq i64 %75, 0
-  br i1 %.not4379, label %._crit_edge, label %.lr.ph83
+  %.not4377 = icmp eq i64 %75, 0
+  br i1 %.not4377, label %._crit_edge, label %.lr.ph79
 
-.lr.ph83:                                         ; preds = %69, %83
-  %.03782 = phi ptr [ %84, %83 ], [ %74, %69 ]
-  %77 = load ptr, ptr %.03782, align 8
+.lr.ph79:                                         ; preds = %69, %83
+  %.03778 = phi ptr [ %84, %83 ], [ %74, %69 ]
+  %77 = load ptr, ptr %.03778, align 8
   %78 = load i8, ptr %77, align 4
   %.not73 = icmp eq i8 %78, 25
   br i1 %.not73, label %79, label %83
 
-79:                                               ; preds = %.lr.ph83
+79:                                               ; preds = %.lr.ph79
   %80 = load ptr, ptr %68, align 8
   %81 = call noundef ptr @_ZN4llvm12DIExpression7getImplERNS_11LLVMContextENS_8ArrayRefImEENS_8Metadata11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr null, i64 0, i32 noundef 0, i1 noundef zeroext true) #24
   %82 = call noundef ptr @_ZN4llvm26DIGlobalVariableExpression7getImplERNS_11LLVMContextEPNS_8MetadataES4_NS3_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull %77, ptr noundef %81, i32 noundef 1, i1 noundef zeroext true) #24
   br label %83
 
-83:                                               ; preds = %.lr.ph83, %79
-  %.sink = phi ptr [ %82, %79 ], [ %77, %.lr.ph83 ]
+83:                                               ; preds = %.lr.ph79, %79
+  %.sink = phi ptr [ %82, %79 ], [ %77, %.lr.ph79 ]
   call void @_ZN4llvm5Value11addMetadataEjRNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(24) %72, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %.sink) #24
-  %84 = getelementptr inbounds i8, ptr %.03782, i64 8
+  %84 = getelementptr inbounds i8, ptr %.03778, i64 8
   %.not43 = icmp eq ptr %84, %76
-  br i1 %.not43, label %._crit_edge, label %.lr.ph83
+  br i1 %.not43, label %._crit_edge, label %.lr.ph79
 
 ._crit_edge:                                      ; preds = %83, %69
   %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
@@ -15888,7 +15888,7 @@ _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread: ; pred
   br label %_ZN4llvm11SmallVectorIPNS_6MDNodeELj1EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_6MDNodeELj1EED2Ev.exit: ; preds = %._crit_edge, %88
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.056.089, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.056.082, i64 8
   %.sroa.056.0 = load ptr, ptr %89, align 8
   %.not71 = icmp eq ptr %.sroa.056.0, %66
   br i1 %.not71, label %.loopexit, label %69

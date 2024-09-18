@@ -10245,7 +10245,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %lor.lhs.false.i, %.
   br label %for.cond
 
 for.cond:                                         ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit, %for.inc
-  %i.0 = phi i32 [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ %inc, %for.inc ]
+  %i.0 = phi i32 [ %inc, %for.inc ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ]
   %34 = load ptr, ptr %eqs, align 8
   %cmp.i45 = icmp eq ptr %34, null
   br i1 %cmp.i45, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %if.end.i

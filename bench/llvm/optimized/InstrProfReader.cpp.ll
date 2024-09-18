@@ -2917,10 +2917,10 @@ define dso_local void @_ZN4llvm19TextInstrProfReader20readValueProfileDataERNS_1
 
 83:                                               ; preds = %70
   call void @_ZN4llvm13line_iterator7advanceEv(ptr noundef nonnull align 8 dereferenceable(64) %47) #21, !noalias !196
-  %.not268 = icmp eq i64 %62, 0
-  br i1 %.not268, label %._crit_edge267, label %.lr.ph266
+  %.not187 = icmp eq i64 %62, 0
+  br i1 %.not187, label %._crit_edge186, label %.lr.ph185
 
-.lr.ph266:                                        ; preds = %83
+.lr.ph185:                                        ; preds = %83
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2932,8 +2932,8 @@ define dso_local void @_ZN4llvm19TextInstrProfReader20readValueProfileDataERNS_1
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 33
   br label %93
 
-93:                                               ; preds = %.lr.ph266, %.loopexit
-  %.0264 = phi i32 [ 0, %.lr.ph266 ], [ %225, %.loopexit ]
+93:                                               ; preds = %.lr.ph185, %.loopexit
+  %.0183 = phi i32 [ 0, %.lr.ph185 ], [ %225, %.loopexit ]
   %94 = load i8, ptr %48, align 8
   %95 = trunc i8 %94 to i1
   br i1 %95, label %97, label %96
@@ -3024,16 +3024,16 @@ define dso_local void @_ZN4llvm19TextInstrProfReader20readValueProfileDataERNS_1
   br i1 %.not, label %.loopexit, label %117
 
 117:                                              ; preds = %115
-  call void @_ZN4llvm15InstrProfRecord12reserveSitesEjj(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %.0264, i32 noundef %116)
+  call void @_ZN4llvm15InstrProfRecord12reserveSitesEjj(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %.0183, i32 noundef %116)
   br label %120
 
 118:                                              ; preds = %_ZNSt6vectorI18InstrProfValueDataSaIS0_EED2Ev.exit
-  %119 = add nuw i32 %.023255, 1
-  %exitcond314.not = icmp eq i32 %119, %116
-  br i1 %exitcond314.not, label %.loopexit, label %120, !llvm.loop !205
+  %119 = add nuw i32 %.023182, 1
+  %exitcond198.not = icmp eq i32 %119, %116
+  br i1 %exitcond198.not, label %.loopexit, label %120, !llvm.loop !205
 
 120:                                              ; preds = %117, %118
-  %.023255 = phi i32 [ 0, %117 ], [ %119, %118 ]
+  %.023182 = phi i32 [ 0, %117 ], [ %119, %118 ]
   %121 = load i8, ptr %48, align 8
   %122 = trunc i8 %121 to i1
   br i1 %122, label %131, label %123
@@ -3107,14 +3107,14 @@ define dso_local void @_ZN4llvm19TextInstrProfReader20readValueProfileDataERNS_1
   %144 = trunc nuw i64 %134 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @_ZN4llvm13line_iterator7advanceEv(ptr noundef nonnull align 8 dereferenceable(64) %47) #21, !noalias !224
-  %.not148234.not = icmp eq i64 %134, 0
-  br i1 %.not148234.not, label %._crit_edge, label %.lr.ph
+  %.not148173.not = icmp eq i64 %134, 0
+  br i1 %.not148173.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %143, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit
-  %.024242 = phi i32 [ %216, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit ], [ 0, %143 ]
-  %.sroa.10.3237 = phi ptr [ %.sroa.10.4, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit ], [ null, %143 ]
-  %.sroa.5.3236 = phi ptr [ %.sroa.5.4, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit ], [ null, %143 ]
-  %.sroa.095.3235 = phi ptr [ %.sroa.095.4, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit ], [ null, %143 ]
+  %.024177 = phi i32 [ %216, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit ], [ 0, %143 ]
+  %.sroa.10.3176 = phi ptr [ %.sroa.10.4, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit ], [ null, %143 ]
+  %.sroa.5.3175 = phi ptr [ %.sroa.5.4, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit ], [ null, %143 ]
+  %.sroa.095.3174 = phi ptr [ %.sroa.095.4, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit ], [ null, %143 ]
   %145 = load i8, ptr %48, align 8
   %146 = trunc i8 %145 to i1
   br i1 %146, label %153, label %147
@@ -3305,18 +3305,18 @@ _ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit:  ; preds = %175
 192:                                              ; preds = %184
   %193 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %.not.i.i82 = icmp eq ptr %.sroa.5.3236, %.sroa.10.3237
+  %.not.i.i82 = icmp eq ptr %.sroa.5.3175, %.sroa.10.3176
   br i1 %.not.i.i82, label %195, label %194
 
 194:                                              ; preds = %192
-  store i64 %.5, ptr %.sroa.5.3236, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5.3236, i64 8
+  store i64 %.5, ptr %.sroa.5.3175, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5.3175, i64 8
   store i64 %193, ptr %.sroa.3.0..sroa_idx, align 8
   br label %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit
 
 195:                                              ; preds = %192
-  %196 = ptrtoint ptr %.sroa.10.3237 to i64
-  %197 = ptrtoint ptr %.sroa.095.3235 to i64
+  %196 = ptrtoint ptr %.sroa.10.3176 to i64
+  %197 = ptrtoint ptr %.sroa.095.3174 to i64
   %198 = sub i64 %196, %197
   %199 = icmp eq i64 %198, 9223372036854775792
   br i1 %199, label %200, label %_ZNKSt6vectorI18InstrProfValueDataSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -3350,16 +3350,16 @@ _ZNSt12_Vector_baseI18InstrProfValueDataSaIS0_EE11_M_allocateEm.exit.i.i.i: ; pr
   br i1 %211, label %212, label %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
 
 212:                                              ; preds = %_ZNSt12_Vector_baseI18InstrProfValueDataSaIS0_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %209, ptr align 8 %.sroa.095.3235, i64 %198, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %209, ptr align 8 %.sroa.095.3174, i64 %198, i1 false)
   br label %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
 
 _ZNSt6vectorI18InstrProfValueDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %212, %_ZNSt12_Vector_baseI18InstrProfValueDataSaIS0_EE11_M_allocateEm.exit.i.i.i
   %213 = getelementptr inbounds i8, ptr %209, i64 %198
-  %.not.i17.i.i.i = icmp eq ptr %.sroa.095.3235, null
+  %.not.i17.i.i.i = icmp eq ptr %.sroa.095.3174, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %214
 
 214:                                              ; preds = %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.095.3235, i64 noundef %198) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.095.3174, i64 noundef %198) #23
   br label %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %214, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
@@ -3367,12 +3367,12 @@ _ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx
   br label %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit
 
 _ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit: ; preds = %194, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
-  %.sroa.095.4 = phi ptr [ %209, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.095.3235, %194 ]
-  %.pn = phi ptr [ %213, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.5.3236, %194 ]
-  %.sroa.10.4 = phi ptr [ %215, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.10.3237, %194 ]
+  %.sroa.095.4 = phi ptr [ %209, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.095.3174, %194 ]
+  %.pn = phi ptr [ %213, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.5.3175, %194 ]
+  %.sroa.10.4 = phi ptr [ %215, %_ZNSt6vectorI18InstrProfValueDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.10.3176, %194 ]
   %.sroa.5.4 = getelementptr inbounds i8, ptr %.pn, i64 16
   call void @_ZN4llvm13line_iterator7advanceEv(ptr noundef nonnull align 8 dereferenceable(64) %47) #21, !noalias !263
-  %216 = add nuw i32 %.024242, 1
+  %216 = add nuw i32 %.024177, 1
   %exitcond.not = icmp eq i32 %216, %144
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !266
 
@@ -3387,36 +3387,36 @@ _ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backEOS0_.exit: ; preds = %194, %
   %218 = ptrtoint ptr %.sroa.095.3.lcssa to i64
   %219 = sub i64 %.sroa.5.3.lcssa, %218
   %220 = ashr exact i64 %219, 4
-  call void @_ZN4llvm15InstrProfRecord12addValueDataEjjNS_8ArrayRefI18InstrProfValueDataEEPNS_15InstrProfSymtabE(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %103, i32 noundef %.023255, ptr %.sroa.095.3.lcssa, i64 %220, ptr noundef null) #21
+  call void @_ZN4llvm15InstrProfRecord12addValueDataEjjNS_8ArrayRefI18InstrProfValueDataEEPNS_15InstrProfSymtabE(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %103, i32 noundef %.023182, ptr %.sroa.095.3.lcssa, i64 %220, ptr noundef null) #21
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit69.thread, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit.thread, %._crit_edge, %186, %178, %147
-  %.sroa.095.3194 = phi ptr [ %.sroa.095.3235, %147 ], [ %.sroa.095.3235, %178 ], [ %.sroa.095.3235, %186 ], [ %.sroa.095.3.lcssa, %._crit_edge ], [ %.sroa.095.3235, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit.thread ], [ %.sroa.095.3235, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit69.thread ]
-  %.sroa.10.3182 = phi ptr [ %.sroa.10.3237, %147 ], [ %.sroa.10.3237, %178 ], [ %.sroa.10.3237, %186 ], [ %.sroa.10.3.lcssa, %._crit_edge ], [ %.sroa.10.3237, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit.thread ], [ %.sroa.10.3237, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit69.thread ]
-  %.not148155 = phi i1 [ true, %147 ], [ true, %178 ], [ true, %186 ], [ false, %._crit_edge ], [ true, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit.thread ], [ true, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit69.thread ]
-  %.not.i.i.i = icmp eq ptr %.sroa.095.3194, null
+  %.sroa.095.3172 = phi ptr [ %.sroa.095.3.lcssa, %._crit_edge ], [ %.sroa.095.3174, %186 ], [ %.sroa.095.3174, %178 ], [ %.sroa.095.3174, %147 ], [ %.sroa.095.3174, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit.thread ], [ %.sroa.095.3174, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit69.thread ]
+  %.sroa.10.3161 = phi ptr [ %.sroa.10.3.lcssa, %._crit_edge ], [ %.sroa.10.3176, %186 ], [ %.sroa.10.3176, %178 ], [ %.sroa.10.3176, %147 ], [ %.sroa.10.3176, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit.thread ], [ %.sroa.10.3176, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit69.thread ]
+  %.not148155 = phi i1 [ false, %._crit_edge ], [ true, %186 ], [ true, %178 ], [ true, %147 ], [ true, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit.thread ], [ true, %_ZN4llvm15InstrProfSymtab16isExternalSymbolERKNS_9StringRefE.exit69.thread ]
+  %.not.i.i.i = icmp eq ptr %.sroa.095.3172, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI18InstrProfValueDataSaIS0_EED2Ev.exit, label %221
 
 221:                                              ; preds = %.critedge
-  %222 = ptrtoint ptr %.sroa.10.3182 to i64
-  %223 = ptrtoint ptr %.sroa.095.3194 to i64
+  %222 = ptrtoint ptr %.sroa.10.3161 to i64
+  %223 = ptrtoint ptr %.sroa.095.3172 to i64
   %224 = sub i64 %222, %223
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.095.3194, i64 noundef %224) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.095.3172, i64 noundef %224) #23
   br label %_ZNSt6vectorI18InstrProfValueDataSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI18InstrProfValueDataSaIS0_EED2Ev.exit: ; preds = %.critedge, %221
   br i1 %.not148155, label %.loopexit149, label %118
 
 .loopexit:                                        ; preds = %118, %115
-  %225 = add nuw i32 %.0264, 1
-  %exitcond315.not = icmp eq i32 %225, %71
-  br i1 %exitcond315.not, label %._crit_edge267, label %93, !llvm.loop !267
+  %225 = add nuw i32 %.0183, 1
+  %exitcond199.not = icmp eq i32 %225, %71
+  br i1 %exitcond199.not, label %._crit_edge186, label %93, !llvm.loop !267
 
-._crit_edge267:                                   ; preds = %.loopexit, %83
+._crit_edge186:                                   ; preds = %.loopexit, %83
   call void @_ZN4llvm15InstrProfReader7successEv(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br label %.loopexit149
 
-.loopexit149:                                     ; preds = %_ZNSt6vectorI18InstrProfValueDataSaIS0_EED2Ev.exit, %._crit_edge267, %135, %123, %114, %109, %105, %101, %96, %73, %63, %51
+.loopexit149:                                     ; preds = %_ZNSt6vectorI18InstrProfValueDataSaIS0_EED2Ev.exit, %._crit_edge186, %135, %123, %114, %109, %105, %101, %96, %73, %63, %51
   ret void
 }
 

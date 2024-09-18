@@ -87,7 +87,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i
-  %inc.i = add nuw nsw i64 %n.0134.i, 1
+  %inc.i = add nuw nsw i64 %n.0131.i, 1
   %arrayidx.i = getelementptr inbounds [5 x %struct.anon], ptr @_ZZL11TestBuiltinP8_IO_FILEE7kCurves, i64 0, i64 %inc.i
   %3 = load i32, ptr %arrayidx.i, align 16
   %exitcond.i = icmp eq i64 %inc.i, 4
@@ -95,9 +95,9 @@ for.cond.i:                                       ; preds = %_ZNSt10unique_ptrI1
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end.i
   %4 = phi i32 [ 713, %if.end.i ], [ %3, %for.cond.i ]
-  %arrayidx135.i = phi ptr [ @_ZZL11TestBuiltinP8_IO_FILEE7kCurves, %if.end.i ], [ %arrayidx.i, %for.cond.i ]
-  %n.0134.i = phi i64 [ 0, %if.end.i ], [ %inc.i, %for.cond.i ]
-  %name.i = getelementptr inbounds i8, ptr %arrayidx135.i, i64 8
+  %arrayidx132.i = phi ptr [ @_ZZL11TestBuiltinP8_IO_FILEE7kCurves, %if.end.i ], [ %arrayidx.i, %for.cond.i ]
+  %n.0131.i = phi i64 [ 0, %if.end.i ], [ %inc.i, %for.cond.i ]
+  %name.i = getelementptr inbounds i8, ptr %arrayidx132.i, i64 8
   %5 = load ptr, ptr %name.i, align 8
   %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %5)
   %call11.i = call ptr @EC_GROUP_new_by_curve_name(i32 noundef %4)
@@ -124,9 +124,9 @@ invoke.cont17.i:                                  ; preds = %if.end15.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont17.i
   %cmp21.i = icmp ult i32 %call20.i, 160
-  br i1 %cmp21.i, label %cleanup259.thread141.i, label %if.end25.i
+  br i1 %cmp21.i, label %cleanup259.thread138.i, label %if.end25.i
 
-cleanup259.thread141.i:                           ; preds = %invoke.cont19.i
+cleanup259.thread138.i:                           ; preds = %invoke.cont19.i
   %8 = call i64 @fwrite(ptr nonnull @.str.10, i64 9, i64 1, ptr %0)
   br label %if.then.i105.i
 
@@ -334,7 +334,7 @@ if.then.i31.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i: ; preds = %if.then.i31.i.i.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i
   %add.ptr36.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i79.i, i64 %conv97.i
-  %.pre137.i = ptrtoint ptr %call5.i.i.i.i.i79.i to i64
+  %.pre134.i = ptrtoint ptr %call5.i.i.i.i.i79.i to i64
   br label %invoke.cont98.i
 
 if.else.i.i:                                      ; preds = %if.end96.i
@@ -344,7 +344,7 @@ if.else.i.i:                                      ; preds = %if.end96.i
   br label %invoke.cont98.i
 
 invoke.cont98.i:                                  ; preds = %if.else.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i, %if.then.i.i.i.i.i73.i
-  %sub.ptr.rhs.cast.i.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i, %if.else.i.i ], [ %.pre137.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i73.i ]
+  %sub.ptr.rhs.cast.i.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i, %if.else.i.i ], [ %.pre134.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i73.i ]
   %signature.sroa.0.8.i = phi ptr [ %signature.sroa.0.7.i, %if.else.i.i ], [ %call5.i.i.i.i.i79.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %signature.sroa.0.7.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %signature.sroa.0.7.i, %if.then.i.i.i.i.i73.i ]
   %signature.sroa.18.5.i = phi ptr [ %spec.select.i, %if.else.i.i ], [ %add.ptr36.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %incdec.ptr.i.i.i.i.i74.i, %if.then.i.i.i.i.i73.i ]
   %fputc54.i = call i32 @fputc(i32 46, ptr %0)
@@ -516,7 +516,7 @@ if.then.i.i.i98.i:                                ; preds = %cleanup254.i
   br label %cleanup255.i
 
 cleanup255.i:                                     ; preds = %if.then.i.i.i98.i, %cleanup254.i, %if.then72.i, %if.then60.i
-  %cleanup.dest.slot.2.i = phi i32 [ 1, %if.then60.i ], [ 1, %if.then72.i ], [ %cleanup.dest.slot.3.i, %cleanup254.i ], [ %cleanup.dest.slot.3.i, %if.then.i.i.i98.i ]
+  %cleanup.dest.slot.2.i = phi i32 [ 1, %if.then72.i ], [ 1, %if.then60.i ], [ %cleanup.dest.slot.3.i, %cleanup254.i ], [ %cleanup.dest.slot.3.i, %if.then.i.i.i98.i ]
   %35 = load ptr, ptr %wrong_eckey.i, align 8
   %cmp.not.i.i = icmp eq ptr %35, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i, label %if.then.i99.i
@@ -539,8 +539,8 @@ _ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit
   br label %cleanup257.i
 
 cleanup257.i:                                     ; preds = %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i, %if.then41.i
-  %39 = phi ptr [ %call27.i, %if.then41.i ], [ %.pre.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
-  %cleanup.dest.slot.1.i = phi i1 [ true, %if.then41.i ], [ %38, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
+  %39 = phi ptr [ %.pre.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ], [ %call27.i, %if.then41.i ]
+  %cleanup.dest.slot.1.i = phi i1 [ %38, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ], [ true, %if.then41.i ]
   %cmp.not.i100.i = icmp eq ptr %39, null
   br i1 %cmp.not.i100.i, label %cleanup259.i, label %if.then.i101.i
 
@@ -557,13 +557,13 @@ terminate.lpad.i102.i:                            ; preds = %if.then.i101.i
 
 cleanup259.i:                                     ; preds = %if.then.i101.i, %cleanup257.i
   store ptr null, ptr %eckey.i, align 8
-  %.pre136.i = load ptr, ptr %group.i, align 8
-  %cmp.not.i104.i = icmp eq ptr %.pre136.i, null
+  %.pre133.i = load ptr, ptr %group.i, align 8
+  %cmp.not.i104.i = icmp eq ptr %.pre133.i, null
   br i1 %cmp.not.i104.i, label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i, label %if.then.i105.i
 
-if.then.i105.i:                                   ; preds = %cleanup259.i, %cleanup259.thread141.i
-  %cleanup.dest.slot.0144.i = phi i1 [ false, %cleanup259.thread141.i ], [ %cleanup.dest.slot.1.i, %cleanup259.i ]
-  %42 = phi ptr [ %call11.i, %cleanup259.thread141.i ], [ %.pre136.i, %cleanup259.i ]
+if.then.i105.i:                                   ; preds = %cleanup259.i, %cleanup259.thread138.i
+  %cleanup.dest.slot.0141.i = phi i1 [ false, %cleanup259.thread138.i ], [ %cleanup.dest.slot.1.i, %cleanup259.i ]
+  %42 = phi ptr [ %call11.i, %cleanup259.thread138.i ], [ %.pre133.i, %cleanup259.i ]
   invoke void @EC_GROUP_free(ptr noundef nonnull %42)
           to label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i unwind label %terminate.lpad.i106.i
 
@@ -575,9 +575,9 @@ terminate.lpad.i106.i:                            ; preds = %if.then.i105.i
   unreachable
 
 _ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i: ; preds = %if.then.i105.i, %cleanup259.i
-  %cleanup.dest.slot.0140.i = phi i1 [ %cleanup.dest.slot.1.i, %cleanup259.i ], [ %cleanup.dest.slot.0144.i, %if.then.i105.i ]
+  %cleanup.dest.slot.0137.i = phi i1 [ %cleanup.dest.slot.1.i, %cleanup259.i ], [ %cleanup.dest.slot.0141.i, %if.then.i105.i ]
   store ptr null, ptr %group.i, align 8
-  br i1 %cleanup.dest.slot.0140.i, label %_ZL11TestBuiltinP8_IO_FILE.exit.thread, label %for.cond.i
+  br i1 %cleanup.dest.slot.0137.i, label %_ZL11TestBuiltinP8_IO_FILE.exit.thread, label %for.cond.i
 
 ehcleanup.i:                                      ; preds = %lpad172.i, %lpad89.i
   %signature.sroa.0.6.i = phi ptr [ %signature.sroa.0.4.i, %lpad89.i ], [ %signature.sroa.0.8.i, %lpad172.i ]

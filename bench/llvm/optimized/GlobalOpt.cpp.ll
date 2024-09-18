@@ -4412,10 +4412,10 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11GlobalValueEEppEv.exit.i: ; preds = %.lr.ph.
 ._crit_edge.i143:                                 ; preds = %.critedge2.i7.i.i9.i11.i.i.i.i, %_ZN12_GLOBAL__N_18LLVMUsed17compilerUsedEraseEPN4llvm11GlobalValueE.exit.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_11GlobalValueEEppEv.exit.i, %.critedge2.i6.i.i, %_ZN12_GLOBAL__N_18LLVMUsed4usedEv.exit.i
   %1715 = load ptr, ptr %66, align 8
   %.not123137.i = icmp eq ptr %1715, %67
-  br i1 %.not123137.i, label %._crit_edge143.i, label %.lr.ph142.i
+  br i1 %.not123137.i, label %._crit_edge142.i, label %.lr.ph141.i
 
-.lr.ph142.i:                                      ; preds = %._crit_edge.i143, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i"
-  %.0140.i = phi i1 [ %.1.i147, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i" ], [ false, %._crit_edge.i143 ]
+.lr.ph141.i:                                      ; preds = %._crit_edge.i143, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i"
+  %.0139.i = phi i1 [ %.1.i147, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i" ], [ false, %._crit_edge.i143 ]
   %.sroa.091.0138.i = phi ptr [ %1717, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i" ], [ %1715, %._crit_edge.i143 ]
   %1716 = getelementptr inbounds i8, ptr %.sroa.091.0138.i, i64 8
   %1717 = load ptr, ptr %1716, align 8
@@ -4426,7 +4426,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11GlobalValueEEppEv.exit.i: ; preds = %.lr.ph.
   %.not124.i = icmp eq i32 %1721, 0
   br i1 %.not124.i, label %1722, label %1732
 
-1722:                                             ; preds = %.lr.ph142.i
+1722:                                             ; preds = %.lr.ph141.i
   %1723 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %1718) #19
   br i1 %1723, label %1732, label %1724
 
@@ -4444,7 +4444,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11GlobalValueEEppEv.exit.i: ; preds = %.lr.ph.
   store i32 %1731, ptr %1725, align 8
   br label %1732
 
-1732:                                             ; preds = %1729, %1724, %1722, %.lr.ph142.i
+1732:                                             ; preds = %1729, %1724, %1722, %.lr.ph141.i
   call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(24) %1718) #19
   %1733 = getelementptr i8, ptr %.sroa.091.0138.i, i64 -16
   %1734 = load i32, ptr %1733, align 8
@@ -5036,21 +5036,21 @@ _ZN12_GLOBAL__N_18LLVMUsed18compilerUsedInsertEPN4llvm11GlobalValueE.exit.i: ; p
   br label %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i"
 
 "_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i": ; preds = %_ZL12deleteIfDeadRN4llvm11GlobalValueERNS_15SmallPtrSetImplIPKNS_6ComdatEEENS_12function_refIFvRNS_8FunctionEEEE.exit280, %_ZN12_GLOBAL__N_18LLVMUsed18compilerUsedInsertEPN4llvm11GlobalValueE.exit.i, %1971, %_ZL16hasUsesToReplaceRN4llvm11GlobalAliasERKN12_GLOBAL__N_18LLVMUsedERb.exit.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i", %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i", %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i", %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i", %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i", %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i", %_ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit.i53.i, %1791, %1791, %1791, %1791, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread.i", %_ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit.i.i, %1781, %1781, %1781, %1781
-  %.1.i147 = phi i1 [ true, %_ZL12deleteIfDeadRN4llvm11GlobalValueERNS_15SmallPtrSetImplIPKNS_6ComdatEEENS_12function_refIFvRNS_8FunctionEEEE.exit280 ], [ %.0140.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread.i" ], [ true, %_ZN12_GLOBAL__N_18LLVMUsed18compilerUsedInsertEPN4llvm11GlobalValueE.exit.i ], [ true, %1971 ], [ %.0140.i, %_ZL16hasUsesToReplaceRN4llvm11GlobalAliasERKN12_GLOBAL__N_18LLVMUsedERb.exit.i ], [ %.0140.i, %1781 ], [ %.0140.i, %1781 ], [ %.0140.i, %1781 ], [ %.0140.i, %1781 ], [ %.0140.i, %1791 ], [ %.0140.i, %1791 ], [ %.0140.i, %1791 ], [ %.0140.i, %1791 ], [ %.0140.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0140.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0140.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0140.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0140.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0140.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0140.i, %_ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit.i.i ], [ %.0140.i, %_ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit.i53.i ]
+  %.1.i147 = phi i1 [ true, %_ZN12_GLOBAL__N_18LLVMUsed18compilerUsedInsertEPN4llvm11GlobalValueE.exit.i ], [ true, %1971 ], [ %.0139.i, %_ZL16hasUsesToReplaceRN4llvm11GlobalAliasERKN12_GLOBAL__N_18LLVMUsedERb.exit.i ], [ %.0139.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread.i" ], [ true, %_ZL12deleteIfDeadRN4llvm11GlobalValueERNS_15SmallPtrSetImplIPKNS_6ComdatEEENS_12function_refIFvRNS_8FunctionEEEE.exit280 ], [ %.0139.i, %1781 ], [ %.0139.i, %1781 ], [ %.0139.i, %1781 ], [ %.0139.i, %1781 ], [ %.0139.i, %1791 ], [ %.0139.i, %1791 ], [ %.0139.i, %1791 ], [ %.0139.i, %1791 ], [ %.0139.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0139.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0139.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0139.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0139.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0139.i, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit56.thread.i" ], [ %.0139.i, %_ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit.i.i ], [ %.0139.i, %_ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit.i53.i ]
   %.not123.i = icmp eq ptr %1717, %67
-  br i1 %.not123.i, label %._crit_edge143.i, label %.lr.ph142.i
+  br i1 %.not123.i, label %._crit_edge142.i, label %.lr.ph141.i
 
-._crit_edge143.i:                                 ; preds = %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i", %._crit_edge.i143
+._crit_edge142.i:                                 ; preds = %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i", %._crit_edge.i143
   %.0.lcssa.i148 = phi i1 [ false, %._crit_edge.i143 ], [ %.1.i147, %"_ZZL21OptimizeGlobalAliasesRN4llvm6ModuleERNS_15SmallPtrSetImplIPKNS_6ComdatEEEENK3$_0clERNS_11GlobalValueE.exit.thread106.i" ]
   %1976 = load ptr, ptr %108, align 8
   %.not.i.i149 = icmp eq ptr %1976, null
   br i1 %.not.i.i149, label %1978, label %1977
 
-1977:                                             ; preds = %._crit_edge143.i
+1977:                                             ; preds = %._crit_edge142.i
   call fastcc void @_ZL18setUsedInitializerRN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(81) %1976, ptr noundef nonnull readonly align 8 dereferenceable(28) %26)
   br label %1978
 
-1978:                                             ; preds = %1977, %._crit_edge143.i
+1978:                                             ; preds = %1977, %._crit_edge142.i
   %1979 = load ptr, ptr %115, align 8
   %.not2.i.i = icmp eq ptr %1979, null
   br i1 %.not2.i.i, label %_ZN12_GLOBAL__N_18LLVMUsed20syncVariablesAndSetsEv.exit.i, label %1980
@@ -7207,8 +7207,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_14GlobalVariableENS_12DenseMapInfoImvEE
   br label %512
 
 512:                                              ; preds = %622, %.lr.ph.i145.i
-  %.0118.i.i = phi ptr [ %507, %.lr.ph.i145.i ], [ %623, %622 ]
-  %513 = load ptr, ptr %.0118.i.i, align 8
+  %.0114.i.i = phi ptr [ %507, %.lr.ph.i145.i ], [ %623, %622 ]
+  %513 = load ptr, ptr %.0114.i.i, align 8
   %514 = getelementptr inbounds i8, ptr %513, i64 -16
   %515 = load i64, ptr %514, align 8
   %516 = and i64 %515, 2
@@ -7350,7 +7350,7 @@ _ZNK4llvm6MDNode10getContextEv.exit87.i.i:        ; preds = %581, %576
   br label %584
 
 584:                                              ; preds = %_ZNK4llvm6MDNode10getContextEv.exit87.i.i, %_ZNK4llvm6MDNode10getContextEv.exit.i.i
-  %.060.i.i = phi ptr [ %583, %_ZNK4llvm6MDNode10getContextEv.exit87.i.i ], [ %575, %_ZNK4llvm6MDNode10getContextEv.exit.i.i ]
+  %.060.i.i = phi ptr [ %575, %_ZNK4llvm6MDNode10getContextEv.exit.i.i ], [ %583, %_ZNK4llvm6MDNode10getContextEv.exit87.i.i ]
   %585 = getelementptr inbounds nuw i8, ptr %513, i64 8
   %.0.copyload.i.i.i.i.i.i.i.i.i.i88.i.i = load i64, ptr %585, align 8
   %586 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i88.i.i, 4
@@ -7404,7 +7404,7 @@ _ZNK4llvm6MDNode10getContextEv.exit95.i.i:        ; preds = %604, %599
   br label %607
 
 607:                                              ; preds = %_ZNK4llvm6MDNode10getContextEv.exit95.i.i, %595
-  %.2.i.i = phi ptr [ %539, %595 ], [ %606, %_ZNK4llvm6MDNode10getContextEv.exit95.i.i ]
+  %.2.i.i = phi ptr [ %606, %_ZNK4llvm6MDNode10getContextEv.exit95.i.i ], [ %539, %595 ]
   %608 = trunc i64 %596 to i32
   %609 = trunc i64 %.059.i.i to i32
   %610 = call { ptr, i8 } @_ZN4llvm12DIExpression24createFragmentExpressionEPKS0_jj(ptr noundef %.2.i.i, i32 noundef %608, i32 noundef %609) #19
@@ -7438,7 +7438,7 @@ _ZNK4llvm6MDNode10getContextEv.exit99.i.i:        ; preds = %619, %614
   br label %622
 
 622:                                              ; preds = %.sink.split.i.i, %607, %593, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.i, %543, %_ZNK4llvm26DIGlobalVariableExpression13getExpressionEv.exit.i.i
-  %623 = getelementptr inbounds i8, ptr %.0118.i.i, i64 8
+  %623 = getelementptr inbounds i8, ptr %.0114.i.i, i64 8
   %.not69.i.i = icmp eq ptr %623, %509
   br i1 %.not69.i.i, label %._crit_edge.i.i, label %512
 

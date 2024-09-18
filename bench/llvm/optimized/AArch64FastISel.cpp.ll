@@ -19226,8 +19226,8 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %26
   br label %68
 
 68:                                               ; preds = %.lr.ph, %171
-  %.053102 = phi ptr [ %58, %.lr.ph ], [ %172, %171 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.053102, i64 16
+  %.053101 = phi ptr [ %58, %.lr.ph ], [ %172, %171 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.053101, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
   %72 = load ptr, ptr %61, align 8
@@ -19241,7 +19241,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %26
   br i1 %.not56, label %._crit_edge, label %79
 
 79:                                               ; preds = %68
-  %80 = getelementptr inbounds nuw i8, ptr %.053102, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %.053101, i64 20
   %81 = load i8, ptr %80, align 4
   %82 = lshr i8 %81, 1
   %83 = and i8 %82, 63
@@ -19253,14 +19253,14 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %26
   ]
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds nuw i8, ptr %.053102, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %.053101, i64 24
   %.sroa.0.0.copyload.i = load i16, ptr %85, align 8
   %86 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitIntExtEN4llvm3MVTEjS2_b(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 %77, i32 noundef %78, i16 %.sroa.0.0.copyload.i, i1 noundef zeroext false)
   %.not58 = icmp eq i32 %86, 0
   br i1 %.not58, label %._crit_edge, label %91
 
 87:                                               ; preds = %79, %79
-  %88 = getelementptr inbounds nuw i8, ptr %.053102, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.053101, i64 24
   %.sroa.0.0.copyload.i60 = load i16, ptr %88, align 8
   %89 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitIntExtEN4llvm3MVTEjS2_b(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 %77, i32 noundef %78, i16 %.sroa.0.0.copyload.i60, i1 noundef zeroext true)
   %.not57 = icmp eq i32 %89, 0
@@ -19271,7 +19271,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %26
 
 91:                                               ; preds = %87, %84, %79
   %.sroa.076.0 = phi i32 [ %89, %87 ], [ %86, %84 ], [ %78, %79 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.053102, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.053101, i64 8
   %93 = load i8, ptr %92, align 8
   br label %94
 
@@ -19323,7 +19323,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %106
   %.sroa.013.0.copyload = load ptr, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 680
   %115 = load ptr, ptr %114, align 8
-  %.sroa.0.0.copyload.i61 = load i32, ptr %.053102, align 4
+  %.sroa.0.0.copyload.i61 = load i32, ptr %.053101, align 4
   %116 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %115, ptr %.sroa.013.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(32) %111, i32 %.sroa.0.0.copyload.i61)
   %117 = extractvalue { ptr, ptr } %116, 0
   %118 = extractvalue { ptr, ptr } %116, 1
@@ -19343,7 +19343,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %106
   unreachable
 
 _ZNK4llvm11CCValAssign9getLocRegEv.exit64:        ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit
-  %.sroa.0.0.copyload.i63 = load i32, ptr %.053102, align 4
+  %.sroa.0.0.copyload.i63 = load i32, ptr %.053101, align 4
   %121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #21
   %122 = add i64 %121, 1
   %123 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #21
@@ -19412,7 +19412,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   unreachable
 
 _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %151
-  %154 = load i64, ptr %.053102, align 8
+  %154 = load i64, ptr %.053101, align 8
   %155 = add nsw i64 %154, %.054
   %156 = load ptr, ptr %62, align 8
   %157 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -19443,7 +19443,7 @@ _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %151
   br i1 %170, label %171, label %._crit_edge
 
 171:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %131
-  %172 = getelementptr inbounds i8, ptr %.053102, i64 32
+  %172 = getelementptr inbounds i8, ptr %.053101, i64 32
   %.not = icmp eq ptr %172, %60
   br i1 %.not, label %._crit_edge, label %68
 

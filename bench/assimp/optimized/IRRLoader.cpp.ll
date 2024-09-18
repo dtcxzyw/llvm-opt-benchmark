@@ -1819,10 +1819,10 @@ for.body32.lr.ph:                                 ; preds = %if.end21
   br label %for.body32
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.inc472
-  %it22.sroa.0.0577 = phi ptr [ %it22.sroa.0.0571, %for.body32.lr.ph ], [ %it22.sroa.0.0, %for.inc472 ]
-  %total.2576 = phi i32 [ %total.1, %for.body32.lr.ph ], [ %total.3, %for.inc472 ]
-  %cur.0575 = phi i32 [ 0, %for.body32.lr.ph ], [ %cur.1, %for.inc472 ]
-  %_M_storage.i.i113 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 16
+  %it22.sroa.0.0575 = phi ptr [ %it22.sroa.0.0571, %for.body32.lr.ph ], [ %it22.sroa.0.0, %for.inc472 ]
+  %total.2574 = phi i32 [ %total.1, %for.body32.lr.ph ], [ %total.3, %for.inc472 ]
+  %cur.0573 = phi i32 [ 0, %for.body32.lr.ph ], [ %cur.1, %for.inc472 ]
+  %_M_storage.i.i113 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 16
   %3 = load i32, ptr %_M_storage.i.i113, align 8
   switch i32 %3, label %if.end41 [
     i32 0, label %for.inc472
@@ -1842,8 +1842,8 @@ if.end41:                                         ; preds = %for.body32
   %mScalingKeys.i = getelementptr inbounds i8, ptr %call43, i64 1064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mNumPositionKeys.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mScalingKeys.i, i8 0, i64 16, i1 false)
-  %sub = add i32 %total.2576, -1
-  %cmp44.not = icmp eq i32 %cur.0575, %sub
+  %sub = add i32 %total.2574, -1
+  %cmp44.not = icmp eq i32 %cur.0573, %sub
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #28
   br i1 %cmp44.not, label %if.else79, label %if.then45
 
@@ -1945,7 +1945,7 @@ if.end.i118:                                      ; preds = %if.else79
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end.i118, %if.else79, %_ZN8aiStringaSERKS_.exit
-  %inc83 = add i32 %cur.0575, 1
+  %inc83 = add i32 %cur.0573, 1
   %15 = load i32, ptr %_M_storage.i.i113, align 8
   switch i32 %15, label %if.then469 [
     i32 1, label %sw.bb
@@ -1955,15 +1955,15 @@ if.end82:                                         ; preds = %if.end.i118, %if.el
   ]
 
 sw.bb:                                            ; preds = %if.end82
-  %direction = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 24
+  %direction = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 24
   %16 = load float, ptr %direction, align 8
   %mul = fmul float %16, 1.000000e+02
   %conv85 = fptosi float %mul to i32
-  %y = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 28
+  %y = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 28
   %17 = load float, ptr %y, align 4
   %mul88 = fmul float %17, 1.000000e+02
   %conv89 = fptosi float %mul88 to i32
-  %z = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 32
+  %z = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 32
   %18 = load float, ptr %z, align 8
   %mul92 = fmul float %18, 1.000000e+02
   %conv93 = fptosi float %mul92 to i32
@@ -2058,24 +2058,24 @@ if.end118:                                        ; preds = %if.end3.i.i, %if.en
   br i1 %tobool120.not, label %if.end124, label %if.then121
 
 if.end118.thread:                                 ; preds = %if.end112
-  %tobool120.not600 = icmp eq i32 %rem97, 0
-  br i1 %tobool120.not600, label %if.end124.thread, label %if.end.i.i143.preheader
+  %tobool120.not598 = icmp eq i32 %rem97, 0
+  br i1 %tobool120.not598, label %if.end124.thread, label %if.end.i.i143.preheader
 
 if.then121:                                       ; preds = %if.end118
   %cmp7.i.i = icmp eq i32 %mul.i, 0
   br i1 %cmp7.i.i, label %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158, label %if.end.i.i143.preheader
 
 if.end.i.i143.preheader:                          ; preds = %if.end118.thread, %if.then121
-  %tobool114.not544601628 = phi i1 [ false, %if.then121 ], [ true, %if.end118.thread ]
-  %angles.sroa.15.0541603626 = phi i32 [ %angles.sroa.15.0540, %if.then121 ], [ %rem99, %if.end118.thread ]
-  %angles.sroa.8.0538605624 = phi i32 [ %angles.sroa.8.0537, %if.then121 ], [ %rem97, %if.end118.thread ]
-  %angles.sroa.0.0536606622 = phi float [ %19, %if.then121 ], [ 0.000000e+00, %if.end118.thread ]
-  %lcm.0608620 = phi i32 [ %mul.i, %if.then121 ], [ 360, %if.end118.thread ]
+  %tobool114.not544599626 = phi i1 [ false, %if.then121 ], [ true, %if.end118.thread ]
+  %angles.sroa.15.0541601624 = phi i32 [ %angles.sroa.15.0540, %if.then121 ], [ %rem99, %if.end118.thread ]
+  %angles.sroa.8.0538603622 = phi i32 [ %angles.sroa.8.0537, %if.then121 ], [ %rem97, %if.end118.thread ]
+  %angles.sroa.0.0536604620 = phi float [ %19, %if.then121 ], [ 0.000000e+00, %if.end118.thread ]
+  %lcm.0606618 = phi i32 [ %mul.i, %if.then121 ], [ 360, %if.end118.thread ]
   br label %if.end.i.i143
 
 if.end.i.i143:                                    ; preds = %if.end.i.i143.preheader, %if.end3.i.i148
-  %b.addr.09.i.i144 = phi i32 [ %rem.i.i146, %if.end3.i.i148 ], [ %angles.sroa.8.0538605624, %if.end.i.i143.preheader ]
-  %a.addr.08.i.i145 = phi i32 [ %rem4.i.i149, %if.end3.i.i148 ], [ %lcm.0608620, %if.end.i.i143.preheader ]
+  %b.addr.09.i.i144 = phi i32 [ %rem.i.i146, %if.end3.i.i148 ], [ %angles.sroa.8.0538603622, %if.end.i.i143.preheader ]
+  %a.addr.08.i.i145 = phi i32 [ %rem4.i.i149, %if.end3.i.i148 ], [ %lcm.0606618, %if.end.i.i143.preheader ]
   %rem.i.i146 = srem i32 %b.addr.09.i.i144, %a.addr.08.i.i145
   %cmp1.i.i147 = icmp eq i32 %rem.i.i146, 0
   br i1 %cmp1.i.i147, label %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158, label %if.end3.i.i148
@@ -2086,47 +2086,47 @@ if.end3.i.i148:                                   ; preds = %if.end.i.i143
   br i1 %cmp.i.i150, label %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158, label %if.end.i.i143, !llvm.loop !9
 
 _ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158:          ; preds = %if.end.i.i143, %if.end3.i.i148, %if.then121
-  %tobool114.not544601629 = phi i1 [ false, %if.then121 ], [ %tobool114.not544601628, %if.end3.i.i148 ], [ %tobool114.not544601628, %if.end.i.i143 ]
-  %angles.sroa.15.0541603627 = phi i32 [ %angles.sroa.15.0540, %if.then121 ], [ %angles.sroa.15.0541603626, %if.end3.i.i148 ], [ %angles.sroa.15.0541603626, %if.end.i.i143 ]
-  %angles.sroa.8.0538605625 = phi i32 [ %angles.sroa.8.0537, %if.then121 ], [ %angles.sroa.8.0538605624, %if.end3.i.i148 ], [ %angles.sroa.8.0538605624, %if.end.i.i143 ]
-  %angles.sroa.0.0536606623 = phi float [ %19, %if.then121 ], [ %angles.sroa.0.0536606622, %if.end3.i.i148 ], [ %angles.sroa.0.0536606622, %if.end.i.i143 ]
-  %lcm.0608621 = phi i32 [ 0, %if.then121 ], [ %lcm.0608620, %if.end3.i.i148 ], [ %lcm.0608620, %if.end.i.i143 ]
+  %tobool114.not544599627 = phi i1 [ false, %if.then121 ], [ %tobool114.not544599626, %if.end3.i.i148 ], [ %tobool114.not544599626, %if.end.i.i143 ]
+  %angles.sroa.15.0541601625 = phi i32 [ %angles.sroa.15.0540, %if.then121 ], [ %angles.sroa.15.0541601624, %if.end3.i.i148 ], [ %angles.sroa.15.0541601624, %if.end.i.i143 ]
+  %angles.sroa.8.0538603623 = phi i32 [ %angles.sroa.8.0537, %if.then121 ], [ %angles.sroa.8.0538603622, %if.end3.i.i148 ], [ %angles.sroa.8.0538603622, %if.end.i.i143 ]
+  %angles.sroa.0.0536604621 = phi float [ %19, %if.then121 ], [ %angles.sroa.0.0536604620, %if.end3.i.i148 ], [ %angles.sroa.0.0536604620, %if.end.i.i143 ]
+  %lcm.0606619 = phi i32 [ 0, %if.then121 ], [ %lcm.0606618, %if.end3.i.i148 ], [ %lcm.0606618, %if.end.i.i143 ]
   %retval.0.i7.i154 = phi i32 [ %angles.sroa.8.0537, %if.then121 ], [ %a.addr.08.i.i145, %if.end.i.i143 ], [ %rem.i.i146, %if.end3.i.i148 ]
-  %div.i155 = sdiv i32 %lcm.0608621, %retval.0.i7.i154
-  %mul.i156 = mul nsw i32 %div.i155, %angles.sroa.8.0538605625
-  %20 = sitofp i32 %angles.sroa.8.0538605625 to float
+  %div.i155 = sdiv i32 %lcm.0606619, %retval.0.i7.i154
+  %mul.i156 = mul nsw i32 %div.i155, %angles.sroa.8.0538603623
+  %20 = sitofp i32 %angles.sroa.8.0538603623 to float
   br label %if.end124
 
 if.end124:                                        ; preds = %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158, %if.end118
-  %tobool120.not610 = phi i1 [ false, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ true, %if.end118 ]
-  %angles.sroa.0.0536607 = phi float [ %angles.sroa.0.0536606623, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ %19, %if.end118 ]
-  %angles.sroa.15.0541604 = phi i32 [ %angles.sroa.15.0541603627, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ %angles.sroa.15.0540, %if.end118 ]
-  %tobool114.not544602 = phi i1 [ %tobool114.not544601629, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ false, %if.end118 ]
+  %tobool120.not608 = phi i1 [ false, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ true, %if.end118 ]
+  %angles.sroa.0.0536605 = phi float [ %angles.sroa.0.0536604621, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ %19, %if.end118 ]
+  %angles.sroa.15.0541602 = phi i32 [ %angles.sroa.15.0541601625, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ %angles.sroa.15.0540, %if.end118 ]
+  %tobool114.not544600 = phi i1 [ %tobool114.not544599627, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ false, %if.end118 ]
   %angles.sroa.8.0539 = phi float [ %20, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ 0.000000e+00, %if.end118 ]
   %lcm.1 = phi i32 [ %mul.i156, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit158 ], [ %mul.i, %if.end118 ]
-  %tobool126.not = icmp eq i32 %angles.sroa.15.0541604, 0
+  %tobool126.not = icmp eq i32 %angles.sroa.15.0541602, 0
   br i1 %tobool126.not, label %if.end130, label %if.then127
 
 if.end124.thread:                                 ; preds = %if.end118.thread
-  %tobool126.not636 = icmp eq i32 %rem99, 0
-  br i1 %tobool126.not636, label %if.then469, label %if.end.i.i160.preheader
+  %tobool126.not634 = icmp eq i32 %rem99, 0
+  br i1 %tobool126.not634, label %if.then469, label %if.end.i.i160.preheader
 
 if.then127:                                       ; preds = %if.end124
   %cmp7.i.i159 = icmp eq i32 %lcm.1, 0
   br i1 %cmp7.i.i159, label %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176, label %if.end.i.i160.preheader
 
 if.end.i.i160.preheader:                          ; preds = %if.end124.thread, %if.then127
-  %tobool120.not610637669 = phi i1 [ %tobool120.not610, %if.then127 ], [ true, %if.end124.thread ]
-  %angles.sroa.0.0536607639667 = phi float [ %angles.sroa.0.0536607, %if.then127 ], [ 0.000000e+00, %if.end124.thread ]
-  %angles.sroa.15.0541604641665 = phi i32 [ %angles.sroa.15.0541604, %if.then127 ], [ %rem99, %if.end124.thread ]
-  %tobool114.not544602642663 = phi i1 [ %tobool114.not544602, %if.then127 ], [ true, %if.end124.thread ]
-  %angles.sroa.8.0539644661 = phi float [ %angles.sroa.8.0539, %if.then127 ], [ 0.000000e+00, %if.end124.thread ]
-  %lcm.1646659 = phi i32 [ %lcm.1, %if.then127 ], [ 360, %if.end124.thread ]
+  %tobool120.not608635667 = phi i1 [ %tobool120.not608, %if.then127 ], [ true, %if.end124.thread ]
+  %angles.sroa.0.0536605637665 = phi float [ %angles.sroa.0.0536605, %if.then127 ], [ 0.000000e+00, %if.end124.thread ]
+  %angles.sroa.15.0541602639663 = phi i32 [ %angles.sroa.15.0541602, %if.then127 ], [ %rem99, %if.end124.thread ]
+  %tobool114.not544600640661 = phi i1 [ %tobool114.not544600, %if.then127 ], [ true, %if.end124.thread ]
+  %angles.sroa.8.0539642659 = phi float [ %angles.sroa.8.0539, %if.then127 ], [ 0.000000e+00, %if.end124.thread ]
+  %lcm.1644657 = phi i32 [ %lcm.1, %if.then127 ], [ 360, %if.end124.thread ]
   br label %if.end.i.i160
 
 if.end.i.i160:                                    ; preds = %if.end.i.i160.preheader, %if.end3.i.i165
-  %b.addr.09.i.i161 = phi i32 [ %rem.i.i163, %if.end3.i.i165 ], [ %angles.sroa.15.0541604641665, %if.end.i.i160.preheader ]
-  %a.addr.08.i.i162 = phi i32 [ %rem4.i.i166, %if.end3.i.i165 ], [ %lcm.1646659, %if.end.i.i160.preheader ]
+  %b.addr.09.i.i161 = phi i32 [ %rem.i.i163, %if.end3.i.i165 ], [ %angles.sroa.15.0541602639663, %if.end.i.i160.preheader ]
+  %a.addr.08.i.i162 = phi i32 [ %rem4.i.i166, %if.end3.i.i165 ], [ %lcm.1644657, %if.end.i.i160.preheader ]
   %rem.i.i163 = srem i32 %b.addr.09.i.i161, %a.addr.08.i.i162
   %cmp1.i.i164 = icmp eq i32 %rem.i.i163, 0
   br i1 %cmp1.i.i164, label %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176, label %if.end3.i.i165
@@ -2137,24 +2137,24 @@ if.end3.i.i165:                                   ; preds = %if.end.i.i160
   br i1 %cmp.i.i167, label %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176, label %if.end.i.i160, !llvm.loop !9
 
 _ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176:          ; preds = %if.end.i.i160, %if.end3.i.i165, %if.then127
-  %tobool120.not610637670 = phi i1 [ %tobool120.not610, %if.then127 ], [ %tobool120.not610637669, %if.end3.i.i165 ], [ %tobool120.not610637669, %if.end.i.i160 ]
-  %angles.sroa.0.0536607639668 = phi float [ %angles.sroa.0.0536607, %if.then127 ], [ %angles.sroa.0.0536607639667, %if.end3.i.i165 ], [ %angles.sroa.0.0536607639667, %if.end.i.i160 ]
-  %angles.sroa.15.0541604641666 = phi i32 [ %angles.sroa.15.0541604, %if.then127 ], [ %angles.sroa.15.0541604641665, %if.end3.i.i165 ], [ %angles.sroa.15.0541604641665, %if.end.i.i160 ]
-  %tobool114.not544602642664 = phi i1 [ %tobool114.not544602, %if.then127 ], [ %tobool114.not544602642663, %if.end3.i.i165 ], [ %tobool114.not544602642663, %if.end.i.i160 ]
-  %angles.sroa.8.0539644662 = phi float [ %angles.sroa.8.0539, %if.then127 ], [ %angles.sroa.8.0539644661, %if.end3.i.i165 ], [ %angles.sroa.8.0539644661, %if.end.i.i160 ]
-  %lcm.1646660 = phi i32 [ 0, %if.then127 ], [ %lcm.1646659, %if.end3.i.i165 ], [ %lcm.1646659, %if.end.i.i160 ]
-  %retval.0.i7.i172 = phi i32 [ %angles.sroa.15.0541604, %if.then127 ], [ %a.addr.08.i.i162, %if.end.i.i160 ], [ %rem.i.i163, %if.end3.i.i165 ]
-  %div.i173 = sdiv i32 %lcm.1646660, %retval.0.i7.i172
-  %mul.i174 = mul nsw i32 %div.i173, %angles.sroa.15.0541604641666
-  %21 = sitofp i32 %angles.sroa.15.0541604641666 to float
+  %tobool120.not608635668 = phi i1 [ %tobool120.not608, %if.then127 ], [ %tobool120.not608635667, %if.end3.i.i165 ], [ %tobool120.not608635667, %if.end.i.i160 ]
+  %angles.sroa.0.0536605637666 = phi float [ %angles.sroa.0.0536605, %if.then127 ], [ %angles.sroa.0.0536605637665, %if.end3.i.i165 ], [ %angles.sroa.0.0536605637665, %if.end.i.i160 ]
+  %angles.sroa.15.0541602639664 = phi i32 [ %angles.sroa.15.0541602, %if.then127 ], [ %angles.sroa.15.0541602639663, %if.end3.i.i165 ], [ %angles.sroa.15.0541602639663, %if.end.i.i160 ]
+  %tobool114.not544600640662 = phi i1 [ %tobool114.not544600, %if.then127 ], [ %tobool114.not544600640661, %if.end3.i.i165 ], [ %tobool114.not544600640661, %if.end.i.i160 ]
+  %angles.sroa.8.0539642660 = phi float [ %angles.sroa.8.0539, %if.then127 ], [ %angles.sroa.8.0539642659, %if.end3.i.i165 ], [ %angles.sroa.8.0539642659, %if.end.i.i160 ]
+  %lcm.1644658 = phi i32 [ 0, %if.then127 ], [ %lcm.1644657, %if.end3.i.i165 ], [ %lcm.1644657, %if.end.i.i160 ]
+  %retval.0.i7.i172 = phi i32 [ %angles.sroa.15.0541602, %if.then127 ], [ %a.addr.08.i.i162, %if.end.i.i160 ], [ %rem.i.i163, %if.end3.i.i165 ]
+  %div.i173 = sdiv i32 %lcm.1644658, %retval.0.i7.i172
+  %mul.i174 = mul nsw i32 %div.i173, %angles.sroa.15.0541602639664
+  %21 = sitofp i32 %angles.sroa.15.0541602639664 to float
   br label %if.end130
 
 if.end130:                                        ; preds = %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176, %if.end124
-  %tobool126.not648 = phi i1 [ false, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ true, %if.end124 ]
-  %angles.sroa.8.0539645 = phi float [ %angles.sroa.8.0539644662, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ %angles.sroa.8.0539, %if.end124 ]
-  %tobool114.not544602643 = phi i1 [ %tobool114.not544602642664, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ %tobool114.not544602, %if.end124 ]
-  %angles.sroa.0.0536607640 = phi float [ %angles.sroa.0.0536607639668, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ %angles.sroa.0.0536607, %if.end124 ]
-  %tobool120.not610638 = phi i1 [ %tobool120.not610637670, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ %tobool120.not610, %if.end124 ]
+  %tobool126.not646 = phi i1 [ false, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ true, %if.end124 ]
+  %angles.sroa.8.0539643 = phi float [ %angles.sroa.8.0539642660, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ %angles.sroa.8.0539, %if.end124 ]
+  %tobool114.not544600641 = phi i1 [ %tobool114.not544600640662, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ %tobool114.not544600, %if.end124 ]
+  %angles.sroa.0.0536605638 = phi float [ %angles.sroa.0.0536605637666, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ %angles.sroa.0.0536605, %if.end124 ]
+  %tobool120.not608636 = phi i1 [ %tobool120.not608635668, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ %tobool120.not608, %if.end124 ]
   %angles.sroa.15.0542 = phi float [ %21, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ 0.000000e+00, %if.end124 ]
   %lcm.2 = phi i32 [ %mul.i174, %_ZN6Assimp4Math3lcmIiEET_S2_S2_.exit176 ], [ %lcm.1, %if.end124 ]
   %cmp131 = icmp eq i32 %lcm.2, 360
@@ -2162,19 +2162,19 @@ if.end130:                                        ; preds = %_ZN6Assimp4Math3lcm
 
 if.end133:                                        ; preds = %if.end130
   %conv137 = sitofp i32 %lcm.2 to float
-  %div = fdiv float %conv137, %angles.sroa.0.0536607640
-  %max.0 = select i1 %tobool114.not544602643, float 0.000000e+00, float %div
-  br i1 %tobool120.not610638, label %if.end150, label %if.then143
+  %div = fdiv float %conv137, %angles.sroa.0.0536605638
+  %max.0 = select i1 %tobool114.not544600641, float 0.000000e+00, float %div
+  br i1 %tobool120.not608636, label %if.end150, label %if.then143
 
 if.then143:                                       ; preds = %if.end133
-  %div148 = fdiv float %conv137, %angles.sroa.8.0539645
+  %div148 = fdiv float %conv137, %angles.sroa.8.0539643
   %cmp.i177 = fcmp olt float %max.0, %div148
   %.sroa.speculated487 = select i1 %cmp.i177, float %div148, float %max.0
   br label %if.end150
 
 if.end150:                                        ; preds = %if.then143, %if.end133
   %max.1 = phi float [ %max.0, %if.end133 ], [ %.sroa.speculated487, %if.then143 ]
-  br i1 %tobool126.not648, label %if.end160, label %if.then153
+  br i1 %tobool126.not646, label %if.end160, label %if.then153
 
 if.then153:                                       ; preds = %if.end150
   %div158 = fdiv float %conv137, %angles.sroa.15.0542
@@ -2224,12 +2224,12 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   br label %for.body171
 
 for.body171:                                      ; preds = %arrayctor.cont, %for.body171
-  %indvars.iv590 = phi i64 [ %indvars.iv.next591, %for.body171 ], [ 0, %arrayctor.cont ]
+  %indvars.iv588 = phi i64 [ %indvars.iv.next589, %for.body171 ], [ 0, %arrayctor.cont ]
   %angle.sroa.8.0569 = phi float [ %add6.i, %for.body171 ], [ 0.000000e+00, %arrayctor.cont ]
   %angle.sroa.4.0568 = phi float [ %add4.i, %for.body171 ], [ 0.000000e+00, %arrayctor.cont ]
   %angle.sroa.0.0567 = phi float [ %add.i, %for.body171 ], [ 0.000000e+00, %arrayctor.cont ]
   %24 = load ptr, ptr %mRotationKeys.i, align 8
-  %arrayidx174 = getelementptr inbounds %struct.aiQuatKey, ptr %24, i64 %indvars.iv590
+  %arrayidx174 = getelementptr inbounds %struct.aiQuatKey, ptr %24, i64 %indvars.iv588
   %mul.i180 = fmul float %angle.sroa.0.0567, 5.000000e-01
   %call.i.i = tail call noundef float @sinf(float noundef %mul.i180) #28
   %call.i20.i = tail call noundef float @cosf(float noundef %mul.i180) #28
@@ -2263,7 +2263,7 @@ for.body171:                                      ; preds = %arrayctor.cont, %fo
   store float %27, ptr %ref.tmp175.sroa.3.0.mValue.sroa_idx, align 8
   %ref.tmp175.sroa.4.0.mValue.sroa_idx = getelementptr inbounds i8, ptr %arrayidx174, i64 20
   store float %29, ptr %ref.tmp175.sroa.4.0.mValue.sroa_idx, align 4
-  %31 = trunc nuw i64 %indvars.iv590 to i32
+  %31 = trunc nuw i64 %indvars.iv588 to i32
   %conv179 = uitofp i32 %31 to double
   store double %conv179, ptr %arrayidx174, align 8
   %32 = load float, ptr %direction, align 4
@@ -2272,10 +2272,10 @@ for.body171:                                      ; preds = %arrayctor.cont, %fo
   %add4.i = fadd float %angle.sroa.4.0568, %33
   %34 = load float, ptr %z, align 4
   %add6.i = fadd float %angle.sroa.8.0569, %34
-  %indvars.iv.next591 = add nuw nsw i64 %indvars.iv590, 1
+  %indvars.iv.next589 = add nuw nsw i64 %indvars.iv588, 1
   %35 = load i32, ptr %mNumRotationKeys, align 8
   %36 = zext i32 %35 to i64
-  %cmp170 = icmp ult i64 %indvars.iv.next591, %36
+  %cmp170 = icmp ult i64 %indvars.iv.next589, %36
   br i1 %cmp170, label %for.body171, label %for.end184, !llvm.loop !10
 
 for.end184:                                       ; preds = %for.body171, %arrayctor.cont.thread
@@ -2286,7 +2286,7 @@ for.end184:                                       ; preds = %for.body171, %array
   br label %if.then469
 
 sw.bb185:                                         ; preds = %if.end82
-  %speed = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 20
+  %speed = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 20
   %37 = load float, ptr %speed, align 4
   %conv186 = fpext float %37 to double
   %div187 = fdiv double 1.000000e+00, %conv186
@@ -2316,11 +2316,11 @@ arrayctor.loop200:                                ; preds = %arrayctor.loop200, 
 arrayctor.cont204:                                ; preds = %arrayctor.loop200, %sw.bb185
   %mPositionKeys = getelementptr inbounds i8, ptr %call43, i64 1032
   store ptr %call196, ptr %mPositionKeys, align 8
-  %direction205 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 24
-  %y206 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 28
+  %direction205 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 24
+  %y206 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 28
   %40 = load float, ptr %y206, align 4
   %tobool207 = fcmp une float %40, 0.000000e+00
-  %z.i192 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 32
+  %z.i192 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 32
   %41 = load float, ptr %z.i192, align 4
   br i1 %tobool207, label %if.then208, label %if.else213
 
@@ -2346,12 +2346,12 @@ if.else213:                                       ; preds = %arrayctor.cont204
   br label %if.end219
 
 if.end219:                                        ; preds = %if.else213, %if.then208
-  %.sink682 = phi float [ %47, %if.else213 ], [ %42, %if.then208 ]
+  %.sink680 = phi float [ %47, %if.else213 ], [ %42, %if.then208 ]
   %.sink = phi float [ %49, %if.else213 ], [ %44, %if.then208 ]
   %51 = phi float [ %48, %if.else213 ], [ %43, %if.then208 ]
   %vecV.sroa.12.0 = phi float [ %50, %if.else213 ], [ %45, %if.then208 ]
   %mul4.i.i.i = fmul float %.sink, %.sink
-  %52 = tail call float @llvm.fmuladd.f32(float %.sink682, float %.sink682, float %mul4.i.i.i)
+  %52 = tail call float @llvm.fmuladd.f32(float %.sink680, float %.sink680, float %mul4.i.i.i)
   %53 = tail call noundef float @llvm.fmuladd.f32(float %vecV.sroa.12.0, float %vecV.sroa.12.0, float %52)
   %cmp.i207 = fcmp oeq float %53, 0.000000e+00
   br i1 %cmp.i207, label %_ZN10aiVector3tIfE9NormalizeEv.exit, label %_ZN10aiVector3tIfEdVEf.exit.i
@@ -2359,13 +2359,13 @@ if.end219:                                        ; preds = %if.else213, %if.the
 _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %if.end219
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %53)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
-  %mul.i.i = fmul float %.sink682, %div.i.i
+  %mul.i.i = fmul float %.sink680, %div.i.i
   %mul2.i.i = fmul float %.sink, %div.i.i
   %mul3.i.i = fmul float %vecV.sroa.12.0, %div.i.i
   br label %_ZN10aiVector3tIfE9NormalizeEv.exit
 
 _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %if.end219, %_ZN10aiVector3tIfEdVEf.exit.i
-  %vecV.sroa.0.0.vec.extract469.pre-phi = phi float [ %.sink682, %if.end219 ], [ %mul.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %vecV.sroa.0.0.vec.extract469.pre-phi = phi float [ %.sink680, %if.end219 ], [ %mul.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %vecV.sroa.0.4.vec.extract476.pre-phi = phi float [ %.sink, %if.end219 ], [ %mul2.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %vecV.sroa.12.1 = phi float [ %vecV.sroa.12.0, %if.end219 ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %54 = fneg float %40
@@ -2401,19 +2401,19 @@ _ZN10aiVector3tIfE9NormalizeEv.exit229:           ; preds = %_ZN10aiVector3tIfE9
   br i1 %isempty197, label %for.end262, label %for.body230.lr.ph
 
 for.body230.lr.ph:                                ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit229
-  %circleCenter = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 36
-  %circleRadius = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 48
+  %circleCenter = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 36
+  %circleRadius = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 48
   %vecU.sroa.0.0.vec.extract = extractelement <2 x float> %ref.tmp221.sroa.0.0, i64 0
   %vecU.sroa.0.4.vec.extract = extractelement <2 x float> %ref.tmp221.sroa.0.0, i64 1
-  %y.i266 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 40
-  %z.i269 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 44
+  %y.i266 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 40
+  %z.i269 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 44
   br label %for.body230
 
 for.body230:                                      ; preds = %for.body230.lr.ph, %for.body230
-  %indvars.iv587 = phi i64 [ 0, %for.body230.lr.ph ], [ %indvars.iv.next588, %for.body230 ]
+  %indvars.iv585 = phi i64 [ 0, %for.body230.lr.ph ], [ %indvars.iv.next586, %for.body230 ]
   %62 = load ptr, ptr %mPositionKeys, align 8
-  %arrayidx233 = getelementptr inbounds %struct.aiVectorKey, ptr %62, i64 %indvars.iv587
-  %63 = trunc nuw i64 %indvars.iv587 to i32
+  %arrayidx233 = getelementptr inbounds %struct.aiVectorKey, ptr %62, i64 %indvars.iv585
+  %63 = trunc nuw i64 %indvars.iv585 to i32
   %conv234 = uitofp i32 %63 to double
   %mul235 = fmul double %div190, %conv234
   store double %mul235, ptr %arrayidx233, align 8
@@ -2448,10 +2448,10 @@ for.body230:                                      ; preds = %for.body230.lr.ph, 
   store <2 x float> %retval.sroa.0.4.vec.insert.i273, ptr %mValue259, align 8
   %ref.tmp242.sroa.2.0.mValue259.sroa_idx = getelementptr inbounds i8, ptr %arrayidx233, i64 16
   store float %add5.i271, ptr %ref.tmp242.sroa.2.0.mValue259.sroa_idx, align 8
-  %indvars.iv.next588 = add nuw nsw i64 %indvars.iv587, 1
+  %indvars.iv.next586 = add nuw nsw i64 %indvars.iv585, 1
   %69 = load i32, ptr %mNumPositionKeys.i, align 4
   %70 = zext i32 %69 to i64
-  %cmp229 = icmp ult i64 %indvars.iv.next588, %70
+  %cmp229 = icmp ult i64 %indvars.iv.next586, %70
   br i1 %cmp229, label %for.body230, label %for.end262, !llvm.loop !11
 
 for.end262:                                       ; preds = %for.body230, %_ZN10aiVector3tIfE9NormalizeEv.exit229
@@ -2462,7 +2462,7 @@ for.end262:                                       ; preds = %for.body230, %_ZN10
   br label %if.then469
 
 sw.bb265:                                         ; preds = %if.end82
-  %loop = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 80
+  %loop = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 80
   %71 = load i8, ptr %loop, align 8
   %tobool266 = trunc i8 %71 to i1
   %cond267 = select i1 %tobool266, i32 3, i32 1
@@ -2470,7 +2470,7 @@ sw.bb265:                                         ; preds = %if.end82
   store i32 %cond267, ptr %mPreState268, align 8
   %mPostState269 = getelementptr inbounds i8, ptr %call43, i64 1076
   store i32 %cond267, ptr %mPostState269, align 4
-  %timeForWay = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 84
+  %timeForWay = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 84
   %72 = load i32, ptr %timeForWay, align 4
   %conv271 = sitofp i32 %72 to double
   %div272 = fdiv double %conv271, 1.000000e+03
@@ -2499,19 +2499,19 @@ arrayctor.loop286:                                ; preds = %arrayctor.loop286, 
 arrayctor.cont290:                                ; preds = %arrayctor.loop286, %sw.bb265
   %mPositionKeys291 = getelementptr inbounds i8, ptr %call43, i64 1032
   store ptr %call282, ptr %mPositionKeys291, align 8
-  %direction292 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 24
-  %circleCenter293 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 36
+  %direction292 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 24
+  %circleCenter293 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 36
   %75 = load float, ptr %direction292, align 4
   %76 = load float, ptr %circleCenter293, align 4
   %sub.i = fsub float %75, %76
-  %y.i276 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 28
+  %y.i276 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 28
   %77 = load float, ptr %y.i276, align 4
-  %y2.i277 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 40
+  %y2.i277 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 40
   %78 = load float, ptr %y2.i277, align 4
   %sub3.i = fsub float %77, %78
-  %z.i278 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 32
+  %z.i278 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 32
   %79 = load float, ptr %z.i278, align 4
-  %z4.i279 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 44
+  %z4.i279 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 44
   %80 = load float, ptr %z4.i279, align 4
   %sub5.i = fsub float %79, %80
   %retval.sroa.0.0.vec.insert.i280 = insertelement <2 x float> poison, float %sub.i, i64 0
@@ -2547,10 +2547,10 @@ for.body306.lr.ph:                                ; preds = %_ZN10aiVector3tIfE9
   br label %for.body306
 
 for.body306:                                      ; preds = %for.body306.lr.ph, %for.body306
-  %indvars.iv584 = phi i64 [ 0, %for.body306.lr.ph ], [ %indvars.iv.next585, %for.body306 ]
+  %indvars.iv582 = phi i64 [ 0, %for.body306.lr.ph ], [ %indvars.iv.next583, %for.body306 ]
   %84 = load ptr, ptr %mPositionKeys291, align 8
-  %arrayidx310 = getelementptr inbounds %struct.aiVectorKey, ptr %84, i64 %indvars.iv584
-  %85 = trunc nuw i64 %indvars.iv584 to i32
+  %arrayidx310 = getelementptr inbounds %struct.aiVectorKey, ptr %84, i64 %indvars.iv582
+  %85 = trunc nuw i64 %indvars.iv582 to i32
   %conv311 = uitofp i32 %85 to double
   %mul312 = fmul double %div275, %conv311
   store double %mul312, ptr %arrayidx310, align 8
@@ -2571,10 +2571,10 @@ for.body306:                                      ; preds = %for.body306.lr.ph, 
   store <2 x float> %retval.sroa.0.4.vec.insert.i314, ptr %mValue324, align 8
   %ref.tmp314.sroa.2.0.mValue324.sroa_idx = getelementptr inbounds i8, ptr %arrayidx310, i64 16
   store float %add5.i312, ptr %ref.tmp314.sroa.2.0.mValue324.sroa_idx, align 8
-  %indvars.iv.next585 = add nuw nsw i64 %indvars.iv584, 1
+  %indvars.iv.next583 = add nuw nsw i64 %indvars.iv582, 1
   %89 = load i32, ptr %mNumPositionKeys.i, align 4
   %90 = zext i32 %89 to i64
-  %cmp305 = icmp ult i64 %indvars.iv.next585, %90
+  %cmp305 = icmp ult i64 %indvars.iv.next583, %90
   br i1 %cmp305, label %for.body306, label %if.then469, !llvm.loop !12
 
 sw.bb328:                                         ; preds = %if.end82
@@ -2582,8 +2582,8 @@ sw.bb328:                                         ; preds = %if.end82
   store i32 3, ptr %mPreState329, align 8
   %mPostState330 = getelementptr inbounds i8, ptr %call43, i64 1076
   store i32 3, ptr %mPostState330, align 4
-  %splineKeys = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 56
-  %_M_finish.i = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 64
+  %splineKeys = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 56
+  %_M_finish.i = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 64
   %91 = load ptr, ptr %_M_finish.i, align 8
   %92 = load ptr, ptr %splineKeys, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %91 to i64
@@ -2651,8 +2651,8 @@ if.end362:                                        ; preds = %sw.bb328
   br i1 %isempty371, label %arrayctor.cont378.thread, label %new.ctorloop372
 
 arrayctor.cont378.thread:                         ; preds = %if.end362
-  %mPositionKeys379679 = getelementptr inbounds i8, ptr %call43, i64 1032
-  store ptr %call370, ptr %mPositionKeys379679, align 8
+  %mPositionKeys379677 = getelementptr inbounds i8, ptr %call43, i64 1032
+  store ptr %call370, ptr %mPositionKeys379677, align 8
   br label %if.then469
 
 new.ctorloop372:                                  ; preds = %if.end362
@@ -2669,17 +2669,17 @@ arrayctor.loop374:                                ; preds = %arrayctor.loop374, 
 arrayctor.cont378:                                ; preds = %arrayctor.loop374
   %mPositionKeys379 = getelementptr inbounds i8, ptr %call43, i64 1032
   store ptr %call370, ptr %mPositionKeys379, align 8
-  %speed390 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 20
+  %speed390 = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 20
   %sub.i320 = tail call i32 @llvm.smin.i32(i32 %conv332, i32 0)
   %99 = sub i32 0, %sub.i320
-  %tightness = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 52
+  %tightness = getelementptr inbounds i8, ptr %it22.sroa.0.0575, i64 52
   br label %for.body384
 
 for.body384:                                      ; preds = %arrayctor.cont378, %for.body384
-  %indvars.iv581 = phi i64 [ 0, %arrayctor.cont378 ], [ %indvars.iv.next582, %for.body384 ]
+  %indvars.iv579 = phi i64 [ 0, %arrayctor.cont378 ], [ %indvars.iv.next580, %for.body384 ]
   %100 = load ptr, ptr %mPositionKeys379, align 8
-  %arrayidx388 = getelementptr inbounds %struct.aiVectorKey, ptr %100, i64 %indvars.iv581
-  %101 = trunc nuw i64 %indvars.iv581 to i32
+  %arrayidx388 = getelementptr inbounds %struct.aiVectorKey, ptr %100, i64 %indvars.iv579
+  %101 = trunc nuw i64 %indvars.iv579 to i32
   %conv389 = uitofp i32 %101 to float
   %102 = load float, ptr %speed390, align 4
   %mul391 = fmul float %102, %conv389
@@ -2789,10 +2789,10 @@ for.body384:                                      ; preds = %arrayctor.cont378, 
   store float %add5.i443, ptr %t2.sroa.5.0.mValue462.sroa_idx, align 8
   %conv463 = uitofp i32 %101 to double
   store double %conv463, ptr %arrayidx388, align 8
-  %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
+  %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
   %123 = load i32, ptr %mNumPositionKeys.i, align 4
   %124 = zext i32 %123 to i64
-  %cmp383 = icmp ult i64 %indvars.iv.next582, %124
+  %cmp383 = icmp ult i64 %indvars.iv.next580, %124
   br i1 %cmp383, label %for.body384, label %if.then469, !llvm.loop !13
 
 sw.epilog:                                        ; preds = %delete.end4.i, %delete.notnull6.i
@@ -2868,13 +2868,13 @@ _ZNSt6vectorIP10aiNodeAnimSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP10aiNodeAnimSaIS1_EE9push_backERKS1_.exit: ; preds = %if.then.i, %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %inc470 = add i32 %total.2576, 1
+  %inc470 = add i32 %total.2574, 1
   br label %for.inc472
 
 for.inc472:                                       ; preds = %for.body32, %for.body32, %sw.epilog, %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE9push_backERKS1_.exit
-  %cur.1 = phi i32 [ %cur.0575, %for.body32 ], [ %inc83, %sw.epilog ], [ %inc83, %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE9push_backERKS1_.exit ], [ %cur.0575, %for.body32 ]
-  %total.3 = phi i32 [ %total.2576, %for.body32 ], [ %total.2576, %sw.epilog ], [ %inc470, %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE9push_backERKS1_.exit ], [ %total.2576, %for.body32 ]
-  %it22.sroa.0.0 = load ptr, ptr %it22.sroa.0.0577, align 8
+  %cur.1 = phi i32 [ %cur.0573, %for.body32 ], [ %inc83, %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE9push_backERKS1_.exit ], [ %inc83, %sw.epilog ], [ %cur.0573, %for.body32 ]
+  %total.3 = phi i32 [ %total.2574, %for.body32 ], [ %inc470, %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE9push_backERKS1_.exit ], [ %total.2574, %sw.epilog ], [ %total.2574, %for.body32 ]
+  %it22.sroa.0.0 = load ptr, ptr %it22.sroa.0.0575, align 8
   %cmp.i112.not = icmp eq ptr %it22.sroa.0.0, %animators
   br i1 %cmp.i112.not, label %for.end474, label %for.body32, !llvm.loop !14
 

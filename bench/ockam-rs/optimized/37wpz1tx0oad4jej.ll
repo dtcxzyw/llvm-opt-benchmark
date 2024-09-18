@@ -123588,12 +123588,12 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i:
   br label %451
 
 451:                                              ; preds = %447, %114
-  %452 = phi ptr [ %364, %447 ], [ %95, %114 ]
-  %453 = phi ptr [ %365, %447 ], [ %94, %114 ]
-  %454 = phi ptr [ %366, %447 ], [ %.phi.trans.insert134.i, %114 ]
-  %455 = phi ptr [ %367, %447 ], [ %113, %114 ]
-  %456 = phi ptr [ %449, %447 ], [ %.pre580.i.i, %114 ]
-  %457 = phi ptr [ %448, %447 ], [ %.pre578.i.i, %114 ]
+  %452 = phi ptr [ %95, %114 ], [ %364, %447 ]
+  %453 = phi ptr [ %94, %114 ], [ %365, %447 ]
+  %454 = phi ptr [ %.phi.trans.insert134.i, %114 ], [ %366, %447 ]
+  %455 = phi ptr [ %113, %114 ], [ %367, %447 ]
+  %456 = phi ptr [ %.pre580.i.i, %114 ], [ %449, %447 ]
+  %457 = phi ptr [ %.pre578.i.i, %114 ], [ %448, %447 ]
   %458 = getelementptr inbounds i8, ptr %0, i64 344
   call void @llvm.experimental.noalias.scope.decl(metadata !16490)
   %459 = getelementptr inbounds i8, ptr %0, i64 352
@@ -124187,12 +124187,12 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i:
   br label %652
 
 652:                                              ; preds = %649, %115
-  %653 = phi ptr [ %452, %649 ], [ %95, %115 ]
-  %654 = phi ptr [ %453, %649 ], [ %94, %115 ]
-  %655 = phi ptr [ %454, %649 ], [ %.phi.trans.insert134.i, %115 ]
-  %656 = phi ptr [ %455, %649 ], [ %113, %115 ]
-  %657 = phi ptr [ %651, %649 ], [ %.pre586.i.i, %115 ]
-  %658 = phi ptr [ %650, %649 ], [ %.pre584.i.i, %115 ]
+  %653 = phi ptr [ %95, %115 ], [ %452, %649 ]
+  %654 = phi ptr [ %94, %115 ], [ %453, %649 ]
+  %655 = phi ptr [ %.phi.trans.insert134.i, %115 ], [ %454, %649 ]
+  %656 = phi ptr [ %113, %115 ], [ %455, %649 ]
+  %657 = phi ptr [ %.pre586.i.i, %115 ], [ %651, %649 ]
+  %658 = phi ptr [ %.pre584.i.i, %115 ], [ %650, %649 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !16411
   %659 = getelementptr inbounds i8, ptr %0, i64 344
   call void @llvm.experimental.noalias.scope.decl(metadata !16563)
@@ -126911,9 +126911,9 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %94
   br label %121
 
 116:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i", %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i
-  %117 = phi ptr [ %254, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ], [ %95, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ]
-  %118 = phi ptr [ %255, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ], [ %96, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ]
-  %.val344.i = phi i64 [ %.val344.pre.i, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ], [ 65536, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ]
+  %117 = phi ptr [ %95, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ], [ %254, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ]
+  %118 = phi ptr [ %96, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ], [ %255, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ]
+  %.val344.i = phi i64 [ 65536, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ], [ %.val344.pre.i, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ]
   %119 = icmp ult i64 %.val344.i, 2
   br i1 %119, label %120, label %261
 
@@ -129260,9 +129260,9 @@ _ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i: ; preds = %127
   br label %155
 
 150:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i", %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i
-  %151 = phi ptr [ %276, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ], [ %128, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ]
-  %152 = phi ptr [ %277, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ], [ %129, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ]
-  %.val520.i = phi i64 [ %.val520.pre.i, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ], [ 65536, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ]
+  %151 = phi ptr [ %128, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ], [ %276, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ]
+  %152 = phi ptr [ %129, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ], [ %277, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ]
+  %.val520.i = phi i64 [ 65536, %_ZN5alloc3vec9from_elem17h3d221885d80627fcE.exit.i ], [ %.val520.pre.i, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1f0f8810478733b7E.exit.i" ]
   %153 = icmp ult i64 %.val520.i, 2
   br i1 %153, label %154, label %283
 

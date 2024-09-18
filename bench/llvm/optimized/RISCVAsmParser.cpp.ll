@@ -3151,8 +3151,8 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %319, %_ZN4llvm8Expe
   br label %326
 
 326:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN12_GLOBAL__N_114RISCVAsmParser14setFeatureBitsEmN4llvm9StringRefE.exit.i
-  %327 = phi i8 [ %308, %_ZN12_GLOBAL__N_114RISCVAsmParser14setFeatureBitsEmN4llvm9StringRefE.exit.i ], [ %.pre.i, %_ZN4llvm5ErrorD2Ev.exit.i ]
-  %.5.i = phi i1 [ %.1.i, %_ZN12_GLOBAL__N_114RISCVAsmParser14setFeatureBitsEmN4llvm9StringRefE.exit.i ], [ %325, %_ZN4llvm5ErrorD2Ev.exit.i ]
+  %327 = phi i8 [ %.pre.i, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %308, %_ZN12_GLOBAL__N_114RISCVAsmParser14setFeatureBitsEmN4llvm9StringRefE.exit.i ]
+  %.5.i = phi i1 [ %325, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %.1.i, %_ZN12_GLOBAL__N_114RISCVAsmParser14setFeatureBitsEmN4llvm9StringRefE.exit.i ]
   %328 = trunc i8 %327 to i1
   %329 = load ptr, ptr %52, align 8
   %.not.i1.i.i = icmp eq ptr %329, null

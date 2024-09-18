@@ -21808,7 +21808,6 @@ for.cond19.preheader.lr.ph:                       ; preds = %for.end
   br label %for.cond19.preheader
 
 for.cond19.preheader:                             ; preds = %for.cond19.preheader.lr.ph, %for.inc144
-  %div.i.i.lcssa281.lcssa284 = phi i64 [ undef, %for.cond19.preheader.lr.ph ], [ %div.i.i.lcssa281.lcssa283, %for.inc144 ]
   %5 = phi ptr [ %1, %for.cond19.preheader.lr.ph ], [ %40, %for.inc144 ]
   %6 = phi ptr [ %0, %for.cond19.preheader.lr.ph ], [ %41, %for.inc144 ]
   %w.0246 = phi i64 [ %first.0.lcssa, %for.cond19.preheader.lr.ph ], [ %inc145, %for.inc144 ]
@@ -21824,7 +21823,6 @@ for.cond19.preheader:                             ; preds = %for.cond19.preheade
   br i1 %cmp24219.not, label %for.inc144, label %for.body25
 
 for.body25:                                       ; preds = %for.cond19.preheader, %for.inc141
-  %div.i.i.lcssa280 = phi i64 [ %div.i.i.lcssa281, %for.inc141 ], [ %div.i.i.lcssa281.lcssa284, %for.cond19.preheader ]
   %9 = phi ptr [ %39, %for.inc141 ], [ %8, %for.cond19.preheader ]
   %l.0224 = phi i64 [ %inc142, %for.inc141 ], [ 0, %for.cond19.preheader ]
   %view_beg.sroa.4.2223 = phi i8 [ %view_beg.sroa.4.3, %for.inc141 ], [ %view_beg.sroa.4.1245, %for.cond19.preheader ]
@@ -22061,7 +22059,6 @@ _ZNSt6vectorIN2tf14TFProfObserver13WorkerSummaryESaIS2_EE17_M_realloc_insertIJRK
   br label %for.inc141
 
 for.inc141:                                       ; preds = %_ZNSt6vectorIN2tf14TFProfObserver13WorkerSummaryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i, %for.body25
-  %div.i.i.lcssa281 = phi i64 [ %div.i.i.lcssa280, %for.body25 ], [ %div.i.i, %if.then.i ], [ %div.i.i, %_ZNSt6vectorIN2tf14TFProfObserver13WorkerSummaryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %.lcssa190210 = phi i64 [ %.lcssa190211220, %for.body25 ], [ %19, %if.then.i ], [ %19, %_ZNSt6vectorIN2tf14TFProfObserver13WorkerSummaryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %.lcssa206 = phi i64 [ %.lcssa207221, %for.body25 ], [ %17, %if.then.i ], [ %17, %_ZNSt6vectorIN2tf14TFProfObserver13WorkerSummaryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %view_end.sroa.4.3 = phi i8 [ %view_end.sroa.4.2222, %for.body25 ], [ 1, %if.then.i ], [ 1, %_ZNSt6vectorIN2tf14TFProfObserver13WorkerSummaryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
@@ -22084,7 +22081,6 @@ for.inc144.loopexit:                              ; preds = %for.inc141
   br label %for.inc144
 
 for.inc144:                                       ; preds = %for.inc144.loopexit, %for.cond19.preheader
-  %div.i.i.lcssa281.lcssa283 = phi i64 [ %div.i.i.lcssa281.lcssa284, %for.cond19.preheader ], [ %div.i.i.lcssa281, %for.inc144.loopexit ]
   %40 = phi ptr [ %5, %for.cond19.preheader ], [ %37, %for.inc144.loopexit ]
   %41 = phi ptr [ %6, %for.cond19.preheader ], [ %.pre267, %for.inc144.loopexit ]
   %.lcssa190211.lcssa = phi i64 [ %.lcssa190211.lcssa234242, %for.cond19.preheader ], [ %.lcssa190210, %for.inc144.loopexit ]

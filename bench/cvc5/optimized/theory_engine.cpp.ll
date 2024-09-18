@@ -18957,9 +18957,9 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %2 = phi ptr [ %1, %for.body.lr.ph ], [ %138, %for.inc ]
-  %conv624 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
-  %i.0623 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.799", ptr %2, i64 %conv624
+  %conv623 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
+  %i.0622 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.799", ptr %2, i64 %conv623
   %3 = load ptr, ptr %add.ptr.i, align 8
   %d_kind.i = getelementptr inbounds i8, ptr %3, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
@@ -18994,10 +18994,10 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %if.else.i
   call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %bf.load.i.i.i.i.pre = load i16, ptr %d_kind.i, align 8, !noalias !122
   %bf.load.i.i.i.i.pre.fr = freeze i16 %bf.load.i.i.i.i.pre
-  %.pre628 = and i16 %bf.load.i.i.i.i.pre.fr, 1023
+  %.pre627 = and i16 %bf.load.i.i.i.i.pre.fr, 1023
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  %bf.cast.i.i.i.i = zext nneg i16 %.pre628 to i32
-  %cmp.i.i.i.i.i = icmp eq i16 %.pre628, 1023
+  %bf.cast.i.i.i.i = zext nneg i16 %.pre627 to i32
+  %cmp.i.i.i.i.i = icmp eq i16 %.pre627, 1023
   %spec.select = select i1 %cmp.i.i.i.i.i, i32 -1, i32 %bf.cast.i.i.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit.thread
 
@@ -19400,7 +19400,7 @@ ehcleanup28:                                      ; preds = %ehcleanup27, %lpad1
 if.end29:                                         ; preds = %if.then13.i.i181, %if.then.i.i175, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit172, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit76
   %42 = phi ptr [ %24, %if.then13.i.i181 ], [ %24, %if.then.i.i175 ], [ %24, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit172 ], [ %3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit76 ]
   %43 = load ptr, ptr %atoms, align 8
-  %add.ptr.i184 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.799", ptr %43, i64 %conv624
+  %add.ptr.i184 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.799", ptr %43, i64 %conv623
   %44 = load ptr, ptr %add.ptr.i184, align 8
   store ptr %44, ptr %agg.tmp, align 8
   invoke void @_ZNK4cvc58internal6EnvObj7rewriteENS0_12NodeTemplateILb0EEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %eqNormalized, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
@@ -20199,7 +20199,7 @@ lpad195:                                          ; preds = %if.then189
   br label %ehcleanup200
 
 cleanup:                                          ; preds = %if.then189, %if.then13.i.i579, %if.then.i.i573, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit570, %if.then143, %if.then13.i.i335, %if.then.i.i329, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit326, %if.then58, %cleanup.done184, %if.else86
-  %129 = phi ptr [ %97, %cleanup.done184 ], [ %42, %if.else86 ], [ %42, %if.then58 ], [ %42, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit326 ], [ %42, %if.then.i.i329 ], [ %42, %if.then13.i.i335 ], [ %97, %if.then143 ], [ %97, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit570 ], [ %97, %if.then.i.i573 ], [ %97, %if.then13.i.i579 ], [ %97, %if.then189 ]
+  %129 = phi ptr [ %97, %if.then189 ], [ %97, %if.then13.i.i579 ], [ %97, %if.then.i.i573 ], [ %97, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit570 ], [ %97, %if.then143 ], [ %42, %if.then13.i.i335 ], [ %42, %if.then.i.i329 ], [ %42, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit326 ], [ %42, %if.then58 ], [ %97, %cleanup.done184 ], [ %42, %if.else86 ]
   %130 = load ptr, ptr %eqNormalized, align 8
   %bf.load.i.i583 = load i64, ptr %130, align 8
   %131 = and i64 %bf.load.i.i583, 1152920405095219200
@@ -20253,7 +20253,7 @@ terminate.lpad.i603:                              ; preds = %if.then13.i.i602
   unreachable
 
 for.inc:                                          ; preds = %if.then13.i.i602, %if.then.i.i596, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit593, %for.body
-  %inc = add i32 %i.0623, 1
+  %inc = add i32 %i.0622, 1
   %conv = zext i32 %inc to i64
   %137 = load ptr, ptr %_M_finish.i, align 8
   %138 = load ptr, ptr %atoms, align 8

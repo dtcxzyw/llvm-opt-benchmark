@@ -4106,7 +4106,7 @@ if.end44:                                         ; preds = %if.end28
   br i1 %isinf45, label %if.then47, label %if.end67
 
 if.then47:                                        ; preds = %if.end44
-  %call48 = tail call double @fmod(double noundef %23, double noundef 2.000000e+00) #17
+  %call48 = frem nnan double %23, 2.000000e+00
   %cmp49 = fcmp oeq double %call48, 1.000000e+00
   %cmp51 = fcmp ogt double %iw.0103105107, 0.000000e+00
   br i1 %cmp51, label %if.then53, label %if.else60
@@ -4127,7 +4127,6 @@ if.end67:                                         ; preds = %if.end44
   br i1 %cmp68, label %if.then70, label %if.end85
 
 if.then70:                                        ; preds = %if.end67
-  %call72 = tail call double @fmod(double noundef %23, double noundef 2.000000e+00) #17
   %cmp75 = fcmp olt double %iw.0103105107, 0.000000e+00
   br i1 %cmp75, label %if.then77, label %if.end78
 
@@ -4137,6 +4136,7 @@ if.then77:                                        ; preds = %if.then70
   br label %return
 
 if.end78:                                         ; preds = %if.then70
+  %call72 = frem nnan double %iw.0103105107, 2.000000e+00
   %cmp73 = fcmp oeq double %call72, 1.000000e+00
   %cond83 = select i1 %cmp73, double %iv.0, double 0.000000e+00
   %call84 = tail call ptr @PyFloat_FromDouble(double noundef %cond83)
@@ -4160,7 +4160,7 @@ if.then91:                                        ; preds = %if.then88
 
 if.end93:                                         ; preds = %if.then88
   %fneg = fneg double %iv.0
-  %call94 = tail call double @fmod(double noundef %23, double noundef 2.000000e+00) #17
+  %call94 = frem nnan double %23, 2.000000e+00
   %cmp95 = fcmp une double %call94, 1.000000e+00
   br label %if.end97
 

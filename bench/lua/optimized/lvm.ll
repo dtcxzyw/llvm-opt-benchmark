@@ -3653,9 +3653,9 @@ if.then1204:                                      ; preds = %L_OP_ADDI
   br label %if.end1213.sink.split
 
 if.end1213.sink.split:                            ; preds = %if.then1191, %if.then1204
-  %storemerge4123 = phi double [ %add1209, %if.then1204 ], [ %263, %if.then1191 ]
+  %storemerge3259 = phi double [ %add1209, %if.then1204 ], [ %263, %if.then1191 ]
   %pc.1.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4123, ptr %add.ptr1179, align 8
+  store double %storemerge3259, ptr %add.ptr1179, align 8
   %tt_1211 = getelementptr inbounds i8, ptr %add.ptr1179, i64 8
   store i8 %261, ptr %tt_1211, align 8
   br label %if.end1213
@@ -3712,7 +3712,7 @@ if.then1251:                                      ; preds = %land.lhs.true1246
 cond.true1264:                                    ; preds = %L_OP_ADDK
   %271 = load double, ptr %add.ptr1232, align 8
   %tt_1276.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr1236, i64 8
-  %.pre3921 = load i8, ptr %tt_1276.phi.trans.insert, align 8
+  %.pre3057 = load i8, ptr %tt_1276.phi.trans.insert, align 8
   br label %land.lhs.true1275
 
 cond.true1271:                                    ; preds = %land.lhs.true1246
@@ -3720,7 +3720,7 @@ cond.true1271:                                    ; preds = %land.lhs.true1246
   br label %land.lhs.true1275
 
 land.lhs.true1275:                                ; preds = %cond.true1264, %cond.true1271
-  %272 = phi i8 [ %.pre3921, %cond.true1264 ], [ %267, %cond.true1271 ]
+  %272 = phi i8 [ %.pre3057, %cond.true1264 ], [ %267, %cond.true1271 ]
   %n1.0 = phi double [ %271, %cond.true1264 ], [ %conv1273, %cond.true1271 ]
   switch i8 %272, label %if.end1298 [
     i8 19, label %cond.true1280
@@ -3742,12 +3742,12 @@ if.then1291:                                      ; preds = %cond.true1280, %con
   br label %if.end1298.sink.split
 
 if.end1298.sink.split:                            ; preds = %if.then1251, %if.then1291
-  %storemerge4122 = phi double [ %add1294, %if.then1291 ], [ %270, %if.then1251 ]
-  %.sink4103 = phi i8 [ 19, %if.then1291 ], [ 3, %if.then1251 ]
+  %storemerge3258 = phi double [ %add1294, %if.then1291 ], [ %270, %if.then1251 ]
+  %.sink3239 = phi i8 [ 19, %if.then1291 ], [ 3, %if.then1251 ]
   %pc.2.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4122, ptr %add.ptr1241, align 8
+  store double %storemerge3258, ptr %add.ptr1241, align 8
   %tt_1296 = getelementptr inbounds i8, ptr %add.ptr1241, i64 8
-  store i8 %.sink4103, ptr %tt_1296, align 8
+  store i8 %.sink3239, ptr %tt_1296, align 8
   br label %if.end1298
 
 if.end1298:                                       ; preds = %if.end1298.sink.split, %L_OP_ADDK, %land.lhs.true1275
@@ -3802,7 +3802,7 @@ if.then1337:                                      ; preds = %land.lhs.true1332
 cond.true1354:                                    ; preds = %L_OP_SUBK
   %281 = load double, ptr %add.ptr1317, align 8
   %tt_1366.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr1322, i64 8
-  %.pre3920 = load i8, ptr %tt_1366.phi.trans.insert, align 8
+  %.pre3056 = load i8, ptr %tt_1366.phi.trans.insert, align 8
   br label %land.lhs.true1365
 
 cond.true1361:                                    ; preds = %land.lhs.true1332
@@ -3810,7 +3810,7 @@ cond.true1361:                                    ; preds = %land.lhs.true1332
   br label %land.lhs.true1365
 
 land.lhs.true1365:                                ; preds = %cond.true1354, %cond.true1361
-  %282 = phi i8 [ %.pre3920, %cond.true1354 ], [ %277, %cond.true1361 ]
+  %282 = phi i8 [ %.pre3056, %cond.true1354 ], [ %277, %cond.true1361 ]
   %n11348.0 = phi double [ %281, %cond.true1354 ], [ %conv1363, %cond.true1361 ]
   switch i8 %282, label %if.end1388 [
     i8 19, label %cond.true1370
@@ -3832,12 +3832,12 @@ if.then1381:                                      ; preds = %cond.true1370, %con
   br label %if.end1388.sink.split
 
 if.end1388.sink.split:                            ; preds = %if.then1337, %if.then1381
-  %storemerge4121 = phi double [ %sub1384, %if.then1381 ], [ %280, %if.then1337 ]
-  %.sink4104 = phi i8 [ 19, %if.then1381 ], [ 3, %if.then1337 ]
+  %storemerge3257 = phi double [ %sub1384, %if.then1381 ], [ %280, %if.then1337 ]
+  %.sink3240 = phi i8 [ 19, %if.then1381 ], [ 3, %if.then1337 ]
   %pc.3.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4121, ptr %add.ptr1327, align 8
+  store double %storemerge3257, ptr %add.ptr1327, align 8
   %tt_1386 = getelementptr inbounds i8, ptr %add.ptr1327, i64 8
-  store i8 %.sink4104, ptr %tt_1386, align 8
+  store i8 %.sink3240, ptr %tt_1386, align 8
   br label %if.end1388
 
 if.end1388:                                       ; preds = %if.end1388.sink.split, %L_OP_SUBK, %land.lhs.true1365
@@ -3892,7 +3892,7 @@ if.then1427:                                      ; preds = %land.lhs.true1422
 cond.true1444:                                    ; preds = %L_OP_MULK
   %291 = load double, ptr %add.ptr1407, align 8
   %tt_1456.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr1412, i64 8
-  %.pre3919 = load i8, ptr %tt_1456.phi.trans.insert, align 8
+  %.pre3055 = load i8, ptr %tt_1456.phi.trans.insert, align 8
   br label %land.lhs.true1455
 
 cond.true1451:                                    ; preds = %land.lhs.true1422
@@ -3900,7 +3900,7 @@ cond.true1451:                                    ; preds = %land.lhs.true1422
   br label %land.lhs.true1455
 
 land.lhs.true1455:                                ; preds = %cond.true1444, %cond.true1451
-  %292 = phi i8 [ %.pre3919, %cond.true1444 ], [ %287, %cond.true1451 ]
+  %292 = phi i8 [ %.pre3055, %cond.true1444 ], [ %287, %cond.true1451 ]
   %n11438.0 = phi double [ %291, %cond.true1444 ], [ %conv1453, %cond.true1451 ]
   switch i8 %292, label %if.end1478 [
     i8 19, label %cond.true1460
@@ -3922,12 +3922,12 @@ if.then1471:                                      ; preds = %cond.true1460, %con
   br label %if.end1478.sink.split
 
 if.end1478.sink.split:                            ; preds = %if.then1427, %if.then1471
-  %storemerge4120 = phi double [ %mul1474, %if.then1471 ], [ %290, %if.then1427 ]
-  %.sink4105 = phi i8 [ 19, %if.then1471 ], [ 3, %if.then1427 ]
+  %storemerge3256 = phi double [ %mul1474, %if.then1471 ], [ %290, %if.then1427 ]
+  %.sink3241 = phi i8 [ 19, %if.then1471 ], [ 3, %if.then1427 ]
   %pc.4.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4120, ptr %add.ptr1417, align 8
+  store double %storemerge3256, ptr %add.ptr1417, align 8
   %tt_1476 = getelementptr inbounds i8, ptr %add.ptr1417, i64 8
-  store i8 %.sink4105, ptr %tt_1476, align 8
+  store i8 %.sink3241, ptr %tt_1476, align 8
   br label %if.end1478
 
 if.end1478:                                       ; preds = %if.end1478.sink.split, %L_OP_MULK, %land.lhs.true1455
@@ -4006,7 +4006,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i1954
 cond.true1538:                                    ; preds = %L_OP_MODK
   %302 = load double, ptr %add.ptr1501, align 8
   %tt_1550.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr1506, i64 8
-  %.pre3918 = load i8, ptr %tt_1550.phi.trans.insert, align 8
+  %.pre3054 = load i8, ptr %tt_1550.phi.trans.insert, align 8
   br label %land.lhs.true1549
 
 cond.true1545:                                    ; preds = %land.lhs.true1516
@@ -4015,7 +4015,7 @@ cond.true1545:                                    ; preds = %land.lhs.true1516
   br label %land.lhs.true1549
 
 land.lhs.true1549:                                ; preds = %cond.true1538, %cond.true1545
-  %304 = phi i8 [ %.pre3918, %cond.true1538 ], [ %298, %cond.true1545 ]
+  %304 = phi i8 [ %.pre3054, %cond.true1538 ], [ %298, %cond.true1545 ]
   %n11532.0 = phi double [ %302, %cond.true1538 ], [ %conv1547, %cond.true1545 ]
   switch i8 %304, label %if.end1572 [
     i8 19, label %cond.true1554
@@ -4052,12 +4052,12 @@ if.then.i1960:                                    ; preds = %cond.false.i1958, %
   br label %if.end1572.sink.split
 
 if.end1572.sink.split:                            ; preds = %if.then.i1960, %cond.false.i1958, %cond.true.i, %land.lhs.true.i, %if.else.i1954, %if.then.i1955
-  %storemerge4119 = phi double [ 0.000000e+00, %if.then.i1955 ], [ 0.000000e+00, %if.else.i1954 ], [ %301, %land.lhs.true.i ], [ %add.i1961, %if.then.i1960 ], [ %call.i1956, %cond.true.i ], [ %call.i1956, %cond.false.i1958 ]
-  %.sink4106 = phi i8 [ 3, %if.then.i1955 ], [ 3, %if.else.i1954 ], [ 3, %land.lhs.true.i ], [ 19, %if.then.i1960 ], [ 19, %cond.true.i ], [ 19, %cond.false.i1958 ]
+  %storemerge3255 = phi double [ 0.000000e+00, %if.then.i1955 ], [ 0.000000e+00, %if.else.i1954 ], [ %301, %land.lhs.true.i ], [ %add.i1961, %if.then.i1960 ], [ %call.i1956, %cond.true.i ], [ %call.i1956, %cond.false.i1958 ]
+  %.sink3242 = phi i8 [ 3, %if.then.i1955 ], [ 3, %if.else.i1954 ], [ 3, %land.lhs.true.i ], [ 19, %if.then.i1960 ], [ 19, %cond.true.i ], [ 19, %cond.false.i1958 ]
   %pc.5.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4119, ptr %add.ptr1511, align 8
+  store double %storemerge3255, ptr %add.ptr1511, align 8
   %tt_1570 = getelementptr inbounds i8, ptr %add.ptr1511, i64 8
-  store i8 %.sink4106, ptr %tt_1570, align 8
+  store i8 %.sink3242, ptr %tt_1570, align 8
   br label %if.end1572
 
 if.end1572:                                       ; preds = %if.end1572.sink.split, %L_OP_MODK, %land.lhs.true1549
@@ -4301,7 +4301,7 @@ luaV_idiv.exit:                                   ; preds = %if.end.i, %if.else.
 cond.true1776:                                    ; preds = %L_OP_IDIVK
   %328 = load double, ptr %add.ptr1739, align 8
   %tt_1788.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr1744, i64 8
-  %.pre3917 = load i8, ptr %tt_1788.phi.trans.insert, align 8
+  %.pre3053 = load i8, ptr %tt_1788.phi.trans.insert, align 8
   br label %land.lhs.true1787
 
 cond.true1783:                                    ; preds = %land.lhs.true1754
@@ -4309,7 +4309,7 @@ cond.true1783:                                    ; preds = %land.lhs.true1754
   br label %land.lhs.true1787
 
 land.lhs.true1787:                                ; preds = %cond.true1776, %cond.true1783
-  %329 = phi i8 [ %.pre3917, %cond.true1776 ], [ %324, %cond.true1783 ]
+  %329 = phi i8 [ %.pre3053, %cond.true1776 ], [ %324, %cond.true1783 ]
   %n11770.0 = phi double [ %328, %cond.true1776 ], [ %conv1785, %cond.true1783 ]
   switch i8 %329, label %if.end1810 [
     i8 19, label %cond.true1792
@@ -4332,12 +4332,12 @@ if.then1803:                                      ; preds = %cond.true1792, %con
   br label %if.end1810.sink.split
 
 if.end1810.sink.split:                            ; preds = %luaV_idiv.exit, %if.then1803
-  %storemerge4118 = phi double [ %332, %if.then1803 ], [ %327, %luaV_idiv.exit ]
-  %.sink4107 = phi i8 [ 19, %if.then1803 ], [ 3, %luaV_idiv.exit ]
+  %storemerge3254 = phi double [ %332, %if.then1803 ], [ %327, %luaV_idiv.exit ]
+  %.sink3243 = phi i8 [ 19, %if.then1803 ], [ 3, %luaV_idiv.exit ]
   %pc.8.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4118, ptr %add.ptr1749, align 8
+  store double %storemerge3254, ptr %add.ptr1749, align 8
   %tt_1808 = getelementptr inbounds i8, ptr %add.ptr1749, i64 8
-  store i8 %.sink4107, ptr %tt_1808, align 8
+  store i8 %.sink3243, ptr %tt_1808, align 8
   br label %if.end1810
 
 if.end1810:                                       ; preds = %if.end1810.sink.split, %L_OP_IDIVK, %land.lhs.true1787
@@ -4758,7 +4758,7 @@ if.then2102:                                      ; preds = %land.lhs.true2097
 cond.true2119:                                    ; preds = %L_OP_ADD
   %367 = load double, ptr %add.ptr2082, align 8
   %tt_2131.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr2087, i64 8
-  %.pre3916 = load i8, ptr %tt_2131.phi.trans.insert, align 8
+  %.pre3052 = load i8, ptr %tt_2131.phi.trans.insert, align 8
   br label %land.lhs.true2130
 
 cond.true2126:                                    ; preds = %land.lhs.true2097
@@ -4766,7 +4766,7 @@ cond.true2126:                                    ; preds = %land.lhs.true2097
   br label %land.lhs.true2130
 
 land.lhs.true2130:                                ; preds = %cond.true2119, %cond.true2126
-  %368 = phi i8 [ %.pre3916, %cond.true2119 ], [ %363, %cond.true2126 ]
+  %368 = phi i8 [ %.pre3052, %cond.true2119 ], [ %363, %cond.true2126 ]
   %n12113.0 = phi double [ %367, %cond.true2119 ], [ %conv2128, %cond.true2126 ]
   switch i8 %368, label %if.end2153 [
     i8 19, label %cond.true2135
@@ -4788,12 +4788,12 @@ if.then2146:                                      ; preds = %cond.true2135, %con
   br label %if.end2153.sink.split
 
 if.end2153.sink.split:                            ; preds = %if.then2102, %if.then2146
-  %storemerge4117 = phi double [ %add2149, %if.then2146 ], [ %366, %if.then2102 ]
-  %.sink4108 = phi i8 [ 19, %if.then2146 ], [ 3, %if.then2102 ]
+  %storemerge3253 = phi double [ %add2149, %if.then2146 ], [ %366, %if.then2102 ]
+  %.sink3244 = phi i8 [ 19, %if.then2146 ], [ 3, %if.then2102 ]
   %pc.14.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4117, ptr %add.ptr2092, align 8
+  store double %storemerge3253, ptr %add.ptr2092, align 8
   %tt_2151 = getelementptr inbounds i8, ptr %add.ptr2092, i64 8
-  store i8 %.sink4108, ptr %tt_2151, align 8
+  store i8 %.sink3244, ptr %tt_2151, align 8
   br label %if.end2153
 
 if.end2153:                                       ; preds = %if.end2153.sink.split, %L_OP_ADD, %land.lhs.true2130
@@ -4848,7 +4848,7 @@ if.then2192:                                      ; preds = %land.lhs.true2187
 cond.true2209:                                    ; preds = %L_OP_SUB
   %377 = load double, ptr %add.ptr2172, align 8
   %tt_2221.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr2177, i64 8
-  %.pre3915 = load i8, ptr %tt_2221.phi.trans.insert, align 8
+  %.pre3051 = load i8, ptr %tt_2221.phi.trans.insert, align 8
   br label %land.lhs.true2220
 
 cond.true2216:                                    ; preds = %land.lhs.true2187
@@ -4856,7 +4856,7 @@ cond.true2216:                                    ; preds = %land.lhs.true2187
   br label %land.lhs.true2220
 
 land.lhs.true2220:                                ; preds = %cond.true2209, %cond.true2216
-  %378 = phi i8 [ %.pre3915, %cond.true2209 ], [ %373, %cond.true2216 ]
+  %378 = phi i8 [ %.pre3051, %cond.true2209 ], [ %373, %cond.true2216 ]
   %n12203.0 = phi double [ %377, %cond.true2209 ], [ %conv2218, %cond.true2216 ]
   switch i8 %378, label %if.end2243 [
     i8 19, label %cond.true2225
@@ -4878,12 +4878,12 @@ if.then2236:                                      ; preds = %cond.true2225, %con
   br label %if.end2243.sink.split
 
 if.end2243.sink.split:                            ; preds = %if.then2192, %if.then2236
-  %storemerge4116 = phi double [ %sub2239, %if.then2236 ], [ %376, %if.then2192 ]
-  %.sink4109 = phi i8 [ 19, %if.then2236 ], [ 3, %if.then2192 ]
+  %storemerge3252 = phi double [ %sub2239, %if.then2236 ], [ %376, %if.then2192 ]
+  %.sink3245 = phi i8 [ 19, %if.then2236 ], [ 3, %if.then2192 ]
   %pc.15.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4116, ptr %add.ptr2182, align 8
+  store double %storemerge3252, ptr %add.ptr2182, align 8
   %tt_2241 = getelementptr inbounds i8, ptr %add.ptr2182, i64 8
-  store i8 %.sink4109, ptr %tt_2241, align 8
+  store i8 %.sink3245, ptr %tt_2241, align 8
   br label %if.end2243
 
 if.end2243:                                       ; preds = %if.end2243.sink.split, %L_OP_SUB, %land.lhs.true2220
@@ -4938,7 +4938,7 @@ if.then2282:                                      ; preds = %land.lhs.true2277
 cond.true2299:                                    ; preds = %L_OP_MUL
   %387 = load double, ptr %add.ptr2262, align 8
   %tt_2311.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr2267, i64 8
-  %.pre3914 = load i8, ptr %tt_2311.phi.trans.insert, align 8
+  %.pre3050 = load i8, ptr %tt_2311.phi.trans.insert, align 8
   br label %land.lhs.true2310
 
 cond.true2306:                                    ; preds = %land.lhs.true2277
@@ -4946,7 +4946,7 @@ cond.true2306:                                    ; preds = %land.lhs.true2277
   br label %land.lhs.true2310
 
 land.lhs.true2310:                                ; preds = %cond.true2299, %cond.true2306
-  %388 = phi i8 [ %.pre3914, %cond.true2299 ], [ %383, %cond.true2306 ]
+  %388 = phi i8 [ %.pre3050, %cond.true2299 ], [ %383, %cond.true2306 ]
   %n12293.0 = phi double [ %387, %cond.true2299 ], [ %conv2308, %cond.true2306 ]
   switch i8 %388, label %if.end2333 [
     i8 19, label %cond.true2315
@@ -4968,12 +4968,12 @@ if.then2326:                                      ; preds = %cond.true2315, %con
   br label %if.end2333.sink.split
 
 if.end2333.sink.split:                            ; preds = %if.then2282, %if.then2326
-  %storemerge4115 = phi double [ %mul2329, %if.then2326 ], [ %386, %if.then2282 ]
-  %.sink4110 = phi i8 [ 19, %if.then2326 ], [ 3, %if.then2282 ]
+  %storemerge3251 = phi double [ %mul2329, %if.then2326 ], [ %386, %if.then2282 ]
+  %.sink3246 = phi i8 [ 19, %if.then2326 ], [ 3, %if.then2282 ]
   %pc.16.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4115, ptr %add.ptr2272, align 8
+  store double %storemerge3251, ptr %add.ptr2272, align 8
   %tt_2331 = getelementptr inbounds i8, ptr %add.ptr2272, i64 8
-  store i8 %.sink4110, ptr %tt_2331, align 8
+  store i8 %.sink3246, ptr %tt_2331, align 8
   br label %if.end2333
 
 if.end2333:                                       ; preds = %if.end2333.sink.split, %L_OP_MUL, %land.lhs.true2310
@@ -5052,7 +5052,7 @@ land.lhs.true.i2063:                              ; preds = %if.else.i2060
 cond.true2393:                                    ; preds = %L_OP_MOD
   %398 = load double, ptr %add.ptr2356, align 8
   %tt_2405.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr2361, i64 8
-  %.pre3913 = load i8, ptr %tt_2405.phi.trans.insert, align 8
+  %.pre3049 = load i8, ptr %tt_2405.phi.trans.insert, align 8
   br label %land.lhs.true2404
 
 cond.true2400:                                    ; preds = %land.lhs.true2371
@@ -5061,7 +5061,7 @@ cond.true2400:                                    ; preds = %land.lhs.true2371
   br label %land.lhs.true2404
 
 land.lhs.true2404:                                ; preds = %cond.true2393, %cond.true2400
-  %400 = phi i8 [ %.pre3913, %cond.true2393 ], [ %394, %cond.true2400 ]
+  %400 = phi i8 [ %.pre3049, %cond.true2393 ], [ %394, %cond.true2400 ]
   %n12387.0 = phi double [ %398, %cond.true2393 ], [ %conv2402, %cond.true2400 ]
   switch i8 %400, label %if.end2427 [
     i8 19, label %cond.true2409
@@ -5098,12 +5098,12 @@ if.then.i2081:                                    ; preds = %cond.false.i2075, %
   br label %if.end2427.sink.split
 
 if.end2427.sink.split:                            ; preds = %if.then.i2081, %cond.false.i2075, %cond.true.i2083, %land.lhs.true.i2063, %if.else.i2060, %if.then.i2069
-  %storemerge4114 = phi double [ 0.000000e+00, %if.then.i2069 ], [ 0.000000e+00, %if.else.i2060 ], [ %397, %land.lhs.true.i2063 ], [ %add.i2082, %if.then.i2081 ], [ %call.i2073, %cond.true.i2083 ], [ %call.i2073, %cond.false.i2075 ]
-  %.sink4111 = phi i8 [ 3, %if.then.i2069 ], [ 3, %if.else.i2060 ], [ 3, %land.lhs.true.i2063 ], [ 19, %if.then.i2081 ], [ 19, %cond.true.i2083 ], [ 19, %cond.false.i2075 ]
+  %storemerge3250 = phi double [ 0.000000e+00, %if.then.i2069 ], [ 0.000000e+00, %if.else.i2060 ], [ %397, %land.lhs.true.i2063 ], [ %add.i2082, %if.then.i2081 ], [ %call.i2073, %cond.true.i2083 ], [ %call.i2073, %cond.false.i2075 ]
+  %.sink3247 = phi i8 [ 3, %if.then.i2069 ], [ 3, %if.else.i2060 ], [ 3, %land.lhs.true.i2063 ], [ 19, %if.then.i2081 ], [ 19, %cond.true.i2083 ], [ 19, %cond.false.i2075 ]
   %pc.17.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
-  store double %storemerge4114, ptr %add.ptr2366, align 8
+  store double %storemerge3250, ptr %add.ptr2366, align 8
   %tt_2425 = getelementptr inbounds i8, ptr %add.ptr2366, i64 8
-  store i8 %.sink4111, ptr %tt_2425, align 8
+  store i8 %.sink3247, ptr %tt_2425, align 8
   br label %if.end2427
 
 if.end2427:                                       ; preds = %if.end2427.sink.split, %L_OP_MOD, %land.lhs.true2404
@@ -5379,11 +5379,11 @@ if.then2659:                                      ; preds = %cond.true2648, %con
 
 if.end2666.sink.split:                            ; preds = %luaV_idiv.exit2103, %if.then2659
   %storemerge = phi double [ %428, %if.then2659 ], [ %423, %luaV_idiv.exit2103 ]
-  %.sink4112 = phi i8 [ 19, %if.then2659 ], [ 3, %luaV_idiv.exit2103 ]
+  %.sink3248 = phi i8 [ 19, %if.then2659 ], [ 3, %luaV_idiv.exit2103 ]
   %pc.20.ph = getelementptr inbounds i8, ptr %pc.0, i64 4
   store double %storemerge, ptr %add.ptr2605, align 8
   %tt_2664 = getelementptr inbounds i8, ptr %add.ptr2605, i64 8
-  store i8 %.sink4112, ptr %tt_2664, align 8
+  store i8 %.sink3248, ptr %tt_2664, align 8
   br label %if.end2666
 
 if.end2666:                                       ; preds = %if.end2666.sink.split, %L_OP_IDIV, %land.lhs.true2643
@@ -6160,9 +6160,9 @@ L_OP_NOT:                                         ; preds = %indirectgoto
   %501 = and i8 %500, 15
   %cmp3264 = icmp eq i8 %501, 0
   %or.cond1773 = or i1 %cmp3258, %cmp3264
-  %spec.select4113 = select i1 %or.cond1773, i8 17, i8 1
+  %spec.select3249 = select i1 %or.cond1773, i8 17, i8 1
   %502 = getelementptr inbounds %union.StackValue, ptr %base.1, i64 %idx.ext3249, i32 0, i32 1
-  store i8 %spec.select4113, ptr %502, align 8
+  store i8 %spec.select3249, ptr %502, align 8
   %cmp3271.not = icmp eq i32 %trap.3, 0
   br i1 %cmp3271.not, label %if.end3279, label %if.then3275
 
@@ -7681,22 +7681,22 @@ if.else4311:                                      ; preds = %L_OP_RETURN0
   store ptr %add.ptr4313, ptr %top4719, align 8
   %nresults4315 = getelementptr inbounds i8, ptr %ci.addr.1, i64 60
   %674 = load i16, ptr %nresults4315, align 4
-  %cmp43183306 = icmp sgt i16 %674, 0
-  br i1 %cmp43183306, label %for.body.preheader, label %ret
+  %cmp43182874 = icmp sgt i16 %674, 0
+  br i1 %cmp43182874, label %for.body.preheader, label %ret
 
 for.body.preheader:                               ; preds = %if.else4311
   %conv4316 = zext nneg i16 %674 to i32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %nres.03307 = phi i32 [ %dec4327, %for.body ], [ %conv4316, %for.body.preheader ]
+  %nres.02875 = phi i32 [ %dec4327, %for.body ], [ %conv4316, %for.body.preheader ]
   %675 = load ptr, ptr %top4719, align 8
   %incdec.ptr4325 = getelementptr inbounds i8, ptr %675, i64 16
   store ptr %incdec.ptr4325, ptr %top4719, align 8
   %tt_4326 = getelementptr inbounds i8, ptr %675, i64 8
   store i8 0, ptr %tt_4326, align 8
-  %dec4327 = add nsw i32 %nres.03307, -1
-  %cmp4318 = icmp ugt i32 %nres.03307, 1
+  %dec4327 = add nsw i32 %nres.02875, -1
+  %cmp4318 = icmp ugt i32 %nres.02875, 1
   br i1 %cmp4318, label %for.body, label %ret, !llvm.loop !12
 
 L_OP_RETURN1:                                     ; preds = %indirectgoto
@@ -7742,22 +7742,22 @@ if.else4355:                                      ; preds = %if.else4344
   %tt_4367 = getelementptr inbounds i8, ptr %base.1, i64 -8
   store i8 %680, ptr %tt_4367, align 8
   store ptr %base.1, ptr %top4719, align 8
-  %cmp43703304 = icmp sgt i16 %677, 1
-  br i1 %cmp43703304, label %for.body4376.preheader, label %ret
+  %cmp43702872 = icmp sgt i16 %677, 1
+  br i1 %cmp43702872, label %for.body4376.preheader, label %ret
 
 for.body4376.preheader:                           ; preds = %if.else4355
   %conv4347 = zext nneg i16 %677 to i32
   br label %for.body4376
 
 for.body4376:                                     ; preds = %for.body4376.preheader, %for.body4376
-  %nres4345.03305 = phi i32 [ %dec4381, %for.body4376 ], [ %conv4347, %for.body4376.preheader ]
+  %nres4345.02873 = phi i32 [ %dec4381, %for.body4376 ], [ %conv4347, %for.body4376.preheader ]
   %681 = load ptr, ptr %top4719, align 8
   %incdec.ptr4378 = getelementptr inbounds i8, ptr %681, i64 16
   store ptr %incdec.ptr4378, ptr %top4719, align 8
   %tt_4379 = getelementptr inbounds i8, ptr %681, i64 8
   store i8 0, ptr %tt_4379, align 8
-  %dec4381 = add nsw i32 %nres4345.03305, -1
-  %cmp4370 = icmp ugt i32 %nres4345.03305, 2
+  %dec4381 = add nsw i32 %nres4345.02873, -1
+  %cmp4370 = icmp ugt i32 %nres4345.02873, 2
   br i1 %cmp4370, label %for.body4376, label %ret, !llvm.loop !13
 
 ret:                                              ; preds = %for.body4376, %for.body, %if.else4355, %if.else4311, %if.then4334, %if.then4352, %if.then4302, %if.end4291, %if.else4225
@@ -8492,8 +8492,8 @@ if.then4608:                                      ; preds = %if.end4604
   br label %if.end4609
 
 if.end4609:                                       ; preds = %if.then4608, %if.end4604
-  %cmp46113296 = icmp sgt i32 %n4575.0, 0
-  br i1 %cmp46113296, label %for.body4613.lr.ph, label %for.end4649
+  %cmp46112864 = icmp sgt i32 %n4575.0, 0
+  br i1 %cmp46112864, label %for.body4613.lr.ph, label %for.end4649
 
 for.body4613.lr.ph:                               ; preds = %if.end4609
   %array4617 = getelementptr inbounds i8, ptr %758, i64 16
@@ -8503,10 +8503,10 @@ for.body4613.lr.ph:                               ; preds = %if.end4609
 
 for.body4613:                                     ; preds = %for.body4613.lr.ph, %for.inc4647
   %indvars.iv = phi i64 [ %763, %for.body4613.lr.ph ], [ %indvars.iv.next, %for.inc4647 ]
-  %last.13298 = phi i32 [ %last.0, %for.body4613.lr.ph ], [ %sub4618, %for.inc4647 ]
+  %last.12866 = phi i32 [ %last.0, %for.body4613.lr.ph ], [ %sub4618, %for.inc4647 ]
   %add.ptr4615 = getelementptr inbounds %union.StackValue, ptr %add.ptr4574, i64 %indvars.iv
   %764 = load ptr, ptr %array4617, align 8
-  %sub4618 = add i32 %last.13298, -1
+  %sub4618 = add i32 %last.12866, -1
   %idxprom4619 = zext i32 %sub4618 to i64
   %arrayidx4620 = getelementptr inbounds %struct.TValue, ptr %764, i64 %idxprom4619
   %765 = load i64, ptr %add.ptr4615, align 8

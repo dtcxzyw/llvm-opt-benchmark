@@ -18550,7 +18550,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser20Pars
   %158 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.2.0..sroa_idx.i.i850 = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.2.0..sroa_idx.i.i847 = getelementptr inbounds i8, ptr %1, i64 48
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -18568,8 +18568,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser20Pars
   br label %.thread632
 
 .thread632:                                       ; preds = %.thread632.backedge, %91
-  %.0725 = phi i1 [ undef, %91 ], [ %.1.ph.ph, %.thread632.backedge ]
-  %.0212724 = phi i32 [ 1, %91 ], [ %183, %.thread632.backedge ]
+  %.0722 = phi i1 [ undef, %91 ], [ %.1.ph.ph, %.thread632.backedge ]
+  %.0212721 = phi i32 [ 1, %91 ], [ %183, %.thread632.backedge ]
   %175 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %79) #23
   %176 = load ptr, ptr %78, align 8
   %177 = load ptr, ptr %176, align 8
@@ -18658,11 +18658,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser20Pars
 
 214:                                              ; preds = %209
   %.val264 = load i32, ptr %1, align 8
-  %switch.tableidx1063 = add i32 %.val264, -14
-  %215 = icmp ult i32 %switch.tableidx1063, 12
-  br i1 %215, label %switch.hole_check1064, label %216
+  %switch.tableidx1060 = add i32 %.val264, -14
+  %215 = icmp ult i32 %switch.tableidx1060, 12
+  br i1 %215, label %switch.hole_check1061, label %216
 
-216:                                              ; preds = %switch.hole_check1064, %214
+216:                                              ; preds = %switch.hole_check1061, %214
   %217 = call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %175) #23
   %218 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %219 = getelementptr inbounds nuw i8, ptr %33, i64 33
@@ -18691,11 +18691,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser20Pars
 
 233:                                              ; preds = %228
   %.val265 = load i32, ptr %1, align 8
-  %switch.tableidx1070 = add i32 %.val265, -14
-  %234 = icmp ult i32 %switch.tableidx1070, 12
-  br i1 %234, label %switch.hole_check1071, label %235
+  %switch.tableidx1067 = add i32 %.val265, -14
+  %234 = icmp ult i32 %switch.tableidx1067, 12
+  br i1 %234, label %switch.hole_check1068, label %235
 
-235:                                              ; preds = %switch.hole_check1071, %233
+235:                                              ; preds = %switch.hole_check1068, %233
   %236 = call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %175) #23
   %237 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %238 = getelementptr inbounds nuw i8, ptr %34, i64 33
@@ -18999,7 +18999,7 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onCastEN4llvm11AsmTypeInf
 
 .critedge:                                        ; preds = %_ZNK4llvm8AsmToken13getIdentifierEv.exit, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit, %359, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onCastEN4llvm11AsmTypeInfoE.exit, %379
   %.0216 = phi i32 [ 1, %379 ], [ 4, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onCastEN4llvm11AsmTypeInfoE.exit ], [ 0, %359 ], [ 0, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 0, %_ZNK4llvm8AsmToken13getIdentifierEv.exit ]
-  %.4 = phi i1 [ %381, %379 ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onCastEN4llvm11AsmTypeInfoE.exit ], [ %.0725, %359 ], [ %.0725, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ %.0725, %_ZNK4llvm8AsmToken13getIdentifierEv.exit ]
+  %.4 = phi i1 [ %381, %379 ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onCastEN4llvm11AsmTypeInfoE.exit ], [ %.0722, %359 ], [ %.0722, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ %.0722, %_ZNK4llvm8AsmToken13getIdentifierEv.exit ]
   %397 = load i32, ptr %119, align 8
   %398 = icmp ugt i32 %397, 64
   br i1 %398, label %399, label %_ZN4llvm8AsmTokenD2Ev.exit283
@@ -19021,7 +19021,7 @@ _ZN4llvm8AsmTokenD2Ev.exit283:                    ; preds = %.critedge, %399, %4
   ]
 
 403:                                              ; preds = %_ZN4llvm8AsmTokenD2Ev.exit283, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread
-  %.3 = phi i1 [ %.4, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ %.0725, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread ]
+  %.3 = phi i1 [ %.4, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ %.0722, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread ]
   store i32 0, ptr %48, align 4
   %404 = load i32, ptr %175, align 8
   %405 = icmp eq i32 %404, 2
@@ -19082,8 +19082,8 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %424
   %430 = getelementptr inbounds i8, ptr %428, i64 %.sroa.speculated5.i.i.i
   %431 = sub i64 %427, %.sroa.speculated5.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
-  %.not786 = icmp ugt i64 %427, %429
-  br i1 %.not786, label %432, label %502
+  %.not646 = icmp ugt i64 %427, %429
+  br i1 %.not646, label %432, label %502
 
 432:                                              ; preds = %_ZNK4llvm9StringRef5splitEc.exit
   %433 = getelementptr inbounds i8, ptr %428, i64 %425
@@ -19631,7 +19631,7 @@ _ZN12_GLOBAL__N_112X86AsmParser24ParseIntelOffsetOperatorERPKN4llvm6MCExprERNS1_
 612:                                              ; preds = %610
   store ptr %606, ptr %159, align 8
   store ptr %.sroa.02.0.copyload.i, ptr %160, align 8
-  store i64 %.sroa.2.0.copyload.i297, ptr %.sroa.2.0..sroa_idx.i.i850, align 8
+  store i64 %.sroa.2.0.copyload.i297, ptr %.sroa.2.0..sroa_idx.i.i847, align 8
   store i8 1, ptr %161, align 4
   store ptr %573, ptr %162, align 8
   store i32 14, ptr %1, align 8
@@ -19732,7 +19732,7 @@ _ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_2
   br label %.thread
 
 635:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread563, %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit
-  %.1545566 = phi i1 [ true, %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread563 ]
+  %.1545566 = phi i1 [ false, %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread563 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit ]
   %636 = load ptr, ptr %79, align 8
   %637 = getelementptr inbounds i8, ptr %636, i64 112
   %638 = load ptr, ptr %637, align 8
@@ -19952,7 +19952,7 @@ _ZNK4llvm9StringRef5countEc.exit:                 ; preds = %701
   br i1 %.not223, label %_ZNK4llvm9StringRef5countEc.exit.thread, label %707
 
 707:                                              ; preds = %_ZNK4llvm9StringRef5countEc.exit
-  switch i32 %.0212724, label %_ZNK4llvm9StringRef5countEc.exit.thread [
+  switch i32 %.0212721, label %_ZNK4llvm9StringRef5countEc.exit.thread [
     i32 20, label %708
     i32 18, label %708
   ]
@@ -20047,13 +20047,13 @@ _ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread: ; pr
   br label %.thread
 
 732:                                              ; preds = %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit17.sink.split.i14.i
-  switch i32 %.sroa.18.2.i.ph, label %default.unreachable959 [
+  switch i32 %.sroa.18.2.i.ph, label %default.unreachable956 [
     i32 1, label %733
     i32 2, label %735
     i32 3, label %737
   ]
 
-default.unreachable959:                           ; preds = %841, %732
+default.unreachable956:                           ; preds = %841, %732
   unreachable
 
 733:                                              ; preds = %732
@@ -20350,7 +20350,7 @@ _ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit.thread593: ; preds =
   br label %.thread
 
 841:                                              ; preds = %_ZN4llvm8AsmTokenD2Ev.exit437.thread
-  switch i32 %.sroa.16.2.i.ph, label %default.unreachable959 [
+  switch i32 %.sroa.16.2.i.ph, label %default.unreachable956 [
     i32 2, label %842
     i32 1, label %843
     i32 3, label %844
@@ -20489,16 +20489,16 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   %886 = call noundef zeroext i1 %885(ptr noundef nonnull align 8 dereferenceable(34) %882, ptr noundef nonnull align 8 dereferenceable(16) %40) #23
   %887 = load i64, ptr %107, align 8
   %.not.i.i = icmp eq i64 %887, 0
-  %.sroa.048.0.copyload.pre.pre780 = load ptr, ptr %40, align 8
+  %.sroa.048.0.copyload.pre.pre778 = load ptr, ptr %40, align 8
   br i1 %.not.i.i, label %_ZN4llvm9StringRef12consume_backES0_.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
-  %lhsc646 = load i8, ptr %.sroa.048.0.copyload.pre.pre780, align 1
-  %888 = icmp eq i8 %lhsc646, 46
+  %lhsc647 = load i8, ptr %.sroa.048.0.copyload.pre.pre778, align 1
+  %888 = icmp eq i8 %lhsc647, 46
   br i1 %888, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  %889 = getelementptr inbounds i8, ptr %.sroa.048.0.copyload.pre.pre780, i64 1
+  %889 = getelementptr inbounds i8, ptr %.sroa.048.0.copyload.pre.pre778, i64 1
   %890 = add i64 %887, -1
   store ptr %889, ptr %40, align 8
   store i64 %890, ptr %107, align 8
@@ -20521,11 +20521,11 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %_ZNK4llvm9StringRef
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm9StringRef13consume_frontES0_.exit
   %896 = phi i64 [ %895, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %887, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
-  %.sroa.048.0.copyload.pre793 = phi ptr [ %.sroa.048.0.copyload.pre, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %.sroa.048.0.copyload.pre.pre780, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
-  %897 = getelementptr inbounds i8, ptr %.sroa.048.0.copyload.pre793, i64 %896
+  %.sroa.048.0.copyload.pre790 = phi ptr [ %.sroa.048.0.copyload.pre, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %.sroa.048.0.copyload.pre.pre778, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %897 = getelementptr inbounds i8, ptr %.sroa.048.0.copyload.pre790, i64 %896
   %898 = getelementptr inbounds i8, ptr %897, i64 -1
-  %lhsc647 = load i8, ptr %898, align 1
-  %899 = icmp eq i8 %lhsc647, 46
+  %lhsc648 = load i8, ptr %898, align 1
+  %899 = icmp eq i8 %lhsc648, 46
   br i1 %899, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i, label %_ZN4llvm9StringRef12consume_backES0_.exit
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i:  ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i
@@ -20534,7 +20534,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i:  ; preds = %_ZNK4llvm9StringRef
   br label %_ZN4llvm9StringRef12consume_backES0_.exit
 
 _ZN4llvm9StringRef12consume_backES0_.exit:        ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvm9StringRef13consume_frontES0_.exit, %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i
-  %.sroa.048.0.copyload.pre789 = phi ptr [ %.sroa.048.0.copyload.pre793, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ %.sroa.048.0.copyload.pre793, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i ], [ %.sroa.048.0.copyload.pre, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %.sroa.048.0.copyload.pre.pre780, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
+  %.sroa.048.0.copyload.pre786 = phi ptr [ %.sroa.048.0.copyload.pre790, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ %.sroa.048.0.copyload.pre790, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i ], [ %.sroa.048.0.copyload.pre, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %.sroa.048.0.copyload.pre.pre778, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
   %.sroa.249.0.copyload = phi i64 [ %896, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ %900, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i ], [ 0, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
   %901 = phi i1 [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i ], [ false, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
   %902 = load ptr, ptr %78, align 8
@@ -20543,7 +20543,7 @@ _ZN4llvm9StringRef12consume_backES0_.exit:        ; preds = %_ZNK4llvm9StringRef
   %903 = load ptr, ptr %902, align 8
   %904 = getelementptr inbounds i8, ptr %903, i64 136
   %905 = load ptr, ptr %904, align 8
-  %906 = call noundef zeroext i1 %905(ptr noundef nonnull align 8 dereferenceable(34) %902, ptr %.sroa.050.0.copyload, i64 %.sroa.251.0.copyload, ptr %.sroa.048.0.copyload.pre789, i64 %.sroa.249.0.copyload, ptr noundef nonnull align 8 dereferenceable(36) %57) #23
+  %906 = call noundef zeroext i1 %905(ptr noundef nonnull align 8 dereferenceable(34) %902, ptr %.sroa.050.0.copyload, i64 %.sroa.251.0.copyload, ptr %.sroa.048.0.copyload.pre786, i64 %.sroa.249.0.copyload, ptr noundef nonnull align 8 dereferenceable(36) %57) #23
   br i1 %906, label %907, label %914
 
 907:                                              ; preds = %_ZN4llvm9StringRef12consume_backES0_.exit
@@ -20673,8 +20673,8 @@ _ZN4llvm9StringRef12consume_backES0_.exit:        ; preds = %_ZNK4llvm9StringRef
   br i1 %cond, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit354.thread601
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %975
-  %lhsc782 = load i8, ptr %.sroa.0.0.copyload.i343, align 1
-  switch i8 %lhsc782, label %_ZN4llvmeqENS_9StringRefES0_.exit354.thread601 [
+  %lhsc780 = load i8, ptr %.sroa.0.0.copyload.i343, align 1
+  switch i8 %lhsc780, label %_ZN4llvmeqENS_9StringRefES0_.exit354.thread601 [
     i8 102, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
     i8 98, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   ]
@@ -20686,8 +20686,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %982 = load ptr, ptr %981, align 8
   %983 = call noundef nonnull align 8 dereferenceable(2432) ptr %982(ptr noundef nonnull align 8 dereferenceable(34) %979) #23
   %984 = trunc i64 %.0.i.i to i32
-  %lhsc784 = load i8, ptr %.sroa.0.0.copyload.i343, align 1
-  %985 = icmp eq i8 %lhsc784, 98
+  %lhsc782 = load i8, ptr %.sroa.0.0.copyload.i343, align 1
+  %985 = icmp eq i8 %lhsc782, 98
   %986 = call noundef ptr @_ZN4llvm9MCContext25getDirectionalLocalSymbolEjb(ptr noundef nonnull align 8 dereferenceable(2432) %983, i32 noundef %984, i1 noundef zeroext %985) #23
   %987 = load ptr, ptr %78, align 8
   %988 = load ptr, ptr %987, align 8
@@ -20695,8 +20695,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %990 = load ptr, ptr %989, align 8
   %991 = call noundef nonnull align 8 dereferenceable(2432) ptr %990(ptr noundef nonnull align 8 dereferenceable(34) %987) #23
   %992 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %986, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %991, ptr null) #23
-  %lhsc785 = load i8, ptr %.sroa.0.0.copyload.i343, align 1
-  %993 = icmp eq i8 %lhsc785, 98
+  %lhsc783 = load i8, ptr %.sroa.0.0.copyload.i343, align 1
+  %993 = icmp eq i8 %lhsc783, 98
   br i1 %993, label %_ZN4llvmeqENS_9StringRefES0_.exit362.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit362.thread604
 
 _ZN4llvmeqENS_9StringRefES0_.exit362.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
@@ -21236,7 +21236,7 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onRShiftEv.exit: ; preds 
   store i8 1, ptr %102, align 2
   store i8 1, ptr %103, align 1
   store i16 %1162, ptr %94, align 8
-  %.not.i411 = icmp eq i32 %.0212724, 20
+  %.not.i411 = icmp eq i32 %.0212721, 20
   br i1 %.not.i411, label %1163, label %_ZN4llvm8AsmTokenD2Ev.exit282
 
 1163:                                             ; preds = %1161
@@ -21380,8 +21380,8 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLParenEv.exit: ; preds 
   br label %_ZN4llvm8AsmTokenD2Ev.exit282
 
 _ZN4llvm8AsmTokenD2Ev.exit282:                    ; preds = %1200, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onRBracERN4llvm9StringRefE.exit, %1163, %1161, %1126, %1123, %1120, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onMinusERN4llvm9StringRefE.exit, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onPlusERN4llvm9StringRefE.exit384, %.thread568, %354, %351, %339, %_ZN4llvmeqENS_9StringRefES0_.exit354.thread601, %1026, %1042, %938, %.critedge5, %848, %760, %739, %708, %683, %408, %_ZN4llvm8AsmTokenD2Ev.exit280, %267, %221, %207, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLParenEv.exit, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onRShiftEv.exit, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLShiftEv.exit, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onAndEv.exit, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onXorEv.exit, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine4onOrEv.exit, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onNotEv.exit, %495, %_ZN4llvm8AsmTokenD2Ev.exit283
-  %.0215.not = phi i1 [ false, %1200 ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLParenEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onRBracERN4llvm9StringRefE.exit ], [ false, %1163 ], [ false, %1161 ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onRShiftEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLShiftEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onAndEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onXorEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine4onOrEv.exit ], [ false, %1126 ], [ false, %1123 ], [ false, %1120 ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onNotEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onMinusERN4llvm9StringRefE.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onPlusERN4llvm9StringRefE.exit384 ], [ true, %1026 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit354.thread601 ], [ true, %1042 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ true, %.thread568 ], [ true, %683 ], [ true, %760 ], [ true, %739 ], [ true, %938 ], [ true, %.critedge5 ], [ true, %848 ], [ true, %708 ], [ true, %495 ], [ true, %408 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit280 ], [ true, %351 ], [ true, %354 ], [ true, %339 ], [ true, %267 ], [ true, %221 ], [ true, %207 ]
-  %.1.ph.ph = phi i1 [ %.0725, %1200 ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLParenEv.exit ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onRBracERN4llvm9StringRefE.exit ], [ %.0725, %1163 ], [ %.0725, %1161 ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onRShiftEv.exit ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLShiftEv.exit ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onAndEv.exit ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onXorEv.exit ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine4onOrEv.exit ], [ %.0725, %1126 ], [ %.0725, %1123 ], [ %.0725, %1120 ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onNotEv.exit ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onMinusERN4llvm9StringRefE.exit ], [ %.0725, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onPlusERN4llvm9StringRefE.exit384 ], [ %.0725, %1026 ], [ %.0725, %_ZN4llvmeqENS_9StringRefES0_.exit354.thread601 ], [ %.0725, %1042 ], [ %.4, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ %.3, %.thread568 ], [ %.3, %683 ], [ %.3, %760 ], [ %.3, %739 ], [ %.3, %938 ], [ %.3, %.critedge5 ], [ %.3, %848 ], [ %.3, %708 ], [ %.3, %495 ], [ %.3, %408 ], [ %.0725, %_ZN4llvm8AsmTokenD2Ev.exit280 ], [ %.0725, %351 ], [ %.0725, %354 ], [ %.0725, %339 ], [ %.0725, %267 ], [ %.0725, %221 ], [ %.0725, %207 ]
+  %.0215.not = phi i1 [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLParenEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onRBracERN4llvm9StringRefE.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onRShiftEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLShiftEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onAndEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onXorEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine4onOrEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onNotEv.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onMinusERN4llvm9StringRefE.exit ], [ false, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onPlusERN4llvm9StringRefE.exit384 ], [ true, %1026 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit354.thread601 ], [ true, %1042 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit280 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ true, %683 ], [ true, %708 ], [ true, %739 ], [ true, %760 ], [ true, %848 ], [ true, %938 ], [ true, %.critedge5 ], [ true, %495 ], [ true, %408 ], [ true, %267 ], [ true, %221 ], [ true, %207 ], [ true, %339 ], [ true, %351 ], [ true, %354 ], [ true, %.thread568 ], [ false, %1120 ], [ false, %1123 ], [ false, %1126 ], [ false, %1161 ], [ false, %1163 ], [ false, %1200 ]
+  %.1.ph.ph = phi i1 [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLParenEv.exit ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onRBracERN4llvm9StringRefE.exit ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onRShiftEv.exit ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onLShiftEv.exit ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onAndEv.exit ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onXorEv.exit ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine4onOrEv.exit ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine5onNotEv.exit ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onMinusERN4llvm9StringRefE.exit ], [ %.0722, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onPlusERN4llvm9StringRefE.exit384 ], [ %.0722, %1026 ], [ %.0722, %_ZN4llvmeqENS_9StringRefES0_.exit354.thread601 ], [ %.0722, %1042 ], [ %.0722, %_ZN4llvm8AsmTokenD2Ev.exit280 ], [ %.4, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ %.3, %683 ], [ %.3, %708 ], [ %.3, %739 ], [ %.3, %760 ], [ %.3, %848 ], [ %.3, %938 ], [ %.3, %.critedge5 ], [ %.3, %495 ], [ %.3, %408 ], [ %.0722, %267 ], [ %.0722, %221 ], [ %.0722, %207 ], [ %.0722, %339 ], [ %.0722, %351 ], [ %.0722, %354 ], [ %.3, %.thread568 ], [ %.0722, %1120 ], [ %.0722, %1123 ], [ %.0722, %1126 ], [ %.0722, %1161 ], [ %.0722, %1163 ], [ %.0722, %1200 ]
   %.val266.pr.pr = load i32, ptr %1, align 8
   %1201 = icmp eq i32 %.val266.pr.pr, 26
   br i1 %1201, label %_ZN4llvm8AsmTokenD2Ev.exit282.thread, label %1206
@@ -21424,20 +21424,20 @@ switch.hole_check:                                ; preds = %184
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %.thread, label %186
 
-switch.hole_check1064:                            ; preds = %214
-  %switch.maskindex1066 = trunc nuw i32 %switch.tableidx1063 to i16
-  %switch.shifted1067 = lshr i16 3713, %switch.maskindex1066
-  %switch.lobit1068 = trunc i16 %switch.shifted1067 to i1
-  br i1 %switch.lobit1068, label %.thread, label %216
+switch.hole_check1061:                            ; preds = %214
+  %switch.maskindex1063 = trunc nuw i32 %switch.tableidx1060 to i16
+  %switch.shifted1064 = lshr i16 3713, %switch.maskindex1063
+  %switch.lobit1065 = trunc i16 %switch.shifted1064 to i1
+  br i1 %switch.lobit1065, label %.thread, label %216
 
-switch.hole_check1071:                            ; preds = %233
-  %switch.maskindex1073 = trunc nuw i32 %switch.tableidx1070 to i16
-  %switch.shifted1074 = lshr i16 3713, %switch.maskindex1073
-  %switch.lobit1075 = trunc i16 %switch.shifted1074 to i1
-  br i1 %switch.lobit1075, label %.thread, label %235
+switch.hole_check1068:                            ; preds = %233
+  %switch.maskindex1070 = trunc nuw i32 %switch.tableidx1067 to i16
+  %switch.shifted1071 = lshr i16 3713, %switch.maskindex1070
+  %switch.lobit1072 = trunc i16 %switch.shifted1071 to i1
+  br i1 %switch.lobit1072, label %.thread, label %235
 
-.thread:                                          ; preds = %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit, %708, %683, %245, %221, %207, %_ZN4llvm8AsmTokenD2Ev.exit283, %switch.hole_check1071, %switch.hole_check1064, %switch.hole_check, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit.thread593, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread, %634, %_ZN4llvm8AsmTokenD2Ev.exit282.thread, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418, %1156, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388, %1072, %1044, %1034, %1018, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread, %941, %933, %919, %907, %850, %763, %756, %742, %487, %475, %451, %438, %411, %270, %263, %235, %216, %191, %186
-  %.2 = phi i1 [ %1205, %_ZN4llvm8AsmTokenD2Ev.exit282.thread ], [ %190, %186 ], [ %1193, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418 ], [ %1160, %1156 ], [ %1113, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388 ], [ %1079, %1072 ], [ %1006, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread ], [ %1025, %1018 ], [ %1041, %1034 ], [ %1051, %1044 ], [ %749, %742 ], [ %759, %756 ], [ %770, %763 ], [ %857, %850 ], [ %937, %933 ], [ %948, %941 ], [ %913, %907 ], [ %926, %919 ], [ %445, %438 ], [ %454, %451 ], [ %482, %475 ], [ %494, %487 ], [ %418, %411 ], [ %277, %270 ], [ %266, %263 ], [ %239, %235 ], [ %220, %216 ], [ %206, %191 ], [ true, %634 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit.thread593 ], [ false, %switch.hole_check ], [ false, %switch.hole_check1064 ], [ false, %switch.hole_check1071 ], [ %.4, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ true, %207 ], [ true, %221 ], [ true, %245 ], [ true, %683 ], [ true, %708 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit ]
+.thread:                                          ; preds = %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit, %708, %683, %245, %221, %207, %_ZN4llvm8AsmTokenD2Ev.exit283, %switch.hole_check1068, %switch.hole_check1061, %switch.hole_check, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit.thread593, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread, %634, %_ZN4llvm8AsmTokenD2Ev.exit282.thread, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418, %1156, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388, %1072, %1044, %1034, %1018, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread, %941, %933, %919, %907, %850, %763, %756, %742, %487, %475, %451, %438, %411, %270, %263, %235, %216, %191, %186
+  %.2 = phi i1 [ %1205, %_ZN4llvm8AsmTokenD2Ev.exit282.thread ], [ %190, %186 ], [ %1193, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418 ], [ %1160, %1156 ], [ %1113, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388 ], [ %1079, %1072 ], [ %1006, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread ], [ %1025, %1018 ], [ %1041, %1034 ], [ %1051, %1044 ], [ %749, %742 ], [ %759, %756 ], [ %770, %763 ], [ %857, %850 ], [ %937, %933 ], [ %948, %941 ], [ %913, %907 ], [ %926, %919 ], [ %445, %438 ], [ %454, %451 ], [ %482, %475 ], [ %494, %487 ], [ %418, %411 ], [ %277, %270 ], [ %266, %263 ], [ %239, %235 ], [ %220, %216 ], [ %206, %191 ], [ true, %634 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit.thread593 ], [ false, %switch.hole_check ], [ false, %switch.hole_check1061 ], [ false, %switch.hole_check1068 ], [ %.4, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ true, %207 ], [ true, %221 ], [ true, %245 ], [ true, %683 ], [ true, %708 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit ]
   ret i1 %.2
 
 1214:                                             ; preds = %_ZN4llvm8AsmTokenD2Ev.exit283

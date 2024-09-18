@@ -1804,17 +1804,17 @@ define noundef zeroext i1 @_ZNK5Ipopt17CompoundSymMatrix13MatricesValidEv(ptr no
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79
-  %indvars.iv94 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next95, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79 ]
-  %indvars.iv92 = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next93, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79 ]
-  %.01988 = phi i1 [ true, %.preheader.lr.ph ], [ %.1, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79 ]
-  %.sroa.037.085 = phi ptr [ undef, %.preheader.lr.ph ], [ %.sroa.037.4, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79 ]
+  %indvars.iv92 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next93, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79 ]
+  %indvars.iv90 = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next91, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79 ]
+  %.01986 = phi i1 [ true, %.preheader.lr.ph ], [ %.1, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79 ]
+  %.sroa.037.084 = phi ptr [ undef, %.preheader.lr.ph ], [ %.sroa.037.4, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79 ]
   br label %9
 
 9:                                                ; preds = %.preheader, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread ]
-  %.sroa.037.182 = phi ptr [ %.sroa.037.085, %.preheader ], [ %.sroa.037.35378, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread ]
+  %.sroa.037.182 = phi ptr [ %.sroa.037.084, %.preheader ], [ %.sroa.037.35378, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.std::vector.25", ptr %10, i64 %indvars.iv94
+  %11 = getelementptr inbounds %"class.std::vector.25", ptr %10, i64 %indvars.iv92
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds %"class.Ipopt::SmartPtr.35", ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
@@ -1823,7 +1823,7 @@ define noundef zeroext i1 @_ZNK5Ipopt17CompoundSymMatrix13MatricesValidEv(ptr no
 
 _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit:  ; preds = %9
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %"class.std::vector.30", ptr %15, i64 %indvars.iv94
+  %16 = getelementptr inbounds %"class.std::vector.30", ptr %15, i64 %indvars.iv92
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds %"class.Ipopt::SmartPtr.36", ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
@@ -1834,7 +1834,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit:  ; preds = %9
   %21 = load ptr, ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8, !noalias !33
-  %24 = getelementptr inbounds %"class.std::vector.59", ptr %23, i64 %indvars.iv94
+  %24 = getelementptr inbounds %"class.std::vector.59", ptr %23, i64 %indvars.iv92
   %25 = load ptr, ptr %24, align 8, !noalias !33
   %26 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !noalias !33
@@ -1851,7 +1851,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit:  ; preds = %9
 _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28: ; preds = %20, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit
   %.sroa.037.2.ph = phi ptr [ null, %20 ], [ %.sroa.037.182, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit ]
   %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %"class.std::vector.30", ptr %31, i64 %indvars.iv94
+  %32 = getelementptr inbounds %"class.std::vector.30", ptr %31, i64 %indvars.iv92
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds %"class.Ipopt::SmartPtr.36", ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
@@ -1862,7 +1862,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread: ; preds = %_ZNK5Ipopt1
   %36 = load ptr, ptr %2, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8, !noalias !36
-  %39 = getelementptr inbounds %"class.std::vector.59", ptr %38, i64 %indvars.iv94
+  %39 = getelementptr inbounds %"class.std::vector.59", ptr %38, i64 %indvars.iv92
   %40 = load ptr, ptr %39, align 8, !noalias !36
   %41 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !noalias !36
@@ -1873,20 +1873,20 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread: ; preds = %9
   %43 = load ptr, ptr %2, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8, !noalias !36
-  %46 = getelementptr inbounds %"class.std::vector.59", ptr %45, i64 %indvars.iv94
+  %46 = getelementptr inbounds %"class.std::vector.59", ptr %45, i64 %indvars.iv92
   %47 = load ptr, ptr %46, align 8, !noalias !36
   %48 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !noalias !36
-  %.not.i.i.i.i29108 = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i29108, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79, label %50
+  %.not.i.i.i.i29106 = icmp eq ptr %49, null
+  br i1 %.not.i.i.i.i29106, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79, label %50
 
 .thread58:                                        ; preds = %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread
   br i1 %.not24, label %59, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79
 
 50:                                               ; preds = %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread
   %51 = phi ptr [ %49, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread ], [ %42, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread ]
-  %.not244499112 = phi i1 [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread ], [ %.not24, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread ]
-  %.sroa.037.2102109 = phi ptr [ %.sroa.037.182, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread ], [ %.sroa.037.2.ph, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread ]
+  %.not244497110 = phi i1 [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread ], [ %.not24, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread ]
+  %.sroa.037.2100107 = phi ptr [ %.sroa.037.182, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread ], [ %.sroa.037.2.ph, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread ]
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8, !noalias !36
   %54 = icmp eq i32 %53, 0
@@ -1897,29 +1897,29 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread: ; preds = %9
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   tail call void %58(ptr noundef nonnull align 8 dereferenceable(20) %51) #18
-  br i1 %.not244499112, label %59, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
+  br i1 %.not244497110, label %59, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
 
 _ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30: ; preds = %50, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28
-  %.sroa.037.2104 = phi ptr [ %.sroa.037.2102109, %50 ], [ %.sroa.037.2.ph, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28 ]
-  %.not2444101 = phi i1 [ %.not244499112, %50 ], [ %.not24, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28 ]
-  br i1 %.not2444101, label %59, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
+  %.sroa.037.2102 = phi ptr [ %.sroa.037.2100107, %50 ], [ %.sroa.037.2.ph, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28 ]
+  %.not244499 = phi i1 [ %.not244497110, %50 ], [ %.not24, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28 ]
+  br i1 %.not244499, label %59, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
 
 59:                                               ; preds = %55, %.thread58, %_ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30
-  %.sroa.037.2105 = phi ptr [ %.sroa.037.2104, %_ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30 ], [ %.sroa.037.2.ph, %.thread58 ], [ %.sroa.037.2102109, %55 ]
+  %.sroa.037.2103 = phi ptr [ %.sroa.037.2102, %_ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30 ], [ %.sroa.037.2.ph, %.thread58 ], [ %.sroa.037.2100107, %55 ]
   %60 = phi i1 [ false, %_ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30 ], [ true, %.thread58 ], [ false, %55 ]
-  %.not.i.i31 = icmp eq ptr %.sroa.037.2105, null
-  br i1 %.not.i.i31, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32, label %._crit_edge96
+  %.not.i.i31 = icmp eq ptr %.sroa.037.2103, null
+  br i1 %.not.i.i31, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32, label %._crit_edge94
 
-._crit_edge96:                                    ; preds = %59
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.037.2105, i64 8
+._crit_edge94:                                    ; preds = %59
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.037.2103, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %61 = add nsw i32 %.pre, -1
   br label %62
 
-62:                                               ; preds = %._crit_edge96, %.thread67
-  %63 = phi i32 [ %29, %.thread67 ], [ %61, %._crit_edge96 ]
-  %64 = phi i1 [ true, %.thread67 ], [ %60, %._crit_edge96 ]
-  %.sroa.037.3516671 = phi ptr [ %27, %.thread67 ], [ %.sroa.037.2105, %._crit_edge96 ]
+62:                                               ; preds = %._crit_edge94, %.thread67
+  %63 = phi i32 [ %29, %.thread67 ], [ %61, %._crit_edge94 ]
+  %64 = phi i1 [ true, %.thread67 ], [ %60, %._crit_edge94 ]
+  %.sroa.037.3516671 = phi ptr [ %27, %.thread67 ], [ %.sroa.037.2103, %._crit_edge94 ]
   %65 = getelementptr inbounds i8, ptr %.sroa.037.3516671, i64 8
   store i32 %63, ptr %65, align 8
   %66 = icmp eq i32 %63, 0
@@ -1938,21 +1938,21 @@ _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32: ; preds = %62, %59
   br i1 %71, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread: ; preds = %55, %_ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30, %67, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32
-  %.sroa.037.35378 = phi ptr [ %.sroa.037.353, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32 ], [ %.sroa.037.3516671, %67 ], [ %.sroa.037.2102109, %55 ], [ %.sroa.037.2104, %_ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30 ]
+  %.sroa.037.35378 = phi ptr [ %.sroa.037.353, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32 ], [ %.sroa.037.3516671, %67 ], [ %.sroa.037.2100107, %55 ], [ %.sroa.037.2102, %_ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv92
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv90
   br i1 %exitcond.not, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79, label %9, !llvm.loop !39
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79: ; preds = %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread, %.thread58, %67, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
   %.sroa.037.4 = phi ptr [ %.sroa.037.35378, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread ], [ %.sroa.037.353, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32 ], [ %.sroa.037.3516671, %67 ], [ %.sroa.037.2.ph, %.thread58 ], [ %.sroa.037.182, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread ]
-  %.1 = phi i1 [ %.01988, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread ], [ false, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32 ], [ false, %67 ], [ false, %.thread58 ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread ]
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %.1 = phi i1 [ %.01986, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread ], [ false, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32 ], [ false, %67 ], [ false, %.thread58 ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28.thread.thread ]
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %72 = load ptr, ptr %2, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 20
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next95, %75
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %76 = icmp slt i64 %indvars.iv.next93, %75
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   br i1 %76, label %.preheader, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79, %1

@@ -2062,31 +2062,31 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_set
   %195 = call { ptr, ptr } @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE6blocksEv(ptr noundef nonnull align 8 dereferenceable(152) %192) #18
   %196 = extractvalue { ptr, ptr } %195, 0
   %197 = extractvalue { ptr, ptr } %195, 1
-  %.not57.i.i = icmp eq ptr %196, %197
-  br i1 %.not57.i.i, label %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i, label %.lr.ph63.i.i
+  %.not53.i.i = icmp eq ptr %196, %197
+  br i1 %.not53.i.i, label %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i, label %.lr.ph57.i.i
 
-.lr.ph63.i.i:                                     ; preds = %194, %._crit_edge.i.i
-  %.02861.i.i = phi i1 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ false, %194 ]
-  %.02960.i.i = phi ptr [ %223, %._crit_edge.i.i ], [ %196, %194 ]
-  %198 = load ptr, ptr %.02960.i.i, align 8
+.lr.ph57.i.i:                                     ; preds = %194, %._crit_edge.i.i
+  %.02855.i.i = phi i1 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ false, %194 ]
+  %.02954.i.i = phi ptr [ %223, %._crit_edge.i.i ], [ %196, %194 ]
+  %198 = load ptr, ptr %.02954.i.i, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 56
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 48
   %.sroa.042.049.i.i = load ptr, ptr %199, align 8
   %.not4750.i.i = icmp eq ptr %.sroa.042.049.i.i, %200
   br i1 %.not4750.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph63.i.i, %221
-  %.sroa.042.054.i.i = phi ptr [ %.sroa.042.0.i.i, %221 ], [ %.sroa.042.049.i.i, %.lr.ph63.i.i ]
-  %.153.i.i = phi i1 [ %.2.i.i, %221 ], [ %.02861.i.i, %.lr.ph63.i.i ]
-  %201 = icmp eq ptr %.sroa.042.054.i.i, null
-  %202 = getelementptr inbounds i8, ptr %.sroa.042.054.i.i, i64 -24
+.lr.ph.i.i:                                       ; preds = %.lr.ph57.i.i, %221
+  %.sroa.042.052.i.i = phi ptr [ %.sroa.042.0.i.i, %221 ], [ %.sroa.042.049.i.i, %.lr.ph57.i.i ]
+  %.151.i.i = phi i1 [ %.2.i.i, %221 ], [ %.02855.i.i, %.lr.ph57.i.i ]
+  %201 = icmp eq ptr %.sroa.042.052.i.i, null
+  %202 = getelementptr inbounds i8, ptr %.sroa.042.052.i.i, i64 -24
   %203 = load i8, ptr %202, align 8
   %204 = icmp ne i8 %203, 61
   %.not32.i.i = or i1 %201, %204
   br i1 %.not32.i.i, label %221, label %205
 
 205:                                              ; preds = %.lr.ph.i.i
-  %206 = getelementptr inbounds i8, ptr %.sroa.042.054.i.i, i64 -56
+  %206 = getelementptr inbounds i8, ptr %.sroa.042.052.i.i, i64 -56
   %207 = load ptr, ptr %206, align 8
   %208 = call noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(152) %192, ptr noundef %207) #18
   br i1 %208, label %221, label %209
@@ -2113,17 +2113,17 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_set
   br label %221
 
 221:                                              ; preds = %218, %214, %209, %205, %.lr.ph.i.i
-  %.2.i.i = phi i1 [ %.153.i.i, %.lr.ph.i.i ], [ %.153.i.i, %205 ], [ %.153.i.i, %209 ], [ true, %218 ], [ %.153.i.i, %214 ]
-  %222 = getelementptr inbounds nuw i8, ptr %.sroa.042.054.i.i, i64 8
+  %.2.i.i = phi i1 [ %.151.i.i, %205 ], [ true, %218 ], [ %.151.i.i, %214 ], [ %.151.i.i, %209 ], [ %.151.i.i, %.lr.ph.i.i ]
+  %222 = getelementptr inbounds nuw i8, ptr %.sroa.042.052.i.i, i64 8
   %.sroa.042.0.i.i = load ptr, ptr %222, align 8
   %.not47.i.i = icmp eq ptr %.sroa.042.0.i.i, %200
   br i1 %.not47.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %221, %.lr.ph63.i.i
-  %.1.lcssa.i.i = phi i1 [ %.02861.i.i, %.lr.ph63.i.i ], [ %.2.i.i, %221 ]
-  %223 = getelementptr inbounds i8, ptr %.02960.i.i, i64 8
+._crit_edge.i.i:                                  ; preds = %221, %.lr.ph57.i.i
+  %.1.lcssa.i.i = phi i1 [ %.02855.i.i, %.lr.ph57.i.i ], [ %.2.i.i, %221 ]
+  %223 = getelementptr inbounds i8, ptr %.02954.i.i, i64 8
   %.not.i.i = icmp eq ptr %223, %197
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i, label %.lr.ph63.i.i
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i, label %.lr.ph57.i.i
 
 _ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i: ; preds = %._crit_edge.i.i, %194, %.loopexit.i
   %.0.i.i = phi i1 [ false, %.loopexit.i ], [ false, %194 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]

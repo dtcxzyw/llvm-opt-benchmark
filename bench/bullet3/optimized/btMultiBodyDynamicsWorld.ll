@@ -5156,8 +5156,8 @@ if.then14:                                        ; preds = %invoke.cont9
 for.cond.preheader:                               ; preds = %if.then14
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 548
   %4 = load i32, ptr %m_size.i, align 4
-  %cmp1102 = icmp sgt i32 %4, 0
-  br i1 %cmp1102, label %for.body.lr.ph, label %for.cond26.preheader
+  %cmp1084 = icmp sgt i32 %4, 0
+  br i1 %cmp1084, label %for.body.lr.ph, label %for.cond26.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 560
@@ -5166,8 +5166,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond26.preheader:                             ; preds = %for.inc, %for.cond.preheader
   %m_size.i52 = getelementptr inbounds i8, ptr %this, i64 516
   %5 = load i32, ptr %m_size.i52, align 4
-  %cmp291141 = icmp sgt i32 %5, 0
-  br i1 %cmp291141, label %for.body30.lr.ph, label %for.end293
+  %cmp291088 = icmp sgt i32 %5, 0
+  br i1 %cmp291088, label %for.body30.lr.ph, label %for.end293
 
 for.body30.lr.ph:                                 ; preds = %for.cond26.preheader
   %m_data.i53 = getelementptr inbounds i8, ptr %this, i64 528
@@ -5270,9 +5270,9 @@ lpad17:                                           ; preds = %lpad17.loopexit.spl
   br label %ehcleanup
 
 for.body30:                                       ; preds = %for.body30.lr.ph, %for.inc291
-  %indvars.iv1165 = phi i64 [ 0, %for.body30.lr.ph ], [ %indvars.iv.next1166, %for.inc291 ]
+  %indvars.iv1094 = phi i64 [ 0, %for.body30.lr.ph ], [ %indvars.iv.next1095, %for.inc291 ]
   %17 = load ptr, ptr %m_data.i53, align 8
-  %arrayidx.i55 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv1165
+  %arrayidx.i55 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv1094
   %18 = load ptr, ptr %arrayidx.i55, align 8
   invoke void @_ZN11btMultiBody17forwardKinematicsER20btAlignedObjectArrayI12btQuaternionERS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(640) %18, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_world_to_local1, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_local_origin1)
           to label %invoke.cont34 unwind label %lpad17.loopexit.split-lp.loopexit
@@ -5352,17 +5352,17 @@ invoke.cont42:                                    ; preds = %if.then37
 if.end46:                                         ; preds = %invoke.cont42, %invoke.cont34
   %m_size.i.i = getelementptr inbounds i8, ptr %18, i64 180
   %28 = load i32, ptr %m_size.i.i, align 4
-  %cmp501104 = icmp sgt i32 %28, 0
-  br i1 %cmp501104, label %invoke.cont52.lr.ph, label %for.inc291
+  %cmp501086 = icmp sgt i32 %28, 0
+  br i1 %cmp501086, label %invoke.cont52.lr.ph, label %for.inc291
 
 invoke.cont52.lr.ph:                              ; preds = %if.end46
   %m_data.i.i = getelementptr inbounds i8, ptr %18, i64 192
   br label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %invoke.cont52.lr.ph, %for.inc288
-  %indvars.iv1162 = phi i64 [ 0, %invoke.cont52.lr.ph ], [ %indvars.iv.next1163, %for.inc288 ]
+  %indvars.iv1091 = phi i64 [ 0, %invoke.cont52.lr.ph ], [ %indvars.iv.next1092, %for.inc288 ]
   %29 = load ptr, ptr %m_data.i.i, align 8
-  %m_cachedWorldTransform = getelementptr inbounds %struct.btMultibodyLink, ptr %29, i64 %indvars.iv1162, i32 28
+  %m_cachedWorldTransform = getelementptr inbounds %struct.btMultibodyLink, ptr %29, i64 %indvars.iv1091, i32 28
   br i1 %tobool36.not, label %invoke.cont65, label %if.then56
 
 if.then56:                                        ; preds = %invoke.cont52
@@ -5385,7 +5385,7 @@ invoke.cont59.invoke.cont65_crit_edge:            ; preds = %invoke.cont59
 
 invoke.cont65:                                    ; preds = %invoke.cont59.invoke.cont65_crit_edge, %invoke.cont52
   %32 = phi ptr [ %.pre, %invoke.cont59.invoke.cont65_crit_edge ], [ %29, %invoke.cont52 ]
-  %m_jointType = getelementptr inbounds %struct.btMultibodyLink, ptr %32, i64 %indvars.iv1162, i32 26
+  %m_jointType = getelementptr inbounds %struct.btMultibodyLink, ptr %32, i64 %indvars.iv1091, i32 26
   %33 = load i32, ptr %m_jointType, align 4
   %cmp67 = icmp eq i32 %33, 0
   br i1 %cmp67, label %if.then68, label %invoke.cont133
@@ -5496,7 +5496,7 @@ invoke.cont91:                                    ; preds = %if.then.i, %if.else
   %56 = phi float [ %.pre.i, %if.else.i ], [ %mul18.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
   %57 = load ptr, ptr %m_data.i.i, align 8
-  %m_axes = getelementptr inbounds %struct.btMultibodyLink, ptr %57, i64 %indvars.iv1162, i32 8
+  %m_axes = getelementptr inbounds %struct.btMultibodyLink, ptr %57, i64 %indvars.iv1091, i32 8
   %58 = load float, ptr %m_axes, align 4
   %arrayidx.i24.i.i = getelementptr inbounds i8, ptr %m_axes, i64 8
   %59 = load float, ptr %arrayidx.i24.i.i, align 4
@@ -5649,7 +5649,7 @@ invoke.cont105:                                   ; preds = %if.else.i461, %if.t
   %104 = phi float [ %.pre.i504, %if.else.i461 ], [ %mul18.i523, %if.then.i513 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i455)
   %105 = load ptr, ptr %m_data.i.i, align 8
-  %m_dVector = getelementptr inbounds %struct.btMultibodyLink, ptr %105, i64 %indvars.iv1162, i32 4
+  %m_dVector = getelementptr inbounds %struct.btMultibodyLink, ptr %105, i64 %indvars.iv1091, i32 4
   %106 = load float, ptr %m_dVector, align 4
   %arrayidx.i24.i.i87 = getelementptr inbounds i8, ptr %m_dVector, i64 8
   %107 = load float, ptr %arrayidx.i24.i.i87, align 4
@@ -5794,7 +5794,7 @@ invoke.cont122:                                   ; preds = %if.else.i537, %if.t
   %149 = phi float [ %.pre.i580, %if.else.i537 ], [ %mul18.i599, %if.then.i589 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i531)
   %150 = load ptr, ptr %m_data.i.i, align 8
-  %m_dVector118 = getelementptr inbounds %struct.btMultibodyLink, ptr %150, i64 %indvars.iv1162, i32 4
+  %m_dVector118 = getelementptr inbounds %struct.btMultibodyLink, ptr %150, i64 %indvars.iv1091, i32 4
   %151 = load float, ptr %m_dVector118, align 4
   %arrayidx.i24.i.i127 = getelementptr inbounds i8, ptr %m_dVector118, i64 8
   %152 = load float, ptr %arrayidx.i24.i.i127, align 4
@@ -5853,13 +5853,13 @@ invoke.cont127:                                   ; preds = %invoke.cont122
           to label %invoke.cont127.invoke.cont133_crit_edge unwind label %lpad17.loopexit
 
 invoke.cont127.invoke.cont133_crit_edge:          ; preds = %invoke.cont127
-  %.pre1168 = load ptr, ptr %m_data.i.i, align 8
-  %m_jointType135.phi.trans.insert = getelementptr inbounds %struct.btMultibodyLink, ptr %.pre1168, i64 %indvars.iv1162, i32 26
-  %.pre1169 = load i32, ptr %m_jointType135.phi.trans.insert, align 4
+  %.pre1097 = load ptr, ptr %m_data.i.i, align 8
+  %m_jointType135.phi.trans.insert = getelementptr inbounds %struct.btMultibodyLink, ptr %.pre1097, i64 %indvars.iv1091, i32 26
+  %.pre1098 = load i32, ptr %m_jointType135.phi.trans.insert, align 4
   br label %invoke.cont133
 
 invoke.cont133:                                   ; preds = %invoke.cont127.invoke.cont133_crit_edge, %invoke.cont65
-  %177 = phi i32 [ %.pre1169, %invoke.cont127.invoke.cont133_crit_edge ], [ %33, %invoke.cont65 ]
+  %177 = phi i32 [ %.pre1098, %invoke.cont127.invoke.cont133_crit_edge ], [ %33, %invoke.cont65 ]
   %cmp136 = icmp eq i32 %177, 4
   br i1 %cmp136, label %if.then137, label %invoke.cont210
 
@@ -5969,7 +5969,7 @@ invoke.cont166:                                   ; preds = %if.then.i665, %if.e
   %200 = phi float [ %.pre.i656, %if.else.i613 ], [ %mul18.i675, %if.then.i665 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i607)
   %201 = load ptr, ptr %m_data.i.i, align 8
-  %m_bottomVec = getelementptr inbounds %struct.btMultibodyLink, ptr %201, i64 %indvars.iv1162, i32 8, i64 0, i32 1
+  %m_bottomVec = getelementptr inbounds %struct.btMultibodyLink, ptr %201, i64 %indvars.iv1091, i32 8, i64 0, i32 1
   %202 = load float, ptr %m_bottomVec, align 4
   %arrayidx.i24.i.i172 = getelementptr inbounds i8, ptr %m_bottomVec, i64 8
   %203 = load float, ptr %arrayidx.i24.i.i172, align 4
@@ -6122,7 +6122,7 @@ invoke.cont181:                                   ; preds = %if.else.i689, %if.t
   %248 = phi float [ %.pre.i732, %if.else.i689 ], [ %mul18.i751, %if.then.i741 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i683)
   %249 = load ptr, ptr %m_data.i.i, align 8
-  %m_dVector177 = getelementptr inbounds %struct.btMultibodyLink, ptr %249, i64 %indvars.iv1162, i32 4
+  %m_dVector177 = getelementptr inbounds %struct.btMultibodyLink, ptr %249, i64 %indvars.iv1091, i32 4
   %250 = load float, ptr %m_dVector177, align 4
   %arrayidx.i24.i.i228 = getelementptr inbounds i8, ptr %m_dVector177, i64 8
   %251 = load float, ptr %arrayidx.i24.i.i228, align 4
@@ -6267,7 +6267,7 @@ invoke.cont199:                                   ; preds = %if.else.i765, %if.t
   %293 = phi float [ %.pre.i808, %if.else.i765 ], [ %mul18.i827, %if.then.i817 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i759)
   %294 = load ptr, ptr %m_data.i.i, align 8
-  %m_dVector195 = getelementptr inbounds %struct.btMultibodyLink, ptr %294, i64 %indvars.iv1162, i32 4
+  %m_dVector195 = getelementptr inbounds %struct.btMultibodyLink, ptr %294, i64 %indvars.iv1091, i32 4
   %295 = load float, ptr %m_dVector195, align 4
   %arrayidx.i24.i.i271 = getelementptr inbounds i8, ptr %m_dVector195, i64 8
   %296 = load float, ptr %arrayidx.i24.i.i271, align 4
@@ -6326,13 +6326,13 @@ invoke.cont204:                                   ; preds = %invoke.cont199
           to label %invoke.cont204.invoke.cont210_crit_edge unwind label %lpad17.loopexit
 
 invoke.cont204.invoke.cont210_crit_edge:          ; preds = %invoke.cont204
-  %.pre1170 = load ptr, ptr %m_data.i.i, align 8
-  %m_jointType212.phi.trans.insert = getelementptr inbounds %struct.btMultibodyLink, ptr %.pre1170, i64 %indvars.iv1162, i32 26
-  %.pre1171 = load i32, ptr %m_jointType212.phi.trans.insert, align 4
+  %.pre1099 = load ptr, ptr %m_data.i.i, align 8
+  %m_jointType212.phi.trans.insert = getelementptr inbounds %struct.btMultibodyLink, ptr %.pre1099, i64 %indvars.iv1091, i32 26
+  %.pre1100 = load i32, ptr %m_jointType212.phi.trans.insert, align 4
   br label %invoke.cont210
 
 invoke.cont210:                                   ; preds = %invoke.cont204.invoke.cont210_crit_edge, %invoke.cont133
-  %321 = phi i32 [ %.pre1171, %invoke.cont204.invoke.cont210_crit_edge ], [ %177, %invoke.cont133 ]
+  %321 = phi i32 [ %.pre1100, %invoke.cont204.invoke.cont210_crit_edge ], [ %177, %invoke.cont133 ]
   %cmp213 = icmp eq i32 %321, 1
   br i1 %cmp213, label %if.then214, label %for.inc288
 
@@ -6442,7 +6442,7 @@ invoke.cont244:                                   ; preds = %if.then.i893, %if.e
   %344 = phi float [ %.pre.i884, %if.else.i841 ], [ %mul18.i903, %if.then.i893 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i835)
   %345 = load ptr, ptr %m_data.i.i, align 8
-  %m_bottomVec226 = getelementptr inbounds %struct.btMultibodyLink, ptr %345, i64 %indvars.iv1162, i32 8, i64 0, i32 1
+  %m_bottomVec226 = getelementptr inbounds %struct.btMultibodyLink, ptr %345, i64 %indvars.iv1091, i32 8, i64 0, i32 1
   %346 = load float, ptr %m_bottomVec226, align 4
   %arrayidx.i24.i.i316 = getelementptr inbounds i8, ptr %m_bottomVec226, i64 8
   %347 = load float, ptr %arrayidx.i24.i.i316, align 4
@@ -6595,7 +6595,7 @@ invoke.cont259:                                   ; preds = %if.else.i917, %if.t
   %392 = phi float [ %.pre.i960, %if.else.i917 ], [ %mul18.i979, %if.then.i969 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i911)
   %393 = load ptr, ptr %m_data.i.i, align 8
-  %m_dVector255 = getelementptr inbounds %struct.btMultibodyLink, ptr %393, i64 %indvars.iv1162, i32 4
+  %m_dVector255 = getelementptr inbounds %struct.btMultibodyLink, ptr %393, i64 %indvars.iv1091, i32 4
   %394 = load float, ptr %m_dVector255, align 4
   %arrayidx.i24.i.i372 = getelementptr inbounds i8, ptr %m_dVector255, i64 8
   %395 = load float, ptr %arrayidx.i24.i.i372, align 4
@@ -6740,7 +6740,7 @@ invoke.cont277:                                   ; preds = %if.else.i993, %if.t
   %437 = phi float [ %.pre.i1036, %if.else.i993 ], [ %mul18.i1055, %if.then.i1045 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i987)
   %438 = load ptr, ptr %m_data.i.i, align 8
-  %m_dVector273 = getelementptr inbounds %struct.btMultibodyLink, ptr %438, i64 %indvars.iv1162, i32 4
+  %m_dVector273 = getelementptr inbounds %struct.btMultibodyLink, ptr %438, i64 %indvars.iv1091, i32 4
   %439 = load float, ptr %m_dVector273, align 4
   %arrayidx.i24.i.i415 = getelementptr inbounds i8, ptr %m_dVector273, i64 8
   %440 = load float, ptr %arrayidx.i24.i.i415, align 4
@@ -6799,17 +6799,17 @@ invoke.cont282:                                   ; preds = %invoke.cont277
           to label %for.inc288 unwind label %lpad17.loopexit
 
 for.inc288:                                       ; preds = %invoke.cont210, %invoke.cont282
-  %indvars.iv.next1163 = add nuw nsw i64 %indvars.iv1162, 1
+  %indvars.iv.next1092 = add nuw nsw i64 %indvars.iv1091, 1
   %465 = load i32, ptr %m_size.i.i, align 4
   %466 = sext i32 %465 to i64
-  %cmp50 = icmp slt i64 %indvars.iv.next1163, %466
+  %cmp50 = icmp slt i64 %indvars.iv.next1092, %466
   br i1 %cmp50, label %invoke.cont52, label %for.inc291, !llvm.loop !56
 
 for.inc291:                                       ; preds = %for.inc288, %if.end46
-  %indvars.iv.next1166 = add nuw nsw i64 %indvars.iv1165, 1
+  %indvars.iv.next1095 = add nuw nsw i64 %indvars.iv1094, 1
   %467 = load i32, ptr %m_size.i52, align 4
   %468 = sext i32 %467 to i64
-  %cmp29 = icmp slt i64 %indvars.iv.next1166, %468
+  %cmp29 = icmp slt i64 %indvars.iv.next1095, %468
   br i1 %cmp29, label %for.body30, label %for.end293, !llvm.loop !57
 
 for.end293:                                       ; preds = %for.inc291, %for.cond26.preheader

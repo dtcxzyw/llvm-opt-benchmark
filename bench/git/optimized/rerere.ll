@@ -1982,15 +1982,15 @@ while.cond.preheader.i:                           ; preds = %st_add.exit15
   br i1 %cmp.not79.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end20.i
-  %call281.i = phi ptr [ %call2.i, %if.end20.i ], [ %call278.i, %while.cond.preheader.i ]
-  %d_name.i = getelementptr inbounds i8, ptr %call281.i, i64 19
+  %call280.i = phi ptr [ %call2.i, %if.end20.i ], [ %call278.i, %while.cond.preheader.i ]
+  %d_name.i = getelementptr inbounds i8, ptr %call280.i, i64 19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ep.i.i)
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull readonly dereferenceable(10) @.str.22) #17
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %is_rr_file.exit.thread63.i, label %do.body.i.i.preheader.i
 
 do.body.i.i.preheader.i:                          ; preds = %while.body.i
-  %scevgep.i = getelementptr i8, ptr %call281.i, i64 28
+  %scevgep.i = getelementptr i8, ptr %call280.i, i64 28
   br label %do.body.i.i.i
 
 is_rr_file.exit.thread63.i:                       ; preds = %while.body.i
@@ -2020,7 +2020,7 @@ lor.lhs.false.i.i:                                ; preds = %do.body.i.i.i
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
   %call5.i.i = tail call ptr @__errno_location() #16
   store i32 0, ptr %call5.i.i, align 4
-  %add.ptr.i.i = getelementptr i8, ptr %call281.i, i64 29
+  %add.ptr.i.i = getelementptr i8, ptr %call280.i, i64 29
   %call6.i.i = call i64 @strtol(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %ep.i.i, i32 noundef 10) #14
   %3 = load i32, ptr %call5.i.i, align 4
   %tobool9.not.i.i = icmp eq i32 %3, 0
@@ -2043,7 +2043,7 @@ if.then6.i:                                       ; preds = %is_rr_file.exit.i, 
   %inc.i.i = add nsw i32 %variant.267.i, 1
   %6 = load i32, ptr %call4, align 8
   %cmp.not.i8.i = icmp slt i32 %variant.267.i, %6
-  %.pre88.pre.i = load ptr, ptr %status, align 8
+  %.pre87.pre.i = load ptr, ptr %status, align 8
   br i1 %cmp.not.i8.i, label %do.end.i.i, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %if.then6.i
@@ -2054,28 +2054,28 @@ if.then.i9.i:                                     ; preds = %if.then6.i
   %div.inc.i.i = select i1 %cmp2.not.i.i, i32 %div.i.i, i32 %inc.i.i
   store i32 %div.inc.i.i, ptr %call4, align 8
   %conv.i.i = sext i32 %div.inc.i.i to i64
-  %call11.i.i = tail call ptr @xrealloc(ptr noundef %.pre88.pre.i, i64 noundef %conv.i.i) #14
+  %call11.i.i = tail call ptr @xrealloc(ptr noundef %.pre87.pre.i, i64 noundef %conv.i.i) #14
   store ptr %call11.i.i, ptr %status, align 8
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %if.then.i9.i, %if.then6.i
-  %.pre88.i = phi ptr [ %call11.i.i, %if.then.i9.i ], [ %.pre88.pre.i, %if.then6.i ]
+  %.pre87.i = phi ptr [ %call11.i.i, %if.then.i9.i ], [ %.pre87.pre.i, %if.then6.i ]
   %8 = load i32, ptr %status_nr, align 4
   %cmp14.not.i.i = icmp sgt i32 %8, %variant.267.i
   br i1 %cmp14.not.i.i, label %fit_variant.exit.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %do.end.i.i
   %idx.ext.i.i = sext i32 %8 to i64
-  %add.ptr.i10.i = getelementptr inbounds i8, ptr %.pre88.i, i64 %idx.ext.i.i
+  %add.ptr.i10.i = getelementptr inbounds i8, ptr %.pre87.i, i64 %idx.ext.i.i
   %sub.i.i = sub nsw i32 %inc.i.i, %8
   %conv20.i.i = sext i32 %sub.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i10.i, i8 0, i64 %conv20.i.i, i1 false)
   store i32 %inc.i.i, ptr %status_nr, align 4
-  %.pre87.i = load ptr, ptr %status, align 8
+  %.pre86.i = load ptr, ptr %status, align 8
   br label %fit_variant.exit.i
 
 fit_variant.exit.i:                               ; preds = %if.then16.i.i, %do.end.i.i
-  %9 = phi ptr [ %.pre88.i, %do.end.i.i ], [ %.pre87.i, %if.then16.i.i ]
+  %9 = phi ptr [ %.pre87.i, %do.end.i.i ], [ %.pre86.i, %if.then16.i.i ]
   %idxprom.i = sext i32 %variant.267.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i
   %10 = load i8, ptr %arrayidx.i, align 1
@@ -2090,7 +2090,7 @@ if.else.i:                                        ; preds = %is_rr_file.exit.i, 
   br i1 %tobool.not.i13.i, label %is_rr_file.exit35.thread71.i, label %do.body.i.i14.preheader.i
 
 do.body.i.i14.preheader.i:                        ; preds = %if.else.i
-  %scevgep84.i = getelementptr i8, ptr %call281.i, i64 27
+  %scevgep83.i = getelementptr i8, ptr %call280.i, i64 27
   br label %do.body.i.i14.i
 
 is_rr_file.exit35.thread71.i:                     ; preds = %if.else.i
@@ -2100,8 +2100,8 @@ is_rr_file.exit35.thread71.i:                     ; preds = %if.else.i
 do.body.i.i14.i:                                  ; preds = %do.cond.i.i18.i, %do.body.i.i14.preheader.i
   %str.addr.0.i.i15.i = phi ptr [ %incdec.ptr.i.i19.i, %do.cond.i.i18.i ], [ %d_name.i, %do.body.i.i14.preheader.i ]
   %prefix.addr.0.i.i16.idx.i = phi i64 [ %prefix.addr.0.i.i16.add.i, %do.cond.i.i18.i ], [ 0, %do.body.i.i14.preheader.i ]
-  %exitcond85.i = icmp eq i64 %prefix.addr.0.i.i16.idx.i, 8
-  br i1 %exitcond85.i, label %lor.lhs.false.i23.i, label %do.cond.i.i18.i
+  %exitcond84.i = icmp eq i64 %prefix.addr.0.i.i16.idx.i, 8
+  br i1 %exitcond84.i, label %lor.lhs.false.i23.i, label %do.cond.i.i18.i
 
 do.cond.i.i18.i:                                  ; preds = %do.body.i.i14.i
   %prefix.addr.0.i.i16.ptr.i = getelementptr inbounds i8, ptr @.str.23, i64 %prefix.addr.0.i.i16.idx.i
@@ -2113,7 +2113,7 @@ do.cond.i.i18.i:                                  ; preds = %do.body.i.i14.i
   br i1 %cmp.i.i21.i, label %do.body.i.i14.i, label %is_rr_file.exit35.thread.i, !llvm.loop !23
 
 lor.lhs.false.i23.i:                              ; preds = %do.body.i.i14.i
-  %14 = load i8, ptr %scevgep84.i, align 1
+  %14 = load i8, ptr %scevgep83.i, align 1
   %cmp.not.i24.i = icmp eq i8 %14, 46
   br i1 %cmp.not.i24.i, label %if.end4.i25.i, label %is_rr_file.exit35.thread.i
 
@@ -2142,7 +2142,7 @@ if.then12.i:                                      ; preds = %is_rr_file.exit35.i
   %inc.i36.i = add nsw i32 %variant.375.i, 1
   %18 = load i32, ptr %call4, align 8
   %cmp.not.i37.i = icmp slt i32 %variant.375.i, %18
-  %.pre86.pre.i = load ptr, ptr %status, align 8
+  %.pre85.pre.i = load ptr, ptr %status, align 8
   br i1 %cmp.not.i37.i, label %do.end.i46.i, label %if.then.i38.i
 
 if.then.i38.i:                                    ; preds = %if.then12.i
@@ -2153,19 +2153,19 @@ if.then.i38.i:                                    ; preds = %if.then12.i
   %div.inc.i42.i = select i1 %cmp2.not.i41.i, i32 %div.i40.i, i32 %inc.i36.i
   store i32 %div.inc.i42.i, ptr %call4, align 8
   %conv.i44.i = sext i32 %div.inc.i42.i to i64
-  %call11.i45.i = tail call ptr @xrealloc(ptr noundef %.pre86.pre.i, i64 noundef %conv.i44.i) #14
+  %call11.i45.i = tail call ptr @xrealloc(ptr noundef %.pre85.pre.i, i64 noundef %conv.i44.i) #14
   store ptr %call11.i45.i, ptr %status, align 8
   br label %do.end.i46.i
 
 do.end.i46.i:                                     ; preds = %if.then.i38.i, %if.then12.i
-  %.pre86.i = phi ptr [ %call11.i45.i, %if.then.i38.i ], [ %.pre86.pre.i, %if.then12.i ]
+  %.pre85.i = phi ptr [ %call11.i45.i, %if.then.i38.i ], [ %.pre85.pre.i, %if.then12.i ]
   %20 = load i32, ptr %status_nr, align 4
   %cmp14.not.i48.i = icmp sgt i32 %20, %variant.375.i
   br i1 %cmp14.not.i48.i, label %fit_variant.exit55.i, label %if.then16.i49.i
 
 if.then16.i49.i:                                  ; preds = %do.end.i46.i
   %idx.ext.i51.i = sext i32 %20 to i64
-  %add.ptr.i52.i = getelementptr inbounds i8, ptr %.pre86.i, i64 %idx.ext.i51.i
+  %add.ptr.i52.i = getelementptr inbounds i8, ptr %.pre85.i, i64 %idx.ext.i51.i
   %sub.i53.i = sub nsw i32 %inc.i36.i, %20
   %conv20.i54.i = sext i32 %sub.i53.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i52.i, i8 0, i64 %conv20.i54.i, i1 false)
@@ -2174,7 +2174,7 @@ if.then16.i49.i:                                  ; preds = %do.end.i46.i
   br label %fit_variant.exit55.i
 
 fit_variant.exit55.i:                             ; preds = %if.then16.i49.i, %do.end.i46.i
-  %21 = phi ptr [ %.pre86.i, %do.end.i46.i ], [ %.pre.i, %if.then16.i49.i ]
+  %21 = phi ptr [ %.pre85.i, %do.end.i46.i ], [ %.pre.i, %if.then16.i49.i ]
   %idxprom14.i = sext i32 %variant.375.i to i64
   %arrayidx15.i = getelementptr inbounds i8, ptr %21, i64 %idxprom14.i
   %22 = load i8, ptr %arrayidx15.i, align 1

@@ -2820,8 +2820,8 @@ lor.lhs.false:                                    ; preds = %if.then9.i.i, %if.e
 sub_1:                                            ; preds = %lor.lhs.false
   %12 = getelementptr inbounds i8, ptr %10, i64 1
   %13 = load i8, ptr %12, align 1
-  %.not82 = icmp eq i8 %13, 107
-  br i1 %.not82, label %lor.lhs.false.tail, label %if.then10
+  %.not80 = icmp eq i8 %13, 107
+  br i1 %.not80, label %lor.lhs.false.tail, label %if.then10
 
 lor.lhs.false.tail:                               ; preds = %sub_1
   %14 = getelementptr inbounds i8, ptr %10, i64 2
@@ -2860,11 +2860,11 @@ if.end24:                                         ; preds = %if.else, %if.then19
   %19 = getelementptr i8, ptr %0, i64 16
   %len2.i.i.i33 = getelementptr inbounds i8, ptr %buf, i64 8
   %buf.i.i.i34 = getelementptr inbounds i8, ptr %buf, i64 16
-  %hash_algo80 = getelementptr inbounds i8, ptr %transport, i64 144
+  %hash_algo = getelementptr inbounds i8, ptr %transport, i64 144
   br label %while.body.outer
 
-while.body.outer:                                 ; preds = %if.end24, %if.end100
-  %tail.0.ph = phi ptr [ %ret, %if.end24 ], [ %41, %if.end100 ]
+while.body.outer:                                 ; preds = %if.end100, %if.end24
+  %tail.0.ph = phi ptr [ %41, %if.end100 ], [ %ret, %if.end24 ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %while.body.outer
@@ -2955,7 +2955,7 @@ if.then43:                                        ; preds = %if.then39
 if.end45:                                         ; preds = %if.then39
   %idxprom = sext i32 %call40 to i64
   %arrayidx46 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
-  store ptr %arrayidx46, ptr %hash_algo80, align 8
+  store ptr %arrayidx46, ptr %hash_algo, align 8
   br label %while.body.backedge
 
 while.body.backedge:                              ; preds = %do.cond.i, %if.end45
@@ -3003,7 +3003,7 @@ if.then68:                                        ; preds = %if.end60
 
 if.then78:                                        ; preds = %if.end60
   %old_oid = getelementptr inbounds i8, ptr %call62, i64 8
-  %35 = load ptr, ptr %hash_algo80, align 8
+  %35 = load ptr, ptr %hash_algo, align 8
   %call81 = call i32 @get_oid_hex_algop(ptr noundef nonnull %32, ptr noundef nonnull %old_oid, ptr noundef %35) #18
   br label %if.end83
 
@@ -3065,19 +3065,19 @@ if.then102:                                       ; preds = %while.end
 
 if.end104:                                        ; preds = %if.then102, %while.end
   call void @strbuf_release(ptr noundef nonnull %buf) #18
-  %ret.0.ret.0.posn.079 = load ptr, ptr %ret, align 8
-  %tobool105.not80 = icmp eq ptr %ret.0.ret.0.posn.079, null
-  br i1 %tobool105.not80, label %for.end, label %for.body
+  %ret.0.ret.0.posn.077 = load ptr, ptr %ret, align 8
+  %tobool105.not78 = icmp eq ptr %ret.0.ret.0.posn.077, null
+  br i1 %tobool105.not78, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end104, %for.body
-  %posn.081 = phi ptr [ %posn.0, %for.body ], [ %ret.0.ret.0.posn.079, %if.end104 ]
-  %call106 = call i32 @resolve_remote_symref(ptr noundef nonnull %posn.081, ptr noundef nonnull %ret.0.ret.0.posn.079) #18
-  %posn.0 = load ptr, ptr %posn.081, align 8
+  %posn.079 = phi ptr [ %posn.0, %for.body ], [ %ret.0.ret.0.posn.077, %if.end104 ]
+  %call106 = call i32 @resolve_remote_symref(ptr noundef nonnull %posn.079, ptr noundef nonnull %ret.0.ret.0.posn.077) #18
+  %posn.0 = load ptr, ptr %posn.079, align 8
   %tobool105.not = icmp eq ptr %posn.0, null
   br i1 %tobool105.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %if.end104
-  ret ptr %ret.0.ret.0.posn.079
+  ret ptr %ret.0.ret.0.posn.077
 }
 
 ; Function Attrs: nounwind uwtable

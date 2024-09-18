@@ -4341,16 +4341,16 @@ pickss.exit.thread:                               ; preds = %.lr.ph82.i, %pickss
   %101 = getelementptr inbounds i8, ptr %1, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph112, label %._crit_edge113
+  br i1 %103, label %.lr.ph110, label %._crit_edge111
 
-.lr.ph112:                                        ; preds = %._crit_edge
+.lr.ph110:                                        ; preds = %._crit_edge
   %104 = getelementptr inbounds i8, ptr %.065.i87, i64 40
   %105 = getelementptr inbounds i8, ptr %.065.i87, i64 48
   br label %106
 
-106:                                              ; preds = %.lr.ph112, %145
-  %107 = phi i32 [ %102, %.lr.ph112 ], [ %146, %145 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next, %145 ]
+106:                                              ; preds = %.lr.ph110, %145
+  %107 = phi i32 [ %102, %.lr.ph110 ], [ %146, %145 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next, %145 ]
   %108 = load ptr, ptr %104, align 8
   %109 = getelementptr ptr, ptr %108, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8
@@ -4373,16 +4373,16 @@ pickss.exit.thread:                               ; preds = %.lr.ph82.i, %pickss
 
 122:                                              ; preds = %116, %112
   %.sroa.9.0..sroa_idx12 = getelementptr inbounds i8, ptr %110, i64 24
-  %.sroa.9.1101132 = load i16, ptr %.sroa.9.0..sroa_idx12, align 8
+  %.sroa.9.1101131 = load i16, ptr %.sroa.9.0..sroa_idx12, align 8
   %123 = icmp ne ptr %114, %.065.i87
-  %124 = sext i16 %.sroa.9.1101132 to i64
+  %124 = sext i16 %.sroa.9.1101131 to i64
   %125 = and i64 %124, 4294967295
   %126 = icmp ne i64 %indvars.iv, %125
-  %.not84133 = select i1 %123, i1 true, i1 %126
-  tail call void @llvm.assume(i1 %.not84133)
-  br label %.lr.ph137
+  %.not84132 = select i1 %123, i1 true, i1 %126
+  tail call void @llvm.assume(i1 %.not84132)
+  br label %.lr.ph136
 
-.lr.ph103:                                        ; preds = %.lr.ph137
+.lr.ph103:                                        ; preds = %.lr.ph136
   %.sroa.9.0..sroa_idx14 = getelementptr inbounds i8, ptr %135, i64 8
   %.sroa.9.1101 = load i16, ptr %.sroa.9.0..sroa_idx14, align 8
   %127 = icmp ne ptr %.sroa.03.1, %.065.i87
@@ -4390,28 +4390,28 @@ pickss.exit.thread:                               ; preds = %.lr.ph82.i, %pickss
   %129 = and i64 %128, 4294967295
   %130 = icmp ne i64 %indvars.iv, %129
   %.not84 = select i1 %127, i1 true, i1 %130
-  br i1 %.not84, label %.lr.ph137, label %.lr.ph103..lr.ph103..critedge_crit_edge_crit_edge, !llvm.loop !42
+  br i1 %.not84, label %.lr.ph136, label %.lr.ph103..lr.ph103..critedge_crit_edge_crit_edge, !llvm.loop !42
 
 .lr.ph103..lr.ph103..critedge_crit_edge_crit_edge: ; preds = %.lr.ph103
-  %131 = sext i16 %.sroa.9.1101135 to i64
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.03.1100134, i64 48
+  %131 = sext i16 %.sroa.9.1101134 to i64
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.03.1100133, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.critedge
 
-.lr.ph137:                                        ; preds = %122, %.lr.ph103
-  %.sroa.9.1101135 = phi i16 [ %.sroa.9.1101, %.lr.ph103 ], [ %.sroa.9.1101132, %122 ]
-  %.sroa.03.1100134 = phi ptr [ %.sroa.03.1, %.lr.ph103 ], [ %114, %122 ]
-  %132 = getelementptr inbounds i8, ptr %.sroa.03.1100134, i64 48
+.lr.ph136:                                        ; preds = %122, %.lr.ph103
+  %.sroa.9.1101134 = phi i16 [ %.sroa.9.1101, %.lr.ph103 ], [ %.sroa.9.1101131, %122 ]
+  %.sroa.03.1100133 = phi ptr [ %.sroa.03.1, %.lr.ph103 ], [ %114, %122 ]
+  %132 = getelementptr inbounds i8, ptr %.sroa.03.1100133, i64 48
   %133 = load ptr, ptr %132, align 8
-  %134 = sext i16 %.sroa.9.1101135 to i64
+  %134 = sext i16 %.sroa.9.1101134 to i64
   %135 = getelementptr %struct.arcp, ptr %133, i64 %134
   %.sroa.03.1 = load ptr, ptr %135, align 8
   %.not81 = icmp eq ptr %.sroa.03.1, null
   br i1 %.not81, label %.critedge, label %.lr.ph103, !llvm.loop !42
 
-.critedge:                                        ; preds = %.lr.ph137, %.lr.ph103..lr.ph103..critedge_crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %131, %.lr.ph103..lr.ph103..critedge_crit_edge_crit_edge ], [ %134, %.lr.ph137 ]
-  %136 = phi ptr [ %.pre, %.lr.ph103..lr.ph103..critedge_crit_edge_crit_edge ], [ %133, %.lr.ph137 ]
+.critedge:                                        ; preds = %.lr.ph136, %.lr.ph103..lr.ph103..critedge_crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %131, %.lr.ph103..lr.ph103..critedge_crit_edge_crit_edge ], [ %134, %.lr.ph136 ]
+  %136 = phi ptr [ %.pre, %.lr.ph103..lr.ph103..critedge_crit_edge_crit_edge ], [ %133, %.lr.ph136 ]
   %137 = getelementptr %struct.arcp, ptr %136, i64 %.pre-phi
   br label %138
 
@@ -4426,24 +4426,24 @@ pickss.exit.thread:                               ; preds = %.lr.ph82.i, %pickss
   %143 = load ptr, ptr %105, align 8
   %144 = getelementptr %struct.arcp, ptr %143, i64 %indvars.iv
   store ptr null, ptr %144, align 8
-  %.pre116 = load i32, ptr %101, align 4
+  %.pre115 = load i32, ptr %101, align 4
   br label %145
 
 145:                                              ; preds = %106, %138
-  %146 = phi i32 [ %107, %106 ], [ %.pre116, %138 ]
+  %146 = phi i32 [ %107, %106 ], [ %.pre115, %138 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next, %147
-  br i1 %148, label %106, label %._crit_edge113, !llvm.loop !43
+  br i1 %148, label %106, label %._crit_edge111, !llvm.loop !43
 
-._crit_edge113:                                   ; preds = %145, %._crit_edge
+._crit_edge111:                                   ; preds = %145, %._crit_edge
   %149 = getelementptr inbounds i8, ptr %.065.i87, i64 12
   %150 = load i32, ptr %149, align 4
   %151 = and i32 %150, 2
   %.not77 = icmp eq i32 %151, 0
   br i1 %.not77, label %161, label %152
 
-152:                                              ; preds = %._crit_edge113
+152:                                              ; preds = %._crit_edge111
   %153 = getelementptr inbounds i8, ptr %.065.i87, i64 32
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds i8, ptr %1, i64 80
@@ -4459,11 +4459,11 @@ pickss.exit.thread:                               ; preds = %.lr.ph82.i, %pickss
 
 160:                                              ; preds = %157
   store ptr %154, ptr %155, align 8
-  %.pre117 = load i32, ptr %149, align 4
+  %.pre116 = load i32, ptr %149, align 4
   br label %161
 
-161:                                              ; preds = %157, %160, %152, %._crit_edge113
-  %162 = phi i32 [ %150, %157 ], [ %.pre117, %160 ], [ %150, %152 ], [ %150, %._crit_edge113 ]
+161:                                              ; preds = %157, %160, %152, %._crit_edge111
+  %162 = phi i32 [ %150, %157 ], [ %.pre116, %160 ], [ %150, %152 ], [ %150, %._crit_edge111 ]
   %163 = and i32 %162, 8
   %.not79 = icmp eq i32 %163, 0
   br i1 %.not79, label %173, label %164

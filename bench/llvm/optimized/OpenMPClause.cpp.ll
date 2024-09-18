@@ -22620,8 +22620,8 @@ define dso_local void @_ZN5clang12OMPTraitInfoC2EN4llvm9StringRefE(ptr noundef n
   store i64 %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef 2) #22
-  %.not.i.i58 = icmp ult i64 %2, 2
-  br i1 %.not.i.i58, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.lr.ph
+  %.not.i.i43 = icmp ult i64 %2, 2
+  br i1 %.not.i.i43, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.lr.ph
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.lr.ph: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -22702,15 +22702,15 @@ _ZN5clang11OMPTraitSetD2Ev.exit:                  ; preds = %_ZN4llvm23SmallVect
   %45 = trunc i64 %27 to i32
   store i32 %45, ptr %44, align 8
   %46 = load i64, ptr %12, align 8
-  %.not.i.i1351 = icmp ult i64 %46, 2
-  br i1 %.not.i.i1351, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph
+  %.not.i.i1342 = icmp ult i64 %46, 2
+  br i1 %.not.i.i1342, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph: ; preds = %_ZN5clang11OMPTraitSetD2Ev.exit
   %47 = getelementptr inbounds i8, ptr %43, i64 -128
   %48 = getelementptr inbounds i8, ptr %43, i64 -112
-  %.pre.i1483 = load ptr, ptr %8, align 8
-  %bcmp.i.i1684 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.pre.i1483, ptr noundef nonnull dereferenceable(2) @.str.121, i64 2)
-  %49 = icmp eq i32 %bcmp.i.i1684, 0
+  %.pre.i1464 = load ptr, ptr %8, align 8
+  %bcmp.i.i1665 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.pre.i1464, ptr noundef nonnull dereferenceable(2) @.str.121, i64 2)
+  %49 = icmp eq i32 %bcmp.i.i1665, 0
   br i1 %49, label %.lr.ph, label %_ZN4llvm9StringRef13consume_frontES0_.exit18.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i22
@@ -22720,9 +22720,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit: ; preds = %_ZNK4llvm9Str
   br i1 %50, label %.lr.ph, label %_ZN4llvm9StringRef13consume_frontES0_.exit18.thread, !llvm.loop !244
 
 .lr.ph:                                           ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit
-  %.pre.i1485 = phi ptr [ %.pre.i14, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit ], [ %.pre.i1483, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph ]
+  %.pre.i1466 = phi ptr [ %.pre.i14, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit ], [ %.pre.i1464, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph ]
   %51 = phi i64 [ %121, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit ], [ %46, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph ]
-  %52 = getelementptr inbounds i8, ptr %.pre.i1485, i64 2
+  %52 = getelementptr inbounds i8, ptr %.pre.i1466, i64 2
   %53 = add i64 %51, -2
   store ptr %52, ptr %8, align 8
   store i64 %53, ptr %12, align 8
@@ -22732,7 +22732,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit: ; preds = %_ZNK4llvm9Str
 
 _ZN4llvm9StringRef14consumeIntegerImEEbjRT_.exit19.thread: ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.pre65 = load i64, ptr %12, align 8
+  %.pre46 = load i64, ptr %12, align 8
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit18.thread
 
 55:                                               ; preds = %.lr.ph
@@ -22834,13 +22834,13 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitSelectorELb0EE19moveElementsF
 _ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitSelectorELb0EE4growEm.exit.i: ; preds = %96, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitSelectorELb0EE19moveElementsForGrowEPS2_.exit
   call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef %71, i64 noundef %93) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.pre63 = load ptr, ptr %47, align 8
-  %97 = getelementptr inbounds %"struct.clang::OMPTraitSelector", ptr %.pre63, i64 %.0.i
+  %.pre44 = load ptr, ptr %47, align 8
+  %97 = getelementptr inbounds %"struct.clang::OMPTraitSelector", ptr %.pre44, i64 %.0.i
   %spec.select = select i1 %spec.select.i.i.i, ptr %97, ptr %10
   br label %_ZN4llvm25SmallVectorTemplateCommonIN5clang16OMPTraitSelectorEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m.exit
 
 _ZN4llvm25SmallVectorTemplateCommonIN5clang16OMPTraitSelectorEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitSelectorELb0EE4growEm.exit.i, %55
-  %98 = phi ptr [ %.pre, %55 ], [ %.pre63, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitSelectorELb0EE4growEm.exit.i ]
+  %98 = phi ptr [ %.pre, %55 ], [ %.pre44, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitSelectorELb0EE4growEm.exit.i ]
   %.016.i = phi ptr [ %10, %55 ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitSelectorELb0EE4growEm.exit.i ]
   %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #22
   %100 = getelementptr inbounds %"struct.clang::OMPTraitSelector", ptr %98, i64 %99
@@ -22877,8 +22877,8 @@ _ZN5clang16OMPTraitSelectorD2Ev.exit:             ; preds = %_ZN4llvm23SmallVect
   %117 = getelementptr inbounds i8, ptr %115, i64 -48
   store i32 %116, ptr %117, align 8
   %118 = load i64, ptr %12, align 8
-  %.not.i.i2045 = icmp ult i64 %118, 2
-  br i1 %.not.i.i2045, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i22.lr.ph
+  %.not.i.i2041 = icmp ult i64 %118, 2
+  br i1 %.not.i.i2041, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i22.lr.ph
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i22.lr.ph: ; preds = %_ZN5clang16OMPTraitSelectorD2Ev.exit
   %119 = getelementptr inbounds i8, ptr %115, i64 -40
@@ -22969,7 +22969,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16OMPTraitPropertyELb1EE9push_backERKS2
   br i1 %.not.i.i20, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i22, !llvm.loop !252
 
 _ZN4llvm9StringRef13consume_frontES0_.exit18.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph, %_ZN4llvm9StringRef14consumeIntegerImEEbjRT_.exit19.thread
-  %161 = phi i64 [ %.pre65, %_ZN4llvm9StringRef14consumeIntegerImEEbjRT_.exit19.thread ], [ %46, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph ], [ %121, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit ]
+  %161 = phi i64 [ %.pre46, %_ZN4llvm9StringRef14consumeIntegerImEEbjRT_.exit19.thread ], [ %46, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.lr.ph ], [ %121, %_ZNK4llvm9StringRef11starts_withES0_.exit.i15.loopexit ]
   %.not.i.i = icmp ult i64 %161, 2
   br i1 %.not.i.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i, !llvm.loop !253
 

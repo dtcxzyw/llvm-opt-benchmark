@@ -1702,7 +1702,7 @@ _ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit
   br label %ehcleanup96
 
 cleanup:                                          ; preds = %invoke.cont41, %invoke.cont77, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i139, %_ZN7rocksdb6StatusD2Ev.exit170, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit243
-  %switch = phi i1 [ false, %_ZN7rocksdb6StatusD2Ev.exit170 ], [ false, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit243 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i139 ], [ false, %invoke.cont77 ], [ true, %invoke.cont41 ]
+  %switch = phi i1 [ false, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit243 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit170 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i139 ], [ false, %invoke.cont77 ], [ true, %invoke.cont41 ]
   %93 = load ptr, ptr %record, align 8
   %cmp.not.i254 = icmp eq ptr %93, null
   br i1 %cmp.not.i254, label %cleanup97, label %_ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i

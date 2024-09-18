@@ -2689,8 +2689,8 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
   br label %56
 
 56:                                               ; preds = %103, %54
-  %.214 = phi i1 [ %.012, %54 ], [ %.4, %103 ]
-  %.1 = phi i16 [ %55, %54 ], [ %.2141, %103 ]
+  %.214 = phi i1 [ %.4, %103 ], [ %.012, %54 ]
+  %.1 = phi i16 [ %.2141, %103 ], [ %55, %54 ]
   %57 = icmp ugt i16 %.1, 5000
   br i1 %57, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9bd3ffa255191efdE.exit43", label %104
 
@@ -2728,8 +2728,8 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
   br i1 %65, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40376e5a544ae0d6E.exit.thread", label %73
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40376e5a544ae0d6E.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40376e5a544ae0d6E.exit", %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9bd3ffa255191efdE.exit56", %74, %58, %94, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5937325364934216154.exit.i4.i.i59"
-  %.2141 = phi i16 [ %.2146, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5937325364934216154.exit.i4.i.i59" ], [ %.2146, %94 ], [ %.0, %58 ], [ %.2146, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40376e5a544ae0d6E.exit" ], [ %76, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9bd3ffa255191efdE.exit56" ], [ %.2146, %74 ]
-  %.4 = phi i1 [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5937325364934216154.exit.i4.i.i59" ], [ false, %94 ], [ %.012, %58 ], [ %.012, %74 ], [ %.012, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9bd3ffa255191efdE.exit56" ], [ %.012, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40376e5a544ae0d6E.exit" ]
+  %.2141 = phi i16 [ %.2146, %94 ], [ %.2146, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5937325364934216154.exit.i4.i.i59" ], [ %.0, %58 ], [ %.2146, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40376e5a544ae0d6E.exit" ], [ %76, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9bd3ffa255191efdE.exit56" ], [ %.2146, %74 ]
+  %.4 = phi i1 [ false, %94 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5937325364934216154.exit.i4.i.i59" ], [ %.012, %58 ], [ %.012, %74 ], [ %.012, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9bd3ffa255191efdE.exit56" ], [ %.012, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40376e5a544ae0d6E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !384)
   call void @llvm.experimental.noalias.scope.decl(metadata !387)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !390

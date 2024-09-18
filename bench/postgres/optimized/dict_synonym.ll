@@ -109,16 +109,16 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
   %45 = call ptr @palloc0(i64 noundef 24) #7
   %46 = call ptr @tsearch_readline(ptr noundef nonnull %2) #7
   %.not67140 = icmp eq ptr %46, null
-  br i1 %.not67140, label %._crit_edge145, label %.lr.ph144
+  br i1 %.not67140, label %._crit_edge144, label %.lr.ph143
 
-.lr.ph144:                                        ; preds = %44
+.lr.ph143:                                        ; preds = %44
   %47 = getelementptr inbounds i8, ptr %45, i64 8
   %48 = trunc nuw i8 %.159 to i1
   br label %49
 
-49:                                               ; preds = %.lr.ph144, %findwrd.exit.thread
-  %50 = phi ptr [ %46, %.lr.ph144 ], [ %121, %findwrd.exit.thread ]
-  %.056142 = phi i32 [ 0, %.lr.ph144 ], [ %.157, %findwrd.exit.thread ]
+49:                                               ; preds = %.lr.ph143, %findwrd.exit.thread
+  %50 = phi ptr [ %46, %.lr.ph143 ], [ %121, %findwrd.exit.thread ]
+  %.056141 = phi i32 [ 0, %.lr.ph143 ], [ %.157, %findwrd.exit.thread ]
   %51 = load i8, ptr %50, align 1
   %.not39.i = icmp eq i8 %51, 0
   br i1 %.not39.i, label %findwrd.exit.thread, label %.lr.ph.i
@@ -234,7 +234,7 @@ findwrd.exit89:                                   ; preds = %87, %84
   %storemerge36.i76 = phi ptr [ %.0.lcssa.i86, %84 ], [ %.1.lcssa.i85, %87 ]
   store i8 0, ptr %storemerge36.i76, align 1
   %88 = load i32, ptr %45, align 8
-  %.not70 = icmp slt i32 %.056142, %88
+  %.not70 = icmp slt i32 %.056141, %88
   br i1 %.not70, label %99, label %89
 
 89:                                               ; preds = %findwrd.exit89
@@ -261,7 +261,7 @@ findwrd.exit89:                                   ; preds = %87, %84
   br label %99
 
 99:                                               ; preds = %.sink.split, %findwrd.exit89
-  %100 = sext i32 %.056142 to i64
+  %100 = sext i32 %.056141 to i64
   br i1 %48, label %101, label %106
 
 101:                                              ; preds = %99
@@ -281,10 +281,10 @@ findwrd.exit89:                                   ; preds = %87, %84
   br label %111
 
 111:                                              ; preds = %106, %101
-  %.sink165 = phi ptr [ %110, %106 ], [ %105, %101 ]
+  %.sink164 = phi ptr [ %110, %106 ], [ %105, %101 ]
   %112 = load ptr, ptr %47, align 8
   %113 = getelementptr %struct.Syn, ptr %112, i64 %100, i32 1
-  store ptr %.sink165, ptr %113, align 8
+  store ptr %.sink164, ptr %113, align 8
   %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02940.i73) #6
   %115 = trunc i64 %114 to i32
   %116 = load ptr, ptr %47, align 8
@@ -293,17 +293,17 @@ findwrd.exit89:                                   ; preds = %87, %84
   %118 = load ptr, ptr %47, align 8
   %119 = getelementptr %struct.Syn, ptr %118, i64 %100, i32 3
   store i16 %.2, ptr %119, align 4
-  %120 = add i32 %.056142, 1
+  %120 = add i32 %.056141, 1
   br label %findwrd.exit.thread
 
 findwrd.exit.thread:                              ; preds = %53, %.lr.ph128, %69, %65, %.critedge.i78, %49, %.critedge.i, %.critedge2.i, %111
-  %.157 = phi i32 [ %.056142, %.critedge2.i ], [ %120, %111 ], [ %.056142, %.critedge.i ], [ %.056142, %49 ], [ %.056142, %.critedge.i78 ], [ %.056142, %65 ], [ %.056142, %69 ], [ %.056142, %.lr.ph128 ], [ %.056142, %53 ]
+  %.157 = phi i32 [ %.056141, %.critedge2.i ], [ %120, %111 ], [ %.056141, %.critedge.i ], [ %.056141, %49 ], [ %.056141, %.critedge.i78 ], [ %.056141, %65 ], [ %.056141, %69 ], [ %.056141, %.lr.ph128 ], [ %.056141, %53 ]
   call void @pfree(ptr noundef nonnull %50) #7
   %121 = call ptr @tsearch_readline(ptr noundef nonnull %2) #7
   %.not67 = icmp eq ptr %121, null
-  br i1 %.not67, label %._crit_edge145, label %49, !llvm.loop !8
+  br i1 %.not67, label %._crit_edge144, label %49, !llvm.loop !8
 
-._crit_edge145:                                   ; preds = %findwrd.exit.thread, %44
+._crit_edge144:                                   ; preds = %findwrd.exit.thread, %44
   %.056.lcssa = phi i32 [ 0, %44 ], [ %.157, %findwrd.exit.thread ]
   call void @tsearch_readline_end(ptr noundef nonnull %2) #7
   store i32 %.056.lcssa, ptr %45, align 8

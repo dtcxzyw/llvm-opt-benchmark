@@ -2733,7 +2733,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %cleanup130
 
 cleanup130:                                       ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i112, %cleanup, %while.body, %lor.lhs.false
-  %cleanup.dest.slot.0 = phi i32 [ 1, %while.body ], [ 1, %lor.lhs.false ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i112 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %lor.lhs.false ], [ 1, %while.body ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i112 ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %mu_)
           to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %terminate.lpad.i
 

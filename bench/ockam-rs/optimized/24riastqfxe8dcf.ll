@@ -10676,10 +10676,10 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   br label %1659
 
 1659:                                             ; preds = %1655, %1343
-  %1660 = phi ptr [ %1578, %1655 ], [ %1342, %1343 ]
-  %1661 = phi ptr [ %1579, %1655 ], [ %1341, %1343 ]
-  %1662 = phi ptr [ %1657, %1655 ], [ %.pre580.i, %1343 ]
-  %1663 = phi ptr [ %1656, %1655 ], [ %.pre578.i, %1343 ]
+  %1660 = phi ptr [ %1342, %1343 ], [ %1578, %1655 ]
+  %1661 = phi ptr [ %1341, %1343 ], [ %1579, %1655 ]
+  %1662 = phi ptr [ %.pre580.i, %1343 ], [ %1657, %1655 ]
+  %1663 = phi ptr [ %.pre578.i, %1343 ], [ %1656, %1655 ]
   %1664 = getelementptr inbounds i8, ptr %1, i64 376
   call void @llvm.experimental.noalias.scope.decl(metadata !1649)
   %1665 = getelementptr inbounds i8, ptr %1, i64 384
@@ -11265,10 +11265,10 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   br label %1850
 
 1850:                                             ; preds = %1847, %1344
-  %1851 = phi ptr [ %1660, %1847 ], [ %1342, %1344 ]
-  %1852 = phi ptr [ %1661, %1847 ], [ %1341, %1344 ]
-  %1853 = phi ptr [ %1849, %1847 ], [ %.pre586.i, %1344 ]
-  %1854 = phi ptr [ %1848, %1847 ], [ %.pre584.i, %1344 ]
+  %1851 = phi ptr [ %1342, %1344 ], [ %1660, %1847 ]
+  %1852 = phi ptr [ %1341, %1344 ], [ %1661, %1847 ]
+  %1853 = phi ptr [ %.pre586.i, %1344 ], [ %1849, %1847 ]
+  %1854 = phi ptr [ %.pre584.i, %1344 ], [ %1848, %1847 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !1572
   %1855 = getelementptr inbounds i8, ptr %1, i64 376
   call void @llvm.experimental.noalias.scope.decl(metadata !1722)

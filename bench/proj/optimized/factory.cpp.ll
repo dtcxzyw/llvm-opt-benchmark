@@ -119866,8 +119866,8 @@ define hidden void @_ZNK5osgeo4proj2io16AuthorityFactory26createGeodeticCRSFromD
   br label %22
 
 22:                                               ; preds = %.preheader96, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.exit
-  %.sroa.085.0102 = phi ptr [ %17, %.preheader96 ], [ %153, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.exit ]
-  %23 = load ptr, ptr %.sroa.085.0102, align 8
+  %.sroa.085.0101 = phi ptr [ %17, %.preheader96 ], [ %153, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.exit ]
+  %23 = load ptr, ptr %.sroa.085.0101, align 8
   %24 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5osgeo4proj8metadata10Identifier9codeSpaceB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #35
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata10Identifier4codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #35
@@ -119938,7 +119938,7 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.t
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit
 
 _ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread._ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit_crit_edge, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i
-  %54 = phi ptr [ %53, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i ], [ %.pre, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread._ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit_crit_edge ]
+  %54 = phi ptr [ %.pre, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread._ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit_crit_edge ], [ %53, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i ]
   invoke void @_ZNK5osgeo4proj2io16AuthorityFactory26createGeodeticCRSFromDatumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::list.1010") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.preheader unwind label %75
 
@@ -120006,11 +120006,11 @@ _ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit: ; preds = %_ZSte
   br label %152
 
 ._crit_edge.loopexit:                             ; preds = %70
-  %.pre104 = load ptr, ptr %8, align 8
+  %.pre103 = load ptr, ptr %8, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %79 = phi ptr [ %.pre104, %._crit_edge.loopexit ], [ %.sroa.079.098, %.preheader ]
+  %79 = phi ptr [ %.pre103, %._crit_edge.loopexit ], [ %.sroa.079.098, %.preheader ]
   %.not8.i.i.i = icmp eq ptr %79, %8
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEESaISA_EED2Ev.exit, label %.lr.ph.i.i.i
 
@@ -120174,7 +120174,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %147, %134, %_ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEESaISA_EED2Ev.exit, %22
-  %153 = getelementptr inbounds i8, ptr %.sroa.085.0102, i64 16
+  %153 = getelementptr inbounds i8, ptr %.sroa.085.0101, i64 16
   %.not = icmp eq ptr %153, %19
   br i1 %.not, label %_ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaISA_EED2Ev.exit, label %22
 
@@ -120284,7 +120284,7 @@ _ZN7dropbox6oxygen22nn_static_pointer_castIN5osgeo4proj5datum22GeodeticReference
 .critedge:                                        ; preds = %_ZN7dropbox6oxygen22nn_static_pointer_castIN5osgeo4proj5datum22GeodeticReferenceFrameENS3_6common16IdentifiedObjectEEENS0_2nnISt10shared_ptrIT_EEERKNS8_IS9_IT0_EEE.exit
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
   call void @_ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #30
-  %.pre105 = load ptr, ptr %6, align 8
+  %.pre104 = load ptr, ptr %6, align 8
   br label %_ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEESaISA_EEC2EOSC_.exit
 
 205:                                              ; preds = %162
@@ -120425,7 +120425,7 @@ _ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11Geodetic
   br label %_ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEESaISA_EED2Ev.exit77
 
 _ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEESaISA_EEC2EOSC_.exit: ; preds = %259, %.critedge
-  %262 = phi ptr [ %253, %259 ], [ %.pre105, %.critedge ]
+  %262 = phi ptr [ %253, %259 ], [ %.pre104, %.critedge ]
   %.not8.i.i.i66 = icmp eq ptr %262, %6
   br i1 %.not8.i.i.i66, label %_ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEESaISA_EED2Ev.exit77, label %.lr.ph.i.i.i67
 

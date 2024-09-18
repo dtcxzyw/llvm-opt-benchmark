@@ -1601,7 +1601,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   %40 = load i64, ptr %28, align 8, !alias.scope !227, !noalias !228, !noundef !9
   %41 = load ptr, ptr %25, align 8, !alias.scope !227, !noalias !228, !nonnull !9, !align !133, !noundef !9
   %42 = icmp eq i64 %40, 1
-  br i1 %42, label %.thread739, label %43
+  br i1 %42, label %.thread735, label %43
 
 43:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd70bf697fcc29649E.exit"
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 4)
@@ -1617,7 +1617,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   %.not.i = icmp ult i64 %40, 4
   br i1 %.not.i, label %.loopexit, label %57
 
-.thread739:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd70bf697fcc29649E.exit"
+.thread735:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd70bf697fcc29649E.exit"
   %48 = load i8, ptr %41, align 1, !noalias !237, !noundef !9
   store i8 %48, ptr %36, align 1, !alias.scope !238, !noalias !239
   %49 = getelementptr inbounds i8, ptr %41, i64 1
@@ -1638,7 +1638,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
 54:                                               ; preds = %87
   unreachable
 
-.loopexit:                                        ; preds = %47, %.thread739
+.loopexit:                                        ; preds = %47, %.thread735
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.59a0b0f4270fcbe4599202082a83263a.18, ptr %55, align 8
   store i64 1, ptr %0, align 8

@@ -68739,9 +68739,9 @@ tailrecurse:                                      ; preds = %51, %4
   %20 = and i64 %17, -8
   %.not2.i = icmp eq i64 %20, 0
   %.not.i = or i1 %19, %.not2.i
-  br i1 %.not.i, label %.thread190, label %23
+  br i1 %.not.i, label %.thread189, label %23
 
-.thread190:                                       ; preds = %.lr.ph
+.thread189:                                       ; preds = %.lr.ph
   %21 = tail call i64 @_ZNK5clang10ASTContext16getNSIntegerTypeEv(ptr noundef nonnull align 8 dereferenceable(23096) %1) #25
   %22 = tail call i64 @_ZNK5clang10ASTContext16getNSIntegerTypeEv(ptr noundef nonnull align 8 dereferenceable(23096) %1) #25
   br label %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70.thread.sink.split
@@ -68774,7 +68774,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i40:            ; preds = %33
   br i1 %35, label %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit43, label %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70.thread.sink.split
 
 _ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit43: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i40
-  %.sroa.3.0.i180 = phi i64 [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit.i40 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.sroa.3.0.i179 = phi i64 [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit.i40 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %.sroa.12.2 = phi i64 [ %34, %_ZN4llvmeqENS_9StringRefES0_.exit.i40 ], [ %30, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %36 = tail call i64 @_ZNK5clang10ASTContext17getNSUIntegerTypeEv(ptr noundef nonnull align 8 dereferenceable(23096) %1) #25
   br label %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70
@@ -68805,7 +68805,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i67:            ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %41, label %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70, label %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70.thread
 
 _ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i58, %_ZN4llvmeqENS_9StringRefES0_.exit.i49, %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit43, %_ZN4llvmeqENS_9StringRefES0_.exit.i67
-  %.sroa.3.0.i179 = phi i64 [ %29, %_ZN4llvmeqENS_9StringRefES0_.exit.i67 ], [ %29, %_ZN4llvmeqENS_9StringRefES0_.exit.i58 ], [ %.sroa.3.0.i180, %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit43 ], [ %29, %_ZN4llvmeqENS_9StringRefES0_.exit.i49 ]
+  %.sroa.3.0.i178 = phi i64 [ %29, %_ZN4llvmeqENS_9StringRefES0_.exit.i67 ], [ %29, %_ZN4llvmeqENS_9StringRefES0_.exit.i58 ], [ %.sroa.3.0.i179, %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit43 ], [ %29, %_ZN4llvmeqENS_9StringRefES0_.exit.i49 ]
   %.sroa.12.5 = phi i64 [ %.sroa.0.0.copyload.i62143148, %_ZN4llvmeqENS_9StringRefES0_.exit.i67 ], [ %.sroa.0.0.copyload.i53133, %_ZN4llvmeqENS_9StringRefES0_.exit.i58 ], [ %.sroa.12.2, %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit43 ], [ %38, %_ZN4llvmeqENS_9StringRefES0_.exit.i49 ]
   %.not.i.i72 = icmp ult i64 %.sroa.12.5, 16
   br i1 %.not.i.i72, label %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70.thread, label %42
@@ -68815,10 +68815,10 @@ _ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70:
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %43, align 8
   %.sroa.2112.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.i179, ptr %.sroa.2112.0..sroa_idx, align 8
+  store i64 %.sroa.3.0.i178, ptr %.sroa.2112.0..sroa_idx, align 8
   br label %75
 
-_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70.thread.sink.split: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.thread190
+_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70.thread.sink.split: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.thread189
   %44 = tail call i64 @_ZNK5clang10ASTContext17getNSUIntegerTypeEv(ptr noundef nonnull align 8 dereferenceable(23096) %1) #25
   br label %_ZN4llvm12StringSwitchIN5clang8QualTypeES2_E4CaseENS_13StringLiteralES2_.exit70.thread
 

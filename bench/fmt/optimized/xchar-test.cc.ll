@@ -91414,7 +91414,6 @@ return:                                           ; preds = %if.end12, %if.then1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN3fmt3v106detail19parse_chrono_formatIcNS1_17tm_format_checkerEEEPKT_S6_S6_OT0_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 1 dereferenceable(1) %handler) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %end120 = ptrtoint ptr %end to i64
   %cmp = icmp eq ptr %begin, %end
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -91422,7 +91421,7 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load i8, ptr %begin, align 1
   switch i8 %0, label %if.then4 [
     i8 125, label %return
-    i8 37, label %while.body.lr.ph
+    i8 37, label %while.body
   ]
 
 if.then4:                                         ; preds = %lor.lhs.false
@@ -91439,21 +91438,29 @@ lpad:                                             ; preds = %if.then4
           cleanup
   br label %eh.resume
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.then13
-  %ptr.0111 = phi ptr [ %ptr.0.ph115, %while.body.lr.ph ], [ %incdec.ptr, %if.then13 ]
-  %2 = load i8, ptr %ptr.0111, align 1
+while.bodythread-pre-split:                       ; preds = %while.cond.backedge
+  %.pr = load i8, ptr %ptr.0.be, align 1
+  br label %while.body
+
+while.body:                                       ; preds = %lor.lhs.false, %while.bodythread-pre-split
+  %2 = phi i8 [ %.pr, %while.bodythread-pre-split ], [ %0, %lor.lhs.false ]
+  %ptr.0119 = phi ptr [ %ptr.0.be, %while.bodythread-pre-split ], [ %begin, %lor.lhs.false ]
   switch i8 %2, label %if.then13 [
     i8 125, label %return
     i8 37, label %if.end17
   ]
 
 if.then13:                                        ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.0111, i64 1
-  %cmp6.not = icmp eq ptr %incdec.ptr, %end
-  br i1 %cmp6.not, label %return.loopexit.split.loop.exit, label %while.body, !llvm.loop !1412
+  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.0119, i64 1
+  br label %while.cond.backedge
+
+while.cond.backedge:                              ; preds = %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end88, %if.end88, %if.end88, %if.end88, %if.end88, %if.end88, %if.end88, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.then13
+  %ptr.0.be = phi ptr [ %incdec.ptr, %if.then13 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ]
+  %cmp6.not = icmp eq ptr %ptr.0.be, %end
+  br i1 %cmp6.not, label %return, label %while.bodythread-pre-split, !llvm.loop !1412
 
 if.end17:                                         ; preds = %while.body
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %ptr.0111, i64 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %ptr.0119, i64 1
   %cmp19 = icmp eq ptr %incdec.ptr18, %end
   br i1 %cmp19, label %if.then20, label %if.end24
 
@@ -91480,15 +91487,15 @@ if.end24:                                         ; preds = %if.end17
   ]
 
 sw.bb:                                            ; preds = %if.end24
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %ptr.0111, i64 2
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %ptr.0119, i64 2
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end24
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %ptr.0111, i64 2
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %ptr.0119, i64 2
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %if.end24
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %ptr.0111, i64 2
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %ptr.0119, i64 2
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb29, %sw.bb27, %sw.bb, %if.end24
@@ -91514,45 +91521,45 @@ if.end36:                                         ; preds = %sw.epilog
   %incdec.ptr37 = getelementptr inbounds i8, ptr %ptr.1, i64 1
   %6 = load i8, ptr %ptr.1, align 1
   switch i8 %6, label %sw.default130 [
-    i8 37, label %sw.epilog134
-    i8 110, label %sw.epilog134
-    i8 116, label %sw.epilog134
-    i8 89, label %sw.epilog134
-    i8 121, label %sw.epilog134
-    i8 67, label %sw.epilog134
-    i8 71, label %sw.epilog134
-    i8 103, label %sw.epilog134
-    i8 97, label %sw.epilog134
-    i8 65, label %sw.epilog134
-    i8 119, label %sw.epilog134
-    i8 117, label %sw.epilog134
-    i8 98, label %sw.epilog134
-    i8 104, label %sw.epilog134
-    i8 66, label %sw.epilog134
-    i8 109, label %sw.epilog134
-    i8 85, label %sw.epilog134
-    i8 87, label %sw.epilog134
-    i8 86, label %sw.epilog134
-    i8 106, label %sw.epilog134
-    i8 100, label %sw.epilog134
-    i8 101, label %sw.epilog134
-    i8 72, label %sw.epilog134
-    i8 73, label %sw.epilog134
-    i8 77, label %sw.epilog134
-    i8 83, label %sw.epilog134
-    i8 99, label %sw.epilog134
-    i8 120, label %sw.epilog134
-    i8 88, label %sw.epilog134
-    i8 68, label %sw.epilog134
-    i8 70, label %sw.epilog134
-    i8 114, label %sw.epilog134
-    i8 82, label %sw.epilog134
-    i8 84, label %sw.epilog134
-    i8 112, label %sw.epilog134
+    i8 37, label %while.cond.backedge
+    i8 110, label %while.cond.backedge
+    i8 116, label %while.cond.backedge
+    i8 89, label %while.cond.backedge
+    i8 121, label %while.cond.backedge
+    i8 67, label %while.cond.backedge
+    i8 71, label %while.cond.backedge
+    i8 103, label %while.cond.backedge
+    i8 97, label %while.cond.backedge
+    i8 65, label %while.cond.backedge
+    i8 119, label %while.cond.backedge
+    i8 117, label %while.cond.backedge
+    i8 98, label %while.cond.backedge
+    i8 104, label %while.cond.backedge
+    i8 66, label %while.cond.backedge
+    i8 109, label %while.cond.backedge
+    i8 85, label %while.cond.backedge
+    i8 87, label %while.cond.backedge
+    i8 86, label %while.cond.backedge
+    i8 106, label %while.cond.backedge
+    i8 100, label %while.cond.backedge
+    i8 101, label %while.cond.backedge
+    i8 72, label %while.cond.backedge
+    i8 73, label %while.cond.backedge
+    i8 77, label %while.cond.backedge
+    i8 83, label %while.cond.backedge
+    i8 99, label %while.cond.backedge
+    i8 120, label %while.cond.backedge
+    i8 88, label %while.cond.backedge
+    i8 68, label %while.cond.backedge
+    i8 70, label %while.cond.backedge
+    i8 114, label %while.cond.backedge
+    i8 82, label %while.cond.backedge
+    i8 84, label %while.cond.backedge
+    i8 112, label %while.cond.backedge
     i8 81, label %sw.bb78
     i8 113, label %sw.bb79
-    i8 122, label %sw.epilog134
-    i8 90, label %sw.epilog134
+    i8 122, label %while.cond.backedge
+    i8 90, label %while.cond.backedge
     i8 69, label %sw.bb82
     i8 79, label %sw.bb102
   ]
@@ -91587,13 +91594,13 @@ if.end88:                                         ; preds = %sw.bb82
   %incdec.ptr89 = getelementptr inbounds i8, ptr %ptr.1, i64 2
   %8 = load i8, ptr %incdec.ptr37, align 1
   switch i8 %8, label %sw.default [
-    i8 89, label %sw.epilog134
-    i8 121, label %sw.epilog134
-    i8 67, label %sw.epilog134
-    i8 99, label %sw.epilog134
-    i8 120, label %sw.epilog134
-    i8 88, label %sw.epilog134
-    i8 122, label %sw.epilog134
+    i8 89, label %while.cond.backedge
+    i8 121, label %while.cond.backedge
+    i8 67, label %while.cond.backedge
+    i8 99, label %while.cond.backedge
+    i8 120, label %while.cond.backedge
+    i8 88, label %while.cond.backedge
+    i8 122, label %while.cond.backedge
   ]
 
 sw.default:                                       ; preds = %if.end88
@@ -91632,20 +91639,20 @@ if.end108:                                        ; preds = %sw.bb102
   %incdec.ptr109 = getelementptr inbounds i8, ptr %ptr.1, i64 2
   %11 = load i8, ptr %incdec.ptr37, align 1
   switch i8 %11, label %sw.default125 [
-    i8 121, label %sw.epilog134
-    i8 109, label %sw.epilog134
-    i8 85, label %sw.epilog134
-    i8 87, label %sw.epilog134
-    i8 86, label %sw.epilog134
-    i8 100, label %sw.epilog134
-    i8 101, label %sw.epilog134
-    i8 119, label %sw.epilog134
-    i8 117, label %sw.epilog134
-    i8 72, label %sw.epilog134
-    i8 73, label %sw.epilog134
-    i8 77, label %sw.epilog134
-    i8 83, label %sw.epilog134
-    i8 122, label %sw.epilog134
+    i8 121, label %while.cond.backedge
+    i8 109, label %while.cond.backedge
+    i8 85, label %while.cond.backedge
+    i8 87, label %while.cond.backedge
+    i8 86, label %while.cond.backedge
+    i8 100, label %while.cond.backedge
+    i8 101, label %while.cond.backedge
+    i8 119, label %while.cond.backedge
+    i8 117, label %while.cond.backedge
+    i8 72, label %while.cond.backedge
+    i8 73, label %while.cond.backedge
+    i8 77, label %while.cond.backedge
+    i8 83, label %while.cond.backedge
+    i8 122, label %while.cond.backedge
   ]
 
 sw.default125:                                    ; preds = %if.end108
@@ -91676,24 +91683,8 @@ lpad132:                                          ; preds = %sw.default130
           cleanup
   br label %eh.resume
 
-sw.epilog134:                                     ; preds = %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end108, %if.end88, %if.end88, %if.end88, %if.end88, %if.end88, %if.end88, %if.end88, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36
-  %ptr.2 = phi ptr [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr37, %if.end36 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr89, %if.end88 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ], [ %incdec.ptr109, %if.end108 ]
-  %cmp6.not110 = icmp eq ptr %ptr.2, %end
-  br i1 %cmp6.not110, label %return, label %while.body.lr.ph, !llvm.loop !1412
-
-while.body.lr.ph:                                 ; preds = %lor.lhs.false, %sw.epilog134
-  %ptr.0.ph115 = phi ptr [ %ptr.2, %sw.epilog134 ], [ %begin, %lor.lhs.false ]
-  br label %while.body
-
-return.loopexit.split.loop.exit:                  ; preds = %if.then13
-  %scevgep.le = getelementptr i8, ptr %ptr.0.ph115, i64 %end120
-  %ptr.0.ph115121.le = ptrtoint ptr %ptr.0.ph115 to i64
-  %14 = sub i64 0, %ptr.0.ph115121.le
-  %scevgep122.le = getelementptr i8, ptr %scevgep.le, i64 %14
-  br label %return
-
-return:                                           ; preds = %sw.epilog134, %while.body, %return.loopexit.split.loop.exit, %lor.lhs.false, %entry
-  %retval.0 = phi ptr [ %begin, %lor.lhs.false ], [ %begin, %entry ], [ %scevgep122.le, %return.loopexit.split.loop.exit ], [ %ptr.0111, %while.body ], [ %ptr.2, %sw.epilog134 ]
+return:                                           ; preds = %while.body, %while.cond.backedge, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %begin, %lor.lhs.false ], [ %begin, %entry ], [ %ptr.0119, %while.body ], [ %ptr.0.be, %while.cond.backedge ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad132, %lpad127, %lpad106, %lpad99, %lpad86, %lpad34, %lpad22, %lpad
@@ -99769,25 +99760,25 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load i32, ptr %begin, align 4
   switch i32 %0, label %if.then3 [
     i32 125, label %return
-    i32 37, label %while.body.lr.ph.lr.ph
+    i32 37, label %while.body.lr.ph
   ]
 
-while.body.lr.ph.lr.ph:                           ; preds = %lor.lhs.false
+while.body.lr.ph:                                 ; preds = %lor.lhs.false
   %1 = load i8, ptr %handler, align 1
   %.fr = freeze i8 %1
   %tobool.i = trunc i8 %.fr to i1
   br i1 %tobool.i, label %while.body.us, label %while.body
 
-while.body.us:                                    ; preds = %while.body.lr.ph.lr.ph, %while.body.us.backedge
-  %ptr.0166.us = phi ptr [ %ptr.0166.us.be, %while.body.us.backedge ], [ %begin, %while.body.lr.ph.lr.ph ]
-  %2 = load i32, ptr %ptr.0166.us, align 4
+while.body.us:                                    ; preds = %while.body.lr.ph, %while.cond.backedge.us
+  %ptr.0206.us = phi ptr [ %ptr.0.be.us, %while.cond.backedge.us ], [ %begin, %while.body.lr.ph ]
+  %2 = load i32, ptr %ptr.0206.us, align 4
   switch i32 %2, label %if.then10.us [
     i32 125, label %return
     i32 37, label %if.end14.us
   ]
 
 if.end14.us:                                      ; preds = %while.body.us
-  %incdec.ptr15.us = getelementptr inbounds i8, ptr %ptr.0166.us, i64 4
+  %incdec.ptr15.us = getelementptr inbounds i8, ptr %ptr.0206.us, i64 4
   %cmp16.us = icmp eq ptr %incdec.ptr15.us, %end
   br i1 %cmp16.us, label %if.then17, label %if.end21.us
 
@@ -99800,15 +99791,15 @@ if.end21.us:                                      ; preds = %if.end14.us
   ]
 
 sw.bb25.us:                                       ; preds = %if.end21.us
-  %incdec.ptr26.us = getelementptr inbounds i8, ptr %ptr.0166.us, i64 8
+  %incdec.ptr26.us = getelementptr inbounds i8, ptr %ptr.0206.us, i64 8
   br label %sw.epilog.us
 
 sw.bb23.us:                                       ; preds = %if.end21.us
-  %incdec.ptr24.us = getelementptr inbounds i8, ptr %ptr.0166.us, i64 8
+  %incdec.ptr24.us = getelementptr inbounds i8, ptr %ptr.0206.us, i64 8
   br label %sw.epilog.us
 
 sw.bb.us:                                         ; preds = %if.end21.us
-  %incdec.ptr22.us = getelementptr inbounds i8, ptr %ptr.0166.us, i64 8
+  %incdec.ptr22.us = getelementptr inbounds i8, ptr %ptr.0206.us, i64 8
   br label %sw.epilog.us
 
 sw.epilog.us:                                     ; preds = %sw.bb.us, %sw.bb23.us, %sw.bb25.us, %if.end21.us
@@ -99820,9 +99811,9 @@ if.end32.us:                                      ; preds = %sw.epilog.us
   %incdec.ptr33.us = getelementptr inbounds i8, ptr %ptr.1.us, i64 4
   %4 = load i32, ptr %ptr.1.us, align 4
   switch i32 %4, label %sw.default123 [
-    i32 37, label %sw.epilog127.us
-    i32 110, label %sw.epilog127.us
-    i32 116, label %sw.epilog127.us
+    i32 37, label %while.cond.backedge.us
+    i32 110, label %while.cond.backedge.us
+    i32 116, label %while.cond.backedge.us
     i32 89, label %sw.bb42
     i32 121, label %sw.bb43
     i32 67, label %sw.bb44
@@ -99839,24 +99830,24 @@ if.end32.us:                                      ; preds = %sw.epilog.us
     i32 85, label %sw.bb54
     i32 87, label %sw.bb55
     i32 86, label %sw.bb56
-    i32 106, label %sw.epilog127.us
+    i32 106, label %while.cond.backedge.us
     i32 100, label %sw.bb58
     i32 101, label %sw.bb59
-    i32 72, label %sw.epilog127.us
-    i32 73, label %sw.epilog127.us
-    i32 77, label %sw.epilog127.us
-    i32 83, label %sw.epilog127.us
+    i32 72, label %while.cond.backedge.us
+    i32 73, label %while.cond.backedge.us
+    i32 77, label %while.cond.backedge.us
+    i32 83, label %while.cond.backedge.us
     i32 99, label %sw.bb64
     i32 120, label %sw.bb65
     i32 88, label %sw.bb66
     i32 68, label %sw.bb67
     i32 70, label %sw.bb68
-    i32 114, label %sw.epilog127.us
-    i32 82, label %sw.epilog127.us
-    i32 84, label %sw.epilog127.us
-    i32 112, label %sw.epilog127.us
+    i32 114, label %while.cond.backedge.us
+    i32 82, label %while.cond.backedge.us
+    i32 84, label %while.cond.backedge.us
+    i32 112, label %while.cond.backedge.us
     i32 81, label %if.then.i
-    i32 113, label %sw.epilog127.us
+    i32 113, label %while.cond.backedge.us
     i32 122, label %sw.bb75
     i32 90, label %sw.bb76
     i32 69, label %sw.bb77
@@ -99880,26 +99871,21 @@ if.end102.us:                                     ; preds = %sw.bb96.us
     i32 101, label %sw.bb110
     i32 119, label %sw.bb111
     i32 117, label %sw.bb112
-    i32 72, label %sw.epilog127.us
-    i32 73, label %sw.epilog127.us
-    i32 77, label %sw.epilog127.us
-    i32 83, label %sw.epilog127.us
+    i32 72, label %while.cond.backedge.us
+    i32 73, label %while.cond.backedge.us
+    i32 77, label %while.cond.backedge.us
+    i32 83, label %while.cond.backedge.us
     i32 122, label %sw.bb117
   ]
 
-sw.epilog127.us:                                  ; preds = %if.end102.us, %if.end102.us, %if.end102.us, %if.end102.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us
-  %ptr.2.us = phi ptr [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr103.us, %if.end102.us ], [ %incdec.ptr103.us, %if.end102.us ], [ %incdec.ptr103.us, %if.end102.us ], [ %incdec.ptr103.us, %if.end102.us ]
-  %cmp5.not165.us = icmp eq ptr %ptr.2.us, %end
-  br i1 %cmp5.not165.us, label %return, label %while.body.us.backedge
-
 if.then10.us:                                     ; preds = %while.body.us
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %ptr.0166.us, i64 4
-  %cmp5.not.us = icmp eq ptr %incdec.ptr.us, %end
-  br i1 %cmp5.not.us, label %return, label %while.body.us.backedge
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %ptr.0206.us, i64 4
+  br label %while.cond.backedge.us
 
-while.body.us.backedge:                           ; preds = %if.then10.us, %sw.epilog127.us
-  %ptr.0166.us.be = phi ptr [ %incdec.ptr.us, %if.then10.us ], [ %ptr.2.us, %sw.epilog127.us ]
-  br label %while.body.us, !llvm.loop !1453
+while.cond.backedge.us:                           ; preds = %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end32.us, %if.end102.us, %if.end102.us, %if.end102.us, %if.end102.us, %if.then10.us
+  %ptr.0.be.us = phi ptr [ %incdec.ptr.us, %if.then10.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr103.us, %if.end102.us ], [ %incdec.ptr103.us, %if.end102.us ], [ %incdec.ptr103.us, %if.end102.us ], [ %incdec.ptr103.us, %if.end102.us ]
+  %cmp5.not.us = icmp eq ptr %ptr.0.be.us, %end
+  br i1 %cmp5.not.us, label %return, label %while.body.us, !llvm.loop !1453
 
 if.then3:                                         ; preds = %lor.lhs.false
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #28
@@ -99915,25 +99901,25 @@ lpad:                                             ; preds = %if.then3
           cleanup
   br label %common.resume
 
-while.body:                                       ; preds = %while.body.lr.ph.lr.ph, %while.body.backedge
-  %ptr.0166 = phi ptr [ %ptr.0166.be, %while.body.backedge ], [ %begin, %while.body.lr.ph.lr.ph ]
-  %7 = load i32, ptr %ptr.0166, align 4
+while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
+  %ptr.0206 = phi ptr [ %ptr.0.be, %while.cond.backedge ], [ %begin, %while.body.lr.ph ]
+  %7 = load i32, ptr %ptr.0206, align 4
   switch i32 %7, label %if.then10 [
     i32 125, label %return
     i32 37, label %if.end14
   ]
 
 if.then10:                                        ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.0166, i64 4
-  %cmp5.not = icmp eq ptr %incdec.ptr, %end
-  br i1 %cmp5.not, label %return, label %while.body.backedge
+  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.0206, i64 4
+  br label %while.cond.backedge
 
-while.body.backedge:                              ; preds = %if.then10, %sw.epilog127
-  %ptr.0166.be = phi ptr [ %incdec.ptr, %if.then10 ], [ %ptr.2, %sw.epilog127 ]
-  br label %while.body, !llvm.loop !1453
+while.cond.backedge:                              ; preds = %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end102, %if.end102, %if.end102, %if.end102, %if.end32, %if.then10
+  %ptr.0.be = phi ptr [ %incdec.ptr, %if.then10 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr33, %if.end32 ]
+  %cmp5.not = icmp eq ptr %ptr.0.be, %end
+  br i1 %cmp5.not, label %return, label %while.body, !llvm.loop !1453
 
 if.end14:                                         ; preds = %while.body
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %ptr.0166, i64 4
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %ptr.0206, i64 4
   %cmp16 = icmp eq ptr %incdec.ptr15, %end
   br i1 %cmp16, label %if.then17, label %if.end21
 
@@ -99960,15 +99946,15 @@ if.end21:                                         ; preds = %if.end14
   ]
 
 sw.bb:                                            ; preds = %if.end21
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %ptr.0166, i64 8
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %ptr.0206, i64 8
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end21
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %ptr.0166, i64 8
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %ptr.0206, i64 8
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end21
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %ptr.0166, i64 8
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %ptr.0206, i64 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb25, %sw.bb23, %sw.bb, %if.end21
@@ -99994,9 +99980,9 @@ if.end32:                                         ; preds = %sw.epilog
   %incdec.ptr33 = getelementptr inbounds i8, ptr %ptr.1, i64 4
   %11 = load i32, ptr %ptr.1, align 4
   switch i32 %11, label %sw.default123 [
-    i32 37, label %sw.epilog127
-    i32 110, label %sw.epilog127
-    i32 116, label %sw.epilog127
+    i32 37, label %while.cond.backedge
+    i32 110, label %while.cond.backedge
+    i32 116, label %while.cond.backedge
     i32 89, label %sw.bb42
     i32 121, label %sw.bb43
     i32 67, label %sw.bb44
@@ -100013,24 +99999,24 @@ if.end32:                                         ; preds = %sw.epilog
     i32 85, label %sw.bb54
     i32 87, label %sw.bb55
     i32 86, label %sw.bb56
-    i32 106, label %sw.epilog127
+    i32 106, label %while.cond.backedge
     i32 100, label %sw.bb58
     i32 101, label %sw.bb59
-    i32 72, label %sw.epilog127
-    i32 73, label %sw.epilog127
-    i32 77, label %sw.epilog127
-    i32 83, label %sw.epilog127
+    i32 72, label %while.cond.backedge
+    i32 73, label %while.cond.backedge
+    i32 77, label %while.cond.backedge
+    i32 83, label %while.cond.backedge
     i32 99, label %sw.bb64
     i32 120, label %sw.bb65
     i32 88, label %sw.bb66
     i32 68, label %sw.bb67
     i32 70, label %sw.bb68
-    i32 114, label %sw.epilog127
-    i32 82, label %sw.epilog127
-    i32 84, label %sw.epilog127
-    i32 112, label %sw.epilog127
-    i32 81, label %sw.epilog127
-    i32 113, label %sw.epilog127
+    i32 114, label %while.cond.backedge
+    i32 82, label %while.cond.backedge
+    i32 84, label %while.cond.backedge
+    i32 112, label %while.cond.backedge
+    i32 81, label %while.cond.backedge
+    i32 113, label %while.cond.backedge
     i32 122, label %sw.bb75
     i32 90, label %sw.bb76
     i32 69, label %sw.bb77
@@ -100154,8 +100140,8 @@ sw.bb76:                                          ; preds = %if.end32, %if.end32
   unreachable
 
 sw.bb77:                                          ; preds = %if.end32, %if.end32.us
-  %.us-phi173 = phi ptr [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33, %if.end32 ]
-  %cmp78 = icmp eq ptr %.us-phi173, %end
+  %.us-phi208 = phi ptr [ %incdec.ptr33.us, %if.end32.us ], [ %incdec.ptr33, %if.end32 ]
+  %cmp78 = icmp eq ptr %.us-phi208, %end
   br i1 %cmp78, label %if.then79, label %if.end83
 
 if.then79:                                        ; preds = %sw.bb77
@@ -100173,7 +100159,7 @@ lpad81:                                           ; preds = %if.then79
   br label %common.resume
 
 if.end83:                                         ; preds = %sw.bb77
-  %14 = load i32, ptr %.us-phi173, align 4
+  %14 = load i32, ptr %.us-phi208, align 4
   switch i32 %14, label %sw.default [
     i32 89, label %sw.bb85
     i32 121, label %sw.bb86
@@ -100257,10 +100243,10 @@ if.end102:                                        ; preds = %sw.bb96
     i32 101, label %sw.bb110
     i32 119, label %sw.bb111
     i32 117, label %sw.bb112
-    i32 72, label %sw.epilog127
-    i32 73, label %sw.epilog127
-    i32 77, label %sw.epilog127
-    i32 83, label %sw.epilog127
+    i32 72, label %while.cond.backedge
+    i32 73, label %while.cond.backedge
+    i32 77, label %while.cond.backedge
+    i32 83, label %while.cond.backedge
     i32 122, label %sw.bb117
   ]
 
@@ -100332,13 +100318,8 @@ lpad125:                                          ; preds = %sw.default123
           cleanup
   br label %common.resume
 
-sw.epilog127:                                     ; preds = %if.end32, %if.end102, %if.end102, %if.end102, %if.end102, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32
-  %ptr.2 = phi ptr [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr33, %if.end32 ]
-  %cmp5.not165 = icmp eq ptr %ptr.2, %end
-  br i1 %cmp5.not165, label %return, label %while.body.backedge
-
-return:                                           ; preds = %sw.epilog127, %while.body, %if.then10, %sw.epilog127.us, %while.body.us, %if.then10.us, %lor.lhs.false, %entry
-  %retval.0 = phi ptr [ %begin, %lor.lhs.false ], [ %begin, %entry ], [ %ptr.2.us, %sw.epilog127.us ], [ %ptr.0166.us, %while.body.us ], [ %incdec.ptr.us, %if.then10.us ], [ %ptr.2, %sw.epilog127 ], [ %ptr.0166, %while.body ], [ %incdec.ptr, %if.then10 ]
+return:                                           ; preds = %while.body, %while.cond.backedge, %while.body.us, %while.cond.backedge.us, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %begin, %lor.lhs.false ], [ %begin, %entry ], [ %ptr.0206.us, %while.body.us ], [ %ptr.0.be.us, %while.cond.backedge.us ], [ %ptr.0206, %while.body ], [ %ptr.0.be, %while.cond.backedge ]
   ret ptr %retval.0
 }
 
@@ -102919,25 +102900,29 @@ lpad:                                             ; preds = %if.then3
           cleanup
   br label %eh.resume
 
-while.body:                                       ; preds = %lor.lhs.false, %while.body.backedge
-  %ptr.0112 = phi ptr [ %ptr.0112.be, %while.body.backedge ], [ %begin, %lor.lhs.false ]
-  %2 = load i32, ptr %ptr.0112, align 4
+while.bodythread-pre-split:                       ; preds = %while.cond.backedge
+  %.pr = load i32, ptr %ptr.0.be, align 4
+  br label %while.body
+
+while.body:                                       ; preds = %lor.lhs.false, %while.bodythread-pre-split
+  %2 = phi i32 [ %.pr, %while.bodythread-pre-split ], [ %0, %lor.lhs.false ]
+  %ptr.0120 = phi ptr [ %ptr.0.be, %while.bodythread-pre-split ], [ %begin, %lor.lhs.false ]
   switch i32 %2, label %if.then10 [
     i32 125, label %return
     i32 37, label %if.end14
   ]
 
 if.then10:                                        ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.0112, i64 4
-  %cmp5.not = icmp eq ptr %incdec.ptr, %end
-  br i1 %cmp5.not, label %return, label %while.body.backedge
+  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.0120, i64 4
+  br label %while.cond.backedge
 
-while.body.backedge:                              ; preds = %if.then10, %sw.epilog127
-  %ptr.0112.be = phi ptr [ %incdec.ptr, %if.then10 ], [ %ptr.2, %sw.epilog127 ]
-  br label %while.body, !llvm.loop !1484
+while.cond.backedge:                              ; preds = %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end83, %if.end83, %if.end83, %if.end83, %if.end83, %if.end83, %if.end83, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.then10
+  %ptr.0.be = phi ptr [ %incdec.ptr, %if.then10 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ]
+  %cmp5.not = icmp eq ptr %ptr.0.be, %end
+  br i1 %cmp5.not, label %return, label %while.bodythread-pre-split, !llvm.loop !1484
 
 if.end14:                                         ; preds = %while.body
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %ptr.0112, i64 4
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %ptr.0120, i64 4
   %cmp16 = icmp eq ptr %incdec.ptr15, %end
   br i1 %cmp16, label %if.then17, label %if.end21
 
@@ -102964,15 +102949,15 @@ if.end21:                                         ; preds = %if.end14
   ]
 
 sw.bb:                                            ; preds = %if.end21
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %ptr.0112, i64 8
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %ptr.0120, i64 8
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end21
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %ptr.0112, i64 8
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %ptr.0120, i64 8
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end21
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %ptr.0112, i64 8
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %ptr.0120, i64 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb25, %sw.bb23, %sw.bb, %if.end21
@@ -102998,45 +102983,45 @@ if.end32:                                         ; preds = %sw.epilog
   %incdec.ptr33 = getelementptr inbounds i8, ptr %ptr.1, i64 4
   %6 = load i32, ptr %ptr.1, align 4
   switch i32 %6, label %sw.default123 [
-    i32 37, label %sw.epilog127
-    i32 110, label %sw.epilog127
-    i32 116, label %sw.epilog127
-    i32 89, label %sw.epilog127
-    i32 121, label %sw.epilog127
-    i32 67, label %sw.epilog127
-    i32 71, label %sw.epilog127
-    i32 103, label %sw.epilog127
-    i32 97, label %sw.epilog127
-    i32 65, label %sw.epilog127
-    i32 119, label %sw.epilog127
-    i32 117, label %sw.epilog127
-    i32 98, label %sw.epilog127
-    i32 104, label %sw.epilog127
-    i32 66, label %sw.epilog127
-    i32 109, label %sw.epilog127
-    i32 85, label %sw.epilog127
-    i32 87, label %sw.epilog127
-    i32 86, label %sw.epilog127
-    i32 106, label %sw.epilog127
-    i32 100, label %sw.epilog127
-    i32 101, label %sw.epilog127
-    i32 72, label %sw.epilog127
-    i32 73, label %sw.epilog127
-    i32 77, label %sw.epilog127
-    i32 83, label %sw.epilog127
-    i32 99, label %sw.epilog127
-    i32 120, label %sw.epilog127
-    i32 88, label %sw.epilog127
-    i32 68, label %sw.epilog127
-    i32 70, label %sw.epilog127
-    i32 114, label %sw.epilog127
-    i32 82, label %sw.epilog127
-    i32 84, label %sw.epilog127
-    i32 112, label %sw.epilog127
+    i32 37, label %while.cond.backedge
+    i32 110, label %while.cond.backedge
+    i32 116, label %while.cond.backedge
+    i32 89, label %while.cond.backedge
+    i32 121, label %while.cond.backedge
+    i32 67, label %while.cond.backedge
+    i32 71, label %while.cond.backedge
+    i32 103, label %while.cond.backedge
+    i32 97, label %while.cond.backedge
+    i32 65, label %while.cond.backedge
+    i32 119, label %while.cond.backedge
+    i32 117, label %while.cond.backedge
+    i32 98, label %while.cond.backedge
+    i32 104, label %while.cond.backedge
+    i32 66, label %while.cond.backedge
+    i32 109, label %while.cond.backedge
+    i32 85, label %while.cond.backedge
+    i32 87, label %while.cond.backedge
+    i32 86, label %while.cond.backedge
+    i32 106, label %while.cond.backedge
+    i32 100, label %while.cond.backedge
+    i32 101, label %while.cond.backedge
+    i32 72, label %while.cond.backedge
+    i32 73, label %while.cond.backedge
+    i32 77, label %while.cond.backedge
+    i32 83, label %while.cond.backedge
+    i32 99, label %while.cond.backedge
+    i32 120, label %while.cond.backedge
+    i32 88, label %while.cond.backedge
+    i32 68, label %while.cond.backedge
+    i32 70, label %while.cond.backedge
+    i32 114, label %while.cond.backedge
+    i32 82, label %while.cond.backedge
+    i32 84, label %while.cond.backedge
+    i32 112, label %while.cond.backedge
     i32 81, label %sw.bb73
     i32 113, label %sw.bb74
-    i32 122, label %sw.epilog127
-    i32 90, label %sw.epilog127
+    i32 122, label %while.cond.backedge
+    i32 90, label %while.cond.backedge
     i32 69, label %sw.bb77
     i32 79, label %sw.bb96
   ]
@@ -103071,13 +103056,13 @@ if.end83:                                         ; preds = %sw.bb77
   %incdec.ptr84 = getelementptr inbounds i8, ptr %ptr.1, i64 8
   %8 = load i32, ptr %incdec.ptr33, align 4
   switch i32 %8, label %sw.default [
-    i32 89, label %sw.epilog127
-    i32 121, label %sw.epilog127
-    i32 67, label %sw.epilog127
-    i32 99, label %sw.epilog127
-    i32 120, label %sw.epilog127
-    i32 88, label %sw.epilog127
-    i32 122, label %sw.epilog127
+    i32 89, label %while.cond.backedge
+    i32 121, label %while.cond.backedge
+    i32 67, label %while.cond.backedge
+    i32 99, label %while.cond.backedge
+    i32 120, label %while.cond.backedge
+    i32 88, label %while.cond.backedge
+    i32 122, label %while.cond.backedge
   ]
 
 sw.default:                                       ; preds = %if.end83
@@ -103116,20 +103101,20 @@ if.end102:                                        ; preds = %sw.bb96
   %incdec.ptr103 = getelementptr inbounds i8, ptr %ptr.1, i64 8
   %11 = load i32, ptr %incdec.ptr33, align 4
   switch i32 %11, label %sw.default118 [
-    i32 121, label %sw.epilog127
-    i32 109, label %sw.epilog127
-    i32 85, label %sw.epilog127
-    i32 87, label %sw.epilog127
-    i32 86, label %sw.epilog127
-    i32 100, label %sw.epilog127
-    i32 101, label %sw.epilog127
-    i32 119, label %sw.epilog127
-    i32 117, label %sw.epilog127
-    i32 72, label %sw.epilog127
-    i32 73, label %sw.epilog127
-    i32 77, label %sw.epilog127
-    i32 83, label %sw.epilog127
-    i32 122, label %sw.epilog127
+    i32 121, label %while.cond.backedge
+    i32 109, label %while.cond.backedge
+    i32 85, label %while.cond.backedge
+    i32 87, label %while.cond.backedge
+    i32 86, label %while.cond.backedge
+    i32 100, label %while.cond.backedge
+    i32 101, label %while.cond.backedge
+    i32 119, label %while.cond.backedge
+    i32 117, label %while.cond.backedge
+    i32 72, label %while.cond.backedge
+    i32 73, label %while.cond.backedge
+    i32 77, label %while.cond.backedge
+    i32 83, label %while.cond.backedge
+    i32 122, label %while.cond.backedge
   ]
 
 sw.default118:                                    ; preds = %if.end102
@@ -103160,13 +103145,8 @@ lpad125:                                          ; preds = %sw.default123
           cleanup
   br label %eh.resume
 
-sw.epilog127:                                     ; preds = %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end102, %if.end83, %if.end83, %if.end83, %if.end83, %if.end83, %if.end83, %if.end83, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32
-  %ptr.2 = phi ptr [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr33, %if.end32 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr84, %if.end83 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ], [ %incdec.ptr103, %if.end102 ]
-  %cmp5.not111 = icmp eq ptr %ptr.2, %end
-  br i1 %cmp5.not111, label %return, label %while.body.backedge
-
-return:                                           ; preds = %sw.epilog127, %while.body, %if.then10, %lor.lhs.false, %entry
-  %retval.0 = phi ptr [ %begin, %lor.lhs.false ], [ %begin, %entry ], [ %ptr.2, %sw.epilog127 ], [ %ptr.0112, %while.body ], [ %incdec.ptr, %if.then10 ]
+return:                                           ; preds = %while.body, %while.cond.backedge, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %begin, %lor.lhs.false ], [ %begin, %entry ], [ %ptr.0120, %while.body ], [ %ptr.0.be, %while.cond.backedge ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad125, %lpad120, %lpad100, %lpad93, %lpad81, %lpad30, %lpad19, %lpad

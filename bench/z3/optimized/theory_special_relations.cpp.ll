@@ -3880,8 +3880,8 @@ land.rhs.lr.ph:                                   ; preds = %invoke.cont5
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %new_eq.0130 = phi i1 [ false, %land.rhs.lr.ph ], [ %new_eq.1, %for.inc ]
-  %idx.0129 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
+  %new_eq.0129 = phi i1 [ false, %land.rhs.lr.ph ], [ %new_eq.1, %for.inc ]
+  %idx.0128 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
   %9 = load ptr, ptr %scc_id, align 8
   %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %for.end, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread
@@ -3889,11 +3889,11 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 _ZNK6vectorIiLb0EjE4sizeEv.exit.thread:           ; preds = %land.rhs
   %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i, align 4
-  %cmp104 = icmp ult i32 %idx.0129, %10
+  %cmp104 = icmp ult i32 %idx.0128, %10
   br i1 %cmp104, label %_ZNK6vectorIiLb0EjE4sizeEv.exit37, label %for.end
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit37:                ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread
-  %add105 = add i32 %idx.0129, %and.i.i
+  %add105 = add i32 %idx.0128, %and.i.i
   %rem = urem i32 %add105, %10
   %idxprom.i = zext i32 %rem to i64
   %arrayidx.i38 = getelementptr inbounds i32, ptr %9, i64 %idxprom.i
@@ -4395,8 +4395,8 @@ _ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE6insertERKjS6_.exit: ; preds =
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6vectorIN3smt7context6new_eqELb0EjE9push_backEOS2_.exit.i.i, %_ZN3smt39ext_theory_eq_propagation_justificationD2Ev.exit, %_ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE6insertERKjS6_.exit, %if.then23, %_ZNK6vectorIiLb0EjE4sizeEv.exit37
-  %new_eq.1 = phi i1 [ %new_eq.0130, %_ZNK6vectorIiLb0EjE4sizeEv.exit37 ], [ %new_eq.0130, %if.then23 ], [ %new_eq.0130, %_ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE6insertERKjS6_.exit ], [ true, %_ZN3smt39ext_theory_eq_propagation_justificationD2Ev.exit ], [ true, %_ZN6vectorIN3smt7context6new_eqELb0EjE9push_backEOS2_.exit.i.i ]
-  %inc = add i32 %idx.0129, 1
+  %new_eq.1 = phi i1 [ %new_eq.0129, %_ZNK6vectorIiLb0EjE4sizeEv.exit37 ], [ %new_eq.0129, %if.then23 ], [ %new_eq.0129, %_ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE6insertERKjS6_.exit ], [ true, %_ZN3smt39ext_theory_eq_propagation_justificationD2Ev.exit ], [ true, %_ZN6vectorIN3smt7context6new_eqELb0EjE9push_backEOS2_.exit.i.i ]
+  %inc = add i32 %idx.0128, 1
   %75 = load ptr, ptr %ctx, align 8
   %m_conflict.i = getelementptr inbounds i8, ptr %75, i64 9544
   %76 = load ptr, ptr %m_conflict.i, align 8
@@ -4408,7 +4408,7 @@ for.inc:                                          ; preds = %_ZN6vectorIN3smt7co
   br i1 %78, label %for.end, label %land.rhs, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread, %land.rhs, %invoke.cont5
-  %new_eq.0.lcssa = phi i1 [ false, %invoke.cont5 ], [ %new_eq.0130, %land.rhs ], [ %new_eq.0130, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread ], [ %new_eq.1, %for.inc ]
+  %new_eq.0.lcssa = phi i1 [ false, %invoke.cont5 ], [ %new_eq.0129, %land.rhs ], [ %new_eq.0129, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread ], [ %new_eq.1, %for.inc ]
   %79 = load ptr, ptr %roots, align 8
   %cmp.i.i.i.i.i.i94 = icmp eq ptr %79, null
   br i1 %cmp.i.i.i.i.i.i94, label %_ZN5u_mapIjED2Ev.exit, label %for.cond.preheader.i.i.i.i.i.i

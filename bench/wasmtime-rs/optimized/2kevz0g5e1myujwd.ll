@@ -4207,8 +4207,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5635ebef46
           cleanup
   br label %.body.i.i.i
 
-.loopexit.split-lp236.i.i.i:                      ; preds = %.noexc156.i.i.i, %255, %._crit_edge263.i.i.i, %115, %111
-  %.299.ph.i.i.i = phi i8 [ 1, %.noexc156.i.i.i ], [ 1, %255 ], [ 0, %._crit_edge263.i.i.i ], [ 1, %111 ], [ 1, %115 ]
+.loopexit.split-lp236.i.i.i:                      ; preds = %.noexc156.i.i.i, %255, %._crit_edge261.i.i.i, %115, %111
+  %.299.ph.i.i.i = phi i8 [ 1, %.noexc156.i.i.i ], [ 1, %255 ], [ 0, %._crit_edge261.i.i.i ], [ 1, %111 ], [ 1, %115 ]
   %lpad.loopexit.split-lp238.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
@@ -4313,7 +4313,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5635ebef46
   store i64 %.sroa.0197.0.copyload.i.i.i, ptr %.sroa.5.0..sroa_idx195.i.i.i, align 8, !noalias !1189
   store ptr %127, ptr %.sroa.6196.0..sroa_idx.i.i.i, align 8, !noalias !1189
   %128 = icmp eq i64 %.sroa.5199.0.copyload.i.i.i, 0
-  br i1 %128, label %._crit_edge263.i.i.i, label %.lr.ph262.i.i.i
+  br i1 %128, label %._crit_edge261.i.i.i, label %.lr.ph260.i.i.i
 
 "_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$GT$17h989d575ea68c1edeE.exit.i.i.i": ; preds = %190, %129
   %.pn.i.i.i = phi { ptr, i32 } [ %130, %129 ], [ %lpad.phi.i.i.i, %190 ]
@@ -4325,11 +4325,11 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5635ebef46
           cleanup
   br label %"_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$GT$17h989d575ea68c1edeE.exit.i.i.i"
 
-._crit_edge263.i.i.i:                             ; preds = %"_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$GT$17h989d575ea68c1edeE.exit147.i.i.i", %126
+._crit_edge261.i.i.i:                             ; preds = %"_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$GT$17h989d575ea68c1edeE.exit147.i.i.i", %126
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8f27525e1286c0fbE.llvm.3191862155771161713"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
           to label %"_ZN4core3ptr142drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$C$usize$RP$$GT$$GT$17hcba9ab3b66fd7241E.exit135.i.i.i" unwind label %.loopexit.split-lp236.i.i.i, !noalias !1189
 
-.lr.ph262.i.i.i:                                  ; preds = %126, %"_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$GT$17h989d575ea68c1edeE.exit147.i.i.i"
+.lr.ph260.i.i.i:                                  ; preds = %126, %"_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$GT$17h989d575ea68c1edeE.exit147.i.i.i"
   %131 = phi ptr [ %209, %"_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$GT$17h989d575ea68c1edeE.exit147.i.i.i" ], [ %.sroa.4198.0.copyload.i.i.i, %126 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1211)
   %132 = getelementptr inbounds i8, ptr %131, i64 16
@@ -4344,7 +4344,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5635ebef46
   %137 = icmp eq i64 %136, 0
   br i1 %137, label %select.unfold.i.i.i, label %138
 
-138:                                              ; preds = %.lr.ph262.i.i.i
+138:                                              ; preds = %.lr.ph260.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1218)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15), !noalias !1221
   call void @llvm.experimental.noalias.scope.decl(metadata !1223)
@@ -4453,7 +4453,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5635ebef46
   %184 = add i64 %.sroa.01.0.i.i.i.i.i.i.i, %183
   br label %166
 
-"_ZN4core3ptr142drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$C$usize$RP$$GT$$GT$17hcba9ab3b66fd7241E.exit135.i.i.i": ; preds = %._crit_edge263.i.i.i
+"_ZN4core3ptr142drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$C$usize$RP$$GT$$GT$17hcba9ab3b66fd7241E.exit135.i.i.i": ; preds = %._crit_edge261.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !1189
   %.sroa.660.i.sroa.3.4.copyload.i.i = load i64, ptr %27, align 8, !noalias !1189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.i.i, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !noalias !1198
@@ -4499,7 +4499,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5635ebef46
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3946789adde2fd37E.llvm.3191862155771161713"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
           to label %"_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$GT$17h989d575ea68c1edeE.exit.i.i.i" unwind label %211, !noalias !1189
 
-select.unfold.i.i.i:                              ; preds = %.lr.ph262.i.i.i, %170
+select.unfold.i.i.i:                              ; preds = %.lr.ph260.i.i.i, %170
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.3dbee3e33c882d309e80a848958d12d3.189, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3dbee3e33c882d309e80a848958d12d3.191) #52
           to label %203 unwind label %.loopexit.split-lp.i.i.i, !noalias !1189
 
@@ -4547,7 +4547,7 @@ select.unfold.i.i.i:                              ; preds = %.lr.ph262.i.i.i, %1
   %208 = load ptr, ptr %.sroa.6196.0..sroa_idx.i.i.i, align 8, !alias.scope !1310, !noalias !1189, !nonnull !4, !noundef !4
   %209 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !1310, !noalias !1189, !nonnull !4, !noundef !4
   %210 = icmp eq ptr %209, %208
-  br i1 %210, label %._crit_edge263.i.i.i, label %.lr.ph262.i.i.i
+  br i1 %210, label %._crit_edge261.i.i.i, label %.lr.ph260.i.i.i
 
 211:                                              ; preds = %460, %459, %308, %274, %190, %"_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..JumpTargetMarker$GT$17h989d575ea68c1edeE.exit.i.i.i", %.body.i.i.i
   %212 = landingpad { ptr, i32 }

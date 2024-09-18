@@ -3345,9 +3345,9 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   %257 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 20
   %258 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i.i4.i = icmp eq ptr %257, %247
-  br i1 %.not.i.i.i.i.i.i4.i, label %.lr.ph113.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !65
+  br i1 %.not.i.i.i.i.i.i4.i, label %.lr.ph106.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !65
 
-.lr.ph113.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i
+.lr.ph106.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i
   %259 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %260 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %261 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3358,9 +3358,9 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   %266 = getelementptr inbounds nuw i8, ptr %5, i64 52
   br label %267
 
-267:                                              ; preds = %.thread84.i.i, %.lr.ph113.i.i
-  %.sroa.058.0112.i.i = phi ptr [ %256, %.lr.ph113.i.i ], [ %314, %.thread84.i.i ]
-  %268 = load i64, ptr %.sroa.058.0112.i.i, align 4
+267:                                              ; preds = %.thread84.i.i, %.lr.ph106.i.i
+  %.sroa.058.0105.i.i = phi ptr [ %256, %.lr.ph106.i.i ], [ %314, %.thread84.i.i ]
+  %268 = load i64, ptr %.sroa.058.0105.i.i, align 4
   %.sroa.055.0.extract.trunc.i.i = trunc i64 %268 to i32
   %.sroa.256.0.extract.shift.i.i = lshr i64 %268, 32
   %.sroa.256.0.extract.trunc.i.i = trunc nuw i64 %.sroa.256.0.extract.shift.i.i to i32
@@ -3370,7 +3370,7 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   br i1 %.not101.i.i, label %.thread84.i.i, label %270
 
 270:                                              ; preds = %267
-  %271 = getelementptr inbounds nuw i8, ptr %.sroa.058.0112.i.i, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.058.0105.i.i, i64 16
   %272 = load i32, ptr %271, align 4
   switch i32 %272, label %.thread84.i.i [
     i32 2, label %273
@@ -3380,9 +3380,9 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
 
 273:                                              ; preds = %270
   %274 = load ptr, ptr %23, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %.sroa.058.0112.i.i, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %.sroa.058.0105.i.i, i64 8
   %.sroa.03.0.copyload.i.i = load i32, ptr %275, align 4
-  %276 = getelementptr inbounds nuw i8, ptr %.sroa.058.0112.i.i, i64 12
+  %276 = getelementptr inbounds nuw i8, ptr %.sroa.058.0105.i.i, i64 12
   %.sroa.02.0.copyload.i.i = load i32, ptr %276, align 4
   %277 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.055.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
   %278 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.055.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
@@ -3473,15 +3473,15 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   br label %.thread84.i.i
 
 .thread84.i.i:                                    ; preds = %313, %310, %.thread93.i.i, %298, %270, %267
-  %314 = getelementptr inbounds i8, ptr %.sroa.058.0112.i.i, i64 20
-  %.not100.i.i = icmp eq ptr %.sroa.058.0112.i.i, %.09.i.i.i.i.i.i.i
-  br i1 %.not100.i.i, label %._crit_edge114.i.i, label %267
+  %314 = getelementptr inbounds i8, ptr %.sroa.058.0105.i.i, i64 20
+  %.not100.i.i = icmp eq ptr %.sroa.058.0105.i.i, %.09.i.i.i.i.i.i.i
+  br i1 %.not100.i.i, label %._crit_edge107.i.i, label %267
 
-._crit_edge114.i.i:                               ; preds = %.thread84.i.i
+._crit_edge107.i.i:                               ; preds = %.thread84.i.i
   call void @_ZdlPvm(ptr noundef nonnull %256, i64 noundef %251) #25
   br label %_ZNSt6vectorIN5clang12SkippedRangeESaIS1_EED2Ev.exit.i.i
 
-_ZNSt6vectorIN5clang12SkippedRangeESaIS1_EED2Ev.exit.i.i: ; preds = %._crit_edge114.i.i, %._crit_edge.i.i
+_ZNSt6vectorIN5clang12SkippedRangeESaIS1_EED2Ev.exit.i.i: ; preds = %._crit_edge107.i.i, %._crit_edge.i.i
   %315 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
   %316 = load ptr, ptr %4, align 8
   %317 = icmp eq ptr %316, %217

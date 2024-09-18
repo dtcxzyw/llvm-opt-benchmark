@@ -2453,18 +2453,18 @@ _Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit
 _Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit.split.us: ; preds = %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit
   %num_values.i.i = getelementptr inbounds i8, ptr %call, i64 12
   %4 = load i32, ptr %num_values.i.i, align 4
-  %cmp13.us38.not = icmp eq i32 %4, 0
-  br i1 %cmp13.us38.not, label %for.end, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us
+  %cmp13.us33.not = icmp eq i32 %4, 0
+  br i1 %cmp13.us33.not, label %for.end, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us: ; preds = %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit.split.us, %for.inc.us
-  %i.0.us40 = phi i32 [ %inc.us, %for.inc.us ], [ 0, %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit.split.us ]
-  %cmp.not.i.us = icmp ult i32 %i.0.us40, %4
+  %i.0.us34 = phi i32 [ %inc.us, %for.inc.us ], [ 0, %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit.split.us ]
+  %cmp.not.i.us = icmp ult i32 %i.0.us34, %4
   br i1 %cmp.not.i.us, label %if.then2.i.us, label %for.inc.us
 
 if.then2.i.us:                                    ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us
   %5 = load ptr, ptr %nodes.i.i, align 8
   %6 = load i32, ptr %d2.i.i, align 8
-  %add.i.i.us = add i32 %6, %i.0.us40
+  %add.i.i.us = add i32 %6, %i.0.us34
   %idxprom.i.i8.us = zext i32 %add.i.i.us to i64
   %arrayidx.i.i.us = getelementptr inbounds ptr, ptr %5, i64 %idxprom.i.i8.us
   %7 = load ptr, ptr %arrayidx.i.i.us, align 8
@@ -2474,9 +2474,9 @@ if.then2.i.us:                                    ; preds = %_ZNK4toku3omtIPNS_1
   br i1 %cmp6.us, label %if.then, label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then2.i.us, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us
-  %inc.us = add nuw i32 %i.0.us40, 1
-  %exitcond45.not = icmp eq i32 %inc.us, %4
-  br i1 %exitcond45.not, label %for.end, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us, !llvm.loop !12
+  %inc.us = add nuw i32 %i.0.us34, 1
+  %exitcond39.not = icmp eq i32 %inc.us, %4
+  br i1 %exitcond39.not, label %for.end, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i.us, !llvm.loop !12
 
 _Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit.split: ; preds = %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit
   %9 = load i32, ptr %d2.i.i, align 4
@@ -2488,17 +2488,17 @@ _Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit
   %10 = load ptr, ptr %nodes.i.i, align 8
   %weight.i.i = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %10, i64 %idxprom.i.i, i32 1
   %11 = load i32, ptr %weight.i.i, align 8
-  %cmp28.not = icmp eq i32 %11, 0
-  br i1 %cmp28.not, label %for.end, label %if.else.i.i6
+  %cmp26.not = icmp eq i32 %11, 0
+  br i1 %cmp26.not, label %for.end, label %if.else.i.i6
 
 if.else.i.i6:                                     ; preds = %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit.split.split, %for.inc
-  %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit.split.split ]
-  %cmp.not15.i = icmp ult i32 %i.030, %11
+  %i.027 = phi i32 [ %inc, %for.inc ], [ 0, %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit.split.split ]
+  %cmp.not15.i = icmp ult i32 %i.027, %11
   br i1 %cmp.not15.i, label %tailrecurse.outer.i.i, label %for.inc
 
 tailrecurse.outer.i.i:                            ; preds = %if.else.i.i6, %if.else8.i.i
   %.pre.i.i = phi i32 [ %.pre.i.pre.i, %if.else8.i.i ], [ %9, %if.else.i.i6 ]
-  %i.tr.ph.i.i = phi i32 [ %sub9.i.i, %if.else8.i.i ], [ %i.030, %if.else.i.i6 ]
+  %i.tr.ph.i.i = phi i32 [ %sub9.i.i, %if.else8.i.i ], [ %i.027, %if.else.i.i6 ]
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i.i, %tailrecurse.outer.i.i
@@ -2552,7 +2552,7 @@ if.then:                                          ; preds = %land.lhs.true.loope
   br label %for.end
 
 for.inc:                                          ; preds = %if.else.i.i6, %land.lhs.true.loopexit
-  %inc = add nuw i32 %i.030, 1
+  %inc = add nuw i32 %i.027, 1
   %exitcond.not = icmp eq i32 %inc, %11
   br i1 %exitcond.not, label %for.end, label %if.else.i.i6, !llvm.loop !12
 

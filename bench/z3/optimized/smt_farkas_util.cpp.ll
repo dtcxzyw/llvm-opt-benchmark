@@ -2710,8 +2710,8 @@ invoke.cont10.lr.ph:                              ; preds = %_ZN7obj_refI4expr11
 
 invoke.cont10:                                    ; preds = %invoke.cont10.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %12, %invoke.cont10.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %is_eq.0275 = phi i1 [ true, %invoke.cont10.lr.ph ], [ %is_eq.2, %for.inc ]
-  %is_strict.0274 = phi i1 [ false, %invoke.cont10.lr.ph ], [ %is_strict.1, %for.inc ]
+  %is_eq.0273 = phi i1 [ true, %invoke.cont10.lr.ph ], [ %is_eq.2, %for.inc ]
+  %is_strict.0272 = phi i1 [ false, %invoke.cont10.lr.ph ], [ %is_strict.1, %for.inc ]
   %13 = load ptr, ptr %m_nodes.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   %14 = load ptr, ptr %arrayidx.i.i, align 8
@@ -2902,8 +2902,8 @@ lpad43:                                           ; preds = %invoke.cont42
 
 if.end45:                                         ; preds = %land.rhs.i.i.i28, %.noexc.i64.if.end45_crit_edge, %if.end, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i, %land.lhs.true.i53
   %bf.load.i.i.i.i68 = phi i32 [ %bf.load.i.i.i.i68.pre, %.noexc.i64.if.end45_crit_edge ], [ %bf.load.i.i.i.i24, %land.lhs.true.i53 ], [ %bf.load.i.i.i.i24, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i ], [ %bf.load.i.i.i.i24, %if.end ], [ %bf.load.i.i.i.i24, %land.rhs.i.i.i28 ]
-  %is_strict.1 = phi i1 [ true, %.noexc.i64.if.end45_crit_edge ], [ %is_strict.0274, %land.lhs.true.i53 ], [ %is_strict.0274, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i ], [ %is_strict.0274, %if.end ], [ %is_strict.0274, %land.rhs.i.i.i28 ]
-  %is_eq.1 = phi i1 [ false, %.noexc.i64.if.end45_crit_edge ], [ %is_eq.0275, %land.lhs.true.i53 ], [ %is_eq.0275, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i ], [ %is_eq.0275, %if.end ], [ %is_eq.0275, %land.rhs.i.i.i28 ]
+  %is_strict.1 = phi i1 [ true, %.noexc.i64.if.end45_crit_edge ], [ %is_strict.0272, %land.lhs.true.i53 ], [ %is_strict.0272, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i ], [ %is_strict.0272, %if.end ], [ %is_strict.0272, %land.rhs.i.i.i28 ]
+  %is_eq.1 = phi i1 [ false, %.noexc.i64.if.end45_crit_edge ], [ %is_eq.0273, %land.lhs.true.i53 ], [ %is_eq.0273, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i ], [ %is_eq.0273, %if.end ], [ %is_eq.0273, %land.rhs.i.i.i28 ]
   %bf.clear.i.i.i.i69 = and i32 %bf.load.i.i.i.i68, 65535
   %cmp.i.i.i70 = icmp eq i32 %bf.clear.i.i.i.i69, 0
   br i1 %cmp.i.i.i70, label %land.rhs.i.i.i72, label %for.inc

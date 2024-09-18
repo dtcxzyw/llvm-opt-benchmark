@@ -8183,9 +8183,9 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
   br label %220
 
 220:                                              ; preds = %241, %221, %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$17h8a9bf0e65e7cbab3E.exit.i", %161
-  %.1108.i = phi i64 [ %.0107.ph.i, %161 ], [ %.sroa.7.2.i, %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$17h8a9bf0e65e7cbab3E.exit.i" ], [ %.0107.ph.i, %221 ], [ %.0107.ph.i, %241 ]
-  %.sroa.028.1.i = phi ptr [ %164, %161 ], [ %.sroa.028.2.i, %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$17h8a9bf0e65e7cbab3E.exit.i" ], [ %223, %221 ], [ %.sroa.028.0.lcssa.i, %241 ]
-  %.sroa.7.1.i = phi i64 [ %163, %161 ], [ %.sroa.7.2.i, %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$17h8a9bf0e65e7cbab3E.exit.i" ], [ %222, %221 ], [ %.sroa.7.0.lcssa.i, %241 ]
+  %.1108.i = phi i64 [ %.0107.ph.i, %241 ], [ %.0107.ph.i, %161 ], [ %.sroa.7.2.i, %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$17h8a9bf0e65e7cbab3E.exit.i" ], [ %.0107.ph.i, %221 ]
+  %.sroa.028.1.i = phi ptr [ %.sroa.028.0.lcssa.i, %241 ], [ %164, %161 ], [ %.sroa.028.2.i, %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$17h8a9bf0e65e7cbab3E.exit.i" ], [ %223, %221 ]
+  %.sroa.7.1.i = phi i64 [ %.sroa.7.0.lcssa.i, %241 ], [ %163, %161 ], [ %.sroa.7.2.i, %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$17h8a9bf0e65e7cbab3E.exit.i" ], [ %222, %221 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !1425
   br label %.outer.i
 

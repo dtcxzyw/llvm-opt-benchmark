@@ -1315,9 +1315,9 @@ define hidden void @_ZN5clang7targets15NVPTXTargetInfoC2ERKN4llvm6TripleERKNS_13
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.critedge
-  %.sroa.028.041 = phi ptr [ %28, %.critedge ], [ %14, %4 ]
-  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.028.041) #12
-  %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.028.041) #12
+  %.sroa.028.040 = phi ptr [ %28, %.critedge ], [ %14, %4 ]
+  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.028.040) #12
+  %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.028.040) #12
   %.not.i = icmp ult i64 %18, 4
   br i1 %.not.i, label %.critedge, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
@@ -1350,7 +1350,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread: ; preds = %23, %_ZNK4llv
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit, %26
-  %28 = getelementptr inbounds i8, ptr %.sroa.028.041, i64 32
+  %28 = getelementptr inbounds i8, ptr %.sroa.028.040, i64 32
   %.not = icmp eq ptr %28, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1465,13 +1465,13 @@ _ZNSt10unique_ptrIN5clang10TargetInfoESt14default_deleteIS1_EED2Ev.exit: ; preds
   store i8 %72, ptr %70, align 1
   store i8 %72, ptr %33, align 8
   %spec.select = select i1 %42, i32 6, i32 8
-  %spec.select44 = select i1 %42, i32 5, i32 7
+  %spec.select43 = select i1 %42, i32 5, i32 7
   %75 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 %spec.select, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %spec.select44, ptr %76, align 8
+  store i32 %spec.select43, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 %spec.select44, ptr %77, align 4
+  store i32 %spec.select43, ptr %77, align 4
   br label %199
 
 78:                                               ; preds = %68

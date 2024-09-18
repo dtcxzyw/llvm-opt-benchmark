@@ -2168,12 +2168,12 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %spec.042 = phi ptr [ @PYCONFIG_SPEC, %entry ], [ %incdec.ptr, %for.inc ]
-  %offset = getelementptr inbounds i8, ptr %spec.042, i64 8
+  %spec.038 = phi ptr [ @PYCONFIG_SPEC, %entry ], [ %incdec.ptr, %for.inc ]
+  %offset = getelementptr inbounds i8, ptr %spec.038, i64 8
   %0 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %config, i64 %0
   %add.ptr2 = getelementptr i8, ptr %config2, i64 %0
-  %type = getelementptr inbounds i8, ptr %spec.042, i64 16
+  %type = getelementptr inbounds i8, ptr %spec.038, i64 16
   %1 = load i32, ptr %type, align 8
   switch i32 %1, label %sw.default [
     i32 0, label %sw.bb
@@ -2272,7 +2272,7 @@ sw.default:                                       ; preds = %for.body
   unreachable
 
 for.inc:                                          ; preds = %PyConfig_SetString.exit, %sw.bb, %sw.bb3, %sw.bb6
-  %incdec.ptr = getelementptr i8, ptr %spec.042, i64 24
+  %incdec.ptr = getelementptr i8, ptr %spec.038, i64 24
   %7 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %7, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !22

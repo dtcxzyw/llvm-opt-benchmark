@@ -9346,8 +9346,8 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
 
 51:                                               ; preds = %95, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %.044121 = phi ptr [ undef, %.lr.ph ], [ %.145, %95 ]
-  %.sroa.0113.0120 = phi i32 [ 43, %.lr.ph ], [ %.sroa.015.0, %95 ]
+  %.044119 = phi ptr [ undef, %.lr.ph ], [ %.145, %95 ]
+  %.sroa.0113.0118 = phi i32 [ 43, %.lr.ph ], [ %.sroa.015.0, %95 ]
   %52 = icmp ult i64 %indvars.iv, %50
   br i1 %52, label %53, label %55
 
@@ -9392,7 +9392,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   %71 = load i32, ptr %57, align 4
   store i32 %.sroa.015.0, ptr %11, align 8
   store i32 1, ptr %40, align 8
-  store i32 %.sroa.0113.0120, ptr %12, align 8
+  store i32 %.sroa.0113.0118, ptr %12, align 8
   store i32 0, ptr %41, align 8
   store i32 43, ptr %42, align 8
   store i32 0, ptr %43, align 8
@@ -9407,9 +9407,9 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   %78 = load i32, ptr %57, align 4
   store i32 %.sroa.015.0, ptr %13, align 8
   store i32 1, ptr %36, align 8
-  store i32 %.sroa.0113.0120, ptr %14, align 8
+  store i32 %.sroa.0113.0118, ptr %14, align 8
   store i32 0, ptr %37, align 8
-  store i32 %.sroa.0113.0120, ptr %38, align 8
+  store i32 %.sroa.0113.0118, ptr %38, align 8
   store i32 0, ptr %39, align 8
   %79 = load ptr, ptr %3, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 32
@@ -9422,7 +9422,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   %85 = load i32, ptr %57, align 4
   store i32 %.sroa.015.0, ptr %15, align 8
   store i32 1, ptr %32, align 8
-  store i32 %.sroa.0113.0120, ptr %16, align 8
+  store i32 %.sroa.0113.0118, ptr %16, align 8
   store i32 0, ptr %33, align 8
   %86 = load ptr, ptr %3, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 32
@@ -9442,7 +9442,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   br label %95
 
 95:                                               ; preds = %84, %77, %70, %59, %55
-  %.145 = phi ptr [ %.044121, %55 ], [ %91, %84 ], [ %83, %77 ], [ %76, %70 ], [ %66, %59 ]
+  %.145 = phi ptr [ %.044119, %55 ], [ %91, %84 ], [ %83, %77 ], [ %76, %70 ], [ %66, %59 ]
   %96 = load ptr, ptr %47, align 8
   %97 = load ptr, ptr %48, align 8
   %98 = load ptr, ptr %49, align 8

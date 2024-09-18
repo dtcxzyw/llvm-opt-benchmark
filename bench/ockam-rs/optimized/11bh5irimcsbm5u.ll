@@ -3943,7 +3943,7 @@ common.resume:                                    ; preds = %94, %102, %107, %.b
   br label %222
 
 222:                                              ; preds = %220, %._crit_edge.i
-  %223 = phi i8 [ %221, %220 ], [ %.pre.i, %._crit_edge.i ]
+  %223 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %221, %220 ]
   switch i8 %223, label %default.unreachable11.i.i [
     i8 0, label %224
     i8 1, label %.invoke.i.loopexit

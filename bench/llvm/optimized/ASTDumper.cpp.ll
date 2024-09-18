@@ -14489,7 +14489,7 @@ define linkonce_odr void @_ZN5clang9ASTDumper30dumpTemplateDeclSpecializationINS
   br i1 %2, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us
-  %.040.us.us = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ false, %.lr.ph.split.us ]
+  %.038.us.us = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ false, %.lr.ph.split.us ]
   %.sroa.6.037.us.us = phi i1 [ %.sroa.6.0.mux.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ false, %.lr.ph.split.us ]
   %.sroa.018.036.us.us = phi ptr [ %14, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %1, %.lr.ph.split.us ]
   %8 = tail call noundef i32 @_ZNK5clang12FunctionDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.018.036.us.us) #18
@@ -14505,7 +14505,7 @@ define linkonce_odr void @_ZN5clang9ASTDumper30dumpTemplateDeclSpecializationINS
   br label %10
 
 10:                                               ; preds = %9, %.lr.ph.split.us.split.us
-  %.1.us.us = phi i1 [ %.040.us.us, %.lr.ph.split.us.split.us ], [ true, %9 ]
+  %.1.us.us = phi i1 [ %.038.us.us, %.lr.ph.split.us.split.us ], [ true, %9 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.018.036.us.us, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us.us = load i64, ptr %11, align 8
   %12 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us.us, 3
@@ -14527,7 +14527,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us: ; p
   br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us
-  %.040.us = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ false, %.lr.ph.split.us ]
+  %.038.us = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ false, %.lr.ph.split.us ]
   %.sroa.6.037.us = phi i1 [ %.sroa.6.0.mux.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ false, %.lr.ph.split.us ]
   %.sroa.018.036.us = phi ptr [ %21, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %1, %.lr.ph.split.us ]
   %15 = tail call noundef i32 @_ZNK5clang12FunctionDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.018.036.us) #18
@@ -14539,7 +14539,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us: ; p
   br label %17
 
 17:                                               ; preds = %.lr.ph.split.us.split, %16
-  %.1.us = phi i1 [ true, %16 ], [ %.040.us, %.lr.ph.split.us.split ]
+  %.1.us = phi i1 [ true, %16 ], [ %.038.us, %.lr.ph.split.us.split ]
   %18 = getelementptr inbounds i8, ptr %.sroa.018.036.us, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us = load i64, ptr %18, align 8
   %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us, 3
@@ -14563,11 +14563,11 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us: ; pred
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51
-  %.040.us41 = phi i1 [ %.1.us44, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51 ], [ false, %.lr.ph.split ]
-  %.sroa.6.037.us42 = phi i1 [ %.sroa.6.0.mux.us49, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51 ], [ false, %.lr.ph.split ]
-  %.sroa.018.036.us43 = phi ptr [ %34, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51 ], [ %1, %.lr.ph.split ]
-  %22 = tail call noundef i32 @_ZNK5clang12FunctionDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.018.036.us43) #18
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49
+  %.038.us39 = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49 ], [ false, %.lr.ph.split ]
+  %.sroa.6.037.us40 = phi i1 [ %.sroa.6.0.mux.us47, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49 ], [ false, %.lr.ph.split ]
+  %.sroa.018.036.us41 = phi ptr [ %34, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49 ], [ %1, %.lr.ph.split ]
+  %22 = tail call noundef i32 @_ZNK5clang12FunctionDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.018.036.us41) #18
   switch i32 %22, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us [
     i32 3, label %23
     i32 4, label %23
@@ -14581,7 +14581,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us: ; pred
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.036.us43, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.036.us41, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %.not34.us = icmp eq i32 %29, 0
@@ -14590,41 +14590,41 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us: ; pred
 30:                                               ; preds = %26, %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  store ptr %.sroa.018.036.us43, ptr %.sroa.429.0..sroa_idx, align 8
+  store ptr %.sroa.018.036.us41, ptr %.sroa.429.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.530.0..sroa_idx, align 8
   tail call void @_ZN5clang17TextTreeStructure8AddChildIZNS_16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEbEUlvE_EEvN4llvm9StringRefET_(ptr noundef nonnull align 8 dereferenceable(1096) %7, ptr nonnull @.str.1, i64 0, ptr noundef nonnull byval(%class.anon.529) align 8 %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us: ; preds = %26, %30, %.lr.ph.split.split.us
-  %.1.us44 = phi i1 [ %.040.us41, %.lr.ph.split.split.us ], [ true, %30 ], [ true, %26 ]
-  %31 = getelementptr inbounds i8, ptr %.sroa.018.036.us43, i64 104
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us45 = load i64, ptr %31, align 8
-  %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us45, 3
-  %.not4.i.us46 = icmp ne i64 %32, 0
-  %brmerge.us48.not = select i1 %.not4.i.us46, i1 %.sroa.6.037.us42, i1 false
-  br i1 %brmerge.us48.not, label %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51.thread, label %33
+  %.1.us42 = phi i1 [ %.038.us39, %.lr.ph.split.split.us ], [ true, %30 ], [ true, %26 ]
+  %31 = getelementptr inbounds i8, ptr %.sroa.018.036.us41, i64 104
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us43 = load i64, ptr %31, align 8
+  %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us43, 3
+  %.not4.i.us44 = icmp ne i64 %32, 0
+  %brmerge.us46.not = select i1 %.not4.i.us44, i1 %.sroa.6.037.us40, i1 false
+  br i1 %brmerge.us46.not, label %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49.thread, label %33
 
 33:                                               ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
-  %34 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %.sroa.018.036.us43)
-  %.not.i.us50 = icmp eq ptr %34, %1
-  br i1 %.not.i.us50, label %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51.thread, label %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51
+  %34 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %.sroa.018.036.us41)
+  %.not.i.us48 = icmp eq ptr %34, %1
+  br i1 %.not.i.us48, label %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49.thread, label %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49
 
-_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us, %33
-  br i1 %.1.us44, label %49, label %.critedge
+_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us, %33
+  br i1 %.1.us42, label %49, label %.critedge
 
-_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51: ; preds = %33
-  %.sroa.6.0.mux.us49 = select i1 %.not4.i.us46, i1 true, i1 %.sroa.6.037.us42
-  %.not.us54 = icmp eq ptr %34, null
-  br i1 %.not.us54, label %._crit_edge, label %.lr.ph.split.split.us
+_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49: ; preds = %33
+  %.sroa.6.0.mux.us47 = select i1 %.not4.i.us44, i1 true, i1 %.sroa.6.037.us40
+  %.not.us52 = icmp eq ptr %34, null
+  br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit
-  %.040 = phi i1 [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ], [ false, %.lr.ph.split ]
+  %.038 = phi i1 [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ], [ false, %.lr.ph.split ]
   %.sroa.6.037 = phi i1 [ %.sroa.6.0.mux, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ], [ false, %.lr.ph.split ]
   %.sroa.018.036 = phi ptr [ %47, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ], [ %1, %.lr.ph.split ]
   %35 = tail call noundef i32 @_ZNK5clang12FunctionDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.018.036) #18
-  %switch58 = icmp ult i32 %35, 2
-  br i1 %switch58, label %36, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
+  %switch56 = icmp ult i32 %35, 2
+  br i1 %switch56, label %36, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 36:                                               ; preds = %.lr.ph.split.split
   %37 = load i32, ptr %6, align 4
@@ -14648,7 +14648,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51: ; pr
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit: ; preds = %43, %39, %.lr.ph.split.split
-  %.1 = phi i1 [ %.040, %.lr.ph.split.split ], [ true, %39 ], [ true, %43 ]
+  %.1 = phi i1 [ %.038, %.lr.ph.split.split ], [ true, %39 ], [ true, %43 ]
   %44 = getelementptr inbounds i8, ptr %.sroa.018.036, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
   %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 3
@@ -14669,16 +14669,16 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit: ; preds =
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
-._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us44, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51 ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
+._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us
+  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %49, label %.critedge
 
-.critedge:                                        ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us.thread, %4, %._crit_edge
+.critedge:                                        ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us.thread, %4, %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %48, ptr noundef %1, ptr null, i64 0) #18
   br label %49
 
-49:                                               ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us51.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us.thread, %.critedge, %._crit_edge
+49:                                               ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us.thread, %.critedge, %._crit_edge
   ret void
 }
 
@@ -14863,7 +14863,7 @@ define linkonce_odr void @_ZN5clang9ASTDumper30dumpTemplateDeclSpecializationINS
   br i1 %2, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us
-  %.040.us.us = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ false, %.lr.ph.split.us ]
+  %.038.us.us = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ false, %.lr.ph.split.us ]
   %.sroa.6.037.us.us = phi i1 [ %.sroa.6.0.mux.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ false, %.lr.ph.split.us ]
   %.sroa.018.036.us.us = phi ptr [ %14, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %1, %.lr.ph.split.us ]
   %8 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.018.036.us.us) #18
@@ -14879,7 +14879,7 @@ define linkonce_odr void @_ZN5clang9ASTDumper30dumpTemplateDeclSpecializationINS
   br label %10
 
 10:                                               ; preds = %9, %.lr.ph.split.us.split.us
-  %.1.us.us = phi i1 [ %.040.us.us, %.lr.ph.split.us.split.us ], [ true, %9 ]
+  %.1.us.us = phi i1 [ %.038.us.us, %.lr.ph.split.us.split.us ], [ true, %9 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.018.036.us.us, i64 96
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us.us = load i64, ptr %11, align 8
   %12 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us.us, 3
@@ -14901,7 +14901,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us: ; preds =
   br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us
-  %.040.us = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ false, %.lr.ph.split.us ]
+  %.038.us = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ false, %.lr.ph.split.us ]
   %.sroa.6.037.us = phi i1 [ %.sroa.6.0.mux.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ false, %.lr.ph.split.us ]
   %.sroa.018.036.us = phi ptr [ %21, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %1, %.lr.ph.split.us ]
   %15 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.018.036.us) #18
@@ -14913,7 +14913,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us: ; preds =
   br label %17
 
 17:                                               ; preds = %.lr.ph.split.us.split, %16
-  %.1.us = phi i1 [ true, %16 ], [ %.040.us, %.lr.ph.split.us.split ]
+  %.1.us = phi i1 [ true, %16 ], [ %.038.us, %.lr.ph.split.us.split ]
   %18 = getelementptr inbounds i8, ptr %.sroa.018.036.us, i64 96
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us = load i64, ptr %18, align 8
   %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us, 3
@@ -14937,11 +14937,11 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us: ; preds = %2
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51
-  %.040.us41 = phi i1 [ %.1.us44, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51 ], [ false, %.lr.ph.split ]
-  %.sroa.6.037.us42 = phi i1 [ %.sroa.6.0.mux.us49, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51 ], [ false, %.lr.ph.split ]
-  %.sroa.018.036.us43 = phi ptr [ %34, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51 ], [ %1, %.lr.ph.split ]
-  %22 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.018.036.us43) #18
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49
+  %.038.us39 = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49 ], [ false, %.lr.ph.split ]
+  %.sroa.6.037.us40 = phi i1 [ %.sroa.6.0.mux.us47, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49 ], [ false, %.lr.ph.split ]
+  %.sroa.018.036.us41 = phi ptr [ %34, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49 ], [ %1, %.lr.ph.split ]
+  %22 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.018.036.us41) #18
   switch i32 %22, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us [
     i32 3, label %23
     i32 4, label %23
@@ -14955,7 +14955,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us: ; preds = %2
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.036.us43, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.036.us41, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %.not34.us = icmp eq i32 %29, 0
@@ -14964,41 +14964,41 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us: ; preds = %2
 30:                                               ; preds = %26, %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  store ptr %.sroa.018.036.us43, ptr %.sroa.429.0..sroa_idx, align 8
+  store ptr %.sroa.018.036.us41, ptr %.sroa.429.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.530.0..sroa_idx, align 8
   tail call void @_ZN5clang17TextTreeStructure8AddChildIZNS_16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEbEUlvE_EEvN4llvm9StringRefET_(ptr noundef nonnull align 8 dereferenceable(1096) %7, ptr nonnull @.str.1, i64 0, ptr noundef nonnull byval(%class.anon.529) align 8 %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us: ; preds = %26, %30, %.lr.ph.split.split.us
-  %.1.us44 = phi i1 [ %.040.us41, %.lr.ph.split.split.us ], [ true, %30 ], [ true, %26 ]
-  %31 = getelementptr inbounds i8, ptr %.sroa.018.036.us43, i64 96
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us45 = load i64, ptr %31, align 8
-  %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us45, 3
-  %.not4.i.us46 = icmp ne i64 %32, 0
-  %brmerge.us48.not = select i1 %.not4.i.us46, i1 %.sroa.6.037.us42, i1 false
-  br i1 %brmerge.us48.not, label %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51.thread, label %33
+  %.1.us42 = phi i1 [ %.038.us39, %.lr.ph.split.split.us ], [ true, %30 ], [ true, %26 ]
+  %31 = getelementptr inbounds i8, ptr %.sroa.018.036.us41, i64 96
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us43 = load i64, ptr %31, align 8
+  %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us43, 3
+  %.not4.i.us44 = icmp ne i64 %32, 0
+  %brmerge.us46.not = select i1 %.not4.i.us44, i1 %.sroa.6.037.us40, i1 false
+  br i1 %brmerge.us46.not, label %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49.thread, label %33
 
 33:                                               ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
-  %34 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %.sroa.018.036.us43)
-  %.not.i.us50 = icmp eq ptr %34, %1
-  br i1 %.not.i.us50, label %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51.thread, label %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51
+  %34 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %.sroa.018.036.us41)
+  %.not.i.us48 = icmp eq ptr %34, %1
+  br i1 %.not.i.us48, label %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49.thread, label %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49
 
-_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us, %33
-  br i1 %.1.us44, label %49, label %.critedge
+_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us, %33
+  br i1 %.1.us42, label %49, label %.critedge
 
-_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51: ; preds = %33
-  %.sroa.6.0.mux.us49 = select i1 %.not4.i.us46, i1 true, i1 %.sroa.6.037.us42
-  %.not.us54 = icmp eq ptr %34, null
-  br i1 %.not.us54, label %._crit_edge, label %.lr.ph.split.split.us
+_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49: ; preds = %33
+  %.sroa.6.0.mux.us47 = select i1 %.not4.i.us44, i1 true, i1 %.sroa.6.037.us40
+  %.not.us52 = icmp eq ptr %34, null
+  br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit
-  %.040 = phi i1 [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ], [ false, %.lr.ph.split ]
+  %.038 = phi i1 [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ], [ false, %.lr.ph.split ]
   %.sroa.6.037 = phi i1 [ %.sroa.6.0.mux, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ], [ false, %.lr.ph.split ]
   %.sroa.018.036 = phi ptr [ %47, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ], [ %1, %.lr.ph.split ]
   %35 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.018.036) #18
-  %switch58 = icmp ult i32 %35, 2
-  br i1 %switch58, label %36, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
+  %switch56 = icmp ult i32 %35, 2
+  br i1 %switch56, label %36, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 36:                                               ; preds = %.lr.ph.split.split
   %37 = load i32, ptr %6, align 4
@@ -15022,7 +15022,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51: ; preds = 
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit: ; preds = %43, %39, %.lr.ph.split.split
-  %.1 = phi i1 [ %.040, %.lr.ph.split.split ], [ true, %39 ], [ true, %43 ]
+  %.1 = phi i1 [ %.038, %.lr.ph.split.split ], [ true, %39 ], [ true, %43 ]
   %44 = getelementptr inbounds i8, ptr %.sroa.018.036, i64 96
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
   %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 3
@@ -15043,16 +15043,16 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit: ; preds = %46
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
-._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us44, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51 ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
+._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us
+  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %49, label %.critedge
 
-.critedge:                                        ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us.thread, %4, %._crit_edge
+.critedge:                                        ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us.thread, %4, %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %48, ptr noundef %1, ptr null, i64 0) #18
   br label %49
 
-49:                                               ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us.thread, %.critedge, %._crit_edge
+49:                                               ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us.thread, %.critedge, %._crit_edge
   ret void
 }
 
@@ -15198,7 +15198,7 @@ define linkonce_odr void @_ZN5clang9ASTDumper30dumpTemplateDeclSpecializationINS
   br i1 %2, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us
-  %.040.us.us = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ false, %.lr.ph.split.us ]
+  %.038.us.us = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ false, %.lr.ph.split.us ]
   %.sroa.6.037.us.us = phi i1 [ %.sroa.6.0.mux.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ false, %.lr.ph.split.us ]
   %.sroa.018.036.us.us = phi ptr [ %14, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %1, %.lr.ph.split.us ]
   %8 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.018.036.us.us) #18
@@ -15214,7 +15214,7 @@ define linkonce_odr void @_ZN5clang9ASTDumper30dumpTemplateDeclSpecializationINS
   br label %10
 
 10:                                               ; preds = %9, %.lr.ph.split.us.split.us
-  %.1.us.us = phi i1 [ %.040.us.us, %.lr.ph.split.us.split.us ], [ true, %9 ]
+  %.1.us.us = phi i1 [ %.038.us.us, %.lr.ph.split.us.split.us ], [ true, %9 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.018.036.us.us, i64 72
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us.us = load i64, ptr %11, align 8
   %12 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us.us, 3
@@ -15236,7 +15236,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us: ; preds =
   br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us
-  %.040.us = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ false, %.lr.ph.split.us ]
+  %.038.us = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ false, %.lr.ph.split.us ]
   %.sroa.6.037.us = phi i1 [ %.sroa.6.0.mux.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ false, %.lr.ph.split.us ]
   %.sroa.018.036.us = phi ptr [ %21, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %1, %.lr.ph.split.us ]
   %15 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.018.036.us) #18
@@ -15248,7 +15248,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us: ; preds =
   br label %17
 
 17:                                               ; preds = %.lr.ph.split.us.split, %16
-  %.1.us = phi i1 [ true, %16 ], [ %.040.us, %.lr.ph.split.us.split ]
+  %.1.us = phi i1 [ true, %16 ], [ %.038.us, %.lr.ph.split.us.split ]
   %18 = getelementptr inbounds i8, ptr %.sroa.018.036.us, i64 72
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us = load i64, ptr %18, align 8
   %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us, 3
@@ -15272,11 +15272,11 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us: ; preds = %2
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51
-  %.040.us41 = phi i1 [ %.1.us44, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51 ], [ false, %.lr.ph.split ]
-  %.sroa.6.037.us42 = phi i1 [ %.sroa.6.0.mux.us49, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51 ], [ false, %.lr.ph.split ]
-  %.sroa.018.036.us43 = phi ptr [ %34, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51 ], [ %1, %.lr.ph.split ]
-  %22 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.018.036.us43) #18
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49
+  %.038.us39 = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ false, %.lr.ph.split ]
+  %.sroa.6.037.us40 = phi i1 [ %.sroa.6.0.mux.us47, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ false, %.lr.ph.split ]
+  %.sroa.018.036.us41 = phi ptr [ %34, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %1, %.lr.ph.split ]
+  %22 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.018.036.us41) #18
   switch i32 %22, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us [
     i32 3, label %23
     i32 4, label %23
@@ -15290,7 +15290,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us: ; preds = %2
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.036.us43, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.036.us41, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %.not34.us = icmp eq i32 %29, 0
@@ -15299,41 +15299,41 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us: ; preds = %2
 30:                                               ; preds = %26, %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  store ptr %.sroa.018.036.us43, ptr %.sroa.429.0..sroa_idx, align 8
+  store ptr %.sroa.018.036.us41, ptr %.sroa.429.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.530.0..sroa_idx, align 8
   tail call void @_ZN5clang17TextTreeStructure8AddChildIZNS_16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEbEUlvE_EEvN4llvm9StringRefET_(ptr noundef nonnull align 8 dereferenceable(1096) %7, ptr nonnull @.str.1, i64 0, ptr noundef nonnull byval(%class.anon.529) align 8 %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us: ; preds = %26, %30, %.lr.ph.split.split.us
-  %.1.us44 = phi i1 [ %.040.us41, %.lr.ph.split.split.us ], [ true, %30 ], [ true, %26 ]
-  %31 = getelementptr inbounds i8, ptr %.sroa.018.036.us43, i64 72
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us45 = load i64, ptr %31, align 8
-  %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us45, 3
-  %.not4.i.us46 = icmp ne i64 %32, 0
-  %brmerge.us48.not = select i1 %.not4.i.us46, i1 %.sroa.6.037.us42, i1 false
-  br i1 %brmerge.us48.not, label %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51.thread, label %33
+  %.1.us42 = phi i1 [ %.038.us39, %.lr.ph.split.split.us ], [ true, %30 ], [ true, %26 ]
+  %31 = getelementptr inbounds i8, ptr %.sroa.018.036.us41, i64 72
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us43 = load i64, ptr %31, align 8
+  %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.us43, 3
+  %.not4.i.us44 = icmp ne i64 %32, 0
+  %brmerge.us46.not = select i1 %.not4.i.us44, i1 %.sroa.6.037.us40, i1 false
+  br i1 %brmerge.us46.not, label %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49.thread, label %33
 
 33:                                               ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
-  %34 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %.sroa.018.036.us43)
-  %.not.i.us50 = icmp eq ptr %34, %1
-  br i1 %.not.i.us50, label %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51.thread, label %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51
+  %34 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %.sroa.018.036.us41)
+  %.not.i.us48 = icmp eq ptr %34, %1
+  br i1 %.not.i.us48, label %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49.thread, label %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49
 
-_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us, %33
-  br i1 %.1.us44, label %49, label %.critedge
+_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us, %33
+  br i1 %.1.us42, label %49, label %.critedge
 
-_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51: ; preds = %33
-  %.sroa.6.0.mux.us49 = select i1 %.not4.i.us46, i1 true, i1 %.sroa.6.037.us42
-  %.not.us54 = icmp eq ptr %34, null
-  br i1 %.not.us54, label %._crit_edge, label %.lr.ph.split.split.us
+_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49: ; preds = %33
+  %.sroa.6.0.mux.us47 = select i1 %.not4.i.us44, i1 true, i1 %.sroa.6.037.us40
+  %.not.us52 = icmp eq ptr %34, null
+  br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit
-  %.040 = phi i1 [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ], [ false, %.lr.ph.split ]
+  %.038 = phi i1 [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ], [ false, %.lr.ph.split ]
   %.sroa.6.037 = phi i1 [ %.sroa.6.0.mux, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ], [ false, %.lr.ph.split ]
   %.sroa.018.036 = phi ptr [ %47, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ], [ %1, %.lr.ph.split ]
   %35 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.018.036) #18
-  %switch58 = icmp ult i32 %35, 2
-  br i1 %switch58, label %36, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
+  %switch56 = icmp ult i32 %35, 2
+  br i1 %switch56, label %36, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 36:                                               ; preds = %.lr.ph.split.split
   %37 = load i32, ptr %6, align 4
@@ -15357,7 +15357,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51: ; preds = 
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit: ; preds = %43, %39, %.lr.ph.split.split
-  %.1 = phi i1 [ %.040, %.lr.ph.split.split ], [ true, %39 ], [ true, %43 ]
+  %.1 = phi i1 [ %.038, %.lr.ph.split.split ], [ true, %39 ], [ true, %43 ]
   %44 = getelementptr inbounds i8, ptr %.sroa.018.036, i64 72
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
   %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 3
@@ -15378,16 +15378,16 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit: ; preds = %46
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
-._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us44, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51 ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
+._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us
+  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %49, label %.critedge
 
-.critedge:                                        ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us.thread, %4, %._crit_edge
+.critedge:                                        ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us.thread, %4, %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %48, ptr noundef %1, ptr null, i64 0) #18
   br label %49
 
-49:                                               ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us51.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us.thread, %.critedge, %._crit_edge
+49:                                               ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.thread, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us.thread, %.critedge, %._crit_edge
   ret void
 }
 
@@ -20893,8 +20893,8 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4De
 
 ._crit_edge:                                      ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit, %10
   %35 = tail call noundef ptr @_ZNK5clang10LambdaExpr24getTemplateParameterListEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %.not.i76 = icmp eq ptr %35, null
-  br i1 %.not.i76, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %36
+  %.not.i74 = icmp eq ptr %35, null
+  br i1 %.not.i74, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %36
 
 36:                                               ; preds = %._crit_edge
   %.ptr.i = getelementptr inbounds i8, ptr %35, i64 16
@@ -20972,18 +20972,18 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateP
   %64 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %61) #18
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %63, i64 %65
-  %.not2470 = icmp eq i32 %64, 0
-  br i1 %.not2470, label %._crit_edge74, label %.lr.ph73
+  %.not2468 = icmp eq i32 %64, 0
+  br i1 %.not2468, label %._crit_edge72, label %.lr.ph71
 
-.lr.ph73:                                         ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit
+.lr.ph71:                                         ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.448.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.549.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   br label %68
 
-68:                                               ; preds = %.lr.ph73, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit25
-  %.02371 = phi ptr [ %63, %.lr.ph73 ], [ %77, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit25 ]
-  %69 = load ptr, ptr %.02371, align 8
+68:                                               ; preds = %.lr.ph71, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit25
+  %.02369 = phi ptr [ %63, %.lr.ph71 ], [ %77, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit25 ]
+  %69 = load ptr, ptr %.02369, align 8
   %70 = load i32, ptr %7, align 4
   %71 = icmp eq i32 %70, 1
   br i1 %71, label %72, label %76
@@ -21005,11 +21005,11 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateP
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit25
 
 _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit25: ; preds = %72, %76
-  %77 = getelementptr inbounds i8, ptr %.02371, i64 8
+  %77 = getelementptr inbounds i8, ptr %.02369, i64 8
   %.not24 = icmp eq ptr %77, %66
-  br i1 %.not24, label %._crit_edge74, label %68
+  br i1 %.not24, label %._crit_edge72, label %68
 
-._crit_edge74:                                    ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit25, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit
+._crit_edge72:                                    ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit25, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit
   %78 = tail call noundef ptr @_ZNK5clang10LambdaExpr7getBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4StmtEN4llvm9StringRefEEUlvE_EEvSA_T_(ptr noundef nonnull align 8 dereferenceable(1224) %79, ptr null, i64 0, ptr %78, ptr nonnull %0)
@@ -21040,7 +21040,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4De
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit26
 
-_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit26: ; preds = %88, %84, %._crit_edge74
+_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit26: ; preds = %88, %84, %._crit_edge72
   ret void
 }
 
@@ -34064,8 +34064,8 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4Decl
 
 ._crit_edge:                                      ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit, %10
   %35 = tail call noundef ptr @_ZNK5clang10LambdaExpr24getTemplateParameterListEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %.not.i76 = icmp eq ptr %35, null
-  br i1 %.not.i76, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %36
+  %.not.i74 = icmp eq ptr %35, null
+  br i1 %.not.i74, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %36
 
 36:                                               ; preds = %._crit_edge
   %.ptr.i = getelementptr inbounds i8, ptr %35, i64 16
@@ -34143,18 +34143,18 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplatePar
   %64 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %61) #18
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %63, i64 %65
-  %.not2470 = icmp eq i32 %64, 0
-  br i1 %.not2470, label %._crit_edge74, label %.lr.ph73
+  %.not2468 = icmp eq i32 %64, 0
+  br i1 %.not2468, label %._crit_edge72, label %.lr.ph71
 
-.lr.ph73:                                         ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit
+.lr.ph71:                                         ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.448.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.549.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   br label %68
 
-68:                                               ; preds = %.lr.ph73, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit25
-  %.02371 = phi ptr [ %63, %.lr.ph73 ], [ %77, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit25 ]
-  %69 = load ptr, ptr %.02371, align 8
+68:                                               ; preds = %.lr.ph71, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit25
+  %.02369 = phi ptr [ %63, %.lr.ph71 ], [ %77, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit25 ]
+  %69 = load ptr, ptr %.02369, align 8
   %70 = load i32, ptr %7, align 4
   %71 = icmp eq i32 %70, 1
   br i1 %71, label %72, label %76
@@ -34176,11 +34176,11 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplatePar
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit25
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit25: ; preds = %72, %76
-  %77 = getelementptr inbounds i8, ptr %.02371, i64 8
+  %77 = getelementptr inbounds i8, ptr %.02369, i64 8
   %.not24 = icmp eq ptr %77, %66
-  br i1 %.not24, label %._crit_edge74, label %68
+  br i1 %.not24, label %._crit_edge72, label %68
 
-._crit_edge74:                                    ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit25, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit
+._crit_edge72:                                    ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit25, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit
   %78 = tail call noundef ptr @_ZNK5clang10LambdaExpr7getBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5clang17TextTreeStructure8AddChildIZNS_16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4StmtEN4llvm9StringRefEEUlvE_EEvSA_T_(ptr noundef nonnull align 8 dereferenceable(1096) %79, ptr null, i64 0, ptr %78, ptr nonnull %0)
@@ -34211,7 +34211,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4Decl
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit26
 
-_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit26: ; preds = %88, %84, %._crit_edge74
+_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit26: ; preds = %88, %84, %._crit_edge72
   ret void
 }
 

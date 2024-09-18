@@ -38446,13 +38446,13 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %127, %.body, %121, %119
-  %.pn.pn = phi { ptr, i32 } [ %120, %119 ], [ %122, %121 ], [ %.pn, %.body ], [ %.pn, %127 ]
+  %.pn.pn = phi { ptr, i32 } [ %122, %121 ], [ %120, %119 ], [ %.pn, %.body ], [ %.pn, %127 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn, 1
   %.024 = extractvalue { ptr, i32 } %.pn.pn, 0
   %128 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %129 = icmp eq i32 %.023, %128
   %130 = call ptr @__cxa_begin_catch(ptr %.024) #22
-  br i1 %129, label %131, label %.invoke61
+  br i1 %129, label %131, label %.invoke58
 
 131:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit40
   %132 = load ptr, ptr %130, align 8
@@ -38460,13 +38460,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %127, %.body, %121, 
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef ptr %134(ptr noundef nonnull align 8 dereferenceable(8) %130) #22
   invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %135)
-          to label %.invoke61 unwind label %.loopexit
+          to label %.invoke58 unwind label %.loopexit
 
-.invoke61:                                        ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit40, %131
+.invoke58:                                        ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit40, %131
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %.invoke unwind label %.loopexit
 
-.invoke:                                          ; preds = %.invoke61
+.invoke:                                          ; preds = %.invoke58
   invoke void @__cxa_end_catch()
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %.loopexit
 
@@ -38490,7 +38490,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.invoke, %118, %117
 _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit:        ; preds = %139, %._crit_edge, %8
   ret void
 
-.loopexit:                                        ; preds = %.invoke61, %.invoke, %131
+.loopexit:                                        ; preds = %.invoke58, %.invoke, %131
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %140
@@ -45323,9 +45323,9 @@ define internal void @_ZNK8LightGBM7Booster13PredictSparseEiiiliSt8functionIFSt6
   br label %28
 
 28:                                               ; preds = %.lr.ph, %_ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit
-  %.052 = phi i64 [ %23, %.lr.ph ], [ %93, %_ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit ]
+  %.049 = phi i64 [ %23, %.lr.ph ], [ %93, %_ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  store i64 %.052, ptr %10, align 8, !noalias !492
+  store i64 %.049, ptr %10, align 8, !noalias !492
   %29 = load ptr, ptr %24, align 8, !noalias !492
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %30, label %31
@@ -45393,7 +45393,7 @@ _ZNSt6vectorISt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEESaIS9_
   %.sroa.10.5 = phi ptr [ null, %_ZNSt6vectorISt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEESaIS9_EE17_S_check_init_lenEmRKSA_.exit.i ], [ %47, %_ZNSt6vectorISt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEESaIS9_EEC2EmRKSA_.exit.loopexit ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorISt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEESaIS9_EE17_S_check_init_lenEmRKSA_.exit.i ], [ %46, %_ZNSt6vectorISt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEESaIS9_EEC2EmRKSA_.exit.loopexit ]
   %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %"class.std::vector.531", ptr %48, i64 %.052
+  %49 = getelementptr inbounds %"class.std::vector.531", ptr %48, i64 %.049
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -45449,7 +45449,7 @@ _ZSt8_DestroyIPSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEES9_E
 
 _ZNSt6vectorISt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEES9_EvT_SB_RSaIT0_E.exit.i.i.i, %66
   %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %"class.std::vector.531", ptr %67, i64 %.052
+  %68 = getelementptr inbounds %"class.std::vector.531", ptr %67, i64 %.049
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %68, ptr %9, align 8
   %69 = load ptr, ptr %26, align 8
@@ -45497,7 +45497,7 @@ _ZNSt6vectorISt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEESaIS9_
   br label %82
 
 82:                                               ; preds = %80, %78
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %81, %80 ]
+  %.pn = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ]
   %83 = load ptr, ptr %15, align 8
   %.not.i.i.i38 = icmp eq ptr %83, null
   br i1 %.not.i.i.i38, label %_ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit39, label %84
@@ -45513,7 +45513,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit39:      ; preds = %84, %82, %76
   %85 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %86 = icmp eq i32 %.024, %85
   %87 = call ptr @__cxa_begin_catch(ptr %.025) #22
-  br i1 %86, label %88, label %.invoke56
+  br i1 %86, label %88, label %.invoke53
 
 88:                                               ; preds = %_ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit39
   %89 = load ptr, ptr %87, align 8
@@ -45521,19 +45521,19 @@ _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit39:      ; preds = %84, %82, %76
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(8) %87) #22
   invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %92)
-          to label %.invoke56 unwind label %96
+          to label %.invoke53 unwind label %96
 
 _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit:        ; preds = %.invoke, %75, %73
-  %93 = add nsw i64 %.052, 1
+  %93 = add nsw i64 %.049, 1
   %94 = load i64, ptr %12, align 8
-  %.not.not = icmp slt i64 %.052, %94
+  %.not.not = icmp slt i64 %.049, %94
   br i1 %.not.not, label %28, label %._crit_edge
 
-.invoke56:                                        ; preds = %_ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit39, %88
+.invoke53:                                        ; preds = %_ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit39, %88
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %.invoke unwind label %96
 
-.invoke:                                          ; preds = %.invoke56
+.invoke:                                          ; preds = %.invoke53
   invoke void @__cxa_end_catch()
           to label %_ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit unwind label %96
 
@@ -45544,7 +45544,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit:        ; preds = %.invoke, %75, %73
 95:                                               ; preds = %._crit_edge, %8
   ret void
 
-96:                                               ; preds = %.invoke56, %.invoke, %88
+96:                                               ; preds = %.invoke53, %.invoke, %88
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0

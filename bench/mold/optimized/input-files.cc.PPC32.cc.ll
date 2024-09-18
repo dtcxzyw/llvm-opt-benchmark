@@ -2172,8 +2172,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond251.preheader:                            ; preds = %for.inc
-  %cmp254322.not = icmp eq i64 %63, 0
-  br i1 %cmp254322.not, label %for.end291, label %for.body255.lr.ph
+  %cmp254320.not = icmp eq i64 %63, 0
+  br i1 %cmp254320.not, label %for.end291, label %for.body255.lr.ph
 
 for.body255.lr.ph:                                ; preds = %for.cond251.preheader
   %sections267 = getelementptr inbounds i8, ptr %this, i64 312
@@ -2181,9 +2181,9 @@ for.body255.lr.ph:                                ; preds = %for.cond251.prehead
   br label %for.body255
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %storemerge319 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %storemerge317 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %1 = load ptr, ptr %elf_sections, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %1, i64 %storemerge319
+  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %1, i64 %storemerge317
   %sh_flags = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %x.0.copyload.i = load i32, ptr %sh_flags, align 1
   %2 = and i32 %x.0.copyload.i, 33554560
@@ -2325,7 +2325,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcE
   %call3.i.i = call noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE6lookupILb1ES6_PFPNSH_4nodeERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS9_EEEbRKT0_ST_PNSH_14const_accessorEbT1_SK_(ptr noundef nonnull align 8 dereferenceable(569) %comdat_groups, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp66, ptr noundef nonnull %second.i, ptr noundef nonnull %acc, i1 noundef zeroext false, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE28allocate_node_move_constructERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS9_, ptr noundef null)
   %18 = load ptr, ptr %my_node.i, align 8
   %second = getelementptr inbounds i8, ptr %18, i64 32
-  %conv73 = trunc i64 %storemerge319 to i32
+  %conv73 = trunc i64 %storemerge317 to i32
   %sub.i = add i64 %16, -1
   %add.ptr.i72 = getelementptr inbounds i8, ptr %15, i64 4
   %19 = load ptr, ptr %_M_finish.i.i, align 8
@@ -2617,9 +2617,9 @@ land.lhs.true149:                                 ; preds = %if.end146
 
 if.end155:                                        ; preds = %land.lhs.true149, %if.end146
   %call.i = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #28, !noalias !23
-  call void @_ZN4mold3elf12InputSectionINS0_5PPC32EEC1ERNS0_7ContextIS2_EERNS0_10ObjectFileIS2_EEl(ptr noundef nonnull align 8 dereferenceable(118) %call.i, ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef nonnull align 8 dereferenceable(712) %this, i64 noundef %storemerge319) #14, !noalias !23
+  call void @_ZN4mold3elf12InputSectionINS0_5PPC32EEC1ERNS0_7ContextIS2_EERNS0_10ObjectFileIS2_EEl(ptr noundef nonnull align 8 dereferenceable(118) %call.i, ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef nonnull align 8 dereferenceable(712) %this, i64 noundef %storemerge317) #14, !noalias !23
   %45 = load ptr, ptr %sections, align 8
-  %add.ptr.i174 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %45, i64 %storemerge319
+  %add.ptr.i174 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %45, i64 %storemerge317
   %46 = load ptr, ptr %add.ptr.i174, align 8
   store ptr %call.i, ptr %add.ptr.i174, align 8
   %tobool.not.i.i.i.i175 = icmp eq ptr %46, null
@@ -2656,7 +2656,7 @@ land.lhs.true162:                                 ; preds = %_ZNSt10unique_ptrIN
 
 if.then166:                                       ; preds = %land.lhs.true162
   %50 = load ptr, ptr %sections, align 8
-  %add.ptr.i178 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %50, i64 %storemerge319
+  %add.ptr.i178 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %50, i64 %storemerge317
   %call169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN4mold3elf12InputSectionINS1_5PPC32EEESt14default_deleteIS4_EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(8) %llvm_addrsig, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i178) #14
   br label %for.inc
 
@@ -2701,17 +2701,17 @@ if.then195:                                       ; preds = %_ZNSt11char_traitsI
 if.end196:                                        ; preds = %if.then195, %lor.lhs.false193
   %agg.tmp197.sroa.0.0.copyload = load i64, ptr %name, align 8
   %cmp.i204 = icmp eq i64 %agg.tmp197.sroa.0.0.copyload, 9
-  %agg.tmp206.sroa.2.0.copyload.pre333 = load ptr, ptr %_M_str.i81, align 8
+  %agg.tmp206.sroa.2.0.copyload.pre331 = load ptr, ptr %_M_str.i81, align 8
   br i1 %cmp.i204, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i207, label %if.end205
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i207: ; preds = %if.end196
-  %bcmp.i208 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %agg.tmp206.sroa.2.0.copyload.pre333, ptr noundef nonnull dereferenceable(9) @.str.49, i64 9)
+  %bcmp.i208 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %agg.tmp206.sroa.2.0.copyload.pre331, ptr noundef nonnull dereferenceable(9) @.str.49, i64 9)
   %cmp.i.i209 = icmp eq i32 %bcmp.i208, 0
   br i1 %cmp.i.i209, label %if.then200, label %if.end213
 
 if.then200:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i207
   %51 = load ptr, ptr %sections, align 8
-  %add.ptr.i212 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %51, i64 %storemerge319
+  %add.ptr.i212 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %51, i64 %storemerge317
   %52 = load ptr, ptr %add.ptr.i212, align 8
   store ptr %52, ptr %ref.tmp201, align 8
   call void @_ZNSt6vectorIPN4mold3elf12InputSectionINS1_5PPC32EEESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %eh_frame_sections, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp201)
@@ -2720,7 +2720,7 @@ if.then200:                                       ; preds = %_ZNSt11char_traitsI
   br label %if.end205
 
 if.end205:                                        ; preds = %if.then200, %if.end196
-  %agg.tmp238.sroa.2.0.copyload = phi ptr [ %agg.tmp206.sroa.2.0.copyload.pre333, %if.end196 ], [ %agg.tmp206.sroa.2.0.copyload.pre.pre, %if.then200 ]
+  %agg.tmp238.sroa.2.0.copyload = phi ptr [ %agg.tmp206.sroa.2.0.copyload.pre331, %if.end196 ], [ %agg.tmp206.sroa.2.0.copyload.pre.pre, %if.then200 ]
   %agg.tmp238.sroa.0.0.copyload.pr = phi i64 [ %agg.tmp197.sroa.0.0.copyload, %if.end196 ], [ %agg.tmp206.sroa.0.0.copyload.pr.pre, %if.then200 ]
   %cmp.i215 = icmp eq i64 %agg.tmp238.sroa.0.0.copyload.pr, 5
   br i1 %cmp.i215, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i218, label %if.end213
@@ -2732,30 +2732,30 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i218: ; preds = %if.end205
 
 if.then209:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i218
   %53 = load ptr, ptr %sections, align 8
-  %add.ptr.i223 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %53, i64 %storemerge319
+  %add.ptr.i223 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %53, i64 %storemerge317
   %54 = load ptr, ptr %add.ptr.i223, align 8
   store ptr %54, ptr %extra, align 8
   br label %if.end213
 
 if.end213:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i207, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i218, %if.end205, %if.then209
-  %agg.tmp238.sroa.0.0.copyload.pr341 = phi i64 [ 5, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i218 ], [ %agg.tmp238.sroa.0.0.copyload.pr, %if.end205 ], [ 5, %if.then209 ], [ 9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i207 ]
-  %agg.tmp238.sroa.2.0.copyload340 = phi ptr [ %agg.tmp238.sroa.2.0.copyload, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i218 ], [ %agg.tmp238.sroa.2.0.copyload, %if.end205 ], [ %agg.tmp238.sroa.2.0.copyload, %if.then209 ], [ %agg.tmp206.sroa.2.0.copyload.pre333, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i207 ]
+  %agg.tmp238.sroa.0.0.copyload.pr339 = phi i64 [ 5, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i218 ], [ %agg.tmp238.sroa.0.0.copyload.pr, %if.end205 ], [ 5, %if.then209 ], [ 9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i207 ]
+  %agg.tmp238.sroa.2.0.copyload338 = phi ptr [ %agg.tmp238.sroa.2.0.copyload, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i218 ], [ %agg.tmp238.sroa.2.0.copyload, %if.end205 ], [ %agg.tmp238.sroa.2.0.copyload, %if.then209 ], [ %agg.tmp206.sroa.2.0.copyload.pre331, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i207 ]
   %55 = load i8, ptr %gdb_index, align 1
   %tobool215 = trunc i8 %55 to i1
   br i1 %tobool215, label %if.then216, label %if.end246
 
 if.then216:                                       ; preds = %if.end213
   %56 = load ptr, ptr %sections, align 8
-  %add.ptr.i224 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %56, i64 %storemerge319
+  %add.ptr.i224 = getelementptr inbounds %"class.std::unique_ptr.294", ptr %56, i64 %storemerge317
   %57 = load ptr, ptr %add.ptr.i224, align 8
-  switch i64 %agg.tmp238.sroa.0.0.copyload.pr341, label %if.end246 [
+  switch i64 %agg.tmp238.sroa.0.0.copyload.pr339, label %if.end246 [
     i64 11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i230
     i64 19, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i240
     i64 12, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i260
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i230: ; preds = %if.then216
-  %bcmp.i231 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %agg.tmp238.sroa.2.0.copyload340, ptr noundef nonnull dereferenceable(11) @.str.51, i64 11)
+  %bcmp.i231 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %agg.tmp238.sroa.2.0.copyload338, ptr noundef nonnull dereferenceable(11) @.str.51, i64 11)
   %cmp.i.i232 = icmp eq i32 %bcmp.i231, 0
   br i1 %cmp.i.i232, label %if.then223, label %if.end246
 
@@ -2764,7 +2764,7 @@ if.then223:                                       ; preds = %_ZNSt11char_traitsI
   br label %if.end246
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i240: ; preds = %if.then216
-  %bcmp.i241 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %agg.tmp238.sroa.2.0.copyload340, ptr noundef nonnull dereferenceable(19) @.str.52, i64 19)
+  %bcmp.i241 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %agg.tmp238.sroa.2.0.copyload338, ptr noundef nonnull dereferenceable(19) @.str.52, i64 19)
   %cmp.i.i242 = icmp eq i32 %bcmp.i241, 0
   br i1 %cmp.i.i242, label %if.then228, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i250
 
@@ -2775,7 +2775,7 @@ if.then228:                                       ; preds = %_ZNSt11char_traitsI
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i250
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i250: ; preds = %if.then228, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i240
-  %bcmp.i251 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %agg.tmp238.sroa.2.0.copyload340, ptr noundef nonnull dereferenceable(19) @.str.53, i64 19)
+  %bcmp.i251 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %agg.tmp238.sroa.2.0.copyload338, ptr noundef nonnull dereferenceable(19) @.str.53, i64 19)
   %cmp.i.i252 = icmp eq i32 %bcmp.i251, 0
   br i1 %cmp.i.i252, label %if.then234, label %if.end246
 
@@ -2786,7 +2786,7 @@ if.then234:                                       ; preds = %_ZNSt11char_traitsI
   br label %if.end246
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i260: ; preds = %if.then216
-  %bcmp.i261 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %agg.tmp238.sroa.2.0.copyload340, ptr noundef nonnull dereferenceable(12) @.str.54, i64 12)
+  %bcmp.i261 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %agg.tmp238.sroa.2.0.copyload338, ptr noundef nonnull dereferenceable(12) @.str.54, i64 12)
   %cmp.i.i262 = icmp eq i32 %bcmp.i261, 0
   br i1 %cmp.i.i262, label %if.then241, label %if.end246
 
@@ -2828,16 +2828,16 @@ if.then.i268:                                     ; preds = %init.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end52, %if.then.i268, %init.end, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i140, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i130, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i120, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110, %if.else.i.i.i, %if.then.i.i.i77, %_ZNSt6vectorIN4mold3elf14ComdatGroupRefINS1_5PPC32EEESaIS4_EE9push_backEOS4_.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %land.lhs.true149, %_ZN4mold3elfL16is_debug_sectionINS0_5PPC32EEEbRKNS0_7ElfShdrIT_EESt17basic_string_viewIcSt11char_traitsIcEE.exit, %if.then88, %if.end103, %land.lhs.true12, %if.then166, %if.then109
-  %inc = add nuw nsw i64 %storemerge319, 1
+  %inc = add nuw nsw i64 %storemerge317, 1
   %63 = load i64, ptr %_M_extent.i, align 8
   %cmp = icmp ult i64 %inc, %63
   br i1 %cmp, label %for.body, label %for.cond251.preheader, !llvm.loop !27
 
 for.body255:                                      ; preds = %for.body255.lr.ph, %for.inc289
   %64 = phi i64 [ %63, %for.body255.lr.ph ], [ %71, %for.inc289 ]
-  %i250.0323 = phi i64 [ 0, %for.body255.lr.ph ], [ %inc290, %for.inc289 ]
+  %i250.0321 = phi i64 [ 0, %for.body255.lr.ph ], [ %inc290, %for.inc289 ]
   %65 = load ptr, ptr %elf_sections, align 8
-  %add.ptr.i271 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %65, i64 %i250.0323
+  %add.ptr.i271 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %65, i64 %i250.0321
   %sh_type259 = getelementptr inbounds i8, ptr %add.ptr.i271, i64 4
   %x.0.copyload.i272 = load i32, ptr %sh_type259, align 1
   %cmp261.not = icmp eq i32 %x.0.copyload.i272, 67108864
@@ -2876,7 +2876,7 @@ if.end278:                                        ; preds = %if.end263
   br i1 %cmp.i280.not, label %for.inc289, label %if.then285
 
 if.then285:                                       ; preds = %if.end278
-  %conv286 = trunc i64 %i250.0323 to i32
+  %conv286 = trunc i64 %i250.0321 to i32
   %relsec_idx = getelementptr inbounds i8, ptr %70, i64 84
   store i32 %conv286, ptr %relsec_idx, align 4
   %.pre = load i64, ptr %_M_extent.i, align 8
@@ -2884,7 +2884,7 @@ if.then285:                                       ; preds = %if.end278
 
 for.inc289:                                       ; preds = %if.end278, %if.then285, %for.body255
   %71 = phi i64 [ %64, %if.end278 ], [ %.pre, %if.then285 ], [ %64, %for.body255 ]
-  %inc290 = add nuw nsw i64 %i250.0323, 1
+  %inc290 = add nuw nsw i64 %i250.0321, 1
   %cmp254 = icmp ult i64 %inc290, %71
   br i1 %cmp254, label %for.body255, label %for.end291, !llvm.loop !28
 

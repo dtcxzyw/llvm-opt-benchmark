@@ -698,13 +698,13 @@ define internal fastcc void @_ZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb(
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZNK5ZXing13DecoderResult7isValidEb.exit.thread
-  %.sroa.0105.0221 = phi ptr [ %17, %.lr.ph ], [ %276, %_ZNK5ZXing13DecoderResult7isValidEb.exit.thread ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 16
+  %.sroa.0105.0217 = phi ptr [ %17, %.lr.ph ], [ %276, %_ZNK5ZXing13DecoderResult7isValidEb.exit.thread ]
+  %26 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 16
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 112
-  %29 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 136
-  %30 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 160
-  %31 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 184
+  %28 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 112
+  %29 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 136
+  %30 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 160
+  %31 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 184
   %.val.i = load i8, ptr %26, align 8
   %.val9.i = load i8, ptr %28, align 8
   %32 = trunc i8 %.val.i to i1
@@ -713,9 +713,9 @@ define internal fastcc void @_ZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb(
   br i1 %34, label %35, label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 120
+  %36 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 120
   %.val10.i = load double, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 24
+  %37 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 24
   %.val8.i = load double, ptr %37, align 8
   %38 = fptrunc double %.val8.i to float
   %39 = fptosi float %38 to i32
@@ -727,7 +727,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb(
 
 _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i: ; preds = %35, %25
   %.0.i.i = phi i32 [ %43, %35 ], [ 126322567, %25 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 64
+  %44 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 64
   %.val11.i = load i8, ptr %30, align 8
   %.val13.i = load i8, ptr %44, align 8
   %45 = trunc i8 %.val11.i to i1
@@ -736,9 +736,9 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i: ; p
   br i1 %47, label %48, label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
 
 48:                                               ; preds = %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
-  %49 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 72
+  %49 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 72
   %.val14.i = load double, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 168
+  %50 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 168
   %.val12.i = load double, ptr %50, align 8
   %51 = fptrunc double %.val12.i to float
   %52 = fptosi float %51 to i32
@@ -752,7 +752,7 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i: ; p
 
 _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i: ; preds = %48, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
   %.0.i23.i = phi i32 [ %58, %48 ], [ 119304646, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 40
+  %59 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 40
   %.val15.i = load i8, ptr %59, align 8
   %.val17.i = load i8, ptr %29, align 8
   %60 = trunc i8 %.val15.i to i1
@@ -761,9 +761,9 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i: ;
   br i1 %62, label %63, label %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
 
 63:                                               ; preds = %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
-  %64 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 144
+  %64 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 144
   %.val18.i = load double, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 48
+  %65 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 48
   %.val16.i = load double, ptr %65, align 8
   %66 = fptrunc double %.val16.i to float
   %67 = fptosi float %66 to i32
@@ -775,7 +775,7 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i: ;
 
 _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ; preds = %63, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
   %.0.i25.i = phi i32 [ %71, %63 ], [ 126322567, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i ]
-  %72 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 88
+  %72 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 88
   %.val19.i = load i8, ptr %31, align 8
   %.val21.i = load i8, ptr %72, align 8
   %73 = trunc i8 %.val19.i to i1
@@ -784,9 +784,9 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ;
   br i1 %75, label %76, label %87
 
 76:                                               ; preds = %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
-  %77 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 96
+  %77 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 96
   %.val22.i = load double, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 192
+  %78 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 192
   %.val20.i = load double, ptr %78, align 8
   %79 = fptrunc double %.val20.i to float
   %80 = fptosi float %79 to i32
@@ -806,9 +806,9 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ;
   br i1 %34, label %91, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 120
+  %92 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 120
   %.val10.i59 = load double, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 24
+  %93 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 24
   %.val8.i60 = load double, ptr %93, align 8
   %94 = fptrunc double %.val8.i60 to float
   %95 = fptosi float %94 to i32
@@ -823,9 +823,9 @@ _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i: ; p
   br i1 %47, label %100, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
 
 100:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
-  %101 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 72
+  %101 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 72
   %.val14.i57 = load double, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 168
+  %102 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 168
   %.val12.i58 = load double, ptr %102, align 8
   %103 = fptrunc double %.val12.i58 to float
   %104 = fptosi float %103 to i32
@@ -842,9 +842,9 @@ _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i: ;
   br i1 %62, label %111, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
 
 111:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
-  %112 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 144
+  %112 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 144
   %.val18.i55 = load double, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 48
+  %113 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 48
   %.val16.i56 = load double, ptr %113, align 8
   %114 = fptrunc double %.val16.i56 to float
   %115 = fptosi float %114 to i32
@@ -859,9 +859,9 @@ _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ;
   br i1 %75, label %120, label %131
 
 120:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
-  %121 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 96
+  %121 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 96
   %.val22.i53 = load double, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 192
+  %122 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 192
   %.val20.i54 = load double, ptr %122, align 8
   %123 = fptrunc double %.val20.i54 to float
   %124 = fptosi float %123 to i32
@@ -901,10 +901,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
 141:                                              ; preds = %139, %_ZNK5ZXing13DecoderResult7isValidEb.exit
   %.val.val = load ptr, ptr %7, align 8
   %.val.val40 = load i32, ptr %20, align 8
-  %142 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 24
+  %142 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 24
   %143 = load double, ptr %142, align 8
   %144 = fptosi double %143 to i32
-  %145 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 32
+  %145 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 32
   %146 = load double, ptr %145, align 8
   %147 = fptosi double %146 to i32
   switch i32 %.val.val40, label %240 [
@@ -922,10 +922,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i111 = shl nuw i64 %.sroa.5.0.insert.ext.i.i110, 32
   %.sroa.0.0.insert.ext.i.i112 = zext i32 %151 to i64
   %.sroa.0.0.insert.insert.i.i113 = or disjoint i64 %.sroa.5.0.insert.shift.i.i111, %.sroa.0.0.insert.ext.i.i112
-  %152 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 72
+  %152 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 72
   %153 = load double, ptr %152, align 8
   %154 = fptosi double %153 to i32
-  %155 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 80
+  %155 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 80
   %156 = load double, ptr %155, align 8
   %157 = fptosi double %156 to i32
   %158 = xor i32 %157, -1
@@ -934,10 +934,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i64137 = shl nuw i64 %.sroa.5.0.insert.ext.i.i63136, 32
   %.sroa.0.0.insert.ext.i.i65138 = zext i32 %159 to i64
   %.sroa.0.0.insert.insert.i.i66139 = or disjoint i64 %.sroa.5.0.insert.shift.i.i64137, %.sroa.0.0.insert.ext.i.i65138
-  %160 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 96
+  %160 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 96
   %161 = load double, ptr %160, align 8
   %162 = fptosi double %161 to i32
-  %163 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 104
+  %163 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 104
   %164 = load double, ptr %163, align 8
   %165 = fptosi double %164 to i32
   %166 = xor i32 %165, -1
@@ -946,10 +946,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i71170 = shl nuw i64 %.sroa.5.0.insert.ext.i.i70169, 32
   %.sroa.0.0.insert.ext.i.i72171 = zext i32 %167 to i64
   %.sroa.0.0.insert.insert.i.i73172 = or disjoint i64 %.sroa.5.0.insert.shift.i.i71170, %.sroa.0.0.insert.ext.i.i72171
-  %168 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 48
+  %168 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 48
   %169 = load double, ptr %168, align 8
   %170 = fptosi double %169 to i32
-  %171 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 56
+  %171 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 56
   %172 = load double, ptr %171, align 8
   %173 = fptosi double %172 to i32
   %174 = xor i32 %173, -1
@@ -968,10 +968,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i120 = shl nuw i64 %.sroa.5.0.insert.ext.i.i119, 32
   %.sroa.0.0.insert.ext.i.i121 = zext i32 %178 to i64
   %.sroa.0.0.insert.insert.i.i122 = or disjoint i64 %.sroa.5.0.insert.shift.i.i120, %.sroa.0.0.insert.ext.i.i121
-  %183 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 72
+  %183 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 72
   %184 = load double, ptr %183, align 8
   %185 = fptosi double %184 to i32
-  %186 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 80
+  %186 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 80
   %187 = load double, ptr %186, align 8
   %188 = fptosi double %187 to i32
   %189 = xor i32 %185, -1
@@ -982,10 +982,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i64149 = shl nuw i64 %.sroa.5.0.insert.ext.i.i63148, 32
   %.sroa.0.0.insert.ext.i.i65150 = zext i32 %190 to i64
   %.sroa.0.0.insert.insert.i.i66151 = or disjoint i64 %.sroa.5.0.insert.shift.i.i64149, %.sroa.0.0.insert.ext.i.i65150
-  %193 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 96
+  %193 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 96
   %194 = load double, ptr %193, align 8
   %195 = fptosi double %194 to i32
-  %196 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 104
+  %196 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 104
   %197 = load double, ptr %196, align 8
   %198 = fptosi double %197 to i32
   %199 = xor i32 %195, -1
@@ -996,10 +996,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i71185 = shl nuw i64 %.sroa.5.0.insert.ext.i.i70184, 32
   %.sroa.0.0.insert.ext.i.i72186 = zext i32 %200 to i64
   %.sroa.0.0.insert.insert.i.i73187 = or disjoint i64 %.sroa.5.0.insert.shift.i.i71185, %.sroa.0.0.insert.ext.i.i72186
-  %203 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 48
+  %203 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 48
   %204 = load double, ptr %203, align 8
   %205 = fptosi double %204 to i32
-  %206 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 56
+  %206 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 56
   %207 = load double, ptr %206, align 8
   %208 = fptosi double %207 to i32
   %209 = xor i32 %205, -1
@@ -1016,10 +1016,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i128 = shl nuw i64 %.sroa.5.0.insert.ext.i.i127, 32
   %.sroa.0.0.insert.ext.i.i129 = zext i32 %147 to i64
   %.sroa.0.0.insert.insert.i.i130 = or disjoint i64 %.sroa.5.0.insert.shift.i.i128, %.sroa.0.0.insert.ext.i.i129
-  %216 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 72
+  %216 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 72
   %217 = load double, ptr %216, align 8
   %218 = fptosi double %217 to i32
-  %219 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 80
+  %219 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 80
   %220 = load double, ptr %219, align 8
   %221 = fptosi double %220 to i32
   %222 = xor i32 %218, -1
@@ -1028,10 +1028,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i64159 = shl nuw i64 %.sroa.5.0.insert.ext.i.i63158, 32
   %.sroa.0.0.insert.ext.i.i65160 = zext i32 %221 to i64
   %.sroa.0.0.insert.insert.i.i66161 = or disjoint i64 %.sroa.5.0.insert.shift.i.i64159, %.sroa.0.0.insert.ext.i.i65160
-  %224 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 96
+  %224 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 96
   %225 = load double, ptr %224, align 8
   %226 = fptosi double %225 to i32
-  %227 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 104
+  %227 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 104
   %228 = load double, ptr %227, align 8
   %229 = fptosi double %228 to i32
   %230 = xor i32 %226, -1
@@ -1040,10 +1040,10 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i71197 = shl nuw i64 %.sroa.5.0.insert.ext.i.i70196, 32
   %.sroa.0.0.insert.ext.i.i72198 = zext i32 %229 to i64
   %.sroa.0.0.insert.insert.i.i73199 = or disjoint i64 %.sroa.5.0.insert.shift.i.i71197, %.sroa.0.0.insert.ext.i.i72198
-  %232 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 48
+  %232 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 48
   %233 = load double, ptr %232, align 8
   %234 = fptosi double %233 to i32
-  %235 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 56
+  %235 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 56
   %236 = load double, ptr %235, align 8
   %237 = fptosi double %236 to i32
   %238 = xor i32 %234, -1
@@ -1055,30 +1055,30 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.sroa.5.0.insert.shift.i.i = shl nuw i64 %.sroa.5.0.insert.ext.i.i, 32
   %.sroa.0.0.insert.ext.i.i = zext i32 %144 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.5.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  %241 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 72
+  %241 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 72
   %242 = load double, ptr %241, align 8
   %243 = fptosi double %242 to i32
-  %244 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 80
+  %244 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 80
   %245 = load double, ptr %244, align 8
   %246 = fptosi double %245 to i32
   %.sroa.5.0.insert.ext.i.i63 = zext i32 %246 to i64
   %.sroa.5.0.insert.shift.i.i64 = shl nuw i64 %.sroa.5.0.insert.ext.i.i63, 32
   %.sroa.0.0.insert.ext.i.i65 = zext i32 %243 to i64
   %.sroa.0.0.insert.insert.i.i66 = or disjoint i64 %.sroa.5.0.insert.shift.i.i64, %.sroa.0.0.insert.ext.i.i65
-  %247 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 96
+  %247 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 96
   %248 = load double, ptr %247, align 8
   %249 = fptosi double %248 to i32
-  %250 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 104
+  %250 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 104
   %251 = load double, ptr %250, align 8
   %252 = fptosi double %251 to i32
   %.sroa.5.0.insert.ext.i.i70 = zext i32 %252 to i64
   %.sroa.5.0.insert.shift.i.i71 = shl nuw i64 %.sroa.5.0.insert.ext.i.i70, 32
   %.sroa.0.0.insert.ext.i.i72 = zext i32 %249 to i64
   %.sroa.0.0.insert.insert.i.i73 = or disjoint i64 %.sroa.5.0.insert.shift.i.i71, %.sroa.0.0.insert.ext.i.i72
-  %253 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 48
+  %253 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 48
   %254 = load double, ptr %253, align 8
   %255 = fptosi double %254 to i32
-  %256 = getelementptr inbounds i8, ptr %.sroa.0105.0221, i64 56
+  %256 = getelementptr inbounds i8, ptr %.sroa.0105.0217, i64 56
   %257 = load double, ptr %256, align 8
   %258 = fptosi double %257 to i32
   br label %259
@@ -1157,7 +1157,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit87:                   ; preds = %272, %275
 
 _ZNK5ZXing13DecoderResult7isValidEb.exit.thread:  ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit, %139, %_ZNK5ZXing13DecoderResult7isValidEb.exit
   call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %8) #15
-  %276 = load ptr, ptr %.sroa.0105.0221, align 8
+  %276 = load ptr, ptr %.sroa.0105.0217, align 8
   %.not = icmp eq ptr %276, %11
   br i1 %.not, label %.critedge, label %25
 

@@ -3736,7 +3736,7 @@ _ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i: ; preds = %345
           cleanup
   br label %.body.thread.i.i
 
-.body.thread109.loopexit.split-lp.i.loopexit.split-lp.i: ; preds = %.invoke238.i.i, %.invoke.i.i
+.body.thread109.loopexit.split-lp.i.loopexit.split-lp.i: ; preds = %.invoke241.i.i, %.invoke.i.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i.i
@@ -3987,10 +3987,10 @@ _ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i: ; preds = %345
   br label %528
 
 _ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.sink.split.i.i: ; preds = %.noexc84.i.i, %575, %.noexc80.i.i, %548, %.noexc.i.i, %523
-  %.sink244.i.i = phi i64 [ %.pre.i79.i.i, %.noexc80.i.i ], [ %549, %548 ], [ %.pre.i83.i.i, %.noexc84.i.i ], [ %576, %575 ], [ %.pre.i.i.i, %.noexc.i.i ], [ %524, %523 ]
+  %.sink247.i.i = phi i64 [ %.pre.i79.i.i, %.noexc80.i.i ], [ %549, %548 ], [ %.pre.i83.i.i, %.noexc84.i.i ], [ %576, %575 ], [ %.pre.i.i.i, %.noexc.i.i ], [ %524, %523 ]
   %.1.ph.i.i = phi i8 [ %.059.i.i, %.noexc80.i.i ], [ %.059.i.i, %548 ], [ 0, %.noexc84.i.i ], [ 0, %575 ], [ %.059.i.i, %.noexc.i.i ], [ %.059.i.i, %523 ]
   %540 = load ptr, ptr %79, align 8, !noalias !566, !nonnull !8, !noundef !8
-  %541 = getelementptr inbounds { i32, i32 }, ptr %540, i64 %.sink244.i.i
+  %541 = getelementptr inbounds { i32, i32 }, ptr %540, i64 %.sink247.i.i
   store i32 %.0.i71.i.i, ptr %541, align 4, !noalias !599
   %542 = getelementptr inbounds i8, ptr %541, i64 4
   store i32 %.0.i71.i.i, ptr %542, align 4, !noalias !599
@@ -4032,14 +4032,14 @@ _ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit
   %555 = load ptr, ptr %79, align 8, !noalias !566, !nonnull !8
   %556 = add i64 %547, -1
   %557 = getelementptr inbounds [0 x { i32, i32 }], ptr %555, i64 0, i64 %556
-  br i1 %.not68.i.i, label %.invoke238.i.i, label %559
+  br i1 %.not68.i.i, label %.invoke241.i.i, label %559
 
-.invoke238.i.i:                                   ; preds = %580, %554
+.invoke241.i.i:                                   ; preds = %580, %554
   %558 = phi ptr [ @anon.da9150c65a8945a78db096167e791e16.98, %554 ], [ @anon.da9150c65a8945a78db096167e791e16.99, %580 ]
   invoke void @_ZN4core6option13unwrap_failed17hac39b9b7507453f8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %558) #21
-          to label %.cont239.i.i unwind label %.body.thread109.loopexit.split-lp.i.loopexit.split-lp.i, !noalias !599
+          to label %.cont242.i.i unwind label %.body.thread109.loopexit.split-lp.i.loopexit.split-lp.i, !noalias !599
 
-.cont239.i.i:                                     ; preds = %.invoke238.i.i
+.cont242.i.i:                                     ; preds = %.invoke241.i.i
   unreachable
 
 559:                                              ; preds = %554
@@ -4098,7 +4098,7 @@ _ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit
   %584 = load ptr, ptr %79, align 8, !noalias !566, !nonnull !8
   %585 = add i64 %583, -1
   %586 = getelementptr inbounds [0 x { i32, i32 }], ptr %584, i64 0, i64 %585
-  br i1 %.not69.i.i, label %.invoke238.i.i, label %587
+  br i1 %.not69.i.i, label %.invoke241.i.i, label %587
 
 587:                                              ; preds = %580
   %588 = getelementptr inbounds i8, ptr %586, i64 4

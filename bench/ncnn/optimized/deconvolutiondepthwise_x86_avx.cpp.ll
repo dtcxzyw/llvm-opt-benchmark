@@ -2031,11 +2031,11 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   br label %.invoke
 
 .invoke:                                          ; preds = %.thread, %100, %64, %91
-  %.sink2945 = phi i64 [ 16, %91 ], [ 16, %64 ], [ 8, %100 ], [ 8, %.thread ]
+  %.sink2897 = phi i64 [ 16, %91 ], [ 16, %64 ], [ 8, %100 ], [ 8, %.thread ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %140 = load i32, ptr %139, align 8
   %141 = sdiv i32 %140, %.02026
-  %142 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink2945
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink2897
   %143 = load ptr, ptr %142, align 8
   invoke void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %43, i32 noundef %51, i32 noundef %141, i64 noundef %68, i32 noundef %.02026, ptr noundef %143)
           to label %144 unwind label %98
@@ -2076,9 +2076,9 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 
 .preheader2646:                                   ; preds = %164
   %165 = icmp sgt i32 %17, 0
-  br i1 %165, label %.lr.ph2802, label %.loopexit2639
+  br i1 %165, label %.lr.ph2754, label %.loopexit2639
 
-.lr.ph2802:                                       ; preds = %.preheader2646
+.lr.ph2754:                                       ; preds = %.preheader2646
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %167 = shl i32 %156, 3
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2090,51 +2090,51 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 288
   br i1 %169, label %.preheader2645.lr.ph.us.preheader, label %.loopexit2639
 
-.preheader2645.lr.ph.us.preheader:                ; preds = %.lr.ph2802
-  %wide.trip.count2899 = zext nneg i32 %17 to i64
+.preheader2645.lr.ph.us.preheader:                ; preds = %.lr.ph2754
+  %wide.trip.count2851 = zext nneg i32 %17 to i64
   br label %.preheader2645.lr.ph.us
 
-.preheader2645.lr.ph.us:                          ; preds = %.preheader2645.lr.ph.us.preheader, %._crit_edge2769.us
-  %indvars.iv2896 = phi i64 [ 0, %.preheader2645.lr.ph.us.preheader ], [ %indvars.iv.next2897, %._crit_edge2769.us ]
+.preheader2645.lr.ph.us:                          ; preds = %.preheader2645.lr.ph.us.preheader, %._crit_edge2745.us
+  %indvars.iv2848 = phi i64 [ 0, %.preheader2645.lr.ph.us.preheader ], [ %indvars.iv.next2849, %._crit_edge2745.us ]
   %175 = load ptr, ptr %166, align 8
-  %176 = trunc nuw nsw i64 %indvars.iv2896 to i32
+  %176 = trunc nuw nsw i64 %indvars.iv2848 to i32
   %177 = mul i32 %167, %176
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds float, ptr %175, i64 %178
   %180 = load i32, ptr %12, align 4
   %181 = load ptr, ptr %1, align 8
   %182 = load i64, ptr %168, align 8
-  %183 = mul i64 %182, %indvars.iv2896
+  %183 = mul i64 %182, %indvars.iv2848
   %184 = load i64, ptr %18, align 8
   %185 = mul i64 %183, %184
   %186 = getelementptr inbounds i8, ptr %181, i64 %185
   %187 = sext i32 %180 to i64
   %188 = mul i64 %184, %187
-  br i1 %170, label %.preheader2645.us.us.preheader, label %._crit_edge2769.us
+  br i1 %170, label %.preheader2645.us.us.preheader, label %._crit_edge2745.us
 
 .preheader2645.us.us.preheader:                   ; preds = %.preheader2645.lr.ph.us
   %189 = load ptr, ptr %5, align 8
   %190 = load i64, ptr %78, align 8
-  %191 = mul i64 %190, %indvars.iv2896
+  %191 = mul i64 %190, %indvars.iv2848
   %192 = load i64, ptr %70, align 8
   %193 = mul i64 %191, %192
   %194 = getelementptr inbounds i8, ptr %189, i64 %193
-  %.idx2935 = shl nsw i64 %indvars.iv2896, 5
+  %.idx2887 = shl nsw i64 %indvars.iv2848, 5
   br label %.preheader2645.us.us
 
-._crit_edge2769.us:                               ; preds = %._crit_edge2750.us.us, %.preheader2645.lr.ph.us
-  %indvars.iv.next2897 = add nuw nsw i64 %indvars.iv2896, 1
-  %exitcond2900.not = icmp eq i64 %indvars.iv.next2897, %wide.trip.count2899
-  br i1 %exitcond2900.not, label %.loopexit2639, label %.preheader2645.lr.ph.us, !llvm.loop !10
+._crit_edge2745.us:                               ; preds = %._crit_edge2742.us.us, %.preheader2645.lr.ph.us
+  %indvars.iv.next2849 = add nuw nsw i64 %indvars.iv2848, 1
+  %exitcond2852.not = icmp eq i64 %indvars.iv.next2849, %wide.trip.count2851
+  br i1 %exitcond2852.not, label %.loopexit2639, label %.preheader2645.lr.ph.us, !llvm.loop !10
 
-.preheader2645.us.us:                             ; preds = %.preheader2645.us.us.preheader, %._crit_edge2750.us.us
-  %.020412760.us.us = phi ptr [ %382, %._crit_edge2750.us.us ], [ %194, %.preheader2645.us.us.preheader ]
-  %.020432759.us.us = phi i32 [ %424, %._crit_edge2750.us.us ], [ 0, %.preheader2645.us.us.preheader ]
-  %195 = sub i32 %.020432759.us.us, %34
+.preheader2645.us.us:                             ; preds = %.preheader2645.us.us.preheader, %._crit_edge2742.us.us
+  %.020412744.us.us = phi ptr [ %382, %._crit_edge2742.us.us ], [ %194, %.preheader2645.us.us.preheader ]
+  %.020432743.us.us = phi i32 [ %424, %._crit_edge2742.us.us ], [ 0, %.preheader2645.us.us.preheader ]
+  %195 = sub i32 %.020432743.us.us, %34
   br label %196
 
 196:                                              ; preds = %381, %.preheader2645.us.us
-  %.120422740.us.us = phi ptr [ %.020412760.us.us, %.preheader2645.us.us ], [ %382, %381 ]
+  %.120422740.us.us = phi ptr [ %.020412744.us.us, %.preheader2645.us.us ], [ %382, %381 ]
   %.020452739.us.us = phi i32 [ 0, %.preheader2645.us.us ], [ %383, %381 ]
   %197 = load i32, ptr %171, align 4
   %.not2597.us.us = icmp eq i32 %197, 0
@@ -2142,7 +2142,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 
 198:                                              ; preds = %196
   %199 = load ptr, ptr %172, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 %.idx2935
+  %200 = getelementptr inbounds i8, ptr %199, i64 %.idx2887
   %201 = load <8 x float>, ptr %200, align 1
   br label %202
 
@@ -2361,8 +2361,8 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   store <8 x float> %.02009.us.us, ptr %.120422740.us.us, align 1
   %382 = getelementptr inbounds i8, ptr %.120422740.us.us, i64 32
   %383 = add nuw nsw i32 %.020452739.us.us, 1
-  %exitcond2894.not = icmp eq i32 %383, %43
-  br i1 %exitcond2894.not, label %._crit_edge2750.us.us, label %196, !llvm.loop !11
+  %exitcond2846.not = icmp eq i32 %383, %43
+  br i1 %exitcond2846.not, label %._crit_edge2742.us.us, label %196, !llvm.loop !11
 
 .lr.ph2736.us.us:                                 ; preds = %202
   %384 = load i32, ptr %45, align 8
@@ -2377,13 +2377,13 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %389 = load i32, ptr %22, align 4
   %390 = load i32, ptr %29, align 8
   %391 = zext nneg i32 %.fr to i64
-  %wide.trip.count2892 = zext nneg i32 %203 to i64
+  %wide.trip.count2844 = zext nneg i32 %203 to i64
   br label %.lr.ph2736.split.us.us.us
 
 .lr.ph2736.split.us.us.us:                        ; preds = %.lr.ph2736.split.us.us.us.preheader, %..loopexit2644_crit_edge.us.us.us
-  %indvars.iv2889 = phi i64 [ 0, %.lr.ph2736.split.us.us.us.preheader ], [ %indvars.iv.next2890, %..loopexit2644_crit_edge.us.us.us ]
+  %indvars.iv2841 = phi i64 [ 0, %.lr.ph2736.split.us.us.us.preheader ], [ %indvars.iv.next2842, %..loopexit2644_crit_edge.us.us.us ]
   %.124562733.us.us.us = phi <8 x float> [ %.02455.us.us, %.lr.ph2736.split.us.us.us.preheader ], [ %.22457.us.us.us, %..loopexit2644_crit_edge.us.us.us ]
-  %392 = trunc i64 %indvars.iv2889 to i32
+  %392 = trunc i64 %indvars.iv2841 to i32
   %393 = mul i32 %390, %392
   %394 = add i32 %195, %393
   %395 = icmp slt i32 %394, 0
@@ -2394,13 +2394,13 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %398 = sdiv i32 %394, %384
   %.not2599.us.us.us = icmp eq i32 %397, 0
   %.not2600.us.us.us = icmp slt i32 %398, %15
-  %or.cond2967 = select i1 %.not2599.us.us.us, i1 %.not2600.us.us.us, i1 false
-  br i1 %or.cond2967, label %.preheader2643.us.us.us, label %..loopexit2644_crit_edge.us.us.us
+  %or.cond2919 = select i1 %.not2599.us.us.us, i1 %.not2600.us.us.us, i1 false
+  br i1 %or.cond2919, label %.preheader2643.us.us.us, label %..loopexit2644_crit_edge.us.us.us
 
 399:                                              ; preds = %.preheader2643.us.us.us, %419
-  %indvars.iv2886 = phi i64 [ 0, %.preheader2643.us.us.us ], [ %indvars.iv.next2887, %419 ]
+  %indvars.iv2838 = phi i64 [ 0, %.preheader2643.us.us.us ], [ %indvars.iv.next2839, %419 ]
   %.324582730.us.us.us = phi <8 x float> [ %.124562733.us.us.us, %.preheader2643.us.us.us ], [ %.42459.us.us.us, %419 ]
-  %400 = trunc i64 %indvars.iv2886 to i32
+  %400 = trunc i64 %indvars.iv2838 to i32
   %401 = mul i32 %389, %400
   %402 = add i32 %387, %401
   %403 = icmp slt i32 %402, 0
@@ -2411,14 +2411,14 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %406 = sdiv i32 %402, %388
   %.not2601.us.us.us = icmp eq i32 %405, 0
   %.not2602.us.us.us = icmp slt i32 %406, %13
-  %or.cond2968 = select i1 %.not2601.us.us.us, i1 %.not2602.us.us.us, i1 false
-  br i1 %or.cond2968, label %407, label %419
+  %or.cond2920 = select i1 %.not2601.us.us.us, i1 %.not2602.us.us.us, i1 false
+  br i1 %or.cond2920, label %407, label %419
 
 407:                                              ; preds = %404
   %408 = shl nsw i32 %406, 3
   %409 = sext i32 %408 to i64
   %410 = getelementptr inbounds float, ptr %422, i64 %409
-  %411 = add nuw nsw i64 %423, %indvars.iv2886
+  %411 = add nuw nsw i64 %423, %indvars.iv2838
   %412 = load <8 x float>, ptr %410, align 1
   %413 = shl i64 %411, 3
   %414 = and i64 %413, 4294967288
@@ -2430,33 +2430,33 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 
 419:                                              ; preds = %407, %404, %399
   %.42459.us.us.us = phi nsz <8 x float> [ %.324582730.us.us.us, %399 ], [ %.324582730.us.us.us, %404 ], [ %418, %407 ]
-  %indvars.iv.next2887 = add nuw nsw i64 %indvars.iv2886, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next2887, %391
+  %indvars.iv.next2839 = add nuw nsw i64 %indvars.iv2838, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next2839, %391
   br i1 %exitcond.not, label %..loopexit2644_crit_edge.us.us.us, label %399, !llvm.loop !12
 
 ..loopexit2644_crit_edge.us.us.us:                ; preds = %419, %396, %.lr.ph2736.split.us.us.us
   %.22457.us.us.us = phi nsz <8 x float> [ %.124562733.us.us.us, %.lr.ph2736.split.us.us.us ], [ %.124562733.us.us.us, %396 ], [ %.42459.us.us.us, %419 ]
-  %indvars.iv.next2890 = add nuw nsw i64 %indvars.iv2889, 1
-  %exitcond2893.not = icmp eq i64 %indvars.iv.next2890, %wide.trip.count2892
-  br i1 %exitcond2893.not, label %._crit_edge2737.us.us, label %.lr.ph2736.split.us.us.us, !llvm.loop !13
+  %indvars.iv.next2842 = add nuw nsw i64 %indvars.iv2841, 1
+  %exitcond2845.not = icmp eq i64 %indvars.iv.next2842, %wide.trip.count2844
+  br i1 %exitcond2845.not, label %._crit_edge2737.us.us, label %.lr.ph2736.split.us.us.us, !llvm.loop !13
 
 .preheader2643.us.us.us:                          ; preds = %396
   %420 = sext i32 %398 to i64
   %421 = mul i64 %188, %420
   %422 = getelementptr inbounds i8, ptr %186, i64 %421
-  %423 = mul nuw nsw i64 %indvars.iv2889, %391
+  %423 = mul nuw nsw i64 %indvars.iv2841, %391
   br label %399
 
-._crit_edge2750.us.us:                            ; preds = %381
-  %424 = add nuw nsw i32 %.020432759.us.us, 1
-  %exitcond2895.not = icmp eq i32 %424, %51
-  br i1 %exitcond2895.not, label %._crit_edge2769.us, label %.preheader2645.us.us, !llvm.loop !14
+._crit_edge2742.us.us:                            ; preds = %381
+  %424 = add nuw nsw i32 %.020432743.us.us, 1
+  %exitcond2847.not = icmp eq i32 %424, %51
+  br i1 %exitcond2847.not, label %._crit_edge2745.us, label %.preheader2645.us.us, !llvm.loop !14
 
 425:                                              ; preds = %164
   %426 = icmp sgt i32 %17, 0
-  br i1 %426, label %.lr.ph2833, label %.loopexit2639
+  br i1 %426, label %.lr.ph2785, label %.loopexit2639
 
-.lr.ph2833:                                       ; preds = %425
+.lr.ph2785:                                       ; preds = %425
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %428 = shl i32 %156, 2
   %429 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2468,52 +2468,52 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 288
   br i1 %430, label %.preheader2642.lr.ph.us.preheader, label %.loopexit2639
 
-.preheader2642.lr.ph.us.preheader:                ; preds = %.lr.ph2833
-  %wide.trip.count2916 = zext nneg i32 %17 to i64
+.preheader2642.lr.ph.us.preheader:                ; preds = %.lr.ph2785
+  %wide.trip.count2868 = zext nneg i32 %17 to i64
   br label %.preheader2642.lr.ph.us
 
-.preheader2642.lr.ph.us:                          ; preds = %.preheader2642.lr.ph.us.preheader, %._crit_edge2823.us
-  %indvars.iv2913 = phi i64 [ 0, %.preheader2642.lr.ph.us.preheader ], [ %indvars.iv.next2914, %._crit_edge2823.us ]
+.preheader2642.lr.ph.us:                          ; preds = %.preheader2642.lr.ph.us.preheader, %._crit_edge2775.us
+  %indvars.iv2865 = phi i64 [ 0, %.preheader2642.lr.ph.us.preheader ], [ %indvars.iv.next2866, %._crit_edge2775.us ]
   %436 = load ptr, ptr %427, align 8
-  %437 = trunc nuw nsw i64 %indvars.iv2913 to i32
+  %437 = trunc nuw nsw i64 %indvars.iv2865 to i32
   %438 = mul i32 %428, %437
   %439 = sext i32 %438 to i64
   %440 = getelementptr inbounds float, ptr %436, i64 %439
   %441 = load i32, ptr %12, align 4
   %442 = load ptr, ptr %1, align 8
   %443 = load i64, ptr %429, align 8
-  %444 = mul i64 %443, %indvars.iv2913
+  %444 = mul i64 %443, %indvars.iv2865
   %445 = load i64, ptr %18, align 8
   %446 = mul i64 %444, %445
   %447 = getelementptr inbounds i8, ptr %442, i64 %446
   %448 = sext i32 %441 to i64
   %449 = mul i64 %445, %448
-  br i1 %431, label %.preheader2642.us.us.preheader, label %._crit_edge2823.us
+  br i1 %431, label %.preheader2642.us.us.preheader, label %._crit_edge2775.us
 
 .preheader2642.us.us.preheader:                   ; preds = %.preheader2642.lr.ph.us
   %450 = load ptr, ptr %5, align 8
   %451 = load i64, ptr %78, align 8
-  %452 = mul i64 %451, %indvars.iv2913
+  %452 = mul i64 %451, %indvars.iv2865
   %453 = load i64, ptr %70, align 8
   %454 = mul i64 %452, %453
   %455 = getelementptr inbounds i8, ptr %450, i64 %454
-  %.idx = shl nsw i64 %indvars.iv2913, 4
+  %.idx = shl nsw i64 %indvars.iv2865, 4
   br label %.preheader2642.us.us
 
-._crit_edge2823.us:                               ; preds = %._crit_edge2820.us.us, %.preheader2642.lr.ph.us
-  %indvars.iv.next2914 = add nuw nsw i64 %indvars.iv2913, 1
-  %exitcond2917.not = icmp eq i64 %indvars.iv.next2914, %wide.trip.count2916
-  br i1 %exitcond2917.not, label %._crit_edge2834, label %.preheader2642.lr.ph.us, !llvm.loop !15
+._crit_edge2775.us:                               ; preds = %._crit_edge2772.us.us, %.preheader2642.lr.ph.us
+  %indvars.iv.next2866 = add nuw nsw i64 %indvars.iv2865, 1
+  %exitcond2869.not = icmp eq i64 %indvars.iv.next2866, %wide.trip.count2868
+  br i1 %exitcond2869.not, label %._crit_edge2786, label %.preheader2642.lr.ph.us, !llvm.loop !15
 
-.preheader2642.us.us:                             ; preds = %.preheader2642.us.us.preheader, %._crit_edge2820.us.us
-  %.020252822.us.us = phi i32 [ %682, %._crit_edge2820.us.us ], [ 0, %.preheader2642.us.us.preheader ]
-  %.020272821.us.us = phi ptr [ %640, %._crit_edge2820.us.us ], [ %455, %.preheader2642.us.us.preheader ]
-  %456 = sub i32 %.020252822.us.us, %34
+.preheader2642.us.us:                             ; preds = %.preheader2642.us.us.preheader, %._crit_edge2772.us.us
+  %.020252774.us.us = phi i32 [ %682, %._crit_edge2772.us.us ], [ 0, %.preheader2642.us.us.preheader ]
+  %.020272773.us.us = phi ptr [ %640, %._crit_edge2772.us.us ], [ %455, %.preheader2642.us.us.preheader ]
+  %456 = sub i32 %.020252774.us.us, %34
   br label %457
 
 457:                                              ; preds = %639, %.preheader2642.us.us
-  %.020242818.us.us = phi i32 [ 0, %.preheader2642.us.us ], [ %641, %639 ]
-  %.120282817.us.us = phi ptr [ %.020272821.us.us, %.preheader2642.us.us ], [ %640, %639 ]
+  %.020242770.us.us = phi i32 [ 0, %.preheader2642.us.us ], [ %641, %639 ]
+  %.120282769.us.us = phi ptr [ %.020272773.us.us, %.preheader2642.us.us ], [ %640, %639 ]
   %458 = load i32, ptr %432, align 4
   %.not2592.us.us = icmp eq i32 %458, 0
   br i1 %.not2592.us.us, label %463, label %459
@@ -2528,10 +2528,10 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %.02450.us.us = phi nsz <4 x float> [ %462, %459 ], [ zeroinitializer, %457 ]
   %464 = load i32, ptr %31, align 8
   %465 = icmp sgt i32 %464, 0
-  br i1 %465, label %.lr.ph2814.us.us, label %._crit_edge2815.us.us
+  br i1 %465, label %.lr.ph2766.us.us, label %._crit_edge2767.us.us
 
-._crit_edge2815.us.us:                            ; preds = %..loopexit2641_crit_edge.us.us.us, %.lr.ph2814.us.us, %463
-  %.12451.lcssa.us.us = phi <4 x float> [ %.02450.us.us, %463 ], [ %.02450.us.us, %.lr.ph2814.us.us ], [ %.22452.us.us.us, %..loopexit2641_crit_edge.us.us.us ]
+._crit_edge2767.us.us:                            ; preds = %..loopexit2641_crit_edge.us.us.us, %.lr.ph2766.us.us, %463
+  %.12451.lcssa.us.us = phi <4 x float> [ %.02450.us.us, %463 ], [ %.02450.us.us, %.lr.ph2766.us.us ], [ %.22452.us.us.us, %..loopexit2641_crit_edge.us.us.us ]
   %466 = load i32, ptr %434, align 8
   switch i32 %466, label %639 [
     i32 1, label %637
@@ -2542,7 +2542,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
     i32 6, label %467
   ]
 
-467:                                              ; preds = %._crit_edge2815.us.us
+467:                                              ; preds = %._crit_edge2767.us.us
   %468 = load ptr, ptr %435, align 8
   %469 = load float, ptr %468, align 4
   %470 = insertelement <4 x float> poison, float %469, i64 0
@@ -2558,7 +2558,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %480 = fmul fast <4 x float> %479, %.12451.lcssa.us.us
   br label %639
 
-481:                                              ; preds = %._crit_edge2815.us.us
+481:                                              ; preds = %._crit_edge2767.us.us
   %482 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %.12451.lcssa.us.us, <4 x float> <float 0x40561814A0000000, float 0x40561814A0000000, float 0x40561814A0000000, float 0x40561814A0000000>)
   %483 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %482, <4 x float> <float 0xC0561814A0000000, float 0xC0561814A0000000, float 0xC0561814A0000000, float 0xC0561814A0000000>)
   %484 = fmul fast <4 x float> %483, <float 0x3FF7154760000000, float 0x3FF7154760000000, float 0x3FF7154760000000, float 0x3FF7154760000000>
@@ -2666,7 +2666,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %582 = fmul fast <4 x float> %581, %.12451.lcssa.us.us
   br label %639
 
-583:                                              ; preds = %._crit_edge2815.us.us
+583:                                              ; preds = %._crit_edge2767.us.us
   %584 = fneg fast <4 x float> %.12451.lcssa.us.us
   %585 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %584, <4 x float> <float 0x40561814A0000000, float 0x40561814A0000000, float 0x40561814A0000000, float 0x40561814A0000000>)
   %586 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %585, <4 x float> <float 0xC0561814A0000000, float 0xC0561814A0000000, float 0xC0561814A0000000, float 0xC0561814A0000000>)
@@ -2702,7 +2702,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %616 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %615
   br label %639
 
-617:                                              ; preds = %._crit_edge2815.us.us
+617:                                              ; preds = %._crit_edge2767.us.us
   %618 = load ptr, ptr %435, align 8
   %619 = load float, ptr %618, align 4
   %620 = insertelement <4 x float> poison, float %619, i64 0
@@ -2715,7 +2715,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %627 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %626, <4 x float> %625)
   br label %639
 
-628:                                              ; preds = %._crit_edge2815.us.us
+628:                                              ; preds = %._crit_edge2767.us.us
   %629 = load ptr, ptr %435, align 8
   %630 = load float, ptr %629, align 4
   %631 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %.12451.lcssa.us.us)
@@ -2726,55 +2726,55 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %636 = fadd fast <4 x float> %635, %631
   br label %639
 
-637:                                              ; preds = %._crit_edge2815.us.us
+637:                                              ; preds = %._crit_edge2767.us.us
   %638 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.12451.lcssa.us.us, <4 x float> zeroinitializer)
   br label %639
 
-639:                                              ; preds = %637, %628, %617, %583, %481, %467, %._crit_edge2815.us.us
-  %.02007.us.us = phi nsz <4 x float> [ %480, %467 ], [ %582, %481 ], [ %616, %583 ], [ %627, %617 ], [ %636, %628 ], [ %638, %637 ], [ %.12451.lcssa.us.us, %._crit_edge2815.us.us ]
-  store <4 x float> %.02007.us.us, ptr %.120282817.us.us, align 1
-  %640 = getelementptr inbounds i8, ptr %.120282817.us.us, i64 16
-  %641 = add nuw nsw i32 %.020242818.us.us, 1
-  %exitcond2911.not = icmp eq i32 %641, %43
-  br i1 %exitcond2911.not, label %._crit_edge2820.us.us, label %457, !llvm.loop !16
+639:                                              ; preds = %637, %628, %617, %583, %481, %467, %._crit_edge2767.us.us
+  %.02007.us.us = phi nsz <4 x float> [ %480, %467 ], [ %582, %481 ], [ %616, %583 ], [ %627, %617 ], [ %636, %628 ], [ %638, %637 ], [ %.12451.lcssa.us.us, %._crit_edge2767.us.us ]
+  store <4 x float> %.02007.us.us, ptr %.120282769.us.us, align 1
+  %640 = getelementptr inbounds i8, ptr %.120282769.us.us, i64 16
+  %641 = add nuw nsw i32 %.020242770.us.us, 1
+  %exitcond2863.not = icmp eq i32 %641, %43
+  br i1 %exitcond2863.not, label %._crit_edge2772.us.us, label %457, !llvm.loop !16
 
-.lr.ph2814.us.us:                                 ; preds = %463
+.lr.ph2766.us.us:                                 ; preds = %463
   %642 = load i32, ptr %45, align 8
   %643 = load i32, ptr %24, align 4
-  %.fr2869 = freeze i32 %643
-  %644 = icmp sgt i32 %.fr2869, 0
-  %645 = sub i32 %.020242818.us.us, %27
+  %.fr2821 = freeze i32 %643
+  %644 = icmp sgt i32 %.fr2821, 0
+  %645 = sub i32 %.020242770.us.us, %27
   %646 = load i32, ptr %37, align 4
-  br i1 %644, label %.lr.ph2814.split.us.us.us.preheader, label %._crit_edge2815.us.us
+  br i1 %644, label %.lr.ph2766.split.us.us.us.preheader, label %._crit_edge2767.us.us
 
-.lr.ph2814.split.us.us.us.preheader:              ; preds = %.lr.ph2814.us.us
+.lr.ph2766.split.us.us.us.preheader:              ; preds = %.lr.ph2766.us.us
   %647 = load i32, ptr %22, align 4
   %648 = load i32, ptr %29, align 8
-  %649 = zext nneg i32 %.fr2869 to i64
-  %wide.trip.count2909 = zext nneg i32 %464 to i64
-  br label %.lr.ph2814.split.us.us.us
+  %649 = zext nneg i32 %.fr2821 to i64
+  %wide.trip.count2861 = zext nneg i32 %464 to i64
+  br label %.lr.ph2766.split.us.us.us
 
-.lr.ph2814.split.us.us.us:                        ; preds = %.lr.ph2814.split.us.us.us.preheader, %..loopexit2641_crit_edge.us.us.us
-  %indvars.iv2906 = phi i64 [ 0, %.lr.ph2814.split.us.us.us.preheader ], [ %indvars.iv.next2907, %..loopexit2641_crit_edge.us.us.us ]
-  %.124512811.us.us.us = phi <4 x float> [ %.02450.us.us, %.lr.ph2814.split.us.us.us.preheader ], [ %.22452.us.us.us, %..loopexit2641_crit_edge.us.us.us ]
-  %650 = trunc i64 %indvars.iv2906 to i32
+.lr.ph2766.split.us.us.us:                        ; preds = %.lr.ph2766.split.us.us.us.preheader, %..loopexit2641_crit_edge.us.us.us
+  %indvars.iv2858 = phi i64 [ 0, %.lr.ph2766.split.us.us.us.preheader ], [ %indvars.iv.next2859, %..loopexit2641_crit_edge.us.us.us ]
+  %.124512763.us.us.us = phi <4 x float> [ %.02450.us.us, %.lr.ph2766.split.us.us.us.preheader ], [ %.22452.us.us.us, %..loopexit2641_crit_edge.us.us.us ]
+  %650 = trunc i64 %indvars.iv2858 to i32
   %651 = mul i32 %648, %650
   %652 = add i32 %456, %651
   %653 = icmp slt i32 %652, 0
   br i1 %653, label %..loopexit2641_crit_edge.us.us.us, label %654
 
-654:                                              ; preds = %.lr.ph2814.split.us.us.us
+654:                                              ; preds = %.lr.ph2766.split.us.us.us
   %655 = srem i32 %652, %642
   %656 = sdiv i32 %652, %642
   %.not2593.us.us.us = icmp eq i32 %655, 0
   %.not2594.us.us.us = icmp slt i32 %656, %15
-  %or.cond2969 = select i1 %.not2593.us.us.us, i1 %.not2594.us.us.us, i1 false
-  br i1 %or.cond2969, label %.preheader2640.us.us.us, label %..loopexit2641_crit_edge.us.us.us
+  %or.cond2921 = select i1 %.not2593.us.us.us, i1 %.not2594.us.us.us, i1 false
+  br i1 %or.cond2921, label %.preheader2640.us.us.us, label %..loopexit2641_crit_edge.us.us.us
 
 657:                                              ; preds = %.preheader2640.us.us.us, %677
-  %indvars.iv2901 = phi i64 [ 0, %.preheader2640.us.us.us ], [ %indvars.iv.next2902, %677 ]
-  %.324532808.us.us.us = phi <4 x float> [ %.124512811.us.us.us, %.preheader2640.us.us.us ], [ %.42454.us.us.us, %677 ]
-  %658 = trunc i64 %indvars.iv2901 to i32
+  %indvars.iv2853 = phi i64 [ 0, %.preheader2640.us.us.us ], [ %indvars.iv.next2854, %677 ]
+  %.324532760.us.us.us = phi <4 x float> [ %.124512763.us.us.us, %.preheader2640.us.us.us ], [ %.42454.us.us.us, %677 ]
+  %658 = trunc i64 %indvars.iv2853 to i32
   %659 = mul i32 %647, %658
   %660 = add i32 %645, %659
   %661 = icmp slt i32 %660, 0
@@ -2785,56 +2785,56 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %664 = sdiv i32 %660, %646
   %.not2595.us.us.us = icmp eq i32 %663, 0
   %.not2596.us.us.us = icmp slt i32 %664, %13
-  %or.cond2970 = select i1 %.not2595.us.us.us, i1 %.not2596.us.us.us, i1 false
-  br i1 %or.cond2970, label %665, label %677
+  %or.cond2922 = select i1 %.not2595.us.us.us, i1 %.not2596.us.us.us, i1 false
+  br i1 %or.cond2922, label %665, label %677
 
 665:                                              ; preds = %662
   %666 = shl nsw i32 %664, 2
   %667 = sext i32 %666 to i64
   %668 = getelementptr inbounds float, ptr %680, i64 %667
-  %669 = add nuw nsw i64 %681, %indvars.iv2901
+  %669 = add nuw nsw i64 %681, %indvars.iv2853
   %670 = load <4 x float>, ptr %668, align 1
   %671 = shl i64 %669, 2
   %672 = and i64 %671, 4294967292
   %673 = getelementptr inbounds float, ptr %440, i64 %672
   %674 = load <4 x float>, ptr %673, align 1
   %675 = fmul fast <4 x float> %674, %670
-  %676 = fadd fast <4 x float> %675, %.324532808.us.us.us
+  %676 = fadd fast <4 x float> %675, %.324532760.us.us.us
   br label %677
 
 677:                                              ; preds = %665, %662, %657
-  %.42454.us.us.us = phi nsz <4 x float> [ %.324532808.us.us.us, %657 ], [ %.324532808.us.us.us, %662 ], [ %676, %665 ]
-  %indvars.iv.next2902 = add nuw nsw i64 %indvars.iv2901, 1
-  %exitcond2905.not = icmp eq i64 %indvars.iv.next2902, %649
-  br i1 %exitcond2905.not, label %..loopexit2641_crit_edge.us.us.us, label %657, !llvm.loop !17
+  %.42454.us.us.us = phi nsz <4 x float> [ %.324532760.us.us.us, %657 ], [ %.324532760.us.us.us, %662 ], [ %676, %665 ]
+  %indvars.iv.next2854 = add nuw nsw i64 %indvars.iv2853, 1
+  %exitcond2857.not = icmp eq i64 %indvars.iv.next2854, %649
+  br i1 %exitcond2857.not, label %..loopexit2641_crit_edge.us.us.us, label %657, !llvm.loop !17
 
-..loopexit2641_crit_edge.us.us.us:                ; preds = %677, %654, %.lr.ph2814.split.us.us.us
-  %.22452.us.us.us = phi nsz <4 x float> [ %.124512811.us.us.us, %.lr.ph2814.split.us.us.us ], [ %.124512811.us.us.us, %654 ], [ %.42454.us.us.us, %677 ]
-  %indvars.iv.next2907 = add nuw nsw i64 %indvars.iv2906, 1
-  %exitcond2910.not = icmp eq i64 %indvars.iv.next2907, %wide.trip.count2909
-  br i1 %exitcond2910.not, label %._crit_edge2815.us.us, label %.lr.ph2814.split.us.us.us, !llvm.loop !18
+..loopexit2641_crit_edge.us.us.us:                ; preds = %677, %654, %.lr.ph2766.split.us.us.us
+  %.22452.us.us.us = phi nsz <4 x float> [ %.124512763.us.us.us, %.lr.ph2766.split.us.us.us ], [ %.124512763.us.us.us, %654 ], [ %.42454.us.us.us, %677 ]
+  %indvars.iv.next2859 = add nuw nsw i64 %indvars.iv2858, 1
+  %exitcond2862.not = icmp eq i64 %indvars.iv.next2859, %wide.trip.count2861
+  br i1 %exitcond2862.not, label %._crit_edge2767.us.us, label %.lr.ph2766.split.us.us.us, !llvm.loop !18
 
 .preheader2640.us.us.us:                          ; preds = %654
   %678 = sext i32 %656 to i64
   %679 = mul i64 %449, %678
   %680 = getelementptr inbounds i8, ptr %447, i64 %679
-  %681 = mul nuw nsw i64 %indvars.iv2906, %649
+  %681 = mul nuw nsw i64 %indvars.iv2858, %649
   br label %657
 
-._crit_edge2820.us.us:                            ; preds = %639
-  %682 = add nuw nsw i32 %.020252822.us.us, 1
-  %exitcond2912.not = icmp eq i32 %682, %51
-  br i1 %exitcond2912.not, label %._crit_edge2823.us, label %.preheader2642.us.us, !llvm.loop !19
+._crit_edge2772.us.us:                            ; preds = %639
+  %682 = add nuw nsw i32 %.020252774.us.us, 1
+  %exitcond2864.not = icmp eq i32 %682, %51
+  br i1 %exitcond2864.not, label %._crit_edge2775.us, label %.preheader2642.us.us, !llvm.loop !19
 
-._crit_edge2834:                                  ; preds = %._crit_edge2823.us
+._crit_edge2786:                                  ; preds = %._crit_edge2775.us
   %683 = icmp eq i32 %21, 1
-  br i1 %683, label %.lr.ph2867, label %.loopexit2639
+  br i1 %683, label %.lr.ph2819, label %.loopexit2639
 
 684:                                              ; preds = %164
   %.old = icmp sgt i32 %17, 0
-  br i1 %.old, label %.lr.ph2867, label %.loopexit2639
+  br i1 %.old, label %.lr.ph2819, label %.loopexit2639
 
-.lr.ph2867:                                       ; preds = %._crit_edge2834, %684
+.lr.ph2819:                                       ; preds = %._crit_edge2786, %684
   %685 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %686 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %687 = icmp sgt i32 %51, 0
@@ -2844,53 +2844,53 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %692 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %693 = sext i32 %156 to i64
-  %wide.trip.count2933 = zext nneg i32 %17 to i64
+  %wide.trip.count2885 = zext nneg i32 %17 to i64
   br label %694
 
-694:                                              ; preds = %.lr.ph2867, %._crit_edge2858
-  %indvars.iv2930 = phi i64 [ 0, %.lr.ph2867 ], [ %indvars.iv.next2931, %._crit_edge2858 ]
+694:                                              ; preds = %.lr.ph2819, %._crit_edge2810
+  %indvars.iv2882 = phi i64 [ 0, %.lr.ph2819 ], [ %indvars.iv.next2883, %._crit_edge2810 ]
   %695 = load ptr, ptr %685, align 8
-  %696 = mul nsw i64 %indvars.iv2930, %693
+  %696 = mul nsw i64 %indvars.iv2882, %693
   %697 = getelementptr inbounds float, ptr %695, i64 %696
   %698 = load ptr, ptr %1, align 8
   %699 = load i64, ptr %686, align 8
-  %700 = mul i64 %699, %indvars.iv2930
+  %700 = mul i64 %699, %indvars.iv2882
   %701 = load i64, ptr %18, align 8
   %702 = mul i64 %700, %701
   %703 = getelementptr inbounds i8, ptr %698, i64 %702
-  br i1 %687, label %.preheader.lr.ph, label %._crit_edge2858
+  br i1 %687, label %.preheader.lr.ph, label %._crit_edge2810
 
 .preheader.lr.ph:                                 ; preds = %694
   %704 = load i32, ptr %12, align 4
   %705 = sext i32 %704 to i64
   %706 = mul i64 %701, %705
-  br i1 %688, label %.preheader.us.preheader, label %._crit_edge2858
+  br i1 %688, label %.preheader.us.preheader, label %._crit_edge2810
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %707 = load ptr, ptr %5, align 8
   %708 = load i64, ptr %78, align 8
-  %709 = mul i64 %708, %indvars.iv2930
+  %709 = mul i64 %708, %indvars.iv2882
   %710 = load i64, ptr %70, align 8
   %711 = mul i64 %709, %710
   %712 = getelementptr inbounds i8, ptr %707, i64 %711
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge2855.us
-  %.020132857.us = phi i32 [ %809, %._crit_edge2855.us ], [ 0, %.preheader.us.preheader ]
-  %.020142856.us = phi ptr [ %770, %._crit_edge2855.us ], [ %712, %.preheader.us.preheader ]
-  %713 = sub i32 %.020132857.us, %34
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge2807.us
+  %.020132809.us = phi i32 [ %809, %._crit_edge2807.us ], [ 0, %.preheader.us.preheader ]
+  %.020142808.us = phi ptr [ %770, %._crit_edge2807.us ], [ %712, %.preheader.us.preheader ]
+  %713 = sub i32 %.020132809.us, %34
   br label %714
 
 714:                                              ; preds = %.preheader.us, %769
-  %.020122853.us = phi i32 [ 0, %.preheader.us ], [ %771, %769 ]
-  %.120152852.us = phi ptr [ %.020142856.us, %.preheader.us ], [ %770, %769 ]
+  %.020122805.us = phi i32 [ 0, %.preheader.us ], [ %771, %769 ]
+  %.120152804.us = phi ptr [ %.020142808.us, %.preheader.us ], [ %770, %769 ]
   %715 = load i32, ptr %689, align 4
   %.not2587.us = icmp eq i32 %715, 0
   br i1 %.not2587.us, label %720, label %716
 
 716:                                              ; preds = %714
   %717 = load ptr, ptr %690, align 8
-  %718 = getelementptr inbounds float, ptr %717, i64 %indvars.iv2930
+  %718 = getelementptr inbounds float, ptr %717, i64 %indvars.iv2882
   %719 = load float, ptr %718, align 4
   br label %720
 
@@ -2898,10 +2898,10 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %.02011.us = phi nsz float [ %719, %716 ], [ 0.000000e+00, %714 ]
   %721 = load i32, ptr %31, align 8
   %722 = icmp sgt i32 %721, 0
-  br i1 %722, label %.lr.ph2849.us, label %._crit_edge2850.us
+  br i1 %722, label %.lr.ph2801.us, label %._crit_edge2802.us
 
-._crit_edge2850.us:                               ; preds = %..loopexit_crit_edge.us.us, %.lr.ph2849.us, %720
-  %.1.lcssa.us = phi float [ %.02011.us, %720 ], [ %.02011.us, %.lr.ph2849.us ], [ %.2.us.us, %..loopexit_crit_edge.us.us ]
+._crit_edge2802.us:                               ; preds = %..loopexit_crit_edge.us.us, %.lr.ph2801.us, %720
+  %.1.lcssa.us = phi float [ %.02011.us, %720 ], [ %.02011.us, %.lr.ph2801.us ], [ %.2.us.us, %..loopexit_crit_edge.us.us ]
   %723 = load i32, ptr %691, align 8
   switch i32 %723, label %769 [
     i32 1, label %767
@@ -2912,7 +2912,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
     i32 6, label %724
   ]
 
-724:                                              ; preds = %._crit_edge2850.us
+724:                                              ; preds = %._crit_edge2802.us
   %725 = load ptr, ptr %692, align 8
   %726 = load float, ptr %725, align 4
   %727 = getelementptr inbounds i8, ptr %725, i64 4
@@ -2934,7 +2934,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %739 = fmul fast float %738, %.1.lcssa.us
   br label %769
 
-740:                                              ; preds = %._crit_edge2850.us
+740:                                              ; preds = %._crit_edge2802.us
   %741 = call fast float @llvm.exp.f32(float %.1.lcssa.us)
   %742 = fadd fast float %741, 1.000000e+00
   %743 = call fast float @llvm.log.f32(float %742)
@@ -2942,7 +2942,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %745 = fmul fast float %744, %.1.lcssa.us
   br label %769
 
-746:                                              ; preds = %._crit_edge2850.us
+746:                                              ; preds = %._crit_edge2802.us
   %747 = fcmp fast ogt float %.1.lcssa.us, 0x40561814A0000000
   %.sroa.speculated2622.us = select i1 %747, float 0x40561814A0000000, float %.1.lcssa.us
   %748 = fcmp fast olt float %.sroa.speculated2622.us, 0xC0561814A0000000
@@ -2953,7 +2953,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %752 = fdiv fast float 1.000000e+00, %751
   br label %769
 
-753:                                              ; preds = %._crit_edge2850.us
+753:                                              ; preds = %._crit_edge2802.us
   %754 = load ptr, ptr %692, align 8
   %755 = load float, ptr %754, align 4
   %756 = getelementptr inbounds i8, ptr %754, i64 4
@@ -2966,7 +2966,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 760:                                              ; preds = %753
   br label %769
 
-761:                                              ; preds = %._crit_edge2850.us
+761:                                              ; preds = %._crit_edge2802.us
   %762 = load ptr, ptr %692, align 8
   %763 = load float, ptr %762, align 4
   %764 = fcmp fast ogt float %.1.lcssa.us, 0.000000e+00
@@ -2974,63 +2974,63 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %766 = fmul fast float %765, %.1.lcssa.us
   br label %769
 
-767:                                              ; preds = %._crit_edge2850.us
+767:                                              ; preds = %._crit_edge2802.us
   %768 = call fast float @llvm.maxnum.f32(float %.1.lcssa.us, float 0.000000e+00)
   br label %769
 
-769:                                              ; preds = %767, %761, %760, %753, %746, %740, %736, %732, %724, %._crit_edge2850.us
-  %.02628.us = phi nsz float [ %.1.lcssa.us, %._crit_edge2850.us ], [ %.1.lcssa.us, %732 ], [ %739, %736 ], [ %745, %740 ], [ %752, %746 ], [ %757, %760 ], [ %.12629.us, %753 ], [ %766, %761 ], [ %768, %767 ], [ 0.000000e+00, %724 ]
-  store float %.02628.us, ptr %.120152852.us, align 4
-  %770 = getelementptr inbounds i8, ptr %.120152852.us, i64 4
-  %771 = add nuw nsw i32 %.020122853.us, 1
-  %exitcond2928.not = icmp eq i32 %771, %43
-  br i1 %exitcond2928.not, label %._crit_edge2855.us, label %714, !llvm.loop !20
+769:                                              ; preds = %767, %761, %760, %753, %746, %740, %736, %732, %724, %._crit_edge2802.us
+  %.02628.us = phi nsz float [ %.1.lcssa.us, %._crit_edge2802.us ], [ %.1.lcssa.us, %732 ], [ %739, %736 ], [ %745, %740 ], [ %752, %746 ], [ %757, %760 ], [ %.12629.us, %753 ], [ %766, %761 ], [ %768, %767 ], [ 0.000000e+00, %724 ]
+  store float %.02628.us, ptr %.120152804.us, align 4
+  %770 = getelementptr inbounds i8, ptr %.120152804.us, i64 4
+  %771 = add nuw nsw i32 %.020122805.us, 1
+  %exitcond2880.not = icmp eq i32 %771, %43
+  br i1 %exitcond2880.not, label %._crit_edge2807.us, label %714, !llvm.loop !20
 
-.lr.ph2849.us:                                    ; preds = %720
+.lr.ph2801.us:                                    ; preds = %720
   %772 = load i32, ptr %45, align 8
   %773 = load i32, ptr %24, align 4
-  %.fr2870 = freeze i32 %773
-  %774 = icmp sgt i32 %.fr2870, 0
-  %775 = sub i32 %.020122853.us, %27
+  %.fr2822 = freeze i32 %773
+  %774 = icmp sgt i32 %.fr2822, 0
+  %775 = sub i32 %.020122805.us, %27
   %776 = load i32, ptr %37, align 4
-  br i1 %774, label %.lr.ph2849.split.us.us.preheader, label %._crit_edge2850.us
+  br i1 %774, label %.lr.ph2801.split.us.us.preheader, label %._crit_edge2802.us
 
-.lr.ph2849.split.us.us.preheader:                 ; preds = %.lr.ph2849.us
+.lr.ph2801.split.us.us.preheader:                 ; preds = %.lr.ph2801.us
   %777 = load i32, ptr %22, align 4
   %778 = load i32, ptr %29, align 8
-  %779 = zext nneg i32 %.fr2870 to i64
-  %wide.trip.count2926 = zext nneg i32 %721 to i64
-  br label %.lr.ph2849.split.us.us
+  %779 = zext nneg i32 %.fr2822 to i64
+  %wide.trip.count2878 = zext nneg i32 %721 to i64
+  br label %.lr.ph2801.split.us.us
 
-.lr.ph2849.split.us.us:                           ; preds = %.lr.ph2849.split.us.us.preheader, %..loopexit_crit_edge.us.us
-  %indvars.iv2923 = phi i64 [ 0, %.lr.ph2849.split.us.us.preheader ], [ %indvars.iv.next2924, %..loopexit_crit_edge.us.us ]
-  %.12846.us.us = phi float [ %.02011.us, %.lr.ph2849.split.us.us.preheader ], [ %.2.us.us, %..loopexit_crit_edge.us.us ]
-  %780 = trunc i64 %indvars.iv2923 to i32
+.lr.ph2801.split.us.us:                           ; preds = %.lr.ph2801.split.us.us.preheader, %..loopexit_crit_edge.us.us
+  %indvars.iv2875 = phi i64 [ 0, %.lr.ph2801.split.us.us.preheader ], [ %indvars.iv.next2876, %..loopexit_crit_edge.us.us ]
+  %.12798.us.us = phi float [ %.02011.us, %.lr.ph2801.split.us.us.preheader ], [ %.2.us.us, %..loopexit_crit_edge.us.us ]
+  %780 = trunc i64 %indvars.iv2875 to i32
   %781 = mul i32 %778, %780
   %782 = add i32 %713, %781
   %783 = icmp slt i32 %782, 0
   br i1 %783, label %..loopexit_crit_edge.us.us, label %784
 
-784:                                              ; preds = %.lr.ph2849.split.us.us
+784:                                              ; preds = %.lr.ph2801.split.us.us
   %785 = srem i32 %782, %772
   %786 = sdiv i32 %782, %772
   %.not2588.us.us = icmp eq i32 %785, 0
   %.not2589.us.us = icmp slt i32 %786, %15
-  %or.cond2971 = select i1 %.not2588.us.us, i1 %.not2589.us.us, i1 false
-  br i1 %or.cond2971, label %.lr.ph2845.us.us, label %..loopexit_crit_edge.us.us
+  %or.cond2923 = select i1 %.not2588.us.us, i1 %.not2589.us.us, i1 false
+  br i1 %or.cond2923, label %.lr.ph2797.us.us, label %..loopexit_crit_edge.us.us
 
-.lr.ph2845.us.us:                                 ; preds = %784
+.lr.ph2797.us.us:                                 ; preds = %784
   %787 = sext i32 %786 to i64
   %788 = mul i64 %706, %787
   %789 = getelementptr inbounds i8, ptr %703, i64 %788
-  %790 = mul nuw nsw i64 %indvars.iv2923, %779
+  %790 = mul nuw nsw i64 %indvars.iv2875, %779
   %791 = getelementptr inbounds float, ptr %697, i64 %790
   br label %792
 
-792:                                              ; preds = %808, %.lr.ph2845.us.us
-  %indvars.iv2918 = phi i64 [ %indvars.iv.next2919, %808 ], [ 0, %.lr.ph2845.us.us ]
-  %.32842.us.us = phi float [ %.4.us.us, %808 ], [ %.12846.us.us, %.lr.ph2845.us.us ]
-  %793 = trunc i64 %indvars.iv2918 to i32
+792:                                              ; preds = %808, %.lr.ph2797.us.us
+  %indvars.iv2870 = phi i64 [ %indvars.iv.next2871, %808 ], [ 0, %.lr.ph2797.us.us ]
+  %.32794.us.us = phi float [ %.4.us.us, %808 ], [ %.12798.us.us, %.lr.ph2797.us.us ]
+  %793 = trunc i64 %indvars.iv2870 to i32
   %794 = mul i32 %777, %793
   %795 = add i32 %775, %794
   %796 = icmp slt i32 %795, 0
@@ -3041,40 +3041,40 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   %799 = sdiv i32 %795, %776
   %.not2590.us.us = icmp eq i32 %798, 0
   %.not2591.us.us = icmp slt i32 %799, %13
-  %or.cond2972 = select i1 %.not2590.us.us, i1 %.not2591.us.us, i1 false
-  br i1 %or.cond2972, label %800, label %808
+  %or.cond2924 = select i1 %.not2590.us.us, i1 %.not2591.us.us, i1 false
+  br i1 %or.cond2924, label %800, label %808
 
 800:                                              ; preds = %797
   %801 = sext i32 %799 to i64
   %802 = getelementptr inbounds float, ptr %789, i64 %801
   %803 = load float, ptr %802, align 4
-  %804 = getelementptr inbounds float, ptr %791, i64 %indvars.iv2918
+  %804 = getelementptr inbounds float, ptr %791, i64 %indvars.iv2870
   %805 = load float, ptr %804, align 4
   %806 = fmul fast float %805, %803
-  %807 = fadd fast float %806, %.32842.us.us
+  %807 = fadd fast float %806, %.32794.us.us
   br label %808
 
 808:                                              ; preds = %800, %797, %792
-  %.4.us.us = phi nsz float [ %.32842.us.us, %792 ], [ %.32842.us.us, %797 ], [ %807, %800 ]
-  %indvars.iv.next2919 = add nuw nsw i64 %indvars.iv2918, 1
-  %exitcond2922.not = icmp eq i64 %indvars.iv.next2919, %779
-  br i1 %exitcond2922.not, label %..loopexit_crit_edge.us.us, label %792, !llvm.loop !21
+  %.4.us.us = phi nsz float [ %.32794.us.us, %792 ], [ %.32794.us.us, %797 ], [ %807, %800 ]
+  %indvars.iv.next2871 = add nuw nsw i64 %indvars.iv2870, 1
+  %exitcond2874.not = icmp eq i64 %indvars.iv.next2871, %779
+  br i1 %exitcond2874.not, label %..loopexit_crit_edge.us.us, label %792, !llvm.loop !21
 
-..loopexit_crit_edge.us.us:                       ; preds = %808, %784, %.lr.ph2849.split.us.us
-  %.2.us.us = phi nsz float [ %.12846.us.us, %.lr.ph2849.split.us.us ], [ %.12846.us.us, %784 ], [ %.4.us.us, %808 ]
-  %indvars.iv.next2924 = add nuw nsw i64 %indvars.iv2923, 1
-  %exitcond2927.not = icmp eq i64 %indvars.iv.next2924, %wide.trip.count2926
-  br i1 %exitcond2927.not, label %._crit_edge2850.us, label %.lr.ph2849.split.us.us, !llvm.loop !22
+..loopexit_crit_edge.us.us:                       ; preds = %808, %784, %.lr.ph2801.split.us.us
+  %.2.us.us = phi nsz float [ %.12798.us.us, %.lr.ph2801.split.us.us ], [ %.12798.us.us, %784 ], [ %.4.us.us, %808 ]
+  %indvars.iv.next2876 = add nuw nsw i64 %indvars.iv2875, 1
+  %exitcond2879.not = icmp eq i64 %indvars.iv.next2876, %wide.trip.count2878
+  br i1 %exitcond2879.not, label %._crit_edge2802.us, label %.lr.ph2801.split.us.us, !llvm.loop !22
 
-._crit_edge2855.us:                               ; preds = %769
-  %809 = add nuw nsw i32 %.020132857.us, 1
-  %exitcond2929.not = icmp eq i32 %809, %51
-  br i1 %exitcond2929.not, label %._crit_edge2858, label %.preheader.us, !llvm.loop !23
+._crit_edge2807.us:                               ; preds = %769
+  %809 = add nuw nsw i32 %.020132809.us, 1
+  %exitcond2881.not = icmp eq i32 %809, %51
+  br i1 %exitcond2881.not, label %._crit_edge2810, label %.preheader.us, !llvm.loop !23
 
-._crit_edge2858:                                  ; preds = %._crit_edge2855.us, %.preheader.lr.ph, %694
-  %indvars.iv.next2931 = add nuw nsw i64 %indvars.iv2930, 1
-  %exitcond2934.not = icmp eq i64 %indvars.iv.next2931, %wide.trip.count2933
-  br i1 %exitcond2934.not, label %.loopexit2639, label %694, !llvm.loop !24
+._crit_edge2810:                                  ; preds = %._crit_edge2807.us, %.preheader.lr.ph, %694
+  %indvars.iv.next2883 = add nuw nsw i64 %indvars.iv2882, 1
+  %exitcond2886.not = icmp eq i64 %indvars.iv.next2883, %wide.trip.count2885
+  br i1 %exitcond2886.not, label %.loopexit2639, label %694, !llvm.loop !24
 
 810:                                              ; preds = %153
   %811 = sdiv i32 %157, %159
@@ -3816,7 +3816,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   call void @__clang_call_terminate(ptr %1190) #18
   unreachable
 
-.loopexit2639:                                    ; preds = %._crit_edge2858, %._crit_edge2769.us, %425, %.lr.ph2833, %.preheader2646, %.lr.ph2802, %684, %164, %1151, %._crit_edge2834
+.loopexit2639:                                    ; preds = %._crit_edge2810, %._crit_edge2745.us, %425, %.lr.ph2785, %.preheader2646, %.lr.ph2754, %684, %164, %1151, %._crit_edge2786
   invoke void @_ZNK4ncnn22DeconvolutionDepthWise11cut_paddingERKNS_3MatERS1_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %1191 unwind label %98
 

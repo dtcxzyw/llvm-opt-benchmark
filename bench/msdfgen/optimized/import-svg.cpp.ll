@@ -107,8 +107,8 @@ entry:
   br label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end284, %entry
-  %prevNode.sroa.25.0 = phi double [ 0.000000e+00, %entry ], [ %startPoint.sroa.5.0823, %if.end284 ]
-  %prevNode.sroa.0.0 = phi double [ 0.000000e+00, %entry ], [ %startPoint.sroa.0.0781, %if.end284 ]
+  %prevNode.sroa.25.0 = phi double [ 0.000000e+00, %entry ], [ %startPoint.sroa.5.0739, %if.end284 ]
+  %prevNode.sroa.0.0 = phi double [ 0.000000e+00, %entry ], [ %startPoint.sroa.0.0697, %if.end284 ]
   %pathDef.addr.0 = phi ptr [ %pathDef, %entry ], [ %pathDef.addr.2614, %if.end284 ]
   br label %while.cond.i.i
 
@@ -141,14 +141,14 @@ _ZN7msdfgenL12readNodeTypeERcRPKc.exit:           ; preds = %land.lhs.true10.i
   br label %while.body
 
 while.body:                                       ; preds = %_ZN7msdfgenL12readNodeTypeERcRPKc.exit, %if.end284
-  %prevNode.sroa.25.1 = phi double [ %prevNode.sroa.25.0, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %startPoint.sroa.5.0823, %if.end284 ]
-  %prevNode.sroa.0.1 = phi double [ %prevNode.sroa.0.0, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %startPoint.sroa.0.0781, %if.end284 ]
+  %prevNode.sroa.25.1 = phi double [ %prevNode.sroa.25.0, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %startPoint.sroa.5.0739, %if.end284 ]
+  %prevNode.sroa.0.1 = phi double [ %prevNode.sroa.0.0, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %startPoint.sroa.0.0697, %if.end284 ]
   %nodeType.1 = phi i8 [ %1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %nodeType.2656, %if.end284 ]
   %pathDef.addr.1 = phi ptr [ %incdec.ptr.i, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %pathDef.addr.2614, %if.end284 ]
   %call1 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %3 = load i8, ptr %pathDef.addr.1, align 1
-  %tobool3.not907 = icmp eq i8 %3, 0
-  br i1 %tobool3.not907, label %NEXT_CONTOUR, label %while.body4
+  %tobool3.not823 = icmp eq i8 %3, 0
+  br i1 %tobool3.not823, label %NEXT_CONTOUR, label %while.body4
 
 while.body4:                                      ; preds = %while.body, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376
   %4 = phi i8 [ %114, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %3, %while.body ]
@@ -156,17 +156,17 @@ while.body4:                                      ; preds = %while.body, %_ZN7ms
   %controlPoint.sroa.14.2 = phi double [ %controlPoint.sroa.14.4, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
   %controlPoint.sroa.29.2 = phi double [ %controlPoint.sroa.29.4, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
   %controlPoint.sroa.36.2 = phi double [ %controlPoint.sroa.36.4, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
-  %prevNodeType.1919 = phi i8 [ %nodeType.3, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0, %while.body ]
-  %contourStart.0918 = phi i1 [ %and29, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ true, %while.body ]
-  %pathDef.addr.2917 = phi ptr [ %pathDef.addr.65, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %pathDef.addr.1, %while.body ]
-  %nodeType.2916 = phi i8 [ %nodeType.5, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %nodeType.1, %while.body ]
-  %node.sroa.0.0913 = phi double [ %node.sroa.0.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
-  %node.sroa.39.0912 = phi double [ %node.sroa.39.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
-  %startPoint.sroa.0.0911 = phi double [ %startPoint.sroa.0.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
-  %startPoint.sroa.5.0910 = phi double [ %startPoint.sroa.5.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
-  %prevNode.sroa.0.2909 = phi double [ %node.sroa.0.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %prevNode.sroa.0.1, %while.body ]
-  %prevNode.sroa.25.2908 = phi double [ %node.sroa.39.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %prevNode.sroa.25.1, %while.body ]
-  switch i8 %nodeType.2916, label %return [
+  %prevNodeType.1833 = phi i8 [ %nodeType.3, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0, %while.body ]
+  %contourStart.0832 = phi i1 [ %and29, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ true, %while.body ]
+  %pathDef.addr.2831 = phi ptr [ %pathDef.addr.65, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %pathDef.addr.1, %while.body ]
+  %nodeType.2830 = phi i8 [ %nodeType.5, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %nodeType.1, %while.body ]
+  %node.sroa.0.0829 = phi double [ %node.sroa.0.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
+  %node.sroa.39.0828 = phi double [ %node.sroa.39.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
+  %startPoint.sroa.0.0827 = phi double [ %startPoint.sroa.0.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
+  %startPoint.sroa.5.0826 = phi double [ %startPoint.sroa.5.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
+  %prevNode.sroa.0.2825 = phi double [ %node.sroa.0.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %prevNode.sroa.0.1, %while.body ]
+  %prevNode.sroa.25.2824 = phi double [ %node.sroa.39.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %prevNode.sroa.25.1, %while.body ]
+  switch i8 %nodeType.2830, label %return [
     i8 77, label %sw.bb
     i8 109, label %sw.bb
     i8 90, label %sw.bb13
@@ -190,15 +190,15 @@ while.body4:                                      ; preds = %while.body, %_ZN7ms
   ]
 
 sw.bb:                                            ; preds = %while.body4, %while.body4
-  br i1 %contourStart.0918, label %if.end, label %NEXT_CONTOUR
+  br i1 %contourStart.0832, label %if.end, label %NEXT_CONTOUR
 
 if.end:                                           ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end
-  %5 = phi i8 [ %4, %if.end ], [ %.pre1320, %while.body.i.i.i ]
-  %pathDef.addr.6 = phi ptr [ %pathDef.addr.2917, %if.end ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+  %5 = phi i8 [ %4, %if.end ], [ %.pre1148, %while.body.i.i.i ]
+  %pathDef.addr.6 = phi ptr [ %pathDef.addr.2831, %if.end ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   switch i8 %5, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i [
     i8 44, label %while.body.i.i.i
     i8 32, label %while.body.i.i.i
@@ -209,7 +209,7 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pathDef.addr.6, i64 1
-  %.pre1320 = load i8, ptr %incdec.ptr.i.i.i, align 1
+  %.pre1148 = load i8, ptr %incdec.ptr.i.i.i, align 1
   br label %while.cond.i.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
@@ -248,24 +248,24 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   br i1 %cmp.i10.i, label %if.end8, label %return
 
 if.end8:                                          ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i
-  %cmp = icmp eq i8 %nodeType.2916, 109
-  %add.i = fadd double %prevNode.sroa.0.2909, %call.i.i
-  %add4.i = fadd double %prevNode.sroa.25.2908, %call.i9.i
+  %cmp = icmp eq i8 %nodeType.2830, 109
+  %add.i = fadd double %prevNode.sroa.0.2825, %call.i.i
+  %add4.i = fadd double %prevNode.sroa.25.2824, %call.i9.i
   %node.sroa.39.1 = select i1 %cmp, double %add4.i, double %call.i9.i
   %node.sroa.0.1 = select i1 %cmp, double %add.i, double %call.i.i
-  %dec = add i8 %nodeType.2916, -1
+  %dec = add i8 %nodeType.2830, -1
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %while.body4, %while.body4
-  br i1 %contourStart.0918, label %return, label %NEXT_CONTOUR
+  br i1 %contourStart.0832, label %return, label %NEXT_CONTOUR
 
 sw.bb17:                                          ; preds = %while.body4, %while.body4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i35)
   br label %while.cond.i.i.i37
 
 while.cond.i.i.i37:                               ; preds = %while.body.i.i.i38, %sw.bb17
-  %9 = phi i8 [ %4, %sw.bb17 ], [ %.pre1319, %while.body.i.i.i38 ]
-  %pathDef.addr.10 = phi ptr [ %pathDef.addr.2917, %sw.bb17 ], [ %incdec.ptr.i.i.i39, %while.body.i.i.i38 ]
+  %9 = phi i8 [ %4, %sw.bb17 ], [ %.pre1147, %while.body.i.i.i38 ]
+  %pathDef.addr.10 = phi ptr [ %pathDef.addr.2831, %sw.bb17 ], [ %incdec.ptr.i.i.i39, %while.body.i.i.i38 ]
   switch i8 %9, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40 [
     i8 44, label %while.body.i.i.i38
     i8 32, label %while.body.i.i.i38
@@ -276,7 +276,7 @@ while.cond.i.i.i37:                               ; preds = %while.body.i.i.i38,
 
 while.body.i.i.i38:                               ; preds = %while.cond.i.i.i37, %while.cond.i.i.i37, %while.cond.i.i.i37, %while.cond.i.i.i37, %while.cond.i.i.i37
   %incdec.ptr.i.i.i39 = getelementptr inbounds i8, ptr %pathDef.addr.10, i64 1
-  %.pre1319 = load i8, ptr %incdec.ptr.i.i.i39, align 1
+  %.pre1147 = load i8, ptr %incdec.ptr.i.i.i39, align 1
   br label %while.cond.i.i.i37, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40:     ; preds = %while.cond.i.i.i37
@@ -315,12 +315,12 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48:    ; preds = %while.cond.i.i5.i45
   br i1 %cmp.i10.i51, label %if.end20, label %return
 
 if.end20:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48
-  %cmp22 = icmp eq i8 %nodeType.2916, 108
-  %add.i55 = fadd double %prevNode.sroa.0.2909, %call.i.i41
-  %add4.i57 = fadd double %prevNode.sroa.25.2908, %call.i9.i50
+  %cmp22 = icmp eq i8 %nodeType.2830, 108
+  %add.i55 = fadd double %prevNode.sroa.0.2825, %call.i.i41
+  %add4.i57 = fadd double %prevNode.sroa.25.2824, %call.i9.i50
   %node.sroa.39.3 = select i1 %cmp22, double %add4.i57, double %call.i9.i50
   %node.sroa.0.3 = select i1 %cmp22, double %add.i55, double %call.i.i41
-  %call.i = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2909, double %prevNode.sroa.25.2908, double %node.sroa.0.3, double %node.sroa.39.3, i32 noundef 7)
+  %call.i = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2825, double %prevNode.sroa.25.2824, double %node.sroa.0.3, double %node.sroa.39.3, i32 noundef 7)
   store ptr %call.i, ptr %ref.tmp, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -339,8 +339,8 @@ sw.bb29:                                          ; preds = %while.body4, %while
   br label %while.cond.i.i59
 
 while.cond.i.i59:                                 ; preds = %while.body.i.i60, %sw.bb29
-  %14 = phi i8 [ %4, %sw.bb29 ], [ %.pre1318, %while.body.i.i60 ]
-  %pathDef.addr.14 = phi ptr [ %pathDef.addr.2917, %sw.bb29 ], [ %incdec.ptr.i.i61, %while.body.i.i60 ]
+  %14 = phi i8 [ %4, %sw.bb29 ], [ %.pre1146, %while.body.i.i60 ]
+  %pathDef.addr.14 = phi ptr [ %pathDef.addr.2831, %sw.bb29 ], [ %incdec.ptr.i.i61, %while.body.i.i60 ]
   switch i8 %14, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62 [
     i8 44, label %while.body.i.i60
     i8 32, label %while.body.i.i60
@@ -351,7 +351,7 @@ while.cond.i.i59:                                 ; preds = %while.body.i.i60, %
 
 while.body.i.i60:                                 ; preds = %while.cond.i.i59, %while.cond.i.i59, %while.cond.i.i59, %while.cond.i.i59, %while.cond.i.i59
   %incdec.ptr.i.i61 = getelementptr inbounds i8, ptr %pathDef.addr.14, i64 1
-  %.pre1318 = load i8, ptr %incdec.ptr.i.i61, align 1
+  %.pre1146 = load i8, ptr %incdec.ptr.i.i61, align 1
   br label %while.cond.i.i59, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i62:       ; preds = %while.cond.i.i59
@@ -363,10 +363,10 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i62:       ; preds = %while.cond.i.i59
   br i1 %cmp.i, label %if.end32, label %return
 
 if.end32:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62
-  %cmp34 = icmp eq i8 %nodeType.2916, 104
-  %add = fadd double %prevNode.sroa.0.2909, %call.i63
+  %cmp34 = icmp eq i8 %nodeType.2830, 104
+  %add = fadd double %prevNode.sroa.0.2825, %call.i63
   %node.sroa.0.4 = select i1 %cmp34, double %add, double %call.i63
-  %call.i65 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2909, double %prevNode.sroa.25.2908, double %node.sroa.0.4, double %node.sroa.39.0912, i32 noundef 7)
+  %call.i65 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2825, double %prevNode.sroa.25.2824, double %node.sroa.0.4, double %node.sroa.39.0828, i32 noundef 7)
   store ptr %call.i65, ptr %ref.tmp39, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39)
           to label %invoke.cont43 unwind label %lpad42
@@ -385,8 +385,8 @@ sw.bb44:                                          ; preds = %while.body4, %while
   br label %while.cond.i.i68
 
 while.cond.i.i68:                                 ; preds = %while.body.i.i69, %sw.bb44
-  %17 = phi i8 [ %4, %sw.bb44 ], [ %.pre1317, %while.body.i.i69 ]
-  %pathDef.addr.16 = phi ptr [ %pathDef.addr.2917, %sw.bb44 ], [ %incdec.ptr.i.i70, %while.body.i.i69 ]
+  %17 = phi i8 [ %4, %sw.bb44 ], [ %.pre1145, %while.body.i.i69 ]
+  %pathDef.addr.16 = phi ptr [ %pathDef.addr.2831, %sw.bb44 ], [ %incdec.ptr.i.i70, %while.body.i.i69 ]
   switch i8 %17, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71 [
     i8 44, label %while.body.i.i69
     i8 32, label %while.body.i.i69
@@ -397,7 +397,7 @@ while.cond.i.i68:                                 ; preds = %while.body.i.i69, %
 
 while.body.i.i69:                                 ; preds = %while.cond.i.i68, %while.cond.i.i68, %while.cond.i.i68, %while.cond.i.i68, %while.cond.i.i68
   %incdec.ptr.i.i70 = getelementptr inbounds i8, ptr %pathDef.addr.16, i64 1
-  %.pre1317 = load i8, ptr %incdec.ptr.i.i70, align 1
+  %.pre1145 = load i8, ptr %incdec.ptr.i.i70, align 1
   br label %while.cond.i.i68, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i71:       ; preds = %while.cond.i.i68
@@ -409,10 +409,10 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i71:       ; preds = %while.cond.i.i68
   br i1 %cmp.i73, label %if.end47, label %return
 
 if.end47:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71
-  %cmp49 = icmp eq i8 %nodeType.2916, 118
-  %add53 = fadd double %prevNode.sroa.25.2908, %call.i72
+  %cmp49 = icmp eq i8 %nodeType.2830, 118
+  %add53 = fadd double %prevNode.sroa.25.2824, %call.i72
   %node.sroa.39.4 = select i1 %cmp49, double %add53, double %call.i72
-  %call.i76 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2909, double %prevNode.sroa.25.2908, double %node.sroa.0.0913, double %node.sroa.39.4, i32 noundef 7)
+  %call.i76 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2825, double %prevNode.sroa.25.2824, double %node.sroa.0.0829, double %node.sroa.39.4, i32 noundef 7)
   store ptr %call.i76, ptr %ref.tmp55, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp55)
           to label %invoke.cont59 unwind label %lpad58
@@ -431,8 +431,8 @@ sw.bb60:                                          ; preds = %while.body4, %while
   br label %while.cond.i.i.i80
 
 while.cond.i.i.i80:                               ; preds = %while.body.i.i.i81, %sw.bb60
-  %20 = phi i8 [ %4, %sw.bb60 ], [ %.pre1316, %while.body.i.i.i81 ]
-  %pathDef.addr.18 = phi ptr [ %pathDef.addr.2917, %sw.bb60 ], [ %incdec.ptr.i.i.i82, %while.body.i.i.i81 ]
+  %20 = phi i8 [ %4, %sw.bb60 ], [ %.pre1144, %while.body.i.i.i81 ]
+  %pathDef.addr.18 = phi ptr [ %pathDef.addr.2831, %sw.bb60 ], [ %incdec.ptr.i.i.i82, %while.body.i.i.i81 ]
   switch i8 %20, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83 [
     i8 44, label %while.body.i.i.i81
     i8 32, label %while.body.i.i.i81
@@ -443,7 +443,7 @@ while.cond.i.i.i80:                               ; preds = %while.body.i.i.i81,
 
 while.body.i.i.i81:                               ; preds = %while.cond.i.i.i80, %while.cond.i.i.i80, %while.cond.i.i.i80, %while.cond.i.i.i80, %while.cond.i.i.i80
   %incdec.ptr.i.i.i82 = getelementptr inbounds i8, ptr %pathDef.addr.18, i64 1
-  %.pre1316 = load i8, ptr %incdec.ptr.i.i.i82, align 1
+  %.pre1144 = load i8, ptr %incdec.ptr.i.i.i82, align 1
   br label %while.cond.i.i.i80, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83:     ; preds = %while.cond.i.i.i80
@@ -536,14 +536,14 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112:   ; preds = %while.cond.i.i5.i10
   br i1 %cmp.i10.i115, label %if.end66, label %return
 
 if.end66:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112
-  %cmp68 = icmp eq i8 %nodeType.2916, 113
+  %cmp68 = icmp eq i8 %nodeType.2830, 113
   br i1 %cmp68, label %if.then69, label %if.end75
 
 if.then69:                                        ; preds = %if.end66
-  %add.i119 = fadd double %prevNode.sroa.0.2909, %call.i.i84
-  %add4.i121 = fadd double %prevNode.sroa.25.2908, %call.i9.i93
-  %add.i122 = fadd double %prevNode.sroa.0.2909, %call.i.i105
-  %add4.i124 = fadd double %prevNode.sroa.25.2908, %call.i9.i114
+  %add.i119 = fadd double %prevNode.sroa.0.2825, %call.i.i84
+  %add4.i121 = fadd double %prevNode.sroa.25.2824, %call.i9.i93
+  %add.i122 = fadd double %prevNode.sroa.0.2825, %call.i.i105
+  %add4.i124 = fadd double %prevNode.sroa.25.2824, %call.i9.i114
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then69, %if.end66
@@ -551,7 +551,7 @@ if.end75:                                         ; preds = %if.then69, %if.end6
   %controlPoint.sroa.14.5 = phi double [ %add4.i121, %if.then69 ], [ %call.i9.i93, %if.end66 ]
   %node.sroa.39.5 = phi double [ %add4.i124, %if.then69 ], [ %call.i9.i114, %if.end66 ]
   %node.sroa.0.5 = phi double [ %add.i122, %if.then69 ], [ %call.i.i105, %if.end66 ]
-  %call.i125 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.2909, double %prevNode.sroa.25.2908, double %controlPoint.sroa.0.5, double %controlPoint.sroa.14.5, double %node.sroa.0.5, double %node.sroa.39.5, i32 noundef 7)
+  %call.i125 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.2825, double %prevNode.sroa.25.2824, double %controlPoint.sroa.0.5, double %controlPoint.sroa.14.5, double %node.sroa.0.5, double %node.sroa.39.5, i32 noundef 7)
   store ptr %call.i125, ptr %ref.tmp76, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp76)
           to label %invoke.cont82 unwind label %lpad81
@@ -566,7 +566,7 @@ lpad81:                                           ; preds = %if.end75
   br label %common.resume
 
 sw.bb83:                                          ; preds = %while.body4, %while.body4
-  switch i8 %prevNodeType.1919, label %if.end105 [
+  switch i8 %prevNodeType.1833, label %if.end105 [
     i8 116, label %if.then94
     i8 113, label %if.then94
     i8 84, label %if.then94
@@ -574,21 +574,21 @@ sw.bb83:                                          ; preds = %while.body4, %while
   ]
 
 if.then94:                                        ; preds = %sw.bb83, %sw.bb83, %sw.bb83, %sw.bb83
-  %add.i126 = fadd double %node.sroa.0.0913, %node.sroa.0.0913
-  %add3.i = fadd double %node.sroa.39.0912, %node.sroa.39.0912
+  %add.i126 = fadd double %node.sroa.0.0829, %node.sroa.0.0829
+  %add3.i = fadd double %node.sroa.39.0828, %node.sroa.39.0828
   %sub.i = fsub double %add.i126, %controlPoint.sroa.0.2
   %sub3.i = fsub double %add3.i, %controlPoint.sroa.14.2
   br label %if.end105
 
 if.end105:                                        ; preds = %sw.bb83, %if.then94
-  %controlPoint.sroa.0.6 = phi double [ %sub.i, %if.then94 ], [ %node.sroa.0.0913, %sw.bb83 ]
-  %controlPoint.sroa.14.6 = phi double [ %sub3.i, %if.then94 ], [ %node.sroa.39.0912, %sw.bb83 ]
+  %controlPoint.sroa.0.6 = phi double [ %sub.i, %if.then94 ], [ %node.sroa.0.0829, %sw.bb83 ]
+  %controlPoint.sroa.14.6 = phi double [ %sub3.i, %if.then94 ], [ %node.sroa.39.0828, %sw.bb83 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i130)
   br label %while.cond.i.i.i132
 
 while.cond.i.i.i132:                              ; preds = %while.body.i.i.i133, %if.end105
-  %29 = phi i8 [ %4, %if.end105 ], [ %.pre1315, %while.body.i.i.i133 ]
-  %pathDef.addr.26 = phi ptr [ %pathDef.addr.2917, %if.end105 ], [ %incdec.ptr.i.i.i134, %while.body.i.i.i133 ]
+  %29 = phi i8 [ %4, %if.end105 ], [ %.pre1143, %while.body.i.i.i133 ]
+  %pathDef.addr.26 = phi ptr [ %pathDef.addr.2831, %if.end105 ], [ %incdec.ptr.i.i.i134, %while.body.i.i.i133 ]
   switch i8 %29, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135 [
     i8 44, label %while.body.i.i.i133
     i8 32, label %while.body.i.i.i133
@@ -599,7 +599,7 @@ while.cond.i.i.i132:                              ; preds = %while.body.i.i.i133
 
 while.body.i.i.i133:                              ; preds = %while.cond.i.i.i132, %while.cond.i.i.i132, %while.cond.i.i.i132, %while.cond.i.i.i132, %while.cond.i.i.i132
   %incdec.ptr.i.i.i134 = getelementptr inbounds i8, ptr %pathDef.addr.26, i64 1
-  %.pre1315 = load i8, ptr %incdec.ptr.i.i.i134, align 1
+  %.pre1143 = load i8, ptr %incdec.ptr.i.i.i134, align 1
   br label %while.cond.i.i.i132, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135:    ; preds = %while.cond.i.i.i132
@@ -638,12 +638,12 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143:   ; preds = %while.cond.i.i5.i14
   br i1 %cmp.i10.i146, label %if.end108, label %return
 
 if.end108:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143
-  %cmp110 = icmp eq i8 %nodeType.2916, 116
-  %add.i150 = fadd double %prevNode.sroa.0.2909, %call.i.i136
-  %add4.i152 = fadd double %prevNode.sroa.25.2908, %call.i9.i145
+  %cmp110 = icmp eq i8 %nodeType.2830, 116
+  %add.i150 = fadd double %prevNode.sroa.0.2825, %call.i.i136
+  %add4.i152 = fadd double %prevNode.sroa.25.2824, %call.i9.i145
   %node.sroa.39.6 = select i1 %cmp110, double %add4.i152, double %call.i9.i145
   %node.sroa.0.6 = select i1 %cmp110, double %add.i150, double %call.i.i136
-  %call.i153 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.2909, double %prevNode.sroa.25.2908, double %controlPoint.sroa.0.6, double %controlPoint.sroa.14.6, double %node.sroa.0.6, double %node.sroa.39.6, i32 noundef 7)
+  %call.i153 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.2825, double %prevNode.sroa.25.2824, double %controlPoint.sroa.0.6, double %controlPoint.sroa.14.6, double %node.sroa.0.6, double %node.sroa.39.6, i32 noundef 7)
   store ptr %call.i153, ptr %ref.tmp115, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115)
           to label %invoke.cont121 unwind label %lpad120
@@ -662,8 +662,8 @@ sw.bb122:                                         ; preds = %while.body4, %while
   br label %while.cond.i.i.i157
 
 while.cond.i.i.i157:                              ; preds = %while.body.i.i.i158, %sw.bb122
-  %34 = phi i8 [ %4, %sw.bb122 ], [ %.pre1314, %while.body.i.i.i158 ]
-  %pathDef.addr.30 = phi ptr [ %pathDef.addr.2917, %sw.bb122 ], [ %incdec.ptr.i.i.i159, %while.body.i.i.i158 ]
+  %34 = phi i8 [ %4, %sw.bb122 ], [ %.pre1142, %while.body.i.i.i158 ]
+  %pathDef.addr.30 = phi ptr [ %pathDef.addr.2831, %sw.bb122 ], [ %incdec.ptr.i.i.i159, %while.body.i.i.i158 ]
   switch i8 %34, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160 [
     i8 44, label %while.body.i.i.i158
     i8 32, label %while.body.i.i.i158
@@ -674,7 +674,7 @@ while.cond.i.i.i157:                              ; preds = %while.body.i.i.i158
 
 while.body.i.i.i158:                              ; preds = %while.cond.i.i.i157, %while.cond.i.i.i157, %while.cond.i.i.i157, %while.cond.i.i.i157, %while.cond.i.i.i157
   %incdec.ptr.i.i.i159 = getelementptr inbounds i8, ptr %pathDef.addr.30, i64 1
-  %.pre1314 = load i8, ptr %incdec.ptr.i.i.i159, align 1
+  %.pre1142 = load i8, ptr %incdec.ptr.i.i.i159, align 1
   br label %while.cond.i.i.i157, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160:    ; preds = %while.cond.i.i.i157
@@ -821,16 +821,16 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210:   ; preds = %while.cond.i.i5.i20
   br i1 %cmp.i10.i213, label %if.end133, label %return
 
 if.end133:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210
-  %cmp135 = icmp eq i8 %nodeType.2916, 99
+  %cmp135 = icmp eq i8 %nodeType.2830, 99
   br i1 %cmp135, label %if.then136, label %if.end145
 
 if.then136:                                       ; preds = %if.end133
-  %add.i217 = fadd double %prevNode.sroa.0.2909, %call.i.i161
-  %add4.i219 = fadd double %prevNode.sroa.25.2908, %call.i9.i170
-  %add.i220 = fadd double %prevNode.sroa.0.2909, %call.i.i182
-  %add4.i222 = fadd double %prevNode.sroa.25.2908, %call.i9.i191
-  %add.i223 = fadd double %prevNode.sroa.0.2909, %call.i.i203
-  %add4.i225 = fadd double %prevNode.sroa.25.2908, %call.i9.i212
+  %add.i217 = fadd double %prevNode.sroa.0.2825, %call.i.i161
+  %add4.i219 = fadd double %prevNode.sroa.25.2824, %call.i9.i170
+  %add.i220 = fadd double %prevNode.sroa.0.2825, %call.i.i182
+  %add4.i222 = fadd double %prevNode.sroa.25.2824, %call.i9.i191
+  %add.i223 = fadd double %prevNode.sroa.0.2825, %call.i.i203
+  %add4.i225 = fadd double %prevNode.sroa.25.2824, %call.i9.i212
   br label %if.end145
 
 if.end145:                                        ; preds = %if.then136, %if.end133
@@ -840,7 +840,7 @@ if.end145:                                        ; preds = %if.then136, %if.end
   %controlPoint.sroa.36.5 = phi double [ %add4.i222, %if.then136 ], [ %call.i9.i191, %if.end133 ]
   %node.sroa.39.7 = phi double [ %add4.i225, %if.then136 ], [ %call.i9.i212, %if.end133 ]
   %node.sroa.0.7 = phi double [ %add.i223, %if.then136 ], [ %call.i.i203, %if.end133 ]
-  %call.i226 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.2909, double %prevNode.sroa.25.2908, double %controlPoint.sroa.0.7, double %controlPoint.sroa.14.7, double %controlPoint.sroa.29.5, double %controlPoint.sroa.36.5, double %node.sroa.0.7, double %node.sroa.39.7, i32 noundef 7)
+  %call.i226 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.2825, double %prevNode.sroa.25.2824, double %controlPoint.sroa.0.7, double %controlPoint.sroa.14.7, double %controlPoint.sroa.29.5, double %controlPoint.sroa.36.5, double %node.sroa.0.7, double %node.sroa.39.7, i32 noundef 7)
   store ptr %call.i226, ptr %ref.tmp146, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp146)
           to label %invoke.cont154 unwind label %lpad153
@@ -855,21 +855,21 @@ lpad153:                                          ; preds = %if.end145
   br label %common.resume
 
 sw.bb155:                                         ; preds = %while.body4, %while.body4
-  %47 = add i8 %prevNodeType.1919, -67
+  %47 = add i8 %prevNodeType.1833, -67
   %48 = call i8 @llvm.fshl.i8(i8 %47, i8 %47, i8 4)
   %switch = icmp ult i8 %48, 4
-  %add.i227 = fadd double %node.sroa.0.0913, %node.sroa.0.0913
-  %add3.i228 = fadd double %node.sroa.39.0912, %node.sroa.39.0912
+  %add.i227 = fadd double %node.sroa.0.0829, %node.sroa.0.0829
+  %add3.i228 = fadd double %node.sroa.39.0828, %node.sroa.39.0828
   %sub.i231 = fsub double %add.i227, %controlPoint.sroa.29.2
   %sub3.i232 = fsub double %add3.i228, %controlPoint.sroa.36.2
-  %controlPoint.sroa.0.8 = select i1 %switch, double %sub.i231, double %node.sroa.0.0913
-  %controlPoint.sroa.14.8 = select i1 %switch, double %sub3.i232, double %node.sroa.39.0912
+  %controlPoint.sroa.0.8 = select i1 %switch, double %sub.i231, double %node.sroa.0.0829
+  %controlPoint.sroa.14.8 = select i1 %switch, double %sub3.i232, double %node.sroa.39.0828
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i236)
   br label %while.cond.i.i.i238
 
 while.cond.i.i.i238:                              ; preds = %while.body.i.i.i239, %sw.bb155
-  %49 = phi i8 [ %4, %sw.bb155 ], [ %.pre1313, %while.body.i.i.i239 ]
-  %pathDef.addr.42 = phi ptr [ %pathDef.addr.2917, %sw.bb155 ], [ %incdec.ptr.i.i.i240, %while.body.i.i.i239 ]
+  %49 = phi i8 [ %4, %sw.bb155 ], [ %.pre1141, %while.body.i.i.i239 ]
+  %pathDef.addr.42 = phi ptr [ %pathDef.addr.2831, %sw.bb155 ], [ %incdec.ptr.i.i.i240, %while.body.i.i.i239 ]
   switch i8 %49, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241 [
     i8 44, label %while.body.i.i.i239
     i8 32, label %while.body.i.i.i239
@@ -880,7 +880,7 @@ while.cond.i.i.i238:                              ; preds = %while.body.i.i.i239
 
 while.body.i.i.i239:                              ; preds = %while.cond.i.i.i238, %while.cond.i.i.i238, %while.cond.i.i.i238, %while.cond.i.i.i238, %while.cond.i.i.i238
   %incdec.ptr.i.i.i240 = getelementptr inbounds i8, ptr %pathDef.addr.42, i64 1
-  %.pre1313 = load i8, ptr %incdec.ptr.i.i.i240, align 1
+  %.pre1141 = load i8, ptr %incdec.ptr.i.i.i240, align 1
   br label %while.cond.i.i.i238, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241:    ; preds = %while.cond.i.i.i238
@@ -973,14 +973,14 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270:   ; preds = %while.cond.i.i5.i26
   br i1 %cmp.i10.i273, label %if.end186, label %return
 
 if.end186:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270
-  %cmp188 = icmp eq i8 %nodeType.2916, 115
+  %cmp188 = icmp eq i8 %nodeType.2830, 115
   br i1 %cmp188, label %if.then189, label %if.end195
 
 if.then189:                                       ; preds = %if.end186
-  %add.i277 = fadd double %prevNode.sroa.0.2909, %call.i.i242
-  %add4.i279 = fadd double %prevNode.sroa.25.2908, %call.i9.i251
-  %add.i280 = fadd double %prevNode.sroa.0.2909, %call.i.i263
-  %add4.i282 = fadd double %prevNode.sroa.25.2908, %call.i9.i272
+  %add.i277 = fadd double %prevNode.sroa.0.2825, %call.i.i242
+  %add4.i279 = fadd double %prevNode.sroa.25.2824, %call.i9.i251
+  %add.i280 = fadd double %prevNode.sroa.0.2825, %call.i.i263
+  %add4.i282 = fadd double %prevNode.sroa.25.2824, %call.i9.i272
   br label %if.end195
 
 if.end195:                                        ; preds = %if.then189, %if.end186
@@ -988,7 +988,7 @@ if.end195:                                        ; preds = %if.then189, %if.end
   %controlPoint.sroa.36.6 = phi double [ %add4.i279, %if.then189 ], [ %call.i9.i251, %if.end186 ]
   %node.sroa.39.8 = phi double [ %add4.i282, %if.then189 ], [ %call.i9.i272, %if.end186 ]
   %node.sroa.0.8 = phi double [ %add.i280, %if.then189 ], [ %call.i.i263, %if.end186 ]
-  %call.i283 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.2909, double %prevNode.sroa.25.2908, double %controlPoint.sroa.0.8, double %controlPoint.sroa.14.8, double %controlPoint.sroa.29.6, double %controlPoint.sroa.36.6, double %node.sroa.0.8, double %node.sroa.39.8, i32 noundef 7)
+  %call.i283 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.2825, double %prevNode.sroa.25.2824, double %controlPoint.sroa.0.8, double %controlPoint.sroa.14.8, double %controlPoint.sroa.29.6, double %controlPoint.sroa.36.6, double %node.sroa.0.8, double %node.sroa.39.8, i32 noundef 7)
   store ptr %call.i283, ptr %ref.tmp196, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp196)
           to label %invoke.cont204 unwind label %lpad203
@@ -1008,7 +1008,7 @@ sw.bb205:                                         ; preds = %while.body4, %while
 
 while.cond.i.i.i288:                              ; preds = %while.body.i.i.i289, %sw.bb205
   %58 = phi i8 [ %4, %sw.bb205 ], [ %.pre, %while.body.i.i.i289 ]
-  %pathDef.addr.50 = phi ptr [ %pathDef.addr.2917, %sw.bb205 ], [ %incdec.ptr.i.i.i290, %while.body.i.i.i289 ]
+  %pathDef.addr.50 = phi ptr [ %pathDef.addr.2831, %sw.bb205 ], [ %incdec.ptr.i.i.i290, %while.body.i.i.i289 ]
   switch i8 %58, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291 [
     i8 44, label %while.body.i.i.i289
     i8 32, label %while.body.i.i.i289
@@ -1108,15 +1108,10 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i321:      ; preds = %while.cond.i.i318
   %call.i322 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.56, ptr noundef nonnull %end.i316, i32 noundef 10) #16
   %65 = load ptr, ptr %end.i316, align 8
   %cmp.i323 = icmp ugt ptr %65, %pathDef.addr.56
-  br i1 %cmp.i323, label %if.end214, label %_ZN7msdfgenL8readBoolERbRPKc.exit
-
-_ZN7msdfgenL8readBoolERbRPKc.exit:                ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i316)
-  br label %return
+  br i1 %cmp.i323, label %if.end214, label %return
 
 if.end214:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321
-  %cmp1.i = icmp ne i64 %call.i322, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i316)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i325)
   br label %while.cond.i.i327
 
@@ -1136,19 +1131,15 @@ while.body.i.i328:                                ; preds = %while.cond.i.i327, 
   br label %while.cond.i.i327, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i330:      ; preds = %while.cond.i.i327
+  %cmp1.i = icmp ne i64 %call.i322, 0
   store ptr null, ptr %end.i325, align 8
   %call.i331 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.58, ptr noundef nonnull %end.i325, i32 noundef 10) #16
   %67 = load ptr, ptr %end.i325, align 8
   %cmp.i332 = icmp ugt ptr %67, %pathDef.addr.58
-  br i1 %cmp.i332, label %if.end217, label %_ZN7msdfgenL8readBoolERbRPKc.exit336
-
-_ZN7msdfgenL8readBoolERbRPKc.exit336:             ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i325)
-  br label %return
+  br i1 %cmp.i332, label %if.end217, label %return
 
 if.end217:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330
-  %cmp1.i334 = icmp ne i64 %call.i331, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i325)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i338)
   br label %while.cond.i.i.i340
 
@@ -1168,6 +1159,7 @@ while.body.i.i.i341:                              ; preds = %while.cond.i.i.i340
   br label %while.cond.i.i.i340, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343:    ; preds = %while.cond.i.i.i340
+  %cmp1.i334 = icmp ne i64 %call.i331, 0
   store ptr null, ptr %end.i.i338, align 8
   %call.i.i344 = call double @strtod(ptr noundef nonnull %pathDef.addr.60, ptr noundef nonnull %end.i.i338) #16
   %69 = load ptr, ptr %end.i.i338, align 8
@@ -1203,16 +1195,16 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351:   ; preds = %while.cond.i.i5.i34
   br i1 %cmp.i10.i354, label %if.end220, label %return
 
 if.end220:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351
-  %cmp222 = icmp eq i8 %nodeType.2916, 97
-  %add.i358 = fadd double %prevNode.sroa.0.2909, %call.i.i344
-  %add4.i360 = fadd double %prevNode.sroa.25.2908, %call.i9.i353
+  %cmp222 = icmp eq i8 %nodeType.2830, 97
+  %add.i358 = fadd double %prevNode.sroa.0.2825, %call.i.i344
+  %add4.i360 = fadd double %prevNode.sroa.25.2824, %call.i9.i353
   %node.sroa.39.9 = select i1 %cmp222, double %add4.i360, double %call.i9.i353
   %node.sroa.0.9 = select i1 %cmp222, double %add.i358, double %call.i.i344
   %mul = fmul double %call.i312, 0x3F91DF46A2529D39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp182.i)
-  %cmp.i.i361 = fcmp oeq double %node.sroa.0.9, %prevNode.sroa.0.2909
-  %cmp3.i.i = fcmp oeq double %node.sroa.39.9, %prevNode.sroa.25.2908
+  %cmp.i.i361 = fcmp oeq double %node.sroa.0.9, %prevNode.sroa.0.2825
+  %cmp3.i.i = fcmp oeq double %node.sroa.39.9, %prevNode.sroa.25.2824
   %72 = select i1 %cmp.i.i361, i1 %cmp3.i.i, i1 false
   br i1 %72, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, label %if.end.i
 
@@ -1223,7 +1215,7 @@ if.end.i:                                         ; preds = %if.end220
   br i1 %or.cond.i, label %if.then4.i, label %if.end7.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %call.i.i365 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2909, double %prevNode.sroa.25.2908, double %node.sroa.0.9, double %node.sroa.39.9, i32 noundef 7)
+  %call.i.i365 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2825, double %prevNode.sroa.25.2824, double %node.sroa.0.9, double %node.sroa.39.9, i32 noundef 7)
   store ptr %call.i.i365, ptr %ref.tmp.i, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1242,8 +1234,8 @@ if.end7.i:                                        ; preds = %if.end.i
   %75 = call double @llvm.fabs.f64(double %call.i9.i301)
   %call12.i = call double @cos(double noundef %mul) #16
   %call13.i = call double @sin(double noundef %mul) #16
-  %sub.i.i = fsub double %prevNode.sroa.0.2909, %node.sroa.0.9
-  %sub3.i.i = fsub double %prevNode.sroa.25.2908, %node.sroa.39.9
+  %sub.i.i = fsub double %prevNode.sroa.0.2825, %node.sroa.0.9
+  %sub3.i.i = fsub double %prevNode.sroa.25.2824, %node.sroa.39.9
   %mul.i.i = fmul double %sub.i.i, 5.000000e-01
   %mul1.i.i = fmul double %sub3.i.i, 5.000000e-01
   %fneg.i = fneg double %call13.i
@@ -1292,8 +1284,8 @@ if.end43.i:                                       ; preds = %if.then36.i, %if.en
   %mul67.i = fmul double %radius.sroa.14.0.i, %fneg65.i
   %mul69.i = fmul double %76, %mul67.i
   %div71.i = fdiv double %mul69.i, %radius.sroa.0.0.i
-  %add.i.i = fadd double %prevNode.sroa.0.2909, %node.sroa.0.9
-  %add3.i.i = fadd double %prevNode.sroa.25.2908, %node.sroa.39.9
+  %add.i.i = fadd double %prevNode.sroa.0.2825, %node.sroa.0.9
+  %add3.i.i = fadd double %prevNode.sroa.25.2824, %node.sroa.39.9
   %mul.i57.i = fmul double %add.i.i, 5.000000e-01
   %mul1.i58.i = fmul double %add3.i.i, 5.000000e-01
   %81 = fneg double %div71.i
@@ -1388,8 +1380,8 @@ arrayctor.loop.preheader.lr.ph.i:                 ; preds = %if.end119.i
   br label %arrayctor.loop.preheader.i
 
 arrayctor.loop.preheader.i:                       ; preds = %invoke.cont190.i, %arrayctor.loop.preheader.lr.ph.i
-  %prevNode.sroa.3.0165.i = phi double [ %prevNode.sroa.25.2908, %arrayctor.loop.preheader.lr.ph.i ], [ %node.sroa.4.0.i, %invoke.cont190.i ]
-  %prevNode.sroa.0.0164.i = phi double [ %prevNode.sroa.0.2909, %arrayctor.loop.preheader.lr.ph.i ], [ %node.sroa.0.0.i, %invoke.cont190.i ]
+  %prevNode.sroa.3.0165.i = phi double [ %prevNode.sroa.25.2824, %arrayctor.loop.preheader.lr.ph.i ], [ %node.sroa.4.0.i, %invoke.cont190.i ]
+  %prevNode.sroa.0.0164.i = phi double [ %prevNode.sroa.0.2825, %arrayctor.loop.preheader.lr.ph.i ], [ %node.sroa.0.0.i, %invoke.cont190.i ]
   %angle.0163.i = phi double [ %mul10.i.i, %arrayctor.loop.preheader.lr.ph.i ], [ %add150.i, %invoke.cont190.i ]
   %i.0162.i = phi i32 [ 0, %arrayctor.loop.preheader.lr.ph.i ], [ %inc.i, %invoke.cont190.i ]
   %call132.i = call double @cos(double noundef %angle.0163.i) #16
@@ -1469,15 +1461,15 @@ sw.epilog:                                        ; preds = %_ZN7msdfgenL17addAr
   %controlPoint.sroa.14.4 = phi double [ %controlPoint.sroa.14.2, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %controlPoint.sroa.14.8, %invoke.cont204 ], [ %controlPoint.sroa.14.7, %invoke.cont154 ], [ %controlPoint.sroa.14.6, %invoke.cont121 ], [ %controlPoint.sroa.14.5, %invoke.cont82 ], [ %controlPoint.sroa.14.2, %invoke.cont59 ], [ %controlPoint.sroa.14.2, %invoke.cont43 ], [ %controlPoint.sroa.14.2, %invoke.cont ], [ %controlPoint.sroa.14.2, %if.end8 ]
   %controlPoint.sroa.29.4 = phi double [ %controlPoint.sroa.29.2, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %controlPoint.sroa.29.6, %invoke.cont204 ], [ %controlPoint.sroa.29.5, %invoke.cont154 ], [ %controlPoint.sroa.29.2, %invoke.cont121 ], [ %controlPoint.sroa.29.2, %invoke.cont82 ], [ %controlPoint.sroa.29.2, %invoke.cont59 ], [ %controlPoint.sroa.29.2, %invoke.cont43 ], [ %controlPoint.sroa.29.2, %invoke.cont ], [ %controlPoint.sroa.29.2, %if.end8 ]
   %controlPoint.sroa.36.4 = phi double [ %controlPoint.sroa.36.2, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %controlPoint.sroa.36.6, %invoke.cont204 ], [ %controlPoint.sroa.36.5, %invoke.cont154 ], [ %controlPoint.sroa.36.2, %invoke.cont121 ], [ %controlPoint.sroa.36.2, %invoke.cont82 ], [ %controlPoint.sroa.36.2, %invoke.cont59 ], [ %controlPoint.sroa.36.2, %invoke.cont43 ], [ %controlPoint.sroa.36.2, %invoke.cont ], [ %controlPoint.sroa.36.2, %if.end8 ]
-  %startPoint.sroa.5.1 = phi double [ %startPoint.sroa.5.0910, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %startPoint.sroa.5.0910, %invoke.cont204 ], [ %startPoint.sroa.5.0910, %invoke.cont154 ], [ %startPoint.sroa.5.0910, %invoke.cont121 ], [ %startPoint.sroa.5.0910, %invoke.cont82 ], [ %startPoint.sroa.5.0910, %invoke.cont59 ], [ %startPoint.sroa.5.0910, %invoke.cont43 ], [ %startPoint.sroa.5.0910, %invoke.cont ], [ %node.sroa.39.1, %if.end8 ]
-  %startPoint.sroa.0.1 = phi double [ %startPoint.sroa.0.0911, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %startPoint.sroa.0.0911, %invoke.cont204 ], [ %startPoint.sroa.0.0911, %invoke.cont154 ], [ %startPoint.sroa.0.0911, %invoke.cont121 ], [ %startPoint.sroa.0.0911, %invoke.cont82 ], [ %startPoint.sroa.0.0911, %invoke.cont59 ], [ %startPoint.sroa.0.0911, %invoke.cont43 ], [ %startPoint.sroa.0.0911, %invoke.cont ], [ %node.sroa.0.1, %if.end8 ]
-  %node.sroa.39.2 = phi double [ %node.sroa.39.9, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %node.sroa.39.8, %invoke.cont204 ], [ %node.sroa.39.7, %invoke.cont154 ], [ %node.sroa.39.6, %invoke.cont121 ], [ %node.sroa.39.5, %invoke.cont82 ], [ %node.sroa.39.4, %invoke.cont59 ], [ %node.sroa.39.0912, %invoke.cont43 ], [ %node.sroa.39.3, %invoke.cont ], [ %node.sroa.39.1, %if.end8 ]
-  %node.sroa.0.2 = phi double [ %node.sroa.0.9, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %node.sroa.0.8, %invoke.cont204 ], [ %node.sroa.0.7, %invoke.cont154 ], [ %node.sroa.0.6, %invoke.cont121 ], [ %node.sroa.0.5, %invoke.cont82 ], [ %node.sroa.0.0913, %invoke.cont59 ], [ %node.sroa.0.4, %invoke.cont43 ], [ %node.sroa.0.3, %invoke.cont ], [ %node.sroa.0.1, %if.end8 ]
-  %nodeType.3 = phi i8 [ %nodeType.2916, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %nodeType.2916, %invoke.cont204 ], [ %nodeType.2916, %invoke.cont154 ], [ %nodeType.2916, %invoke.cont121 ], [ %nodeType.2916, %invoke.cont82 ], [ %nodeType.2916, %invoke.cont59 ], [ %nodeType.2916, %invoke.cont43 ], [ %nodeType.2916, %invoke.cont ], [ %dec, %if.end8 ]
+  %startPoint.sroa.5.1 = phi double [ %startPoint.sroa.5.0826, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %startPoint.sroa.5.0826, %invoke.cont204 ], [ %startPoint.sroa.5.0826, %invoke.cont154 ], [ %startPoint.sroa.5.0826, %invoke.cont121 ], [ %startPoint.sroa.5.0826, %invoke.cont82 ], [ %startPoint.sroa.5.0826, %invoke.cont59 ], [ %startPoint.sroa.5.0826, %invoke.cont43 ], [ %startPoint.sroa.5.0826, %invoke.cont ], [ %node.sroa.39.1, %if.end8 ]
+  %startPoint.sroa.0.1 = phi double [ %startPoint.sroa.0.0827, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %startPoint.sroa.0.0827, %invoke.cont204 ], [ %startPoint.sroa.0.0827, %invoke.cont154 ], [ %startPoint.sroa.0.0827, %invoke.cont121 ], [ %startPoint.sroa.0.0827, %invoke.cont82 ], [ %startPoint.sroa.0.0827, %invoke.cont59 ], [ %startPoint.sroa.0.0827, %invoke.cont43 ], [ %startPoint.sroa.0.0827, %invoke.cont ], [ %node.sroa.0.1, %if.end8 ]
+  %node.sroa.39.2 = phi double [ %node.sroa.39.9, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %node.sroa.39.8, %invoke.cont204 ], [ %node.sroa.39.7, %invoke.cont154 ], [ %node.sroa.39.6, %invoke.cont121 ], [ %node.sroa.39.5, %invoke.cont82 ], [ %node.sroa.39.4, %invoke.cont59 ], [ %node.sroa.39.0828, %invoke.cont43 ], [ %node.sroa.39.3, %invoke.cont ], [ %node.sroa.39.1, %if.end8 ]
+  %node.sroa.0.2 = phi double [ %node.sroa.0.9, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %node.sroa.0.8, %invoke.cont204 ], [ %node.sroa.0.7, %invoke.cont154 ], [ %node.sroa.0.6, %invoke.cont121 ], [ %node.sroa.0.5, %invoke.cont82 ], [ %node.sroa.0.0829, %invoke.cont59 ], [ %node.sroa.0.4, %invoke.cont43 ], [ %node.sroa.0.3, %invoke.cont ], [ %node.sroa.0.1, %if.end8 ]
+  %nodeType.3 = phi i8 [ %nodeType.2830, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %nodeType.2830, %invoke.cont204 ], [ %nodeType.2830, %invoke.cont154 ], [ %nodeType.2830, %invoke.cont121 ], [ %nodeType.2830, %invoke.cont82 ], [ %nodeType.2830, %invoke.cont59 ], [ %nodeType.2830, %invoke.cont43 ], [ %nodeType.2830, %invoke.cont ], [ %dec, %if.end8 ]
   %pathDef.addr.3 = phi ptr [ %71, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %56, %invoke.cont204 ], [ %45, %invoke.cont154 ], [ %32, %invoke.cont121 ], [ %27, %invoke.cont82 ], [ %18, %invoke.cont59 ], [ %15, %invoke.cont43 ], [ %12, %invoke.cont ], [ %8, %if.end8 ]
   %110 = and i8 %nodeType.3, -33
   %111 = icmp eq i8 %110, 77
-  %and29 = and i1 %contourStart.0918, %111
+  %and29 = and i1 %contourStart.0832, %111
   br label %while.cond.i.i367
 
 while.cond.i.i367:                                ; preds = %while.body.i.i368, %sw.epilog
@@ -1505,23 +1497,23 @@ land.lhs.true10.i372:                             ; preds = %while.cond.i.i367
   %spec.select = select i1 %or.cond4.i373, i8 %112, i8 %nodeType.3
   %spec.select524.idx = zext i1 %or.cond4.i373 to i64
   %spec.select524 = getelementptr inbounds i8, ptr %pathDef.addr.64, i64 %spec.select524.idx
-  %.pre1321 = load i8, ptr %spec.select524, align 1
+  %.pre1149 = load i8, ptr %spec.select524, align 1
   br label %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376
 
 _ZN7msdfgenL12readNodeTypeERcRPKc.exit376:        ; preds = %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %land.lhs.true10.i372
-  %114 = phi i8 [ %.pre1321, %land.lhs.true10.i372 ], [ %112, %while.cond.i.i367 ], [ %112, %while.cond.i.i367 ], [ %112, %while.cond.i.i367 ], [ %112, %while.cond.i.i367 ]
+  %114 = phi i8 [ %.pre1149, %land.lhs.true10.i372 ], [ %112, %while.cond.i.i367 ], [ %112, %while.cond.i.i367 ], [ %112, %while.cond.i.i367 ], [ %112, %while.cond.i.i367 ]
   %nodeType.5 = phi i8 [ %spec.select, %land.lhs.true10.i372 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ]
   %pathDef.addr.65 = phi ptr [ %spec.select524, %land.lhs.true10.i372 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ]
   %tobool3.not = icmp eq i8 %114, 0
   br i1 %tobool3.not, label %NEXT_CONTOUR, label %while.body4, !llvm.loop !8
 
 NEXT_CONTOUR:                                     ; preds = %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376, %sw.bb, %while.body, %sw.bb13
-  %prevNode.sroa.25.2906 = phi double [ %prevNode.sroa.25.2908, %sw.bb13 ], [ %prevNode.sroa.25.1, %while.body ], [ %node.sroa.39.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %prevNode.sroa.25.2908, %sw.bb ]
-  %prevNode.sroa.0.2865 = phi double [ %prevNode.sroa.0.2909, %sw.bb13 ], [ %prevNode.sroa.0.1, %while.body ], [ %node.sroa.0.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %prevNode.sroa.0.2909, %sw.bb ]
-  %startPoint.sroa.5.0823 = phi double [ %startPoint.sroa.5.0910, %sw.bb13 ], [ 0.000000e+00, %while.body ], [ %startPoint.sroa.5.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %startPoint.sroa.5.0910, %sw.bb ]
-  %startPoint.sroa.0.0781 = phi double [ %startPoint.sroa.0.0911, %sw.bb13 ], [ 0.000000e+00, %while.body ], [ %startPoint.sroa.0.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %startPoint.sroa.0.0911, %sw.bb ]
-  %nodeType.2656 = phi i8 [ %nodeType.2916, %sw.bb13 ], [ %nodeType.1, %while.body ], [ %nodeType.5, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %nodeType.2916, %sw.bb ]
-  %pathDef.addr.2614 = phi ptr [ %pathDef.addr.2917, %sw.bb13 ], [ %pathDef.addr.1, %while.body ], [ %pathDef.addr.65, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %pathDef.addr.2917, %sw.bb ]
+  %prevNode.sroa.25.2822 = phi double [ %prevNode.sroa.25.2824, %sw.bb13 ], [ %prevNode.sroa.25.1, %while.body ], [ %node.sroa.39.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %prevNode.sroa.25.2824, %sw.bb ]
+  %prevNode.sroa.0.2781 = phi double [ %prevNode.sroa.0.2825, %sw.bb13 ], [ %prevNode.sroa.0.1, %while.body ], [ %node.sroa.0.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %prevNode.sroa.0.2825, %sw.bb ]
+  %startPoint.sroa.5.0739 = phi double [ %startPoint.sroa.5.0826, %sw.bb13 ], [ 0.000000e+00, %while.body ], [ %startPoint.sroa.5.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %startPoint.sroa.5.0826, %sw.bb ]
+  %startPoint.sroa.0.0697 = phi double [ %startPoint.sroa.0.0827, %sw.bb13 ], [ 0.000000e+00, %while.body ], [ %startPoint.sroa.0.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %startPoint.sroa.0.0827, %sw.bb ]
+  %nodeType.2656 = phi i8 [ %nodeType.2830, %sw.bb13 ], [ %nodeType.1, %while.body ], [ %nodeType.5, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %nodeType.2830, %sw.bb ]
+  %pathDef.addr.2614 = phi ptr [ %pathDef.addr.2831, %sw.bb13 ], [ %pathDef.addr.1, %while.body ], [ %pathDef.addr.65, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %pathDef.addr.2831, %sw.bb ]
   %nodeTypePreread.1 = phi i1 [ false, %sw.bb13 ], [ false, %while.body ], [ false, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ true, %sw.bb ]
   %115 = load ptr, ptr %call1, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %call1, i64 8
@@ -1530,8 +1522,8 @@ NEXT_CONTOUR:                                     ; preds = %_ZN7msdfgenL12readN
   br i1 %cmp.i.i377, label %if.end284, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %NEXT_CONTOUR
-  %cmp.i378 = fcmp une double %prevNode.sroa.0.2865, %startPoint.sroa.0.0781
-  %cmp3.i379 = fcmp une double %prevNode.sroa.25.2906, %startPoint.sroa.5.0823
+  %cmp.i378 = fcmp une double %prevNode.sroa.0.2781, %startPoint.sroa.0.0697
+  %cmp3.i379 = fcmp une double %prevNode.sroa.25.2822, %startPoint.sroa.5.0739
   %117 = select i1 %cmp.i378, i1 true, i1 %cmp3.i379
   br i1 %117, label %if.then247, label %if.end284
 
@@ -1579,7 +1571,7 @@ if.then264:                                       ; preds = %if.then247
   br label %if.end284
 
 if.else277:                                       ; preds = %if.then247
-  %call.i389 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2865, double %prevNode.sroa.25.2906, double %startPoint.sroa.0.0781, double %startPoint.sroa.5.0823, i32 noundef 7)
+  %call.i389 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2781, double %prevNode.sroa.25.2822, double %startPoint.sroa.0.0697, double %startPoint.sroa.5.0739, i32 noundef 7)
   store ptr %call.i389, ptr %ref.tmp278, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp278)
           to label %invoke.cont282 unwind label %lpad281
@@ -1596,8 +1588,8 @@ lpad281:                                          ; preds = %if.else277
 if.end284:                                        ; preds = %if.then264, %invoke.cont282, %land.lhs.true, %NEXT_CONTOUR
   br i1 %nodeTypePreread.1, label %while.body, label %lor.rhs
 
-return:                                           ; preds = %land.lhs.true10.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %sw.bb13, %while.body4, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i, %_ZN7msdfgenL8readBoolERbRPKc.exit336, %_ZN7msdfgenL8readBoolERbRPKc.exit
-  %retval.0 = phi i1 [ false, %_ZN7msdfgenL8readBoolERbRPKc.exit ], [ false, %_ZN7msdfgenL8readBoolERbRPKc.exit336 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351 ], [ false, %while.body4 ], [ false, %sw.bb13 ], [ true, %while.cond.i.i ], [ true, %while.cond.i.i ], [ true, %while.cond.i.i ], [ true, %while.cond.i.i ], [ true, %land.lhs.true10.i ]
+return:                                           ; preds = %land.lhs.true10.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %sw.bb13, %while.body4, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i
+  %retval.0 = phi i1 [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351 ], [ false, %while.body4 ], [ false, %sw.bb13 ], [ true, %while.cond.i.i ], [ true, %while.cond.i.i ], [ true, %while.cond.i.i ], [ true, %while.cond.i.i ], [ true, %land.lhs.true10.i ]
   ret i1 %retval.0
 }
 

@@ -12,12 +12,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_start(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %.not24 = icmp eq i64 %0, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i64 %0, 0
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %67
-  %.023 = phi i64 [ %68, %67 ], [ 0, %2 ]
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %.023
+  %.022 = phi i64 [ %68, %67 ], [ 0, %2 ]
+  %4 = getelementptr inbounds ptr, ptr %1, i64 %.022
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %67, label %7
@@ -127,7 +127,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %54
   br label %67
 
 67:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %58, %10, %7, %.lr.ph
-  %68 = add nuw i64 %.023, 1
+  %68 = add nuw i64 %.022, 1
   %exitcond.not = icmp eq i64 %68, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 

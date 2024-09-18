@@ -1643,10 +1643,10 @@ for.cond.preheader.i.i:                           ; preds = %if.end30.i
   br label %for.body.i62.i
 
 for.body.i62.i:                                   ; preds = %for.inc.i67.i, %for.cond.preheader.i.i
-  %p.078.i.i = phi ptr [ %142, %for.cond.preheader.i.i ], [ %167, %for.inc.i67.i ]
-  %ref_prefix.i.i = getelementptr inbounds i8, ptr %p.078.i.i, i64 8
+  %p.077.i.i = phi ptr [ %142, %for.cond.preheader.i.i ], [ %167, %for.inc.i67.i ]
+  %ref_prefix.i.i = getelementptr inbounds i8, ptr %p.077.i.i, i64 8
   %143 = load ptr, ptr %ref_prefix.i.i, align 8
-  %bf.load.i63.i = load i8, ptr %p.078.i.i, align 8
+  %bf.load.i63.i = load i8, ptr %p.077.i.i, align 8
   %bf.clear.i64.i = and i8 %bf.load.i63.i, 1
   %tobool2.not.i65.i = icmp eq i8 %bf.clear.i64.i, 0
   br i1 %tobool2.not.i65.i, label %land.lhs.true.i69.i, label %if.else.i.i107
@@ -1689,7 +1689,7 @@ is_null_oid.exit.i81.i:                           ; preds = %if.end.i.i.i.i79.i,
   br i1 %retval.0.in.i.i.i.not.i83.i, label %for.inc.i67.i, label %is_null_oid.exit.if.else_crit_edge.i.i
 
 is_null_oid.exit.if.else_crit_edge.i.i:           ; preds = %is_null_oid.exit.i81.i
-  %bf.load5.pre.i.i = load i8, ptr %p.078.i.i, align 8
+  %bf.load5.pre.i.i = load i8, ptr %p.077.i.i, align 8
   br label %if.else.i.i107
 
 if.else.i.i107:                                   ; preds = %is_null_oid.exit.if.else_crit_edge.i.i, %for.body.i62.i
@@ -1736,7 +1736,7 @@ is_null_oid.exit32.i.i:                           ; preds = %if.end.i.i.i23.i.i,
   br i1 %retval.0.in.i.i.i26.not.i.i, label %for.inc.i67.i, label %is_null_oid.exit32.if.else13_crit_edge.i.i
 
 is_null_oid.exit32.if.else13_crit_edge.i.i:       ; preds = %is_null_oid.exit32.i.i
-  %bf.load14.pre.i.i = load i8, ptr %p.078.i.i, align 8
+  %bf.load14.pre.i.i = load i8, ptr %p.077.i.i, align 8
   br label %if.else13.i.i
 
 if.else13.i.i:                                    ; preds = %is_null_oid.exit32.if.else13_crit_edge.i.i, %if.else.i.i107
@@ -1844,19 +1844,19 @@ land.lhs.true32.i.i:                              ; preds = %do.body.i.i.i
   ]
 
 if.then35.i.i:                                    ; preds = %land.lhs.true32.i.i, %land.lhs.true32.i.i
-  %bf.load36.i.i = load i8, ptr %p.078.i.i, align 8
+  %bf.load36.i.i = load i8, ptr %p.077.i.i, align 8
   %165 = and i8 %bf.load36.i.i, 8
   %tobool40.not.i.i = icmp eq i8 %165, 0
   br i1 %tobool40.not.i.i, label %if.then33.i, label %for.inc.i67.i
 
 if.else43.i.i:                                    ; preds = %do.cond.i.i.i, %land.lhs.true32.i.i
-  %bf.load44.i.i = load i8, ptr %p.078.i.i, align 8
+  %bf.load44.i.i = load i8, ptr %p.077.i.i, align 8
   %166 = and i8 %bf.load44.i.i, 8
   %tobool48.not.i.i = icmp eq i8 %166, 0
   br i1 %tobool48.not.i.i, label %for.inc.i67.i, label %if.then33.i
 
 for.inc.i67.i:                                    ; preds = %if.else43.i.i, %if.then35.i.i, %is_null_oid.exit72.i.i, %is_null_oid.exit32.i.i, %is_null_oid.exit.i81.i
-  %next.i.i = getelementptr inbounds i8, ptr %p.078.i.i, i64 16
+  %next.i.i = getelementptr inbounds i8, ptr %p.077.i.i, i64 16
   %167 = load ptr, ptr %next.i.i, align 8
   %tobool1.not.i68.i = icmp eq ptr %167, null
   br i1 %tobool1.not.i68.i, label %for.inc36.i, label %for.body.i62.i, !llvm.loop !20

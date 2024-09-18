@@ -2018,17 +2018,17 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
 32:                                               ; preds = %24, %24
   %33 = call ptr @transformCreateStmt(ptr noundef nonnull %13, ptr noundef %2) #10
   %.not92938 = icmp eq ptr %33, null
-  br i1 %.not92938, label %.loopexit, label %.lr.ph45
+  br i1 %.not92938, label %.loopexit, label %.lr.ph42
 
-.lr.ph45:                                         ; preds = %32
+.lr.ph42:                                         ; preds = %32
   %.sroa.2505.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %34 = getelementptr inbounds i8, ptr %1, i64 128
   %35 = getelementptr inbounds i8, ptr %1, i64 132
   br label %36
 
-36:                                               ; preds = %69, %.lr.ph45
-  %.091140 = phi ptr [ %33, %.lr.ph45 ], [ %.1, %69 ]
-  %.091239 = phi ptr [ null, %.lr.ph45 ], [ %.1913, %69 ]
+36:                                               ; preds = %69, %.lr.ph42
+  %.091140 = phi ptr [ %33, %.lr.ph42 ], [ %.1, %69 ]
+  %.091239 = phi ptr [ null, %.lr.ph42 ], [ %.1913, %69 ]
   %37 = getelementptr i8, ptr %.091140, i64 16
   %.0911.val = load ptr, ptr %37, align 8
   %38 = load ptr, ptr %.0911.val, align 8
@@ -2131,9 +2131,9 @@ ProcessUtility.exit:                              ; preds = %68, %67, %49, %53, 
 
 .lr.ph37:                                         ; preds = %.lr.ph34, %91
   %77 = phi i32 [ %92, %91 ], [ %75, %.lr.ph34 ]
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %91 ], [ 0, %.lr.ph34 ]
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %91 ], [ 0, %.lr.ph34 ]
   %78 = load ptr, ptr %74, align 8
-  %79 = getelementptr %union.ListCell, ptr %78, i64 %indvars.iv49
+  %79 = getelementptr %union.ListCell, ptr %78, i64 %indvars.iv46
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
@@ -2150,22 +2150,22 @@ ProcessUtility.exit:                              ; preds = %68, %67, %49, %53, 
 
 90:                                               ; preds = %84
   call void @PreventInTransactionBlock(i1 noundef zeroext %14, ptr noundef nonnull @.str.36) #10
-  %.pre52 = load i32, ptr %73, align 4
+  %.pre49 = load i32, ptr %73, align 4
   br label %91
 
 91:                                               ; preds = %.lr.ph37, %90, %84
-  %92 = phi i32 [ %77, %.lr.ph37 ], [ %.pre52, %90 ], [ %77, %84 ]
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %92 = phi i32 [ %77, %.lr.ph37 ], [ %.pre49, %90 ], [ %77, %84 ]
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %93 = sext i32 %92 to i64
-  %94 = icmp slt i64 %indvars.iv.next50, %93
+  %94 = icmp slt i64 %indvars.iv.next47, %93
   br i1 %94, label %.lr.ph37, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %91
-  %.pre53 = load ptr, ptr %71, align 8
+  %.pre50 = load ptr, ptr %71, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph34, %70
-  %95 = phi ptr [ %.pre53, %._crit_edge.loopexit ], [ %72, %.lr.ph34 ], [ null, %70 ]
+  %95 = phi ptr [ %.pre50, %._crit_edge.loopexit ], [ %72, %.lr.ph34 ], [ null, %70 ]
   %96 = call i32 @AlterTableGetLockLevel(ptr noundef %95) #10
   %97 = call i32 @AlterTableLookupRelation(ptr noundef nonnull %13, i32 noundef %96) #10
   %.not928 = icmp eq i32 %97, 0
@@ -2376,8 +2376,8 @@ ProcessUtility.exit:                              ; preds = %68, %67, %49, %53, 
 226:                                              ; preds = %222
   call void @PreventInTransactionBlock(i1 noundef zeroext %14, ptr noundef nonnull @.str.40) #10
   %.pre = load i8, ptr %223, align 8
-  %.pre54 = trunc i8 %.pre to i1
-  %227 = select i1 %.pre54, i32 4, i32 5
+  %.pre51 = trunc i8 %.pre to i1
+  %227 = select i1 %.pre51, i32 4, i32 5
   br label %228
 
 228:                                              ; preds = %226, %222

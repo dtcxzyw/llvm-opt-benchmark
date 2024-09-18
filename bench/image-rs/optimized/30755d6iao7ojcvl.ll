@@ -31095,19 +31095,19 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   ret ptr %.036
 
 39:                                               ; preds = %.lr.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h82e4e91b91343b44E.exit"
-  %.sroa.6.077 = phi i64 [ %3, %.lr.ph ], [ %41, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h82e4e91b91343b44E.exit" ]
-  %.sroa.046.076 = phi ptr [ %2, %.lr.ph ], [ %40, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h82e4e91b91343b44E.exit" ]
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.077, i64 %19)
-  %40 = getelementptr inbounds i16, ptr %.sroa.046.076, i64 %.0.sroa.speculated.i.i
-  %41 = sub nuw i64 %.sroa.6.077, %.0.sroa.speculated.i.i
+  %.sroa.6.076 = phi i64 [ %3, %.lr.ph ], [ %41, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h82e4e91b91343b44E.exit" ]
+  %.sroa.046.075 = phi ptr [ %2, %.lr.ph ], [ %40, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h82e4e91b91343b44E.exit" ]
+  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.076, i64 %19)
+  %40 = getelementptr inbounds i16, ptr %.sroa.046.075, i64 %.0.sroa.speculated.i.i
+  %41 = sub nuw i64 %.sroa.6.076, %.0.sroa.speculated.i.i
   br label %42
 
 42:                                               ; preds = %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit"
   %43 = phi i64 [ 0, %39 ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
-  %.sroa.5.075 = phi i64 [ %.0.sroa.speculated.i.i, %39 ], [ %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
-  %.sroa.050.074 = phi ptr [ %.sroa.046.076, %39 ], [ %44, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
-  %.0.sroa.speculated.i.i39 = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.075, i64 8)
-  %44 = getelementptr inbounds i16, ptr %.sroa.050.074, i64 %.0.sroa.speculated.i.i39
+  %.sroa.5.074 = phi i64 [ %.0.sroa.speculated.i.i, %39 ], [ %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
+  %.sroa.050.073 = phi ptr [ %.sroa.046.075, %39 ], [ %44, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
+  %.0.sroa.speculated.i.i39 = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.074, i64 8)
+  %44 = getelementptr inbounds i16, ptr %.sroa.050.073, i64 %.0.sroa.speculated.i.i39
   br label %70
 
 45:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit"
@@ -31145,7 +31145,7 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   br label %38
 
 59:                                               ; preds = %72
-  %60 = sub nuw nsw i64 %.sroa.5.075, %.0.sroa.speculated.i.i39
+  %60 = sub nuw nsw i64 %.sroa.5.074, %.0.sroa.speculated.i.i39
   %61 = load i64, ptr %9, align 8, !alias.scope !5221, !noundef !13
   %62 = icmp eq i64 %43, %61
   br i1 %62, label %63, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit"
@@ -31170,27 +31170,27 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   br i1 %69, label %45, label %42
 
 70:                                               ; preds = %42, %72
-  %.03573 = phi i8 [ 0, %42 ], [ %.1, %72 ]
-  %.sroa.09.072 = phi i64 [ 0, %42 ], [ %71, %72 ]
-  %71 = add nuw nsw i64 %.sroa.09.072, 1
-  %.not = icmp ugt i64 %.sroa.5.075, %.sroa.09.072
+  %.03572 = phi i8 [ 0, %42 ], [ %.1, %72 ]
+  %.sroa.09.071 = phi i64 [ 0, %42 ], [ %71, %72 ]
+  %71 = add nuw nsw i64 %.sroa.09.071, 1
+  %.not = icmp ugt i64 %.sroa.5.074, %.sroa.09.071
   br i1 %.not, label %73, label %72
 
 72:                                               ; preds = %77, %73, %70
-  %.1 = phi i8 [ %.03573, %70 ], [ %80, %77 ], [ %.03573, %73 ]
+  %.1 = phi i8 [ %.03572, %70 ], [ %80, %77 ], [ %.03572, %73 ]
   %exitcond.not = icmp eq i64 %71, 8
   br i1 %exitcond.not, label %59, label %70
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i16, ptr %.sroa.050.074, i64 %.sroa.09.072
+  %74 = getelementptr inbounds i16, ptr %.sroa.050.073, i64 %.sroa.09.071
   %75 = load i16, ptr %74, align 2, !noundef !13
   %76 = icmp eq i16 %75, 0
   br i1 %76, label %77, label %72
 
 77:                                               ; preds = %73
-  %78 = trunc nuw i64 %.sroa.09.072 to i8
+  %78 = trunc nuw i64 %.sroa.09.071 to i8
   %79 = lshr exact i8 -128, %78
-  %80 = or i8 %.03573, %79
+  %80 = or i8 %79, %.03572
   br label %72
 
 81:                                               ; preds = %.loopexit.split-lp
@@ -31302,19 +31302,19 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   ret ptr %.036
 
 39:                                               ; preds = %.lr.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit"
-  %.sroa.6.077 = phi i64 [ %3, %.lr.ph ], [ %41, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit" ]
-  %.sroa.046.076 = phi ptr [ %2, %.lr.ph ], [ %40, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit" ]
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.077, i64 %19)
-  %40 = getelementptr inbounds i8, ptr %.sroa.046.076, i64 %.0.sroa.speculated.i.i
-  %41 = sub nuw i64 %.sroa.6.077, %.0.sroa.speculated.i.i
+  %.sroa.6.076 = phi i64 [ %3, %.lr.ph ], [ %41, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit" ]
+  %.sroa.046.075 = phi ptr [ %2, %.lr.ph ], [ %40, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit" ]
+  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.076, i64 %19)
+  %40 = getelementptr inbounds i8, ptr %.sroa.046.075, i64 %.0.sroa.speculated.i.i
+  %41 = sub nuw i64 %.sroa.6.076, %.0.sroa.speculated.i.i
   br label %42
 
 42:                                               ; preds = %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit"
   %43 = phi i64 [ 0, %39 ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
-  %.sroa.5.075 = phi i64 [ %.0.sroa.speculated.i.i, %39 ], [ %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
-  %.sroa.050.074 = phi ptr [ %.sroa.046.076, %39 ], [ %44, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
-  %.0.sroa.speculated.i.i39 = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.075, i64 8)
-  %44 = getelementptr inbounds i8, ptr %.sroa.050.074, i64 %.0.sroa.speculated.i.i39
+  %.sroa.5.074 = phi i64 [ %.0.sroa.speculated.i.i, %39 ], [ %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
+  %.sroa.050.073 = phi ptr [ %.sroa.046.075, %39 ], [ %44, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit" ]
+  %.0.sroa.speculated.i.i39 = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.074, i64 8)
+  %44 = getelementptr inbounds i8, ptr %.sroa.050.073, i64 %.0.sroa.speculated.i.i39
   br label %70
 
 45:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit"
@@ -31352,7 +31352,7 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   br label %38
 
 59:                                               ; preds = %72
-  %60 = sub nuw nsw i64 %.sroa.5.075, %.0.sroa.speculated.i.i39
+  %60 = sub nuw nsw i64 %.sroa.5.074, %.0.sroa.speculated.i.i39
   %61 = load i64, ptr %9, align 8, !alias.scope !5243, !noundef !13
   %62 = icmp eq i64 %43, %61
   br i1 %62, label %63, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit"
@@ -31377,27 +31377,27 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   br i1 %69, label %45, label %42
 
 70:                                               ; preds = %42, %72
-  %.03573 = phi i8 [ 0, %42 ], [ %.1, %72 ]
-  %.sroa.09.072 = phi i64 [ 0, %42 ], [ %71, %72 ]
-  %71 = add nuw nsw i64 %.sroa.09.072, 1
-  %.not = icmp ugt i64 %.sroa.5.075, %.sroa.09.072
+  %.03572 = phi i8 [ 0, %42 ], [ %.1, %72 ]
+  %.sroa.09.071 = phi i64 [ 0, %42 ], [ %71, %72 ]
+  %71 = add nuw nsw i64 %.sroa.09.071, 1
+  %.not = icmp ugt i64 %.sroa.5.074, %.sroa.09.071
   br i1 %.not, label %73, label %72
 
 72:                                               ; preds = %77, %73, %70
-  %.1 = phi i8 [ %.03573, %70 ], [ %80, %77 ], [ %.03573, %73 ]
+  %.1 = phi i8 [ %.03572, %70 ], [ %80, %77 ], [ %.03572, %73 ]
   %exitcond.not = icmp eq i64 %71, 8
   br i1 %exitcond.not, label %59, label %70
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %.sroa.050.074, i64 %.sroa.09.072
+  %74 = getelementptr inbounds i8, ptr %.sroa.050.073, i64 %.sroa.09.071
   %75 = load i8, ptr %74, align 1, !noundef !13
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %77, label %72
 
 77:                                               ; preds = %73
-  %78 = trunc nuw i64 %.sroa.09.072 to i8
+  %78 = trunc nuw i64 %.sroa.09.071 to i8
   %79 = lshr exact i8 -128, %78
-  %80 = or i8 %.03573, %79
+  %80 = or i8 %79, %.03572
   br label %72
 
 81:                                               ; preds = %.loopexit.split-lp

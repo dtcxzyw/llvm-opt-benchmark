@@ -855,7 +855,7 @@ cleanup117.i:                                     ; preds = %invoke.cont.i5
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit.i8, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %cleanup117.i, %if.then.i.i.i56.i, %_ZNSt6vectorIhSaIhEED2Ev.exit54.i, %invoke.cont49.i, %invoke.cont42.i, %if.then36.i
-  %cleanup.dest.slot.0118.i = phi i32 [ 1, %cleanup117.i ], [ %cleanup.dest.slot.1.i, %if.then.i.i.i56.i ], [ %cleanup.dest.slot.1.i, %_ZNSt6vectorIhSaIhEED2Ev.exit54.i ], [ 1, %invoke.cont42.i ], [ 1, %invoke.cont49.i ], [ 1, %if.then36.i ]
+  %cleanup.dest.slot.0112.i = phi i32 [ 1, %cleanup117.i ], [ %cleanup.dest.slot.1.i, %if.then.i.i.i56.i ], [ %cleanup.dest.slot.1.i, %_ZNSt6vectorIhSaIhEED2Ev.exit54.i ], [ 1, %invoke.cont42.i ], [ 1, %invoke.cont49.i ], [ 1, %if.then36.i ]
   invoke void @DH_free(ptr noundef nonnull %call2.i)
           to label %_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit.i8 unwind label %terminate.lpad.i.i7
 
@@ -867,7 +867,7 @@ terminate.lpad.i.i7:                              ; preds = %if.then.i.i6
   unreachable
 
 _ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit.i8: ; preds = %if.then.i.i6, %cleanup117.i
-  %cleanup.dest.slot.0119.i = phi i32 [ 1, %cleanup117.i ], [ %cleanup.dest.slot.0118.i, %if.then.i.i6 ]
+  %cleanup.dest.slot.0113.i = phi i32 [ 1, %cleanup117.i ], [ %cleanup.dest.slot.0112.i, %if.then.i.i6 ]
   store ptr null, ptr %dhB.i, align 8
   %cmp.not.i58.i = icmp eq ptr %call.i2, null
   br i1 %cmp.not.i58.i, label %_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit61.i, label %if.then.i59.i
@@ -885,11 +885,11 @@ terminate.lpad.i60.i:                             ; preds = %if.then.i59.i
 
 _ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit61.i: ; preds = %if.then.i59.i, %_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit.i8
   store ptr null, ptr %dhA.i, align 8
-  %switch.i = icmp eq i32 %cleanup.dest.slot.0119.i, 0
+  %switch.i = icmp eq i32 %cleanup.dest.slot.0113.i, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp ne i64 %indvars.iv.next.i, 3
-  %or.cond124.not.i = select i1 %switch.i, i1 %exitcond.i, i1 false
-  br i1 %or.cond124.not.i, label %for.body.i1, label %_ZL15RunRFC5114Testsv.exit, !llvm.loop !10
+  %or.cond118.not.i = select i1 %switch.i, i1 %exitcond.i, i1 false
+  br i1 %or.cond118.not.i, label %for.body.i1, label %_ZL15RunRFC5114Testsv.exit, !llvm.loop !10
 
 ehcleanup.i15:                                    ; preds = %if.then.i.i.i.i18, %lpad73.i, %lpad67.loopexit.split-lp.i, %lpad67.loopexit.i, %lpad62.i
   %.pn.i16 = phi { ptr, i32 } [ %79, %lpad62.i ], [ %80, %lpad73.i ], [ %80, %if.then.i.i.i.i18 ], [ %lpad.loopexit79.i, %lpad67.loopexit.i ], [ %lpad.loopexit.split-lp80.i, %lpad67.loopexit.split-lp.i ]

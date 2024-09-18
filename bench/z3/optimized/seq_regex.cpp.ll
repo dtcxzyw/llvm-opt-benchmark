@@ -9261,9 +9261,9 @@ land.lhs.true.i:                                  ; preds = %_ZNK8seq_util3rex8i
   br i1 %cmp.i27, label %if.then, label %invoke.cont39
 
 if.then:                                          ; preds = %land.lhs.true.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i
-  %.sink106 = phi i64 [ 40, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 32, %land.lhs.true.i ]
+  %.sink104 = phi i64 [ 40, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 32, %land.lhs.true.i ]
   %.sink = phi i64 [ 48, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 40, %land.lhs.true.i ]
-  %m_args.i.i29 = getelementptr inbounds i8, ptr %14, i64 %.sink106
+  %m_args.i.i29 = getelementptr inbounds i8, ptr %14, i64 %.sink104
   %arrayidx.i.i30 = getelementptr inbounds i8, ptr %14, i64 %.sink
   %e2.1 = load ptr, ptr %arrayidx.i.i30, align 8
   %e1.1 = load ptr, ptr %m_args.i.i29, align 8
@@ -9390,21 +9390,21 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
           to label %if.end45.sink.split.sink.split unwind label %lpad12.loopexit
 
 if.end45.sink.split.sink.split:                   ; preds = %if.then.i.i, %if.then.i60
-  %m_nodes.i.sink113 = phi ptr [ %workset, %if.then.i60 ], [ %m_nodes.i, %if.then.i.i ]
-  %.sink110.ph = phi ptr [ %e2.1, %if.then.i60 ], [ %14, %if.then.i.i ]
-  %.pre.i.i = load ptr, ptr %m_nodes.i.sink113, align 8
+  %m_nodes.i.sink111 = phi ptr [ %workset, %if.then.i60 ], [ %m_nodes.i, %if.then.i.i ]
+  %.sink108.ph = phi ptr [ %e2.1, %if.then.i60 ], [ %14, %if.then.i.i ]
+  %.pre.i.i = load ptr, ptr %m_nodes.i.sink111, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %if.end45.sink.split
 
 if.end45.sink.split:                              ; preds = %if.end45.sink.split.sink.split, %lor.lhs.false.i.i, %lor.lhs.false.i51
-  %.sink112 = phi i32 [ %35, %lor.lhs.false.i51 ], [ %42, %lor.lhs.false.i.i ], [ %.pre1.i.i, %if.end45.sink.split.sink.split ]
-  %.sink111 = phi ptr [ %34, %lor.lhs.false.i51 ], [ %41, %lor.lhs.false.i.i ], [ %.pre.i.i, %if.end45.sink.split.sink.split ]
-  %.sink110 = phi ptr [ %e2.1, %lor.lhs.false.i51 ], [ %14, %lor.lhs.false.i.i ], [ %.sink110.ph, %if.end45.sink.split.sink.split ]
-  %m_nodes.i.sink = phi ptr [ %workset, %lor.lhs.false.i51 ], [ %m_nodes.i, %lor.lhs.false.i.i ], [ %m_nodes.i.sink113, %if.end45.sink.split.sink.split ]
-  %idx.ext.i.i = zext i32 %.sink112 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %.sink111, i64 %idx.ext.i.i
-  store ptr %.sink110, ptr %add.ptr.i.i, align 8
+  %.sink110 = phi i32 [ %35, %lor.lhs.false.i51 ], [ %42, %lor.lhs.false.i.i ], [ %.pre1.i.i, %if.end45.sink.split.sink.split ]
+  %.sink109 = phi ptr [ %34, %lor.lhs.false.i51 ], [ %41, %lor.lhs.false.i.i ], [ %.pre.i.i, %if.end45.sink.split.sink.split ]
+  %.sink108 = phi ptr [ %e2.1, %lor.lhs.false.i51 ], [ %14, %lor.lhs.false.i.i ], [ %.sink108.ph, %if.end45.sink.split.sink.split ]
+  %m_nodes.i.sink = phi ptr [ %workset, %lor.lhs.false.i51 ], [ %m_nodes.i, %lor.lhs.false.i.i ], [ %m_nodes.i.sink111, %if.end45.sink.split.sink.split ]
+  %idx.ext.i.i = zext i32 %.sink110 to i64
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %.sink109, i64 %idx.ext.i.i
+  store ptr %.sink108, ptr %add.ptr.i.i, align 8
   %44 = load ptr, ptr %m_nodes.i.sink, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %44, i64 -4
   %45 = load i32, ptr %arrayidx10.i.i, align 4
@@ -9450,7 +9450,7 @@ if.then.i.i73:                                    ; preds = %_ZN13obj_hashtableI
           to label %if.then.i.i73._ZN6vectorIP4exprLb1EjED2Ev.exit_crit_edge unwind label %terminate.lpad.i74
 
 if.then.i.i73._ZN6vectorIP4exprLb1EjED2Ev.exit_crit_edge: ; preds = %if.then.i.i73
-  %.pre104 = load ptr, ptr %d, align 8
+  %.pre102 = load ptr, ptr %d, align 8
   br label %_ZN6vectorIP4exprLb1EjED2Ev.exit
 
 terminate.lpad.i74:                               ; preds = %if.then.i.i73
@@ -9461,7 +9461,7 @@ terminate.lpad.i74:                               ; preds = %if.then.i.i73
   unreachable
 
 _ZN6vectorIP4exprLb1EjED2Ev.exit:                 ; preds = %if.then.i.i73._ZN6vectorIP4exprLb1EjED2Ev.exit_crit_edge, %_ZN13obj_hashtableI4exprED2Ev.exit
-  %54 = phi ptr [ %.pre104, %if.then.i.i73._ZN6vectorIP4exprLb1EjED2Ev.exit_crit_edge ], [ %1, %_ZN13obj_hashtableI4exprED2Ev.exit ]
+  %54 = phi ptr [ %.pre102, %if.then.i.i73._ZN6vectorIP4exprLb1EjED2Ev.exit_crit_edge ], [ %1, %_ZN13obj_hashtableI4exprED2Ev.exit ]
   %tobool.not.i.i75 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i75, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit83, label %if.then.i.i.i76
 

@@ -675,8 +675,8 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %34, label %.lr.ph.i.us, label %src_in_overlay.exit.thread
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %src_in_overlay.exit.thread.us
-  %.0262.us = phi ptr [ %102, %src_in_overlay.exit.thread.us ], [ %33, %.lr.ph ]
-  %41 = getelementptr inbounds i8, ptr %.0262.us, i64 8
+  %.0260.us = phi ptr [ %102, %src_in_overlay.exit.thread.us ], [ %33, %.lr.ph ]
+  %41 = getelementptr inbounds i8, ptr %.0260.us, i64 8
   %42 = load ptr, ptr %41, align 8
   br label %43
 
@@ -698,17 +698,17 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   %52 = getelementptr inbounds i8, ptr %44, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = trunc i64 %53 to i32
-  %55 = getelementptr inbounds i8, ptr %.0262.us, i64 40
+  %55 = getelementptr inbounds i8, ptr %.0260.us, i64 40
   %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.0262.us, i64 32
+  %57 = getelementptr inbounds i8, ptr %.0260.us, i64 32
   %58 = load i32, ptr %57, align 8
   %59 = add nsw i32 %58, %56
   %..us = call i32 @llvm.smin.i32(i32 %59, i32 %36)
   %60 = call i32 @llvm.smax.i32(i32 %58, i32 %35)
   %61 = sub nsw i32 %..us, %60
-  %62 = getelementptr inbounds i8, ptr %.0262.us, i64 44
+  %62 = getelementptr inbounds i8, ptr %.0260.us, i64 44
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.0262.us, i64 36
+  %64 = getelementptr inbounds i8, ptr %.0260.us, i64 36
   %65 = load i32, ptr %64, align 4
   %66 = add nsw i32 %65, %63
   %67 = call i32 @llvm.smin.i32(i32 %66, i32 %38)
@@ -716,9 +716,9 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   %69 = sub nsw i32 %67, %68
   %70 = sub nsw i32 %35, %58
   %71 = call i32 @llvm.smax.i32(i32 %70, i32 0)
-  %72 = getelementptr inbounds i8, ptr %.0262.us, i64 24
+  %72 = getelementptr inbounds i8, ptr %.0260.us, i64 24
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %.0262.us, i64 48
+  %74 = getelementptr inbounds i8, ptr %.0260.us, i64 48
   %75 = load i32, ptr %74, align 8
   %.neg230.us = add i32 %71, %58
   %76 = add i32 %73, %75
@@ -727,14 +727,14 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   %79 = call i32 @llvm.smax.i32(i32 %78, i32 0)
   %80 = sub nsw i32 %37, %65
   %81 = call i32 @llvm.smax.i32(i32 %80, i32 0)
-  %82 = getelementptr inbounds i8, ptr %.0262.us, i64 28
+  %82 = getelementptr inbounds i8, ptr %.0260.us, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %65, %81
   %85 = add i32 %75, %83
   %86 = sub i32 %84, %85
   %87 = sub nsw i32 0, %80
   %88 = call i32 @llvm.smax.i32(i32 %87, i32 0)
-  %89 = load i64, ptr %.0262.us, align 8
+  %89 = load i64, ptr %.0260.us, align 8
   %90 = call ptr @XGetImage(ptr noundef %0, i64 noundef %89, i32 noundef %77, i32 noundef %86, i32 noundef %61, i32 noundef %69, i64 noundef 4294967295, i32 noundef 2) #9
   %91 = getelementptr inbounds i8, ptr %90, i64 40
   %92 = load i32, ptr %91, align 8
@@ -808,8 +808,8 @@ src_in_overlay.exit.thread.us:                    ; preds = %101, %.loopexit.us
 
 ._crit_edge.us.us:                                ; preds = %118
   %120 = add nuw nsw i32 %.2191243.us.us, 1
-  %exitcond284.not = icmp eq i32 %120, %69
-  br i1 %exitcond284.not, label %.loopexit.us, label %.preheader234.us.us, !llvm.loop !17
+  %exitcond282.not = icmp eq i32 %120, %69
+  br i1 %exitcond282.not, label %.loopexit.us, label %.preheader234.us.us, !llvm.loop !17
 
 .preheader233.lr.ph.us:                           ; preds = %.preheader235.us
   %121 = icmp sgt i32 %61, 0
@@ -841,13 +841,13 @@ src_in_overlay.exit.thread.us:                    ; preds = %101, %.loopexit.us
 
 136:                                              ; preds = %129, %124
   %137 = add nuw nsw i32 %.1187245.us.us, 1
-  %exitcond285.not = icmp eq i32 %137, %61
-  br i1 %exitcond285.not, label %._crit_edge.us249.us, label %124, !llvm.loop !18
+  %exitcond283.not = icmp eq i32 %137, %61
+  br i1 %exitcond283.not, label %._crit_edge.us249.us, label %124, !llvm.loop !18
 
 ._crit_edge.us249.us:                             ; preds = %136
   %138 = add nuw nsw i32 %.1190247.us.us, 1
-  %exitcond286.not = icmp eq i32 %138, %69
-  br i1 %exitcond286.not, label %.loopexit.us, label %.preheader233.us.us, !llvm.loop !19
+  %exitcond284.not = icmp eq i32 %138, %69
+  br i1 %exitcond284.not, label %.loopexit.us, label %.preheader233.us.us, !llvm.loop !19
 
 .preheader.lr.ph.us:                              ; preds = %97
   %139 = icmp sgt i32 %61, 0
@@ -886,16 +886,16 @@ src_in_overlay.exit.thread.us:                    ; preds = %101, %.loopexit.us
 
 156:                                              ; preds = %149, %144
   %157 = add nuw nsw i32 %.0186251.us.us, 1
-  %exitcond287.not = icmp eq i32 %157, %61
-  br i1 %exitcond287.not, label %._crit_edge.us257.us, label %144, !llvm.loop !20
+  %exitcond285.not = icmp eq i32 %157, %61
+  br i1 %exitcond285.not, label %._crit_edge.us257.us, label %144, !llvm.loop !20
 
 ._crit_edge.us257.us:                             ; preds = %156
   %158 = load i32, ptr %140, align 4
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %.0183256.us.us, i64 %159
   %161 = add nuw nsw i32 %.0189254.us.us, 1
-  %exitcond288.not = icmp eq i32 %161, %69
-  br i1 %exitcond288.not, label %.loopexit.us, label %.preheader.us.us, !llvm.loop !21
+  %exitcond286.not = icmp eq i32 %161, %69
+  br i1 %exitcond286.not, label %.loopexit.us, label %.preheader.us.us, !llvm.loop !21
 
 src_in_overlay.exit.thread:                       ; preds = %.lr.ph, %src_in_overlay.exit.thread
   %162 = call ptr @next_in_list(ptr noundef %12) #9

@@ -3707,9 +3707,9 @@ _ZNO5vcpkg9ExpectedTINS_8OptionalISt6vectorIjSaIjEEEENS_15LocalizedStringEE5erro
   %351 = getelementptr inbounds i8, ptr %4, i64 40
   store i64 0, ptr %351, align 8, !noalias !185
   %.not2285.i = icmp eq ptr %.012.val, %.012.val18
-  br i1 %.not2285.i, label %._crit_edge92.i, label %.lr.ph91.i
+  br i1 %.not2285.i, label %._crit_edge89.i, label %.lr.ph88.i
 
-.lr.ph91.i:                                       ; preds = %345
+.lr.ph88.i:                                       ; preds = %345
   %352 = getelementptr inbounds i8, ptr %6, i64 32
   %353 = getelementptr inbounds i8, ptr %8, i64 32
   %354 = getelementptr inbounds i8, ptr %7, i64 2
@@ -3723,9 +3723,9 @@ _ZNO5vcpkg9ExpectedTINS_8OptionalISt6vectorIjSaIjEEEENS_15LocalizedStringEE5erro
   %362 = getelementptr inbounds i8, ptr %16, i64 8
   br label %363
 
-363:                                              ; preds = %_ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit.i, %.lr.ph91.i
-  %.sroa.019.089.i = phi ptr [ %.012.val, %.lr.ph91.i ], [ %505, %_ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit.i ]
-  %364 = load i32, ptr %.sroa.019.089.i, align 4, !noalias !185
+363:                                              ; preds = %_ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit.i, %.lr.ph88.i
+  %.sroa.019.086.i = phi ptr [ %.012.val, %.lr.ph88.i ], [ %505, %_ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit.i ]
+  %364 = load i32, ptr %.sroa.019.086.i, align 4, !noalias !185
   %365 = zext i32 %364 to i64
   %366 = add nuw nsw i64 %365, 60
   invoke void @_ZN5vcpkg15ReadFilePointer17try_read_all_fromExPvj(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.21") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %366, ptr noundef nonnull %5, i32 noundef 4)
@@ -3753,7 +3753,7 @@ _ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit.i67: ; preds =
           cleanup
   br label %_ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit96.i
 
-.loopexit.split-lp.i:                             ; preds = %._crit_edge92.i
+.loopexit.split-lp.i:                             ; preds = %._crit_edge89.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit96.i
@@ -3996,15 +3996,15 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit92.i: ; preds = %442
 
 ._crit_edge.i:                                    ; preds = %496
   %.pre.i62 = load ptr, ptr %16, align 8, !noalias !185
-  %.pre102.i = load ptr, ptr %362, align 8, !noalias !185
-  %.not4.i.i.i.i.i = icmp eq ptr %.pre.i62, %.pre102.i
+  %.pre99.i = load ptr, ptr %362, align 8, !noalias !185
+  %.not4.i.i.i.i.i = icmp eq ptr %.pre.i62, %.pre99.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %._crit_edge.i, %.lr.ph.i.i.i.i.i63
   %.05.i.i.i.i.i = phi ptr [ %463, %.lr.ph.i.i.i.i.i63 ], [ %.pre.i62, %._crit_edge.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #25, !noalias !185
   %463 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i64 = icmp eq ptr %463, %.pre102.i
+  %.not.i.i.i.i.i64 = icmp eq ptr %463, %.pre99.i
   br i1 %.not.i.i.i.i.i64, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i63, !llvm.loop !5
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i63
@@ -4157,23 +4157,23 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit89._crit_edge.i: ; p
   br label %_ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit96.i
 
 _ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit.i: ; preds = %502, %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit89._crit_edge.i, %.invoke.i
-  %505 = getelementptr inbounds i8, ptr %.sroa.019.089.i, i64 4
+  %505 = getelementptr inbounds i8, ptr %.sroa.019.086.i, i64 4
   %.not22.i = icmp eq ptr %505, %.012.val18
-  br i1 %.not22.i, label %._crit_edge92.loopexit.i, label %363
+  br i1 %.not22.i, label %._crit_edge89.loopexit.i, label %363
 
-._crit_edge92.loopexit.i:                         ; preds = %_ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit.i
-  %.pre103.i = load ptr, ptr %3, align 8, !noalias !185
+._crit_edge89.loopexit.i:                         ; preds = %_ZNSt6vectorIN5vcpkg18SectionTableHeaderESaIS1_EED2Ev.exit.i
+  %.pre100.i = load ptr, ptr %3, align 8, !noalias !185
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.pre104.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !185
-  br label %._crit_edge92.i
+  %.pre101.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !185
+  br label %._crit_edge89.i
 
-._crit_edge92.i:                                  ; preds = %._crit_edge92.loopexit.i, %345
-  %506 = phi ptr [ %.pre104.i, %._crit_edge92.loopexit.i ], [ null, %345 ]
-  %507 = phi ptr [ %.pre103.i, %._crit_edge92.loopexit.i ], [ null, %345 ]
+._crit_edge89.i:                                  ; preds = %._crit_edge89.loopexit.i, %345
+  %506 = phi ptr [ %.pre101.i, %._crit_edge89.loopexit.i ], [ null, %345 ]
+  %507 = phi ptr [ %.pre100.i, %._crit_edge89.loopexit.i ], [ null, %345 ]
   invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11MachineTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %507, ptr %506)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11MachineTypeESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i unwind label %.loopexit.split-lp.i, !noalias !185
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11MachineTypeESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i: ; preds = %._crit_edge92.i
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11MachineTypeESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i: ; preds = %._crit_edge89.i
   %508 = getelementptr inbounds i8, ptr %3, i64 16
   %509 = load ptr, ptr %508, align 8, !noalias !185
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !185

@@ -2053,7 +2053,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph:      ; preds = %for.end
 
 _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph, %if.end204
   %28 = phi ptr [ %27, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %119, %if.end204 ]
-  %found_something.0362 = phi i1 [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %found_something.1, %if.end204 ]
+  %found_something.0360 = phi i1 [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %found_something.1, %if.end204 ]
   %arrayidx.i35 = getelementptr inbounds i8, ptr %28, i64 -4
   %29 = load i32, ptr %arrayidx.i35, align 4
   %cmp3.i = icmp eq i32 %29, 0
@@ -2111,16 +2111,16 @@ invoke.cont25.thread:                             ; preds = %land.lhs.true.i
   br i1 %cmp.i41283, label %cond.end, label %if.else79
 
 cond.end:                                         ; preds = %invoke.cont25, %invoke.cont25.thread
-  %.sink372 = phi i64 [ 864, %invoke.cont25.thread ], [ 856, %invoke.cont25 ]
+  %.sink370 = phi i64 [ 864, %invoke.cont25.thread ], [ 856, %invoke.cont25 ]
   %t.0284292 = phi ptr [ %39, %invoke.cont25.thread ], [ %32, %invoke.cont25 ]
   %40 = load ptr, ptr %m, align 8
-  %m_true.i = getelementptr inbounds i8, ptr %40, i64 %.sink372
+  %m_true.i = getelementptr inbounds i8, ptr %40, i64 %.sink370
   %cond = load ptr, ptr %m_true.i, align 8
   %call38 = invoke noundef zeroext i1 @_ZN7datalog25mk_interp_tail_simplifier17rule_substitution5unifyEP4exprS3_(ptr noundef nonnull align 8 dereferenceable(256) %m_rule_subst, ptr noundef nonnull %t.0284292, ptr noundef %cond)
           to label %invoke.cont37 unwind label %lpad16.loopexit.split-lp.loopexit
 
 invoke.cont37:                                    ; preds = %cond.end
-  %spec.select = select i1 %call38, i1 true, i1 %found_something.0362
+  %spec.select = select i1 %call38, i1 true, i1 %found_something.0360
   br label %if.end204
 
 lpad16.loopexit:                                  ; preds = %if.then.i.i
@@ -2268,7 +2268,7 @@ if.then73:                                        ; preds = %invoke.cont71, %lan
           to label %invoke.cont75 unwind label %lpad16.loopexit.split-lp.loopexit
 
 invoke.cont75:                                    ; preds = %if.then73
-  %spec.select17 = select i1 %call76, i1 true, i1 %found_something.0362
+  %spec.select17 = select i1 %call76, i1 true, i1 %found_something.0360
   br label %if.end204
 
 if.else79:                                        ; preds = %land.rhs.i.i, %invoke.cont25, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %land.lhs.true.i60, %invoke.cont25.thread, %invoke.cont71, %invoke.cont64
@@ -2451,7 +2451,7 @@ if.then124:                                       ; preds = %if.else119
           to label %invoke.cont126 unwind label %lpad16.loopexit.split-lp.loopexit
 
 invoke.cont126:                                   ; preds = %if.then124
-  %spec.select18 = select i1 %call127, i1 true, i1 %found_something.0362
+  %spec.select18 = select i1 %call127, i1 true, i1 %found_something.0360
   br label %if.end204
 
 if.else130:                                       ; preds = %if.else119
@@ -2473,7 +2473,7 @@ if.then139:                                       ; preds = %land.lhs.true135
           to label %invoke.cont144 unwind label %lpad16.loopexit.split-lp.loopexit
 
 invoke.cont144:                                   ; preds = %if.then139
-  %spec.select20 = select i1 %call145, i1 true, i1 %found_something.0362
+  %spec.select20 = select i1 %call145, i1 true, i1 %found_something.0360
   br label %if.end204
 
 land.lhs.true153:                                 ; preds = %land.lhs.true135
@@ -2485,7 +2485,7 @@ if.then157:                                       ; preds = %land.lhs.true153
           to label %invoke.cont162 unwind label %lpad16.loopexit.split-lp.loopexit
 
 invoke.cont162:                                   ; preds = %if.then157
-  %spec.select23 = select i1 %call163, i1 true, i1 %found_something.0362
+  %spec.select23 = select i1 %call163, i1 true, i1 %found_something.0360
   br label %if.end204
 
 if.else170:                                       ; preds = %land.rhs.i.i.i.i75, %if.else79, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i, %land.lhs.true.i.i, %invoke.cont81
@@ -2668,13 +2668,13 @@ invoke.cont193:                                   ; preds = %.noexc220, %lor.lhs
           to label %if.end204 unwind label %lpad16.loopexit.split-lp.loopexit
 
 if.end204:                                        ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i, %land.rhs.i.i.i151, %land.lhs.true172, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i, %land.lhs.true.i176, %if.else130, %if.then45, %invoke.cont162, %invoke.cont144, %invoke.cont126, %invoke.cont75, %invoke.cont37, %land.lhs.true153, %invoke.cont109, %invoke.cont116, %invoke.cont193, %if.else170
-  %found_something.1 = phi i1 [ %spec.select, %invoke.cont37 ], [ %spec.select23, %invoke.cont162 ], [ %found_something.0362, %land.lhs.true153 ], [ %spec.select20, %invoke.cont144 ], [ %spec.select18, %invoke.cont126 ], [ %found_something.0362, %invoke.cont116 ], [ %found_something.0362, %invoke.cont109 ], [ %found_something.0362, %if.else170 ], [ %found_something.0362, %invoke.cont193 ], [ %spec.select17, %invoke.cont75 ], [ %found_something.0362, %if.then45 ], [ %found_something.0362, %if.else130 ], [ %found_something.0362, %land.lhs.true.i176 ], [ %found_something.0362, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i ], [ %found_something.0362, %land.lhs.true172 ], [ %found_something.0362, %land.rhs.i.i.i151 ], [ %found_something.0362, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i ]
+  %found_something.1 = phi i1 [ %found_something.0360, %land.lhs.true153 ], [ %found_something.0360, %invoke.cont116 ], [ %found_something.0360, %invoke.cont109 ], [ %found_something.0360, %if.else170 ], [ %found_something.0360, %invoke.cont193 ], [ %spec.select, %invoke.cont37 ], [ %spec.select17, %invoke.cont75 ], [ %spec.select18, %invoke.cont126 ], [ %spec.select20, %invoke.cont144 ], [ %spec.select23, %invoke.cont162 ], [ %found_something.0360, %if.then45 ], [ %found_something.0360, %if.else130 ], [ %found_something.0360, %land.lhs.true.i176 ], [ %found_something.0360, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i ], [ %found_something.0360, %land.lhs.true172 ], [ %found_something.0360, %land.rhs.i.i.i151 ], [ %found_something.0360, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i ]
   %119 = load ptr, ptr %m_todo, align 8
   %cmp.i34 = icmp eq ptr %119, null
   br i1 %cmp.i34, label %while.end205, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !16
 
 while.end205:                                     ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %if.end204
-  %found_something.0.lcssa = phi i1 [ %found_something.0362, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %found_something.1, %if.end204 ]
+  %found_something.0.lcssa = phi i1 [ %found_something.0360, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %found_something.1, %if.end204 ]
   br i1 %found_something.0.lcssa, label %if.end208, label %cleanup
 
 if.end208:                                        ; preds = %while.end205
@@ -2707,7 +2707,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i226
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %for.end, %cleanup, %if.then.i.i.i221, %if.then2.i.i.i226
-  %found_something.0.lcssa368371 = phi i1 [ %found_something.0.lcssa, %cleanup ], [ %found_something.0.lcssa, %if.then.i.i.i221 ], [ %found_something.0.lcssa, %if.then2.i.i.i226 ], [ false, %for.end ]
+  %found_something.0.lcssa366369 = phi i1 [ %found_something.0.lcssa, %cleanup ], [ %found_something.0.lcssa, %if.then.i.i.i221 ], [ %found_something.0.lcssa, %if.then2.i.i.i226 ], [ false, %for.end ]
   %124 = load ptr, ptr %tmp1, align 8
   %tobool.not.i.i227 = icmp eq ptr %124, null
   br i1 %tobool.not.i.i227, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit235, label %if.then.i.i.i228
@@ -2795,7 +2795,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 return:                                           ; preds = %if.then.i.i.i.i.i, %invoke.cont8.i.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit235, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %found_something.0.lcssa368371, %_ZN7obj_refI4expr11ast_managerED2Ev.exit235 ], [ %found_something.0.lcssa368371, %invoke.cont8.i.i ], [ %found_something.0.lcssa368371, %if.then.i.i.i.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %found_something.0.lcssa366369, %_ZN7obj_refI4expr11ast_managerED2Ev.exit235 ], [ %found_something.0.lcssa366369, %invoke.cont8.i.i ], [ %found_something.0.lcssa366369, %if.then.i.i.i.i.i ]
   ret i1 %retval.0
 }
 

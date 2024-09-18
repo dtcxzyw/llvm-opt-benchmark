@@ -8512,7 +8512,7 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   %31 = icmp ult i32 %24, %30
   %32 = icmp ne i32 %23, 0
   %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %34, label %.loopexit39
+  br i1 %33, label %34, label %.loopexit38
 
 34:                                               ; preds = %22
   %35 = getelementptr inbounds i8, ptr %25, i64 200
@@ -8526,7 +8526,7 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   %41 = icmp ult i32 %37, %40
   %42 = icmp ne i32 %80, 0
   %43 = and i1 %42, %41
-  br i1 %43, label %44, label %.loopexit39
+  br i1 %43, label %44, label %.loopexit38
 
 44:                                               ; preds = %36, %34
   %45 = phi i32 [ %30, %34 ], [ %40, %36 ]
@@ -8588,7 +8588,7 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
 .thread:                                          ; preds = %54, %69
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
-  br label %.loopexit38
+  br label %.loopexit37
 
 76:                                               ; preds = %74, %72, %66, %64
   %77 = phi i32 [ %75, %74 ], [ %67, %66 ], [ %65, %64 ], [ %73, %72 ]
@@ -8597,16 +8597,16 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   %80 = sub i32 %47, %79
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
-  br i1 %78, label %.loopexit38, label %36
+  br i1 %78, label %.loopexit37, label %36
 
-.loopexit39:                                      ; preds = %36, %22
+.loopexit38:                                      ; preds = %36, %22
   %81 = phi i32 [ %23, %22 ], [ %80, %36 ]
   %82 = phi i32 [ %24, %22 ], [ %37, %36 ]
   %83 = phi i32 [ %30, %22 ], [ %40, %36 ]
   %84 = phi i1 [ %32, %22 ], [ %42, %36 ]
   br i1 %84, label %85, label %.loopexit35
 
-85:                                               ; preds = %.loopexit39
+85:                                               ; preds = %.loopexit38
   %86 = sub i32 %82, %83
   %87 = getelementptr inbounds i8, ptr %25, i64 192
   %88 = load ptr, ptr %87, align 8
@@ -8641,8 +8641,8 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   br i1 %108, label %.loopexit36.loopexit, label %100, !llvm.loop !164
 
 .loopexit36.loopexit:                             ; preds = %100, %107
-  %.ph89 = phi i64 [ %95, %107 ], [ %indvars.iv, %100 ]
-  %109 = and i64 %.ph89, 65535
+  %.ph = phi i64 [ %95, %107 ], [ %indvars.iv, %100 ]
+  %109 = and i64 %.ph, 65535
   br label %.loopexit36
 
 .loopexit36:                                      ; preds = %.loopexit36.loopexit, %85
@@ -8804,10 +8804,10 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
 
 .thread28:                                        ; preds = %.split.split, %174, %.split.split.us, %.split.us, %157
   %.us-phi = phi i32 [ %138, %157 ], [ %138, %.split.us ], [ %166, %.split.split.us ], [ %166, %174 ], [ %188, %.split.split ]
-  %.us-phi68 = phi i32 [ -22, %.split.us ], [ %158, %157 ], [ %175, %174 ], [ -22, %.split.split.us ], [ %194, %.split.split ]
+  %.us-phi63 = phi i32 [ -22, %.split.us ], [ %158, %157 ], [ %175, %174 ], [ -22, %.split.split.us ], [ %194, %.split.split ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
-  br label %.loopexit38
+  br label %.loopexit37
 
 .loopexit:                                        ; preds = %182, %177, %160, %124
   %.ph33 = phi i32 [ %115, %124 ], [ %161, %160 ], [ %178, %177 ], [ %183, %182 ]
@@ -8834,21 +8834,21 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   %.be = phi ptr [ %205, %204 ], [ %202, %200 ]
   br label %22
 
-.loopexit35:                                      ; preds = %204, %200, %.loopexit36, %.loopexit39, %.loopexit
-  %207 = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit36 ], [ 0, %.loopexit39 ], [ %115, %204 ], [ %115, %200 ]
+.loopexit35:                                      ; preds = %204, %200, %.loopexit36, %.loopexit38, %.loopexit
+  %207 = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit36 ], [ 0, %.loopexit38 ], [ %115, %204 ], [ %115, %200 ]
   %208 = sub i32 %3, %207
   br label %214
 
-.loopexit38:                                      ; preds = %76, %.thread28, %.thread
-  %209 = phi i32 [ %.us-phi68, %.thread28 ], [ -22, %.thread ], [ %77, %76 ]
+.loopexit37:                                      ; preds = %76, %.thread28, %.thread
+  %209 = phi i32 [ %.us-phi63, %.thread28 ], [ -22, %.thread ], [ %77, %76 ]
   %210 = phi i32 [ %.us-phi, %.thread28 ], [ %47, %.thread ], [ %80, %76 ]
   %211 = icmp eq i32 %210, %3
   %212 = sub i32 %3, %210
   %213 = select i1 %211, i32 %209, i32 %212
   br label %214
 
-214:                                              ; preds = %.loopexit38, %.loopexit35
-  %215 = phi i32 [ %213, %.loopexit38 ], [ %208, %.loopexit35 ]
+214:                                              ; preds = %.loopexit37, %.loopexit35
+  %215 = phi i32 [ %213, %.loopexit37 ], [ %208, %.loopexit35 ]
   ret i32 %215
 }
 

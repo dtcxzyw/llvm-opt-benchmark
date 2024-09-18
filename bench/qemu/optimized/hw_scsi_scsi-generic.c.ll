@@ -290,8 +290,8 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end49.i, %for.body.lr.ph.i
-  %i.062.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add21.i, %if.end49.i ]
-  %add16.i = add i32 %i.062.i, 4
+  %i.061.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add21.i, %if.end49.i ]
+  %add16.i = add i32 %i.061.i, 4
   %idxprom.i = sext i32 %add16.i to i64
   %arrayidx17.i = getelementptr [250 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   %arrayidx18.i = getelementptr i8, ptr %arrayidx17.i, i64 3

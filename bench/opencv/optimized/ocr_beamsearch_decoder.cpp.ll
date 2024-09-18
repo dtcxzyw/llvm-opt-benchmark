@@ -8308,75 +8308,74 @@ _ZNSt6vectorIN2cv4text15beamSearch_nodeESaIS2_EE9push_backERKS2_.exit: ; preds =
   %104 = ptrtoint ptr %97 to i64
   %105 = sub i64 %103, %104
   %.not.i.i.i.i.i.i36 = icmp eq ptr %99, %97
-  br i1 %.not.i.i.i.i.i.i36, label %_ZN2cv4text15beamSearch_nodeC2ERKS1_.exit.i.us.preheader, label %.lr.ph.i.i.i.i.split
+  br i1 %.not.i.i.i.i.i.i36, label %.lr.ph.i.i.i.i.split.us, label %.lr.ph.i.i.i.i.split
 
-_ZN2cv4text15beamSearch_nodeC2ERKS1_.exit.i.us.preheader: ; preds = %.lr.ph.i.i.i.i
-  %.sink15.i.us325 = load i8, ptr %102, align 8
+.lr.ph.i.i.i.i.split.us:                          ; preds = %.lr.ph.i.i.i.i
+  %.sink15.i.us185 = load i8, ptr %102, align 8
   %106 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 -32
   %107 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 -24
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %106, align 8
-  %.not.i.i.i.i.i5.i.us327 = icmp ne ptr %108, %109
+  %.not.i.i.i.i.i5.i.us188 = icmp ne ptr %108, %109
   %110 = ptrtoint ptr %108 to i64
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
   %113 = icmp ugt i64 %112, 9223372036854775804
-  %or.cond328 = and i1 %.not.i.i.i.i.i5.i.us327, %113
-  br i1 %or.cond328, label %.noexc.i.i.i8.i, label %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us
+  %or.cond.us189 = and i1 %.not.i.i.i.i.i5.i.us188, %113
+  br i1 %or.cond.us189, label %.noexc.i.i.i8.i, label %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us
 
-_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us:     ; preds = %_ZN2cv4text15beamSearch_nodeC2ERKS1_.exit.i.us.preheader, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us
-  %114 = phi ptr [ %133, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us ], [ %107, %_ZN2cv4text15beamSearch_nodeC2ERKS1_.exit.i.us.preheader ]
-  %115 = phi ptr [ %132, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us ], [ %106, %_ZN2cv4text15beamSearch_nodeC2ERKS1_.exit.i.us.preheader ]
-  %.sroa.07.0.i.us329 = phi ptr [ %.sroa.0.0.i.us330, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us ], [ %.sroa.0.08.i.i.i.i, %_ZN2cv4text15beamSearch_nodeC2ERKS1_.exit.i.us.preheader ]
-  %.sroa.0.0.i.us330 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us329, i64 -40
-  %116 = load double, ptr %.sroa.0.0.i.us330, align 8
-  %117 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us329, i64 -8
-  %118 = fcmp ogt double %95, %116
-  br i1 %118, label %119, label %.split.us
+_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us:     ; preds = %.lr.ph.i.i.i.i.split.us, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us
+  %114 = phi ptr [ %134, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us ], [ %109, %.lr.ph.i.i.i.i.split.us ]
+  %115 = phi ptr [ %132, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us ], [ %107, %.lr.ph.i.i.i.i.split.us ]
+  %116 = phi ptr [ %131, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us ], [ %106, %.lr.ph.i.i.i.i.split.us ]
+  %.sroa.07.0.i.us190 = phi ptr [ %.sroa.0.0.i.us191, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us ], [ %.sroa.0.08.i.i.i.i, %.lr.ph.i.i.i.i.split.us ]
+  %.sroa.0.0.i.us191 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us190, i64 -40
+  %117 = load double, ptr %.sroa.0.0.i.us191, align 8
+  %118 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us190, i64 -8
+  %119 = fcmp ogt double %95, %117
+  br i1 %119, label %120, label %.split.us
 
-119:                                              ; preds = %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us
-  %120 = load double, ptr %.sroa.0.0.i.us330, align 8
-  store double %120, ptr %.sroa.07.0.i.us329, align 8
-  %121 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us329, i64 8
+120:                                              ; preds = %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us
+  store double %117, ptr %.sroa.07.0.i.us190, align 8
+  %121 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us190, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us329, i64 16
-  %124 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us329, i64 24
+  %123 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us190, i64 16
+  %124 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us190, i64 24
+  store ptr %114, ptr %121, align 8
   %125 = load ptr, ptr %115, align 8
-  store ptr %125, ptr %121, align 8
-  %126 = load ptr, ptr %114, align 8
-  store ptr %126, ptr %123, align 8
-  %127 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us329, i64 -16
-  %128 = load ptr, ptr %127, align 8
-  store ptr %128, ptr %124, align 8
+  store ptr %125, ptr %123, align 8
+  %126 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us190, i64 -16
+  %127 = load ptr, ptr %126, align 8
+  store ptr %127, ptr %124, align 8
   %.not.i.i.i.i.i.i.i.us = icmp eq ptr %122, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i.i.us, label %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us, label %129
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i.i.i.us, label %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us, label %128
 
-129:                                              ; preds = %119
+128:                                              ; preds = %120
   call void @_ZdlPv(ptr noundef nonnull %122) #25
   br label %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us
 
-_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us:    ; preds = %129, %119
-  %130 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us329, i64 32
-  %.sink15.i.us = load i8, ptr %117, align 8
-  %131 = and i8 %.sink15.i.us, 1
-  store i8 %131, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us329, i64 -72
-  %133 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us329, i64 -64
-  %134 = load ptr, ptr %133, align 8
-  %135 = load ptr, ptr %132, align 8
-  %.not.i.i.i.i.i5.i.us = icmp ne ptr %134, %135
+_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us:    ; preds = %128, %120
+  %129 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us190, i64 32
+  %.sink15.i.us = load i8, ptr %118, align 8
+  %130 = and i8 %.sink15.i.us, 1
+  store i8 %130, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us190, i64 -72
+  %132 = getelementptr inbounds i8, ptr %.sroa.07.0.i.us190, i64 -64
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %131, align 8
+  %.not.i.i.i.i.i5.i.us = icmp ne ptr %133, %134
+  %135 = ptrtoint ptr %133 to i64
   %136 = ptrtoint ptr %134 to i64
-  %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = icmp ugt i64 %138, 9223372036854775804
-  %or.cond = and i1 %.not.i.i.i.i.i5.i.us, %139
-  br i1 %or.cond, label %.noexc.i.i.i8.i, label %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us, !llvm.loop !163
+  %137 = sub i64 %135, %136
+  %138 = icmp ugt i64 %137, 9223372036854775804
+  %or.cond.us = and i1 %.not.i.i.i.i.i5.i.us, %138
+  br i1 %or.cond.us, label %.noexc.i.i.i8.i, label %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us, !llvm.loop !163
 
 .lr.ph.i.i.i.i.split:                             ; preds = %.lr.ph.i.i.i.i
-  %140 = icmp ugt i64 %105, 9223372036854775804
-  %.sink15.i171 = load i8, ptr %102, align 8
-  br i1 %140, label %.noexc.i.i.i.i, label %.lr.ph175.split
+  %139 = icmp ugt i64 %105, 9223372036854775804
+  %.sink15.i143 = load i8, ptr %102, align 8
+  br i1 %139, label %.noexc.i.i.i.i, label %.lr.ph147.split
 
 .noexc.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.split
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
@@ -8385,81 +8384,81 @@ _ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us:    ; preds = %129, %119
 .noexc39:                                         ; preds = %.noexc.i.i.i.i
   unreachable
 
-.lr.ph175.split:                                  ; preds = %.lr.ph.i.i.i.i.split, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i
-  %.sroa.07.0.i173 = phi ptr [ %.sroa.0.0.i174, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i ], [ %.sroa.0.08.i.i.i.i, %.lr.ph.i.i.i.i.split ]
-  %.sroa.0.0.i174 = getelementptr inbounds i8, ptr %.sroa.07.0.i173, i64 -40
-  %141 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %105) #26
+.lr.ph147.split:                                  ; preds = %.lr.ph.i.i.i.i.split, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i
+  %.sroa.07.0.i145 = phi ptr [ %.sroa.0.0.i146, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i ], [ %.sroa.0.08.i.i.i.i, %.lr.ph.i.i.i.i.split ]
+  %.sroa.0.0.i146 = getelementptr inbounds i8, ptr %.sroa.07.0.i145, i64 -40
+  %140 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %105) #26
           to label %.noexc40 unwind label %.loopexit.split
 
-.noexc40:                                         ; preds = %.lr.ph175.split
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %141, ptr align 4 %97, i64 %105, i1 false)
-  %142 = getelementptr inbounds i8, ptr %.sroa.07.0.i173, i64 -32
-  %143 = getelementptr inbounds i8, ptr %.sroa.07.0.i173, i64 -24
-  %144 = load ptr, ptr %143, align 8
-  %145 = load ptr, ptr %142, align 8
-  %.not.i.i.i.i.i5.i = icmp ne ptr %144, %145
+.noexc40:                                         ; preds = %.lr.ph147.split
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %140, ptr align 4 %97, i64 %105, i1 false)
+  %141 = getelementptr inbounds i8, ptr %.sroa.07.0.i145, i64 -32
+  %142 = getelementptr inbounds i8, ptr %.sroa.07.0.i145, i64 -24
+  %143 = load ptr, ptr %142, align 8
+  %144 = load ptr, ptr %141, align 8
+  %.not.i.i.i.i.i5.i = icmp ne ptr %143, %144
+  %145 = ptrtoint ptr %143 to i64
   %146 = ptrtoint ptr %144 to i64
-  %147 = ptrtoint ptr %145 to i64
-  %148 = sub i64 %146, %147
-  %149 = icmp ugt i64 %148, 9223372036854775804
-  %or.cond313 = and i1 %.not.i.i.i.i.i5.i, %149
-  br i1 %or.cond313, label %.noexc.i.i.i8.i, label %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38
+  %147 = sub i64 %145, %146
+  %148 = icmp ugt i64 %147, 9223372036854775804
+  %or.cond = and i1 %.not.i.i.i.i.i5.i, %148
+  br i1 %or.cond, label %.noexc.i.i.i8.i, label %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38
 
-.noexc.i.i.i8.i:                                  ; preds = %_ZN2cv4text15beamSearch_nodeC2ERKS1_.exit.i.us.preheader, %.noexc40, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us
-  %.us-phi157 = phi ptr [ null, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us ], [ %141, %.noexc40 ], [ null, %_ZN2cv4text15beamSearch_nodeC2ERKS1_.exit.i.us.preheader ]
+.noexc.i.i.i8.i:                                  ; preds = %.lr.ph.i.i.i.i.split.us, %.noexc40, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us
+  %.us-phi140 = phi ptr [ null, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i.us ], [ %140, %.noexc40 ], [ null, %.lr.ph.i.i.i.i.split.us ]
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
-          to label %.noexc.i unwind label %_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i
+          to label %.noexc.i unwind label %_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i.loopexit.split-lp
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i8.i
   unreachable
 
 _ZN2cv4text15beamSearch_nodeD2Ev.exit.i38:        ; preds = %.noexc40
-  %150 = load double, ptr %.sroa.0.0.i174, align 8
-  %151 = getelementptr inbounds i8, ptr %.sroa.07.0.i173, i64 -8
-  %152 = fcmp ogt double %95, %150
-  call void @_ZdlPv(ptr noundef nonnull %141) #25
-  br i1 %152, label %154, label %.split.us
+  %149 = load double, ptr %.sroa.0.0.i146, align 8
+  %150 = getelementptr inbounds i8, ptr %.sroa.07.0.i145, i64 -8
+  %151 = fcmp ogt double %95, %149
+  call void @_ZdlPv(ptr noundef nonnull %140) #25
+  br i1 %151, label %153, label %.split.us
 
-_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i:        ; preds = %.noexc.i.i.i8.i
+_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i.loopexit.split-lp: ; preds = %.noexc.i.i.i8.i
   %lpad.loopexit.split-lp56 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i.i15.i = icmp eq ptr %.us-phi157, null
-  br i1 %.not.i.i.i.i15.i, label %.body41, label %153
+  %.not.i.i.i.i15.i = icmp eq ptr %.us-phi140, null
+  br i1 %.not.i.i.i.i15.i, label %.body41, label %152
 
-153:                                              ; preds = %_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i
-  call void @_ZdlPv(ptr noundef nonnull %.us-phi157) #25
+152:                                              ; preds = %_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i.loopexit.split-lp
+  call void @_ZdlPv(ptr noundef nonnull %.us-phi140) #25
   br label %.body41
 
-154:                                              ; preds = %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38
-  %155 = load double, ptr %.sroa.0.0.i174, align 8
-  store double %155, ptr %.sroa.07.0.i173, align 8
-  %156 = getelementptr inbounds i8, ptr %.sroa.07.0.i173, i64 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %.sroa.07.0.i173, i64 16
-  %159 = getelementptr inbounds i8, ptr %.sroa.07.0.i173, i64 24
+153:                                              ; preds = %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38
+  %154 = load double, ptr %.sroa.0.0.i146, align 8
+  store double %154, ptr %.sroa.07.0.i145, align 8
+  %155 = getelementptr inbounds i8, ptr %.sroa.07.0.i145, i64 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %.sroa.07.0.i145, i64 16
+  %158 = getelementptr inbounds i8, ptr %.sroa.07.0.i145, i64 24
+  %159 = load ptr, ptr %141, align 8
+  store ptr %159, ptr %155, align 8
   %160 = load ptr, ptr %142, align 8
-  store ptr %160, ptr %156, align 8
-  %161 = load ptr, ptr %143, align 8
-  store ptr %161, ptr %158, align 8
-  %162 = getelementptr inbounds i8, ptr %.sroa.07.0.i173, i64 -16
-  %163 = load ptr, ptr %162, align 8
-  store ptr %163, ptr %159, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %157, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i, label %164
+  store ptr %160, ptr %157, align 8
+  %161 = getelementptr inbounds i8, ptr %.sroa.07.0.i145, i64 -16
+  %162 = load ptr, ptr %161, align 8
+  store ptr %162, ptr %158, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %156, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i, label %163
 
-164:                                              ; preds = %154
-  call void @_ZdlPv(ptr noundef nonnull %157) #25
+163:                                              ; preds = %153
+  call void @_ZdlPv(ptr noundef nonnull %156) #25
   br label %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i
 
-_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i:       ; preds = %164, %154
-  %165 = getelementptr inbounds i8, ptr %.sroa.07.0.i173, i64 32
-  %.sink15.i = load i8, ptr %151, align 8
-  %166 = and i8 %.sink15.i, 1
-  store i8 %166, ptr %165, align 8
-  br label %.lr.ph175.split
+_ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i:       ; preds = %163, %153
+  %164 = getelementptr inbounds i8, ptr %.sroa.07.0.i145, i64 32
+  %.sink15.i = load i8, ptr %150, align 8
+  %165 = and i8 %.sink15.i, 1
+  store i8 %165, ptr %164, align 8
+  br label %.lr.ph147.split
 
-.loopexit.split:                                  ; preds = %.lr.ph175.split
+.loopexit.split:                                  ; preds = %.lr.ph147.split
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body41
@@ -8469,24 +8468,24 @@ _ZN2cv4text15beamSearch_nodeaSEOS1_.exit.i:       ; preds = %164, %154
           cleanup
   br label %.body41
 
-.body41:                                          ; preds = %.loopexit.split, %.loopexit.split-lp, %_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i, %153
-  %eh.lpad-body42 = phi { ptr, i32 } [ %lpad.loopexit.split-lp56, %153 ], [ %lpad.loopexit.split-lp56, %_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body41:                                          ; preds = %.loopexit.split, %.loopexit.split-lp, %_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i.loopexit.split-lp, %152
+  %eh.lpad-body42 = phi { ptr, i32 } [ %lpad.loopexit.split-lp56, %152 ], [ %lpad.loopexit.split-lp56, %_ZN2cv4text15beamSearch_nodeD2Ev.exit14.i.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i.i.i, label %.body, label %167
+  br i1 %.not.i.i.i.i.i, label %.body, label %166
 
-167:                                              ; preds = %.body41
+166:                                              ; preds = %.body41
   call void @_ZdlPv(ptr noundef nonnull %97) #25
   br label %.body
 
 .split.us:                                        ; preds = %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38, %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us
-  %.us-phi163.in = phi i8 [ %.sink15.i.us325, %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us ], [ %.sink15.i171, %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38 ]
-  %.us-phi170 = phi ptr [ %.sroa.07.0.i.us329, %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us ], [ %.sroa.07.0.i173, %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38 ]
-  %.us-phi163 = and i8 %.us-phi163.in, 1
-  store double %95, ptr %.us-phi170, align 8
-  %168 = getelementptr inbounds i8, ptr %.us-phi170, i64 8
+  %.us-phi141 = phi i8 [ %.sink15.i.us185, %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us ], [ %.sink15.i143, %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38 ]
+  %.us-phi142 = phi ptr [ %.sroa.07.0.i.us190, %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38.us ], [ %.sroa.07.0.i145, %_ZN2cv4text15beamSearch_nodeD2Ev.exit.i38 ]
+  %167 = and i8 %.us-phi141, 1
+  store double %95, ptr %.us-phi142, align 8
+  %168 = getelementptr inbounds i8, ptr %.us-phi142, i64 8
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %.us-phi170, i64 16
-  %171 = getelementptr inbounds i8, ptr %.us-phi170, i64 24
+  %170 = getelementptr inbounds i8, ptr %.us-phi142, i64 16
+  %171 = getelementptr inbounds i8, ptr %.us-phi142, i64 24
   store ptr %97, ptr %168, align 8
   store ptr %99, ptr %170, align 8
   store ptr %101, ptr %171, align 8
@@ -8498,8 +8497,8 @@ _ZN2cv4text15beamSearch_nodeaSEOS1_.exit2.i:      ; preds = %.split.us
   br label %.noexc28
 
 .noexc28:                                         ; preds = %.split.us, %_ZN2cv4text15beamSearch_nodeaSEOS1_.exit2.i
-  %172 = getelementptr inbounds i8, ptr %.us-phi170, i64 32
-  store i8 %.us-phi163, ptr %172, align 8
+  %172 = getelementptr inbounds i8, ptr %.us-phi142, i64 32
+  store i8 %167, ptr %172, align 8
   %173 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %173, %82
   br i1 %.not.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv4text15beamSearch_nodeESt6vectorIS4_SaIS4_EEEEPFbS4_S4_EEvT_SC_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !164
@@ -8573,8 +8572,8 @@ _ZNSt6vectorIN2cv4text15beamSearch_nodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_ite
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit58, %.loopexit.split-lp59, %.body41, %167
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body42, %167 ], [ %eh.lpad-body42, %.body41 ], [ %lpad.loopexit60, %.loopexit58 ], [ %lpad.loopexit.split-lp61, %.loopexit.split-lp59 ]
+.body:                                            ; preds = %.loopexit58, %.loopexit.split-lp59, %.body41, %166
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body42, %166 ], [ %eh.lpad-body42, %.body41 ], [ %lpad.loopexit60, %.loopexit58 ], [ %lpad.loopexit.split-lp61, %.loopexit.split-lp59 ]
   %197 = load ptr, ptr %25, align 8
   %.not.i.i.i.i33 = icmp eq ptr %197, null
   br i1 %.not.i.i.i.i33, label %_ZN2cv4text15beamSearch_nodeD2Ev.exit, label %198
@@ -8594,7 +8593,7 @@ _ZNSt6vectorIN2cv4text15beamSearch_nodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_ite
   br label %_ZN2cv4text15beamSearch_nodeD2Ev.exit35
 
 _ZN2cv4text15beamSearch_nodeD2Ev.exit35:          ; preds = %201, %199, %34
-  %.3 = phi double [ %.2, %199 ], [ %.2, %201 ], [ %.186, %34 ]
+  %.3 = phi double [ %.186, %34 ], [ %.2, %199 ], [ %.2, %201 ]
   %202 = add nuw i64 %.01485, 1
   %203 = load ptr, ptr %22, align 8
   %204 = load ptr, ptr %1, align 8

@@ -33,7 +33,7 @@ define i32 @mca_coll_monitoring_neighbor_allgather(ptr noundef %0, i32 noundef %
 
 26:                                               ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
-  %.03359 = phi i64 [ 0, %.lr.ph ], [ %.1, %129 ]
+  %.03358 = phi i64 [ 0, %.lr.ph ], [ %.1, %129 ]
   store i32 -2, ptr %11, align 4
   store i32 -2, ptr %12, align 4
   %27 = load ptr, ptr %23, align 8
@@ -138,11 +138,11 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %76
   %82 = trunc i64 %81 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @mca_common_monitoring_record_coll(i32 noundef %82, i64 noundef %19) #3
-  %83 = add i64 %.03359, %19
+  %83 = add i64 %.03358, %19
   br label %.thread
 
 .thread:                                          ; preds = %33, %31, %mca_common_monitoring_get_world_rank.exit, %80, %37
-  %.2 = phi i64 [ %.03359, %37 ], [ %83, %80 ], [ %.03359, %mca_common_monitoring_get_world_rank.exit ], [ %.03359, %31 ], [ %.03359, %33 ]
+  %.2 = phi i64 [ %83, %80 ], [ %.03358, %mca_common_monitoring_get_world_rank.exit ], [ %.03358, %37 ], [ %.03358, %31 ], [ %.03358, %33 ]
   %84 = load i32, ptr %12, align 4
   %.not38 = icmp eq i32 %84, -2
   br i1 %.not38, label %129, label %85
@@ -229,7 +229,7 @@ mca_common_monitoring_get_world_rank.exit48:      ; preds = %121
   br label %129
 
 129:                                              ; preds = %mca_common_monitoring_get_world_rank.exit48, %.thread, %125, %33
-  %.1 = phi i64 [ %.2, %.thread ], [ %128, %125 ], [ %.2, %mca_common_monitoring_get_world_rank.exit48 ], [ %.03359, %33 ]
+  %.1 = phi i64 [ %128, %125 ], [ %.2, %mca_common_monitoring_get_world_rank.exit48 ], [ %.2, %.thread ], [ %.03358, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = load i32, ptr %20, align 8
   %131 = sext i32 %130 to i64
@@ -282,7 +282,7 @@ define i32 @mca_coll_monitoring_ineighbor_allgather(ptr noundef %0, i32 noundef 
 
 27:                                               ; preds = %.lr.ph, %130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
-  %.03460 = phi i64 [ 0, %.lr.ph ], [ %.1, %130 ]
+  %.03459 = phi i64 [ 0, %.lr.ph ], [ %.1, %130 ]
   store i32 -2, ptr %12, align 4
   store i32 -2, ptr %13, align 4
   %28 = load ptr, ptr %24, align 8
@@ -387,11 +387,11 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %77
   %83 = trunc i64 %82 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @mca_common_monitoring_record_coll(i32 noundef %83, i64 noundef %20) #3
-  %84 = add i64 %.03460, %20
+  %84 = add i64 %.03459, %20
   br label %.thread
 
 .thread:                                          ; preds = %34, %32, %mca_common_monitoring_get_world_rank.exit, %81, %38
-  %.2 = phi i64 [ %.03460, %38 ], [ %84, %81 ], [ %.03460, %mca_common_monitoring_get_world_rank.exit ], [ %.03460, %32 ], [ %.03460, %34 ]
+  %.2 = phi i64 [ %84, %81 ], [ %.03459, %mca_common_monitoring_get_world_rank.exit ], [ %.03459, %38 ], [ %.03459, %32 ], [ %.03459, %34 ]
   %85 = load i32, ptr %13, align 4
   %.not39 = icmp eq i32 %85, -2
   br i1 %.not39, label %130, label %86
@@ -478,7 +478,7 @@ mca_common_monitoring_get_world_rank.exit49:      ; preds = %122
   br label %130
 
 130:                                              ; preds = %mca_common_monitoring_get_world_rank.exit49, %.thread, %126, %34
-  %.1 = phi i64 [ %.2, %.thread ], [ %129, %126 ], [ %.2, %mca_common_monitoring_get_world_rank.exit49 ], [ %.03460, %34 ]
+  %.1 = phi i64 [ %129, %126 ], [ %.2, %mca_common_monitoring_get_world_rank.exit49 ], [ %.2, %.thread ], [ %.03459, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %131 = load i32, ptr %21, align 8
   %132 = sext i32 %131 to i64

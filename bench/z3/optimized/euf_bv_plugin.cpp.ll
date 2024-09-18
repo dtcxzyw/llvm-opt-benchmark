@@ -1187,8 +1187,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK3euf13enode_par
   br label %for.body
 
 for.cond22.preheader:                             ; preds = %for.inc
-  %cmp.i.i160.not = icmp eq ptr %x, null
-  br i1 %cmp.i.i160.not, label %for.end56, label %for.body24.lr.ph
+  %cmp.i.i157.not = icmp eq ptr %x, null
+  br i1 %cmp.i.i157.not, label %for.end56, label %for.body24.lr.ph
 
 for.body24.lr.ph:                                 ; preds = %if.end, %_ZNK3euf13enode_parents3endEv.exit, %for.cond22.preheader
   %bv.i.i26 = getelementptr inbounds i8, ptr %this, i64 16
@@ -1209,8 +1209,8 @@ for.body24.lr.ph:                                 ; preds = %if.end, %_ZNK3euf13
   br label %for.body24
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.0158 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %5 = load ptr, ptr %__begin1.0158, align 8
+  %__begin1.0156 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %5 = load ptr, ptr %__begin1.0156, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %bv.i.i, align 8
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 4
@@ -1283,14 +1283,14 @@ if.then10:                                        ; preds = %land.lhs.true8
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i.i.i, %for.body, %_ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.i, %land.lhs.true, %land.lhs.true6, %land.lhs.true8, %if.then10
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0158, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0156, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp.not, label %for.cond22.preheader, label %for.body
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.inc54
-  %__begin118.sroa.0.0162 = phi ptr [ %x, %for.body24.lr.ph ], [ %76, %for.inc54 ]
-  %__begin118.sroa.5.0161 = phi ptr [ null, %for.body24.lr.ph ], [ %spec.select, %for.inc54 ]
-  %24 = load ptr, ptr %__begin118.sroa.0.0162, align 8
+  %__begin118.sroa.0.0159 = phi ptr [ %x, %for.body24.lr.ph ], [ %76, %for.inc54 ]
+  %__begin118.sroa.5.0158 = phi ptr [ null, %for.body24.lr.ph ], [ %spec.select, %for.inc54 ]
+  %24 = load ptr, ptr %__begin118.sroa.0.0159, align 8
   %25 = load i32, ptr %bv.i.i26, align 8
   %m_kind.i.i.i.i.i27 = getelementptr inbounds i8, ptr %24, i64 4
   %bf.load.i.i.i.i.i28 = load i32, ptr %m_kind.i.i.i.i.i27, align 4
@@ -1316,9 +1316,9 @@ _ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.i35: ; preds = %land.rhs.i.i.i.i31
   br i1 %30, label %if.then27, label %for.inc54
 
 if.then27:                                        ; preds = %_ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.i35
-  %m_args.i.i40 = getelementptr inbounds i8, ptr %__begin118.sroa.0.0162, i64 176
+  %m_args.i.i40 = getelementptr inbounds i8, ptr %__begin118.sroa.0.0159, i64 176
   %31 = load ptr, ptr %m_args.i.i40, align 8
-  %arrayidx.i.i41 = getelementptr inbounds i8, ptr %__begin118.sroa.0.0162, i64 184
+  %arrayidx.i.i41 = getelementptr inbounds i8, ptr %__begin118.sroa.0.0159, i64 184
   %32 = load ptr, ptr %arrayidx.i.i41, align 8
   %m_root.i.i43 = getelementptr inbounds i8, ptr %31, i64 64
   %33 = load ptr, ptr %m_root.i.i43, align 8
@@ -1652,9 +1652,9 @@ ehcleanup:                                        ; preds = %lpad33.loopexit, %l
   br label %common.resume
 
 for.inc54:                                        ; preds = %land.rhs.i.i.i.i31, %for.body24, %_ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.i35, %.noexc.i118, %lor.lhs.false
-  %tobool.not.i = icmp eq ptr %__begin118.sroa.5.0161, null
-  %spec.select = select i1 %tobool.not.i, ptr %__begin118.sroa.0.0162, ptr %__begin118.sroa.5.0161
-  %m_next.i = getelementptr inbounds i8, ptr %__begin118.sroa.0.0162, i64 56
+  %tobool.not.i = icmp eq ptr %__begin118.sroa.5.0158, null
+  %spec.select = select i1 %tobool.not.i, ptr %__begin118.sroa.0.0159, ptr %__begin118.sroa.5.0158
+  %m_next.i = getelementptr inbounds i8, ptr %__begin118.sroa.0.0159, i64 56
   %76 = load ptr, ptr %m_next.i, align 8
   %cmp.i.i = icmp ne ptr %spec.select, %x
   %cmp4.i.i = icmp ne ptr %76, %x
@@ -1800,8 +1800,8 @@ _ZNK3euf13enode_parents3endEv.exit:               ; preds = %if.end
   br i1 %cmp.not47, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZNK3euf13enode_parents3endEv.exit, %for.inc
-  %__begin1.050 = phi ptr [ %incdec.ptr, %for.inc ], [ %7, %_ZNK3euf13enode_parents3endEv.exit ]
-  %10 = load ptr, ptr %__begin1.050, align 8
+  %__begin1.048 = phi ptr [ %incdec.ptr, %for.inc ], [ %7, %_ZNK3euf13enode_parents3endEv.exit ]
+  %10 = load ptr, ptr %__begin1.048, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %bv.i, align 8
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 4
@@ -1888,7 +1888,7 @@ if.end12:                                         ; preds = %for.inc.i, %if.then
   %30 = load ptr, ptr %m_root.i11, align 8
   %cmp14 = icmp ne ptr %30, %3
   %cmp.i.i8.not.i13 = icmp eq ptr %18, null
-  %or.cond = or i1 %cmp14, %cmp.i.i8.not.i13
+  %or.cond = or i1 %cmp.i.i8.not.i13, %cmp14
   br i1 %or.cond, label %for.inc, label %for.body.i16
 
 for.body.i16:                                     ; preds = %if.end12, %for.inc.i20
@@ -1933,7 +1933,7 @@ for.inc.i20:                                      ; preds = %if.then.i34, %land.
   br i1 %.not.i.i26, label %for.body.i16, label %for.inc
 
 for.inc:                                          ; preds = %for.inc.i20, %land.rhs.i.i.i.i, %for.body, %_ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.i, %if.end12
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.050, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.048, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp.not, label %for.end, label %for.body
 

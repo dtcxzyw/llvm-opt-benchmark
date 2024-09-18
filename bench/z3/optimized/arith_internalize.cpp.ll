@@ -3950,7 +3950,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit231:  ; preds = %lor.lhs.false.i218,
   br label %if.end482
 
 if.else78:                                        ; preds = %land.rhs.i.i, %invoke.cont62.if.else78_crit_edge, %invoke.cont9, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %land.lhs.true.i
-  %bf.load.i.i.i.i233 = phi i32 [ %bf.load.i.i.i93, %land.rhs.i.i ], [ %bf.load.i.i.i.i233.pre, %invoke.cont62.if.else78_crit_edge ], [ %bf.load.i.i.i93, %land.lhs.true.i ], [ %bf.load.i.i.i93, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ %bf.load.i.i.i93, %invoke.cont9 ]
+  %bf.load.i.i.i.i233 = phi i32 [ %bf.load.i.i.i.i233.pre, %invoke.cont62.if.else78_crit_edge ], [ %bf.load.i.i.i93, %invoke.cont9 ], [ %bf.load.i.i.i93, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ %bf.load.i.i.i93, %land.lhs.true.i ], [ %bf.load.i.i.i93, %land.rhs.i.i ]
   %bf.clear.i.i.i.i234 = and i32 %bf.load.i.i.i.i233, 65535
   %cmp.i.i.i235 = icmp eq i32 %bf.clear.i.i.i.i234, 0
   br i1 %cmp.i.i.i235, label %land.rhs.i.i.i237, label %if.else100
@@ -4103,7 +4103,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit308:  ; preds = %lor.lhs.false.i295,
   br label %if.end482
 
 if.else100:                                       ; preds = %invoke.cont84.if.else100_crit_edge, %land.rhs.i.i.i237, %if.else78, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i241, %land.lhs.true.i245
-  %bf.load.i.i.i310 = phi i32 [ %bf.load.i.i.i.i233, %land.rhs.i.i.i237 ], [ %bf.load.i.i.i310.pre, %invoke.cont84.if.else100_crit_edge ], [ %bf.load.i.i.i.i233, %land.lhs.true.i245 ], [ %bf.load.i.i.i.i233, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i241 ], [ %bf.load.i.i.i.i233, %if.else78 ]
+  %bf.load.i.i.i310 = phi i32 [ %bf.load.i.i.i310.pre, %invoke.cont84.if.else100_crit_edge ], [ %bf.load.i.i.i.i233, %land.rhs.i.i.i237 ], [ %bf.load.i.i.i.i233, %if.else78 ], [ %bf.load.i.i.i.i233, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i241 ], [ %bf.load.i.i.i.i233, %land.lhs.true.i245 ]
   %bf.clear.i.i.i311 = and i32 %bf.load.i.i.i310, 65535
   %cmp.i.i312 = icmp eq i32 %bf.clear.i.i.i311, 0
   br i1 %cmp.i.i312, label %land.rhs.i.i313, label %if.else158
@@ -5661,7 +5661,7 @@ invoke.cont470:                                   ; preds = %.noexc883, %lor.lhs
   br label %if.end482
 
 if.end482:                                        ; preds = %_ZN8rationalD2Ev.exit174, %invoke.cont406.invoke.invoke, %if.then2.i.i.i, %if.then.i.i.i1301, %invoke.cont317, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit1339, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit527, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit308, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit231, %invoke.cont155, %invoke.cont470, %if.then274, %if.then280, %invoke.cont265, %invoke.cont202, %invoke.cont228, %invoke.cont176, %invoke.cont117, %for.end
-  %index.1 = phi i32 [ %inc178, %invoke.cont176 ], [ %inc472, %invoke.cont470 ], [ %inc267, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit1339 ], [ %inc267, %if.then280 ], [ %inc267, %if.then274 ], [ %inc267, %invoke.cont265 ], [ %index.0, %invoke.cont228 ], [ %index.0, %invoke.cont202 ], [ %index.0, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit527 ], [ %inc119, %invoke.cont117 ], [ %inc157, %invoke.cont155 ], [ %index.0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit308 ], [ %index.0, %for.end ], [ %index.0, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit ], [ %index.0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit231 ], [ %inc267, %invoke.cont317 ], [ %inc267, %if.then.i.i.i1301 ], [ %inc267, %if.then2.i.i.i ], [ %inc267, %invoke.cont406.invoke.invoke ], [ %index.0, %_ZN8rationalD2Ev.exit174 ]
+  %index.1 = phi i32 [ %index.0, %for.end ], [ %index.0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit231 ], [ %index.0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit308 ], [ %inc119, %invoke.cont117 ], [ %inc157, %invoke.cont155 ], [ %inc178, %invoke.cont176 ], [ %index.0, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit527 ], [ %index.0, %invoke.cont202 ], [ %index.0, %invoke.cont228 ], [ %inc267, %if.then274 ], [ %inc267, %if.then280 ], [ %inc267, %invoke.cont265 ], [ %inc472, %invoke.cont470 ], [ %index.0, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit ], [ %inc267, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit1339 ], [ %inc267, %invoke.cont317 ], [ %inc267, %if.then.i.i.i1301 ], [ %inc267, %if.then2.i.i.i ], [ %inc267, %invoke.cont406.invoke.invoke ], [ %index.0, %_ZN8rationalD2Ev.exit174 ]
   br label %while.cond, !llvm.loop !21
 
 while.end:                                        ; preds = %invoke.cont

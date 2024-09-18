@@ -8251,9 +8251,9 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema27checkTargetClonesAttrString
 
 56:                                               ; preds = %10
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %_ZNK4llvm9StringRef8containsEc.exit.thread166, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
+  br i1 %.not.i, label %_ZNK4llvm9StringRef8containsEc.exit.thread154, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
 
-_ZNK4llvm9StringRef8containsEc.exit.thread166:    ; preds = %56
+_ZNK4llvm9StringRef8containsEc.exit.thread154:    ; preds = %56
   store i8 0, ptr %7, align 1
   br label %63
 
@@ -8274,7 +8274,7 @@ _ZNK4llvm9StringRef8containsEc.exit:              ; preds = %10
   %62 = icmp eq i64 %3, 0
   br i1 %62, label %63, label %69
 
-63:                                               ; preds = %_ZNK4llvm9StringRef8containsEc.exit.thread166, %_ZNK4llvm9StringRef8containsEc.exit
+63:                                               ; preds = %_ZNK4llvm9StringRef8containsEc.exit.thread154, %_ZNK4llvm9StringRef8containsEc.exit
   %64 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %64, i32 %1, i32 noundef 7041, i1 noundef zeroext false) #22
   store i32 0, ptr %17, align 4
@@ -8297,9 +8297,9 @@ _ZNK4llvm9StringRef8containsEc.exit:              ; preds = %10
   %73 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %._crit_edge158, label %.lr.ph157
+  br i1 %75, label %._crit_edge148, label %.lr.ph147
 
-.lr.ph157:                                        ; preds = %69
+.lr.ph147:                                        ; preds = %69
   %.sroa.3120.0..sroa_idx121 = getelementptr inbounds i8, ptr %20, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -8320,7 +8320,7 @@ _ZNK4llvm9StringRef8containsEc.exit:              ; preds = %10
   %91 = getelementptr inbounds i8, ptr %27, i64 24
   br label %92
 
-92:                                               ; preds = %.lr.ph157, %_ZN4llvm11SmallStringILj64EED2Ev.exit
+92:                                               ; preds = %.lr.ph147, %_ZN4llvm11SmallStringILj64EED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   store i8 44, ptr %14, align 1, !noalias !31
   %93 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr nonnull %14, i64 1, i64 noundef 0) #22, !noalias !34
@@ -8460,7 +8460,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %132, %_ZN4llvmeqENS
   br i1 %153, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
-  %.070.ph146 = phi i1 [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %.070.ph140 = phi i1 [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   br label %154
 
 154:                                              ; preds = %.lr.ph, %179
@@ -8542,7 +8542,7 @@ _ZNK4llvm9StringRef5splitEc.exit76:               ; preds = %157, %158
   %188 = getelementptr inbounds i8, ptr %187, i64 544
   %189 = load ptr, ptr %188, align 8
   %190 = call noundef zeroext i1 %189(ptr noundef nonnull align 8 dereferenceable(489) %71, ptr %.sroa.023.0.copyload, i64 %.sroa.224.0.copyload) #22
-  %spec.select = select i1 %190, i1 true, i1 %.070.ph146
+  %spec.select = select i1 %190, i1 true, i1 %.070.ph140
   %.sroa.021.0.copyload = load ptr, ptr %30, align 8
   %.sroa.222.0.copyload = load i64, ptr %89, align 8
   %191 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #22
@@ -8570,7 +8570,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   br i1 %201, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !43
 
 .outer._crit_edge:                                ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, %179, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %.070.ph.lcssa = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.070.ph146, %179 ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ]
+  %.070.ph.lcssa = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.070.ph140, %179 ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ]
   %202 = load ptr, ptr %29, align 8
   %203 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #22
   %204 = icmp slt i64 %203, 2
@@ -8585,21 +8585,21 @@ _ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj8EEEEEvOT_.exit: ; preds = %.out
   %206 = load ptr, ptr %29, align 8
   %207 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #22
   %208 = getelementptr inbounds %"class.llvm::StringRef", ptr %206, i64 %207
-  %.not150 = icmp eq i64 %207, 0
-  br i1 %.not150, label %._crit_edge153, label %.lr.ph152
+  %.not142 = icmp eq i64 %207, 0
+  br i1 %.not142, label %._crit_edge145, label %.lr.ph144
 
-.lr.ph152:                                        ; preds = %_ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj8EEEEEvOT_.exit, %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
-  %.071151 = phi ptr [ %227, %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit ], [ %206, %_ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj8EEEEEvOT_.exit ]
+.lr.ph144:                                        ; preds = %_ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj8EEEEEvOT_.exit, %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
+  %.071143 = phi ptr [ %227, %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit ], [ %206, %_ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj8EEEEEvOT_.exit ]
   %209 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #22
   br i1 %209, label %211, label %210
 
-210:                                              ; preds = %.lr.ph152
+210:                                              ; preds = %.lr.ph144
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 1))
   br label %211
 
-211:                                              ; preds = %210, %.lr.ph152
-  %.sroa.013.0.copyload = load ptr, ptr %.071151, align 8
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %.071151, i64 8
+211:                                              ; preds = %210, %.lr.ph144
+  %.sroa.013.0.copyload = load ptr, ptr %.071143, align 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %.071143, i64 8
   %.sroa.214.0.copyload = load i64, ptr %.sroa.214.0..sroa_idx, align 8
   %212 = icmp eq i64 %.sroa.214.0.copyload, 0
   br i1 %212, label %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit.i, label %213
@@ -8634,11 +8634,11 @@ _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %_ZN4llvm15Smal
   %225 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #22
   %226 = add i64 %225, %.sroa.214.0.copyload
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %226) #22
-  %227 = getelementptr inbounds i8, ptr %.071151, i64 16
+  %227 = getelementptr inbounds i8, ptr %.071143, i64 16
   %.not = icmp eq ptr %227, %208
-  br i1 %.not, label %._crit_edge153, label %.lr.ph152
+  br i1 %.not, label %._crit_edge145, label %.lr.ph144
 
-._crit_edge153:                                   ; preds = %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit, %_ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj8EEEEEvOT_.exit
+._crit_edge145:                                   ; preds = %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit, %_ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj8EEEEEvOT_.exit
   %228 = load ptr, ptr %9, align 8
   %229 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #22
   %230 = getelementptr inbounds %"class.llvm::SmallString", ptr %228, i64 %229
@@ -8649,12 +8649,12 @@ _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %_ZN4llvm15Smal
   %.not129 = icmp eq ptr %231, %234
   br i1 %.not129, label %236, label %235
 
-235:                                              ; preds = %._crit_edge153
+235:                                              ; preds = %._crit_edge145
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %83, i32 %122, i32 noundef 6946, i1 noundef zeroext false) #22
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #22
   br label %241
 
-236:                                              ; preds = %._crit_edge153
+236:                                              ; preds = %._crit_edge145
   br i1 %.070.ph.lcssa, label %238, label %237
 
 237:                                              ; preds = %236
@@ -8805,9 +8805,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit92.thread:       ; preds = %250, %_ZNK4llvm9Str
 _ZN4llvm11SmallStringILj64EED2Ev.exit:            ; preds = %302, %297, %249, %_ZN4llvm11SmallStringILj64EED2Ev.exit83, %151, %146, %145
   %303 = load i64, ptr %73, align 8
   %304 = icmp eq i64 %303, 0
-  br i1 %304, label %._crit_edge158, label %92, !llvm.loop !44
+  br i1 %304, label %._crit_edge148, label %92, !llvm.loop !44
 
-._crit_edge158:                                   ; preds = %_ZN4llvm11SmallStringILj64EED2Ev.exit, %69
+._crit_edge148:                                   ; preds = %_ZN4llvm11SmallStringILj64EED2Ev.exit, %69
   %305 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.6, i64 6, i64 noundef -1) #22
   %306 = add i64 %305, 1
   %307 = load i64, ptr %53, align 8
@@ -8818,7 +8818,7 @@ _ZN4llvm11SmallStringILj64EED2Ev.exit:            ; preds = %302, %297, %249, %_
   %.not.i94 = icmp eq i64 %.sroa.speculated.i.i.i, 0
   br i1 %.not.i94, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread128, label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
-_ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %._crit_edge158
+_ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %._crit_edge148
   %309 = load ptr, ptr %15, align 8
   %310 = getelementptr inbounds i8, ptr %309, i64 %.sroa.speculated.i.i.i
   %311 = getelementptr inbounds i8, ptr %310, i64 -1
@@ -8839,16 +8839,16 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef
   br label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread128.sink.split
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread128.sink.split: ; preds = %63, %125, %261, %282, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread
-  %.sink175 = phi ptr [ %316, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ %285, %282 ], [ %269, %261 ], [ %128, %125 ], [ %67, %63 ]
+  %.sink163 = phi ptr [ %316, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ %285, %282 ], [ %269, %261 ], [ %128, %125 ], [ %67, %63 ]
   %.sink = phi ptr [ %49, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ %43, %282 ], [ %38, %261 ], [ %22, %125 ], [ %16, %63 ]
-  %318 = getelementptr inbounds nuw i8, ptr %.sink175, i64 80
+  %318 = getelementptr inbounds nuw i8, ptr %.sink163, i64 80
   %319 = load i8, ptr %318, align 8
   %320 = trunc i8 %319 to i1
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #22
   br label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread128
 
-_ZNK4llvm9StringRef9ends_withES0_.exit.thread128: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread128.sink.split, %._crit_edge158, %_ZNK4llvm9StringRef9ends_withES0_.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ false, %._crit_edge158 ], [ %320, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread128.sink.split ]
+_ZNK4llvm9StringRef9ends_withES0_.exit.thread128: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread128.sink.split, %._crit_edge148, %_ZNK4llvm9StringRef9ends_withES0_.exit
+  %.0 = phi i1 [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ false, %._crit_edge148 ], [ %320, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread128.sink.split ]
   ret i1 %.0
 }
 

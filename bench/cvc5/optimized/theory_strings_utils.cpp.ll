@@ -5288,8 +5288,8 @@ for.inc:                                          ; preds = %for.body, %_ZN4cvc5
 cleanup:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28, %cleanup.done, %for.inc, %for.body
   %cmp.i.not.lcssa.ph = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28 ], [ false, %cleanup.done ], [ true, %for.inc ], [ false, %for.body ]
   %.pre = load ptr, ptr %v, align 8
-  %.pre103 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %.pre, %.pre103
+  %.pre102 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %.pre, %.pre102
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i
@@ -5322,7 +5322,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then13.i.i.i.i.i
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i: ; preds = %if.then13.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre103
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre102
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i
@@ -5330,7 +5330,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN4cvc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %invoke.contthread-pre-split.i, %cleanup
-  %cmp.i.not.lcssa106 = phi i1 [ %cmp.i.not.lcssa.ph, %invoke.contthread-pre-split.i ], [ %cmp.i.not.lcssa.ph, %cleanup ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %cmp.i.not.lcssa105 = phi i1 [ %cmp.i.not.lcssa.ph, %invoke.contthread-pre-split.i ], [ %cmp.i.not.lcssa.ph, %cleanup ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %26 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %cleanup ], [ %6, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %tobool.not.i.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %if.then.i.i.i81
@@ -5340,7 +5340,7 @@ if.then.i.i.i81:                                  ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i81
-  ret i1 %cmp.i.not.lcssa106
+  ret i1 %cmp.i.not.lcssa105
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad10, %lpad1
   %.pn = phi { ptr, i32 } [ %16, %lpad10 ], [ %15, %lpad1 ], [ %lpad.loopexit89, %lpad.loopexit ], [ %lpad.loopexit.split-lp90, %lpad.loopexit.split-lp ]

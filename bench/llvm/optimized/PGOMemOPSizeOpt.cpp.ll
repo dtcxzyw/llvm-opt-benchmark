@@ -1019,8 +1019,8 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_112MemOPSizeOptEvE5visitERNS_8FunctionE.exit
   br label %375
 
 375:                                              ; preds = %1122, %.lr.ph.i.i
-  %.sroa.024.084.i.i = phi ptr [ %.val4.pre.i.i, %.lr.ph.i.i ], [ %1123, %1122 ]
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %.sroa.024.084.i.i, align 8
+  %.sroa.024.080.i.i = phi ptr [ %.val4.pre.i.i, %.lr.ph.i.i ], [ %1123, %1122 ]
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %.sroa.024.080.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %22)
@@ -2759,7 +2759,7 @@ _ZN4llvm14DomTreeUpdaterD2Ev.exit.i.i.i:          ; preds = %1093, %_ZSt8_Destro
   br label %.loopexit280.thread.i.i.i
 
 .loopexit280.thread.i.i.i:                        ; preds = %_ZN4llvm14DomTreeUpdaterD2Ev.exit.i.i.i, %.loopexit280.i.i.i, %630, %628, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i
-  %.2.i.i.i = phi i1 [ false, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i ], [ false, %.loopexit280.i.i.i ], [ true, %_ZN4llvm14DomTreeUpdaterD2Ev.exit.i.i.i ], [ false, %628 ], [ false, %630 ]
+  %.2.i.i.i = phi i1 [ true, %_ZN4llvm14DomTreeUpdaterD2Ev.exit.i.i.i ], [ false, %.loopexit280.i.i.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i ], [ false, %628 ], [ false, %630 ]
   %1098 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #17
   %1099 = load ptr, ptr %25, align 8
   %1100 = icmp eq ptr %1099, %285
@@ -2804,7 +2804,7 @@ _ZN4llvm11SmallVectorImLj16EED2Ev.exit.i.i.i:     ; preds = %1112, %_ZN4llvm13Sm
   br label %_ZN4llvm11SmallVectorImLj16EED2Ev.exit223.i.i.i
 
 _ZN4llvm11SmallVectorImLj16EED2Ev.exit223.i.i.i:  ; preds = %1116, %_ZN4llvm11SmallVectorImLj16EED2Ev.exit.i.i.i, %485, %477, %471
-  %.1.i.i.i = phi i1 [ false, %471 ], [ false, %485 ], [ %.2.i.i.i, %_ZN4llvm11SmallVectorImLj16EED2Ev.exit.i.i.i ], [ %.2.i.i.i, %1116 ], [ false, %477 ]
+  %.1.i.i.i = phi i1 [ false, %471 ], [ false, %477 ], [ false, %485 ], [ %.2.i.i.i, %_ZN4llvm11SmallVectorImLj16EED2Ev.exit.i.i.i ], [ %.2.i.i.i, %1116 ]
   %1117 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #17
   %1118 = load ptr, ptr %21, align 8
   %1119 = icmp eq ptr %1118, %374
@@ -2885,7 +2885,7 @@ _ZN12_GLOBAL__N_112MemOPSizeOpt7performENS_5MemOpE.exit.i.i: ; preds = %_ZN4llvm
   br label %1122
 
 1122:                                             ; preds = %1121, %_ZN12_GLOBAL__N_112MemOPSizeOpt7performENS_5MemOpE.exit.i.i, %_ZN12_GLOBAL__N_112MemOPSizeOpt7performENS_5MemOpE.exit.thread.i.i, %1120
-  %1123 = getelementptr inbounds i8, ptr %.sroa.024.084.i.i, i64 8
+  %1123 = getelementptr inbounds i8, ptr %.sroa.024.080.i.i, i64 8
   %.not.i.i = icmp eq ptr %1123, %.val.pre.i.i
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_112MemOPSizeOpt7performEv.exitthread-pre-split.loopexit.i, label %375
 

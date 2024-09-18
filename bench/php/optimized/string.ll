@@ -11879,7 +11879,6 @@ define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %46
-  %.042 = phi i32 [ %.1, %46 ], [ 0, %3 ]
   %.03141 = phi ptr [ %47, %46 ], [ %0, %3 ]
   %6 = load i8, ptr %.03141, align 1
   %7 = getelementptr inbounds i8, ptr %.03141, i64 3
@@ -11964,7 +11963,6 @@ define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %
 
 46:                                               ; preds = %19, %43, %42, %41, %35, %32
   %.132 = phi ptr [ %7, %19 ], [ %.03141, %32 ], [ %.03141, %35 ], [ %.03141, %41 ], [ %.03141, %42 ], [ %.03141, %43 ]
-  %.1 = phi i32 [ %.042, %19 ], [ -1, %32 ], [ -1, %35 ], [ -1, %41 ], [ -1, %42 ], [ %.042, %43 ]
   %47 = getelementptr inbounds i8, ptr %.132, i64 1
   %48 = icmp ult ptr %47, %4
   br i1 %48, label %.lr.ph, label %._crit_edge

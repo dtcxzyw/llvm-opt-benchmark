@@ -874,8 +874,8 @@ do.end17:                                         ; preds = %if.end.i10, %_ZN3ue
   br label %do.body18
 
 do.body18:                                        ; preds = %do.cond23, %do.end17
-  %23 = phi ptr [ null, %do.end17 ], [ %612, %do.cond23 ]
-  %24 = phi ptr [ null, %do.end17 ], [ %611, %do.cond23 ]
+  %23 = phi ptr [ %612, %do.cond23 ], [ null, %do.end17 ]
+  %24 = phi ptr [ %611, %do.cond23 ], [ null, %do.end17 ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -3432,7 +3432,7 @@ _ZSt8_DestroyISt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i146, !llvm.loop !91
 
 invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyISt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EEEvPT_.exit.i.i.i.i.i, %for.cond.cleanup.i144, %_ZN3ue2L22splitRightMergeBucketsERKNS_12_GLOBAL__N_112CandidateSetERKNS_13RoseBuildImplE.exit.i, %do.end14.i.i
-  %334 = phi ptr [ %232, %do.end14.i.i ], [ %.pre527.i, %_ZN3ue2L22splitRightMergeBucketsERKNS_12_GLOBAL__N_112CandidateSetERKNS_13RoseBuildImplE.exit.i ], [ %.pre125.i, %for.cond.cleanup.i144 ], [ %.pre.i145, %_ZSt8_DestroyISt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EEEvPT_.exit.i.i.i.i.i ]
+  %334 = phi ptr [ %.pre125.i, %for.cond.cleanup.i144 ], [ %.pre527.i, %_ZN3ue2L22splitRightMergeBucketsERKNS_12_GLOBAL__N_112CandidateSetERKNS_13RoseBuildImplE.exit.i ], [ %232, %do.end14.i.i ], [ %.pre.i145, %_ZSt8_DestroyISt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EEEvPT_.exit.i.i.i.i.i ]
   %tobool.not.i.i.i.i147 = icmp eq ptr %334, null
   br i1 %tobool.not.i.i.i.i147, label %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit.i, label %if.then.i.i.i.i148
 

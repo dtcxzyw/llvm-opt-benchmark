@@ -2070,15 +2070,15 @@ is_case_fold_variable_len.exit.i:                 ; preds = %119, %.lr.ph.i.i
   br label %187
 
 187:                                              ; preds = %233, %185
-  %indvars.iv166.i.i = phi i64 [ 0, %185 ], [ %indvars.iv.next167.i.i, %233 ]
-  %.1141.i.i = phi ptr [ %.077.i.i, %185 ], [ %.2.i.i, %233 ]
-  %.179140.i.i = phi ptr [ %.078.i.i, %185 ], [ %.280.i.i, %233 ]
+  %indvars.iv165.i.i = phi i64 [ 0, %185 ], [ %indvars.iv.next166.i.i, %233 ]
+  %.1140.i.i = phi ptr [ %.077.i.i, %185 ], [ %.2.i.i, %233 ]
+  %.179139.i.i = phi ptr [ %.078.i.i, %185 ], [ %.280.i.i, %233 ]
   %188 = call ptr @onig_node_new_str(ptr noundef null, ptr noundef null) #20
   %189 = icmp eq ptr %188, null
   br i1 %189, label %.loopexit114.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %187
-  %190 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %6, i64 %indvars.iv166.i.i
+  %190 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %6, i64 %indvars.iv165.i.i
   %191 = getelementptr inbounds i8, ptr %190, i64 4
   %192 = load i32, ptr %191, align 4
   %193 = icmp sgt i32 %192, 0
@@ -2089,18 +2089,18 @@ is_case_fold_variable_len.exit.i:                 ; preds = %119, %.lr.ph.i.i
   br label %199
 
 195:                                              ; preds = %207
-  %indvars.iv.next164.i.i = add nuw nsw i64 %indvars.iv163.i.i, 1
+  %indvars.iv.next163.i.i = add nuw nsw i64 %indvars.iv162.i.i, 1
   %196 = load i32, ptr %191, align 4
   %197 = sext i32 %196 to i64
-  %198 = icmp slt i64 %indvars.iv.next164.i.i, %197
+  %198 = icmp slt i64 %indvars.iv.next163.i.i, %197
   br i1 %198, label %199, label %._crit_edge.i.i, !llvm.loop !20
 
 199:                                              ; preds = %195, %.lr.ph.i137.i
-  %indvars.iv163.i.i = phi i64 [ 0, %.lr.ph.i137.i ], [ %indvars.iv.next164.i.i, %195 ]
+  %indvars.iv162.i.i = phi i64 [ 0, %.lr.ph.i137.i ], [ %indvars.iv.next163.i.i, %195 ]
   %200 = load ptr, ptr %96, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 48
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr [3 x i32], ptr %194, i64 0, i64 %indvars.iv163.i.i
+  %203 = getelementptr [3 x i32], ptr %194, i64 0, i64 %indvars.iv162.i.i
   %204 = load i32, ptr %203, align 4
   %205 = call i32 %202(i32 noundef %204, ptr noundef nonnull %5, ptr noundef %200) #20
   %206 = icmp slt i32 %205, 0
@@ -2155,33 +2155,33 @@ is_case_fold_variable_len.exit.i:                 ; preds = %119, %.lr.ph.i.i
 
 233:                                              ; preds = %230, %215, %213
   %.sink.sink.i.i = phi ptr [ %228, %230 ], [ %188, %215 ], [ %188, %213 ]
-  %.1141.sink.i.i = phi ptr [ %.1141.i.i, %230 ], [ %.1141.i.i, %215 ], [ %.179140.i.i, %213 ]
-  %.280.i.i = phi ptr [ %.179140.i.i, %230 ], [ %.179140.i.i, %215 ], [ %211, %213 ]
-  %.2.i.i = phi ptr [ %211, %230 ], [ %211, %215 ], [ %.1141.i.i, %213 ]
+  %.1140.sink.i.i = phi ptr [ %.1140.i.i, %230 ], [ %.1140.i.i, %215 ], [ %.179139.i.i, %213 ]
+  %.280.i.i = phi ptr [ %.179139.i.i, %230 ], [ %.179139.i.i, %215 ], [ %211, %213 ]
+  %.2.i.i = phi ptr [ %211, %230 ], [ %211, %215 ], [ %.1140.i.i, %213 ]
   %234 = getelementptr inbounds i8, ptr %211, i64 8
   store ptr %.sink.sink.i.i, ptr %234, align 8
-  %235 = getelementptr inbounds i8, ptr %.1141.sink.i.i, i64 16
+  %235 = getelementptr inbounds i8, ptr %.1140.sink.i.i, i64 16
   store ptr %211, ptr %235, align 8
-  %indvars.iv.next167.i.i = add nuw nsw i64 %indvars.iv166.i.i, 1
-  %exitcond170.not.i.i = icmp eq i64 %indvars.iv.next167.i.i, %wide.trip.count.i.i
-  br i1 %exitcond170.not.i.i, label %236, label %187, !llvm.loop !21
+  %indvars.iv.next166.i.i = add nuw nsw i64 %indvars.iv165.i.i, 1
+  %exitcond169.not.i.i = icmp eq i64 %indvars.iv.next166.i.i, %wide.trip.count.i.i
+  br i1 %exitcond169.not.i.i, label %236, label %187, !llvm.loop !21
 
 .loopexit114.sink.split.sink.split.sink.split.i.i: ; preds = %230, %224, %222
-  %.lcssa172.sink.sink.i.i = phi ptr [ %211, %230 ], [ %220, %222 ], [ %211, %224 ]
-  %.lcssa173.sink.sink.ph.i.i = phi ptr [ %228, %230 ], [ %211, %222 ], [ %220, %224 ]
-  %.sink194.ph.ph.i.i = phi ptr [ %220, %230 ], [ %188, %222 ], [ %188, %224 ]
-  call void @onig_node_free(ptr noundef nonnull %.lcssa172.sink.sink.i.i) #20
+  %.lcssa171.sink.sink.i.i = phi ptr [ %211, %230 ], [ %220, %222 ], [ %211, %224 ]
+  %.lcssa172.sink.sink.ph.i.i = phi ptr [ %228, %230 ], [ %211, %222 ], [ %220, %224 ]
+  %.sink193.ph.ph.i.i = phi ptr [ %220, %230 ], [ %188, %222 ], [ %188, %224 ]
+  call void @onig_node_free(ptr noundef nonnull %.lcssa171.sink.sink.i.i) #20
   br label %.loopexit114.sink.split.sink.split.i.i
 
 .loopexit114.sink.split.sink.split.i.i:           ; preds = %219, %.loopexit114.sink.split.sink.split.sink.split.i.i
-  %.lcssa173.sink.sink.i.i = phi ptr [ %.lcssa173.sink.sink.ph.i.i, %.loopexit114.sink.split.sink.split.sink.split.i.i ], [ %211, %219 ]
-  %.sink194.ph.i.i = phi ptr [ %.sink194.ph.ph.i.i, %.loopexit114.sink.split.sink.split.sink.split.i.i ], [ %188, %219 ]
-  call void @onig_node_free(ptr noundef nonnull %.lcssa173.sink.sink.i.i) #20
+  %.lcssa172.sink.sink.i.i = phi ptr [ %.lcssa172.sink.sink.ph.i.i, %.loopexit114.sink.split.sink.split.sink.split.i.i ], [ %211, %219 ]
+  %.sink193.ph.i.i = phi ptr [ %.sink193.ph.ph.i.i, %.loopexit114.sink.split.sink.split.sink.split.i.i ], [ %188, %219 ]
+  call void @onig_node_free(ptr noundef nonnull %.lcssa172.sink.sink.i.i) #20
   br label %.loopexit114.sink.split.i.i
 
 .loopexit114.sink.split.i.i:                      ; preds = %._crit_edge.i.i, %207, %199, %.loopexit114.sink.split.sink.split.i.i
-  %.sink194.i.i = phi ptr [ %.sink194.ph.i.i, %.loopexit114.sink.split.sink.split.i.i ], [ %188, %199 ], [ %188, %207 ], [ %188, %._crit_edge.i.i ]
-  call void @onig_node_free(ptr noundef nonnull %.sink194.i.i) #20
+  %.sink193.i.i = phi ptr [ %.sink193.ph.i.i, %.loopexit114.sink.split.sink.split.i.i ], [ %188, %199 ], [ %188, %207 ], [ %188, %._crit_edge.i.i ]
+  call void @onig_node_free(ptr noundef nonnull %.sink193.i.i) #20
   br label %.loopexit114.i.i
 
 .loopexit114.i.i:                                 ; preds = %180, %171, %168, %187, %.loopexit114.sink.split.i.i

@@ -7372,9 +7372,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit32.thread75:     ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not86, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit32.thread75, %_ZL19parseRefinementStepN4llvm9StringRefERmRh.exit40.thread
-  %.02788 = phi ptr [ %63, %_ZL19parseRefinementStepN4llvm9StringRefERmRh.exit40.thread ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread75 ]
-  %.sroa.055.0.copyload = load ptr, ptr %.02788, align 8
-  %.sroa.5.0..027.sroa_idx = getelementptr inbounds i8, ptr %.02788, i64 8
+  %.02787 = phi ptr [ %63, %_ZL19parseRefinementStepN4llvm9StringRefERmRh.exit40.thread ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread75 ]
+  %.sroa.055.0.copyload = load ptr, ptr %.02787, align 8
+  %.sroa.5.0..027.sroa_idx = getelementptr inbounds i8, ptr %.02787, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..027.sroa_idx, align 8
   %.not.i33 = icmp eq i64 %.sroa.5.0.copyload, 0
   br i1 %.not.i33, label %_ZL19parseRefinementStepN4llvm9StringRefERmRh.exit40.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i34
@@ -7445,7 +7445,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread:       ; preds = %59, %54, %_ZN4llvme
   br label %.loopexit
 
 _ZL19parseRefinementStepN4llvm9StringRefERmRh.exit40.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit47.thread81, %.lr.ph, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i34, %_ZNK4llvm9StringRef4findEcm.exit.i36, %_ZN4llvmeqENS_9StringRefES0_.exit51
-  %63 = getelementptr inbounds i8, ptr %.02788, i64 16
+  %63 = getelementptr inbounds i8, ptr %.02787, i64 16
   %.not = icmp eq ptr %63, %37
   br i1 %.not, label %.loopexit, label %.lr.ph
 

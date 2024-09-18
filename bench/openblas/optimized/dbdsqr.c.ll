@@ -158,8 +158,8 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 93:                                               ; preds = %92
   %94 = or i32 %57, %60
   %95 = or i32 %94, %63
-  %or.cond392 = icmp eq i32 %95, 0
-  br i1 %or.cond392, label %96, label %100
+  %or.cond368 = icmp eq i32 %95, 0
+  br i1 %or.cond368, label %96, label %100
 
 96:                                               ; preds = %93
   tail call void @dlasq1_(ptr noundef nonnull %1, ptr noundef %5, ptr noundef %6, ptr noundef %13, ptr noundef nonnull %14) #6
@@ -257,7 +257,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread46:                                        ; preds = %145
   %154 = add nsw i32 %152, -1
   store i32 %154, ptr %16, align 4, !tbaa !3
-  br label %.loopexit408
+  br label %.loopexit384
 
 155:                                              ; preds = %145
   %156 = add nuw i32 %152, 1
@@ -282,7 +282,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %171 = add nsw i32 %152, -1
   store i32 %171, ptr %16, align 4, !tbaa !3
   %.not = icmp eq i32 %152, 1
-  br i1 %.not, label %.loopexit408, label %172
+  br i1 %.not, label %.loopexit384, label %172
 
 172:                                              ; preds = %170
   %173 = zext nneg i32 %152 to i64
@@ -300,25 +300,25 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %183 = select i1 %182, double %176, double %181
   %184 = add nuw nsw i64 %175, 1
   %185 = icmp eq i64 %184, %173
-  br i1 %185, label %.loopexit408, label %174, !llvm.loop !13
+  br i1 %185, label %.loopexit384, label %174, !llvm.loop !13
 
-.loopexit408:                                     ; preds = %174, %.thread46, %170
+.loopexit384:                                     ; preds = %174, %.thread46, %170
   %186 = phi double [ %167, %170 ], [ 0.000000e+00, %.thread46 ], [ %183, %174 ]
   %187 = fcmp oge double %151, 0.000000e+00
   br i1 %187, label %188, label %228
 
-188:                                              ; preds = %.loopexit408
+188:                                              ; preds = %.loopexit384
   %189 = load double, ptr %5, align 8, !tbaa !7
   %190 = fcmp ult double %189, 0.000000e+00
   %191 = fneg double %189
   %192 = select i1 %190, double %191, double %189
   %193 = fcmp oeq double %189, 0.000000e+00
-  br i1 %193, label %.loopexit407, label %194
+  br i1 %193, label %.loopexit383, label %194
 
 194:                                              ; preds = %188
   %195 = getelementptr i8, ptr %6, i64 -16
   %196 = icmp slt i32 %152, 2
-  br i1 %196, label %.loopexit407, label %197
+  br i1 %196, label %.loopexit383, label %197
 
 197:                                              ; preds = %194
   %198 = add nuw i32 %152, 1
@@ -347,10 +347,10 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %219 = fcmp oeq double %218, 0.000000e+00
   %220 = add nuw nsw i64 %201, 1
   %221 = icmp eq i64 %220, %199
-  %or.cond401 = select i1 %219, i1 true, i1 %221
-  br i1 %or.cond401, label %.loopexit407, label %200, !llvm.loop !14
+  %or.cond377 = select i1 %219, i1 true, i1 %221
+  br i1 %or.cond377, label %.loopexit383, label %200, !llvm.loop !14
 
-.loopexit407:                                     ; preds = %200, %194, %188
+.loopexit383:                                     ; preds = %200, %194, %188
   %222 = phi double [ %192, %188 ], [ %192, %194 ], [ %218, %200 ]
   %223 = sitofp i32 %152 to double
   %224 = call double @sqrt(double noundef %223) #6
@@ -360,22 +360,22 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %227 = load i32, ptr %1, align 4, !tbaa !3
   br label %231
 
-228:                                              ; preds = %.loopexit408
+228:                                              ; preds = %.loopexit384
   %229 = fneg double %151
   %230 = fmul double %186, %229
   store double %230, ptr %17, align 8, !tbaa !7
   br label %231
 
-231:                                              ; preds = %228, %.loopexit407
-  %.sink = phi i32 [ %152, %228 ], [ %227, %.loopexit407 ]
-  %.sink395 = phi double [ %230, %228 ], [ %226, %.loopexit407 ]
+231:                                              ; preds = %228, %.loopexit383
+  %.sink = phi i32 [ %152, %228 ], [ %227, %.loopexit383 ]
+  %.sink371 = phi double [ %230, %228 ], [ %226, %.loopexit383 ]
   %232 = sitofp i32 %.sink to double
   %233 = fmul double %106, %232
   %234 = fmul double %233, %232
   %235 = fmul double %234, 6.000000e+00
   store double %235, ptr %18, align 8, !tbaa !7
-  %236 = fcmp oge double %.sink395, %235
-  %237 = select i1 %236, double %.sink395, double %235
+  %236 = fcmp oge double %.sink371, %235
+  %237 = select i1 %236, double %.sink371, double %235
   %238 = mul nsw i32 %.sink, 6
   %239 = getelementptr i8, ptr %5, i64 8
   %240 = getelementptr i8, ptr %42, i64 8
@@ -418,12 +418,12 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %273 = getelementptr inbounds double, ptr %33, i64 %271
   br label %274
 
-274:                                              ; preds = %.backedge501, %261
-  %275 = phi i32 [ %262, %261 ], [ %.be502, %.backedge501 ]
-  %276 = phi i32 [ %263, %261 ], [ %265, %.backedge501 ]
-  %277 = phi i32 [ %264, %261 ], [ %354, %.backedge501 ]
-  %278 = phi i32 [ %266, %261 ], [ %293, %.backedge501 ]
-  %279 = phi i32 [ %267, %261 ], [ %.be506, %.backedge501 ]
+274:                                              ; preds = %.backedge477, %261
+  %275 = phi i32 [ %262, %261 ], [ %.be478, %.backedge477 ]
+  %276 = phi i32 [ %263, %261 ], [ %265, %.backedge477 ]
+  %277 = phi i32 [ %264, %261 ], [ %354, %.backedge477 ]
+  %278 = phi i32 [ %266, %261 ], [ %293, %.backedge477 ]
+  %279 = phi i32 [ %267, %261 ], [ %.be482, %.backedge477 ]
   %280 = load i32, ptr %1, align 4, !tbaa !3
   %281 = icmp slt i32 %265, %277
   br label %282
@@ -444,10 +444,10 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 291:                                              ; preds = %287, %282
   %292 = phi i32 [ %288, %287 ], [ %285, %282 ]
   %293 = phi i32 [ %289, %287 ], [ %284, %282 ]
-  %.pre273 = load double, ptr %269, align 8, !tbaa !7
-  %294 = fcmp oge double %.pre273, 0.000000e+00
-  %295 = fneg double %.pre273
-  %296 = select i1 %294, double %.pre273, double %295
+  %.pre249 = load double, ptr %269, align 8, !tbaa !7
+  %294 = fcmp oge double %.pre249, 0.000000e+00
+  %295 = fneg double %.pre249
+  %296 = select i1 %294, double %.pre249, double %295
   br i1 %243, label %.split.us.preheader, label %297
 
 297:                                              ; preds = %291
@@ -459,10 +459,10 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.split.preheader
 
 .split.preheader:                                 ; preds = %299, %297
-  %.ph300 = phi double [ %.pre273, %297 ], [ 0.000000e+00, %299 ]
-  %300 = fcmp oge double %.ph300, 0.000000e+00
-  %301 = fneg double %.ph300
-  %302 = select i1 %300, double %.ph300, double %301
+  %.ph276 = phi double [ %.pre249, %297 ], [ 0.000000e+00, %299 ]
+  %300 = fcmp oge double %.ph276, 0.000000e+00
+  %301 = fneg double %.ph276
+  %302 = select i1 %300, double %.ph276, double %301
   store i32 %270, ptr %16, align 4, !tbaa !3
   br label %.split
 
@@ -480,7 +480,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %309 = fneg double %307
   %310 = select i1 %308, double %307, double %309
   %311 = fcmp ugt double %310, %237
-  br i1 %311, label %312, label %.split169.us
+  br i1 %311, label %312, label %.split157.us
 
 312:                                              ; preds = %.split.us
   %313 = getelementptr inbounds double, ptr %33, i64 %305
@@ -494,7 +494,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %321 = select i1 %320, double %319, double %310
   %322 = add nuw nsw i64 %303, 1
   %323 = icmp eq i64 %322, %268
-  br i1 %323, label %.split174.us, label %.split.us, !llvm.loop !15
+  br i1 %323, label %.split162.us, label %.split.us, !llvm.loop !15
 
 .split:                                           ; preds = %.split.preheader, %341
   %324 = phi i64 [ %346, %341 ], [ 1, %.split.preheader ]
@@ -519,7 +519,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 339:                                              ; preds = %338, %.split
   %340 = fcmp ugt double %336, %237
-  br i1 %340, label %341, label %.split169.us
+  br i1 %340, label %341, label %.split157.us
 
 341:                                              ; preds = %339
   %342 = fcmp oge double %325, %331
@@ -528,28 +528,28 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %345 = select i1 %344, double %343, double %336
   %346 = add nuw nsw i64 %324, 1
   %347 = icmp eq i64 %346, %268
-  br i1 %347, label %.split174.us, label %.split, !llvm.loop !15
+  br i1 %347, label %.split162.us, label %.split, !llvm.loop !15
 
-.split169.us:                                     ; preds = %339, %.split.us
+.split157.us:                                     ; preds = %339, %.split.us
   %.us-phi = phi i64 [ %305, %.split.us ], [ %326, %339 ]
-  %.us-phi170 = phi double [ %304, %.split.us ], [ %325, %339 ]
-  %.us-phi172 = phi double [ %307, %.split.us ], [ %333, %339 ]
+  %.us-phi158 = phi double [ %304, %.split.us ], [ %325, %339 ]
+  %.us-phi160 = phi double [ %307, %.split.us ], [ %333, %339 ]
   %348 = getelementptr inbounds double, ptr %34, i64 %.us-phi
   %349 = trunc i64 %.us-phi to i32
-  store double %.us-phi172, ptr %17, align 8, !tbaa !7
+  store double %.us-phi160, ptr %17, align 8, !tbaa !7
   store double 0.000000e+00, ptr %348, align 8, !tbaa !7
   %350 = icmp eq i32 %270, %349
   br i1 %350, label %.loopexit76, label %351
 
-.split174.us:                                     ; preds = %341, %312
-  %.us-phi175 = phi double [ %319, %312 ], [ %343, %341 ]
-  %.us-phi176 = phi double [ %321, %312 ], [ %345, %341 ]
-  store double %.us-phi175, ptr %17, align 8, !tbaa !7
+.split162.us:                                     ; preds = %341, %312
+  %.us-phi163 = phi double [ %319, %312 ], [ %343, %341 ]
+  %.us-phi164 = phi double [ %321, %312 ], [ %345, %341 ]
+  store double %.us-phi163, ptr %17, align 8, !tbaa !7
   br label %351
 
-351:                                              ; preds = %.split174.us, %.split169.us
-  %352 = phi double [ %.us-phi170, %.split169.us ], [ %.us-phi176, %.split174.us ]
-  %353 = phi i32 [ %349, %.split169.us ], [ 0, %.split174.us ]
+351:                                              ; preds = %.split162.us, %.split157.us
+  %352 = phi double [ %.us-phi158, %.split157.us ], [ %.us-phi164, %.split162.us ]
+  %353 = phi i32 [ %349, %.split157.us ], [ 0, %.split162.us ]
   %354 = add nsw i32 %353, 1
   %355 = icmp eq i32 %354, %270
   br i1 %355, label %356, label %392
@@ -609,8 +609,8 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %389 = add nsw i32 %265, -2
   br label %.loopexit76
 
-.loopexit76:                                      ; preds = %.split169.us, %388
-  %390 = phi i32 [ %389, %388 ], [ %270, %.split169.us ]
+.loopexit76:                                      ; preds = %.split157.us, %388
+  %390 = phi i32 [ %389, %388 ], [ %270, %.split157.us ]
   %391 = icmp slt i32 %390, 2
   br i1 %391, label %thread-pre-split64, label %261
 
@@ -639,19 +639,19 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ..thread48_crit_edge:                             ; preds = %407
   %.phi.trans.insert = sext i32 %354 to i64
-  %.phi.trans.insert275 = getelementptr inbounds double, ptr %33, i64 %.phi.trans.insert
-  %.pre276 = load double, ptr %.phi.trans.insert275, align 8, !tbaa !7
-  %.pre289 = fneg double %.pre276
+  %.phi.trans.insert251 = getelementptr inbounds double, ptr %33, i64 %.phi.trans.insert
+  %.pre252 = load double, ptr %.phi.trans.insert251, align 8, !tbaa !7
+  %.pre265 = fneg double %.pre252
   br label %.thread48
 
 ..thread47_crit_edge:                             ; preds = %407
-  %.pre274 = load double, ptr %269, align 8, !tbaa !7
-  %.pre291 = fneg double %.pre274
+  %.pre250 = load double, ptr %269, align 8, !tbaa !7
+  %.pre267 = fneg double %.pre250
   br label %.thread47
 
 .thread47:                                        ; preds = %..thread47_crit_edge, %395
-  %.pre-phi292 = phi double [ %.pre291, %..thread47_crit_edge ], [ %404, %395 ]
-  %409 = phi double [ %.pre274, %..thread47_crit_edge ], [ %402, %395 ]
+  %.pre-phi268 = phi double [ %.pre267, %..thread47_crit_edge ], [ %404, %395 ]
+  %409 = phi double [ %.pre250, %..thread47_crit_edge ], [ %402, %395 ]
   %410 = load double, ptr %272, align 8, !tbaa !7
   store double %410, ptr %18, align 8, !tbaa !7
   %411 = fcmp oge double %410, 0.000000e+00
@@ -659,7 +659,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %413 = select i1 %411, double %410, double %412
   store double %409, ptr %17, align 8, !tbaa !7
   %414 = fcmp oge double %409, 0.000000e+00
-  %415 = select i1 %414, double %409, double %.pre-phi292
+  %415 = select i1 %414, double %409, double %.pre-phi268
   %416 = fmul double %245, %415
   %417 = fcmp ugt double %413, %416
   %418 = fcmp ugt double %413, %237
@@ -683,9 +683,9 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread55.thread:                                 ; preds = %424
   %425 = xor i32 %353, -1
   store double %246, ptr %18, align 8, !tbaa !7
-  %.phi.trans.insert278 = sext i32 %354 to i64
-  %.phi.trans.insert279 = getelementptr inbounds double, ptr %33, i64 %.phi.trans.insert278
-  %.pre280 = load double, ptr %.phi.trans.insert279, align 8, !tbaa !7
+  %.phi.trans.insert254 = sext i32 %354 to i64
+  %.phi.trans.insert255 = getelementptr inbounds double, ptr %33, i64 %.phi.trans.insert254
+  %.pre256 = load double, ptr %.phi.trans.insert255, align 8, !tbaa !7
   br label %._crit_edge
 
 426:                                              ; preds = %424
@@ -744,11 +744,11 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %465, label %.loopexit73, label %437, !llvm.loop !16
 
 .thread48:                                        ; preds = %..thread48_crit_edge, %395
-  %.pre-phi290 = phi double [ %.pre289, %..thread48_crit_edge ], [ %400, %395 ]
-  %.pre-phi288 = phi i64 [ %.phi.trans.insert, %..thread48_crit_edge ], [ %396, %395 ]
-  %466 = phi double [ %.pre276, %..thread48_crit_edge ], [ %398, %395 ]
+  %.pre-phi266 = phi double [ %.pre265, %..thread48_crit_edge ], [ %400, %395 ]
+  %.pre-phi264 = phi i64 [ %.phi.trans.insert, %..thread48_crit_edge ], [ %396, %395 ]
+  %466 = phi double [ %.pre252, %..thread48_crit_edge ], [ %398, %395 ]
   %467 = phi i32 [ %283, %..thread48_crit_edge ], [ 2, %395 ]
-  %468 = getelementptr inbounds double, ptr %34, i64 %.pre-phi288
+  %468 = getelementptr inbounds double, ptr %34, i64 %.pre-phi264
   %469 = load double, ptr %468, align 8, !tbaa !7
   store double %469, ptr %18, align 8, !tbaa !7
   %470 = fcmp oge double %469, 0.000000e+00
@@ -756,7 +756,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %472 = select i1 %470, double %469, double %471
   store double %466, ptr %17, align 8, !tbaa !7
   %473 = fcmp oge double %466, 0.000000e+00
-  %474 = select i1 %473, double %466, double %.pre-phi290
+  %474 = select i1 %473, double %466, double %.pre-phi266
   %475 = fmul double %245, %474
   %476 = fcmp ugt double %472, %475
   %477 = fcmp ugt double %472, %237
@@ -823,7 +823,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread55:                                        ; preds = %480
   %516 = xor i32 %353, -1
   store double %246, ptr %18, align 8, !tbaa !7
-  %.pre277 = load double, ptr %269, align 8, !tbaa !7
+  %.pre253 = load double, ptr %269, align 8, !tbaa !7
   br label %550
 
 .loopexit73:                                      ; preds = %452, %500
@@ -868,7 +868,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %543, label %._crit_edge, label %550
 
 ._crit_edge:                                      ; preds = %538, %.thread55.thread
-  %544 = phi double [ %.pre280, %.thread55.thread ], [ %539, %538 ]
+  %544 = phi double [ %.pre256, %.thread55.thread ], [ %539, %538 ]
   %545 = phi i32 [ 1, %.thread55.thread ], [ %542, %538 ]
   %546 = phi i32 [ %425, %.thread55.thread ], [ %541, %538 ]
   store double %544, ptr %17, align 8, !tbaa !7
@@ -879,7 +879,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %562
 
 550:                                              ; preds = %.thread55, %538
-  %551 = phi double [ %.pre277, %.thread55 ], [ %540, %538 ]
+  %551 = phi double [ %.pre253, %.thread55 ], [ %540, %538 ]
   %552 = phi i32 [ %467, %.thread55 ], [ %542, %538 ]
   %553 = phi i32 [ %516, %.thread55 ], [ %541, %538 ]
   store double %551, ptr %17, align 8, !tbaa !7
@@ -937,7 +937,7 @@ thread-pre-split56:                               ; preds = %562, %569
   br i1 %582, label %583, label %..loopexit77_crit_edge
 
 ..loopexit77_crit_edge:                           ; preds = %579
-  %.pre285 = load double, ptr %29, align 8, !tbaa !7
+  %.pre261 = load double, ptr %29, align 8, !tbaa !7
   br label %.loopexit77
 
 583:                                              ; preds = %579
@@ -954,19 +954,19 @@ thread-pre-split56:                               ; preds = %562, %569
   %591 = getelementptr inbounds double, ptr %34, i64 %587
   call void @dlartg_(ptr noundef nonnull %17, ptr noundef nonnull %591, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
   %592 = icmp sgt i64 %587, %584
-  %.pre284 = load double, ptr %25, align 8, !tbaa !7
+  %.pre260 = load double, ptr %25, align 8, !tbaa !7
   br i1 %592, label %593, label %597
 
 593:                                              ; preds = %585
   %594 = load double, ptr %29, align 8, !tbaa !7
-  %595 = fmul double %594, %.pre284
+  %595 = fmul double %594, %.pre260
   %596 = getelementptr i8, ptr %591, i64 -8
   store double %595, ptr %596, align 8, !tbaa !7
   br label %597
 
 597:                                              ; preds = %593, %585
   %598 = load double, ptr %26, align 8, !tbaa !7
-  %599 = fmul double %598, %.pre284
+  %599 = fmul double %598, %.pre260
   store double %599, ptr %17, align 8, !tbaa !7
   %600 = add nsw i64 %587, 1
   %601 = getelementptr double, ptr %5, i64 %587
@@ -998,7 +998,7 @@ thread-pre-split56:                               ; preds = %562, %569
   br i1 %620, label %585, label %.loopexit77, !llvm.loop !18
 
 .loopexit77:                                      ; preds = %597, %..loopexit77_crit_edge
-  %621 = phi double [ %.pre285, %..loopexit77_crit_edge ], [ %616, %597 ]
+  %621 = phi double [ %.pre261, %..loopexit77_crit_edge ], [ %616, %597 ]
   %622 = phi double [ 1.000000e+00, %..loopexit77_crit_edge ], [ %614, %597 ]
   %623 = phi double [ 1.000000e+00, %..loopexit77_crit_edge ], [ %605, %597 ]
   %624 = load double, ptr %269, align 8, !tbaa !7
@@ -1058,11 +1058,11 @@ thread-pre-split56:                               ; preds = %562, %569
   %657 = fneg double %655
   %658 = select i1 %656, double %655, double %657
   %659 = fcmp ugt double %658, %237
-  br i1 %659, label %.backedge501, label %660
+  br i1 %659, label %.backedge477, label %660
 
 660:                                              ; preds = %654
   store double 0.000000e+00, ptr %272, align 8, !tbaa !7
-  br label %.backedge501
+  br label %.backedge477
 
 661:                                              ; preds = %535, %.thread63, %578
   %662 = phi i32 [ %564, %.thread63 ], [ %564, %578 ], [ %528, %535 ]
@@ -1073,8 +1073,8 @@ thread-pre-split56:                               ; preds = %562, %569
   br i1 %665, label %..loopexit78_crit_edge, label %666
 
 ..loopexit78_crit_edge:                           ; preds = %661
-  %.pre282 = load double, ptr %29, align 8, !tbaa !7
-  %.pre283 = sext i32 %354 to i64
+  %.pre258 = load double, ptr %29, align 8, !tbaa !7
+  %.pre259 = sext i32 %354 to i64
   br label %.loopexit78
 
 666:                                              ; preds = %661
@@ -1092,19 +1092,19 @@ thread-pre-split56:                               ; preds = %562, %569
   %675 = getelementptr inbounds double, ptr %34, i64 %674
   call void @dlartg_(ptr noundef nonnull %17, ptr noundef nonnull %675, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
   %676 = icmp slt i64 %670, %268
-  %.pre281 = load double, ptr %25, align 8, !tbaa !7
+  %.pre257 = load double, ptr %25, align 8, !tbaa !7
   br i1 %676, label %677, label %681
 
 677:                                              ; preds = %668
   %678 = load double, ptr %29, align 8, !tbaa !7
-  %679 = fmul double %678, %.pre281
+  %679 = fmul double %678, %.pre257
   %680 = getelementptr inbounds double, ptr %34, i64 %670
   store double %679, ptr %680, align 8, !tbaa !7
   br label %681
 
 681:                                              ; preds = %677, %668
   %682 = load double, ptr %26, align 8, !tbaa !7
-  %683 = fmul double %682, %.pre281
+  %683 = fmul double %682, %.pre257
   store double %683, ptr %17, align 8, !tbaa !7
   %684 = getelementptr inbounds double, ptr %33, i64 %674
   %685 = load double, ptr %684, align 8, !tbaa !7
@@ -1133,8 +1133,8 @@ thread-pre-split56:                               ; preds = %562, %569
   br i1 %701, label %668, label %.loopexit78, !llvm.loop !19
 
 .loopexit78:                                      ; preds = %681, %..loopexit78_crit_edge
-  %.pre-phi = phi i64 [ %.pre283, %..loopexit78_crit_edge ], [ %667, %681 ]
-  %702 = phi double [ %.pre282, %..loopexit78_crit_edge ], [ %696, %681 ]
+  %.pre-phi = phi i64 [ %.pre259, %..loopexit78_crit_edge ], [ %667, %681 ]
+  %702 = phi double [ %.pre258, %..loopexit78_crit_edge ], [ %696, %681 ]
   %703 = phi double [ 1.000000e+00, %..loopexit78_crit_edge ], [ %694, %681 ]
   %704 = phi double [ 1.000000e+00, %..loopexit78_crit_edge ], [ %688, %681 ]
   %705 = getelementptr inbounds double, ptr %33, i64 %.pre-phi
@@ -1199,11 +1199,11 @@ thread-pre-split56:                               ; preds = %562, %569
   %743 = fneg double %741
   %744 = select i1 %742, double %741, double %743
   %745 = fcmp ugt double %744, %237
-  br i1 %745, label %.backedge501, label %746
+  br i1 %745, label %.backedge477, label %746
 
 746:                                              ; preds = %740
   store double 0.000000e+00, ptr %710, align 8, !tbaa !7
-  br label %.backedge501
+  br label %.backedge477
 
 747:                                              ; preds = %thread-pre-split56
   br i1 %563, label %748, label %851
@@ -1364,11 +1364,11 @@ thread-pre-split56:                               ; preds = %562, %569
   %847 = fneg double %845
   %848 = select i1 %846, double %845, double %847
   %849 = fcmp ugt double %848, %237
-  br i1 %849, label %.backedge501, label %850
+  br i1 %849, label %.backedge477, label %850
 
 850:                                              ; preds = %844
   store double 0.000000e+00, ptr %272, align 8, !tbaa !7
-  br label %.backedge501
+  br label %.backedge477
 
 851:                                              ; preds = %747
   %852 = load double, ptr %269, align 8, !tbaa !7
@@ -1391,7 +1391,7 @@ thread-pre-split56:                               ; preds = %562, %569
   br i1 %864, label %..loopexit80_crit_edge, label %865
 
 ..loopexit80_crit_edge:                           ; preds = %851
-  %.pre295 = sext i32 %354 to i64
+  %.pre271 = sext i32 %354 to i64
   br label %.loopexit80
 
 865:                                              ; preds = %851
@@ -1477,9 +1477,9 @@ thread-pre-split56:                               ; preds = %562, %569
   br i1 %918, label %868, label %.loopexit80, !llvm.loop !21
 
 .loopexit80:                                      ; preds = %907, %..loopexit80_crit_edge
-  %.pre-phi296 = phi i64 [ %.pre295, %..loopexit80_crit_edge ], [ %867, %907 ]
+  %.pre-phi272 = phi i64 [ %.pre271, %..loopexit80_crit_edge ], [ %867, %907 ]
   %919 = phi double [ %861, %..loopexit80_crit_edge ], [ %897, %907 ]
-  %920 = getelementptr inbounds double, ptr %34, i64 %.pre-phi296
+  %920 = getelementptr inbounds double, ptr %34, i64 %.pre-phi272
   store double %919, ptr %920, align 8, !tbaa !7
   store double %919, ptr %17, align 8, !tbaa !7
   %921 = fcmp oge double %919, 0.000000e+00
@@ -1526,7 +1526,7 @@ thread-pre-split56:                               ; preds = %562, %569
 945:                                              ; preds = %937, %934
   %946 = load i32, ptr %4, align 4, !tbaa !3
   %947 = icmp sgt i32 %946, 0
-  br i1 %947, label %948, label %.backedge501
+  br i1 %947, label %948, label %.backedge477
 
 948:                                              ; preds = %945
   %949 = sub i32 %265, %353
@@ -1538,11 +1538,11 @@ thread-pre-split56:                               ; preds = %562, %569
   %954 = sext i32 %953 to i64
   %955 = getelementptr inbounds double, ptr %46, i64 %954
   call void @dlasr_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef %13, ptr noundef nonnull %952, ptr noundef %955, ptr noundef nonnull %12) #6
-  br label %.backedge501
+  br label %.backedge477
 
-.backedge501:                                     ; preds = %948, %945, %850, %844, %746, %740, %660, %654
-  %.be502 = phi i32 [ %564, %948 ], [ %564, %945 ], [ %564, %850 ], [ %564, %844 ], [ %662, %746 ], [ %662, %740 ], [ %580, %660 ], [ %580, %654 ]
-  %.be506 = phi i32 [ %576, %948 ], [ %576, %945 ], [ %576, %850 ], [ %576, %844 ], [ %663, %746 ], [ %663, %740 ], [ %581, %660 ], [ %581, %654 ]
+.backedge477:                                     ; preds = %948, %945, %850, %844, %746, %740, %660, %654
+  %.be478 = phi i32 [ %564, %948 ], [ %564, %945 ], [ %564, %850 ], [ %564, %844 ], [ %662, %746 ], [ %662, %740 ], [ %580, %660 ], [ %580, %654 ]
+  %.be482 = phi i32 [ %576, %948 ], [ %576, %945 ], [ %576, %850 ], [ %576, %844 ], [ %663, %746 ], [ %663, %740 ], [ %581, %660 ], [ %581, %654 ]
   br label %274
 
 thread-pre-split64:                               ; preds = %.loopexit76
@@ -1579,22 +1579,22 @@ thread-pre-split64:                               ; preds = %.loopexit76
 973:                                              ; preds = %969
   %974 = getelementptr double, ptr %962, i64 %965
   call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull @c_b72, ptr noundef %974, ptr noundef nonnull %8) #6
-  %.pre286 = load i32, ptr %16, align 4, !tbaa !3
+  %.pre262 = load i32, ptr %16, align 4, !tbaa !3
   br label %975
 
 975:                                              ; preds = %973, %969, %963
-  %976 = phi i32 [ %.pre286, %973 ], [ %964, %969 ], [ %964, %963 ]
+  %976 = phi i32 [ %.pre262, %973 ], [ %964, %969 ], [ %964, %963 ]
   %977 = add nuw nsw i64 %965, 1
   %978 = sext i32 %976 to i64
   %979 = icmp slt i64 %965, %978
   br i1 %979, label %963, label %.loopexit70, !llvm.loop !22
 
 .loopexit70:                                      ; preds = %975
-  %.pre287 = load i32, ptr %1, align 4, !tbaa !3
-  %980 = add nsw i32 %.pre287, -1
+  %.pre263 = load i32, ptr %1, align 4, !tbaa !3
+  %980 = add nsw i32 %.pre263, -1
   store i32 %980, ptr %16, align 4, !tbaa !3
   %981 = getelementptr i8, ptr %42, i64 8
-  %982 = icmp slt i32 %.pre287, 2
+  %982 = icmp slt i32 %.pre263, 2
   br i1 %982, label %.loopexit69, label %983
 
 983:                                              ; preds = %.loopexit70

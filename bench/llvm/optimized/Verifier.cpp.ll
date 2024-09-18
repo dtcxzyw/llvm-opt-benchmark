@@ -76258,10 +76258,10 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader: ; preds = %.lr.ph.i.i.i.i
   %58 = zext i8 %57 to i32
   %59 = add nsw i32 %58, -30
   %60 = icmp ult i32 %59, 11
-  %spec.select.i.i54173 = select i1 %60, ptr %56, ptr null
-  %61 = load i8, ptr %spec.select.i.i54173, align 8
-  %.not123174 = icmp eq i8 %61, 34
-  br i1 %.not123174, label %.lr.ph177, label %._crit_edge178
+  %spec.select.i.i54172 = select i1 %60, ptr %56, ptr null
+  %61 = load i8, ptr %spec.select.i.i54172, align 8
+  %.not123173 = icmp eq i8 %61, 34
+  br i1 %.not123173, label %.lr.ph176, label %._crit_edge177
 
 62:                                               ; preds = %.lr.ph.i.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
@@ -76286,23 +76286,23 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit: ; preds = %.lr.ph.i.i
   %spec.select.i.i54 = select i1 %77, ptr %73, ptr null
   %78 = load i8, ptr %spec.select.i.i54, align 8
   %.not123 = icmp eq i8 %78, 34
-  br i1 %.not123, label %.lr.ph177, label %._crit_edge178
+  br i1 %.not123, label %.lr.ph176, label %._crit_edge177
 
-.lr.ph177:                                        ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit
-  %spec.select.i.i54176 = phi ptr [ %spec.select.i.i54, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit ], [ %spec.select.i.i54173, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader ]
-  %.sroa.0109.0140175 = phi ptr [ %.sroa.0109.1, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit ], [ %.sroa.0.0.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader ]
-  %79 = getelementptr inbounds i8, ptr %spec.select.i.i54176, i64 -64
+.lr.ph176:                                        ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit
+  %spec.select.i.i54175 = phi ptr [ %spec.select.i.i54, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit ], [ %spec.select.i.i54172, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader ]
+  %.sroa.0109.0139174 = phi ptr [ %.sroa.0109.1, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit ], [ %.sroa.0.0.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader ]
+  %79 = getelementptr inbounds i8, ptr %spec.select.i.i54175, i64 -64
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, %25
-  br i1 %81, label %82, label %._crit_edge178
+  br i1 %81, label %82, label %._crit_edge177
 
-82:                                               ; preds = %.lr.ph177
-  %83 = getelementptr inbounds i8, ptr %spec.select.i.i54176, i64 -96
+82:                                               ; preds = %.lr.ph176
+  %83 = getelementptr inbounds i8, ptr %spec.select.i.i54175, i64 -96
   %84 = load ptr, ptr %83, align 8
   %.not52 = icmp eq ptr %84, %25
-  br i1 %.not52, label %._crit_edge178, label %87
+  br i1 %.not52, label %._crit_edge177, label %87
 
-._crit_edge178:                                   ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit, %.lr.ph177, %82, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader
+._crit_edge177:                                   ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit, %.lr.ph176, %82, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %86, align 1
@@ -76312,7 +76312,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit: ; preds = %.lr.ph.i.i
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJPNS_12CatchPadInstEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0140175, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0139174, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJPNS_12CatchPadInstEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph.i.i
@@ -76485,7 +76485,7 @@ _ZL12getParentPadPN4llvm5ValueE.exit:             ; preds = %157, %159
   %170 = add nsw i32 %169, -30
   %171 = icmp ult i32 %170, 11
   %or.cond.i.i.i.i64 = select i1 %168, i1 %171, i1 false
-  br i1 %or.cond.i.i.i.i64, label %.lr.ph138, label %172
+  br i1 %or.cond.i.i.i.i64, label %.lr.ph137, label %172
 
 172:                                              ; preds = %.lr.ph.i.i.i.i62
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i63, i64 8
@@ -76493,7 +76493,7 @@ _ZL12getParentPadPN4llvm5ValueE.exit:             ; preds = %157, %159
   %175 = icmp eq ptr %174, null
   br i1 %175, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJPNS_12CatchPadInstEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph.i.i.i.i62, !llvm.loop !7
 
-.lr.ph138:                                        ; preds = %.lr.ph.i.i.i.i62
+.lr.ph137:                                        ; preds = %.lr.ph.i.i.i.i62
   %176 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %177 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %178 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -76510,9 +76510,9 @@ _ZL12getParentPadPN4llvm5ValueE.exit:             ; preds = %157, %159
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit99
 
-_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit99: ; preds = %.lr.ph.i.i97, %.lr.ph138
-  %.sroa.0103.0137 = phi ptr [ %.sroa.0.0.i.i63, %.lr.ph138 ], [ %.sroa.0103.1, %.lr.ph.i.i97 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0137, i64 24
+_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit99: ; preds = %.lr.ph.i.i97, %.lr.ph137
+  %.sroa.0103.0136 = phi ptr [ %.sroa.0.0.i.i63, %.lr.ph137 ], [ %.sroa.0103.1, %.lr.ph.i.i97 ]
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0136, i64 24
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 40
   %193 = load ptr, ptr %192, align 8
@@ -76920,7 +76920,7 @@ _ZN4llvm8SmallSetIPNS_5ValueELj8ESt4lessIS2_EED2Ev.exit: ; preds = %_ZN4llvm15Ve
   br i1 %switch, label %365, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJPNS_12CatchPadInstEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 365:                                              ; preds = %_ZN4llvm8SmallSetIPNS_5ValueELj8ESt4lessIS2_EED2Ev.exit, %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread
-  %366 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0137, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0136, i64 8
   %367 = load ptr, ptr %366, align 8
   %368 = icmp eq ptr %367, null
   br i1 %368, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJPNS_12CatchPadInstEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph.i.i97
@@ -76943,7 +76943,7 @@ _ZN4llvm8SmallSetIPNS_5ValueELj8ESt4lessIS2_EED2Ev.exit: ; preds = %_ZN4llvm15Ve
   %379 = icmp eq ptr %378, null
   br i1 %379, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJPNS_12CatchPadInstEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph.i.i97, !llvm.loop !7
 
-_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJPNS_12CatchPadInstEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %172, %365, %_ZN4llvm8SmallSetIPNS_5ValueELj8ESt4lessIS2_EED2Ev.exit, %376, %62, %87, %98, %_ZL12getParentPadPN4llvm5ValueE.exit, %38, %224, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i77, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i80, %152, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit, %297, %293, %124, %._crit_edge178, %33
+_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJPNS_12CatchPadInstEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %172, %365, %_ZN4llvm8SmallSetIPNS_5ValueELj8ESt4lessIS2_EED2Ev.exit, %376, %62, %87, %98, %_ZL12getParentPadPN4llvm5ValueE.exit, %38, %224, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i77, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i80, %152, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit, %297, %293, %124, %._crit_edge177, %33
   ret void
 }
 

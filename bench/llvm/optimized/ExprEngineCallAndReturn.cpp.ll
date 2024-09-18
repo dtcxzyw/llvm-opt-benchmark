@@ -465,15 +465,15 @@ define internal fastcc { ptr, ptr } @_ZL11getLastStmtPKN5clang4ento12ExplodedNod
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %.092 = phi ptr [ %66, %64 ], [ %0, %.lr.ph.preheader ]
-  %.06589 = phi ptr [ %.166, %64 ], [ null, %.lr.ph.preheader ]
-  %4 = getelementptr inbounds nuw i8, ptr %.092, i64 8
+  %.089 = phi ptr [ %66, %64 ], [ %0, %.lr.ph.preheader ]
+  %.06587 = phi ptr [ %.166, %64 ], [ null, %.lr.ph.preheader ]
+  %4 = getelementptr inbounds nuw i8, ptr %.089, i64 8
   %.sroa.051.0.copyload = load ptr, ptr %4, align 8
-  %.sroa.552.0..sroa_idx = getelementptr inbounds i8, ptr %.092, i64 16
+  %.sroa.552.0..sroa_idx = getelementptr inbounds i8, ptr %.089, i64 16
   %.sroa.552.0.copyload = load i64, ptr %.sroa.552.0..sroa_idx, align 8
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %.092, i64 24
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %.089, i64 24
   %.sroa.13.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8
-  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %.092, i64 32
+  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %.089, i64 32
   %.sroa.19.0.copyload = load i64, ptr %.sroa.19.0..sroa_idx, align 8
   %5 = and i64 %.sroa.13.0.copyload, -8
   %6 = inttoptr i64 %5 to ptr
@@ -511,7 +511,7 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   br i1 %.not15, label %.critedge, label %._crit_edge
 
 .critedge:                                        ; preds = %24, %.critedge
-  %.1 = phi ptr [ %33, %.critedge ], [ %.092, %24 ]
+  %.1 = phi ptr [ %33, %.critedge ], [ %.089, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1, i64 64
   %28 = load i64, ptr %27, align 8
   %29 = icmp ne i64 %28, 0
@@ -541,8 +541,8 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   %48 = and i64 %.0.copyload.i.i.i6.i.i.i.i, -4
   %49 = inttoptr i64 %48 to ptr
   %.not16 = icmp eq ptr %.sroa.051.0.copyload, %49
-  %or.cond = select i1 %47, i1 %.not16, i1 false
-  br i1 %or.cond, label %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit, label %.critedge, !llvm.loop !9
+  %or.cond103 = select i1 %47, i1 %.not16, i1 false
+  br i1 %or.cond103, label %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit, label %.critedge, !llvm.loop !9
 
 50:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
   br label %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit
@@ -554,12 +554,12 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   %55 = and i64 %.sroa.552.0.copyload, -4
   %56 = inttoptr i64 %55 to ptr
   %57 = icmp eq ptr %3, %56
-  %or.cond108 = select i1 %54, i1 %57, i1 false
-  br i1 %or.cond108, label %._crit_edge, label %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit
+  %or.cond = select i1 %54, i1 %57, i1 false
+  br i1 %or.cond, label %._crit_edge, label %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit
 
 _ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit: ; preds = %.critedge, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit, %51, %50
-  %.166 = phi ptr [ %.sroa.051.0.copyload, %50 ], [ %.06589, %51 ], [ %.06589, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit ], [ %.06589, %.critedge ]
-  %.2 = phi ptr [ %.092, %50 ], [ %.092, %51 ], [ %.092, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit ], [ %33, %.critedge ]
+  %.166 = phi ptr [ %.sroa.051.0.copyload, %50 ], [ %.06587, %51 ], [ %.06587, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit ], [ %.06587, %.critedge ]
+  %.2 = phi ptr [ %.089, %50 ], [ %.089, %51 ], [ %.089, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit ], [ %33, %.critedge ]
   %58 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   %59 = load i64, ptr %58, align 8
   %60 = icmp eq i64 %59, 0
@@ -574,9 +574,9 @@ _ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit: ; preds = 
   %.not = icmp eq ptr %66, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %51, %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit, %17, %24, %64
-  %.sroa.361.0.ph = phi ptr [ null, %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit ], [ %.06589, %17 ], [ %.06589, %24 ], [ %.166, %64 ], [ %.06589, %51 ]
-  %.sroa.060.0.ph = phi ptr [ null, %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit ], [ %.sroa.051.0.copyload, %17 ], [ %26, %24 ], [ null, %64 ], [ null, %51 ]
+._crit_edge:                                      ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit, %51, %17, %24, %64
+  %.sroa.361.0.ph = phi ptr [ null, %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit ], [ %.06587, %51 ], [ %.06587, %17 ], [ %.06587, %24 ], [ %.166, %64 ]
+  %.sroa.060.0.ph = phi ptr [ null, %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit ], [ null, %51 ], [ %.sroa.051.0.copyload, %17 ], [ %26, %24 ], [ null, %64 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.060.0.ph, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.361.0.ph, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -14880,29 +14880,29 @@ entry:
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc193
   %indvar = phi i64 [ 0, %entry ], [ %indvar.next, %for.inc193 ]
-  %len.0543 = phi i64 [ 1, %entry ], [ %inc194, %for.inc193 ]
+  %len.0369 = phi i64 [ 1, %entry ], [ %inc194, %for.inc193 ]
   %1 = shl nuw nsw i64 %indvar, 2
   %2 = add nuw nsw i64 %1, 4
-  %mul.i.i.i.i.i.i = shl nuw nsw i64 %len.0543, 2
+  %mul.i.i.i.i.i.i = shl nuw nsw i64 %len.0369, 2
   br label %for.cond5.preheader
 
 for.cond5.preheader:                              ; preds = %for.cond2.preheader, %for.inc190
-  %erase_begin.0542 = phi i64 [ 0, %for.cond2.preheader ], [ %inc191, %for.inc190 ]
-  %add.ptr.idx = shl nsw i64 %erase_begin.0542, 4
-  %cmp41528.not = icmp eq i64 %erase_begin.0542, 0
+  %erase_begin.0368 = phi i64 [ 0, %for.cond2.preheader ], [ %inc191, %for.inc190 ]
+  %add.ptr.idx = shl nsw i64 %erase_begin.0368, 4
+  %cmp41354.not = icmp eq i64 %erase_begin.0368, 0
   br label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %for.cond5.preheader, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %erase_end.0541 = phi i64 [ %erase_begin.0542, %for.cond5.preheader ], [ %inc188, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %erase_end.0367 = phi i64 [ %erase_begin.0368, %for.cond5.preheader ], [ %inc188, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %call5.i.i.i.i2.i.i58 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call5.i.i.i.i2.i.i58, i8 0, i64 %2, i1 false)
   store i64 0, ptr %v, align 8
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %_ZN12_GLOBAL__N_110RefCountedD2Ev.exit
-  %i.0527 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %inc, %_ZN12_GLOBAL__N_110RefCountedD2Ev.exit ]
-  %conv = trunc nuw nsw i64 %i.0527 to i32
-  %add.ptr.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i58, i64 %i.0527
+  %i.0353 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %inc, %_ZN12_GLOBAL__N_110RefCountedD2Ev.exit ]
+  %conv = trunc nuw nsw i64 %i.0353 to i32
+  %add.ptr.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i58, i64 %i.0353
   store i32 %conv, ptr %ref.tmp12, align 8
   store ptr %add.ptr.i, ptr %count_.i, align 8
   %3 = load i32, ptr %add.ptr.i, align 4
@@ -14945,8 +14945,8 @@ terminate.lpad.i:                                 ; preds = %call.i.i.i.noexc.i,
 _ZN12_GLOBAL__N_110RefCountedD2Ev.exit:           ; preds = %invoke.cont16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp5.i.i)
   store ptr null, ptr %count_.i, align 8
-  %inc = add nuw nsw i64 %i.0527, 1
-  %exitcond.not = icmp eq i64 %inc, %len.0543
+  %inc = add nuw nsw i64 %i.0353, 1
+  %exitcond.not = icmp eq i64 %inc, %len.0369
   br i1 %exitcond.not, label %for.end, label %invoke.cont14, !llvm.loop !325
 
 lpad13.loopexit:                                  ; preds = %if.then.i.i228, %if.end.i.i227
@@ -15022,24 +15022,24 @@ _ZN12_GLOBAL__N_110RefCountedD2Ev.exit70:         ; preds = %lpad15
   br label %ehcleanup185
 
 for.end:                                          ; preds = %_ZN12_GLOBAL__N_110RefCountedD2Ev.exit
-  %sub = sub nuw nsw i64 %erase_end.0541, %erase_begin.0542
+  %sub = sub nuw nsw i64 %erase_end.0367, %erase_begin.0368
   %this.val.i.i = load i64, ptr %v, align 8
   %and.i.i.i = and i64 %this.val.i.i, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
   %this.val1.i.i = load ptr, ptr %0, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %0, ptr %this.val1.i.i
   %add.ptr = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr.idx
-  %cmp.not.i = icmp eq i64 %erase_begin.0542, %erase_end.0541
+  %cmp.not.i = icmp eq i64 %erase_begin.0368, %erase_end.0367
   br i1 %cmp.not.i, label %invoke.cont20, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
   %shr.i.sink.i.i.i = lshr i64 %this.val.i.i, 1
-  %sub.i.i = sub nsw i64 %shr.i.sink.i.i.i, %erase_end.0541
-  %cmp3.not.i = icmp eq i64 %shr.i.sink.i.i.i, %erase_end.0541
+  %sub.i.i = sub nsw i64 %shr.i.sink.i.i.i, %erase_end.0367
+  %cmp3.not.i = icmp eq i64 %shr.i.sink.i.i.i, %erase_end.0367
   br i1 %cmp3.not.i, label %.noexc76, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then.i
-  %add.ptr.i.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %erase_end.0541
+  %add.ptr.i.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %erase_end.0367
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefCountedEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i
@@ -15126,7 +15126,7 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefC
 
 invoke.cont20:                                    ; preds = %.noexc76, %for.end
   %v.val = phi i64 [ %sub.i.i.i, %.noexc76 ], [ %this.val.i.i, %for.end ]
-  %sub23 = sub nsw i64 %len.0543, %sub
+  %sub23 = sub nsw i64 %len.0369, %sub
   store i64 %sub23, ptr %ref.tmp22, align 8
   %shr.i.i = lshr i64 %v.val, 1
   store i64 %shr.i.i, ptr %ref.tmp24, align 8
@@ -15230,24 +15230,24 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i.i, align 8
-  br i1 %cmp41528.not, label %for.cond70.preheader, label %for.body42
+  br i1 %cmp41354.not, label %for.cond70.preheader, label %for.body42
 
 for.cond70.preheader:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit118, %_ZN7testing15AssertionResultD2Ev.exit
-  %v.val57530 = load i64, ptr %v, align 8
-  %shr.i.i123531 = lshr i64 %v.val57530, 1
-  %cmp72532 = icmp ult i64 %erase_begin.0542, %shr.i.i123531
-  br i1 %cmp72532, label %for.body73, label %for.cond102.preheader
+  %v.val57356 = load i64, ptr %v, align 8
+  %shr.i.i123357 = lshr i64 %v.val57356, 1
+  %cmp72358 = icmp ult i64 %erase_begin.0368, %shr.i.i123357
+  br i1 %cmp72358, label %for.body73, label %for.cond102.preheader
 
 for.body42:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit118
-  %i39.0529 = phi i64 [ %inc67, %_ZN7testing15AssertionResultD2Ev.exit118 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %conv45 = trunc nuw nsw i64 %i39.0529 to i32
+  %i39.0355 = phi i64 [ %inc67, %_ZN7testing15AssertionResultD2Ev.exit118 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %conv45 = trunc nuw nsw i64 %i39.0355 to i32
   store i32 %conv45, ptr %ref.tmp44, align 4
   %this.val.i.i88 = load i64, ptr %v, align 8
   %and.i.i.i89 = and i64 %this.val.i.i88, 1
   %tobool.i.not.i.i90 = icmp eq i64 %and.i.i.i89, 0
   %this.val1.i.i91 = load ptr, ptr %0, align 8
   %cond.i.i92 = select i1 %tobool.i.not.i.i90, ptr %0, ptr %this.val1.i.i91
-  %arrayidx.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i92, i64 %i39.0529
+  %arrayidx.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i92, i64 %i39.0355
   %37 = load i32, ptr %arrayidx.i, align 4, !noalias !327
   %cmp.i.i93 = icmp eq i32 %37, %conv45
   br i1 %cmp.i.i93, label %if.then.i.i95, label %if.end.i.i94
@@ -15354,9 +15354,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit118:         ; preds = %if.end64, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i117
   store ptr null, ptr %message_.i.i99, align 8
-  %inc67 = add nuw nsw i64 %i39.0529, 1
-  %exitcond591.not = icmp eq i64 %inc67, %erase_begin.0542
-  br i1 %exitcond591.not, label %for.cond70.preheader, label %for.body42, !llvm.loop !332
+  %inc67 = add nuw nsw i64 %i39.0355, 1
+  %exitcond417.not = icmp eq i64 %inc67, %erase_begin.0368
+  br i1 %exitcond417.not, label %for.cond70.preheader, label %for.body42, !llvm.loop !332
 
 ehcleanup65:                                      ; preds = %_ZN7testing7MessageD2Ev.exit114, %lpad53
   %.pn51.pn = phi { ptr, i32 } [ %.pn51, %_ZN7testing7MessageD2Ev.exit114 ], [ %42, %lpad53 ]
@@ -15374,19 +15374,19 @@ _ZN7testing15AssertionResultD2Ev.exit122:         ; preds = %ehcleanup65, %_ZNKS
   br label %ehcleanup185
 
 for.cond102.preheader:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit156, %for.cond70.preheader
-  br i1 %cmp41528.not, label %for.cond130.preheader, label %for.body104
+  br i1 %cmp41354.not, label %for.cond130.preheader, label %for.body104
 
 for.body73:                                       ; preds = %for.cond70.preheader, %_ZN7testing15AssertionResultD2Ev.exit156
-  %v.val57534 = phi i64 [ %v.val57, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %v.val57530, %for.cond70.preheader ]
-  %i69.0533 = phi i64 [ %inc99, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %erase_begin.0542, %for.cond70.preheader ]
-  %add = add nuw i64 %i69.0533, %sub
+  %v.val57360 = phi i64 [ %v.val57, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %v.val57356, %for.cond70.preheader ]
+  %i69.0359 = phi i64 [ %inc99, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %erase_begin.0368, %for.cond70.preheader ]
+  %add = add nuw i64 %i69.0359, %sub
   %conv76 = trunc i64 %add to i32
   store i32 %conv76, ptr %ref.tmp75, align 4
-  %and.i.i.i125 = and i64 %v.val57534, 1
+  %and.i.i.i125 = and i64 %v.val57360, 1
   %tobool.i.not.i.i126 = icmp eq i64 %and.i.i.i125, 0
   %this.val1.i.i127 = load ptr, ptr %0, align 8
   %cond.i.i128 = select i1 %tobool.i.not.i.i126, ptr %0, ptr %this.val1.i.i127
-  %arrayidx.i129 = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i128, i64 %i69.0533
+  %arrayidx.i129 = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i128, i64 %i69.0359
   %49 = load i32, ptr %arrayidx.i129, align 4, !noalias !333
   %cmp.i.i130 = icmp eq i32 %49, %conv76
   br i1 %cmp.i.i130, label %if.then.i.i132, label %if.end.i.i131
@@ -15488,7 +15488,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit156:         ; preds = %if.end96, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i155
   store ptr null, ptr %message_.i.i137, align 8
-  %inc99 = add nuw nsw i64 %i69.0533, 1
+  %inc99 = add nuw nsw i64 %i69.0359, 1
   %v.val57 = load i64, ptr %v, align 8
   %shr.i.i123 = lshr i64 %v.val57, 1
   %cmp72 = icmp ult i64 %inc99, %shr.i.i123
@@ -15510,13 +15510,13 @@ _ZN7testing15AssertionResultD2Ev.exit160:         ; preds = %ehcleanup97, %_ZNKS
   br label %ehcleanup185
 
 for.cond130.preheader:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit188, %for.cond102.preheader
-  %cmp131537 = icmp ult i64 %erase_begin.0542, %erase_end.0541
-  br i1 %cmp131537, label %for.body132, label %for.cond158.preheader
+  %cmp131363 = icmp ult i64 %erase_begin.0368, %erase_end.0367
+  br i1 %cmp131363, label %for.body132, label %for.cond158.preheader
 
 for.body104:                                      ; preds = %for.cond102.preheader, %_ZN7testing15AssertionResultD2Ev.exit188
-  %i101.0536 = phi i64 [ %inc127, %_ZN7testing15AssertionResultD2Ev.exit188 ], [ 0, %for.cond102.preheader ]
+  %i101.0362 = phi i64 [ %inc127, %_ZN7testing15AssertionResultD2Ev.exit188 ], [ 0, %for.cond102.preheader ]
   store i32 1, ptr %ref.tmp106, align 4
-  %add.ptr.i161 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i58, i64 %i101.0536
+  %add.ptr.i161 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i58, i64 %i101.0362
   %61 = load i32, ptr %add.ptr.i161, align 4, !noalias !339
   %cmp.i.i162 = icmp eq i32 %61, 1
   br i1 %cmp.i.i162, label %if.then.i.i164, label %if.end.i.i163
@@ -15618,9 +15618,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit188:         ; preds = %if.end124, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i187
   store ptr null, ptr %message_.i.i169, align 8
-  %inc127 = add nuw nsw i64 %i101.0536, 1
-  %exitcond592.not = icmp eq i64 %inc127, %erase_begin.0542
-  br i1 %exitcond592.not, label %for.cond130.preheader, label %for.body104, !llvm.loop !344
+  %inc127 = add nuw nsw i64 %i101.0362, 1
+  %exitcond418.not = icmp eq i64 %inc127, %erase_begin.0368
+  br i1 %exitcond418.not, label %for.cond130.preheader, label %for.body104, !llvm.loop !344
 
 ehcleanup125:                                     ; preds = %_ZN7testing7MessageD2Ev.exit184, %lpad113
   %.pn45.pn = phi { ptr, i32 } [ %.pn45, %_ZN7testing7MessageD2Ev.exit184 ], [ %66, %lpad113 ]
@@ -15638,13 +15638,13 @@ _ZN7testing15AssertionResultD2Ev.exit192:         ; preds = %ehcleanup125, %_ZNK
   br label %ehcleanup185
 
 for.cond158.preheader:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit220, %for.cond130.preheader
-  %cmp159539 = icmp ult i64 %erase_end.0541, %len.0543
-  br i1 %cmp159539, label %for.body160, label %for.end184
+  %cmp159365 = icmp ult i64 %erase_end.0367, %len.0369
+  br i1 %cmp159365, label %for.body160, label %for.end184
 
 for.body132:                                      ; preds = %for.cond130.preheader, %_ZN7testing15AssertionResultD2Ev.exit220
-  %i129.0538 = phi i64 [ %inc155, %_ZN7testing15AssertionResultD2Ev.exit220 ], [ %erase_begin.0542, %for.cond130.preheader ]
+  %i129.0364 = phi i64 [ %inc155, %_ZN7testing15AssertionResultD2Ev.exit220 ], [ %erase_begin.0368, %for.cond130.preheader ]
   store i32 0, ptr %ref.tmp134, align 4
-  %add.ptr.i193 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i58, i64 %i129.0538
+  %add.ptr.i193 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i58, i64 %i129.0364
   %73 = load i32, ptr %add.ptr.i193, align 4, !noalias !345
   %cmp.i.i194 = icmp eq i32 %73, 0
   br i1 %cmp.i.i194, label %if.then.i.i196, label %if.end.i.i195
@@ -15746,9 +15746,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit220:         ; preds = %if.end152, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i219
   store ptr null, ptr %message_.i.i201, align 8
-  %inc155 = add nuw nsw i64 %i129.0538, 1
-  %exitcond593.not = icmp eq i64 %inc155, %erase_end.0541
-  br i1 %exitcond593.not, label %for.cond158.preheader, label %for.body132, !llvm.loop !350
+  %inc155 = add nuw nsw i64 %i129.0364, 1
+  %exitcond419.not = icmp eq i64 %inc155, %erase_end.0367
+  br i1 %exitcond419.not, label %for.cond158.preheader, label %for.body132, !llvm.loop !350
 
 ehcleanup153:                                     ; preds = %_ZN7testing7MessageD2Ev.exit216, %lpad141
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %_ZN7testing7MessageD2Ev.exit216 ], [ %78, %lpad141 ]
@@ -15766,9 +15766,9 @@ _ZN7testing15AssertionResultD2Ev.exit224:         ; preds = %ehcleanup153, %_ZNK
   br label %ehcleanup185
 
 for.body160:                                      ; preds = %for.cond158.preheader, %_ZN7testing15AssertionResultD2Ev.exit252
-  %i157.0540 = phi i64 [ %inc183, %_ZN7testing15AssertionResultD2Ev.exit252 ], [ %erase_end.0541, %for.cond158.preheader ]
+  %i157.0366 = phi i64 [ %inc183, %_ZN7testing15AssertionResultD2Ev.exit252 ], [ %erase_end.0367, %for.cond158.preheader ]
   store i32 1, ptr %ref.tmp162, align 4
-  %add.ptr.i225 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i58, i64 %i157.0540
+  %add.ptr.i225 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i58, i64 %i157.0366
   %85 = load i32, ptr %add.ptr.i225, align 4, !noalias !351
   %cmp.i.i226 = icmp eq i32 %85, 1
   br i1 %cmp.i.i226, label %if.then.i.i228, label %if.end.i.i227
@@ -15870,8 +15870,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit252:         ; preds = %if.end180, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i251
   store ptr null, ptr %message_.i.i233, align 8
-  %inc183 = add nuw nsw i64 %i157.0540, 1
-  %cmp159 = icmp ult i64 %inc183, %len.0543
+  %inc183 = add nuw nsw i64 %i157.0366, 1
+  %cmp159 = icmp ult i64 %inc183, %len.0369
   br i1 %cmp159, label %for.body160, label %for.end184, !llvm.loop !356
 
 ehcleanup181:                                     ; preds = %_ZN7testing7MessageD2Ev.exit248, %lpad169
@@ -15962,8 +15962,8 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i258, %_ZN
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %for.end184, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_110RefCountedEELb0EE15DestroyElementsERS4_PS3_m.exit, %if.then.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i58) #35
-  %inc188 = add nuw nsw i64 %erase_end.0541, 1
-  br i1 %cmp159539, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, label %for.inc190, !llvm.loop !358
+  %inc188 = add nuw nsw i64 %erase_end.0367, 1
+  br i1 %cmp159365, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, label %for.inc190, !llvm.loop !358
 
 ehcleanup185:                                     ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad13.loopexit.split-lp.loopexit, %_ZN7testing15AssertionResultD2Ev.exit256, %_ZN7testing15AssertionResultD2Ev.exit224, %_ZN7testing15AssertionResultD2Ev.exit192, %_ZN7testing15AssertionResultD2Ev.exit160, %_ZN7testing15AssertionResultD2Ev.exit122, %ehcleanup38, %_ZN12_GLOBAL__N_110RefCountedD2Ev.exit70
   %.pn54 = phi { ptr, i32 } [ %9, %_ZN12_GLOBAL__N_110RefCountedD2Ev.exit70 ], [ %.pn51.pn, %_ZN7testing15AssertionResultD2Ev.exit122 ], [ %.pn48.pn, %_ZN7testing15AssertionResultD2Ev.exit160 ], [ %.pn45.pn, %_ZN7testing15AssertionResultD2Ev.exit192 ], [ %.pn42.pn, %_ZN7testing15AssertionResultD2Ev.exit224 ], [ %.pn39.pn, %_ZN7testing15AssertionResultD2Ev.exit256 ], [ %.pn.pn, %ehcleanup38 ], [ %lpad.loopexit, %lpad13.loopexit ], [ %lpad.loopexit289, %lpad13.loopexit.split-lp.loopexit ], [ %lpad.loopexit292, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit294, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit297, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit299, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp300, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
@@ -15993,15 +15993,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit277:                 ; preds = %ehcleanup185, %if.e
   resume { ptr, i32 } %.pn54
 
 for.inc190:                                       ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %inc191 = add nuw nsw i64 %erase_begin.0542, 1
-  %exitcond594.not = icmp eq i64 %inc191, %len.0543
-  br i1 %exitcond594.not, label %for.inc193, label %for.cond5.preheader, !llvm.loop !359
+  %inc191 = add nuw nsw i64 %erase_begin.0368, 1
+  %exitcond420.not = icmp eq i64 %inc191, %len.0369
+  br i1 %exitcond420.not, label %for.inc193, label %for.cond5.preheader, !llvm.loop !359
 
 for.inc193:                                       ; preds = %for.inc190
-  %inc194 = add nuw nsw i64 %len.0543, 1
+  %inc194 = add nuw nsw i64 %len.0369, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond595.not = icmp eq i64 %indvar.next, 19
-  br i1 %exitcond595.not, label %for.end195, label %for.cond2.preheader, !llvm.loop !360
+  %exitcond421.not = icmp eq i64 %indvar.next, 19
+  br i1 %exitcond421.not, label %for.end195, label %for.cond2.preheader, !llvm.loop !360
 
 for.end195:                                       ; preds = %for.inc193
   ret void

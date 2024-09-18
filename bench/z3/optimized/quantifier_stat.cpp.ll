@@ -439,11 +439,11 @@ if.then50:                                        ; preds = %_ZNK11ast_manager6i
 
 sw.bb60:                                          ; preds = %_ZNK3app13get_decl_kindEv.exit
   %cmp61 = icmp eq i32 %bf.clear, 0
-  %.101 = select i1 %cmp61, i32 4, i32 9
+  %.100 = select i1 %cmp61, i32 4, i32 9
   br label %if.end70.sink.split
 
 if.end70.sink.split:                              ; preds = %sw.bb, %sw.bb60, %if.then50, %if.then42
-  %.sink = phi i32 [ %add43, %if.then42 ], [ %., %if.then50 ], [ %.101, %sw.bb60 ], [ %spec.select, %sw.bb ]
+  %.sink = phi i32 [ %add43, %if.then42 ], [ %., %if.then50 ], [ %.100, %sw.bb60 ], [ %spec.select, %sw.bb ]
   %call64 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10approx_natmLEj(ptr noundef nonnull align 4 dereferenceable(4) %m_case_split_factor66, i32 noundef %.sink)
   br label %if.end70
 

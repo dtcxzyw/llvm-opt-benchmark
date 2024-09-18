@@ -1033,8 +1033,8 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   br i1 %.not, label %21, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %.not107 = icmp eq i64 %2, 0
-  br i1 %.not107, label %._crit_edge, label %.lr.ph
+  %.not106 = icmp eq i64 %2, 0
+  br i1 %.not106, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1060,16 +1060,16 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   ret i64 %22
 
 23:                                               ; preds = %.lr.ph, %42
-  %.032105 = phi i64 [ 0, %.lr.ph ], [ %43, %42 ]
-  %24 = icmp ult i64 %.032105, %1
+  %.032104 = phi i64 [ 0, %.lr.ph ], [ %43, %42 ]
+  %24 = icmp ult i64 %.032104, %1
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds i8, ptr %0, i64 %.032105
+  %25 = getelementptr inbounds i8, ptr %0, i64 %.032104
   %26 = load i8, ptr %25, align 1, !noundef !5
   %27 = icmp eq i8 %26, 10
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %23
-  %29 = trunc i64 %.032105 to i32
+  %29 = trunc i64 %.032104 to i32
   %30 = add i32 %20, %29
   %31 = load i64, ptr %12, align 8, !alias.scope !219, !noundef !5
   %32 = load i64, ptr %4, align 8, !alias.scope !219, !noundef !5
@@ -1102,12 +1102,12 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 
 42:                                               ; preds = %.sink.split, %92, %38
   %.0 = phi i64 [ 1, %92 ], [ 1, %38 ], [ %.0.ph, %.sink.split ]
-  %43 = add i64 %.0, %.032105
+  %43 = add i64 %.0, %.032104
   %44 = icmp ult i64 %43, %2
   br i1 %44, label %23, label %._crit_edge
 
 45:                                               ; preds = %38
-  %46 = icmp eq i64 %.032105, 0
+  %46 = icmp eq i64 %.032104, 0
   br i1 %46, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread", label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %45
@@ -1115,16 +1115,16 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   br i1 %47, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i", label %48
 
 48:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
-  call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.032105, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.edb59cc71ceb91f03d7d1eaa33cee96c.43) #15
+  call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.032104, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.edb59cc71ceb91f03d7d1eaa33cee96c.43) #15
   unreachable
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
-  %49 = sub nuw i64 %1, %.032105
+  %49 = sub nuw i64 %1, %.032104
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %.thread, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread": ; preds = %45, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i"
-  %.ph113 = phi i64 [ %49, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i" ], [ %1, %45 ]
+  %.ph112 = phi i64 [ %49, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i" ], [ %1, %45 ]
   %51 = icmp sgt i8 %26, -1
   br i1 %51, label %.thread70.thread, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit13.i"
 
@@ -1132,7 +1132,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   %52 = getelementptr inbounds i8, ptr %25, i64 1
   %53 = and i8 %26, 31
   %54 = zext nneg i8 %53 to i32
-  %55 = icmp ne i64 %.ph113, 1
+  %55 = icmp ne i64 %.ph112, 1
   call void @llvm.assume(i1 %55)
   %56 = load i8, ptr %52, align 1, !noalias !222, !noundef !5
   %57 = shl nuw nsw i32 %54, 6
@@ -1144,7 +1144,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit13.i"
   %62 = getelementptr inbounds i8, ptr %25, i64 2
-  %63 = icmp ne i64 %.ph113, 2
+  %63 = icmp ne i64 %.ph112, 2
   call void @llvm.assume(i1 %63)
   %64 = load i8, ptr %62, align 1, !noalias !222, !noundef !5
   %65 = shl nuw nsw i32 %59, 6
@@ -1158,7 +1158,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 
 72:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i"
   %73 = getelementptr inbounds i8, ptr %25, i64 3
-  %74 = icmp ne i64 %.ph113, 3
+  %74 = icmp ne i64 %.ph112, 3
   call void @llvm.assume(i1 %74)
   %75 = load i8, ptr %73, align 1, !noalias !222, !noundef !5
   %76 = shl nuw nsw i32 %54, 18
@@ -1191,7 +1191,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 
 .thread70.thread:                                 ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread", %85, %87, %.thread70
   %.033 = phi i64 [ 1, %.thread70 ], [ %., %87 ], [ 2, %85 ], [ 1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread" ]
-  %89 = trunc i64 %.032105 to i32
+  %89 = trunc i64 %.032104 to i32
   %90 = add i32 %3, %89
   %91 = load i64, ptr %12, align 8, !noundef !5
   %.not39 = icmp eq i64 %91, 0

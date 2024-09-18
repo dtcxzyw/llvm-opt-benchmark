@@ -29065,11 +29065,11 @@ define hidden void @_ZN15rustfmt_nightly5pairs23rewrite_pairs_multiline17habef6e
   %45 = select i1 %43, i64 %40, i64 0
   %.sink2.i = add i64 %45, %23
   %.sink1.i = select i1 %43, i64 0, i64 %44
-  %.pre206 = add i64 %.sink2.i, %.sink1.i
+  %.pre202 = add i64 %.sink2.i, %.sink1.i
   br label %46
 
 46:                                               ; preds = %4, %36
-  %.pre-phi = phi i64 [ %26, %4 ], [ %.pre206, %36 ]
+  %.pre-phi = phi i64 [ %26, %4 ], [ %.pre202, %36 ]
   %.sroa.11.0 = phi i64 [ %25, %4 ], [ %.sink1.i, %36 ]
   %.sroa.0138.0 = phi i64 [ %23, %4 ], [ %.sink2.i, %36 ]
   %47 = load ptr, ptr %18, align 8, !nonnull !9, !align !65, !noundef !9
@@ -29171,8 +29171,8 @@ define hidden void @_ZN15rustfmt_nightly5pairs23rewrite_pairs_multiline17habef6e
   %80 = add i64 %.val67, 576460752303423487
   %81 = and i64 %80, 576460752303423487
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %81, i64 %79)
-  %.not201 = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
-  br i1 %.not201, label %._crit_edge, label %.lr.ph
+  %.not197 = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
+  br i1 %.not197, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8

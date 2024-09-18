@@ -1196,22 +1196,22 @@ define dso_local void @_ZN4llvm13LiveRangeCalc9updateSSAEv(ptr noundef nonnull a
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %14
 
-14:                                               ; preds = %._crit_edge129, %1
+14:                                               ; preds = %._crit_edge127, %1
   %15 = load ptr, ptr %4, align 8
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   %17 = getelementptr inbounds %"struct.llvm::LiveRangeCalc::LiveInBlock", ptr %15, i64 %16
   %.not122 = icmp eq i64 %16, 0
-  br i1 %.not122, label %._crit_edge129.thread, label %.lr.ph128
+  br i1 %.not122, label %.critedge, label %.lr.ph126
 
-.lr.ph128:                                        ; preds = %14, %245
-  %.0126 = phi i1 [ %.1, %245 ], [ false, %14 ]
-  %.059125 = phi ptr [ %246, %245 ], [ %15, %14 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.059125, i64 8
+.lr.ph126:                                        ; preds = %14, %245
+  %.0124 = phi i1 [ %.1, %245 ], [ false, %14 ]
+  %.059123 = phi ptr [ %246, %245 ], [ %15, %14 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.059123, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not68 = icmp eq ptr %19, null
   br i1 %.not68, label %245, label %20
 
-20:                                               ; preds = %.lr.ph128
+20:                                               ; preds = %.lr.ph126
   %21 = tail call noundef ptr @_ZNK4llvm15DomTreeNodeBaseINS_17MachineBasicBlockEE8getBlockEv(ptr noundef nonnull align 8 dereferenceable(80) %19) #12
   %22 = tail call noundef ptr @_ZNK4llvm15DomTreeNodeBaseINS_17MachineBasicBlockEE7getIDomEv(ptr noundef nonnull align 8 dereferenceable(80) %19) #12
   %.not69 = icmp eq ptr %22, null
@@ -1450,7 +1450,7 @@ _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit93: ; preds = %118, %
   %164 = load i64, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %166 = load i64, ptr %165, align 8
-  %167 = load ptr, ptr %.059125, align 8
+  %167 = load ptr, ptr %.059123, align 8
   %168 = load ptr, ptr %9, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 80
   %170 = load i64, ptr %169, align 8
@@ -1552,10 +1552,10 @@ _ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15M
   %226 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %213) #12
   %227 = add i64 %226, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %213, i64 noundef %227) #12
-  %228 = getelementptr inbounds nuw i8, ptr %.059125, i64 24
+  %228 = getelementptr inbounds nuw i8, ptr %.059123, i64 24
   store ptr %.0.i.i.i.i, ptr %228, align 8
   store ptr null, ptr %18, align 8
-  %229 = getelementptr inbounds nuw i8, ptr %.059125, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %.059123, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %229, align 8
   %230 = icmp ugt i64 %.0.copyload.i.i.i.i, 7
   br i1 %230, label %231, label %233
@@ -1578,9 +1578,9 @@ _ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15M
   br label %245
 
 236:                                              ; preds = %._crit_edge
-  %237 = getelementptr inbounds nuw i8, ptr %.059125, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %.059123, i64 24
   store ptr %43, ptr %237, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %.059125, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %.059123, i64 16
   %.0.copyload.i.i.i.i94 = load i64, ptr %238, align 8
   %239 = icmp ugt i64 %.0.copyload.i.i.i.i94, 7
   br i1 %239, label %245, label %240
@@ -1596,16 +1596,16 @@ _ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15M
   store ptr %.sroa.7.4, ptr %244, align 8
   br label %245
 
-245:                                              ; preds = %231, %233, %243, %._crit_edge, %240, %236, %.lr.ph128
-  %.1 = phi i1 [ %.0126, %.lr.ph128 ], [ true, %231 ], [ true, %233 ], [ %.0126, %236 ], [ %.0126, %240 ], [ true, %243 ], [ %.0126, %._crit_edge ]
-  %246 = getelementptr inbounds i8, ptr %.059125, i64 32
+245:                                              ; preds = %231, %233, %243, %._crit_edge, %240, %236, %.lr.ph126
+  %.1 = phi i1 [ true, %231 ], [ true, %233 ], [ %.0124, %236 ], [ %.0124, %240 ], [ true, %243 ], [ %.0124, %._crit_edge ], [ %.0124, %.lr.ph126 ]
+  %246 = getelementptr inbounds i8, ptr %.059123, i64 32
   %.not = icmp eq ptr %246, %17
-  br i1 %.not, label %._crit_edge129, label %.lr.ph128
+  br i1 %.not, label %._crit_edge127, label %.lr.ph126
 
-._crit_edge129:                                   ; preds = %245
-  br i1 %.1, label %14, label %._crit_edge129.thread, !llvm.loop !20
+._crit_edge127:                                   ; preds = %245
+  br i1 %.1, label %14, label %.critedge, !llvm.loop !20
 
-._crit_edge129.thread:                            ; preds = %14, %._crit_edge129
+.critedge:                                        ; preds = %14, %._crit_edge127
   ret void
 }
 

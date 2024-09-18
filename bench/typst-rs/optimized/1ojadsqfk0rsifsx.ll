@@ -253,11 +253,11 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 48:                                               ; preds = %.lr.ph, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread
   %49 = phi i64 [ 2, %.lr.ph ], [ %221, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread ]
-  %.sroa.7118.0227 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread ]
-  %50 = getelementptr inbounds i8, ptr %.76, i64 %.sroa.7118.0227
+  %.sroa.7118.0226 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread ]
+  %50 = getelementptr inbounds i8, ptr %.76, i64 %.sroa.7118.0226
   %.val.i.i.i.i = load i16, ptr %50, align 1, !alias.scope !12, !noalias !19
   %51 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i)
-  %52 = add i64 %.sroa.7118.0227, 4
+  %52 = add i64 %.sroa.7118.0226, 4
   %53 = icmp ugt i64 %49, -3
   %54 = icmp ugt i64 %52, %24
   %or.cond.i.i156.i = or i1 %53, %54
@@ -289,14 +289,14 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   br i1 %or.cond.i.i159.not.i, label %71, label %.loopexit
 
 67:                                               ; preds = %60
-  %68 = add i64 %.sroa.7118.0227, 6
+  %68 = add i64 %.sroa.7118.0226, 6
   %69 = icmp ugt i64 %52, -3
   %70 = icmp ugt i64 %68, %24
   %or.cond.i.i162.i = or i1 %69, %70
   br i1 %or.cond.i.i162.i, label %.loopexit, label %81
 
 71:                                               ; preds = %66
-  %72 = add nuw i64 %.sroa.7118.0227, 5
+  %72 = add nuw i64 %.sroa.7118.0226, 5
   %or.cond.i.i165.not.i = icmp ult i64 %72, %24
   br i1 %or.cond.i.i165.not.i, label %73, label %.loopexit
 
@@ -304,14 +304,14 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %74 = getelementptr inbounds i8, ptr %.76, i64 %52
   %75 = load i8, ptr %74, align 1, !alias.scope !32, !noalias !19, !noundef !37
   %76 = sitofp i8 %75 to float
-  %77 = add nuw i64 %.sroa.7118.0227, 6
+  %77 = add nuw i64 %.sroa.7118.0226, 6
   %78 = getelementptr inbounds i8, ptr %.76, i64 %72
   %79 = load i8, ptr %78, align 1, !alias.scope !38, !noalias !19, !noundef !37
   %80 = sitofp i8 %79 to float
   br label %63
 
 81:                                               ; preds = %67
-  %82 = add i64 %.sroa.7118.0227, 8
+  %82 = add i64 %.sroa.7118.0226, 8
   %83 = icmp ugt i64 %68, -3
   %84 = icmp ugt i64 %82, %24
   %or.cond.i.i175.i = or i1 %83, %84
@@ -504,8 +504,8 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.sroa.416.0.i = phi i64 [ %209, %206 ], [ %193, %189 ]
   %.not25.i = icmp uge i64 %.sroa.014.0.i, %.sroa.416.0.i
   %195 = icmp ugt i64 %.sroa.416.0.i, %3
-  %or.cond243 = or i1 %.not25.i, %195
-  br i1 %or.cond243, label %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread, label %_ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit
+  %or.cond225 = or i1 %.not25.i, %195
+  br i1 %or.cond225, label %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread, label %_ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit
 
 196:                                              ; preds = %173
   %197 = getelementptr inbounds i8, ptr %.val43.i, i64 %175
@@ -733,10 +733,10 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   %.val12.i.i = phi i64 [ %267, %313 ], [ 0, %280 ]
   %.val11.i.i = phi ptr [ %262, %313 ], [ @anon.e1937a5437cdf78787e171774858dd58.7.llvm.284791617311874798, %280 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !158
-  %.not.i96241 = icmp eq i16 %.sroa.39116.0, 0
-  br i1 %.not.i96241, label %.loopexit, label %.lr.ph242
+  %.not.i96239 = icmp eq i16 %.sroa.39116.0, 0
+  br i1 %.not.i96239, label %.loopexit, label %.lr.ph240
 
-.lr.ph242:                                        ; preds = %315
+.lr.ph240:                                        ; preds = %315
   %319 = getelementptr inbounds i8, ptr %7, i64 56
   %320 = getelementptr inbounds i8, ptr %7, i64 80
   %.sroa.221.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 84
@@ -766,18 +766,18 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !158
   br label %838
 
-339:                                              ; preds = %.lr.ph242, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit
-  %.sroa.13.0 = phi i64 [ 0, %.lr.ph242 ], [ %.sroa.13.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %.sroa.17.0 = phi i8 [ 0, %.lr.ph242 ], [ %.sroa.17.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %.sroa.21.0 = phi i8 [ 0, %.lr.ph242 ], [ %.sroa.21.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %.sroa.28.0 = phi i64 [ 0, %.lr.ph242 ], [ %.sroa.28.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %340 = phi i16 [ 0, %.lr.ph242 ], [ %435, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %341 = phi i64 [ 0, %.lr.ph242 ], [ %433, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %342 = phi i64 [ 0, %.lr.ph242 ], [ %434, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %343 = phi i16 [ 0, %.lr.ph242 ], [ %412, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %344 = phi i16 [ %.sroa.16.0, %.lr.ph242 ], [ %378, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %345 = phi i16 [ %.sroa.18.0, %.lr.ph242 ], [ %379, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %346 = phi i16 [ %.sroa.39116.0, %.lr.ph242 ], [ %347, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+339:                                              ; preds = %.lr.ph240, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit
+  %.sroa.13.0 = phi i64 [ 0, %.lr.ph240 ], [ %.sroa.13.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %.sroa.17.0 = phi i8 [ 0, %.lr.ph240 ], [ %.sroa.17.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %.sroa.21.0 = phi i8 [ 0, %.lr.ph240 ], [ %.sroa.21.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %.sroa.28.0 = phi i64 [ 0, %.lr.ph240 ], [ %.sroa.28.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %340 = phi i16 [ 0, %.lr.ph240 ], [ %435, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %341 = phi i64 [ 0, %.lr.ph240 ], [ %433, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %342 = phi i64 [ 0, %.lr.ph240 ], [ %434, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %343 = phi i16 [ 0, %.lr.ph240 ], [ %412, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %344 = phi i16 [ %.sroa.16.0, %.lr.ph240 ], [ %378, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %345 = phi i16 [ %.sroa.18.0, %.lr.ph240 ], [ %379, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %346 = phi i16 [ %.sroa.39116.0, %.lr.ph240 ], [ %347, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
   %347 = add i16 %346, -1
   %348 = icmp eq i16 %345, 0
   br i1 %348, label %349, label %356
@@ -829,11 +829,11 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   %375 = call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %344, i16 1)
   %376 = extractvalue { i16, i1 } %375, 1
   %377 = extractvalue { i16, i1 } %375, 0
-  %spec.select249 = select i1 %376, i16 -1, i16 %377
+  %spec.select246 = select i1 %376, i16 -1, i16 %377
   br label %_ZN10ttf_parser6tables4glyf13EndpointsIter4next17h343f1c5693c9cc59E.exit.i
 
 _ZN10ttf_parser6tables4glyf13EndpointsIter4next17h343f1c5693c9cc59E.exit.i: ; preds = %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17h8eb91d008ec77e10E.exit.thread.i.i", %356
-  %378 = phi i16 [ %344, %356 ], [ %spec.select249, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17h8eb91d008ec77e10E.exit.thread.i.i" ]
+  %378 = phi i16 [ %344, %356 ], [ %spec.select246, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17h8eb91d008ec77e10E.exit.thread.i.i" ]
   %379 = phi i16 [ %357, %356 ], [ %374, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17h8eb91d008ec77e10E.exit.thread.i.i" ]
   %380 = icmp eq i8 %.sroa.17.0, 0
   br i1 %380, label %381, label %382

@@ -58,7 +58,7 @@ define dso_local void @parse_backup_label(ptr noundef %0, ptr nocapture noundef 
 .lr.ph.i:                                         ; preds = %6, %line_starts_with.exit102
   %20 = phi i32 [ %132, %line_starts_with.exit102 ], [ %18, %6 ]
   %21 = phi i32 [ %.08.i, %line_starts_with.exit102 ], [ %17, %6 ]
-  %.0197 = phi i32 [ %.1, %line_starts_with.exit102 ], [ 0, %6 ]
+  %.0196 = phi i32 [ %.1, %line_starts_with.exit102 ], [ 0, %6 ]
   %22 = load ptr, ptr %1, align 8
   %23 = sext i32 %21 to i64
   %24 = getelementptr i8, ptr %22, i64 %23
@@ -93,7 +93,7 @@ get_eol_offset.exit:                              ; preds = %32, %29
   %gepdiff = sub nsw i64 %33, %23
   %scevgep.i = getelementptr i8, ptr @.str, i64 %gepdiff
   %scevgep = getelementptr i8, ptr %22, i64 20
-  %scevgep207 = getelementptr i8, ptr %scevgep, i64 %23
+  %scevgep206 = getelementptr i8, ptr %scevgep, i64 %23
   br label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %40, %.lr.ph.preheader.i
@@ -122,7 +122,7 @@ get_eol_offset.exit:                              ; preds = %32, %29
   br i1 %43, label %.critedge.i.thread, label %line_starts_with.exit
 
 .critedge.i.thread:                               ; preds = %.lr.ph.i60, %.critedge.i
-  %.0117.ph = phi ptr [ %.0.lcssa.i.ph, %.critedge.i ], [ %scevgep207, %.lr.ph.i60 ]
+  %.0117.ph = phi ptr [ %.0.lcssa.i.ph, %.critedge.i ], [ %scevgep206, %.lr.ph.i60 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
@@ -169,7 +169,7 @@ get_eol_offset.exit:                              ; preds = %32, %29
   unreachable
 
 61:                                               ; preds = %58
-  %62 = or i32 %.0197, 1
+  %62 = or i32 %.0196, 1
   br label %line_starts_with.exit102
 
 line_starts_with.exit:                            ; preds = %36, %.critedge.i
@@ -178,15 +178,15 @@ line_starts_with.exit:                            ; preds = %36, %.critedge.i
 .lr.ph.preheader.i66:                             ; preds = %line_starts_with.exit
   %gepdiff173 = sub nsw i64 %33, %23
   %scevgep.i67 = getelementptr i8, ptr @.str.4, i64 %gepdiff173
-  %scevgep208 = getelementptr i8, ptr %22, i64 16
-  %scevgep209 = getelementptr i8, ptr %scevgep208, i64 %23
+  %scevgep207 = getelementptr i8, ptr %22, i64 16
+  %scevgep208 = getelementptr i8, ptr %scevgep207, i64 %23
   br label %.lr.ph.i69
 
 .lr.ph.i69:                                       ; preds = %67, %.lr.ph.preheader.i66
   %.017.i70 = phi ptr [ %68, %67 ], [ %24, %.lr.ph.preheader.i66 ]
   %.01316.i71 = phi ptr [ %69, %67 ], [ @.str.4, %.lr.ph.preheader.i66 ]
-  %exitcond210 = icmp eq ptr %.01316.i71, getelementptr inbounds (i8, ptr @.str.4, i64 16)
-  br i1 %exitcond210, label %.critedge.i62.thread, label %63
+  %exitcond209 = icmp eq ptr %.01316.i71, getelementptr inbounds (i8, ptr @.str.4, i64 16)
+  br i1 %exitcond209, label %.critedge.i62.thread, label %63
 
 63:                                               ; preds = %.lr.ph.i69
   %64 = load i8, ptr %.01316.i71, align 1
@@ -208,7 +208,7 @@ line_starts_with.exit:                            ; preds = %36, %.critedge.i
   br i1 %70, label %.critedge.i62.thread, label %line_starts_with.exit74
 
 .critedge.i62.thread:                             ; preds = %.lr.ph.i69, %.critedge.i62
-  %.1118.ph = phi ptr [ %.0.lcssa.i64.ph, %.critedge.i62 ], [ %scevgep209, %.lr.ph.i69 ]
+  %.1118.ph = phi ptr [ %.0.lcssa.i64.ph, %.critedge.i62 ], [ %scevgep208, %.lr.ph.i69 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %71 = load i8, ptr %34, align 1
   store i8 0, ptr %34, align 1
@@ -246,7 +246,7 @@ parse_tli.exit:                                   ; preds = %.critedge.i62.threa
   unreachable
 
 82:                                               ; preds = %78
-  %83 = or i32 %.0197, 2
+  %83 = or i32 %.0196, 2
   br label %line_starts_with.exit102
 
 line_starts_with.exit74:                          ; preds = %63, %.critedge.i62
@@ -255,15 +255,15 @@ line_starts_with.exit74:                          ; preds = %63, %.critedge.i62
 .lr.ph.preheader.i80:                             ; preds = %line_starts_with.exit74
   %gepdiff174 = sub nsw i64 %33, %23
   %scevgep.i81 = getelementptr i8, ptr @.str.8, i64 %gepdiff174
-  %scevgep211 = getelementptr i8, ptr %22, i64 22
-  %scevgep212 = getelementptr i8, ptr %scevgep211, i64 %23
+  %scevgep210 = getelementptr i8, ptr %22, i64 22
+  %scevgep211 = getelementptr i8, ptr %scevgep210, i64 %23
   br label %.lr.ph.i83
 
 .lr.ph.i83:                                       ; preds = %88, %.lr.ph.preheader.i80
   %.017.i84 = phi ptr [ %89, %88 ], [ %24, %.lr.ph.preheader.i80 ]
   %.01316.i85 = phi ptr [ %90, %88 ], [ @.str.8, %.lr.ph.preheader.i80 ]
-  %exitcond213 = icmp eq ptr %.01316.i85, getelementptr inbounds (i8, ptr @.str.8, i64 22)
-  br i1 %exitcond213, label %.critedge.i76.thread, label %84
+  %exitcond212 = icmp eq ptr %.01316.i85, getelementptr inbounds (i8, ptr @.str.8, i64 22)
+  br i1 %exitcond212, label %.critedge.i76.thread, label %84
 
 84:                                               ; preds = %.lr.ph.i83
   %85 = load i8, ptr %.01316.i85, align 1
@@ -285,7 +285,7 @@ line_starts_with.exit74:                          ; preds = %63, %.critedge.i62
   br i1 %91, label %.critedge.i76.thread, label %line_starts_with.exit88
 
 .critedge.i76.thread:                             ; preds = %.lr.ph.i83, %.critedge.i76
-  %.2119.ph = phi ptr [ %.0.lcssa.i78.ph, %.critedge.i76 ], [ %scevgep212, %.lr.ph.i83 ]
+  %.2119.ph = phi ptr [ %.0.lcssa.i78.ph, %.critedge.i76 ], [ %scevgep211, %.lr.ph.i83 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -332,7 +332,7 @@ line_starts_with.exit74:                          ; preds = %63, %.critedge.i62
   unreachable
 
 109:                                              ; preds = %106
-  %110 = or i32 %.0197, 4
+  %110 = or i32 %.0196, 4
   br label %line_starts_with.exit102
 
 line_starts_with.exit88:                          ; preds = %84, %.critedge.i76
@@ -341,15 +341,15 @@ line_starts_with.exit88:                          ; preds = %84, %.critedge.i76
 .lr.ph.preheader.i94:                             ; preds = %line_starts_with.exit88
   %gepdiff175 = sub nsw i64 %33, %23
   %scevgep.i95 = getelementptr i8, ptr @.str.10, i64 %gepdiff175
-  %scevgep214 = getelementptr i8, ptr %22, i64 22
-  %scevgep215 = getelementptr i8, ptr %scevgep214, i64 %23
+  %scevgep213 = getelementptr i8, ptr %22, i64 22
+  %scevgep214 = getelementptr i8, ptr %scevgep213, i64 %23
   br label %.lr.ph.i97
 
 .lr.ph.i97:                                       ; preds = %115, %.lr.ph.preheader.i94
   %.017.i98 = phi ptr [ %116, %115 ], [ %24, %.lr.ph.preheader.i94 ]
   %.01316.i99 = phi ptr [ %117, %115 ], [ @.str.10, %.lr.ph.preheader.i94 ]
-  %exitcond216 = icmp eq ptr %.01316.i99, getelementptr inbounds (i8, ptr @.str.10, i64 22)
-  br i1 %exitcond216, label %.critedge.i90.thread, label %111
+  %exitcond215 = icmp eq ptr %.01316.i99, getelementptr inbounds (i8, ptr @.str.10, i64 22)
+  br i1 %exitcond215, label %.critedge.i90.thread, label %111
 
 111:                                              ; preds = %.lr.ph.i97
   %112 = load i8, ptr %.01316.i99, align 1
@@ -371,7 +371,7 @@ line_starts_with.exit88:                          ; preds = %84, %.critedge.i76
   br i1 %118, label %.critedge.i90.thread, label %line_starts_with.exit102
 
 .critedge.i90.thread:                             ; preds = %.lr.ph.i97, %.critedge.i90
-  %.3120.ph = phi ptr [ %.0.lcssa.i92.ph, %.critedge.i90 ], [ %scevgep215, %.lr.ph.i97 ]
+  %.3120.ph = phi ptr [ %.0.lcssa.i92.ph, %.critedge.i90 ], [ %scevgep214, %.lr.ph.i97 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %119 = load i8, ptr %34, align 1
   store i8 0, ptr %34, align 1
@@ -409,11 +409,11 @@ parse_tli.exit105:                                ; preds = %.critedge.i90.threa
   unreachable
 
 130:                                              ; preds = %126
-  %131 = or i32 %.0197, 8
+  %131 = or i32 %.0196, 8
   br label %line_starts_with.exit102
 
 line_starts_with.exit102:                         ; preds = %111, %.critedge.i90, %82, %130, %109, %61
-  %.1 = phi i32 [ %62, %61 ], [ %83, %82 ], [ %110, %109 ], [ %131, %130 ], [ %.0197, %.critedge.i90 ], [ %.0197, %111 ]
+  %.1 = phi i32 [ %62, %61 ], [ %83, %82 ], [ %110, %109 ], [ %131, %130 ], [ %.0196, %.critedge.i90 ], [ %.0196, %111 ]
   store i32 %.08.i, ptr %15, align 8
   %132 = load i32, ptr %16, align 8
   %133 = icmp slt i32 %.08.i, %132

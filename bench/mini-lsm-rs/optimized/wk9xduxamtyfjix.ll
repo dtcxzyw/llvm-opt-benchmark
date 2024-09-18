@@ -6019,25 +6019,25 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
   br i1 %21, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.14689451251361528239.exit.i.i20.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7133eba6629b3ce3E.exit.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7133eba6629b3ce3E.exit.i.i.i": ; preds = %.loopexit.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7133eba6629b3ce3E.exit.lr.ph.i.i.i"
-  %.sroa.0.023.i.i.i = phi ptr [ %.0.val, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7133eba6629b3ce3E.exit.lr.ph.i.i.i" ], [ %22, %.loopexit.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.0.023.i.i.i, i64 16
-  %23 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %.sroa.0.023.i.i.i, i8 noundef 0)
+  %.sroa.0.011.i.i.i = phi ptr [ %.0.val, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7133eba6629b3ce3E.exit.lr.ph.i.i.i" ], [ %22, %.loopexit.i.i.i ]
+  %22 = getelementptr inbounds i8, ptr %.sroa.0.011.i.i.i, i64 16
+  %23 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %.sroa.0.011.i.i.i, i8 noundef 0)
           to label %.noexc.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !1691
 
 .noexc.i.i:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7133eba6629b3ce3E.exit.i.i.i"
   %24 = and i64 %23, -8
-  %.not18.i.i.i = icmp eq i64 %24, 0
-  br i1 %.not18.i.i.i, label %.loopexit.i.i.i, label %.lr.ph21.i.i.i
+  %.not8.i.i.i = icmp eq i64 %24, 0
+  br i1 %.not8.i.i.i, label %.loopexit.i.i.i, label %.lr.ph10.i.i.i
 
-.lr.ph21.i.i.i:                                   ; preds = %.noexc.i.i, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hc4f8673a972c1d62E.exit.i.i.i
+.lr.ph10.i.i.i:                                   ; preds = %.noexc.i.i, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hc4f8673a972c1d62E.exit.i.i.i
   %.in.i.i.i = phi i64 [ %57, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hc4f8673a972c1d62E.exit.i.i.i ], [ %24, %.noexc.i.i ]
-  %storemerge19.i.i.i = phi i64 [ %27, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hc4f8673a972c1d62E.exit.i.i.i ], [ %23, %.noexc.i.i ]
+  %storemerge9.i.i.i = phi i64 [ %27, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hc4f8673a972c1d62E.exit.i.i.i ], [ %23, %.noexc.i.i ]
   %25 = inttoptr i64 %.in.i.i.i to ptr
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %26, i8 noundef 0)
           to label %.noexc6.i.i unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !1691
 
-.noexc6.i.i:                                      ; preds = %.lr.ph21.i.i.i
+.noexc6.i.i:                                      ; preds = %.lr.ph10.i.i.i
   %28 = load ptr, ptr %25, align 8, !noalias !1691, !nonnull !4, !align !24, !noundef !4
   %29 = getelementptr inbounds i8, ptr %25, i64 8
   %30 = load i64, ptr %29, align 8, !noalias !1691, !noundef !4
@@ -6050,9 +6050,9 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
           to label %.noexc7.i.i unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !1691
 
 .noexc7.i.i:                                      ; preds = %.noexc6.i.i
-  %.fca.0.extract14.i.i.i = extractvalue { i64, i64 } %32, 0
-  %switch15.i.i.i = icmp eq i64 %.fca.0.extract14.i.i.i, 0
-  br i1 %switch15.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
+  %.fca.0.extract4.i.i.i = extractvalue { i64, i64 } %32, 0
+  %switch5.i.i.i = icmp eq i64 %.fca.0.extract4.i.i.i, 0
+  br i1 %switch5.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.thread.i.i.i:                         ; preds = %.noexc7.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1691
@@ -6065,7 +6065,7 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
 ._crit_edge.i.i.i:                                ; preds = %.noexc16.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1691
   call void @llvm.experimental.noalias.scope.decl(metadata !1694)
-  %34 = icmp ult i64 %storemerge19.i.i.i, 8
+  %34 = icmp ult i64 %storemerge9.i.i.i, 8
   br i1 %34, label %.invoke.i.i, label %36
 
 .invoke.i.i:                                      ; preds = %._crit_edge.i.i.i, %91, %61
@@ -6077,8 +6077,8 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
   unreachable
 
 36:                                               ; preds = %._crit_edge.i.i.i, %._crit_edge.thread.i.i.i
-  %.in31.i.i.i = load ptr, ptr %9, align 8, !noalias !1691, !nonnull !4, !align !24, !noundef !4
-  %37 = load ptr, ptr %.in31.i.i.i, align 8, !noalias !1691, !nonnull !4, !align !24, !noundef !4
+  %.in12.i.i.i = load ptr, ptr %9, align 8, !noalias !1691, !nonnull !4, !align !24, !noundef !4
+  %37 = load ptr, ptr %.in12.i.i.i, align 8, !noalias !1691, !nonnull !4, !align !24, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !1697)
   %38 = load ptr, ptr %37, align 8, !alias.scope !1700, !noalias !1691, !noundef !4
   %39 = icmp eq ptr %38, null
@@ -6087,7 +6087,7 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
 40:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1701
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h8159a3a79116d016E.llvm.16532191985037651265, ptr %6, align 8, !alias.scope !1702, !noalias !1701
-  store i64 %storemerge19.i.i.i, ptr %19, align 8, !alias.scope !1702, !noalias !1701
+  store i64 %storemerge9.i.i.i, ptr %19, align 8, !alias.scope !1702, !noalias !1701
   invoke void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %38, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37)
           to label %.noexc9.i.i unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !1691
 
@@ -6152,19 +6152,19 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
 _ZN4moka3cht3map6bucket21defer_acquire_destroy17hc4f8673a972c1d62E.exit.i.i.i: ; preds = %.noexc10.i.i, %.noexc9.i.i
   %57 = and i64 %27, -8
   %.not.i.i.i = icmp eq i64 %57, 0
-  br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph21.i.i.i
+  br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph10.i.i.i
 
 58:                                               ; preds = %.noexc16.i.i, %.lr.ph.i.i.i
   %.pn.i.i.i = phi { i64, i64 } [ %32, %.lr.ph.i.i.i ], [ %90, %.noexc16.i.i ]
-  %.fca.1.extract17.i.i.i = extractvalue { i64, i64 } %.pn.i.i.i, 1
-  %59 = and i64 %.fca.1.extract17.i.i.i, 2
+  %.fca.1.extract7.i.i.i = extractvalue { i64, i64 } %.pn.i.i.i, 1
+  %59 = and i64 %.fca.1.extract7.i.i.i, 2
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %89
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %9, align 8, !noalias !1691, !nonnull !4, !align !24, !noundef !4
   %63 = load ptr, ptr %62, align 8, !noalias !1691, !nonnull !4, !align !24, !noundef !4
-  %64 = icmp ult i64 %.fca.1.extract17.i.i.i, 8
+  %64 = icmp ult i64 %.fca.1.extract7.i.i.i, 8
   br i1 %64, label %.invoke.i.i, label %_ZN4moka3cht3map6bucket20defer_destroy_bucket17h794113c7eb88d869E.exit.i.i.i
 
 _ZN4moka3cht3map6bucket20defer_destroy_bucket17h794113c7eb88d869E.exit.i.i.i: ; preds = %61
@@ -6176,7 +6176,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h794113c7eb88d869E.exit.i.i.i: ; 
 67:                                               ; preds = %_ZN4moka3cht3map6bucket20defer_destroy_bucket17h794113c7eb88d869E.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1743
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h446ad840d4ff6a58E.llvm.16532191985037651265, ptr %4, align 8, !alias.scope !1744, !noalias !1743
-  store i64 %.fca.1.extract17.i.i.i, ptr %17, align 8, !alias.scope !1744, !noalias !1743
+  store i64 %.fca.1.extract7.i.i.i, ptr %17, align 8, !alias.scope !1744, !noalias !1743
   invoke void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %65, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63)
           to label %.noexc12.i.i unwind label %.loopexit.i.i, !noalias !1691
 
@@ -6186,7 +6186,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h794113c7eb88d869E.exit.i.i.i: ; 
 
 68:                                               ; preds = %_ZN4moka3cht3map6bucket20defer_destroy_bucket17h794113c7eb88d869E.exit.i.i.i
   fence acquire
-  %69 = and i64 %.fca.1.extract17.i.i.i, -8
+  %69 = and i64 %.fca.1.extract7.i.i.i, -8
   %70 = inttoptr i64 %69 to ptr
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1747)
@@ -6261,7 +6261,7 @@ _ZN15crossbeam_epoch5guard5Guard15defer_unchecked17hdb777bcb7d60df95E.exit.i.i.i
 91:                                               ; preds = %89
   %92 = load ptr, ptr %9, align 8, !noalias !1691, !nonnull !4, !align !24, !noundef !4
   %93 = load ptr, ptr %92, align 8, !noalias !1691, !nonnull !4, !align !24, !noundef !4
-  %94 = icmp ult i64 %.fca.1.extract17.i.i.i, 8
+  %94 = icmp ult i64 %.fca.1.extract7.i.i.i, 8
   br i1 %94, label %.invoke.i.i, label %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hcd7b6c21ddfd0061E.exit.i.i.i
 
 _ZN4moka3cht3map6bucket21defer_acquire_destroy17hcd7b6c21ddfd0061E.exit.i.i.i: ; preds = %91
@@ -6273,7 +6273,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hcd7b6c21ddfd0061E.exit.i.i.i: ;
 97:                                               ; preds = %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hcd7b6c21ddfd0061E.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !1784
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hbce44b8310b4e5dfE.llvm.16532191985037651265, ptr %2, align 8, !alias.scope !1785, !noalias !1784
-  store i64 %.fca.1.extract17.i.i.i, ptr %15, align 8, !alias.scope !1785, !noalias !1784
+  store i64 %.fca.1.extract7.i.i.i, ptr %15, align 8, !alias.scope !1785, !noalias !1784
   invoke void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %95, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %93)
           to label %.noexc18.i.i unwind label %.loopexit.i.i, !noalias !1691
 
@@ -6283,7 +6283,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hcd7b6c21ddfd0061E.exit.i.i.i: ;
 
 98:                                               ; preds = %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hcd7b6c21ddfd0061E.exit.i.i.i
   fence acquire
-  %99 = and i64 %.fca.1.extract17.i.i.i, -8
+  %99 = and i64 %.fca.1.extract7.i.i.i, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1), !noalias !1788
   %100 = inttoptr i64 %99 to ptr
   %101 = icmp ne i64 %99, 0
@@ -6330,7 +6330,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hcd7b6c21ddfd0061E.exit.i.i.i: ;
           cleanup
   br label %.loopexit.split-lp.i.i
 
-.loopexit.split-lp.loopexit.i.i:                  ; preds = %"_ZN4core3ptr236drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17h5068e2d62ed349b9E.llvm.4598255899691141044.exit.i.i.i", %40, %.noexc6.i.i, %.lr.ph21.i.i.i
+.loopexit.split-lp.loopexit.i.i:                  ; preds = %"_ZN4core3ptr236drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17h5068e2d62ed349b9E.llvm.4598255899691141044.exit.i.i.i", %40, %.noexc6.i.i, %.lr.ph10.i.i.i
   %lpad.loopexit22.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
@@ -13203,25 +13203,25 @@ define internal fastcc void @"_ZN4core3ptr249drop_in_place$LT$moka..cht..segment
   br i1 %21, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.14689451251361528239.exit.i.i20", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h908086b1475f6bfbE.exit.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h908086b1475f6bfbE.exit.i": ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h908086b1475f6bfbE.exit.lr.ph.i"
-  %.sroa.0.023.i = phi ptr [ %.val, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h908086b1475f6bfbE.exit.lr.ph.i" ], [ %22, %.loopexit.i ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.0.023.i, i64 16
-  %23 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %.sroa.0.023.i, i8 noundef 0)
+  %.sroa.0.011.i = phi ptr [ %.val, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h908086b1475f6bfbE.exit.lr.ph.i" ], [ %22, %.loopexit.i ]
+  %22 = getelementptr inbounds i8, ptr %.sroa.0.011.i, i64 16
+  %23 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %.sroa.0.011.i, i8 noundef 0)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h908086b1475f6bfbE.exit.i"
   %24 = and i64 %23, -8
-  %.not18.i = icmp eq i64 %24, 0
-  br i1 %.not18.i, label %.loopexit.i, label %.lr.ph21.i
+  %.not8.i = icmp eq i64 %24, 0
+  br i1 %.not8.i, label %.loopexit.i, label %.lr.ph10.i
 
-.lr.ph21.i:                                       ; preds = %.noexc, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h8de83b13c95f7328E.exit.i
+.lr.ph10.i:                                       ; preds = %.noexc, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h8de83b13c95f7328E.exit.i
   %.in.i = phi i64 [ %57, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h8de83b13c95f7328E.exit.i ], [ %24, %.noexc ]
-  %storemerge19.i = phi i64 [ %27, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h8de83b13c95f7328E.exit.i ], [ %23, %.noexc ]
+  %storemerge9.i = phi i64 [ %27, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h8de83b13c95f7328E.exit.i ], [ %23, %.noexc ]
   %25 = inttoptr i64 %.in.i to ptr
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %26, i8 noundef 0)
           to label %.noexc6 unwind label %.loopexit.split-lp.loopexit
 
-.noexc6:                                          ; preds = %.lr.ph21.i
+.noexc6:                                          ; preds = %.lr.ph10.i
   %28 = load ptr, ptr %25, align 8, !nonnull !4, !align !24, !noundef !4
   %29 = getelementptr inbounds i8, ptr %25, i64 8
   %30 = load i64, ptr %29, align 8, !noundef !4
@@ -13234,9 +13234,9 @@ define internal fastcc void @"_ZN4core3ptr249drop_in_place$LT$moka..cht..segment
           to label %.noexc7 unwind label %.loopexit.split-lp.loopexit
 
 .noexc7:                                          ; preds = %.noexc6
-  %.fca.0.extract14.i = extractvalue { i64, i64 } %32, 0
-  %switch15.i = icmp eq i64 %.fca.0.extract14.i, 0
-  br i1 %switch15.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  %.fca.0.extract4.i = extractvalue { i64, i64 } %32, 0
+  %switch5.i = icmp eq i64 %.fca.0.extract4.i, 0
+  br i1 %switch5.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %.noexc7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -13249,7 +13249,7 @@ define internal fastcc void @"_ZN4core3ptr249drop_in_place$LT$moka..cht..segment
 ._crit_edge.i:                                    ; preds = %.noexc16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !3986)
-  %34 = icmp ult i64 %storemerge19.i, 8
+  %34 = icmp ult i64 %storemerge9.i, 8
   br i1 %34, label %.invoke, label %36
 
 .invoke:                                          ; preds = %._crit_edge.i, %91, %61
@@ -13261,8 +13261,8 @@ define internal fastcc void @"_ZN4core3ptr249drop_in_place$LT$moka..cht..segment
   unreachable
 
 36:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.in31.i = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
-  %37 = load ptr, ptr %.in31.i, align 8, !nonnull !4, !align !24, !noundef !4
+  %.in12.i = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
+  %37 = load ptr, ptr %.in12.i, align 8, !nonnull !4, !align !24, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !3989)
   %38 = load ptr, ptr %37, align 8, !alias.scope !3992, !noundef !4
   %39 = icmp eq ptr %38, null
@@ -13271,7 +13271,7 @@ define internal fastcc void @"_ZN4core3ptr249drop_in_place$LT$moka..cht..segment
 40:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !3992
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17he4b3a5e1f610e940E.llvm.16532191985037651265, ptr %7, align 8, !alias.scope !3993, !noalias !3992
-  store i64 %storemerge19.i, ptr %19, align 8, !alias.scope !3993, !noalias !3992
+  store i64 %storemerge9.i, ptr %19, align 8, !alias.scope !3993, !noalias !3992
   invoke void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %38, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37)
           to label %.noexc9 unwind label %.loopexit.split-lp.loopexit
 
@@ -13336,19 +13336,19 @@ define internal fastcc void @"_ZN4core3ptr249drop_in_place$LT$moka..cht..segment
 _ZN4moka3cht3map6bucket21defer_acquire_destroy17h8de83b13c95f7328E.exit.i: ; preds = %.noexc10, %.noexc9
   %57 = and i64 %27, -8
   %.not.i = icmp eq i64 %57, 0
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph21.i
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph10.i
 
 58:                                               ; preds = %.noexc16, %.lr.ph.i
   %.pn.i = phi { i64, i64 } [ %32, %.lr.ph.i ], [ %90, %.noexc16 ]
-  %.fca.1.extract17.i = extractvalue { i64, i64 } %.pn.i, 1
-  %59 = and i64 %.fca.1.extract17.i, 2
+  %.fca.1.extract7.i = extractvalue { i64, i64 } %.pn.i, 1
+  %59 = and i64 %.fca.1.extract7.i, 2
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %89
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
   %63 = load ptr, ptr %62, align 8, !nonnull !4, !align !24, !noundef !4
-  %64 = icmp ult i64 %.fca.1.extract17.i, 8
+  %64 = icmp ult i64 %.fca.1.extract7.i, 8
   br i1 %64, label %.invoke, label %_ZN4moka3cht3map6bucket20defer_destroy_bucket17h04c9be76dc78ce2aE.exit.i
 
 _ZN4moka3cht3map6bucket20defer_destroy_bucket17h04c9be76dc78ce2aE.exit.i: ; preds = %61
@@ -13360,7 +13360,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h04c9be76dc78ce2aE.exit.i: ; pred
 67:                                               ; preds = %_ZN4moka3cht3map6bucket20defer_destroy_bucket17h04c9be76dc78ce2aE.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !4030
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h48d772f07f506301E.llvm.16532191985037651265, ptr %5, align 8, !alias.scope !4033, !noalias !4030
-  store i64 %.fca.1.extract17.i, ptr %17, align 8, !alias.scope !4033, !noalias !4030
+  store i64 %.fca.1.extract7.i, ptr %17, align 8, !alias.scope !4033, !noalias !4030
   invoke void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %65, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63)
           to label %.noexc12 unwind label %.loopexit
 
@@ -13370,7 +13370,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h04c9be76dc78ce2aE.exit.i: ; pred
 
 68:                                               ; preds = %_ZN4moka3cht3map6bucket20defer_destroy_bucket17h04c9be76dc78ce2aE.exit.i
   fence acquire
-  %69 = and i64 %.fca.1.extract17.i, -8
+  %69 = and i64 %.fca.1.extract7.i, -8
   %70 = inttoptr i64 %69 to ptr
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !4036)
@@ -13445,7 +13445,7 @@ _ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h54d854e4883fcfc1E.exit.i: ; 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
   %93 = load ptr, ptr %92, align 8, !nonnull !4, !align !24, !noundef !4
-  %94 = icmp ult i64 %.fca.1.extract17.i, 8
+  %94 = icmp ult i64 %.fca.1.extract7.i, 8
   br i1 %94, label %.invoke, label %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hca7ebc48948a32e5E.exit.i
 
 _ZN4moka3cht3map6bucket21defer_acquire_destroy17hca7ebc48948a32e5E.exit.i: ; preds = %91
@@ -13457,7 +13457,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hca7ebc48948a32e5E.exit.i: ; pre
 97:                                               ; preds = %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hca7ebc48948a32e5E.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !4070
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h8628c4cb64094ba2E.llvm.16532191985037651265, ptr %3, align 8, !alias.scope !4073, !noalias !4070
-  store i64 %.fca.1.extract17.i, ptr %15, align 8, !alias.scope !4073, !noalias !4070
+  store i64 %.fca.1.extract7.i, ptr %15, align 8, !alias.scope !4073, !noalias !4070
   invoke void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %95, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %93)
           to label %.noexc18 unwind label %.loopexit
 
@@ -13467,7 +13467,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hca7ebc48948a32e5E.exit.i: ; pre
 
 98:                                               ; preds = %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hca7ebc48948a32e5E.exit.i
   fence acquire
-  %99 = and i64 %.fca.1.extract17.i, -8
+  %99 = and i64 %.fca.1.extract7.i, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !4076
   %100 = inttoptr i64 %99 to ptr
   %101 = icmp ne i64 %99, 0
@@ -13514,7 +13514,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hca7ebc48948a32e5E.exit.i: ; pre
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %"_ZN4core3ptr282drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$$GT$17h336dc4ced00df6d4E.llvm.4598255899691141044.exit.i", %40, %.noexc6, %.lr.ph21.i
+.loopexit.split-lp.loopexit:                      ; preds = %"_ZN4core3ptr282drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$$GT$17h336dc4ced00df6d4E.llvm.4598255899691141044.exit.i", %40, %.noexc6, %.lr.ph10.i
   %lpad.loopexit22 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -29410,9 +29410,9 @@ define hidden void @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$V$C$S$GT$$u20$
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %11, i64 %13
   %15 = icmp eq i64 %13, 0
-  br i1 %15, label %._crit_edge48, label %.lr.ph47
+  br i1 %15, label %._crit_edge35, label %.lr.ph34
 
-.lr.ph47:                                         ; preds = %1
+.lr.ph34:                                         ; preds = %1
   %.sroa.05.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.05.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   %16 = getelementptr inbounds i8, ptr %8, i64 24
@@ -29426,24 +29426,24 @@ define hidden void @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$V$C$S$GT$$u20$
 
 .loopexit:                                        ; preds = %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h1bc9ef4d7ea8f42dE.exit, %24
   %23 = icmp eq ptr %25, %14
-  br i1 %23, label %._crit_edge48, label %24
+  br i1 %23, label %._crit_edge35, label %24
 
-._crit_edge48:                                    ; preds = %.loopexit, %1
+._crit_edge35:                                    ; preds = %.loopexit, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   ret void
 
-24:                                               ; preds = %.lr.ph47, %.loopexit
-  %.sroa.0.044 = phi ptr [ %11, %.lr.ph47 ], [ %25, %.loopexit ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.0.044, i64 16
-  %26 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %.sroa.0.044, i8 noundef 0)
+24:                                               ; preds = %.lr.ph34, %.loopexit
+  %.sroa.0.032 = phi ptr [ %11, %.lr.ph34 ], [ %25, %.loopexit ]
+  %25 = getelementptr inbounds i8, ptr %.sroa.0.032, i64 16
+  %26 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %.sroa.0.032, i8 noundef 0)
   %27 = and i64 %26, -8
-  %.not38 = icmp eq i64 %27, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph42
+  %.not28 = icmp eq i64 %27, 0
+  br i1 %.not28, label %.loopexit, label %.lr.ph31
 
-.lr.ph42:                                         ; preds = %24, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h1bc9ef4d7ea8f42dE.exit
+.lr.ph31:                                         ; preds = %24, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h1bc9ef4d7ea8f42dE.exit
   %.in = phi i64 [ %60, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h1bc9ef4d7ea8f42dE.exit ], [ %27, %24 ]
-  %storemerge39 = phi i64 [ %30, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h1bc9ef4d7ea8f42dE.exit ], [ %26, %24 ]
+  %storemerge29 = phi i64 [ %30, %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h1bc9ef4d7ea8f42dE.exit ], [ %26, %24 ]
   %28 = inttoptr i64 %.in to ptr
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %29, i8 noundef 0)
@@ -29456,22 +29456,22 @@ define hidden void @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$V$C$S$GT$$u20$
   store ptr %34, ptr %.sroa.05.sroa.2.0..sroa_idx, align 8
   store ptr %10, ptr %.sroa.05.sroa.3.0..sroa_idx, align 8
   %35 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h768e699b94043730E.llvm.4120737428893778768(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 1 %16, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.05.sroa.3.0..sroa_idx)
-  %.fca.0.extract34 = extractvalue { i64, i64 } %35, 0
-  %switch35 = icmp eq i64 %.fca.0.extract34, 0
-  br i1 %switch35, label %._crit_edge.thread, label %.lr.ph
+  %.fca.0.extract24 = extractvalue { i64, i64 } %35, 0
+  %switch25 = icmp eq i64 %.fca.0.extract24, 0
+  br i1 %switch25, label %._crit_edge.thread, label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %.lr.ph42
+._crit_edge.thread:                               ; preds = %.lr.ph31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %39
 
-.lr.ph:                                           ; preds = %.lr.ph42
+.lr.ph:                                           ; preds = %.lr.ph31
   %36 = icmp ult i64 %30, 8
   br label %61
 
 ._crit_edge:                                      ; preds = %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17haf2840908e517033E.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !8491)
-  %37 = icmp ult i64 %storemerge39, 8
+  %37 = icmp ult i64 %storemerge29, 8
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %._crit_edge
@@ -29479,8 +29479,8 @@ define hidden void @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$V$C$S$GT$$u20$
   unreachable
 
 39:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.in55 = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
-  %40 = load ptr, ptr %.in55, align 8, !nonnull !4, !align !24, !noundef !4
+  %.in36 = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
+  %40 = load ptr, ptr %.in36, align 8, !nonnull !4, !align !24, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !8494)
   %41 = load ptr, ptr %40, align 8, !alias.scope !8497, !noundef !4
   %42 = icmp eq ptr %41, null
@@ -29489,7 +29489,7 @@ define hidden void @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$V$C$S$GT$$u20$
 43:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !8497
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hc3a014a66dcf5257E.llvm.16532191985037651265, ptr %7, align 8, !alias.scope !8498, !noalias !8497
-  store i64 %storemerge39, ptr %21, align 8, !alias.scope !8498, !noalias !8497
+  store i64 %storemerge29, ptr %21, align 8, !alias.scope !8498, !noalias !8497
   call void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %41, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !8497
   br label %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h1bc9ef4d7ea8f42dE.exit
@@ -29552,19 +29552,19 @@ common.resume:                                    ; preds = %111, %87, %54
 _ZN4moka3cht3map6bucket21defer_acquire_destroy17h1bc9ef4d7ea8f42dE.exit: ; preds = %43, %"_ZN4core3ptr462drop_in_place$LT$alloc..boxed..Box$LT$moka..cht..map..bucket..BucketArray$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17ha7bce1765a04d8a0E.llvm.4598255899691141044.exit"
   %60 = and i64 %30, -8
   %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph42
+  br i1 %.not, label %.loopexit, label %.lr.ph31
 
 61:                                               ; preds = %.lr.ph, %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17haf2840908e517033E.exit
   %.pn = phi { i64, i64 } [ %35, %.lr.ph ], [ %94, %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17haf2840908e517033E.exit ]
-  %.fca.1.extract37 = extractvalue { i64, i64 } %.pn, 1
-  %62 = and i64 %.fca.1.extract37, 2
+  %.fca.1.extract27 = extractvalue { i64, i64 } %.pn, 1
+  %62 = and i64 %.fca.1.extract27, 2
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %64, label %93
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
   %66 = load ptr, ptr %65, align 8, !nonnull !4, !align !24, !noundef !4
-  %67 = icmp ult i64 %.fca.1.extract37, 8
+  %67 = icmp ult i64 %.fca.1.extract27, 8
   br i1 %67, label %68, label %_ZN4moka3cht3map6bucket20defer_destroy_bucket17hd18fc2241054a9f5E.exit
 
 68:                                               ; preds = %64
@@ -29580,14 +29580,14 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17hd18fc2241054a9f5E.exit: ; preds 
 71:                                               ; preds = %_ZN4moka3cht3map6bucket20defer_destroy_bucket17hd18fc2241054a9f5E.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !8538
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hbdb55616ff74aaa0E.llvm.16532191985037651265, ptr %5, align 8, !alias.scope !8541, !noalias !8538
-  store i64 %.fca.1.extract37, ptr %19, align 8, !alias.scope !8541, !noalias !8538
+  store i64 %.fca.1.extract27, ptr %19, align 8, !alias.scope !8541, !noalias !8538
   call void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %69, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %66)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !8538
   br label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17haf2840908e517033E.exit
 
 72:                                               ; preds = %_ZN4moka3cht3map6bucket20defer_destroy_bucket17hd18fc2241054a9f5E.exit
   fence acquire
-  %73 = and i64 %.fca.1.extract37, -8
+  %73 = and i64 %.fca.1.extract27, -8
   %74 = inttoptr i64 %73 to ptr
   %75 = getelementptr inbounds i8, ptr %74, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !8544)
@@ -29654,7 +29654,7 @@ _ZN15crossbeam_epoch5guard5Guard15defer_unchecked17haf2840908e517033E.exit: ; pr
 95:                                               ; preds = %93
   %96 = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
   %97 = load ptr, ptr %96, align 8, !nonnull !4, !align !24, !noundef !4
-  %98 = icmp ult i64 %.fca.1.extract37, 8
+  %98 = icmp ult i64 %.fca.1.extract27, 8
   br i1 %98, label %99, label %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h18c0a4bbb8b70fb0E.exit
 
 99:                                               ; preds = %95
@@ -29670,14 +29670,14 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17h18c0a4bbb8b70fb0E.exit: ; preds
 102:                                              ; preds = %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h18c0a4bbb8b70fb0E.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !8584
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h2efee12f275954c4E.llvm.16532191985037651265, ptr %3, align 8, !alias.scope !8587, !noalias !8584
-  store i64 %.fca.1.extract37, ptr %17, align 8, !alias.scope !8587, !noalias !8584
+  store i64 %.fca.1.extract27, ptr %17, align 8, !alias.scope !8587, !noalias !8584
   call void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %100, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %97)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !8584
   br label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17haf2840908e517033E.exit
 
 103:                                              ; preds = %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h18c0a4bbb8b70fb0E.exit
   fence acquire
-  %104 = and i64 %.fca.1.extract37, -8
+  %104 = and i64 %.fca.1.extract27, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !8590
   %105 = inttoptr i64 %104 to ptr
   %106 = icmp ne i64 %104, 0

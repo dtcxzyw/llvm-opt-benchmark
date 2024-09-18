@@ -730,8 +730,8 @@ _ZNSt5queueImSt5dequeImSaImEEE3popEv.exit._crit_edge.i.i.i: ; preds = %_ZNSt5que
   %.pre.i.i = load i64, ptr %49, align 8
   %.val44.i.pre.i.i = load ptr, ptr %10, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds %"struct.(anonymous namespace)::MinCostMaxFlow::Node", ptr %.val44.i.pre.i.i, i64 %.pre.i.i
-  %.pre237.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
-  %215 = icmp eq i64 %.pre237.i.i, 1125899906842624
+  %.pre219.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
+  %215 = icmp eq i64 %.pre219.i.i, 1125899906842624
   br label %._crit_edge.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZNSt5queueImSt5dequeImSaImEEE3popEv.exit._crit_edge.i.i.i
@@ -1031,11 +1031,11 @@ _ZN12_GLOBAL__N_114MinCostMaxFlow18findAugmentingPathEv.exit.i.i: ; preds = %.lr
   br i1 %.not.i11.i.i, label %_ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i, label %336, !llvm.loop !12
 
 _ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i: ; preds = %336
-  %.not219.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
-  br i1 %.not219.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+  %.not207.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
+  br i1 %.not207.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i, %334
-  %.014.lcssa.i242.i.i = phi i64 [ %.sroa.speculated.i.i.i, %_ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i ], [ 1125899906842624, %334 ]
+  %.014.lcssa.i224.i.i = phi i64 [ %.sroa.speculated.i.i.i, %_ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i ], [ 1125899906842624, %334 ]
   %349 = load ptr, ptr %36, align 8
   %350 = load i8, ptr %349, align 8
   %351 = trunc i8 %350 to i1
@@ -1048,9 +1048,9 @@ _ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i: ; p
   br i1 %354, label %.lr.ph308, label %_ZNSt6vectorImSaImEED2Ev.exit.thread.i.i, !llvm.loop !13
 
 .lr.ph308:                                        ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.i
-  %.06224.i.i307 = phi i64 [ %.014.lcssa.i55.i.i, %.lr.ph.i.i ], [ %.014.lcssa.i242.i.i, %.lr.ph.preheader.i.i ]
-  %355 = lshr i64 %.06224.i.i307, 1
-  %.inv.i.not.i.i = icmp eq i64 %.06224.i.i307, 1
+  %.06209.i.i307 = phi i64 [ %.014.lcssa.i55.i.i, %.lr.ph.i.i ], [ %.014.lcssa.i224.i.i, %.lr.ph.preheader.i.i ]
+  %355 = lshr i64 %.06209.i.i307, 1
+  %.inv.i.not.i.i = icmp eq i64 %.06209.i.i307, 1
   %.sroa.speculated.i13.i.i = select i1 %.inv.i.not.i.i, i64 1, i64 %355
   %.val3446.i.i.i = load ptr, ptr %10, align 8
   %.val3547.i.i.i = load ptr, ptr %86, align 8
@@ -2121,7 +2121,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %_ZN12_GLOBAL__N_114
 _ZNSt6vectorImSaImEED2Ev.exit.thread.i.i:         ; preds = %.lr.ph.i.i, %839, %_ZNSt6vectorImSaImEED2Ev.exit.i.i, %.lr.ph.preheader.i.i
   %843 = phi i64 [ %335, %.lr.ph.preheader.i.i ], [ %825, %_ZNSt6vectorImSaImEED2Ev.exit.i.i ], [ %825, %839 ], [ %825, %.lr.ph.i.i ]
   %844 = phi i64 [ %327, %.lr.ph.preheader.i.i ], [ %824, %_ZNSt6vectorImSaImEED2Ev.exit.i.i ], [ %824, %839 ], [ %824, %.lr.ph.i.i ]
-  %.1194.i.i = phi i64 [ %.014.lcssa.i242.i.i, %.lr.ph.preheader.i.i ], [ %.014.lcssa.i55.i.i, %_ZNSt6vectorImSaImEED2Ev.exit.i.i ], [ %.014.lcssa.i55.i.i, %839 ], [ %.014.lcssa.i55.i.i, %.lr.ph.i.i ]
+  %.1194.i.i = phi i64 [ %.014.lcssa.i224.i.i, %.lr.ph.preheader.i.i ], [ %.014.lcssa.i55.i.i, %_ZNSt6vectorImSaImEED2Ev.exit.i.i ], [ %.014.lcssa.i55.i.i, %839 ], [ %.014.lcssa.i55.i.i, %.lr.ph.i.i ]
   %.not16.i.i.i = icmp eq i64 %844, %843
   br i1 %.not16.i.i.i, label %.loopexit.i.i, label %.lr.ph.i58.i.i
 
@@ -2531,23 +2531,23 @@ _ZN12_GLOBAL__N_112FlowAdjuster22joinIsolatedComponentsEv.exit.i: ; preds = %102
   br label %1047
 
 1047:                                             ; preds = %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit55.i.i, %.lr.ph.i1.i
-  %.sroa.0162.0233.i.i = phi ptr [ %1034, %.lr.ph.i1.i ], [ %1957, %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit55.i.i ]
+  %.sroa.0162.0231.i.i = phi ptr [ %1034, %.lr.ph.i1.i ], [ %1957, %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit55.i.i ]
   %.val.i2.i = load ptr, ptr %934, align 8
-  %1048 = getelementptr inbounds nuw i8, ptr %.sroa.0162.0233.i.i, i64 16
+  %1048 = getelementptr inbounds nuw i8, ptr %.sroa.0162.0231.i.i, i64 16
   %1049 = load i8, ptr %1048, align 8
   %1050 = trunc i8 %1049 to i1
   br i1 %1050, label %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit55.i.i, label %1051
 
 1051:                                             ; preds = %1047
-  %1052 = getelementptr inbounds nuw i8, ptr %.sroa.0162.0233.i.i, i64 24
+  %1052 = getelementptr inbounds nuw i8, ptr %.sroa.0162.0231.i.i, i64 24
   %1053 = load i64, ptr %1052, align 8
   %1054 = icmp eq i64 %1053, 0
   br i1 %1054, label %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit55.i.i, label %1055
 
 1055:                                             ; preds = %1051
-  %1056 = getelementptr i8, ptr %.sroa.0162.0233.i.i, i64 32
+  %1056 = getelementptr i8, ptr %.sroa.0162.0231.i.i, i64 32
   %1057 = load ptr, ptr %1056, align 8
-  %1058 = getelementptr i8, ptr %.sroa.0162.0233.i.i, i64 40
+  %1058 = getelementptr i8, ptr %.sroa.0162.0231.i.i, i64 40
   %1059 = load ptr, ptr %1058, align 8
   %.not4.i.i.i = icmp eq ptr %1057, %1059
   br i1 %.not4.i.i.i, label %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit55.i.i, label %.lr.ph.i.i.i37
@@ -2591,7 +2591,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster18canRebalanceAtRootEPKN4llvm9FlowBlockE.exit.i.i
   %1080 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #17
   store ptr %1080, ptr %.06.i.i.ptr.i.i.i.i.i.i39, align 8
   %1081 = getelementptr inbounds i8, ptr %1080, i64 512
-  %1082 = load i64, ptr %.sroa.0162.0233.i.i, align 8
+  %1082 = load i64, ptr %.sroa.0162.0231.i.i, align 8
   store i64 %1082, ptr %1080, align 8
   %1083 = getelementptr inbounds i8, ptr %1080, i64 8
   %1084 = lshr i64 %1082, 6
@@ -2715,7 +2715,7 @@ _ZNSt5queueImSt5dequeImSaImEEE3popEv.exit.i.i.i48: ; preds = %1101, %1099
   %1125 = getelementptr inbounds nuw i8, ptr %1122, i64 16
   %1126 = load i8, ptr %1125, align 8
   %1127 = trunc i8 %1126 to i1
-  %1128 = icmp ne ptr %1124, %.sroa.0162.0233.i.i
+  %1128 = icmp ne ptr %1124, %.sroa.0162.0231.i.i
   %or.cond16.not.i.i.i.i = or i1 %1128, %1127
   br i1 %or.cond16.not.i.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.i.i.i, label %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EE9push_backEOS2_.exit.i.i.i
 
@@ -3133,7 +3133,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster19findUnknownSubgraphEPKN4llvm9FlowBlockERSt6vect
   %1319 = getelementptr inbounds nuw i8, ptr %1314, i64 16
   %1320 = load i8, ptr %1319, align 8
   %1321 = trunc i8 %1320 to i1
-  %1322 = icmp ne ptr %1318, %.sroa.0162.0233.i.i
+  %1322 = icmp ne ptr %1318, %.sroa.0162.0231.i.i
   %or.cond16.not.i.us28.i.i.i = or i1 %1322, %1321
   br i1 %or.cond16.not.i.us28.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.us29.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.us34.i.i.i
 
@@ -3215,7 +3215,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1360 = getelementptr inbounds nuw i8, ptr %1357, i64 16
   %1361 = load i8, ptr %1360, align 8
   %1362 = trunc i8 %1361 to i1
-  %1363 = icmp ne ptr %1359, %.sroa.0162.0233.i.i
+  %1363 = icmp ne ptr %1359, %.sroa.0162.0231.i.i
   %or.cond16.not.i.us.us.i.i.i = or i1 %1363, %1362
   br i1 %or.cond16.not.i.us.us.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.us.us.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread10.us.us.i.i.i
 
@@ -3315,7 +3315,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i.i.i:      ; preds = %_ZNSt6vectorImSaImE
   %1402 = getelementptr inbounds nuw i8, ptr %1397, i64 16
   %1403 = load i8, ptr %1402, align 8
   %1404 = trunc i8 %1403 to i1
-  %1405 = icmp ne ptr %1401, %.sroa.0162.0233.i.i
+  %1405 = icmp ne ptr %1401, %.sroa.0162.0231.i.i
   %or.cond16.not.i.i.i.i.i = or i1 %1405, %1404
   br i1 %or.cond16.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.i.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.i.i.i.i
 
@@ -3379,7 +3379,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1432 = getelementptr inbounds nuw i8, ptr %1427, i64 16
   %1433 = load i8, ptr %1432, align 8
   %1434 = trunc i8 %1433 to i1
-  %1435 = icmp ne ptr %1431, %.sroa.0162.0233.i.i
+  %1435 = icmp ne ptr %1431, %.sroa.0162.0231.i.i
   %or.cond16.not.i.i31.us92.i.i.i = or i1 %1435, %1434
   br i1 %or.cond16.not.i.i31.us92.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.i34.us93.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.i32.us96.i.i.i
 
@@ -3440,7 +3440,7 @@ _ZZN12_GLOBAL__N_112FlowAdjuster17isAcyclicSubgraphEPKN4llvm9FlowBlockES4_RSt6ve
   %1461 = getelementptr inbounds nuw i8, ptr %1458, i64 16
   %1462 = load i8, ptr %1461, align 8
   %1463 = trunc i8 %1462 to i1
-  %1464 = icmp ne ptr %1460, %.sroa.0162.0233.i.i
+  %1464 = icmp ne ptr %1460, %.sroa.0162.0231.i.i
   %or.cond16.not.i.i31.us.i.i.i = or i1 %1464, %1463
   br i1 %or.cond16.not.i.i31.us.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.i34.us.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.i32.us.i.i.i
 
@@ -3469,7 +3469,7 @@ _ZZN12_GLOBAL__N_112FlowAdjuster17isAcyclicSubgraphEPKN4llvm9FlowBlockES4_RSt6ve
   br i1 %.not85.i.i.i, label %._crit_edge.i21.i.i, label %.lr.ph.split.i.i.i
 
 ._crit_edge.i21.i.i:                              ; preds = %_ZZN12_GLOBAL__N_112FlowAdjuster17isAcyclicSubgraphEPKN4llvm9FlowBlockES4_RSt6vectorIPS2_SaIS6_EEENKUlS4_E_clES4_.exit37.us.i.i.i, %_ZZN12_GLOBAL__N_112FlowAdjuster17isAcyclicSubgraphEPKN4llvm9FlowBlockES4_RSt6vectorIPS2_SaIS6_EEENKUlS4_E_clES4_.exit37.i.i.i
-  %1473 = load i64, ptr %.sroa.0162.0233.i.i, align 8
+  %1473 = load i64, ptr %.sroa.0162.0231.i.i, align 8
   %1474 = getelementptr inbounds i64, ptr %.sroa.0.0.i.i.i, i64 %1473
   %1475 = load i64, ptr %1474, align 8
   %.not.i22.i.i = icmp eq i64 %1475, 0
@@ -3552,7 +3552,7 @@ _ZNSt5queueImSt5dequeImSaImEEE3popEv.exit.i24.i.i: ; preds = %1496, %1494
   %1504 = getelementptr inbounds nuw i8, ptr %1491, i64 16
   %1505 = load i8, ptr %1504, align 8
   %1506 = trunc i8 %1505 to i1
-  %.not14.i.i.i = icmp ne ptr %1491, %.sroa.0162.0233.i.i
+  %.not14.i.i.i = icmp ne ptr %1491, %.sroa.0162.0231.i.i
   %or.cond18.not.i.i.i = select i1 %1506, i1 %.not14.i.i.i, i1 false
   br i1 %or.cond18.not.i.i.i, label %1507, label %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EE9push_backERKS2_.exit.i.i.i
 
@@ -3656,7 +3656,7 @@ _ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EE9push_backERKS2_.exit.i.i.i: ; preds = %_
   %1552 = getelementptr inbounds nuw i8, ptr %1549, i64 16
   %1553 = load i8, ptr %1552, align 8
   %1554 = trunc i8 %1553 to i1
-  %1555 = icmp ne ptr %1551, %.sroa.0162.0233.i.i
+  %1555 = icmp ne ptr %1551, %.sroa.0162.0231.i.i
   %or.cond16.not.i.us.i.i.i = or i1 %1555, %1554
   br i1 %or.cond16.not.i.us.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.us.i.i.i, label %_ZNSt5queueImSt5dequeImSaImEEE4pushERKm.exit43.us.i.i.i
 
@@ -3727,7 +3727,7 @@ _ZNSt5queueImSt5dequeImSaImEEE4pushERKm.exit43.us.i.i.i: ; preds = %1570, %1567,
   %1589 = getelementptr inbounds nuw i8, ptr %1584, i64 16
   %1590 = load i8, ptr %1589, align 8
   %1591 = trunc i8 %1590 to i1
-  %1592 = icmp ne ptr %1588, %.sroa.0162.0233.i.i
+  %1592 = icmp ne ptr %1588, %.sroa.0162.0231.i.i
   %or.cond16.not.i.i36.i.i = or i1 %1592, %1591
   br i1 %or.cond16.not.i.i36.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.i37.i.i, label %_ZNSt5queueImSt5dequeImSaImEEE4pushERKm.exit43.i.i.i
 
@@ -3947,7 +3947,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster17isAcyclicSubgraphEPKN4llvm9FlowBlockES4_RSt6vec
   %1673 = getelementptr inbounds nuw i8, ptr %1670, i64 16
   %1674 = load i8, ptr %1673, align 8
   %1675 = trunc i8 %1674 to i1
-  %1676 = icmp ne ptr %1672, %.sroa.0162.0233.i.i
+  %1676 = icmp ne ptr %1672, %.sroa.0162.0231.i.i
   %or.cond16.not.i.us.i50.i.i = or i1 %1676, %1675
   br i1 %or.cond16.not.i.us.i50.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.us.i51.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.us.i.i.i
 
@@ -3999,7 +3999,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1701 = getelementptr inbounds nuw i8, ptr %1696, i64 16
   %1702 = load i8, ptr %1701, align 8
   %1703 = trunc i8 %1702 to i1
-  %1704 = icmp ne ptr %1700, %.sroa.0162.0233.i.i
+  %1704 = icmp ne ptr %1700, %.sroa.0162.0231.i.i
   %or.cond16.not.i.i44.i.i = or i1 %1704, %1703
   br i1 %or.cond16.not.i.i44.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.i47.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.i.i.i
 
@@ -4051,7 +4051,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1727 = getelementptr inbounds nuw i8, ptr %1724, i64 16
   %1728 = load i8, ptr %1727, align 8
   %1729 = trunc i8 %1728 to i1
-  %1730 = icmp ne ptr %1726, %.sroa.0162.0233.i.i
+  %1730 = icmp ne ptr %1726, %.sroa.0162.0231.i.i
   %or.cond16.not.i.us.i127.i.i = or i1 %1730, %1729
   br i1 %or.cond16.not.i.us.i127.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.us.i130.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.us.i128.i.i
 
@@ -4107,7 +4107,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1756 = getelementptr inbounds nuw i8, ptr %1750, i64 16
   %1757 = load i8, ptr %1756, align 8
   %1758 = trunc i8 %1757 to i1
-  %1759 = icmp ne ptr %1755, %.sroa.0162.0233.i.i
+  %1759 = icmp ne ptr %1755, %.sroa.0162.0231.i.i
   %or.cond16.not.i.i88.i.i = or i1 %1759, %1758
   br i1 %or.cond16.not.i.i88.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.i119.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.i89.i.i
 
@@ -4167,7 +4167,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1787 = getelementptr inbounds nuw i8, ptr %1784, i64 16
   %1788 = load i8, ptr %1787, align 8
   %1789 = trunc i8 %1788 to i1
-  %1790 = icmp ne ptr %1786, %.sroa.0162.0233.i.i
+  %1790 = icmp ne ptr %1786, %.sroa.0162.0231.i.i
   %or.cond16.not.i24.us.i111.i.i = or i1 %1790, %1789
   br i1 %or.cond16.not.i24.us.i111.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit28.us.i115.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit28.thread.us.i112.i.i
 
@@ -4220,7 +4220,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1814 = getelementptr inbounds nuw i8, ptr %1809, i64 16
   %1815 = load i8, ptr %1814, align 8
   %1816 = trunc i8 %1815 to i1
-  %1817 = icmp ne ptr %1813, %.sroa.0162.0233.i.i
+  %1817 = icmp ne ptr %1813, %.sroa.0162.0231.i.i
   %or.cond16.not.i24.i98.i.i = or i1 %1817, %1816
   br i1 %or.cond16.not.i24.i98.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit28.i103.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit28.thread.i99.i.i
 
@@ -4312,7 +4312,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster14rebalanceBlockEPKN4llvm9FlowBlockES4_S4_m.exit1
   %1852 = getelementptr inbounds nuw i8, ptr %1849, i64 16
   %1853 = load i8, ptr %1852, align 8
   %1854 = trunc i8 %1853 to i1
-  %1855 = icmp ne ptr %1851, %.sroa.0162.0233.i.i
+  %1855 = icmp ne ptr %1851, %.sroa.0162.0231.i.i
   %or.cond16.not.i.us.i77.i.i = or i1 %1855, %1854
   br i1 %or.cond16.not.i.us.i77.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.us.i80.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.us.i78.i.i
 
@@ -4368,7 +4368,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1881 = getelementptr inbounds nuw i8, ptr %1875, i64 16
   %1882 = load i8, ptr %1881, align 8
   %1883 = trunc i8 %1882 to i1
-  %1884 = icmp ne ptr %1880, %.sroa.0162.0233.i.i
+  %1884 = icmp ne ptr %1880, %.sroa.0162.0231.i.i
   %or.cond16.not.i.i65.i.i = or i1 %1884, %1883
   br i1 %or.cond16.not.i.i65.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.i75.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit.thread.i66.i.i
 
@@ -4428,7 +4428,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1912 = getelementptr inbounds nuw i8, ptr %1909, i64 16
   %1913 = load i8, ptr %1912, align 8
   %1914 = trunc i8 %1913 to i1
-  %1915 = icmp ne ptr %1911, %.sroa.0162.0233.i.i
+  %1915 = icmp ne ptr %1911, %.sroa.0162.0231.i.i
   %or.cond16.not.i24.us.i.i.i = or i1 %1915, %1914
   br i1 %or.cond16.not.i24.us.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit28.us.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit28.thread.us.i.i.i
 
@@ -4481,7 +4481,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   %1939 = getelementptr inbounds nuw i8, ptr %1934, i64 16
   %1940 = load i8, ptr %1939, align 8
   %1941 = trunc i8 %1940 to i1
-  %1942 = icmp ne ptr %1938, %.sroa.0162.0233.i.i
+  %1942 = icmp ne ptr %1938, %.sroa.0162.0231.i.i
   %or.cond16.not.i24.i.i.i = or i1 %1942, %1941
   br i1 %or.cond16.not.i24.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit28.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJumpE.exit28.thread.i.i.i
 
@@ -4534,7 +4534,7 @@ _ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit.i.i: ; preds = %1950, %_ZN12_GL
   br label %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit55.i.i
 
 _ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit55.i.i: ; preds = %1061, %1953, %_ZNSt6vectorIPN4llvm9FlowBlockESaIS2_EED2Ev.exit.i.i, %1055, %1051, %1047
-  %1957 = getelementptr inbounds i8, ptr %.sroa.0162.0233.i.i, i64 80
+  %1957 = getelementptr inbounds i8, ptr %.sroa.0162.0231.i.i, i64 80
   %.not.i3.i = icmp eq ptr %1957, %1035
   br i1 %.not.i3.i, label %_ZN12_GLOBAL__N_112FlowAdjuster3runEv.exit, label %1047
 

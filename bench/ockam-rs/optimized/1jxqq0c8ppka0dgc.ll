@@ -5549,14 +5549,14 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i.
   br label %1031
 
 1031:                                             ; preds = %1027, %667
-  %1032 = phi ptr [ %938, %1027 ], [ %620, %667 ]
-  %1033 = phi ptr [ %939, %1027 ], [ %619, %667 ]
-  %1034 = phi ptr [ %940, %1027 ], [ %.phi.trans.insert.i51, %667 ]
-  %1035 = phi ptr [ %941, %1027 ], [ %648, %667 ]
-  %1036 = phi ptr [ %942, %1027 ], [ %.phi.trans.insert134.i.i, %667 ]
-  %1037 = phi ptr [ %943, %1027 ], [ %666, %667 ]
-  %1038 = phi ptr [ %1029, %1027 ], [ %.pre580.i.i.i, %667 ]
-  %1039 = phi ptr [ %1028, %1027 ], [ %.pre578.i.i.i, %667 ]
+  %1032 = phi ptr [ %620, %667 ], [ %938, %1027 ]
+  %1033 = phi ptr [ %619, %667 ], [ %939, %1027 ]
+  %1034 = phi ptr [ %.phi.trans.insert.i51, %667 ], [ %940, %1027 ]
+  %1035 = phi ptr [ %648, %667 ], [ %941, %1027 ]
+  %1036 = phi ptr [ %.phi.trans.insert134.i.i, %667 ], [ %942, %1027 ]
+  %1037 = phi ptr [ %666, %667 ], [ %943, %1027 ]
+  %1038 = phi ptr [ %.pre580.i.i.i, %667 ], [ %1029, %1027 ]
+  %1039 = phi ptr [ %.pre578.i.i.i, %667 ], [ %1028, %1027 ]
   %1040 = getelementptr inbounds i8, ptr %0, i64 432
   call void @llvm.experimental.noalias.scope.decl(metadata !622)
   %1041 = getelementptr inbounds i8, ptr %0, i64 440
@@ -6158,14 +6158,14 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i.
   br label %1242
 
 1242:                                             ; preds = %1239, %668
-  %1243 = phi ptr [ %1032, %1239 ], [ %620, %668 ]
-  %1244 = phi ptr [ %1033, %1239 ], [ %619, %668 ]
-  %1245 = phi ptr [ %1034, %1239 ], [ %.phi.trans.insert.i51, %668 ]
-  %1246 = phi ptr [ %1035, %1239 ], [ %648, %668 ]
-  %1247 = phi ptr [ %1036, %1239 ], [ %.phi.trans.insert134.i.i, %668 ]
-  %1248 = phi ptr [ %1037, %1239 ], [ %666, %668 ]
-  %1249 = phi ptr [ %1241, %1239 ], [ %.pre586.i.i.i, %668 ]
-  %1250 = phi ptr [ %1240, %1239 ], [ %.pre584.i.i.i, %668 ]
+  %1243 = phi ptr [ %620, %668 ], [ %1032, %1239 ]
+  %1244 = phi ptr [ %619, %668 ], [ %1033, %1239 ]
+  %1245 = phi ptr [ %.phi.trans.insert.i51, %668 ], [ %1034, %1239 ]
+  %1246 = phi ptr [ %648, %668 ], [ %1035, %1239 ]
+  %1247 = phi ptr [ %.phi.trans.insert134.i.i, %668 ], [ %1036, %1239 ]
+  %1248 = phi ptr [ %666, %668 ], [ %1037, %1239 ]
+  %1249 = phi ptr [ %.pre586.i.i.i, %668 ], [ %1241, %1239 ]
+  %1250 = phi ptr [ %.pre584.i.i.i, %668 ], [ %1240, %1239 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !542
   %1251 = getelementptr inbounds i8, ptr %0, i64 432
   call void @llvm.experimental.noalias.scope.decl(metadata !695)

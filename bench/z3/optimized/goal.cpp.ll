@@ -1499,7 +1499,7 @@ while.body.lr.ph:                                 ; preds = %_ZNK11ast_manager6i
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end106
-  %save_first.addr.0249 = phi i1 [ %save_first, %while.body.lr.ph ], [ %save_first.addr.1, %if.end106 ]
+  %save_first.addr.0248 = phi i1 [ %save_first, %while.body.lr.ph ], [ %save_first.addr.1, %if.end106 ]
   %20 = phi i32 [ 1, %while.body.lr.ph ], [ %.pr, %if.end106 ]
   %bf.load = load i32, ptr %m_inconsistent, align 8
   %21 = and i32 %bf.load, 536870912
@@ -1576,8 +1576,8 @@ while.body41.lr.ph:                               ; preds = %if.then35
 
 while.body41:                                     ; preds = %while.body41.lr.ph, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit95
   %30 = phi i32 [ %sub.i, %while.body41.lr.ph ], [ %inc.i89, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit95 ]
-  %indvars.iv253 = phi i64 [ %29, %while.body41.lr.ph ], [ %31, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit95 ]
-  %31 = add nsw i64 %indvars.iv253, -1
+  %indvars.iv252 = phi i64 [ %29, %while.body41.lr.ph ], [ %31, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit95 ]
+  %31 = add nsw i64 %indvars.iv252, -1
   %arrayidx.i58 = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %31
   %32 = load ptr, ptr %arrayidx.i58, align 8
   %33 = load i32, ptr %m_capacity.i.i, align 4
@@ -1834,11 +1834,11 @@ _ZN6bufferISt4pairIP4exprbELb0ELj64EE6expandEv.exit.i195: ; preds = %.noexc204, 
   %.pre1.i196 = phi i32 [ %61, %for.end.i.i188 ], [ %.pre1.pre.i194, %.noexc204 ]
   store ptr %call.i.i203, ptr %todo, align 8
   store i32 %shl.i.i175, ptr %m_capacity.i.i, align 4
-  %.pre258 = zext i32 %.pre1.i196 to i64
+  %.pre257 = zext i32 %.pre1.i196 to i64
   br label %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit205
 
 _ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit205: ; preds = %if.then79, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE6expandEv.exit.i195
-  %idx.ext.i197.pre-phi = phi i64 [ %idxprom.i, %if.then79 ], [ %.pre258, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE6expandEv.exit.i195 ]
+  %idx.ext.i197.pre-phi = phi i64 [ %idxprom.i, %if.then79 ], [ %.pre257, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE6expandEv.exit.i195 ]
   %62 = phi ptr [ %22, %if.then79 ], [ %call.i.i203, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE6expandEv.exit.i195 ]
   %add.ptr.i198 = getelementptr inbounds %"struct.std::pair", ptr %62, i64 %idx.ext.i197.pre-phi
   store ptr %59, ptr %add.ptr.i198, align 8
@@ -1906,7 +1906,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 
 if.end96:                                         ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %if.else87
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %if.else87 ], [ %call.i206, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
-  br i1 %save_first.addr.0249, label %if.then98, label %if.else101
+  br i1 %save_first.addr.0248, label %if.then98, label %if.else101
 
 if.then98:                                        ; preds = %if.end96
   %tobool.not.i = icmp eq ptr %.sroa.0.0, null
@@ -1946,13 +1946,13 @@ if.else101:                                       ; preds = %if.end96
           to label %if.end106thread-pre-split unwind label %lpad16.loopexit.split-lp.loopexit.split-lp
 
 if.end106thread-pre-split:                        ; preds = %if.else101, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %if.then35, %if.then55
-  %save_first.addr.1.ph = phi i1 [ %save_first.addr.0249, %if.then55 ], [ %save_first.addr.0249, %if.then35 ], [ false, %if.else101 ], [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ]
+  %save_first.addr.1.ph = phi i1 [ %save_first.addr.0248, %if.then55 ], [ %save_first.addr.0248, %if.then35 ], [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %if.else101 ]
   %.pr.pr = load i32, ptr %m_pos.i.i, align 8
   br label %if.end106
 
 if.end106:                                        ; preds = %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit149, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit95, %if.end106thread-pre-split, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit205
   %.pr = phi i32 [ %.pr.pr, %if.end106thread-pre-split ], [ %inc.i199, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit205 ], [ %inc.i89, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit95 ], [ %inc.i143, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit149 ]
-  %save_first.addr.1 = phi i1 [ %save_first.addr.1.ph, %if.end106thread-pre-split ], [ %save_first.addr.0249, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit205 ], [ %save_first.addr.0249, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit95 ], [ %save_first.addr.0249, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit149 ]
+  %save_first.addr.1 = phi i1 [ %save_first.addr.1.ph, %if.end106thread-pre-split ], [ %save_first.addr.0248, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit205 ], [ %save_first.addr.0248, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit95 ], [ %save_first.addr.0248, %_ZN6bufferISt4pairIP4exprbELb0ELj64EE9push_backEOS3_.exit149 ]
   %cmp.i41 = icmp eq i32 %.pr, 0
   br i1 %cmp.i41, label %cleanup, label %while.body, !llvm.loop !6
 
@@ -6858,19 +6858,19 @@ _ZNK11ast_manager6is_notEPK4exprRPS0_.exit:       ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %cond.i, i64 32
   %25 = load ptr, ptr %m_args.i.i, align 8
   %cmp5 = icmp eq ptr %25, %f
-  br i1 %cmp5, label %return.loopexit.split.loop.exit42, label %for.inc
+  br i1 %cmp5, label %return.loopexit.split.loop.exit41, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i.i, %_ZNK4goal4formEj.exit, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %land.lhs.true.i, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !35
 
-return.loopexit.split.loop.exit42:                ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit
+return.loopexit.split.loop.exit41:                ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit
   %26 = trunc nuw i64 %indvars.iv to i32
   br label %return
 
-return:                                           ; preds = %for.inc, %return.loopexit.split.loop.exit42, %entry, %_ZNK4goal4sizeEv.exit
-  %retval.0 = phi i32 [ -1, %_ZNK4goal4sizeEv.exit ], [ -1, %entry ], [ %26, %return.loopexit.split.loop.exit42 ], [ -1, %for.inc ]
+return:                                           ; preds = %for.inc, %return.loopexit.split.loop.exit41, %entry, %_ZNK4goal4sizeEv.exit
+  %retval.0 = phi i32 [ -1, %_ZNK4goal4sizeEv.exit ], [ -1, %entry ], [ %26, %return.loopexit.split.loop.exit41 ], [ -1, %for.inc ]
   ret i32 %retval.0
 }
 

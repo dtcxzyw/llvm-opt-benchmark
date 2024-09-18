@@ -9417,8 +9417,8 @@ for.body.lr.ph:                                   ; preds = %invoke.cont2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.094 = phi ptr [ %m_args.i.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %7 = load ptr, ptr %__begin2.094, align 8
+  %__begin2.092 = phi ptr [ %m_args.i.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %7 = load ptr, ptr %__begin2.092, align 8
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
@@ -9576,10 +9576,10 @@ for.inc.sink.split:                               ; preds = %if.then.i49, %if.th
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false.i41, %lor.lhs.false.i
-  %.sink96 = phi i32 [ %19, %lor.lhs.false.i ], [ %24, %lor.lhs.false.i41 ], [ %.pre1.i52, %for.inc.sink.split ]
+  %.sink94 = phi i32 [ %19, %lor.lhs.false.i ], [ %24, %lor.lhs.false.i41 ], [ %.pre1.i52, %for.inc.sink.split ]
   %.sink = phi ptr [ %18, %lor.lhs.false.i ], [ %23, %lor.lhs.false.i41 ], [ %.pre.i50, %for.inc.sink.split ]
   %call35.sink = phi i32 [ %call27, %lor.lhs.false.i ], [ %call35, %lor.lhs.false.i41 ], [ %call35.sink.ph, %for.inc.sink.split ]
-  %idx.ext.i45 = zext i32 %.sink96 to i64
+  %idx.ext.i45 = zext i32 %.sink94 to i64
   %add.ptr.i46 = getelementptr inbounds i32, ptr %.sink, i64 %idx.ext.i45
   store i32 %call35.sink, ptr %add.ptr.i46, align 4
   %26 = load ptr, ptr %xs, align 8
@@ -9587,7 +9587,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %27 = load i32, ptr %arrayidx10.i47, align 4
   %inc.i48 = add i32 %27, 1
   store i32 %inc.i48, ptr %arrayidx10.i47, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.094, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.092, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 

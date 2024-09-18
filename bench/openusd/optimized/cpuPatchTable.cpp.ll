@@ -77,14 +77,14 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader307, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
-  %.0322 = phi i32 [ %26, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ], [ 0, %.preheader307 ]
-  %.0108321 = phi i32 [ %28, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ], [ 0, %.preheader307 ]
-  %.0111320 = phi i32 [ %29, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ], [ 0, %.preheader307 ]
-  %20 = invoke noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0111320)
+  %.0315 = phi i32 [ %26, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ], [ 0, %.preheader307 ]
+  %.0108314 = phi i32 [ %28, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ], [ 0, %.preheader307 ]
+  %.0111313 = phi i32 [ %29, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ], [ 0, %.preheader307 ]
+  %20 = invoke noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0111313)
           to label %21 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 21:                                               ; preds = %.lr.ph
-  invoke void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayDescriptorEi(ptr dead_on_unwind nonnull writable sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 %3, ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0111320)
+  invoke void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayDescriptorEi(ptr dead_on_unwind nonnull writable sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 %3, ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0111313)
           to label %22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 22:                                               ; preds = %21
@@ -101,10 +101,10 @@ switch.lookup:                                    ; preds = %22
 
 _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; preds = %22, %switch.lookup
   %.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %22 ]
-  %26 = add nsw i32 %20, %.0322
+  %26 = add nsw i32 %20, %.0315
   %27 = mul nsw i32 %.0.i.i, %20
-  %28 = add nsw i32 %27, %.0108321
-  %29 = add nuw nsw i32 %.0111320, 1
+  %28 = add nsw i32 %27, %.0108314
+  %29 = add nuw nsw i32 %.0111313, 1
   %exitcond.not = icmp eq i32 %29, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
@@ -528,18 +528,18 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit155: ; 
 
 194:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit155
   %195 = load i32, ptr %4, align 4
-  %switch.tableidx365 = add i32 %195, -1
-  %196 = icmp ult i32 %switch.tableidx365, 10
-  br i1 %196, label %switch.lookup364, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157
+  %switch.tableidx348 = add i32 %195, -1
+  %196 = icmp ult i32 %switch.tableidx348, 10
+  br i1 %196, label %switch.lookup347, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157
 
-switch.lookup364:                                 ; preds = %194
-  %197 = zext nneg i32 %switch.tableidx365 to i64
-  %switch.gep366 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %197
-  %switch.load367 = load i32, ptr %switch.gep366, align 4
+switch.lookup347:                                 ; preds = %194
+  %197 = zext nneg i32 %switch.tableidx348 to i64
+  %switch.gep349 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %197
+  %switch.load350 = load i32, ptr %switch.gep349, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157
 
-_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157: ; preds = %194, %switch.lookup364
-  %.0.i.i156 = phi i32 [ %switch.load367, %switch.lookup364 ], [ -1, %194 ]
+_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157: ; preds = %194, %switch.lookup347
+  %.0.i.i156 = phi i32 [ %switch.load350, %switch.lookup347 ], [ -1, %194 ]
   %198 = mul nsw i32 %.0.i.i156, %.0.lcssa
   %199 = sext i32 %198 to i64
   %200 = icmp slt i32 %198, 0
@@ -983,9 +983,9 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE13_M_deallocate
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207: ; preds = %382, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE13_M_deallocateEPS3_m.exit.i204
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge335, label %.lr.ph334
+  br i1 %.not, label %._crit_edge326, label %.lr.ph325
 
-.lr.ph334:                                        ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207
+.lr.ph325:                                        ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %403 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1008,13 +1008,13 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207: ; 
   %smax = call i32 @llvm.smax.i32(i32 %18, i32 1)
   br label %420
 
-420:                                              ; preds = %.lr.ph334, %._crit_edge331
-  %.0113333 = phi i32 [ 0, %.lr.ph334 ], [ %708, %._crit_edge331 ]
-  %421 = invoke noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113333)
+420:                                              ; preds = %.lr.ph325, %._crit_edge323
+  %.0113324 = phi i32 [ 0, %.lr.ph325 ], [ %708, %._crit_edge323 ]
+  %421 = invoke noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113324)
           to label %422 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 422:                                              ; preds = %420
-  invoke void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayDescriptorEi(ptr dead_on_unwind nonnull writable sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 %6, ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113333)
+  invoke void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayDescriptorEi(ptr dead_on_unwind nonnull writable sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 %6, ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113324)
           to label %423 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 423:                                              ; preds = %422
@@ -1037,18 +1037,18 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207: ; 
   store i32 %438, ptr %403, align 4
   store i32 %421, ptr %404, align 4
   store i32 %430, ptr %405, align 4
-  %switch.tableidx369 = add i32 %438, -1
-  %439 = icmp ult i32 %switch.tableidx369, 10
-  br i1 %439, label %switch.lookup368, label %441
+  %switch.tableidx352 = add i32 %438, -1
+  %439 = icmp ult i32 %switch.tableidx352, 10
+  br i1 %439, label %switch.lookup351, label %441
 
-switch.lookup368:                                 ; preds = %423
-  %440 = zext nneg i32 %switch.tableidx369 to i64
-  %switch.gep370 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %440
-  %switch.load371 = load i32, ptr %switch.gep370, align 4
+switch.lookup351:                                 ; preds = %423
+  %440 = zext nneg i32 %switch.tableidx352 to i64
+  %switch.gep353 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %440
+  %switch.load354 = load i32, ptr %switch.gep353, align 4
   br label %441
 
-441:                                              ; preds = %423, %switch.lookup368
-  %.0.i.i.i = phi i32 [ %switch.load371, %switch.lookup368 ], [ -1, %423 ]
+441:                                              ; preds = %423, %switch.lookup351
+  %.0.i.i.i = phi i32 [ %switch.load354, %switch.lookup351 ], [ -1, %423 ]
   store i32 %.0.i.i.i, ptr %406, align 4
   store i32 %437, ptr %407, align 4
   %442 = load ptr, ptr %408, align 8
@@ -1073,7 +1073,7 @@ switch.lookup368:                                 ; preds = %423
           to label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit: ; preds = %444, %450
-  %451 = invoke { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetPatchArrayVerticesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113333)
+  %451 = invoke { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetPatchArrayVerticesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113324)
           to label %452 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 452:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit
@@ -1114,18 +1114,18 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit:
   store i32 %477, ptr %410, align 4
   store i32 %421, ptr %411, align 4
   store i32 %469, ptr %412, align 4
-  %switch.tableidx373 = add i32 %477, -1
-  %478 = icmp ult i32 %switch.tableidx373, 10
-  br i1 %478, label %switch.lookup372, label %480
+  %switch.tableidx356 = add i32 %477, -1
+  %478 = icmp ult i32 %switch.tableidx356, 10
+  br i1 %478, label %switch.lookup355, label %480
 
-switch.lookup372:                                 ; preds = %462
-  %479 = zext nneg i32 %switch.tableidx373 to i64
-  %switch.gep374 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %479
-  %switch.load375 = load i32, ptr %switch.gep374, align 4
+switch.lookup355:                                 ; preds = %462
+  %479 = zext nneg i32 %switch.tableidx356 to i64
+  %switch.gep357 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %479
+  %switch.load358 = load i32, ptr %switch.gep357, align 4
   br label %480
 
-480:                                              ; preds = %462, %switch.lookup372
-  %.0.i.i.i210 = phi i32 [ %switch.load375, %switch.lookup372 ], [ -1, %462 ]
+480:                                              ; preds = %462, %switch.lookup355
+  %.0.i.i.i210 = phi i32 [ %switch.load358, %switch.lookup355 ], [ -1, %462 ]
   store i32 %.0.i.i.i210, ptr %413, align 4
   store i32 %476, ptr %414, align 4
   %481 = load ptr, ptr %415, align 8
@@ -1150,7 +1150,7 @@ switch.lookup372:                                 ; preds = %462
           to label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit214 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit214: ; preds = %483, %489
-  %490 = invoke { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayVaryingVerticesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113333)
+  %490 = invoke { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayVaryingVerticesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113324)
           to label %491 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 491:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit214
@@ -1172,18 +1172,18 @@ _ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_
   %wide.trip.count = zext nneg i32 %421 to i64
   br label %_ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_S1_EET_SA_.exit216
 
-_ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_S1_EET_SA_.exit216: ; preds = %_ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_S1_EET_SA_.exit216.preheader, %._crit_edge327
-  %indvars.iv351 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_S1_EET_SA_.exit216.preheader ], [ %indvars.iv.next352, %._crit_edge327 ]
+_ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_S1_EET_SA_.exit216: ; preds = %_ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_S1_EET_SA_.exit216.preheader, %._crit_edge320
+  %indvars.iv334 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_S1_EET_SA_.exit216.preheader ], [ %indvars.iv.next335, %._crit_edge320 ]
   %501 = invoke noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetNumFVarChannelsEv(ptr noundef nonnull align 8 dereferenceable(273) %1)
           to label %502 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 502:                                              ; preds = %_ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_S1_EET_SA_.exit216
   %503 = sext i32 %501 to i64
-  %504 = icmp slt i64 %indvars.iv351, %503
+  %504 = icmp slt i64 %indvars.iv334, %503
   br i1 %504, label %505, label %653
 
 505:                                              ; preds = %502
-  %506 = trunc nuw nsw i64 %indvars.iv351 to i32
+  %506 = trunc nuw nsw i64 %indvars.iv334 to i32
   invoke void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable29GetFVarPatchDescriptorRegularEi(ptr dead_on_unwind nonnull writable sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 %9, ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %506)
           to label %507 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1193,7 +1193,7 @@ _ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_
 
 508:                                              ; preds = %507
   %509 = load ptr, ptr %16, align 8
-  %510 = getelementptr inbounds %"class.std::vector.0", ptr %509, i64 %indvars.iv351
+  %510 = getelementptr inbounds %"class.std::vector.0", ptr %509, i64 %indvars.iv334
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
   %512 = load ptr, ptr %511, align 8
   %513 = load ptr, ptr %510, align 8
@@ -1203,7 +1203,7 @@ _ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_
   %517 = lshr exact i64 %516, 2
   %518 = trunc i64 %517 to i32
   %519 = load ptr, ptr %17, align 8
-  %520 = getelementptr inbounds %"class.std::vector.5", ptr %519, i64 %indvars.iv351
+  %520 = getelementptr inbounds %"class.std::vector.5", ptr %519, i64 %indvars.iv334
   %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
   %522 = load ptr, ptr %521, align 8
   %523 = load ptr, ptr %520, align 8
@@ -1214,34 +1214,34 @@ _ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_
   %528 = trunc i64 %527 to i32
   %529 = load i32, ptr %9, align 4
   %530 = load i32, ptr %10, align 4
-  %switch.tableidx377 = add i32 %529, -1
-  %531 = icmp ult i32 %switch.tableidx377, 10
-  br i1 %531, label %switch.lookup376, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
+  %switch.tableidx360 = add i32 %529, -1
+  %531 = icmp ult i32 %switch.tableidx360, 10
+  br i1 %531, label %switch.lookup359, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
 
-switch.lookup376:                                 ; preds = %508
-  %532 = zext nneg i32 %switch.tableidx377 to i64
-  %switch.gep378 = getelementptr inbounds [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 0, i64 %532
-  %switch.load379 = load i16, ptr %switch.gep378, align 2
+switch.lookup359:                                 ; preds = %508
+  %532 = zext nneg i32 %switch.tableidx360 to i64
+  %switch.gep361 = getelementptr inbounds [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 0, i64 %532
+  %switch.load362 = load i16, ptr %switch.gep361, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
 
-_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i: ; preds = %508, %switch.lookup376
-  %.0.i.i.i217 = phi i16 [ %switch.load379, %switch.lookup376 ], [ -1, %508 ]
-  %switch.tableidx381 = add i32 %530, -1
-  %533 = icmp ult i32 %switch.tableidx381, 10
-  br i1 %533, label %switch.lookup380, label %535
+_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i: ; preds = %508, %switch.lookup359
+  %.0.i.i.i217 = phi i16 [ %switch.load362, %switch.lookup359 ], [ -1, %508 ]
+  %switch.tableidx364 = add i32 %530, -1
+  %533 = icmp ult i32 %switch.tableidx364, 10
+  br i1 %533, label %switch.lookup363, label %535
 
-switch.lookup380:                                 ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
-  %534 = zext nneg i32 %switch.tableidx381 to i64
-  %switch.gep382 = getelementptr inbounds [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 0, i64 %534
-  %switch.load383 = load i16, ptr %switch.gep382, align 2
+switch.lookup363:                                 ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
+  %534 = zext nneg i32 %switch.tableidx364 to i64
+  %switch.gep365 = getelementptr inbounds [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 0, i64 %534
+  %switch.load366 = load i16, ptr %switch.gep365, align 2
   br label %535
 
-535:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i, %switch.lookup380
-  %.0.i.i3.i = phi i16 [ %switch.load383, %switch.lookup380 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i ]
+535:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i, %switch.lookup363
+  %.0.i.i3.i = phi i16 [ %switch.load366, %switch.lookup363 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i ]
   %.sroa.speculated.i = call i16 @llvm.smax.i16(i16 %.0.i.i.i217, i16 %.0.i.i3.i)
   %536 = sext i16 %.sroa.speculated.i to i32
   %537 = load ptr, ptr %15, align 8
-  %538 = getelementptr inbounds %"class.std::vector", ptr %537, i64 %indvars.iv351
+  %538 = getelementptr inbounds %"class.std::vector", ptr %537, i64 %indvars.iv334
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 8
   %540 = load ptr, ptr %539, align 8
   %541 = getelementptr inbounds nuw i8, ptr %538, i64 16
@@ -1344,14 +1344,14 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Osd10PatchArrayES
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit220
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit220: ; preds = %.noexc219, %543
-  %580 = invoke { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayFVarValuesEii(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113333, i32 noundef %506)
+  %580 = invoke { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayFVarValuesEii(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113324, i32 noundef %506)
           to label %581 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 581:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit220
   %.fca.0.extract18 = extractvalue { ptr, i32 } %580, 0
   %.fca.1.extract19 = extractvalue { ptr, i32 } %580, 1
   %582 = load ptr, ptr %16, align 8
-  %583 = getelementptr inbounds %"class.std::vector.0", ptr %582, i64 %indvars.iv351
+  %583 = getelementptr inbounds %"class.std::vector.0", ptr %582, i64 %indvars.iv334
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 8
   %585 = load ptr, ptr %584, align 8
   %586 = sext i32 %.fca.1.extract19 to i64
@@ -1435,19 +1435,19 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i253: ; preds = %614, %611
   br label %617
 
 617:                                              ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit.i, %581, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i253
-  %618 = invoke { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayFVarPatchParamsEii(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113333, i32 noundef %506)
+  %618 = invoke { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayFVarPatchParamsEii(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113324, i32 noundef %506)
           to label %619 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 619:                                              ; preds = %617
   %.fca.0.extract = extractvalue { ptr, i32 } %618, 0
-  br i1 %500, label %.lr.ph326, label %._crit_edge327
+  br i1 %500, label %.lr.ph319, label %._crit_edge320
 
-.lr.ph326:                                        ; preds = %619, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit
-  %indvars.iv347 = phi i64 [ %indvars.iv.next348, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit ], [ 0, %619 ]
-  %620 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %.fca.0.extract, i64 %indvars.iv347
+.lr.ph319:                                        ; preds = %619, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit
+  %indvars.iv330 = phi i64 [ %indvars.iv.next331, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit ], [ 0, %619 ]
+  %620 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %.fca.0.extract, i64 %indvars.iv330
   %621 = load i64, ptr %620, align 4
   %622 = load ptr, ptr %17, align 8
-  %623 = getelementptr inbounds %"class.std::vector.5", ptr %622, i64 %indvars.iv351
+  %623 = getelementptr inbounds %"class.std::vector.5", ptr %622, i64 %indvars.iv334
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 8
   %625 = load ptr, ptr %624, align 8
   %626 = getelementptr inbounds nuw i8, ptr %623, i64 16
@@ -1455,7 +1455,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i253: ; preds = %614, %611
   %.not.i223 = icmp eq ptr %625, %627
   br i1 %.not.i223, label %631, label %628
 
-628:                                              ; preds = %.lr.ph326
+628:                                              ; preds = %.lr.ph319
   store i64 %621, ptr %625, align 4
   %.sroa.6263.0..sroa_idx = getelementptr inbounds i8, ptr %625, i64 8
   store float 0.000000e+00, ptr %.sroa.6263.0..sroa_idx, align 4
@@ -1464,7 +1464,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i253: ; preds = %614, %611
   store ptr %630, ptr %624, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit
 
-631:                                              ; preds = %.lr.ph326
+631:                                              ; preds = %.lr.ph319
   %632 = load ptr, ptr %623, align 8
   %633 = ptrtoint ptr %625 to i64
   %634 = ptrtoint ptr %632 to i64
@@ -1518,29 +1518,29 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJR
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %628
-  %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
-  %exitcond350.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count
-  br i1 %exitcond350.not, label %._crit_edge327, label %.lr.ph326, !llvm.loop !12
+  %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
+  %exitcond333.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count
+  br i1 %exitcond333.not, label %._crit_edge320, label %.lr.ph319, !llvm.loop !12
 
-._crit_edge327:                                   ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit, %619
-  %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
+._crit_edge320:                                   ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit, %619
+  %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
   br label %_ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_S1_EET_SA_.exit216, !llvm.loop !13
 
 653:                                              ; preds = %502
-  %654 = invoke noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113333)
+  %654 = invoke noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %.0113324)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .preheader:                                       ; preds = %653
   %655 = icmp sgt i32 %654, 0
-  br i1 %655, label %.lr.ph330.preheader, label %._crit_edge331
+  br i1 %655, label %.lr.ph322.preheader, label %._crit_edge323
 
-.lr.ph330.preheader:                              ; preds = %.preheader
+.lr.ph322.preheader:                              ; preds = %.preheader
   %.pre = load ptr, ptr %402, align 8
-  br label %.lr.ph330
+  br label %.lr.ph322
 
-.lr.ph330:                                        ; preds = %.lr.ph330.preheader, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237
-  %656 = phi ptr [ %706, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237 ], [ %.pre, %.lr.ph330.preheader ]
-  %.0110329 = phi i32 [ %707, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237 ], [ 0, %.lr.ph330.preheader ]
+.lr.ph322:                                        ; preds = %.lr.ph322.preheader, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237
+  %656 = phi ptr [ %706, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237 ], [ %.pre, %.lr.ph322.preheader ]
+  %.0110321 = phi i32 [ %707, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237 ], [ 0, %.lr.ph322.preheader ]
   %657 = load ptr, ptr %12, align 8
   %658 = ptrtoint ptr %656 to i64
   %659 = ptrtoint ptr %657 to i64
@@ -1556,24 +1556,24 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit:
   %669 = trunc i64 %668 to i32
   %670 = icmp slt i32 %662, %669
   %sext = shl i64 %661, 32
-  br i1 %670, label %671, label %.lr.ph330._crit_edge
+  br i1 %670, label %671, label %.lr.ph322._crit_edge
 
-671:                                              ; preds = %.lr.ph330
+671:                                              ; preds = %.lr.ph322
   %672 = ashr exact i64 %sext, 30
   %673 = getelementptr inbounds i8, ptr %664, i64 %672
   %674 = load i32, ptr %673, align 4
   %675 = icmp sgt i32 %674, -1
-  br i1 %675, label %676, label %.lr.ph330._crit_edge
+  br i1 %675, label %676, label %.lr.ph322._crit_edge
 
 676:                                              ; preds = %671
   %677 = zext nneg i32 %674 to i64
   %678 = load ptr, ptr %419, align 8
   %679 = getelementptr inbounds float, ptr %678, i64 %677
   %680 = load float, ptr %679, align 4
-  br label %.lr.ph330._crit_edge
+  br label %.lr.ph322._crit_edge
 
-.lr.ph330._crit_edge:                             ; preds = %.lr.ph330, %671, %676
-  %.0109 = phi float [ 0.000000e+00, %671 ], [ %680, %676 ], [ 0.000000e+00, %.lr.ph330 ]
+.lr.ph322._crit_edge:                             ; preds = %.lr.ph322, %671, %676
+  %.0109 = phi float [ 0.000000e+00, %671 ], [ %680, %676 ], [ 0.000000e+00, %.lr.ph322 ]
   %681 = load ptr, ptr %416, align 8
   %682 = ashr exact i64 %sext, 29
   %683 = getelementptr inbounds i8, ptr %681, i64 %682
@@ -1582,7 +1582,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit:
   %.not.i227 = icmp eq ptr %656, %685
   br i1 %.not.i227, label %689, label %686
 
-686:                                              ; preds = %.lr.ph330._crit_edge
+686:                                              ; preds = %.lr.ph322._crit_edge
   store i64 %684, ptr %656, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %656, i64 8
   store float %.0109, ptr %.sroa.6.0..sroa_idx, align 4
@@ -1591,7 +1591,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit:
   store ptr %688, ptr %402, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237
 
-689:                                              ; preds = %.lr.ph330._crit_edge
+689:                                              ; preds = %.lr.ph322._crit_edge
   %690 = icmp eq i64 %660, 9223372036854775800
   br i1 %690, label %.invoke, label %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE12_M_check_lenEmPKc.exit.i.i228
 
@@ -1641,16 +1641,16 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJR
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i234, %686
   %706 = phi ptr [ %703, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i234 ], [ %688, %686 ]
-  %707 = add nuw nsw i32 %.0110329, 1
-  %exitcond354.not = icmp eq i32 %707, %654
-  br i1 %exitcond354.not, label %._crit_edge331, label %.lr.ph330, !llvm.loop !14
+  %707 = add nuw nsw i32 %.0110321, 1
+  %exitcond337.not = icmp eq i32 %707, %654
+  br i1 %exitcond337.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !14
 
-._crit_edge331:                                   ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237, %.preheader
-  %708 = add nuw nsw i32 %.0113333, 1
-  %exitcond355.not = icmp eq i32 %708, %smax
-  br i1 %exitcond355.not, label %._crit_edge335, label %420, !llvm.loop !15
+._crit_edge323:                                   ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237, %.preheader
+  %708 = add nuw nsw i32 %.0113324, 1
+  %exitcond338.not = icmp eq i32 %708, %smax
+  br i1 %exitcond338.not, label %._crit_edge326, label %420, !llvm.loop !15
 
-._crit_edge335:                                   ; preds = %._crit_edge331, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207
+._crit_edge326:                                   ; preds = %._crit_edge323, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207
   ret void
 }
 

@@ -4820,11 +4820,11 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %1 to i64
   %.pre = load float, ptr %2, align 4
-  %.pre70 = load float, ptr %17, align 4
+  %.pre69 = load float, ptr %17, align 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %146
-  %32 = phi float [ %.pre70, %.lr.ph.preheader ], [ %147, %146 ]
+  %32 = phi float [ %.pre69, %.lr.ph.preheader ], [ %147, %146 ]
   %33 = phi float [ %.pre, %.lr.ph.preheader ], [ %148, %146 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %146 ]
   %34 = getelementptr inbounds %"class.cv::Point_", ptr %0, i64 %indvars.iv
@@ -5003,8 +5003,8 @@ _ZN2cvL14findThirdPointINS_6Point_IfEEEEvPKT_iiRS2_Rf.exit: ; preds = %141
   br label %146
 
 146:                                              ; preds = %145, %_ZN2cvL14findThirdPointINS_6Point_IfEEEEvPKT_iiRS2_Rf.exit, %.lr.ph
-  %147 = phi float [ %32, %.lr.ph ], [ %.sroa.5.1, %145 ], [ %32, %_ZN2cvL14findThirdPointINS_6Point_IfEEEEvPKT_iiRS2_Rf.exit ]
-  %148 = phi float [ %33, %.lr.ph ], [ %.sroa.0.1, %145 ], [ %33, %_ZN2cvL14findThirdPointINS_6Point_IfEEEEvPKT_iiRS2_Rf.exit ]
+  %147 = phi float [ %.sroa.5.1, %145 ], [ %32, %_ZN2cvL14findThirdPointINS_6Point_IfEEEEvPKT_iiRS2_Rf.exit ], [ %32, %.lr.ph ]
+  %148 = phi float [ %.sroa.0.1, %145 ], [ %33, %_ZN2cvL14findThirdPointINS_6Point_IfEEEEvPKT_iiRS2_Rf.exit ], [ %33, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57

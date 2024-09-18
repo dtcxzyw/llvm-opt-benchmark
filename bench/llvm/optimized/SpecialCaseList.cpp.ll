@@ -996,7 +996,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %67
 
 67:                                               ; preds = %.lr.ph, %_ZN4llvm5ErrorD2Ev.exit87
-  %.0318 = phi ptr [ %spec.select, %.lr.ph ], [ %.1289, %_ZN4llvm5ErrorD2Ev.exit87 ]
+  %.0316 = phi ptr [ %spec.select, %.lr.ph ], [ %.1289, %_ZN4llvm5ErrorD2Ev.exit87 ]
   %68 = load i32, ptr %60, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %69 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr nonnull @.str.14, i64 6, i64 noundef 0) #15
@@ -1034,8 +1034,8 @@ _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZNK4llvm9StringRef
   br i1 %83, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit74
 
 _ZN4llvmplERKNS_5TwineES2_.exit74:                ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit
-  %.sroa.0410.0.insert.ext = zext i32 %68 to i64
-  %84 = inttoptr i64 %.sroa.0410.0.insert.ext to ptr
+  %.sroa.0408.0.insert.ext = zext i32 %68 to i64
+  %84 = inttoptr i64 %.sroa.0408.0.insert.ext to ptr
   store ptr @.str.17, ptr %13, align 8, !alias.scope !92
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %84, ptr %85, align 8, !alias.scope !92
@@ -1119,12 +1119,12 @@ _ZNK4llvm9StringRef5splitES0_.exit:               ; preds = %_ZNK4llvm9StringRef
   store i64 %112, ptr %.sroa.26.0..sroa_idx.i, align 8, !alias.scope !107
   store ptr %115, ptr %65, align 8, !alias.scope !107
   store i64 %116, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !107
-  %.not446 = icmp ugt i64 %111, %114
-  br i1 %.not446, label %133, label %_ZN4llvmplERKNS_5TwineES2_.exit148
+  %.not444 = icmp ugt i64 %111, %114
+  br i1 %.not444, label %133, label %_ZN4llvmplERKNS_5TwineES2_.exit148
 
 _ZN4llvmplERKNS_5TwineES2_.exit148:               ; preds = %_ZNK4llvm9StringRef5splitES0_.exit, %_ZNK4llvm9StringRef5splitES0_.exit.thread
-  %.sroa.0390.0.insert.ext = zext i32 %68 to i64
-  %117 = inttoptr i64 %.sroa.0390.0.insert.ext to ptr
+  %.sroa.0388.0.insert.ext = zext i32 %68 to i64
+  %117 = inttoptr i64 %.sroa.0388.0.insert.ext to ptr
   store ptr @.str.20, ptr %22, align 8, !alias.scope !110
   %118 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %117, ptr %118, align 8, !alias.scope !110
@@ -1187,7 +1187,7 @@ _ZNK4llvm9StringRef5splitES0_.exit152:            ; preds = %136, %137
   %.sroa.10.2 = phi i64 [ 0, %136 ], [ %143, %137 ]
   %.sroa.4.0 = phi i64 [ %.sroa.4.0.copyload, %136 ], [ %139, %137 ]
   %.sroa.0265.0 = phi ptr [ %.sroa.0265.0.copyload, %136 ], [ %140, %137 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.0318, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %.0316, i64 8
   %.sroa.03.0.copyload = load ptr, ptr %17, align 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx.i, align 8
   %145 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload) #15
@@ -1221,10 +1221,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit262:               ; preds = %154, %157
   %.sroa.05.0.i.i175 = phi ptr [ %31, %157 ], [ @.str.23, %154 ]
   %.014.i.i174 = phi i8 [ 2, %157 ], [ 3, %154 ]
   %.sink = phi i8 [ 3, %157 ], [ 1, %154 ]
-  %.sroa.3369.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 32
-  store i8 3, ptr %.sroa.3369.0..sroa_idx, align 8
-  %.sroa.5370.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 33
-  store i8 %.sink, ptr %.sroa.5370.0..sroa_idx, align 1
+  %.sroa.3367.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 32
+  store i8 3, ptr %.sroa.3367.0..sroa_idx, align 8
+  %.sroa.5368.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 33
+  store i8 %.sink, ptr %.sroa.5368.0..sroa_idx, align 1
   store ptr %.sroa.05.0.i.i175, ptr %30, align 8, !alias.scope !138
   %159 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr @.str.24, ptr %159, align 8, !alias.scope !138
@@ -1232,8 +1232,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit262:               ; preds = %154, %157
   store i8 %.014.i.i174, ptr %160, align 8, !alias.scope !138
   %161 = getelementptr inbounds nuw i8, ptr %30, i64 33
   store i8 3, ptr %161, align 1, !alias.scope !138
-  %.sroa.0351.0.insert.ext = zext i32 %68 to i64
-  %162 = inttoptr i64 %.sroa.0351.0.insert.ext to ptr
+  %.sroa.0349.0.insert.ext = zext i32 %68 to i64
+  %162 = inttoptr i64 %.sroa.0349.0.insert.ext to ptr
   store ptr %30, ptr %29, align 8, !alias.scope !143
   %163 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %162, ptr %163, align 8, !alias.scope !143
@@ -1302,7 +1302,7 @@ _ZN4llvm5ErrorD2Ev.exit263:                       ; preds = %181, %_ZN4llvmplERK
   br label %_ZN4llvm5ErrorD2Ev.exit39.thread
 
 _ZN4llvm5ErrorD2Ev.exit87:                        ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, %_ZNK4llvm9StringRef5splitES0_.exit152, %_ZN4llvm8ExpectedIPNS_15SpecialCaseList7SectionEED2Ev.exit85, %67
-  %.1289 = phi ptr [ %.0318, %67 ], [ %.0318, %_ZN4llvm8ExpectedIPNS_15SpecialCaseList7SectionEED2Ev.exit85 ], [ %.0318, %_ZNK4llvm9StringRef5splitES0_.exit152 ], [ %100, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ]
+  %.1289 = phi ptr [ %.0316, %67 ], [ %.0316, %_ZN4llvm8ExpectedIPNS_15SpecialCaseList7SectionEED2Ev.exit85 ], [ %.0316, %_ZNK4llvm9StringRef5splitES0_.exit152 ], [ %100, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ]
   call void @_ZN4llvm13line_iterator7advanceEv(ptr noundef nonnull align 8 dereferenceable(64) %8) #15, !noalias !168
   %190 = load i8, ptr %57, align 8
   %191 = trunc i8 %190 to i1

@@ -165,7 +165,7 @@ for.body45.lr.ph:                                 ; preds = %for.end
   br label %for.body45
 
 for.body45:                                       ; preds = %for.body45.lr.ph, %for.body45
-  %indvars.iv401 = phi i64 [ 42, %for.body45.lr.ph ], [ %indvars.iv.next402, %for.body45 ]
+  %indvars.iv397 = phi i64 [ 42, %for.body45.lr.ph ], [ %indvars.iv.next398, %for.body45 ]
   %i42.0377 = phi i32 [ 0, %for.body45.lr.ph ], [ %inc73, %for.body45 ]
   %vtable47 = load ptr, ptr %convexA, align 8
   %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 176
@@ -198,7 +198,7 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   store <2 x float> %retval.sroa.0.4.vec.insert.i86, ptr %norm46, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i87, ptr %arrayidx12.i.i, align 8
   %call53 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
-  %arrayidx55 = getelementptr inbounds %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv401
+  %arrayidx55 = getelementptr inbounds %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx55, ptr noundef nonnull align 8 dereferenceable(16) %norm46, i64 16, i1 false)
   %57 = load float, ptr %norm46, align 8
   %fneg.i90 = fneg float %57
@@ -227,7 +227,7 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %retval.sroa.0.0.vec.insert.i113 = insertelement <2 x float> poison, float %64, i64 0
   %retval.sroa.0.4.vec.insert.i114 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i113, float %69, i64 1
   %retval.sroa.3.12.vec.insert.i115 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %74, i64 0
-  %arrayidx64 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInABatch, i64 0, i64 %indvars.iv401
+  %arrayidx64 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInABatch, i64 0, i64 %indvars.iv397
   store <2 x float> %retval.sroa.0.4.vec.insert.i114, ptr %arrayidx64, align 16
   %ref.tmp56.sroa.2.0.arrayidx64.sroa_idx = getelementptr inbounds i8, ptr %arrayidx64, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i115, ptr %ref.tmp56.sroa.2.0.arrayidx64.sroa_idx, align 8
@@ -252,17 +252,17 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %retval.sroa.0.0.vec.insert.i131 = insertelement <2 x float> poison, float %79, i64 0
   %retval.sroa.0.4.vec.insert.i132 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i131, float %84, i64 1
   %retval.sroa.3.12.vec.insert.i133 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %89, i64 0
-  %arrayidx70 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInBBatch, i64 0, i64 %indvars.iv401
+  %arrayidx70 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInBBatch, i64 0, i64 %indvars.iv397
   store <2 x float> %retval.sroa.0.4.vec.insert.i132, ptr %arrayidx70, align 16
   %ref.tmp65.sroa.2.0.arrayidx70.sroa_idx = getelementptr inbounds i8, ptr %arrayidx70, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i133, ptr %ref.tmp65.sroa.2.0.arrayidx70.sroa_idx, align 8
-  %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
+  %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %inc73 = add nuw nsw i32 %i42.0377, 1
-  %exitcond404.not = icmp eq i32 %inc73, %call41
-  br i1 %exitcond404.not, label %if.end.loopexit, label %for.body45, !llvm.loop !7
+  %exitcond400.not = icmp eq i32 %inc73, %call41
+  br i1 %exitcond400.not, label %if.end.loopexit, label %for.body45, !llvm.loop !7
 
 if.end.loopexit:                                  ; preds = %for.body45
-  %90 = trunc nuw i64 %indvars.iv.next402 to i32
+  %90 = trunc nuw i64 %indvars.iv.next398 to i32
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %for.end
@@ -281,7 +281,7 @@ for.body83.lr.ph:                                 ; preds = %if.end
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.lr.ph, %for.body83
-  %indvars.iv405 = phi i64 [ %92, %for.body83.lr.ph ], [ %indvars.iv.next406, %for.body83 ]
+  %indvars.iv401 = phi i64 [ %92, %for.body83.lr.ph ], [ %indvars.iv.next402, %for.body83 ]
   %i80.0380 = phi i32 [ 0, %for.body83.lr.ph ], [ %inc111, %for.body83 ]
   %vtable85 = load ptr, ptr %convexB, align 8
   %vfn86 = getelementptr inbounds i8, ptr %vtable85, i64 176
@@ -314,7 +314,7 @@ for.body83:                                       ; preds = %for.body83.lr.ph, %
   store <2 x float> %retval.sroa.0.4.vec.insert.i150, ptr %norm84, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i151, ptr %arrayidx12.i.i140, align 8
   %call91 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
-  %arrayidx93 = getelementptr inbounds %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv405
+  %arrayidx93 = getelementptr inbounds %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv401
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx93, ptr noundef nonnull align 8 dereferenceable(16) %norm84, i64 16, i1 false)
   %112 = load float, ptr %norm84, align 8
   %fneg.i154 = fneg float %112
@@ -343,7 +343,7 @@ for.body83:                                       ; preds = %for.body83.lr.ph, %
   %retval.sroa.0.0.vec.insert.i177 = insertelement <2 x float> poison, float %119, i64 0
   %retval.sroa.0.4.vec.insert.i178 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i177, float %124, i64 1
   %retval.sroa.3.12.vec.insert.i179 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %129, i64 0
-  %arrayidx102 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInABatch, i64 0, i64 %indvars.iv405
+  %arrayidx102 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInABatch, i64 0, i64 %indvars.iv401
   store <2 x float> %retval.sroa.0.4.vec.insert.i178, ptr %arrayidx102, align 16
   %ref.tmp94.sroa.2.0.arrayidx102.sroa_idx = getelementptr inbounds i8, ptr %arrayidx102, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i179, ptr %ref.tmp94.sroa.2.0.arrayidx102.sroa_idx, align 8
@@ -368,17 +368,17 @@ for.body83:                                       ; preds = %for.body83.lr.ph, %
   %retval.sroa.0.0.vec.insert.i195 = insertelement <2 x float> poison, float %134, i64 0
   %retval.sroa.0.4.vec.insert.i196 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i195, float %139, i64 1
   %retval.sroa.3.12.vec.insert.i197 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %144, i64 0
-  %arrayidx108 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInBBatch, i64 0, i64 %indvars.iv405
+  %arrayidx108 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInBBatch, i64 0, i64 %indvars.iv401
   store <2 x float> %retval.sroa.0.4.vec.insert.i196, ptr %arrayidx108, align 16
   %ref.tmp103.sroa.2.0.arrayidx108.sroa_idx = getelementptr inbounds i8, ptr %arrayidx108, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i197, ptr %ref.tmp103.sroa.2.0.arrayidx108.sroa_idx, align 8
-  %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
+  %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %inc111 = add nuw nsw i32 %i80.0380, 1
-  %exitcond408.not = icmp eq i32 %inc111, %call77
-  br i1 %exitcond408.not, label %if.end113.loopexit, label %for.body83, !llvm.loop !8
+  %exitcond404.not = icmp eq i32 %inc111, %call77
+  br i1 %exitcond404.not, label %if.end113.loopexit, label %for.body83, !llvm.loop !8
 
 if.end113.loopexit:                               ; preds = %for.body83
-  %145 = trunc nuw i64 %indvars.iv.next406 to i32
+  %145 = trunc nuw i64 %indvars.iv.next402 to i32
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end113.loopexit, %if.end
@@ -405,14 +405,14 @@ for.body123.lr.ph:                                ; preds = %if.end113
   br label %for.body123
 
 for.body123:                                      ; preds = %for.body123.lr.ph, %for.inc165
-  %indvars.iv409 = phi i64 [ 0, %for.body123.lr.ph ], [ %indvars.iv.next410, %for.inc165 ]
-  %minProj.0393 = phi float [ 0x43ABC16D60000000, %for.body123.lr.ph ], [ %minProj.1, %for.inc165 ]
-  %minNorm.sroa.28.0391 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.28.1, %for.inc165 ]
-  %minNorm.sroa.19.0390 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.19.1, %for.inc165 ]
-  %minNorm.sroa.10.0389 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.10.1, %for.inc165 ]
-  %minNorm.sroa.0.0388 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.0.1, %for.inc165 ]
+  %indvars.iv405 = phi i64 [ 0, %for.body123.lr.ph ], [ %indvars.iv.next406, %for.inc165 ]
+  %minProj.0389 = phi float [ 0x43ABC16D60000000, %for.body123.lr.ph ], [ %minProj.1, %for.inc165 ]
+  %minNorm.sroa.28.0387 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.28.1, %for.inc165 ]
+  %minNorm.sroa.19.0386 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.19.1, %for.inc165 ]
+  %minNorm.sroa.10.0385 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.10.1, %for.inc165 ]
+  %minNorm.sroa.0.0384 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.0.1, %for.inc165 ]
   %call125 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
-  %arrayidx127 = getelementptr inbounds %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv409
+  %arrayidx127 = getelementptr inbounds %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv405
   %norm124.sroa.0.0.copyload = load float, ptr %arrayidx127, align 16
   %norm124.sroa.4.0.arrayidx127.sroa_idx = getelementptr inbounds i8, ptr %arrayidx127, i64 4
   %norm124.sroa.4.0.copyload = load float, ptr %norm124.sroa.4.0.arrayidx127.sroa_idx, align 4
@@ -429,13 +429,13 @@ for.body123:                                      ; preds = %for.body123.lr.ph, 
   br i1 %cmp134, label %if.then135, label %for.inc165
 
 if.then135:                                       ; preds = %for.body123
-  %arrayidx141 = getelementptr inbounds [62 x %class.btVector3], ptr %supportVerticesABatch, i64 0, i64 %indvars.iv409
+  %arrayidx141 = getelementptr inbounds [62 x %class.btVector3], ptr %supportVerticesABatch, i64 0, i64 %indvars.iv405
   %pInA.sroa.0.0.copyload = load float, ptr %arrayidx141, align 16
   %pInA.sroa.2.0.arrayidx141.sroa_idx = getelementptr inbounds i8, ptr %arrayidx141, i64 4
   %pInA.sroa.2.0.copyload = load float, ptr %pInA.sroa.2.0.arrayidx141.sroa_idx, align 4
   %pInA.sroa.3.0.arrayidx141.sroa_idx = getelementptr inbounds i8, ptr %arrayidx141, i64 8
   %pInA.sroa.3.0.copyload = load float, ptr %pInA.sroa.3.0.arrayidx141.sroa_idx, align 8
-  %arrayidx143 = getelementptr inbounds [62 x %class.btVector3], ptr %supportVerticesBBatch, i64 0, i64 %indvars.iv409
+  %arrayidx143 = getelementptr inbounds [62 x %class.btVector3], ptr %supportVerticesBBatch, i64 0, i64 %indvars.iv405
   %qInB.sroa.0.0.copyload = load float, ptr %arrayidx143, align 16
   %qInB.sroa.2.0.arrayidx143.sroa_idx = getelementptr inbounds i8, ptr %arrayidx143, i64 4
   %qInB.sroa.2.0.copyload = load float, ptr %qInB.sroa.2.0.arrayidx143.sroa_idx, align 4
@@ -496,21 +496,21 @@ if.then135:                                       ; preds = %for.body123
   %mul8.i = fmul float %norm124.sroa.4.0.copyload, %sub8.i
   %187 = call float @llvm.fmuladd.f32(float %norm124.sroa.0.0.copyload, float %sub.i, float %mul8.i)
   %188 = call noundef float @llvm.fmuladd.f32(float %norm124.sroa.6.0, float %sub14.i, float %187)
-  %cmp161 = fcmp olt float %188, %minProj.0393
+  %cmp161 = fcmp olt float %188, %minProj.0389
   br i1 %cmp161, label %if.then162, label %for.inc165
 
 if.then162:                                       ; preds = %if.then135
   br label %for.inc165
 
 for.inc165:                                       ; preds = %for.body123, %if.then162, %if.then135
-  %minNorm.sroa.0.1 = phi float [ %norm124.sroa.0.0.copyload, %if.then162 ], [ %minNorm.sroa.0.0388, %if.then135 ], [ %minNorm.sroa.0.0388, %for.body123 ]
-  %minNorm.sroa.10.1 = phi float [ %norm124.sroa.4.0.copyload, %if.then162 ], [ %minNorm.sroa.10.0389, %if.then135 ], [ %minNorm.sroa.10.0389, %for.body123 ]
-  %minNorm.sroa.19.1 = phi float [ %norm124.sroa.6.0, %if.then162 ], [ %minNorm.sroa.19.0390, %if.then135 ], [ %minNorm.sroa.19.0390, %for.body123 ]
-  %minNorm.sroa.28.1 = phi float [ %norm124.sroa.9.0.copyload, %if.then162 ], [ %minNorm.sroa.28.0391, %if.then135 ], [ %minNorm.sroa.28.0391, %for.body123 ]
-  %minProj.1 = phi float [ %188, %if.then162 ], [ %minProj.0393, %if.then135 ], [ %minProj.0393, %for.body123 ]
-  %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
-  %exitcond412.not = icmp eq i64 %indvars.iv.next410, %wide.trip.count
-  br i1 %exitcond412.not, label %for.end167, label %for.body123, !llvm.loop !9
+  %minNorm.sroa.0.1 = phi float [ %norm124.sroa.0.0.copyload, %if.then162 ], [ %minNorm.sroa.0.0384, %if.then135 ], [ %minNorm.sroa.0.0384, %for.body123 ]
+  %minNorm.sroa.10.1 = phi float [ %norm124.sroa.4.0.copyload, %if.then162 ], [ %minNorm.sroa.10.0385, %if.then135 ], [ %minNorm.sroa.10.0385, %for.body123 ]
+  %minNorm.sroa.19.1 = phi float [ %norm124.sroa.6.0, %if.then162 ], [ %minNorm.sroa.19.0386, %if.then135 ], [ %minNorm.sroa.19.0386, %for.body123 ]
+  %minNorm.sroa.28.1 = phi float [ %norm124.sroa.9.0.copyload, %if.then162 ], [ %minNorm.sroa.28.0387, %if.then135 ], [ %minNorm.sroa.28.0387, %for.body123 ]
+  %minProj.1 = phi float [ %188, %if.then162 ], [ %minProj.0389, %if.then135 ], [ %minProj.0389, %for.body123 ]
+  %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
+  %exitcond408.not = icmp eq i64 %indvars.iv.next406, %wide.trip.count
+  br i1 %exitcond408.not, label %for.end167, label %for.body123, !llvm.loop !9
 
 for.end167:                                       ; preds = %for.inc165, %if.end113
   %minNorm.sroa.0.0.lcssa = phi float [ 0.000000e+00, %if.end113 ], [ %minNorm.sroa.0.1, %for.inc165 ]

@@ -855,18 +855,18 @@ _ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE
   %.val.i = load ptr, ptr %44, align 8
   %45 = getelementptr i8, ptr %35, i64 48
   %.val22.i = load ptr, ptr %45, align 8
-  %.not39.i.i = icmp eq ptr %.val.i, %.val22.i
-  br i1 %.not39.i.i, label %_ZNK5clang3CFG15VisitBlockStmtsIN12_GLOBAL__N_111FindEscapedEEEvRT_.exit.i, label %.lr.ph43.i.i
+  %.not38.i.i = icmp eq ptr %.val.i, %.val22.i
+  br i1 %.not38.i.i, label %_ZNK5clang3CFG15VisitBlockStmtsIN12_GLOBAL__N_111FindEscapedEEEvRT_.exit.i, label %.lr.ph41.i.i
 
-.lr.ph43.i.i:                                     ; preds = %32
+.lr.ph41.i.i:                                     ; preds = %32
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %49
 
-49:                                               ; preds = %._crit_edge.i.i, %.lr.ph43.i.i
-  %.041.i.i = phi ptr [ %.val.i, %.lr.ph43.i.i ], [ %384, %._crit_edge.i.i ]
-  %50 = load ptr, ptr %.041.i.i, align 8
+49:                                               ; preds = %._crit_edge.i.i, %.lr.ph41.i.i
+  %.039.i.i = phi ptr [ %.val.i, %.lr.ph41.i.i ], [ %384, %._crit_edge.i.i ]
+  %50 = load ptr, ptr %.039.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !13
   %53 = load ptr, ptr %50, align 8, !noalias !20
@@ -1314,11 +1314,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12Den
   %273 = shl nuw nsw i64 %232, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %80, i64 noundef %273, i64 noundef 8) #23
   %.pr14.pre.i.i = load i32, ptr %46, align 8
-  %.pre67.i.i = load ptr, ptr %5, align 8
+  %.pre65.i.i = load ptr, ptr %5, align 8
   br label %_ZN4llvm8DenseMapIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEE4growEj.exit.i.i
 
 _ZN4llvm8DenseMapIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEE4growEj.exit.i.i: ; preds = %.lr.ph.i.i15.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit.i.i.i
-  %274 = phi ptr [ %.pre67.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit.i.i.i ], [ %225, %.lr.ph.i.i15.i.i ]
+  %274 = phi ptr [ %.pre65.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit.i.i.i ], [ %225, %.lr.ph.i.i15.i.i ]
   %.pr14.i.i = phi i32 [ %.pr14.pre.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit.i.i.i ], [ %227, %.lr.ph.i.i15.i.i ]
   %275 = icmp eq i32 %.pr14.i.i, 0
   br i1 %275, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i.i, label %276
@@ -1540,7 +1540,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i: ; preds = 
   br i1 %.not15.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !40
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i, %49
-  %384 = getelementptr inbounds i8, ptr %.041.i.i, i64 8
+  %384 = getelementptr inbounds i8, ptr %.039.i.i, i64 8
   %.not.i.i = icmp eq ptr %384, %.val22.i
   br i1 %.not.i.i, label %_ZNK5clang3CFG15VisitBlockStmtsIN12_GLOBAL__N_111FindEscapedEEEvRT_.exit.i, label %49, !llvm.loop !41
 

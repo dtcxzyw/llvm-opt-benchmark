@@ -12008,9 +12008,9 @@ define internal void @_ZN12_GLOBAL__N_117VarArgAMD64Helper13visitCallBaseERN4llv
   br label %26
 
 26:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit
-  %.0187 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit ]
-  %.0106186 = phi i32 [ 48, %.lr.ph ], [ %.1107, %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit ]
-  %.0109185 = phi i32 [ %9, %.lr.ph ], [ %.1110, %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit ]
+  %.0186 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit ]
+  %.0106185 = phi i32 [ 48, %.lr.ph ], [ %.1107, %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit ]
+  %.0109184 = phi i32 [ %9, %.lr.ph ], [ %.1110, %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit ]
   %.sroa.5.0183 = phi i64 [ 0, %.lr.ph ], [ %223, %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit ]
   %.sroa.0159.0182 = phi ptr [ %18, %.lr.ph ], [ %224, %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit ]
   %27 = load ptr, ptr %20, align 8
@@ -12080,7 +12080,7 @@ _ZNK4llvm8CallBase17getParamByValTypeEj.exit:     ; preds = %36, %38, %40, %_ZN4
   %61 = add i64 %59, %.neg179
   %62 = select i1 %60, i64 8, i64 0
   %63 = add i64 %61, %62
-  %64 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getShadowPtrForVAArgumentEPN4llvm4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEj(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0109185)
+  %64 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getShadowPtrForVAArgumentEPN4llvm4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEj(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0109184)
   %65 = load ptr, ptr %21, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
@@ -12088,25 +12088,25 @@ _ZNK4llvm8CallBase17getParamByValTypeEj.exit:     ; preds = %36, %38, %40, %_ZN4
   br i1 %.not130, label %70, label %68
 
 68:                                               ; preds = %_ZNK4llvm8CallBase17getParamByValTypeEj.exit
-  %69 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getOriginPtrForVAArgumentERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEi(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0109185)
+  %69 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getOriginPtrForVAArgumentERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEi(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0109184)
   br label %70
 
 70:                                               ; preds = %68, %_ZNK4llvm8CallBase17getParamByValTypeEj.exit
   %.0112 = phi ptr [ %69, %68 ], [ null, %_ZNK4llvm8CallBase17getParamByValTypeEj.exit ]
   %71 = trunc i64 %63 to i32
   %72 = and i32 %71, -8
-  %73 = add i32 %72, %.0109185
+  %73 = add i32 %72, %.0109184
   %74 = icmp ugt i32 %73, 800
   br i1 %74, label %75, label %87
 
 75:                                               ; preds = %70
-  %76 = icmp ugt i32 %.0109185, 799
+  %76 = icmp ugt i32 %.0109184, 799
   br i1 %76, label %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit, label %77
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %22, align 8
   %79 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %78) #23
-  %80 = sub nuw nsw i32 800, %.0109185
+  %80 = sub nuw nsw i32 800, %.0109184
   %81 = zext nneg i32 %80 to i64
   %82 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %79, i64 noundef %81, i1 noundef zeroext true) #23
   %83 = load ptr, ptr %22, align 8
@@ -12211,19 +12211,19 @@ switch.hole_check:                                ; preds = %_ZNK4llvm4Type13get
   %switch.lobit = trunc i8 %switch.shifted to i1
   %129 = and i32 %120, 5
   %spec.select.i.i.i = icmp eq i32 %129, 4
-  %or.cond188 = or i1 %spec.select.i.i.i, %switch.lobit
-  br i1 %or.cond188, label %_ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit, label %122
+  %or.cond187 = or i1 %spec.select.i.i.i, %switch.lobit
+  br i1 %or.cond187, label %_ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit, label %122
 
 _ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit: ; preds = %switch.hole_check, %107, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i, %124, %.critedge.i
   %.0.i133 = phi i32 [ 2, %107 ], [ 1, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i ], [ 0, %124 ], [ %..i, %.critedge.i ], [ 1, %switch.hole_check ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %130 = icmp eq i32 %.0.i133, 0
-  %131 = icmp ugt i32 %.0187, 47
+  %131 = icmp ugt i32 %.0186, 47
   %or.cond = select i1 %130, i1 %131, i1 false
   %spec.store.select = select i1 %or.cond, i32 2, i32 %.0.i133
   %132 = icmp eq i32 %spec.store.select, 1
   %133 = load i32, ptr %8, align 4
-  %.not = icmp ult i32 %.0106186, %133
+  %.not = icmp ult i32 %.0106185, %133
   %spec.select = select i1 %.not, i32 1, i32 2
   %.0113 = select i1 %132, i32 %spec.select, i32 %spec.store.select
   switch i32 %.0113, label %default.unreachable [
@@ -12236,7 +12236,7 @@ _ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit: ; pr
   %135 = load ptr, ptr %.sroa.0159.0182, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
-  %138 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getShadowPtrForVAArgumentEPN4llvm4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEj(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %137, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0187)
+  %138 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getShadowPtrForVAArgumentEPN4llvm4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEj(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %137, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0186)
   %139 = load ptr, ptr %21, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i32, ptr %140, align 4
@@ -12244,19 +12244,19 @@ _ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit: ; pr
   br i1 %.not128, label %144, label %142
 
 142:                                              ; preds = %134
-  %143 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getOriginPtrForVAArgumentERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEi(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0187)
+  %143 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getOriginPtrForVAArgumentERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEi(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0186)
   br label %144
 
 144:                                              ; preds = %142, %134
   %.1118 = phi ptr [ %143, %142 ], [ null, %134 ]
-  %145 = add i32 %.0187, 8
+  %145 = add i32 %.0186, 8
   br label %204
 
 146:                                              ; preds = %_ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit
   %147 = load ptr, ptr %.sroa.0159.0182, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
-  %150 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getShadowPtrForVAArgumentEPN4llvm4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEj(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %149, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0106186)
+  %150 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getShadowPtrForVAArgumentEPN4llvm4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEj(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %149, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0106185)
   %151 = load ptr, ptr %21, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load i32, ptr %152, align 4
@@ -12264,12 +12264,12 @@ _ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit: ; pr
   br i1 %.not127, label %156, label %154
 
 154:                                              ; preds = %146
-  %155 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getOriginPtrForVAArgumentERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEi(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0106186)
+  %155 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getOriginPtrForVAArgumentERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEi(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0106185)
   br label %156
 
 156:                                              ; preds = %154, %146
   %.2119 = phi ptr [ %155, %154 ], [ null, %146 ]
-  %157 = add i32 %.0106186, 16
+  %157 = add i32 %.0106185, 16
   br label %204
 
 158:                                              ; preds = %_ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit
@@ -12303,7 +12303,7 @@ _ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit: ; pr
   %178 = load ptr, ptr %.sroa.0159.0182, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8
-  %181 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getShadowPtrForVAArgumentEPN4llvm4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEj(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %180, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0109185)
+  %181 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getShadowPtrForVAArgumentEPN4llvm4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEj(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %180, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0109184)
   %182 = load ptr, ptr %21, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = load i32, ptr %183, align 4
@@ -12311,25 +12311,25 @@ _ZN12_GLOBAL__N_117VarArgAMD64Helper16classifyArgumentEPN4llvm5ValueE.exit: ; pr
   br i1 %.not126, label %187, label %185
 
 185:                                              ; preds = %159
-  %186 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getOriginPtrForVAArgumentERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEi(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0109185)
+  %186 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116VarArgHelperBase25getOriginPtrForVAArgumentERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEi(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %.0109184)
   br label %187
 
 187:                                              ; preds = %185, %159
   %.3 = phi ptr [ %186, %185 ], [ null, %159 ]
   %188 = trunc i64 %177 to i32
   %189 = and i32 %188, -8
-  %190 = add i32 %189, %.0109185
+  %190 = add i32 %189, %.0109184
   %191 = icmp ugt i32 %190, 800
   br i1 %191, label %192, label %.thread
 
 192:                                              ; preds = %187
-  %193 = icmp ugt i32 %.0109185, 799
+  %193 = icmp ugt i32 %.0109184, 799
   br i1 %193, label %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit, label %194
 
 194:                                              ; preds = %192
   %195 = load ptr, ptr %22, align 8
   %196 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %195) #23
-  %197 = sub nuw nsw i32 800, %.0109185
+  %197 = sub nuw nsw i32 800, %.0109184
   %198 = zext nneg i32 %197 to i64
   %199 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %196, i64 noundef %198, i1 noundef zeroext true) #23
   %200 = load ptr, ptr %22, align 8
@@ -12344,14 +12344,14 @@ default.unreachable:                              ; preds = %_ZN12_GLOBAL__N_117
 204:                                              ; preds = %156, %144
   %.0117 = phi ptr [ %.2119, %156 ], [ %.1118, %144 ]
   %.2116 = phi ptr [ %150, %156 ], [ %138, %144 ]
-  %.2108 = phi i32 [ %157, %156 ], [ %.0106186, %144 ]
-  %.2 = phi i32 [ %.0187, %156 ], [ %145, %144 ]
+  %.2108 = phi i32 [ %157, %156 ], [ %.0106185, %144 ]
+  %.2 = phi i32 [ %.0186, %156 ], [ %145, %144 ]
   br i1 %32, label %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit, label %.thread
 
 .thread:                                          ; preds = %187, %204
-  %.2177 = phi i32 [ %.2, %204 ], [ %.0187, %187 ]
-  %.2108176 = phi i32 [ %.2108, %204 ], [ %.0106186, %187 ]
-  %.2111175 = phi i32 [ %.0109185, %204 ], [ %190, %187 ]
+  %.2177 = phi i32 [ %.2, %204 ], [ %.0186, %187 ]
+  %.2108176 = phi i32 [ %.2108, %204 ], [ %.0106185, %187 ]
+  %.2111175 = phi i32 [ %.0109184, %204 ], [ %190, %187 ]
   %.2116174 = phi ptr [ %.2116, %204 ], [ %181, %187 ]
   %.0117173 = phi ptr [ %.0117, %204 ], [ %.3, %187 ]
   %205 = load ptr, ptr %23, align 8
@@ -12388,9 +12388,9 @@ default.unreachable:                              ; preds = %_ZN12_GLOBAL__N_117
   br label %_ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit
 
 _ZN12_GLOBAL__N_116VarArgHelperBase14CleanUnusedTLSERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueEj.exit: ; preds = %194, %192, %77, %75, %101, %87, %212, %.thread, %204, %158, %35
-  %.1110 = phi i32 [ %.0109185, %35 ], [ %73, %101 ], [ %73, %87 ], [ %.0109185, %204 ], [ %.2111175, %212 ], [ %.2111175, %.thread ], [ %.0109185, %158 ], [ %73, %75 ], [ %73, %77 ], [ %190, %192 ], [ %190, %194 ]
-  %.1107 = phi i32 [ %.0106186, %35 ], [ %.0106186, %101 ], [ %.0106186, %87 ], [ %.2108, %204 ], [ %.2108176, %212 ], [ %.2108176, %.thread ], [ %.0106186, %158 ], [ %.0106186, %75 ], [ %.0106186, %77 ], [ %.0106186, %192 ], [ %.0106186, %194 ]
-  %.1 = phi i32 [ %.0187, %35 ], [ %.0187, %101 ], [ %.0187, %87 ], [ %.2, %204 ], [ %.2177, %212 ], [ %.2177, %.thread ], [ %.0187, %158 ], [ %.0187, %75 ], [ %.0187, %77 ], [ %.0187, %192 ], [ %.0187, %194 ]
+  %.1110 = phi i32 [ %.0109184, %35 ], [ %73, %101 ], [ %73, %87 ], [ %.0109184, %204 ], [ %.2111175, %212 ], [ %.2111175, %.thread ], [ %.0109184, %158 ], [ %73, %75 ], [ %73, %77 ], [ %190, %192 ], [ %190, %194 ]
+  %.1107 = phi i32 [ %.0106185, %35 ], [ %.0106185, %101 ], [ %.0106185, %87 ], [ %.2108, %204 ], [ %.2108176, %212 ], [ %.2108176, %.thread ], [ %.0106185, %158 ], [ %.0106185, %75 ], [ %.0106185, %77 ], [ %.0106185, %192 ], [ %.0106185, %194 ]
+  %.1 = phi i32 [ %.0186, %35 ], [ %.0186, %101 ], [ %.0186, %87 ], [ %.2, %204 ], [ %.2177, %212 ], [ %.2177, %.thread ], [ %.0186, %158 ], [ %.0186, %75 ], [ %.0186, %77 ], [ %.0186, %192 ], [ %.0186, %194 ]
   %223 = add i64 %.sroa.5.0183, 1
   %224 = getelementptr inbounds i8, ptr %.sroa.0159.0182, i64 32
   %.not178 = icmp eq ptr %224, %19

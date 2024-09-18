@@ -1184,7 +1184,7 @@ for.end.i:                                        ; preds = %for.inc.i
   %cmp6.not.i = icmp eq i64 %call.i, 0
   br i1 %cmp6.not.i, label %for.body50.i.preheader, label %if.then7.i
 
-for.body50.i.preheader:                           ; preds = %while.cond.outer.i, %while.cond.backedge.i, %for.end.i
+for.body50.i.preheader:                           ; preds = %while.cond.backedge.i, %while.cond.preheader.i, %for.end.i
   br label %for.body50.i
 
 if.then7.i:                                       ; preds = %for.end.i
@@ -1195,13 +1195,18 @@ if.then7.i:                                       ; preds = %for.end.i
 lor.lhs.false.i:                                  ; preds = %if.then7.i
   %call10.i = call fastcc i32 @tls1_check_duplicate_extensions(ptr noundef %extensions8.i)
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %if.then12.i, label %while.cond.outer.i
+  br i1 %tobool11.not.i, label %if.then12.i, label %while.cond.preheader.i
+
+while.cond.preheader.i:                           ; preds = %lor.lhs.false.i
+  %call1430.i = call i64 @CBS_len(ptr noundef nonnull %extensions8.i) #21
+  %cmp15.not31.i = icmp eq i64 %call1430.i, 0
+  br i1 %cmp15.not31.i, label %for.body50.i.preheader, label %while.body.i
 
 if.then12.i:                                      ; preds = %lor.lhs.false.i, %if.then7.i
   store i32 50, ptr %alert, align 4
   br label %if.then
 
-while.body.i:                                     ; preds = %while.cond.outer.i, %while.cond.backedge.i
+while.body.i:                                     ; preds = %while.cond.preheader.i, %while.cond.backedge.i
   %call16.i = call i32 @CBS_get_u16(ptr noundef nonnull %extensions8.i, ptr noundef nonnull %type.i) #21
   %tobool17.not.i = icmp eq i32 %call16.i, 0
   br i1 %tobool17.not.i, label %if.then21.i, label %lor.lhs.false18.i
@@ -1223,7 +1228,7 @@ if.end22.i:                                       ; preds = %lor.lhs.false18.i
   %or.cond.i = select i1 %cmp23.i, i1 %cmp24.i, i1 false
   br i1 %or.cond.i, label %while.cond.backedge.i, label %for.body.i.i
 
-while.cond.backedge.i:                            ; preds = %if.then31.i, %if.end22.i
+while.cond.backedge.i:                            ; preds = %if.end36.i, %if.then31.i, %if.end22.i
   %call14.i = call i64 @CBS_len(ptr noundef nonnull %extensions8.i) #21
   %cmp15.not.i = icmp eq i64 %call14.i, 0
   br i1 %cmp15.not.i, label %for.body50.i.preheader, label %while.body.i, !llvm.loop !24
@@ -1262,12 +1267,7 @@ if.end36.i:                                       ; preds = %for.body.i.i
   %11 = load ptr, ptr %parse_clienthello.i, align 8
   %call40.i = call i32 %11(ptr noundef nonnull %ssl, ptr noundef nonnull %alert.i, ptr noundef nonnull %extension.i) #21
   %tobool41.not.i = icmp eq i32 %call40.i, 0
-  br i1 %tobool41.not.i, label %if.then42.i, label %while.cond.outer.i, !llvm.loop !24
-
-while.cond.outer.i:                               ; preds = %lor.lhs.false.i, %if.end36.i
-  %call1430.i = call i64 @CBS_len(ptr noundef nonnull %extensions8.i) #21
-  %cmp15.not31.i = icmp eq i64 %call1430.i, 0
-  br i1 %cmp15.not31.i, label %for.body50.i.preheader, label %while.body.i
+  br i1 %tobool41.not.i, label %if.then42.i, label %while.cond.backedge.i
 
 if.then42.i:                                      ; preds = %if.end36.i
   %12 = load i8, ptr %alert.i, align 1
@@ -1311,8 +1311,8 @@ if.then62.i:                                      ; preds = %if.then56.i
 
 for.inc68.i:                                      ; preds = %if.then56.i, %for.body50.i
   %inc69.i = add nuw nsw i64 %i.132.i, 1
-  %exitcond36.not.i = icmp eq i64 %inc69.i, 13
-  br i1 %exitcond36.not.i, label %if.end, label %for.body50.i, !llvm.loop !25
+  %exitcond35.not.i = icmp eq i64 %inc69.i, 13
+  br i1 %exitcond35.not.i, label %if.end, label %for.body50.i, !llvm.loop !25
 
 if.then:                                          ; preds = %if.then34.i, %if.then42.i, %if.then21.i, %if.then62.i, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %extensions8.i)

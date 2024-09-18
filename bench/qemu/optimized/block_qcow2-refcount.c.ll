@@ -2103,7 +2103,7 @@ for.end.loopexit.i:                               ; preds = %for.cond.us.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i
-  %.pre.i = phi i32 [ %.val.i, %if.end.i ], [ %.pre.pre.i, %for.end.loopexit.i ]
+  %.pre.i = phi i32 [ %.pre.pre.i, %for.end.loopexit.i ], [ %.val.i, %if.end.i ]
   %free_cluster_index10.i = getelementptr inbounds i8, ptr %11, i64 144
   %27 = load i64, ptr %free_cluster_index10.i, align 8
   %cmp11.not.i = icmp eq i64 %27, 0

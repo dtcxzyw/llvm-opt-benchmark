@@ -8566,8 +8566,8 @@ _ZL11orderModulePKN4llvm6ModuleE.exit.i.i:        ; preds = %.loopexit.i.i.i, %.
   br label %174
 
 174:                                              ; preds = %.critedge.i.i, %.lr.ph.i.i
-  %.071.i.i = phi ptr [ %168, %.lr.ph.i.i ], [ %494, %.critedge.i.i ]
-  %175 = load ptr, ptr %.071.i.i, align 8
+  %.068.i.i = phi ptr [ %168, %.lr.ph.i.i ], [ %494, %.critedge.i.i ]
+  %175 = load ptr, ptr %.068.i.i, align 8
   store ptr %175, ptr %16, align 8, !noalias !52
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load ptr, ptr %176, align 8
@@ -8581,7 +8581,7 @@ _ZL11orderModulePKN4llvm6ModuleE.exit.i.i:        ; preds = %.loopexit.i.i.i, %.
   br i1 %181, label %.critedge.i.i, label %182
 
 182:                                              ; preds = %.lr.ph.i.i.i.preheader.i.i
-  %183 = getelementptr inbounds nuw i8, ptr %.071.i.i, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %.068.i.i, i64 8
   %184 = load i32, ptr %183, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12), !noalias !52
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %13), !noalias !52
@@ -9118,12 +9118,12 @@ _ZL24predictValueUseListOrderPKN4llvm5ValueEjRKNS_9MapVectorIS2_jNS_8DenseMapIS2
   %436 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %432) #25
   store ptr %436, ptr %17, align 8, !noalias !52
   %.pre.i.i = load ptr, ptr %16, align 8, !noalias !52
-  %.pre82.i.i = load i8, ptr %.pre.i.i, align 8
+  %.pre79.i.i = load i8, ptr %.pre.i.i, align 8
   br label %437
 
 437:                                              ; preds = %435, %431
   %438 = phi ptr [ %436, %435 ], [ null, %431 ]
-  %439 = phi i8 [ %.pre82.i.i, %435 ], [ %433, %431 ]
+  %439 = phi i8 [ %.pre79.i.i, %435 ], [ %433, %431 ]
   %440 = phi ptr [ %.pre.i.i, %435 ], [ %432, %431 ]
   %.not54.i.i = icmp eq i8 %439, 22
   br i1 %.not54.i.i, label %441, label %444
@@ -9132,12 +9132,12 @@ _ZL24predictValueUseListOrderPKN4llvm5ValueEjRKNS_9MapVectorIS2_jNS_8DenseMapIS2
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 24
   %443 = load ptr, ptr %442, align 8
   store ptr %443, ptr %17, align 8, !noalias !52
-  %.pre83.i.i = load i8, ptr %440, align 8
+  %.pre80.i.i = load i8, ptr %440, align 8
   br label %444
 
 444:                                              ; preds = %441, %437
   %445 = phi ptr [ %443, %441 ], [ %438, %437 ]
-  %446 = phi i8 [ %.pre83.i.i, %441 ], [ %439, %437 ]
+  %446 = phi i8 [ %.pre80.i.i, %441 ], [ %439, %437 ]
   %.not56.i.i = icmp eq i8 %446, 23
   br i1 %.not56.i.i, label %447, label %450
 
@@ -9227,16 +9227,16 @@ _ZNSt6vectorIjSaIjEEaSEOS1_.exit.i.i:             ; preds = %_ZL24predictValueUs
   br i1 %.not.i.i.i32.i.i, label %.critedge.i.i, label %.critedge.sink.split.i.i
 
 .critedge.sink.split.i.i:                         ; preds = %_ZNSt6vectorIjSaIjEEaSEOS1_.exit.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_9MapVectorIPKNS_5ValueESt6vectorIjSaIjEENS1_IS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SB_ELj0EEEEENSC_IS4_vEENSF_IS4_SM_EEEES4_SM_SN_SO_EixERKS4_.exit.i.i
-  %.sink97.i.i = phi ptr [ %490, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_9MapVectorIPKNS_5ValueESt6vectorIjSaIjEENS1_IS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SB_ELj0EEEEENSC_IS4_vEENSF_IS4_SM_EEEES4_SM_SN_SO_EixERKS4_.exit.i.i ], [ %.sroa.10.4.i.i, %_ZNSt6vectorIjSaIjEEaSEOS1_.exit.i.i ]
-  %.sink96.i.i = phi ptr [ %487, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_9MapVectorIPKNS_5ValueESt6vectorIjSaIjEENS1_IS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SB_ELj0EEEEENSC_IS4_vEENSF_IS4_SM_EEEES4_SM_SN_SO_EixERKS4_.exit.i.i ], [ %.sroa.0.4.i.i, %_ZNSt6vectorIjSaIjEEaSEOS1_.exit.i.i ]
-  %491 = ptrtoint ptr %.sink97.i.i to i64
-  %492 = ptrtoint ptr %.sink96.i.i to i64
+  %.sink94.i.i = phi ptr [ %490, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_9MapVectorIPKNS_5ValueESt6vectorIjSaIjEENS1_IS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SB_ELj0EEEEENSC_IS4_vEENSF_IS4_SM_EEEES4_SM_SN_SO_EixERKS4_.exit.i.i ], [ %.sroa.10.4.i.i, %_ZNSt6vectorIjSaIjEEaSEOS1_.exit.i.i ]
+  %.sink93.i.i = phi ptr [ %487, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_9MapVectorIPKNS_5ValueESt6vectorIjSaIjEENS1_IS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SB_ELj0EEEEENSC_IS4_vEENSF_IS4_SM_EEEES4_SM_SN_SO_EixERKS4_.exit.i.i ], [ %.sroa.0.4.i.i, %_ZNSt6vectorIjSaIjEEaSEOS1_.exit.i.i ]
+  %491 = ptrtoint ptr %.sink94.i.i to i64
+  %492 = ptrtoint ptr %.sink93.i.i to i64
   %493 = sub i64 %491, %492
-  call void @_ZdlPvm(ptr noundef nonnull %.sink96.i.i, i64 noundef %493) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.sink93.i.i, i64 noundef %493) #26
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.sink.split.i.i, %_ZNSt6vectorIjSaIjEEaSEOS1_.exit.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_9MapVectorIPKNS_5ValueESt6vectorIjSaIjEENS1_IS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SB_ELj0EEEEENSC_IS4_vEENSF_IS4_SM_EEEES4_SM_SN_SO_EixERKS4_.exit.i.i, %.lr.ph.i.i.i.preheader.i.i, %174
-  %494 = getelementptr inbounds i8, ptr %.071.i.i, i64 16
+  %494 = getelementptr inbounds i8, ptr %.068.i.i, i64 16
   %.not.i47.i = icmp eq ptr %494, %170
   br i1 %.not.i47.i, label %._crit_edge.i.i, label %174
 

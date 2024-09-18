@@ -2985,8 +2985,8 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #13
 
-; Function Attrs: nounwind
-declare void @sincosf(float noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare void @sincosf(float noundef, ptr nocapture noundef writeonly, ptr nocapture noundef writeonly) local_unnamed_addr #14
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 

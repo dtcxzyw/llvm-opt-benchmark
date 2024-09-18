@@ -237,8 +237,8 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not111, label %.preheader, label %_conv_num.exit.thread
 
 .preheader:                                       ; preds = %53, %65
-  %indvars.iv768 = phi i64 [ %indvars.iv.next769, %65 ], [ 0, %53 ]
-  %54 = getelementptr inbounds [7 x ptr], ptr getelementptr inbounds (i8, ptr @g_defaulttimelocale, i64 56), i64 0, i64 %indvars.iv768
+  %indvars.iv767 = phi i64 [ %indvars.iv.next768, %65 ], [ 0, %53 ]
+  %54 = getelementptr inbounds [7 x ptr], ptr getelementptr inbounds (i8, ptr @g_defaulttimelocale, i64 56), i64 0, i64 %indvars.iv767
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #4
   %57 = tail call i32 @strncasecmp(ptr noundef %55, ptr noundef %.0375592, i64 noundef %56)
@@ -246,7 +246,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %.preheader
-  %60 = getelementptr inbounds [7 x ptr], ptr @g_defaulttimelocale, i64 0, i64 %indvars.iv768
+  %60 = getelementptr inbounds [7 x ptr], ptr @g_defaulttimelocale, i64 0, i64 %indvars.iv767
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #4
   %63 = tail call i32 @strncasecmp(ptr noundef %61, ptr noundef %.0375592, i64 noundef %62)
@@ -254,13 +254,13 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %59
-  %indvars.iv.next769 = add nuw nsw i64 %indvars.iv768, 1
-  %exitcond771.not = icmp eq i64 %indvars.iv.next769, 7
-  br i1 %exitcond771.not, label %_conv_num.exit.thread, label %.preheader, !llvm.loop !9
+  %indvars.iv.next768 = add nuw nsw i64 %indvars.iv767, 1
+  %exitcond770.not = icmp eq i64 %indvars.iv.next768, 7
+  br i1 %exitcond770.not, label %_conv_num.exit.thread, label %.preheader, !llvm.loop !9
 
 .thread:                                          ; preds = %.preheader, %59
   %.3382.ph = phi i64 [ %56, %.preheader ], [ %62, %59 ]
-  %66 = trunc nuw nsw i64 %indvars.iv768 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv767 to i32
   store i32 %66, ptr %8, align 8
   %67 = getelementptr inbounds i8, ptr %.0375592, i64 %.3382.ph
   br label %_conv_num.exit298

@@ -9515,10 +9515,10 @@ entry:
   %arrayidx7 = getelementptr inbounds [7 x ptr], ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14wrap_functionsE, i64 0, i64 %idxprom6
   %7 = load ptr, ptr %arrayidx7, align 8
   %cmp = icmp eq ptr %5, %7
-  %indvars.iv507.sroa.gep530 = getelementptr inbounds i8, ptr %tile_edge, i64 4
-  %indvars.iv507.sroa.gep533 = getelementptr inbounds i8, ptr %tile_st357, i64 4
-  %indvars.iv510.sroa.gep534 = getelementptr inbounds i8, ptr %texel_simd, i64 32
-  %indvars.iv507.sroa.gep537 = getelementptr inbounds i8, ptr %stvalid, i64 4
+  %indvars.iv505.sroa.gep528 = getelementptr inbounds i8, ptr %tile_edge, i64 4
+  %indvars.iv505.sroa.gep531 = getelementptr inbounds i8, ptr %tile_st357, i64 4
+  %indvars.iv508.sroa.gep532 = getelementptr inbounds i8, ptr %texel_simd, i64 32
+  %indvars.iv505.sroa.gep535 = getelementptr inbounds i8, ptr %stvalid, i64 4
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -9654,18 +9654,18 @@ for.body.lr.ph:                                   ; preds = %_ZN18OpenImageIO_v2
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc628
   %29 = phi <4 x i32> [ zeroinitializer, %for.body.lr.ph ], [ %231, %for.inc628 ]
   %30 = phi <4 x float> [ zeroinitializer, %for.body.lr.ph ], [ %232, %for.inc628 ]
-  %indvars.iv514 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next515, %for.inc628 ]
-  %nonfill.0496 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %nonfill.1, %for.inc628 ]
+  %indvars.iv512 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next513, %for.inc628 ]
+  %nonfill.0494 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %nonfill.1, %for.inc628 ]
   %daccumds.sroa.0.1492 = phi <4 x float> [ zeroinitializer, %for.body.lr.ph ], [ %daccumds.sroa.0.2, %for.inc628 ]
   %daccumdt.sroa.0.1491 = phi <4 x float> [ zeroinitializer, %for.body.lr.ph ], [ %daccumdt.sroa.0.2, %for.inc628 ]
-  %and521 = and i64 %indvars.iv514, 3
-  %cmp48 = icmp eq i64 %and521, 0
+  %and519 = and i64 %indvars.iv512, 3
+  %cmp48 = icmp eq i64 %and519, 0
   br i1 %cmp48, label %if.then49, label %if.end55
 
 if.then49:                                        ; preds = %for.body
-  %add.ptr = getelementptr inbounds float, ptr %s_, i64 %indvars.iv514
+  %add.ptr = getelementptr inbounds float, ptr %s_, i64 %indvars.iv512
   %31 = load <4 x float>, ptr %add.ptr, align 1
-  %add.ptr52 = getelementptr inbounds float, ptr %t_, i64 %indvars.iv514
+  %add.ptr52 = getelementptr inbounds float, ptr %t_, i64 %indvars.iv512
   %32 = load <4 x float>, ptr %add.ptr52, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %s.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i)
@@ -9770,7 +9770,7 @@ _ZN18OpenImageIO_v2_6_03pvt16st_to_texel_simdERKNS_4simd7vfloat4ES4_RNS0_14Image
   br label %if.end55
 
 if.end55:                                         ; preds = %_ZN18OpenImageIO_v2_6_03pvt16st_to_texel_simdERKNS_4simd7vfloat4ES4_RNS0_14ImageCacheFileERKNS_9ImageSpecERNS1_5vint4ESB_RS2_SC_.exit, %for.body
-  %idxprom.i1070 = and i64 %indvars.iv514, 3
+  %idxprom.i1070 = and i64 %indvars.iv512, 3
   %arrayidx.i1071 = getelementptr inbounds [4 x i32], ptr %sint_simd, i64 0, i64 %idxprom.i1070
   %49 = load i32, ptr %arrayidx.i1071, align 4
   %arrayidx.i1066 = getelementptr inbounds [4 x i32], ptr %tint_simd, i64 0, i64 %idxprom.i1070
@@ -9779,7 +9779,7 @@ if.end55:                                         ; preds = %_ZN18OpenImageIO_v2
   %51 = load float, ptr %arrayidx.i1081, align 4
   %arrayidx.i1076 = getelementptr inbounds [4 x float], ptr %tfrac_simd, i64 0, i64 %idxprom.i1070
   %52 = load float, ptr %arrayidx.i1076, align 4
-  %arrayidx65 = getelementptr inbounds float, ptr %weight_, i64 %indvars.iv514
+  %arrayidx65 = getelementptr inbounds float, ptr %weight_, i64 %indvars.iv512
   %53 = load float, ptr %arrayidx65, align 4
   %add66 = add nsw i32 %49, 1
   %add67 = add nsw i32 %50, 1
@@ -9842,10 +9842,10 @@ if.then103:                                       ; preds = %if.end101
   %72 = bitcast <4 x float> %71 to <4 x i32>
   %bc = bitcast <4 x float> %71 to <4 x i32>
   %73 = extractelement <4 x i32> %bc, i64 2
-  %bc522 = bitcast <4 x float> %71 to <4 x i32>
-  %74 = extractelement <4 x i32> %bc522, i64 1
-  %bc523 = bitcast <4 x float> %71 to <4 x i32>
-  %75 = extractelement <4 x i32> %bc523, i64 3
+  %bc520 = bitcast <4 x float> %71 to <4 x i32>
+  %74 = extractelement <4 x i32> %bc520, i64 1
+  %bc521 = bitcast <4 x float> %71 to <4 x i32>
+  %75 = extractelement <4 x i32> %bc521, i64 3
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then103, %if.end101
@@ -9871,7 +9871,7 @@ arrayctor.loop.preheader:                         ; preds = %if.end114
   br i1 %20, label %if.then125, label %for.body.i.i
 
 if.then117:                                       ; preds = %if.end114
-  %add118 = fadd float %nonfill.0496, %53
+  %add118 = fadd float %nonfill.0494, %53
   br label %for.inc628
 
 if.then125:                                       ; preds = %arrayctor.loop.preheader
@@ -9892,18 +9892,18 @@ for.body.i.i:                                     ; preds = %arrayctor.loop.preh
   br i1 %exitcond.not, label %if.end131.loopexit, label %for.body.i.i, !llvm.loop !8
 
 if.end131.loopexit:                               ; preds = %for.body.i.i
-  %storemerge243.in.sroa.speculate.load.for.cond.i.i.le526 = load <4 x i32>, ptr %ref.tmp.i1131, align 16
+  %storemerge243.in.sroa.speculate.load.for.cond.i.i.le524 = load <4 x i32>, ptr %ref.tmp.i1131, align 16
   br label %if.end131
 
 if.end131:                                        ; preds = %if.end131.loopexit, %if.then125
-  %bc525 = phi <4 x i32> [ %and.i1395465, %if.then125 ], [ %storemerge243.in.sroa.speculate.load.for.cond.i.i.le526, %if.end131.loopexit ]
-  store <4 x i32> %bc525, ptr %tile_st, align 16
-  %90 = extractelement <4 x i32> %bc525, i64 0
+  %bc523 = phi <4 x i32> [ %and.i1395465, %if.then125 ], [ %storemerge243.in.sroa.speculate.load.for.cond.i.i.le524, %if.end131.loopexit ]
+  store <4 x i32> %bc523, ptr %tile_st, align 16
+  %90 = extractelement <4 x i32> %bc523, i64 0
   %cmp136 = icmp ne i32 %tilewhmask.sroa.0.0.vec.extract, %90
   %add139 = add nsw i32 %84, 1
   %cmp142 = icmp eq i32 %add139, %85
   %and144244 = and i1 %cmp136, %cmp142
-  %91 = extractelement <4 x i32> %bc525, i64 2
+  %91 = extractelement <4 x i32> %bc523, i64 2
   %cmp151 = icmp ne i32 %91, %tilewhmask.sroa.0.8.vec.extract
   %add155 = add nsw i32 %86, 1
   %cmp158 = icmp eq i32 %add155, %87
@@ -9920,7 +9920,7 @@ if.then175:                                       ; preds = %if.end131
   %sub184 = sub nsw i32 %86, %91
   store i32 %sub, ptr %id, align 8
   store i32 %sub184, ptr %m_y.i, align 4
-  %cmp186 = icmp eq i64 %indvars.iv514, 0
+  %cmp186 = icmp eq i64 %indvars.iv512, 0
   %94 = load ptr, ptr %m_imagecache.i374, align 8
   %call.i267 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb(ptr noundef nonnull align 64 dereferenceable(25280) %94, ptr noundef nonnull align 8 dereferenceable(40) %id, ptr noundef %thread_info, i1 noundef zeroext %cmp186)
   br i1 %call.i267, label %if.end196, label %if.then191
@@ -10263,38 +10263,38 @@ if.else353:                                       ; preds = %if.end131
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.else353, %for.body.i
-  %indvars.iv503 = phi i64 [ 0, %if.else353 ], [ %indvars.iv.next504, %for.body.i ]
-  %arrayidx.i1446 = getelementptr inbounds [4 x i32], ptr %ref.tmp358, i64 0, i64 %indvars.iv503
+  %indvars.iv501 = phi i64 [ 0, %if.else353 ], [ %indvars.iv.next502, %for.body.i ]
+  %arrayidx.i1446 = getelementptr inbounds [4 x i32], ptr %ref.tmp358, i64 0, i64 %indvars.iv501
   %170 = load i32, ptr %arrayidx.i1446, align 4
-  %arrayidx.i1441 = getelementptr inbounds [4 x i32], ptr %tilewh, i64 0, i64 %indvars.iv503
+  %arrayidx.i1441 = getelementptr inbounds [4 x i32], ptr %tilewh, i64 0, i64 %indvars.iv501
   %171 = load i32, ptr %arrayidx.i1441, align 4
   %rem.i = srem i32 %170, %171
-  %arrayidx.i = getelementptr inbounds [4 x i32], ptr %tile_st357, i64 0, i64 %indvars.iv503
+  %arrayidx.i = getelementptr inbounds [4 x i32], ptr %tile_st357, i64 0, i64 %indvars.iv501
   store i32 %rem.i, ptr %arrayidx.i, align 4
-  %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
-  %exitcond506.not = icmp eq i64 %indvars.iv.next504, 4
-  br i1 %exitcond506.not, label %invoke.cont360, label %for.body.i, !llvm.loop !8
+  %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
+  %exitcond504.not = icmp eq i64 %indvars.iv.next502, 4
+  br i1 %exitcond504.not, label %invoke.cont360, label %for.body.i, !llvm.loop !8
 
 invoke.cont360:                                   ; preds = %for.body.i
   %cmp355 = icmp eq i32 %169, 4
   %172 = load <4 x i32>, ptr %tile_st357, align 16
   %sub.i1407 = sub <4 x i32> %82, %172
   store <4 x i32> %sub.i1407, ptr %tile_edge, align 16
-  %cmp412 = icmp eq i64 %indvars.iv514, 0
+  %cmp412 = icmp eq i64 %indvars.iv512, 0
   br label %for.body364
 
 for.body364:                                      ; preds = %invoke.cont360, %for.inc506
   %cmp363 = phi i1 [ true, %invoke.cont360 ], [ false, %for.inc506 ]
-  %indvars.iv510.sroa.phi = phi ptr [ %texel_simd, %invoke.cont360 ], [ %indvars.iv510.sroa.gep534, %for.inc506 ]
-  %indvars.iv510 = phi i64 [ 0, %invoke.cont360 ], [ 1, %for.inc506 ]
-  %173 = or disjoint i64 %indvars.iv510, 2
+  %indvars.iv508.sroa.phi = phi ptr [ %texel_simd, %invoke.cont360 ], [ %indvars.iv508.sroa.gep532, %for.inc506 ]
+  %indvars.iv508 = phi i64 [ 0, %invoke.cont360 ], [ 1, %for.inc506 ]
+  %173 = or disjoint i64 %indvars.iv508, 2
   %arrayidx.i1193 = getelementptr inbounds [4 x i32], ptr %stvalid, i64 0, i64 %173
   %174 = load i32, ptr %arrayidx.i1193, align 4
   %tobool368.not = icmp eq i32 %174, 0
   br i1 %tobool368.not, label %if.then369, label %if.end378
 
 if.then369:                                       ; preds = %for.body364
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv510.sroa.phi, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv508.sroa.phi, i8 0, i64 32, i1 false)
   br label %for.inc506
 
 if.end378:                                        ; preds = %for.body364
@@ -10306,21 +10306,21 @@ if.end378:                                        ; preds = %for.body364
 
 for.body384:                                      ; preds = %if.end378, %for.inc
   %cmp399 = phi i1 [ true, %if.end378 ], [ false, %for.inc ]
-  %indvars.iv507.sroa.phi = phi ptr [ %tile_edge, %if.end378 ], [ %indvars.iv507.sroa.gep530, %for.inc ]
-  %indvars.iv507.sroa.phi531 = phi ptr [ %tile_st357, %if.end378 ], [ %indvars.iv507.sroa.gep533, %for.inc ]
-  %indvars.iv507.sroa.phi535 = phi ptr [ %stvalid, %if.end378 ], [ %indvars.iv507.sroa.gep537, %for.inc ]
-  %indvars.iv507 = phi i64 [ 0, %if.end378 ], [ 1, %for.inc ]
-  %176 = load i32, ptr %indvars.iv507.sroa.phi535, align 4
+  %indvars.iv505.sroa.phi = phi ptr [ %tile_edge, %if.end378 ], [ %indvars.iv505.sroa.gep528, %for.inc ]
+  %indvars.iv505.sroa.phi529 = phi ptr [ %tile_st357, %if.end378 ], [ %indvars.iv505.sroa.gep531, %for.inc ]
+  %indvars.iv505.sroa.phi533 = phi ptr [ %stvalid, %if.end378 ], [ %indvars.iv505.sroa.gep535, %for.inc ]
+  %indvars.iv505 = phi i64 [ 0, %if.end378 ], [ 1, %for.inc ]
+  %176 = load i32, ptr %indvars.iv505.sroa.phi533, align 4
   %tobool388.not = icmp eq i32 %176, 0
   br i1 %tobool388.not, label %if.then389, label %if.end395
 
 if.then389:                                       ; preds = %for.body384
-  %arrayidx393 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv510, i64 %indvars.iv507
+  %arrayidx393 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv508, i64 %indvars.iv505
   store <4 x float> zeroinitializer, ptr %arrayidx393, align 16
   br label %for.inc
 
 if.end395:                                        ; preds = %for.body384
-  %177 = load i32, ptr %indvars.iv507.sroa.phi531, align 4
+  %177 = load i32, ptr %indvars.iv505.sroa.phi529, align 4
   %cmp400 = icmp eq i32 %177, 0
   %or.cond = select i1 %cmp399, i1 true, i1 %cmp400
   %brmerge248 = select i1 %or.cond, i1 true, i1 %cmp355
@@ -10331,7 +10331,7 @@ if.end395.if.end431_crit_edge:                    ; preds = %if.end395
   br label %if.end431
 
 if.then403:                                       ; preds = %if.end395
-  %178 = load i32, ptr %indvars.iv507.sroa.phi, align 4
+  %178 = load i32, ptr %indvars.iv505.sroa.phi, align 4
   %179 = load i32, ptr %arrayidx.i956, align 4
   store i32 %178, ptr %id, align 8
   store i32 %179, ptr %m_y.i, align 4
@@ -10399,7 +10399,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit: ; preds = %if.end4
   %conv.i.i394 = uitofp nneg <4 x i32> %193 to <4 x float>
   %194 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i1523 = fmul <4 x float> %194, %conv.i.i394
-  %arrayidx457 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv510, i64 %indvars.iv507
+  %arrayidx457 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv508, i64 %indvars.iv505
   store <4 x float> %mul.i1523, ptr %arrayidx457, align 16
   br label %for.inc
 
@@ -10425,7 +10425,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit: ; preds = %for.bo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i396)
   %197 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18u16scaleE.0, align 16
   %mul.i1508 = fmul <4 x float> %197, %conv.i.i.i404
-  %arrayidx473 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv510, i64 %indvars.iv507
+  %arrayidx473 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv508, i64 %indvars.iv505
   store <4 x float> %mul.i1508, ptr %arrayidx473, align 16
   br label %for.inc
 
@@ -10459,12 +10459,12 @@ invoke.cont485:                                   ; preds = %for.body.i.i.i408
   %205 = bitcast <4 x float> %mul.i.i.i415 to <4 x i32>
   %or.i.i419 = or <4 x i32> %or.i9.i418, %205
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %h.i.i407)
-  %arrayidx489 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv510, i64 %indvars.iv507
+  %arrayidx489 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv508, i64 %indvars.iv505
   store <4 x i32> %or.i.i419, ptr %arrayidx489, align 16
   br label %for.inc
 
 invoke.cont499:                                   ; preds = %if.end431
-  %arrayidx496 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv510, i64 %indvars.iv507
+  %arrayidx496 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv508, i64 %indvars.iv505
   %add.ptr501 = getelementptr inbounds i8, ptr %189, i64 %add444
   %206 = load <4 x float>, ptr %add.ptr501, align 1
   store <4 x float> %206, ptr %arrayidx496, align 16
@@ -10486,7 +10486,7 @@ if.then511:                                       ; preds = %if.end509
   %tobool515 = trunc i8 %208 to i1
   %sub517 = fadd float %conv514, -1.000000e+00
   %height512.0 = select i1 %tobool515, float %sub517, float %conv514
-  %arrayidx520 = getelementptr inbounds float, ptr %t_, i64 %indvars.iv514
+  %arrayidx520 = getelementptr inbounds float, ptr %t_, i64 %indvars.iv512
   %209 = load float, ptr %arrayidx520, align 4
   %mul521 = fmul float %209, %height512.0
   %cmp522 = fcmp olt float %mul521, 1.000000e+00
@@ -10539,17 +10539,17 @@ for.body.i426:                                    ; preds = %for.body.i426, %for
   br i1 %exitcond.not.i430, label %_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit.loopexit, label %for.body.i426, !llvm.loop !122
 
 _ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit.loopexit: ; preds = %for.body.i426
-  %.pre519.pre = load <4 x float>, ptr %accum, align 16
+  %.pre517.pre = load <4 x float>, ptr %accum, align 16
   br label %_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit
 
 _ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit: ; preds = %_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit.loopexit, %if.end.i424
-  %.pre519 = phi <4 x float> [ %.pre519.pre, %_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit.loopexit ], [ %30, %if.end.i424 ]
+  %.pre517 = phi <4 x float> [ %.pre517.pre, %_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit.loopexit ], [ %30, %if.end.i424 ]
   %sub13.i = fsub float 1.000000e+00, %mul.i425
   %mul14.i = fmul float %53, %sub13.i
   br label %invoke.cont530
 
 invoke.cont530:                                   ; preds = %if.end509, %if.then511, %_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit
-  %216 = phi <4 x float> [ %.pre519, %_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit ], [ %30, %if.then511 ], [ %30, %if.end509 ]
+  %216 = phi <4 x float> [ %.pre517, %_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit ], [ %30, %if.then511 ], [ %30, %if.end509 ]
   %weight.0 = phi float [ %mul14.i, %_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl12fade_to_poleEfPfRfRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERKNS4_9LevelInfoERNS_10TextureOptEii.exit ], [ %53, %if.then511 ], [ %53, %if.end509 ]
   %vecinit.i.i434 = insertelement <4 x float> poison, float %weight.0, i64 0
   %vecinit3.i.i435 = shufflevector <4 x float> %vecinit.i.i434, <4 x float> poison, <4 x i32> zeroinitializer
@@ -10590,8 +10590,8 @@ if.then546:                                       ; preds = %invoke.cont530
   %mul.i1526 = shufflevector <4 x float> %223, <4 x float> poison, <4 x i32> zeroinitializer
   %224 = load i32, ptr %height, align 8
   %conv551 = sitofp i32 %224 to float
-  %.scalar518 = fmul float %weight.0, %conv551
-  %225 = insertelement <4 x float> poison, float %.scalar518, i64 0
+  %.scalar516 = fmul float %weight.0, %conv551
+  %225 = insertelement <4 x float> poison, float %.scalar516, i64 0
   %mul.i1529 = shufflevector <4 x float> %225, <4 x float> poison, <4 x i32> zeroinitializer
   %sub.i1449 = fsub <4 x float> %218, %217
   %sub.i1452 = fsub <4 x float> %220, %219
@@ -10632,7 +10632,7 @@ if.then594:                                       ; preds = %if.end589
   %mul5.i = fmul float %52, %228
   %229 = call noundef float @llvm.fmuladd.f32(float %sub1.i, float %227, float %mul5.i)
   %sub625 = fsub float 1.000000e+00, %229
-  %230 = call float @llvm.fmuladd.f32(float %sub625, float %weight.0, float %nonfill.0496)
+  %230 = call float @llvm.fmuladd.f32(float %sub625, float %weight.0, float %nonfill.0494)
   br label %for.inc628
 
 for.inc628:                                       ; preds = %if.end589, %if.then594, %if.then117
@@ -10640,10 +10640,10 @@ for.inc628:                                       ; preds = %if.end589, %if.then
   %232 = phi <4 x float> [ %30, %if.then117 ], [ %add.i1556, %if.then594 ], [ %add.i1556, %if.end589 ]
   %daccumdt.sroa.0.2 = phi <4 x float> [ %daccumdt.sroa.0.1491, %if.then117 ], [ %daccumdt.sroa.0.3, %if.then594 ], [ %daccumdt.sroa.0.3, %if.end589 ]
   %daccumds.sroa.0.2 = phi <4 x float> [ %daccumds.sroa.0.1492, %if.then117 ], [ %daccumds.sroa.0.3, %if.then594 ], [ %daccumds.sroa.0.3, %if.end589 ]
-  %nonfill.1 = phi float [ %add118, %if.then117 ], [ %230, %if.then594 ], [ %nonfill.0496, %if.end589 ]
-  %indvars.iv.next515 = add nuw nsw i64 %indvars.iv514, 1
-  %exitcond517.not = icmp eq i64 %indvars.iv.next515, %wide.trip.count
-  br i1 %exitcond517.not, label %for.end630.loopexit, label %for.body, !llvm.loop !123
+  %nonfill.1 = phi float [ %add118, %if.then117 ], [ %230, %if.then594 ], [ %nonfill.0494, %if.end589 ]
+  %indvars.iv.next513 = add nuw nsw i64 %indvars.iv512, 1
+  %exitcond515.not = icmp eq i64 %indvars.iv.next513, %wide.trip.count
+  br i1 %exitcond515.not, label %for.end630.loopexit, label %for.body, !llvm.loop !123
 
 for.end630.loopexit:                              ; preds = %for.inc628
   %233 = bitcast <4 x float> %daccumds.sroa.0.2 to <4 x i32>
@@ -10859,8 +10859,8 @@ if.then.i:                                        ; preds = %land.end11
 
 _ZN18OpenImageIO_v2_6_03pvt6TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit: ; preds = %land.end11, %if.then.i
   %28 = phi i32 [ %tile_chend.0, %land.end11 ], [ %25, %if.then.i ]
-  %sext797 = shl i32 %28, 16
-  %conv.i393 = ashr exact i32 %sext797, 16
+  %sext785 = shl i32 %28, 16
+  %conv.i393 = ashr exact i32 %sext785, 16
   %sext = shl i32 %tile_chbegin.0, 16
   %conv2.i395 = ashr exact i32 %sext, 16
   %sub.i396 = sub nsw i32 %conv.i393, %conv2.i395
@@ -10918,20 +10918,20 @@ for.body.lr.ph:                                   ; preds = %_ZN18OpenImageIO_v2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc1052
-  %indvars.iv789 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next790, %for.inc1052 ]
-  %nonfill.0692 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %nonfill.1, %for.inc1052 ]
-  %daccumds.sroa.0.1679 = phi <4 x float> [ zeroinitializer, %for.body.lr.ph ], [ %daccumds.sroa.0.2, %for.inc1052 ]
-  %daccumdt.sroa.0.1678 = phi <4 x float> [ zeroinitializer, %for.body.lr.ph ], [ %daccumdt.sroa.0.2, %for.inc1052 ]
+  %indvars.iv777 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next778, %for.inc1052 ]
+  %nonfill.0680 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %nonfill.1, %for.inc1052 ]
+  %daccumds.sroa.0.1677 = phi <4 x float> [ zeroinitializer, %for.body.lr.ph ], [ %daccumds.sroa.0.2, %for.inc1052 ]
+  %daccumdt.sroa.0.1676 = phi <4 x float> [ zeroinitializer, %for.body.lr.ph ], [ %daccumdt.sroa.0.2, %for.inc1052 ]
   %dwx.sroa.0.0675 = phi <4 x float> [ undef, %for.body.lr.ph ], [ %dwx.sroa.0.1, %for.inc1052 ]
   %dwy.sroa.0.0674 = phi <4 x float> [ undef, %for.body.lr.ph ], [ %dwy.sroa.0.1, %for.inc1052 ]
-  %and798 = and i64 %indvars.iv789, 3
-  %cmp52 = icmp eq i64 %and798, 0
+  %and786 = and i64 %indvars.iv777, 3
+  %cmp52 = icmp eq i64 %and786, 0
   br i1 %cmp52, label %if.then53, label %if.end59
 
 if.then53:                                        ; preds = %for.body
-  %add.ptr = getelementptr inbounds float, ptr %s_, i64 %indvars.iv789
+  %add.ptr = getelementptr inbounds float, ptr %s_, i64 %indvars.iv777
   %32 = load <4 x float>, ptr %add.ptr, align 1
-  %add.ptr56 = getelementptr inbounds float, ptr %t_, i64 %indvars.iv789
+  %add.ptr56 = getelementptr inbounds float, ptr %t_, i64 %indvars.iv777
   %33 = load <4 x float>, ptr %add.ptr56, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %s.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i)
@@ -11036,7 +11036,7 @@ _ZN18OpenImageIO_v2_6_03pvt16st_to_texel_simdERKNS_4simd7vfloat4ES4_RNS0_14Image
   br label %if.end59
 
 if.end59:                                         ; preds = %_ZN18OpenImageIO_v2_6_03pvt16st_to_texel_simdERKNS_4simd7vfloat4ES4_RNS0_14ImageCacheFileERKNS_9ImageSpecERNS1_5vint4ESB_RS2_SC_.exit, %for.body
-  %idxprom.i1995 = and i64 %indvars.iv789, 3
+  %idxprom.i1995 = and i64 %indvars.iv777, 3
   %arrayidx.i1996 = getelementptr inbounds [4 x i32], ptr %sint_simd, i64 0, i64 %idxprom.i1995
   %50 = load i32, ptr %arrayidx.i1996, align 4
   %arrayidx.i1991 = getelementptr inbounds [4 x i32], ptr %tint_simd, i64 0, i64 %idxprom.i1995
@@ -11045,7 +11045,7 @@ if.end59:                                         ; preds = %_ZN18OpenImageIO_v2
   %52 = load float, ptr %arrayidx.i2206, align 4
   %arrayidx.i2201 = getelementptr inbounds [4 x float], ptr %tfrac_simd, i64 0, i64 %idxprom.i1995
   %53 = load float, ptr %arrayidx.i2201, align 4
-  %arrayidx69 = getelementptr inbounds float, ptr %weight_, i64 %indvars.iv789
+  %arrayidx69 = getelementptr inbounds float, ptr %weight_, i64 %indvars.iv777
   %54 = load float, ptr %arrayidx69, align 4
   %vecinit.i3082 = insertelement <4 x i32> poison, i32 %50, i64 0
   %vecinit3.i3085 = shufflevector <4 x i32> %vecinit.i3082, <4 x i32> poison, <4 x i32> zeroinitializer
@@ -11093,8 +11093,8 @@ if.then97:                                        ; preds = %if.end59
   br i1 %cmp.i2304.not, label %if.then126, label %arrayctor.loop.preheader
 
 arrayctor.loop.preheader:                         ; preds = %if.end124.arrayctor.loop.preheader_crit_edge, %if.then97
-  %68 = phi i32 [ %67, %if.then97 ], [ %.pre795, %if.end124.arrayctor.loop.preheader_crit_edge ]
-  %69 = phi i32 [ %66, %if.then97 ], [ %.pre794, %if.end124.arrayctor.loop.preheader_crit_edge ]
+  %68 = phi i32 [ %67, %if.then97 ], [ %.pre783, %if.end124.arrayctor.loop.preheader_crit_edge ]
+  %69 = phi i32 [ %66, %if.then97 ], [ %.pre782, %if.end124.arrayctor.loop.preheader_crit_edge ]
   %allvalid.0.in619.ph.in.in.in = phi <4 x i32> [ %and.i2932, %if.then97 ], [ %and.i2923, %if.end124.arrayctor.loop.preheader_crit_edge ]
   %allvalid.0.in619.ph.in.in = icmp sgt <4 x i32> %allvalid.0.in619.ph.in.in.in, <i32 -1, i32 -1, i32 -1, i32 -1>
   %allvalid.0.in619.ph.in = bitcast <4 x i1> %allvalid.0.in619.ph.in.in to i4
@@ -11110,12 +11110,12 @@ if.end124:                                        ; preds = %if.end59
 
 if.end124.arrayctor.loop.preheader_crit_edge:     ; preds = %if.end124
   %and.i2923 = and <4 x i32> %56, %55
-  %.pre794 = load i32, ptr %stex, align 16
-  %.pre795 = load i32, ptr %ttex, align 16
+  %.pre782 = load i32, ptr %stex, align 16
+  %.pre783 = load i32, ptr %ttex, align 16
   br label %arrayctor.loop.preheader
 
 if.then126:                                       ; preds = %if.then97, %if.end124
-  %add127 = fadd float %nonfill.0692, %54
+  %add127 = fadd float %nonfill.0680, %54
   br label %for.inc1052
 
 if.then139:                                       ; preds = %arrayctor.loop.preheader
@@ -11165,7 +11165,7 @@ if.then202:                                       ; preds = %if.end187
   %sub208 = sub nsw i32 %68, %tile_t.0
   store i32 %sub205, ptr %id, align 8
   store i32 %sub208, ptr %m_y.i, align 4
-  %cmp210 = icmp eq i64 %indvars.iv789, 0
+  %cmp210 = icmp eq i64 %indvars.iv777, 0
   %78 = load ptr, ptr %m_imagecache.i423, align 8
   %call.i403 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb(ptr noundef nonnull align 64 dereferenceable(25280) %78, ptr noundef nonnull align 8 dereferenceable(40) %id, ptr noundef %thread_info, i1 noundef zeroext %cmp210)
   br i1 %call.i403, label %if.end225, label %if.then215
@@ -11244,14 +11244,14 @@ for.cond333.preheader:                            ; preds = %invoke.cont236
   br label %for.cond338.preheader
 
 for.cond245.preheader:                            ; preds = %for.cond242.preheader, %for.inc258
-  %indvars.iv759 = phi i64 [ 0, %for.cond242.preheader ], [ %indvars.iv.next760, %for.inc258 ]
-  %indvars.iv749 = phi i64 [ 0, %for.cond242.preheader ], [ %indvars.iv.next750, %for.inc258 ]
+  %indvars.iv747 = phi i64 [ 0, %for.cond242.preheader ], [ %indvars.iv.next748, %for.inc258 ]
+  %indvars.iv737 = phi i64 [ 0, %for.cond242.preheader ], [ %indvars.iv.next738, %for.inc258 ]
   br label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525
 
 _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525: ; preds = %for.cond245.preheader, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525
-  %indvars.iv753 = phi i64 [ 0, %for.cond245.preheader ], [ %indvars.iv.next754, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525 ]
-  %indvars.iv751 = phi i64 [ %indvars.iv749, %for.cond245.preheader ], [ %indvars.iv.next752, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525 ]
-  %add.ptr249 = getelementptr inbounds i8, ptr %add.ptr239, i64 %indvars.iv751
+  %indvars.iv741 = phi i64 [ 0, %for.cond245.preheader ], [ %indvars.iv.next742, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525 ]
+  %indvars.iv739 = phi i64 [ %indvars.iv737, %for.cond245.preheader ], [ %indvars.iv.next740, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525 ]
+  %add.ptr249 = getelementptr inbounds i8, ptr %add.ptr239, i64 %indvars.iv739
   %96 = load float, ptr %add.ptr249, align 1
   %vecinit4.i.i = insertelement <4 x float> poison, float %96, i64 0
   %97 = bitcast <4 x float> %vecinit4.i.i to <16 x i8>
@@ -11261,28 +11261,28 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525: ; preds = %for
   %99 = bitcast <8 x i16> %shuffle.i11.i to <4 x i32>
   %conv.i.i411 = uitofp nneg <4 x i32> %99 to <4 x float>
   %mul.i3327 = fmul <4 x float> %91, %conv.i.i411
-  %arrayidx254 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv759, i64 %indvars.iv753
+  %arrayidx254 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv747, i64 %indvars.iv741
   store <4 x float> %mul.i3327, ptr %arrayidx254, align 16
-  %indvars.iv.next754 = add nuw nsw i64 %indvars.iv753, 1
-  %indvars.iv.next752 = add nsw i64 %indvars.iv751, %31
-  %exitcond758.not = icmp eq i64 %indvars.iv.next754, 4
-  br i1 %exitcond758.not, label %for.inc258, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525, !llvm.loop !130
+  %indvars.iv.next742 = add nuw nsw i64 %indvars.iv741, 1
+  %indvars.iv.next740 = add nsw i64 %indvars.iv739, %31
+  %exitcond746.not = icmp eq i64 %indvars.iv.next742, 4
+  br i1 %exitcond746.not, label %for.inc258, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525, !llvm.loop !130
 
 for.inc258:                                       ; preds = %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525
-  %indvars.iv.next760 = add nuw nsw i64 %indvars.iv759, 1
-  %indvars.iv.next750 = add i64 %indvars.iv749, %93
-  %exitcond764.not = icmp eq i64 %indvars.iv.next760, 4
-  br i1 %exitcond764.not, label %if.end548, label %for.cond245.preheader, !llvm.loop !131
+  %indvars.iv.next748 = add nuw nsw i64 %indvars.iv747, 1
+  %indvars.iv.next738 = add i64 %indvars.iv737, %93
+  %exitcond752.not = icmp eq i64 %indvars.iv.next748, 4
+  br i1 %exitcond752.not, label %if.end548, label %for.cond245.preheader, !llvm.loop !131
 
 for.cond274.preheader:                            ; preds = %for.cond269.preheader, %for.inc291
-  %indvars.iv743 = phi i64 [ 0, %for.cond269.preheader ], [ %indvars.iv.next744, %for.inc291 ]
-  %indvars.iv733 = phi i64 [ 0, %for.cond269.preheader ], [ %indvars.iv.next734, %for.inc291 ]
+  %indvars.iv731 = phi i64 [ 0, %for.cond269.preheader ], [ %indvars.iv.next732, %for.inc291 ]
+  %indvars.iv721 = phi i64 [ 0, %for.cond269.preheader ], [ %indvars.iv.next722, %for.inc291 ]
   br label %for.body276
 
 for.body276:                                      ; preds = %for.cond274.preheader, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit1543
-  %indvars.iv737 = phi i64 [ 0, %for.cond274.preheader ], [ %indvars.iv.next738, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit1543 ]
-  %indvars.iv735 = phi i64 [ %indvars.iv733, %for.cond274.preheader ], [ %indvars.iv.next736, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit1543 ]
-  %add.ptr279 = getelementptr inbounds i8, ptr %add.ptr239, i64 %indvars.iv735
+  %indvars.iv725 = phi i64 [ 0, %for.cond274.preheader ], [ %indvars.iv.next726, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit1543 ]
+  %indvars.iv723 = phi i64 [ %indvars.iv721, %for.cond274.preheader ], [ %indvars.iv.next724, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit1543 ]
+  %add.ptr279 = getelementptr inbounds i8, ptr %add.ptr239, i64 %indvars.iv723
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i412)
   br label %for.body.i.i
 
@@ -11302,28 +11302,28 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit1543: ; preds = %fo
   %conv.i.i.i415 = sitofp <4 x i32> %101 to <4 x float>
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i412)
   %mul.i3321 = fmul <4 x float> %88, %conv.i.i.i415
-  %arrayidx284 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv743, i64 %indvars.iv737
+  %arrayidx284 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv731, i64 %indvars.iv725
   store <4 x float> %mul.i3321, ptr %arrayidx284, align 16
-  %indvars.iv.next738 = add nuw nsw i64 %indvars.iv737, 1
-  %indvars.iv.next736 = add nsw i64 %indvars.iv735, %31
-  %exitcond742.not = icmp eq i64 %indvars.iv.next738, 4
-  br i1 %exitcond742.not, label %for.inc291, label %for.body276, !llvm.loop !132
+  %indvars.iv.next726 = add nuw nsw i64 %indvars.iv725, 1
+  %indvars.iv.next724 = add nsw i64 %indvars.iv723, %31
+  %exitcond730.not = icmp eq i64 %indvars.iv.next726, 4
+  br i1 %exitcond730.not, label %for.inc291, label %for.body276, !llvm.loop !132
 
 for.inc291:                                       ; preds = %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit1543
-  %indvars.iv.next744 = add nuw nsw i64 %indvars.iv743, 1
-  %indvars.iv.next734 = add i64 %indvars.iv733, %90
-  %exitcond748.not = icmp eq i64 %indvars.iv.next744, 4
-  br i1 %exitcond748.not, label %if.end548, label %for.cond274.preheader, !llvm.loop !133
+  %indvars.iv.next732 = add nuw nsw i64 %indvars.iv731, 1
+  %indvars.iv.next722 = add i64 %indvars.iv721, %90
+  %exitcond736.not = icmp eq i64 %indvars.iv.next732, 4
+  br i1 %exitcond736.not, label %if.end548, label %for.cond274.preheader, !llvm.loop !133
 
 for.cond307.preheader:                            ; preds = %for.cond302.preheader, %for.inc324
-  %indvars.iv727 = phi i64 [ 0, %for.cond302.preheader ], [ %indvars.iv.next728, %for.inc324 ]
-  %indvars.iv717 = phi i64 [ 0, %for.cond302.preheader ], [ %indvars.iv.next718, %for.inc324 ]
+  %indvars.iv715 = phi i64 [ 0, %for.cond302.preheader ], [ %indvars.iv.next716, %for.inc324 ]
+  %indvars.iv705 = phi i64 [ 0, %for.cond302.preheader ], [ %indvars.iv.next706, %for.inc324 ]
   br label %for.body309
 
 for.body309:                                      ; preds = %for.cond307.preheader, %invoke.cont313
-  %indvars.iv721 = phi i64 [ 0, %for.cond307.preheader ], [ %indvars.iv.next722, %invoke.cont313 ]
-  %indvars.iv719 = phi i64 [ %indvars.iv717, %for.cond307.preheader ], [ %indvars.iv.next720, %invoke.cont313 ]
-  %add.ptr312 = getelementptr inbounds i8, ptr %add.ptr239, i64 %indvars.iv719
+  %indvars.iv709 = phi i64 [ 0, %for.cond307.preheader ], [ %indvars.iv.next710, %invoke.cont313 ]
+  %indvars.iv707 = phi i64 [ %indvars.iv705, %for.cond307.preheader ], [ %indvars.iv.next708, %invoke.cont313 ]
+  %add.ptr312 = getelementptr inbounds i8, ptr %add.ptr239, i64 %indvars.iv707
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %h.i.i)
   br label %for.body.i.i.i416
 
@@ -11352,41 +11352,41 @@ invoke.cont313:                                   ; preds = %for.body.i.i.i416
   %109 = bitcast <4 x float> %mul.i.i.i to <4 x i32>
   %or.i.i = or <4 x i32> %or.i9.i, %109
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %h.i.i)
-  %arrayidx317 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv727, i64 %indvars.iv721
+  %arrayidx317 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv715, i64 %indvars.iv709
   store <4 x i32> %or.i.i, ptr %arrayidx317, align 16
-  %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
-  %indvars.iv.next720 = add nsw i64 %indvars.iv719, %31
-  %exitcond726.not = icmp eq i64 %indvars.iv.next722, 4
-  br i1 %exitcond726.not, label %for.inc324, label %for.body309, !llvm.loop !134
+  %indvars.iv.next710 = add nuw nsw i64 %indvars.iv709, 1
+  %indvars.iv.next708 = add nsw i64 %indvars.iv707, %31
+  %exitcond714.not = icmp eq i64 %indvars.iv.next710, 4
+  br i1 %exitcond714.not, label %for.inc324, label %for.body309, !llvm.loop !134
 
 for.inc324:                                       ; preds = %invoke.cont313
-  %indvars.iv.next728 = add nuw nsw i64 %indvars.iv727, 1
-  %indvars.iv.next718 = add i64 %indvars.iv717, %87
-  %exitcond732.not = icmp eq i64 %indvars.iv.next728, 4
-  br i1 %exitcond732.not, label %if.end548, label %for.cond307.preheader, !llvm.loop !135
+  %indvars.iv.next716 = add nuw nsw i64 %indvars.iv715, 1
+  %indvars.iv.next706 = add i64 %indvars.iv705, %87
+  %exitcond720.not = icmp eq i64 %indvars.iv.next716, 4
+  br i1 %exitcond720.not, label %if.end548, label %for.cond307.preheader, !llvm.loop !135
 
 for.cond338.preheader:                            ; preds = %for.cond333.preheader, %for.inc352
-  %indvars.iv775 = phi i64 [ 0, %for.cond333.preheader ], [ %indvars.iv.next776, %for.inc352 ]
-  %indvars.iv765 = phi i64 [ 0, %for.cond333.preheader ], [ %indvars.iv.next766, %for.inc352 ]
+  %indvars.iv763 = phi i64 [ 0, %for.cond333.preheader ], [ %indvars.iv.next764, %for.inc352 ]
+  %indvars.iv753 = phi i64 [ 0, %for.cond333.preheader ], [ %indvars.iv.next754, %for.inc352 ]
   br label %for.body340
 
 for.body340:                                      ; preds = %for.cond338.preheader, %for.body340
-  %indvars.iv769 = phi i64 [ 0, %for.cond338.preheader ], [ %indvars.iv.next770, %for.body340 ]
-  %indvars.iv767 = phi i64 [ %indvars.iv765, %for.cond338.preheader ], [ %indvars.iv.next768, %for.body340 ]
-  %arrayidx344 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv775, i64 %indvars.iv769
-  %add.ptr346 = getelementptr inbounds i8, ptr %add.ptr239, i64 %indvars.iv767
+  %indvars.iv757 = phi i64 [ 0, %for.cond338.preheader ], [ %indvars.iv.next758, %for.body340 ]
+  %indvars.iv755 = phi i64 [ %indvars.iv753, %for.cond338.preheader ], [ %indvars.iv.next756, %for.body340 ]
+  %arrayidx344 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv763, i64 %indvars.iv757
+  %add.ptr346 = getelementptr inbounds i8, ptr %add.ptr239, i64 %indvars.iv755
   %110 = load <4 x float>, ptr %add.ptr346, align 1
   store <4 x float> %110, ptr %arrayidx344, align 16
-  %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
-  %indvars.iv.next768 = add nsw i64 %indvars.iv767, %31
-  %exitcond774.not = icmp eq i64 %indvars.iv.next770, 4
-  br i1 %exitcond774.not, label %for.inc352, label %for.body340, !llvm.loop !136
+  %indvars.iv.next758 = add nuw nsw i64 %indvars.iv757, 1
+  %indvars.iv.next756 = add nsw i64 %indvars.iv755, %31
+  %exitcond762.not = icmp eq i64 %indvars.iv.next758, 4
+  br i1 %exitcond762.not, label %for.inc352, label %for.body340, !llvm.loop !136
 
 for.inc352:                                       ; preds = %for.body340
-  %indvars.iv.next776 = add nuw nsw i64 %indvars.iv775, 1
-  %indvars.iv.next766 = add i64 %indvars.iv765, %95
-  %exitcond780.not = icmp eq i64 %indvars.iv.next776, 4
-  br i1 %exitcond780.not, label %if.end548, label %for.cond338.preheader, !llvm.loop !137
+  %indvars.iv.next764 = add nuw nsw i64 %indvars.iv763, 1
+  %indvars.iv.next754 = add i64 %indvars.iv753, %95
+  %exitcond768.not = icmp eq i64 %indvars.iv.next764, 4
+  br i1 %exitcond768.not, label %if.end548, label %for.cond338.preheader, !llvm.loop !137
 
 if.else361:                                       ; preds = %if.end187
   %111 = load <4 x i32>, ptr %stex, align 16
@@ -11418,15 +11418,15 @@ invoke.cont372:                                   ; preds = %for.body.i2390
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont372, %for.body.i
-  %indvars.iv704 = phi i64 [ 0, %invoke.cont372 ], [ %indvars.iv.next705, %for.body.i ]
-  %arrayidx.i3131 = getelementptr inbounds [4 x i32], ptr %ref.tmp376, i64 0, i64 %indvars.iv704
+  %indvars.iv692 = phi i64 [ 0, %invoke.cont372 ], [ %indvars.iv.next693, %for.body.i ]
+  %arrayidx.i3131 = getelementptr inbounds [4 x i32], ptr %ref.tmp376, i64 0, i64 %indvars.iv692
   %119 = load i32, ptr %arrayidx.i3131, align 4
   %rem.i = srem i32 %119, %118
-  %arrayidx.i.i = getelementptr inbounds [4 x i32], ptr %ref.tmp375, i64 0, i64 %indvars.iv704
+  %arrayidx.i.i = getelementptr inbounds [4 x i32], ptr %ref.tmp375, i64 0, i64 %indvars.iv692
   store i32 %rem.i, ptr %arrayidx.i.i, align 4
-  %indvars.iv.next705 = add nuw nsw i64 %indvars.iv704, 1
-  %exitcond707.not = icmp eq i64 %indvars.iv.next705, 4
-  br i1 %exitcond707.not, label %invoke.cont379, label %for.body.i, !llvm.loop !138
+  %indvars.iv.next693 = add nuw nsw i64 %indvars.iv692, 1
+  %exitcond695.not = icmp eq i64 %indvars.iv.next693, 4
+  br i1 %exitcond695.not, label %invoke.cont379, label %for.body.i, !llvm.loop !138
 
 invoke.cont379:                                   ; preds = %for.body.i
   %120 = load <2 x i64>, ptr %ref.tmp375, align 16
@@ -11448,7 +11448,7 @@ invoke.cont379:                                   ; preds = %for.body.i
   %shuffle.i = shufflevector <4 x i32> %128, <4 x i32> %129, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
   %add.i2987 = add <4 x i32> %shuffle.i, %vecinit3.i3058
   store <4 x i32> %add.i2987, ptr %column_offset_bytes, align 16
-  %cmp454 = icmp eq i64 %indvars.iv789, 0
+  %cmp454 = icmp eq i64 %indvars.iv777, 0
   br label %for.body401
 
 for.body401:                                      ; preds = %invoke.cont379, %for.inc545
@@ -11476,23 +11476,23 @@ if.end418:                                        ; preds = %for.body401
   br label %for.body429
 
 for.body429:                                      ; preds = %if.end418, %for.inc542
-  %indvars.iv708 = phi i64 [ 0, %if.end418 ], [ %indvars.iv.next709, %for.inc542 ]
-  %arrayidx.i2280 = getelementptr inbounds [4 x i32], ptr %svalid, i64 0, i64 %indvars.iv708
+  %indvars.iv696 = phi i64 [ 0, %if.end418 ], [ %indvars.iv.next697, %for.inc542 ]
+  %arrayidx.i2280 = getelementptr inbounds [4 x i32], ptr %svalid, i64 0, i64 %indvars.iv696
   %134 = load i32, ptr %arrayidx.i2280, align 4
   %tobool432.not = icmp eq i32 %134, 0
   br i1 %tobool432.not, label %if.then433, label %if.end439
 
 if.then433:                                       ; preds = %for.body429
-  %arrayidx437 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv708
+  %arrayidx437 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv696
   store <4 x float> zeroinitializer, ptr %arrayidx437, align 16
   br label %for.inc542
 
 if.end439:                                        ; preds = %for.body429
-  %cmp440 = icmp eq i64 %indvars.iv708, 0
+  %cmp440 = icmp eq i64 %indvars.iv696, 0
   br i1 %cmp440, label %if.then447, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end439
-  %arrayidx.i1961 = getelementptr inbounds [4 x i32], ptr %tile_s362, i64 0, i64 %indvars.iv708
+  %arrayidx.i1961 = getelementptr inbounds [4 x i32], ptr %tile_s362, i64 0, i64 %indvars.iv696
   %135 = load i32, ptr %arrayidx.i1961, align 4
   %cmp443 = icmp eq i32 %135, 0
   %136 = load i32, ptr %swrap, align 8
@@ -11501,7 +11501,7 @@ lor.lhs.false:                                    ; preds = %if.end439
   br i1 %or.cond, label %if.then447, label %if.end473
 
 if.then447:                                       ; preds = %lor.lhs.false, %if.end439
-  %arrayidx.i1956 = getelementptr inbounds [4 x i32], ptr %tile_s_edge, i64 0, i64 %indvars.iv708
+  %arrayidx.i1956 = getelementptr inbounds [4 x i32], ptr %tile_s_edge, i64 0, i64 %indvars.iv696
   %137 = load i32, ptr %arrayidx.i1956, align 4
   %138 = load i32, ptr %arrayidx.i1951, align 4
   store i32 %137, ptr %id, align 8
@@ -11533,7 +11533,7 @@ if.end465:                                        ; preds = %invoke.cont464, %if
   br i1 %tobool.i, label %if.end473, label %cleanup
 
 if.end473:                                        ; preds = %lor.lhs.false, %if.end465
-  %arrayidx.i = getelementptr inbounds [4 x i32], ptr %column_offset_bytes, i64 0, i64 %indvars.iv708
+  %arrayidx.i = getelementptr inbounds [4 x i32], ptr %column_offset_bytes, i64 0, i64 %indvars.iv696
   %144 = load i32, ptr %arrayidx.i, align 4
   %conv479 = sext i32 %144 to i64
   %add480 = add nsw i64 %mul425, %conv479
@@ -11558,7 +11558,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit: ; preds = %if.end4
   %conv.i.i430 = uitofp nneg <4 x i32> %150 to <4 x float>
   %151 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i3330 = fmul <4 x float> %151, %conv.i.i430
-  %arrayidx493 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv708
+  %arrayidx493 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv696
   store <4 x float> %mul.i3330, ptr %arrayidx493, align 16
   br label %for.inc542
 
@@ -11584,7 +11584,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit: ; preds = %for.bo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i432)
   %154 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18u16scaleE.0, align 16
   %mul.i3324 = fmul <4 x float> %154, %conv.i.i.i440
-  %arrayidx509 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv708
+  %arrayidx509 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv696
   store <4 x float> %mul.i3324, ptr %arrayidx509, align 16
   br label %for.inc542
 
@@ -11618,26 +11618,26 @@ invoke.cont521:                                   ; preds = %for.body.i.i.i444
   %162 = bitcast <4 x float> %mul.i.i.i451 to <4 x i32>
   %or.i.i455 = or <4 x i32> %or.i9.i454, %162
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %h.i.i443)
-  %arrayidx525 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv708
+  %arrayidx525 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv696
   store <4 x i32> %or.i.i455, ptr %arrayidx525, align 16
   br label %for.inc542
 
 invoke.cont535:                                   ; preds = %if.end473
-  %arrayidx532 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv708
+  %arrayidx532 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv696
   %add.ptr537 = getelementptr inbounds i8, ptr %146, i64 %add480
   %163 = load <4 x float>, ptr %add.ptr537, align 1
   store <4 x float> %163, ptr %arrayidx532, align 16
   br label %for.inc542
 
 for.inc542:                                       ; preds = %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit, %invoke.cont521, %invoke.cont535, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit, %if.then433
-  %indvars.iv.next709 = add nuw nsw i64 %indvars.iv708, 1
-  %exitcond711.not = icmp eq i64 %indvars.iv.next709, 4
-  br i1 %exitcond711.not, label %for.inc545, label %for.body429, !llvm.loop !139
+  %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 1
+  %exitcond699.not = icmp eq i64 %indvars.iv.next697, 4
+  br i1 %exitcond699.not, label %for.inc545, label %for.body429, !llvm.loop !139
 
 for.inc545:                                       ; preds = %for.inc542, %for.body409.preheader
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond716.not = icmp eq i64 %indvar.next, 4
-  br i1 %exitcond716.not, label %if.end548, label %for.body401, !llvm.loop !140
+  %exitcond704.not = icmp eq i64 %indvar.next, 4
+  br i1 %exitcond704.not, label %if.end548, label %for.body401, !llvm.loop !140
 
 if.end548:                                        ; preds = %for.inc545, %for.inc324, %for.inc291, %for.inc258, %for.inc352
   br i1 %24, label %if.then550, label %if.end568
@@ -11649,7 +11649,7 @@ if.then550:                                       ; preds = %if.end548
   %tobool554 = trunc i8 %165 to i1
   %sub556 = fadd float %conv553, -1.000000e+00
   %height551.0 = select i1 %tobool554, float %sub556, float %conv553
-  %arrayidx559 = getelementptr inbounds float, ptr %t_, i64 %indvars.iv789
+  %arrayidx559 = getelementptr inbounds float, ptr %t_, i64 %indvars.iv777
   %166 = load float, ptr %arrayidx559, align 4
   %mul560 = fmul float %166, %height551.0
   %cmp561 = fcmp olt float %mul560, 1.000000e+00
@@ -11793,8 +11793,8 @@ if.end590:                                        ; preds = %invoke.cont575, %in
   br label %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531
 
 _ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531: ; preds = %if.end590, %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531
-  %indvars.iv781 = phi i64 [ 0, %if.end590 ], [ %indvars.iv.next782, %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531 ]
-  %arrayidx613 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv781
+  %indvars.iv769 = phi i64 [ 0, %if.end590 ], [ %indvars.iv.next770, %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531 ]
+  %arrayidx613 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv769
   %arrayidx617 = getelementptr inbounds i8, ptr %arrayidx613, i64 16
   %180 = load <4 x float>, ptr %arrayidx613, align 16
   %mul.i3168 = fmul <4 x float> %sub.i3143, %180
@@ -11811,11 +11811,11 @@ _ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531: ; p
   %mul.i3180 = fmul <4 x float> %sub.i3149, %add.i3348
   %mul.i3177 = fmul <4 x float> %179, %add.i3351
   %add.i3354 = fadd <4 x float> %mul.i3180, %mul.i3177
-  %arrayidx635 = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %col, i64 0, i64 %indvars.iv781
+  %arrayidx635 = getelementptr inbounds [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"], ptr %col, i64 0, i64 %indvars.iv769
   store <4 x float> %add.i3354, ptr %arrayidx635, align 16
-  %indvars.iv.next782 = add nuw nsw i64 %indvars.iv781, 1
-  %exitcond784.not = icmp eq i64 %indvars.iv.next782, 4
-  br i1 %exitcond784.not, label %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit, label %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531, !llvm.loop !141
+  %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
+  %exitcond772.not = icmp eq i64 %indvars.iv.next770, 4
+  br i1 %exitcond772.not, label %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit, label %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531, !llvm.loop !141
 
 _ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit: ; preds = %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531
   %184 = shufflevector <4 x float> %div.i, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
@@ -11853,8 +11853,8 @@ if.then661:                                       ; preds = %_ZN18OpenImageIO_v2
   %mul.i3333 = shufflevector <4 x float> %193, <4 x float> poison, <4 x i32> zeroinitializer
   %194 = load i32, ptr %height, align 8
   %conv666 = sitofp i32 %194 to float
-  %.scalar793 = fmul float %weight.0, %conv666
-  %195 = insertelement <4 x float> poison, float %.scalar793, i64 0
+  %.scalar781 = fmul float %weight.0, %conv666
+  %195 = insertelement <4 x float> poison, float %.scalar781, i64 0
   %mul.i3336 = shufflevector <4 x float> %195, <4 x float> poison, <4 x i32> zeroinitializer
   %196 = load <4 x float>, ptr %texel_simd, align 16
   %vecinit3.i = shufflevector <4 x float> %wy.sroa.0.0, <4 x float> poison, <4 x i32> zeroinitializer
@@ -11916,7 +11916,7 @@ if.then661:                                       ; preds = %_ZN18OpenImageIO_v2
   %mul.i3258 = fmul <4 x float> %vecinit3.i2776, %add.i3411
   %add.i3414 = fadd <4 x float> %add.i3402, %mul.i3258
   %mul.i3342 = fmul <4 x float> %mul.i3333, %add.i3414
-  %add.i3465 = fadd <4 x float> %daccumds.sroa.0.1679, %mul.i3342
+  %add.i3465 = fadd <4 x float> %daccumds.sroa.0.1677, %mul.i3342
   %vecinit3.i2782 = shufflevector <4 x float> %wx.sroa.0.0, <4 x float> poison, <4 x i32> zeroinitializer
   %mul.i3261 = fmul <4 x float> %vecinit3.i2782, %196
   %vecinit3.i2788 = shufflevector <4 x float> %wx.sroa.0.0, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
@@ -11961,12 +11961,12 @@ if.then661:                                       ; preds = %_ZN18OpenImageIO_v2
   %mul.i3318 = fmul <4 x float> %vecinit3.i2896, %add.i3456
   %add.i3459 = fadd <4 x float> %add.i3447, %mul.i3318
   %mul.i3345 = fmul <4 x float> %mul.i3336, %add.i3459
-  %add.i3468 = fadd <4 x float> %daccumdt.sroa.0.1678, %mul.i3345
+  %add.i3468 = fadd <4 x float> %daccumdt.sroa.0.1676, %mul.i3345
   br label %if.end960
 
 if.end960:                                        ; preds = %if.then661, %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit
-  %daccumdt.sroa.0.3 = phi <4 x float> [ %daccumdt.sroa.0.1678, %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit ], [ %add.i3468, %if.then661 ]
-  %daccumds.sroa.0.3 = phi <4 x float> [ %daccumds.sroa.0.1679, %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit ], [ %add.i3465, %if.then661 ]
+  %daccumdt.sroa.0.3 = phi <4 x float> [ %daccumdt.sroa.0.1676, %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit ], [ %add.i3468, %if.then661 ]
+  %daccumds.sroa.0.3 = phi <4 x float> [ %daccumds.sroa.0.1677, %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit ], [ %add.i3465, %if.then661 ]
   %brmerge379 = select i1 %allvalid.0.in619.ph, i1 true, i1 %.not625
   br i1 %brmerge379, label %for.inc1052, label %for.cond967.preheader
 
@@ -11988,8 +11988,8 @@ for.cond967.preheader:                            ; preds = %if.end960
   br label %for.body969
 
 for.body969:                                      ; preds = %for.cond967.preheader, %for.body969
-  %indvars.iv785 = phi i64 [ 0, %for.cond967.preheader ], [ %indvars.iv.next786, %for.body969 ]
-  %arrayidx.i2275 = getelementptr inbounds [4 x i32], ptr %tvalid, i64 0, i64 %indvars.iv785
+  %indvars.iv773 = phi i64 [ 0, %for.cond967.preheader ], [ %indvars.iv.next774, %for.body969 ]
+  %arrayidx.i2275 = getelementptr inbounds [4 x i32], ptr %tvalid, i64 0, i64 %indvars.iv773
   %216 = load i32, ptr %arrayidx.i2275, align 4
   %conv974 = sitofp i32 %216 to float
   %mul979 = fmul float %conv974, %conv978
@@ -12002,11 +12002,11 @@ for.body969:                                      ; preds = %for.cond967.prehead
   %218 = call noundef float @llvm.fmuladd.f32(float %mul1003, float %sub.i2633, float %mul1.i2634)
   %mul1.i2629 = fmul float %vecext.i3527, %218
   %219 = call noundef float @llvm.fmuladd.f32(float %217, float %sub.i2628, float %mul1.i2629)
-  %arrayidx1024 = getelementptr inbounds [4 x float], ptr %col965, i64 0, i64 %indvars.iv785
+  %arrayidx1024 = getelementptr inbounds [4 x float], ptr %col965, i64 0, i64 %indvars.iv773
   store float %219, ptr %arrayidx1024, align 4
-  %indvars.iv.next786 = add nuw nsw i64 %indvars.iv785, 1
-  %exitcond788.not = icmp eq i64 %indvars.iv.next786, 4
-  br i1 %exitcond788.not, label %for.end1027, label %for.body969, !llvm.loop !142
+  %indvars.iv.next774 = add nuw nsw i64 %indvars.iv773, 1
+  %exitcond776.not = icmp eq i64 %indvars.iv.next774, 4
+  br i1 %exitcond776.not, label %for.end1027, label %for.body969, !llvm.loop !142
 
 for.end1027:                                      ; preds = %for.body969
   %vecext.i3523 = extractelement <4 x float> %div.i, i64 2
@@ -12026,27 +12026,27 @@ for.end1027:                                      ; preds = %for.body969
   %mul1.i = fmul float %vecext.i3521, %225
   %226 = call noundef float @llvm.fmuladd.f32(float %222, float %sub.i, float %mul1.i)
   %sub1049 = fsub float 1.000000e+00, %226
-  %227 = call float @llvm.fmuladd.f32(float %weight.0, float %sub1049, float %nonfill.0692)
+  %227 = call float @llvm.fmuladd.f32(float %weight.0, float %sub1049, float %nonfill.0680)
   br label %for.inc1052
 
 for.inc1052:                                      ; preds = %if.end960, %for.end1027, %if.then126
   %dwy.sroa.0.1 = phi <4 x float> [ %dwy.sroa.0.2, %if.end960 ], [ %dwy.sroa.0.2, %for.end1027 ], [ %dwy.sroa.0.0674, %if.then126 ]
   %dwx.sroa.0.1 = phi <4 x float> [ %dwx.sroa.0.2, %if.end960 ], [ %dwx.sroa.0.2, %for.end1027 ], [ %dwx.sroa.0.0675, %if.then126 ]
-  %daccumdt.sroa.0.2 = phi <4 x float> [ %daccumdt.sroa.0.3, %if.end960 ], [ %daccumdt.sroa.0.3, %for.end1027 ], [ %daccumdt.sroa.0.1678, %if.then126 ]
-  %daccumds.sroa.0.2 = phi <4 x float> [ %daccumds.sroa.0.3, %if.end960 ], [ %daccumds.sroa.0.3, %for.end1027 ], [ %daccumds.sroa.0.1679, %if.then126 ]
-  %nonfill.1 = phi float [ %nonfill.0692, %if.end960 ], [ %227, %for.end1027 ], [ %add127, %if.then126 ]
-  %indvars.iv.next790 = add nuw nsw i64 %indvars.iv789, 1
-  %exitcond792.not = icmp eq i64 %indvars.iv.next790, %wide.trip.count
-  br i1 %exitcond792.not, label %for.end1054.loopexit, label %for.body, !llvm.loop !143
+  %daccumdt.sroa.0.2 = phi <4 x float> [ %daccumdt.sroa.0.3, %if.end960 ], [ %daccumdt.sroa.0.3, %for.end1027 ], [ %daccumdt.sroa.0.1676, %if.then126 ]
+  %daccumds.sroa.0.2 = phi <4 x float> [ %daccumds.sroa.0.3, %if.end960 ], [ %daccumds.sroa.0.3, %for.end1027 ], [ %daccumds.sroa.0.1677, %if.then126 ]
+  %nonfill.1 = phi float [ %nonfill.0680, %if.end960 ], [ %227, %for.end1027 ], [ %add127, %if.then126 ]
+  %indvars.iv.next778 = add nuw nsw i64 %indvars.iv777, 1
+  %exitcond780.not = icmp eq i64 %indvars.iv.next778, %wide.trip.count
+  br i1 %exitcond780.not, label %for.end1054.loopexit, label %for.body, !llvm.loop !143
 
 for.end1054.loopexit:                             ; preds = %for.inc1052
-  %.pre796 = load <4 x i32>, ptr %accum, align 16
+  %.pre784 = load <4 x i32>, ptr %accum, align 16
   %228 = bitcast <4 x float> %daccumds.sroa.0.2 to <4 x i32>
   %229 = bitcast <4 x float> %daccumdt.sroa.0.2 to <4 x i32>
   br label %for.end1054
 
 for.end1054:                                      ; preds = %for.end1054.loopexit, %_ZN18OpenImageIO_v2_6_03pvt6TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit
-  %230 = phi <4 x i32> [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt6TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit ], [ %.pre796, %for.end1054.loopexit ]
+  %230 = phi <4 x i32> [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt6TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit ], [ %.pre784, %for.end1054.loopexit ]
   %daccumdt.sroa.0.1.lcssa = phi <4 x i32> [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt6TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit ], [ %229, %for.end1054.loopexit ]
   %daccumds.sroa.0.1.lcssa = phi <4 x i32> [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt6TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit ], [ %228, %for.end1054.loopexit ]
   %nonfill.0.lcssa = phi float [ 0.000000e+00, %_ZN18OpenImageIO_v2_6_03pvt6TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit ], [ %nonfill.1, %for.end1054.loopexit ]

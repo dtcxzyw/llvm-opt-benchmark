@@ -5828,12 +5828,12 @@ for.body9.lr.ph:                                  ; preds = %_ZN20btAlignedObjec
   %m_timeStep = getelementptr inbounds i8, ptr %infoGlobal, i64 12
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_maxGyroscopicForce = getelementptr inbounds i8, ptr %infoGlobal, i64 100
-  %wide.trip.count81 = zext nneg i32 %numBodies to i64
+  %wide.trip.count79 = zext nneg i32 %numBodies to i64
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.inc76
-  %indvars.iv78 = phi i64 [ 0, %for.body9.lr.ph ], [ %indvars.iv.next79, %for.inc76 ]
-  %arrayidx11 = getelementptr inbounds ptr, ptr %bodies, i64 %indvars.iv78
+  %indvars.iv76 = phi i64 [ 0, %for.body9.lr.ph ], [ %indvars.iv.next77, %for.inc76 ]
+  %arrayidx11 = getelementptr inbounds ptr, ptr %bodies, i64 %indvars.iv76
   %12 = load ptr, ptr %arrayidx11, align 8
   %13 = load float, ptr %m_timeStep, align 4
   %call = invoke noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(372) %12, float noundef %13)
@@ -5951,11 +5951,11 @@ invoke.cont54:                                    ; preds = %if.then51
   %47 = load float, ptr %arrayidx12.i44, align 4
   %add13.i = fadd float %gyroForce.sroa.11.8.vec.extract65, %47
   store float %add13.i, ptr %arrayidx12.i44, align 4
-  %.pre83 = load i32, ptr %m_rigidbodyFlags.i, align 8
+  %.pre81 = load i32, ptr %m_rigidbodyFlags.i, align 8
   br label %if.end60
 
 if.end60:                                         ; preds = %invoke.cont54, %if.end
-  %48 = phi i32 [ %.pre83, %invoke.cont54 ], [ %41, %if.end ]
+  %48 = phi i32 [ %.pre81, %invoke.cont54 ], [ %41, %if.end ]
   %and63 = and i32 %48, 8
   %tobool64.not = icmp eq i32 %and63, 0
   br i1 %tobool64.not, label %for.inc76, label %if.then65
@@ -5986,9 +5986,9 @@ invoke.cont68:                                    ; preds = %if.then65
   br label %for.inc76
 
 for.inc76:                                        ; preds = %invoke.cont15, %land.lhs.true, %invoke.cont68, %if.end60
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %for.end78, label %for.body9, !llvm.loop !18
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
+  br i1 %exitcond80.not, label %for.end78, label %for.body9, !llvm.loop !18
 
 for.end78:                                        ; preds = %for.inc76, %_ZN20btAlignedObjectArrayI12btSolverBodyE6resizeEiRKS0_.exit
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #23

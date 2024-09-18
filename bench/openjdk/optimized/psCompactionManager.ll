@@ -1332,16 +1332,16 @@ define hidden void @_ZN20ParCompactionManager19drain_region_stacksEv(ptr noundef
 
 _ZNK17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE8is_emptyEv.exit: ; preds = %_ZNK17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.backedge, %1
   %13 = load ptr, ptr %2, align 8
-  %.not19 = icmp eq ptr %13, null
-  br i1 %.not19, label %_ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE12pop_overflowERm.exit.preheader, label %.lr.ph
+  %.not17 = icmp eq ptr %13, null
+  br i1 %.not17, label %_ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE12pop_overflowERm.exit.preheader, label %.lr.ph
 
 _ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE12pop_overflowERm.exit.preheader: ; preds = %45, %_ZNK17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE8is_emptyEv.exit
   %14 = load volatile i32, ptr %10, align 8
   %15 = load volatile i32, ptr %11, align 8
   %16 = sub i32 %14, %15
   %17 = and i32 %16, 131071
-  %.not.i.not21 = icmp eq i32 %17, 0
-  br i1 %.not.i.not21, label %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread7, label %.lr.ph22
+  %.not.i.not18 = icmp eq i32 %17, 0
+  br i1 %.not.i.not18, label %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread7, label %.lr.ph19
 
 .lr.ph:                                           ; preds = %_ZNK17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE8is_emptyEv.exit, %45
   %18 = phi ptr [ %46, %45 ], [ %13, %_ZNK17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE8is_emptyEv.exit ]
@@ -1397,7 +1397,7 @@ _ZN5StackImL8MEMFLAGS5EE11pop_segmentEv.exit.i.i: ; preds = %36, %32
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %_ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE12pop_overflowERm.exit.preheader, label %.lr.ph, !llvm.loop !19
 
-.lr.ph22:                                         ; preds = %_ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE12pop_overflowERm.exit.preheader, %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread
+.lr.ph19:                                         ; preds = %_ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE12pop_overflowERm.exit.preheader, %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread
   %47 = phi i32 [ %66, %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread ], [ %14, %_ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE12pop_overflowERm.exit.preheader ]
   %48 = add i32 %47, 131071
   %49 = and i32 %48, 131071
@@ -1416,7 +1416,7 @@ _ZN5StackImL8MEMFLAGS5EE11pop_segmentEv.exit.i.i: ; preds = %36, %32
     i32 0, label %57
   ]
 
-57:                                               ; preds = %.lr.ph22, %.lr.ph22
+57:                                               ; preds = %.lr.ph19, %.lr.ph19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
   %58 = load volatile i64, ptr %11, align 8
   %.sroa.016.0.extract.trunc.i.i = trunc i64 %58 to i32
@@ -1440,14 +1440,14 @@ _ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit: ; preds = %57,
   %65 = load volatile i32, ptr %11, align 8
   br label %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread7
 
-_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread: ; preds = %.lr.ph22, %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread11
+_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread: ; preds = %.lr.ph19, %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread11
   tail call void @_ZN17PSParallelCompact22fill_and_update_regionEP20ParCompactionManagerm(ptr noundef nonnull %0, i64 noundef %53) #12
   %66 = load volatile i32, ptr %10, align 8
   %67 = load volatile i32, ptr %11, align 8
   %68 = sub i32 %66, %67
   %69 = and i32 %68, 131071
   %.not.i.not = icmp eq i32 %69, 0
-  br i1 %.not.i.not, label %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread7, label %.lr.ph22, !llvm.loop !20
+  br i1 %.not.i.not, label %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread7, label %.lr.ph19, !llvm.loop !20
 
 _ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread7: ; preds = %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit.thread, %_ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE12pop_overflowERm.exit.preheader, %_ZN16GenericTaskQueueImL8MEMFLAGS5ELj131072EE9pop_localERmj.exit
   %70 = load volatile i32, ptr %10, align 8

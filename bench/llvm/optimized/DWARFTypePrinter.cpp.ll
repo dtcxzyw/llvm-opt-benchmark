@@ -2716,18 +2716,18 @@ _ZNK4llvm8DWARFDie6getTagEv.exit.thread:          ; preds = %_ZNK4llvm8DWARFDie6
   %78 = call noundef zeroext i1 @_ZN4llvm16DWARFTypePrinter24appendTemplateParametersENS_8DWARFDieEPb(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr %71, ptr nonnull %72, ptr noundef nonnull %spec.select)
   %.pre = load ptr, ptr %44, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre350 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not.i59 = icmp eq ptr %.pre350, null
+  %.pre346 = load ptr, ptr %.phi.trans.insert, align 8
+  %.not.i59 = icmp eq ptr %.pre346, null
   br i1 %.not.i59, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZNK4llvm8DWARFDie6getTagEv.exit.thread._ZNK4llvm8DWARFDie6getTagEv.exit61_crit_edge
 
 _ZNK4llvm8DWARFDie6getTagEv.exit.thread._ZNK4llvm8DWARFDie6getTagEv.exit61_crit_edge: ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit.thread
-  %.phi.trans.insert365 = getelementptr inbounds nuw i8, ptr %.pre350, i64 4
-  %.pre366 = load i16, ptr %.phi.trans.insert365, align 4
+  %.phi.trans.insert361 = getelementptr inbounds nuw i8, ptr %.pre346, i64 4
+  %.pre362 = load i16, ptr %.phi.trans.insert361, align 4
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit61
 
 _ZNK4llvm8DWARFDie6getTagEv.exit61:               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit.thread._ZNK4llvm8DWARFDie6getTagEv.exit61_crit_edge, %_ZNK4llvm8DWARFDie6getTagEv.exit
-  %79 = phi i16 [ %.pre366, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread._ZNK4llvm8DWARFDie6getTagEv.exit61_crit_edge ], [ %76, %_ZNK4llvm8DWARFDie6getTagEv.exit ]
-  %.1275360 = phi i1 [ true, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread._ZNK4llvm8DWARFDie6getTagEv.exit61_crit_edge ], [ %.0274345, %_ZNK4llvm8DWARFDie6getTagEv.exit ]
+  %79 = phi i16 [ %.pre362, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread._ZNK4llvm8DWARFDie6getTagEv.exit61_crit_edge ], [ %76, %_ZNK4llvm8DWARFDie6getTagEv.exit ]
+  %.1275356 = phi i1 [ true, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread._ZNK4llvm8DWARFDie6getTagEv.exit61_crit_edge ], [ %.0274345, %_ZNK4llvm8DWARFDie6getTagEv.exit ]
   %80 = phi ptr [ %.pre, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread._ZNK4llvm8DWARFDie6getTagEv.exit61_crit_edge ], [ %72, %_ZNK4llvm8DWARFDie6getTagEv.exit ]
   switch i16 %79, label %_ZN4llvm11raw_ostreamlsEPKc.exit [
     i16 48, label %81
@@ -3734,7 +3734,7 @@ _ZN4llvm16DWARFTypePrinter19appendQualifiedNameENS_8DWARFDieE.exit171: ; preds =
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit61, %_ZNK4llvm8DWARFDie6getTagEv.exit64, %_ZNK4llvm8DWARFDie6getTagEv.exit64, %70, %_ZN4llvmeqENS_9StringRefES0_.exit132, %_ZN4llvmeqENS_9StringRefES0_.exit128, %_ZN4llvmeqENS_9StringRefES0_.exit124, %_ZN4llvmeqENS_9StringRefES0_.exit116, %_ZN4llvmeqENS_9StringRefES0_.exit109, %_ZN4llvmeqENS_9StringRefES0_.exit98, %_ZN4llvmeqENS_9StringRefES0_.exit91, %_ZN4llvmeqENS_9StringRefES0_.exit84, %_ZN4llvm9StringRefC2EPKc.exit.thread, %_ZN4llvm9StringRefC2EPKc.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread, %473, %472, %470, %287, %285, %266, %264, %199, %197, %_ZN4llvm11raw_ostreamlsEPKc.exit94, %_ZN4llvmeqENS_9StringRefES0_.exit116.thread, %_ZN4llvmeqENS_9StringRefES0_.exit124.thread, %348, %351, %354, %357, %360, %363, %366, %369, %372, %397, %405, %403, %_ZN4llvm11raw_ostreamlsEc.exit145, %_ZN4llvmeqENS_9StringRefES0_.exit136, %_ZN4llvmeqENS_9StringRefES0_.exit120.thread, %_ZN4llvmeqENS_9StringRefES0_.exit98.thread, %_ZN4llvm11raw_ostreamlsEPKc.exit87, %_ZN4llvm16DWARFTypePrinter19appendQualifiedNameENS_8DWARFDieE.exit171, %_ZN4llvm11raw_ostreamlsEc.exit69
-  %.2276 = phi i1 [ true, %_ZN4llvm11raw_ostreamlsEc.exit69 ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit87 ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit94 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit98.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit116.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit120.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit124.thread ], [ true, %_ZN4llvm11raw_ostreamlsEc.exit145 ], [ true, %397 ], [ true, %403 ], [ true, %405 ], [ true, %372 ], [ true, %369 ], [ true, %366 ], [ true, %363 ], [ true, %360 ], [ true, %357 ], [ true, %354 ], [ true, %351 ], [ true, %348 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit136 ], [ true, %_ZN4llvm16DWARFTypePrinter19appendQualifiedNameENS_8DWARFDieE.exit171 ], [ true, %197 ], [ true, %199 ], [ true, %264 ], [ true, %266 ], [ true, %285 ], [ true, %287 ], [ true, %470 ], [ true, %472 ], [ true, %473 ], [ true, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread ], [ true, %_ZN4llvm9StringRefC2EPKc.exit ], [ true, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit84 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit91 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit98 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit109 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit116 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit124 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit128 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit132 ], [ %.0274345, %70 ], [ true, %_ZNK4llvm8DWARFDie6getTagEv.exit64 ], [ true, %_ZNK4llvm8DWARFDie6getTagEv.exit64 ], [ %.1275360, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ]
+  %.2276 = phi i1 [ true, %_ZN4llvm11raw_ostreamlsEc.exit69 ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit87 ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit94 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit98.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit116.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit120.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit124.thread ], [ true, %_ZN4llvm11raw_ostreamlsEc.exit145 ], [ true, %397 ], [ true, %403 ], [ true, %405 ], [ true, %372 ], [ true, %369 ], [ true, %366 ], [ true, %363 ], [ true, %360 ], [ true, %357 ], [ true, %354 ], [ true, %351 ], [ true, %348 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit136 ], [ true, %_ZN4llvm16DWARFTypePrinter19appendQualifiedNameENS_8DWARFDieE.exit171 ], [ true, %197 ], [ true, %199 ], [ true, %264 ], [ true, %266 ], [ true, %285 ], [ true, %287 ], [ true, %470 ], [ true, %472 ], [ true, %473 ], [ true, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread ], [ true, %_ZN4llvm9StringRefC2EPKc.exit ], [ true, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit84 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit91 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit98 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit109 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit116 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit124 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit128 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit132 ], [ %.0274345, %70 ], [ true, %_ZNK4llvm8DWARFDie6getTagEv.exit64 ], [ true, %_ZNK4llvm8DWARFDie6getTagEv.exit64 ], [ %.1275356, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ]
   %526 = call { ptr, ptr } @_ZNK4llvm8DWARFDie10getSiblingEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #16
   %527 = extractvalue { ptr, ptr } %526, 0
   %528 = extractvalue { ptr, ptr } %526, 1
@@ -3779,8 +3779,8 @@ _ZN4llvm11raw_ostreamlsEc.exit174:                ; preds = %541, %543
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %_ZN4llvm11raw_ostreamlsEc.exit174, %531, %._crit_edge
-  %.0274.lcssa363 = phi i1 [ true, %_ZN4llvm11raw_ostreamlsEc.exit174 ], [ true, %531 ], [ false, %._crit_edge ], [ false, %4 ]
-  ret i1 %.0274.lcssa363
+  %.0274.lcssa359 = phi i1 [ true, %_ZN4llvm11raw_ostreamlsEc.exit174 ], [ true, %531 ], [ false, %._crit_edge ], [ false, %4 ]
+  ret i1 %.0274.lcssa359
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

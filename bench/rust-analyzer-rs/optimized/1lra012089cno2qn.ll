@@ -64678,12 +64678,12 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h78687f8f56bb52d8E(p
 
 27:                                               ; preds = %.noexc9, %.lr.ph.i
   %28 = phi i64 [ %17, %.lr.ph.i ], [ %64, %.noexc9 ]
-  %.sroa.0.0163.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.0.1.i, %.noexc9 ]
-  %.sroa.7.0162.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.7.1.i, %.noexc9 ]
-  %.sroa.8.0161.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.8.1.i, %.noexc9 ]
-  %.sroa.02.0160.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.02.1.i, %.noexc9 ]
-  %.sroa.74.0159.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.74.1.i, %.noexc9 ]
-  %.sroa.85.0158.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.85.1.i, %.noexc9 ]
+  %.sroa.0.0161.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.0.1.i, %.noexc9 ]
+  %.sroa.7.0160.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.7.1.i, %.noexc9 ]
+  %.sroa.8.0159.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.8.1.i, %.noexc9 ]
+  %.sroa.02.0158.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.02.1.i, %.noexc9 ]
+  %.sroa.74.0157.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.74.1.i, %.noexc9 ]
+  %.sroa.85.0156.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.85.1.i, %.noexc9 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !18392)
   call void @llvm.experimental.noalias.scope.decl(metadata !18393)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.414.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.414.0..sroa_idx.i.i.i.i, i64 16, i1 false), !noalias !18389
@@ -64790,11 +64790,11 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h78687f8f56bb52d8E(p
   br label %63
 
 48:                                               ; preds = %45
-  %49 = icmp eq i32 %.sroa.0.0163.i, 1
+  %49 = icmp eq i32 %.sroa.0.0161.i, 1
   br i1 %49, label %.invoke, label %55
 
 50:                                               ; preds = %45
-  %51 = icmp eq i32 %.sroa.02.0160.i, 1
+  %51 = icmp eq i32 %.sroa.02.0158.i, 1
   br i1 %51, label %.invoke, label %66
 
 .invoke:                                          ; preds = %50, %48
@@ -64849,12 +64849,12 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h78687f8f56bb52d8E(p
   br label %81
 
 63:                                               ; preds = %70, %59, %.noexc5
-  %.sroa.85.1.i = phi i32 [ %72, %70 ], [ %.sroa.85.0158.i, %59 ], [ %.sroa.85.0158.i, %.noexc5 ]
-  %.sroa.74.1.i = phi i32 [ %71, %70 ], [ %.sroa.74.0159.i, %59 ], [ %.sroa.74.0159.i, %.noexc5 ]
-  %.sroa.02.1.i = phi i32 [ 1, %70 ], [ %.sroa.02.0160.i, %59 ], [ %.sroa.02.0160.i, %.noexc5 ]
-  %.sroa.8.1.i = phi i32 [ %.sroa.8.0161.i, %70 ], [ %61, %59 ], [ %.sroa.8.0161.i, %.noexc5 ]
-  %.sroa.7.1.i = phi i32 [ %.sroa.7.0162.i, %70 ], [ %60, %59 ], [ %.sroa.7.0162.i, %.noexc5 ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0163.i, %70 ], [ 1, %59 ], [ %.sroa.0.0163.i, %.noexc5 ]
+  %.sroa.85.1.i = phi i32 [ %72, %70 ], [ %.sroa.85.0156.i, %59 ], [ %.sroa.85.0156.i, %.noexc5 ]
+  %.sroa.74.1.i = phi i32 [ %71, %70 ], [ %.sroa.74.0157.i, %59 ], [ %.sroa.74.0157.i, %.noexc5 ]
+  %.sroa.02.1.i = phi i32 [ 1, %70 ], [ %.sroa.02.0158.i, %59 ], [ %.sroa.02.0158.i, %.noexc5 ]
+  %.sroa.8.1.i = phi i32 [ %.sroa.8.0159.i, %70 ], [ %61, %59 ], [ %.sroa.8.0159.i, %.noexc5 ]
+  %.sroa.7.1.i = phi i32 [ %.sroa.7.0160.i, %70 ], [ %60, %59 ], [ %.sroa.7.0160.i, %.noexc5 ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0161.i, %70 ], [ 1, %59 ], [ %.sroa.0.0161.i, %.noexc5 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.414.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8), !noalias !18467
   invoke void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h091b9e4ad0cca560E.llvm.3466590722360702098"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %16)
@@ -64881,7 +64881,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h78687f8f56bb52d8E(p
 
 .noexc11:                                         ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hbddc75113e0f58d8E.exit93.thread.i"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !18477
-  br label %.loopexit178.i
+  br label %.loopexit176.i
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hbddc75113e0f58d8E.exit93.i": ; preds = %66
   store i64 %.sroa.0.0.copyload.i.i.i90.i, ptr %3, align 8, !noalias !18484
@@ -64890,10 +64890,10 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h78687f8f56bb52d8E(p
           to label %.noexc12 unwind label %.loopexit
 
 .noexc12:                                         ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hbddc75113e0f58d8E.exit93.i"
-  %.pre169.i = load i32, ptr %10, align 8, !range !398, !noalias !18452
-  %69 = trunc nuw i32 %.pre169.i to i1
+  %.pre167.i = load i32, ptr %10, align 8, !range !398, !noalias !18452
+  %69 = trunc nuw i32 %.pre167.i to i1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !18477
-  br i1 %69, label %.loopexit178.i.loopexit, label %70
+  br i1 %69, label %.loopexit176.i.loopexit, label %70
 
 70:                                               ; preds = %.noexc12
   %71 = load i32, ptr %25, align 4, !noalias !18452, !noundef !4
@@ -64901,12 +64901,12 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h78687f8f56bb52d8E(p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !18452
   br label %63
 
-.loopexit178.i.loopexit:                          ; preds = %.noexc12
+.loopexit176.i.loopexit:                          ; preds = %.noexc12
   %.pre33 = load ptr, ptr %24, align 8, !noalias !18452
-  br label %.loopexit178.i
+  br label %.loopexit176.i
 
-.loopexit178.i:                                   ; preds = %.loopexit178.i.loopexit, %.noexc11
-  %73 = phi ptr [ %.pre33, %.loopexit178.i.loopexit ], [ %68, %.noexc11 ]
+.loopexit176.i:                                   ; preds = %.loopexit176.i.loopexit, %.noexc11
+  %73 = phi ptr [ %.pre33, %.loopexit176.i.loopexit ], [ %68, %.noexc11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !18452
   br label %81
 
@@ -64939,8 +64939,8 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h78687f8f56bb52d8E(p
           cleanup
   br label %.body
 
-81:                                               ; preds = %.invoke34, %.invoke, %.loopexit.i, %.loopexit178.i, %74
-  %.sroa.7.0.ph = phi ptr [ %75, %74 ], [ %73, %.loopexit178.i ], [ %62, %.loopexit.i ], [ %54, %.invoke ], [ %78, %.invoke34 ]
+81:                                               ; preds = %.invoke34, %.invoke, %.loopexit.i, %.loopexit176.i, %74
+  %.sroa.7.0.ph = phi ptr [ %75, %74 ], [ %73, %.loopexit176.i ], [ %62, %.loopexit.i ], [ %54, %.invoke ], [ %78, %.invoke34 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph, ptr %82, align 8
   store i32 1, ptr %0, align 8
@@ -74090,10 +74090,10 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha4543888bbd86c46E(p
 
 27:                                               ; preds = %.noexc9, %.lr.ph.i
   %28 = phi i64 [ %17, %.lr.ph.i ], [ %61, %.noexc9 ]
-  %.sroa.0.0133.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.0.1.i, %.noexc9 ]
-  %.sroa.7.0132.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.7.1.i, %.noexc9 ]
-  %.sroa.02.0131.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.02.1.i, %.noexc9 ]
-  %.sroa.74.0130.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.74.1.i, %.noexc9 ]
+  %.sroa.0.0131.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.0.1.i, %.noexc9 ]
+  %.sroa.7.0130.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.7.1.i, %.noexc9 ]
+  %.sroa.02.0129.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.02.1.i, %.noexc9 ]
+  %.sroa.74.0128.i = phi i32 [ undef, %.lr.ph.i ], [ %.sroa.74.1.i, %.noexc9 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20910)
   call void @llvm.experimental.noalias.scope.decl(metadata !20911)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.414.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.414.0..sroa_idx.i.i.i.i, i64 16, i1 false), !noalias !20907
@@ -74200,11 +74200,11 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha4543888bbd86c46E(p
   br label %60
 
 48:                                               ; preds = %45
-  %49 = icmp eq i32 %.sroa.0.0133.i, 1
+  %49 = icmp eq i32 %.sroa.0.0131.i, 1
   br i1 %49, label %.invoke, label %55
 
 50:                                               ; preds = %45
-  %51 = icmp eq i32 %.sroa.02.0131.i, 1
+  %51 = icmp eq i32 %.sroa.02.0129.i, 1
   br i1 %51, label %.invoke, label %63
 
 .invoke:                                          ; preds = %50, %48
@@ -74240,7 +74240,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha4543888bbd86c46E(p
 
 .noexc8:                                          ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h1ec56b433d042daeE.exit.i"
   %.pre.i = load i32, ptr %11, align 8, !range !398, !noalias !20970
-  %.pre138.i = load ptr, ptr %22, align 8, !noalias !20970
+  %.pre136.i = load ptr, ptr %22, align 8, !noalias !20970
   %58 = trunc nuw i32 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !20977
   %59 = load i32, ptr %23, align 4, !noalias !20970
@@ -74248,10 +74248,10 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha4543888bbd86c46E(p
   br i1 %58, label %.loopexit25, label %60
 
 60:                                               ; preds = %.noexc12, %.noexc8, %.noexc5
-  %.sroa.74.1.i = phi i32 [ %.sroa.74.0130.i, %.noexc8 ], [ %67, %.noexc12 ], [ %.sroa.74.0130.i, %.noexc5 ]
-  %.sroa.02.1.i = phi i32 [ %.sroa.02.0131.i, %.noexc8 ], [ 1, %.noexc12 ], [ %.sroa.02.0131.i, %.noexc5 ]
-  %.sroa.7.1.i = phi i32 [ %59, %.noexc8 ], [ %.sroa.7.0132.i, %.noexc12 ], [ %.sroa.7.0132.i, %.noexc5 ]
-  %.sroa.0.1.i = phi i32 [ 1, %.noexc8 ], [ %.sroa.0.0133.i, %.noexc12 ], [ %.sroa.0.0133.i, %.noexc5 ]
+  %.sroa.74.1.i = phi i32 [ %.sroa.74.0128.i, %.noexc8 ], [ %67, %.noexc12 ], [ %.sroa.74.0128.i, %.noexc5 ]
+  %.sroa.02.1.i = phi i32 [ %.sroa.02.0129.i, %.noexc8 ], [ 1, %.noexc12 ], [ %.sroa.02.0129.i, %.noexc5 ]
+  %.sroa.7.1.i = phi i32 [ %59, %.noexc8 ], [ %.sroa.7.0130.i, %.noexc12 ], [ %.sroa.7.0130.i, %.noexc5 ]
+  %.sroa.0.1.i = phi i32 [ 1, %.noexc8 ], [ %.sroa.0.0131.i, %.noexc12 ], [ %.sroa.0.0131.i, %.noexc5 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.414.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8), !noalias !20985
   invoke void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h091b9e4ad0cca560E.llvm.3466590722360702098"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %16)
@@ -74288,9 +74288,9 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha4543888bbd86c46E(p
           to label %.noexc12 unwind label %.loopexit
 
 .noexc12:                                         ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h1ec56b433d042daeE.exit88.i"
-  %.pre139.i = load i32, ptr %10, align 8, !range !398, !noalias !20970
-  %.pre140.i = load ptr, ptr %24, align 8, !noalias !20970
-  %66 = trunc nuw i32 %.pre139.i to i1
+  %.pre137.i = load i32, ptr %10, align 8, !range !398, !noalias !20970
+  %.pre138.i = load ptr, ptr %24, align 8, !noalias !20970
+  %66 = trunc nuw i32 %.pre137.i to i1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !20995
   %67 = load i32, ptr %25, align 4, !noalias !20970
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !20970
@@ -74326,7 +74326,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17ha4543888bbd86c46E(p
   br label %.body
 
 .loopexit25:                                      ; preds = %.noexc8, %.noexc12, %.invoke26, %.invoke, %.noexc7, %.noexc11, %68
-  %.sroa.7.0.ph = phi ptr [ %69, %68 ], [ %65, %.noexc11 ], [ %57, %.noexc7 ], [ %54, %.invoke ], [ %72, %.invoke26 ], [ %.pre138.i, %.noexc8 ], [ %.pre140.i, %.noexc12 ]
+  %.sroa.7.0.ph = phi ptr [ %69, %68 ], [ %65, %.noexc11 ], [ %57, %.noexc7 ], [ %54, %.invoke ], [ %72, %.invoke26 ], [ %.pre136.i, %.noexc8 ], [ %.pre138.i, %.noexc12 ]
   %75 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph, ptr %75, align 8
   store i32 1, ptr %0, align 8

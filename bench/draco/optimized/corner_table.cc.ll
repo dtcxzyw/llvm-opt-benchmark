@@ -808,18 +808,18 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %8, %1
   %21 = ptrtoint ptr %18 to i64
   %22 = sub i64 %20, %21
   %23 = and i64 %22, 17179869180
-  %.not185 = icmp eq i64 %23, 0
-  br i1 %.not185, label %._crit_edge.thread, label %.lr.ph181
+  %.not177 = icmp eq i64 %23, 0
+  br i1 %.not177, label %._crit_edge.thread, label %.lr.ph174
 
-.lr.ph181:                                        ; preds = %17, %.critedge2
-  %.027180 = phi i1 [ %.1, %.critedge2 ], [ false, %17 ]
-  %.sroa.0119.1179 = phi ptr [ %.sroa.0119.2, %.critedge2 ], [ %.sroa.0119.0, %17 ]
-  %.sroa.14.1177 = phi ptr [ %.sroa.14.2, %.critedge2 ], [ %.sroa.14.0, %17 ]
-  %.sroa.0115.0175 = phi i32 [ %147, %.critedge2 ], [ 0, %17 ]
-  %24 = lshr i32 %.sroa.0115.0175, 6
+.lr.ph174:                                        ; preds = %17, %.critedge2
+  %.027173 = phi i1 [ %.1, %.critedge2 ], [ false, %17 ]
+  %.sroa.0119.1172 = phi ptr [ %.sroa.0119.2, %.critedge2 ], [ %.sroa.0119.0, %17 ]
+  %.sroa.14.1171 = phi ptr [ %.sroa.14.2, %.critedge2 ], [ %.sroa.14.0, %17 ]
+  %.sroa.0115.0169 = phi i32 [ %147, %.critedge2 ], [ 0, %17 ]
+  %24 = lshr i32 %.sroa.0115.0169, 6
   %.zext = zext nneg i32 %24 to i64
   %25 = getelementptr inbounds i64, ptr %.sroa.0128.0, i64 %.zext
-  %26 = and i32 %.sroa.0115.0175, 63
+  %26 = and i32 %.sroa.0115.0169, 63
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw i64 1, %27
   %29 = load i64, ptr %25, align 8
@@ -827,7 +827,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %8, %1
   %.not = icmp eq i64 %30, 0
   br i1 %.not, label %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.preheader, label %.critedge2
 
-_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.preheader: ; preds = %.lr.ph181
+_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.preheader: ; preds = %.lr.ph174
   %31 = load ptr, ptr %16, align 8
   br label %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
 
@@ -865,7 +865,7 @@ _ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_
   br label %.body
 
 _ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i: ; preds = %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.preheader, %53
-  %.sroa.0102.0 = phi i32 [ %spec.select.i6.i, %53 ], [ %.sroa.0115.0175, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.preheader ]
+  %.sroa.0102.0 = phi i32 [ %spec.select.i6.i, %53 ], [ %.sroa.0115.0169, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.preheader ]
   %41 = add nuw i32 %.sroa.0102.0, 1
   %42 = urem i32 %41, 3
   %.not.i.i36 = icmp eq i32 %42, 0
@@ -887,7 +887,7 @@ _ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.e
   %.not.i5.i = icmp eq i32 %49, 0
   %50 = add i32 %.sroa.0.0.in.sroa.speculate.load..i.i, -2
   %spec.select.i6.i = select i1 %.not.i5.i, i32 %50, i32 %48
-  %51 = icmp ne i32 %spec.select.i6.i, %.sroa.0115.0175
+  %51 = icmp ne i32 %spec.select.i6.i, %.sroa.0115.0169
   %52 = icmp ne i32 %spec.select.i6.i, -1
   %or.cond = and i1 %51, %52
   br i1 %or.cond, label %53, label %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.preheader
@@ -909,9 +909,9 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
 
 _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: ; preds = %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.preheader, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %.sroa.0102.1 = phi i32 [ %144, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.0102.0, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.preheader ]
-  %.sroa.14.3 = phi ptr [ %.sroa.14.4, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.14.1177, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.preheader ]
-  %.sroa.7.3 = phi ptr [ %.sroa.7.5, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.0119.1179, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.preheader ]
-  %.sroa.0119.3 = phi ptr [ %.sroa.0119.4, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.0119.1179, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.preheader ]
+  %.sroa.14.3 = phi ptr [ %.sroa.14.4, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.14.1171, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.preheader ]
+  %.sroa.7.3 = phi ptr [ %.sroa.7.5, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.0119.1172, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.preheader ]
+  %.sroa.0119.3 = phi ptr [ %.sroa.0119.4, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.0119.1172, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.preheader ]
   %61 = lshr i32 %.sroa.0102.1, 6
   %.zext139 = zext nneg i32 %61 to i64
   %62 = getelementptr inbounds i64, ptr %.sroa.0128.0, i64 %.zext139
@@ -935,8 +935,8 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   %.sroa.01.0.i46.v = select i1 %.not.i45, i32 2, i32 -1
   %.sroa.01.0.i46 = add i32 %.sroa.01.0.i46.v, %.sroa.0102.1
   %.sroa.01.0.i46.fr = freeze i32 %.sroa.01.0.i46
-  %.not143168 = icmp eq ptr %.sroa.0119.3, %.sroa.7.3
-  br i1 %.not143168, label %.critedge31, label %.lr.ph
+  %.not143163 = icmp eq ptr %.sroa.0119.3, %.sroa.7.3
+  br i1 %.not143163, label %.critedge31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %76 = icmp eq i32 %.sroa.01.0.i46.fr, -1
@@ -946,30 +946,30 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br i1 %76, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %85
-  %.sroa.088.0169.us = phi ptr [ %86, %85 ], [ %.sroa.0119.3, %.lr.ph ]
-  %80 = load i32, ptr %.sroa.088.0169.us, align 4
+  %.sroa.088.0164.us = phi ptr [ %86, %85 ], [ %.sroa.0119.3, %.lr.ph ]
+  %80 = load i32, ptr %.sroa.088.0164.us, align 4
   %81 = icmp eq i32 %80, %74
   br i1 %81, label %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us, label %85
 
 _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us: ; preds = %.lr.ph.split.us
-  %82 = getelementptr inbounds i8, ptr %.sroa.088.0169.us, i64 4
+  %82 = getelementptr inbounds i8, ptr %.sroa.088.0164.us, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %83, -1
   br i1 %84, label %85, label %.split.us.thread
 
 85:                                               ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us, %.lr.ph.split.us
-  %86 = getelementptr inbounds i8, ptr %.sroa.088.0169.us, i64 8
+  %86 = getelementptr inbounds i8, ptr %.sroa.088.0164.us, i64 8
   %.not143.us = icmp eq ptr %86, %.sroa.7.3
   br i1 %.not143.us, label %.critedge31, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
-  %.sroa.088.0169 = phi ptr [ %105, %104 ], [ %.sroa.0119.3, %.lr.ph ]
-  %87 = load i32, ptr %.sroa.088.0169, align 4
+  %.sroa.088.0164 = phi ptr [ %105, %104 ], [ %.sroa.0119.3, %.lr.ph ]
+  %87 = load i32, ptr %.sroa.088.0164, align 4
   %88 = icmp eq i32 %87, %74
   br i1 %88, label %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %104
 
 _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: ; preds = %.lr.ph.split
-  %89 = getelementptr inbounds i8, ptr %.sroa.088.0169, i64 4
+  %89 = getelementptr inbounds i8, ptr %.sroa.088.0164, i64 4
   %90 = load i32, ptr %89, align 4
   %.sroa.0.0.in.sroa.speculate.load..i = load i32, ptr %79, align 4
   %91 = icmp eq i32 %.sroa.0.0.in.sroa.speculate.load..i, %90
@@ -981,53 +981,53 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br i1 %93, label %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit49, label %.split.us.thread
 
 .split.us.thread:                                 ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us, %.split.us
-  %.us-phi174222 = phi i32 [ %90, %.split.us ], [ %83, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us ]
-  %.us-phi173220 = phi i32 [ %.sroa.0.0.in.sroa.speculate.load..i, %.split.us ], [ -1, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us ]
-  %.sroa.01.0.i46.fr194218 = phi i64 [ %92, %.split.us ], [ 4294967295, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us ]
-  %94 = zext i32 %.us-phi174222 to i64
+  %.us-phi168209 = phi i32 [ %90, %.split.us ], [ %83, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us ]
+  %.us-phi167207 = phi i32 [ %.sroa.0.0.in.sroa.speculate.load..i, %.split.us ], [ -1, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us ]
+  %.sroa.01.0.i46.fr186205 = phi i64 [ %92, %.split.us ], [ 4294967295, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.us ]
+  %94 = zext i32 %.us-phi168209 to i64
   %95 = getelementptr inbounds %"class.draco::IndexType.29", ptr %78, i64 %94
   %.sroa.0.0.in.sroa.speculate.load..i47 = load i32, ptr %95, align 4
-  %96 = zext i32 %.us-phi174222 to i64
+  %96 = zext i32 %.us-phi168209 to i64
   br label %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit49
 
 _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit49: ; preds = %.split.us.thread, %.split.us
-  %.us-phi174223 = phi i64 [ %96, %.split.us.thread ], [ 4294967295, %.split.us ]
-  %.us-phi173221 = phi i32 [ %.us-phi173220, %.split.us.thread ], [ %.sroa.0.0.in.sroa.speculate.load..i, %.split.us ]
-  %.sroa.01.0.i46.fr194219 = phi i64 [ %.sroa.01.0.i46.fr194218, %.split.us.thread ], [ %92, %.split.us ]
+  %.us-phi168210 = phi i64 [ %96, %.split.us.thread ], [ 4294967295, %.split.us ]
+  %.us-phi167208 = phi i32 [ %.us-phi167207, %.split.us.thread ], [ %.sroa.0.0.in.sroa.speculate.load..i, %.split.us ]
+  %.sroa.01.0.i46.fr186206 = phi i64 [ %.sroa.01.0.i46.fr186205, %.split.us.thread ], [ %92, %.split.us ]
   %.sroa.0.0.in.sroa.speculated.i48 = phi i32 [ %.sroa.0.0.in.sroa.speculate.load..i47, %.split.us.thread ], [ -1, %.split.us ]
-  %.not144 = icmp eq i32 %.us-phi173221, -1
+  %.not144 = icmp eq i32 %.us-phi167208, -1
   br i1 %.not144, label %100, label %97
 
 97:                                               ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit49
-  %98 = zext i32 %.us-phi173221 to i64
+  %98 = zext i32 %.us-phi167208 to i64
   %99 = getelementptr inbounds %"class.draco::IndexType.29", ptr %78, i64 %98
   store i32 -1, ptr %99, align 4
-  %.pre211.pre = load ptr, ptr %16, align 8
+  %.pre198.pre = load ptr, ptr %16, align 8
   br label %100
 
 100:                                              ; preds = %97, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit49
-  %.pre211 = phi ptr [ %.pre211.pre, %97 ], [ %78, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit49 ]
+  %.pre198 = phi ptr [ %.pre198.pre, %97 ], [ %78, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit49 ]
   %.not145 = icmp eq i32 %.sroa.0.0.in.sroa.speculated.i48, -1
   br i1 %.not145, label %106, label %101
 
 101:                                              ; preds = %100
   %102 = zext i32 %.sroa.0.0.in.sroa.speculated.i48 to i64
-  %103 = getelementptr inbounds %"class.draco::IndexType.29", ptr %.pre211, i64 %102
+  %103 = getelementptr inbounds %"class.draco::IndexType.29", ptr %.pre198, i64 %102
   store i32 -1, ptr %103, align 4
   %.pre = load ptr, ptr %16, align 8
   br label %106
 
 104:                                              ; preds = %.lr.ph.split, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %105 = getelementptr inbounds i8, ptr %.sroa.088.0169, i64 8
+  %105 = getelementptr inbounds i8, ptr %.sroa.088.0164, i64 8
   %.not143 = icmp eq ptr %105, %.sroa.7.3
   br i1 %.not143, label %.critedge31, label %.lr.ph.split
 
 106:                                              ; preds = %101, %100
-  %107 = phi ptr [ %.pre, %101 ], [ %.pre211, %100 ]
-  %108 = getelementptr inbounds %"class.draco::IndexType.29", ptr %107, i64 %.sroa.01.0.i46.fr194219
+  %107 = phi ptr [ %.pre, %101 ], [ %.pre198, %100 ]
+  %108 = getelementptr inbounds %"class.draco::IndexType.29", ptr %107, i64 %.sroa.01.0.i46.fr186206
   store i32 -1, ptr %108, align 4
   %109 = load ptr, ptr %16, align 8
-  %110 = getelementptr inbounds %"class.draco::IndexType.29", ptr %109, i64 %.us-phi174223
+  %110 = getelementptr inbounds %"class.draco::IndexType.29", ptr %109, i64 %.us-phi168210
   store i32 -1, ptr %110, align 4
   br label %.critedge2
 
@@ -1144,11 +1144,11 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
   %or.cond141 = and i1 %145, %146
   br i1 %or.cond141, label %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %.critedge2, !llvm.loop !20
 
-.critedge2:                                       ; preds = %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i57, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %106, %.lr.ph181
-  %.sroa.14.2 = phi ptr [ %.sroa.14.1177, %.lr.ph181 ], [ %.sroa.14.3, %106 ], [ %.sroa.14.4, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.14.4, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i57 ], [ %.sroa.14.4, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i ]
-  %.sroa.0119.2 = phi ptr [ %.sroa.0119.1179, %.lr.ph181 ], [ %.sroa.0119.3, %106 ], [ %.sroa.0119.4, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.0119.4, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i57 ], [ %.sroa.0119.4, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i ]
-  %.1 = phi i1 [ %.027180, %.lr.ph181 ], [ true, %106 ], [ %.027180, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.027180, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i57 ], [ %.027180, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i ]
-  %147 = add nuw i32 %.sroa.0115.0175, 1
+.critedge2:                                       ; preds = %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i57, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %106, %.lr.ph174
+  %.sroa.14.2 = phi ptr [ %.sroa.14.1171, %.lr.ph174 ], [ %.sroa.14.3, %106 ], [ %.sroa.14.4, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.14.4, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i57 ], [ %.sroa.14.4, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i ]
+  %.sroa.0119.2 = phi ptr [ %.sroa.0119.1172, %.lr.ph174 ], [ %.sroa.0119.3, %106 ], [ %.sroa.0119.4, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.0119.4, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i57 ], [ %.sroa.0119.4, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i ]
+  %.1 = phi i1 [ %.027173, %.lr.ph174 ], [ true, %106 ], [ %.027173, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.027173, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i57 ], [ %.027173, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i ]
+  %147 = add nuw i32 %.sroa.0115.0169, 1
   %148 = load ptr, ptr %2, align 8
   %149 = load ptr, ptr %0, align 8
   %150 = ptrtoint ptr %148 to i64
@@ -1157,18 +1157,18 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
   %153 = lshr exact i64 %152, 2
   %154 = trunc i64 %153 to i32
   %155 = icmp ult i32 %147, %154
-  br i1 %155, label %.lr.ph181, label %._crit_edge, !llvm.loop !21
+  br i1 %155, label %.lr.ph174, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.critedge2
   br i1 %.1, label %17, label %._crit_edge.thread, !llvm.loop !22
 
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge
-  %.sroa.0119.1.lcssa229 = phi ptr [ %.sroa.0119.2, %._crit_edge ], [ %.sroa.0119.0, %17 ]
-  %.not.i.i.i60 = icmp eq ptr %.sroa.0119.1.lcssa229, null
+  %.sroa.0119.1.lcssa216 = phi ptr [ %.sroa.0119.2, %._crit_edge ], [ %.sroa.0119.0, %17 ]
+  %.not.i.i.i60 = icmp eq ptr %.sroa.0119.1.lcssa216, null
   br i1 %.not.i.i.i60, label %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EED2Ev.exit61, label %156
 
 156:                                              ; preds = %._crit_edge.thread
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0119.1.lcssa229) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0119.1.lcssa216) #17
   br label %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EED2Ev.exit61
 
 _ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EED2Ev.exit61: ; preds = %._crit_edge.thread, %156

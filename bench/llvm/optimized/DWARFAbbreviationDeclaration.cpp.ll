@@ -330,7 +330,7 @@ _ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEEaSIS2_EENSt9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit36
-  %.sroa.043.0.ph81 = phi i8 [ undef, %.lr.ph.lr.ph ], [ %.sroa.043.1, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit36 ]
+  %.sroa.043.0.ph80 = phi i8 [ undef, %.lr.ph.lr.ph ], [ %.sroa.043.1, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit36 ]
   %.sroa.5.0.ph79 = phi i8 [ undef, %.lr.ph.lr.ph ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit36 ]
   br label %80
 
@@ -513,7 +513,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSp
   br label %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit
 
 _ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit: ; preds = %161, %160, %155, %156, %144, %147, %138, %141, %132, %135
-  %.sroa.043.1 = phi i8 [ %.sroa.043.0.extract.trunc, %156 ], [ %.sroa.043.0.extract.trunc, %155 ], [ %.sroa.043.0.ph81, %147 ], [ %.sroa.043.0.ph81, %144 ], [ %.sroa.043.0.ph81, %141 ], [ %.sroa.043.0.ph81, %138 ], [ %.sroa.043.0.ph81, %135 ], [ %.sroa.043.0.ph81, %132 ], [ %.sroa.043.0.extract.trunc, %160 ], [ %.sroa.043.0.extract.trunc, %161 ]
+  %.sroa.043.1 = phi i8 [ %.sroa.043.0.extract.trunc, %156 ], [ %.sroa.043.0.extract.trunc, %155 ], [ %.sroa.043.0.ph80, %147 ], [ %.sroa.043.0.ph80, %144 ], [ %.sroa.043.0.ph80, %141 ], [ %.sroa.043.0.ph80, %138 ], [ %.sroa.043.0.ph80, %135 ], [ %.sroa.043.0.ph80, %132 ], [ %.sroa.043.0.extract.trunc, %160 ], [ %.sroa.043.0.extract.trunc, %161 ]
   %.sroa.344.0 = phi i16 [ %.sroa.344.0.extract.shift, %156 ], [ %.sroa.344.0.extract.shift, %155 ], [ 0, %147 ], [ 0, %144 ], [ 0, %141 ], [ 0, %138 ], [ 0, %135 ], [ 0, %132 ], [ %.sroa.344.0.extract.shift, %160 ], [ %.sroa.344.0.extract.shift, %161 ]
   %.sroa.344.0.insert.shift = shl nuw i16 %.sroa.344.0, 8
   %162 = and i16 %.sroa.344.0.insert.shift, 256

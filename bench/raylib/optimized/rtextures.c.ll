@@ -16787,7 +16787,7 @@ GenImageColor.exit:
   br label %23
 
 23:                                               ; preds = %.lr.ph, %74
-  %.073 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
+  %.069 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
   %.06268 = phi i32 [ 0, %.lr.ph ], [ %.163, %74 ]
   %.06467 = phi i32 [ 0, %.lr.ph ], [ %76, %74 ]
   store i32 0, ptr %6, align 4
@@ -16814,7 +16814,7 @@ GenImageColor.exit:
   %36 = getelementptr inbounds %struct.GlyphInfo, ptr %34, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = add nsw i32 %38, %.073
+  %39 = add nsw i32 %38, %.069
   %40 = sitofp i32 %39 to float
   %.sroa.08.0.vec.insert = insertelement <2 x float> poison, float %40, i64 0
   %41 = getelementptr inbounds i8, ptr %36, i64 8
@@ -16856,11 +16856,11 @@ GenImageColor.exit:
   %67 = load float, ptr %66, align 4
   %68 = fadd float %4, %67
   %69 = fptosi float %68 to i32
-  %70 = add nsw i32 %.073, %69
+  %70 = add nsw i32 %.069, %69
   br label %74
 
 71:                                               ; preds = %58
-  %72 = add i32 %.073, %22
+  %72 = add i32 %.069, %22
   %73 = add i32 %72, %62
   br label %74
 

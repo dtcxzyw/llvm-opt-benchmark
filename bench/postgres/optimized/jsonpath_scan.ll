@@ -2144,49 +2144,49 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @parseUnicode(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp sgt i32 %1, 2
-  br i1 %4, label %.lr.ph89.preheader, label %addUnicode.exit.thread
+  br i1 %4, label %.lr.ph84.preheader, label %addUnicode.exit.thread
 
-.lr.ph89.preheader:                               ; preds = %3
+.lr.ph84.preheader:                               ; preds = %3
   %5 = zext nneg i32 %1 to i64
-  br label %.lr.ph89
+  br label %.lr.ph84
 
-.lr.ph89:                                         ; preds = %.lr.ph89.backedge, %.lr.ph89.preheader
-  %.02987 = phi i32 [ 2, %.lr.ph89.preheader ], [ %.02987.be, %.lr.ph89.backedge ]
-  %.04785 = phi i32 [ -1, %.lr.ph89.preheader ], [ %.04785.be, %.lr.ph89.backedge ]
-  %6 = sext i32 %.02987 to i64
+.lr.ph84:                                         ; preds = %.lr.ph84.backedge, %.lr.ph84.preheader
+  %.02982 = phi i32 [ 2, %.lr.ph84.preheader ], [ %.02982.be, %.lr.ph84.backedge ]
+  %.04781 = phi i32 [ -1, %.lr.ph84.preheader ], [ %.04781.be, %.lr.ph84.backedge ]
+  %6 = sext i32 %.02982 to i64
   %7 = getelementptr i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 123
   br i1 %9, label %.preheader, label %.preheader62
 
-.preheader62:                                     ; preds = %.lr.ph89
-  %10 = icmp slt i32 %.02987, %1
+.preheader62:                                     ; preds = %.lr.ph84
+  %10 = icmp slt i32 %.02982, %1
   br i1 %10, label %.lr.ph, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader62
-  %.not.i101 = icmp eq i32 %.04785, -1
-  br i1 %.not.i101, label %addUnicode.exit, label %75
+  %.not.i96 = icmp eq i32 %.04781, -1
+  br i1 %.not.i96, label %addUnicode.exit, label %75
 
-.preheader:                                       ; preds = %.lr.ph89
-  %11 = add nsw i32 %.02987, 1
+.preheader:                                       ; preds = %.lr.ph84
+  %11 = add nsw i32 %.02982, 1
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp ne i8 %14, 125
   %16 = icmp slt i32 %11, %1
   %17 = and i1 %16, %15
-  br i1 %17, label %.lr.ph81, label %._crit_edge
+  br i1 %17, label %.lr.ph78, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.preheader, %25
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %25 ], [ %12, %.preheader ]
+.lr.ph78:                                         ; preds = %.preheader, %25
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %25 ], [ %12, %.preheader ]
   %18 = phi i8 [ %30, %25 ], [ %14, %.preheader ]
-  %.02880 = phi i32 [ %28, %25 ], [ 0, %.preheader ]
+  %.02877 = phi i32 [ %28, %25 ], [ 0, %.preheader ]
   %19 = sext i8 %18 to i32
   %20 = add i8 %18, -48
   %or.cond.i = icmp ult i8 %20, 10
   br i1 %or.cond.i, label %25, label %21
 
-21:                                               ; preds = %.lr.ph81
+21:                                               ; preds = %.lr.ph78
   %22 = add i8 %18, -97
   %or.cond5.i = icmp ult i8 %22, 6
   br i1 %or.cond5.i, label %25, label %23
@@ -2200,33 +2200,33 @@ hexval.exit:                                      ; preds = %23
   tail call void @jsonpath_yyerror(ptr poison, ptr noundef %2, ptr noundef nonnull @.str.61)
   br label %addUnicode.exit.thread
 
-25:                                               ; preds = %23, %21, %.lr.ph81
-  %.sink = phi i32 [ -48, %.lr.ph81 ], [ -87, %21 ], [ -55, %23 ]
+25:                                               ; preds = %23, %21, %.lr.ph78
+  %.sink = phi i32 [ -48, %.lr.ph78 ], [ -87, %21 ], [ -55, %23 ]
   %26 = add nsw i32 %.sink, %19
-  %27 = shl i32 %.02880, 4
+  %27 = shl i32 %.02877, 4
   %28 = or i32 %26, %27
-  %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
-  %29 = getelementptr i8, ptr %0, i64 %indvars.iv.next98
+  %indvars.iv.next93 = add nsw i64 %indvars.iv92, 1
+  %29 = getelementptr i8, ptr %0, i64 %indvars.iv.next93
   %30 = load i8, ptr %29, align 1
   %31 = icmp ne i8 %30, 125
-  %32 = icmp slt i64 %indvars.iv.next98, %5
+  %32 = icmp slt i64 %indvars.iv.next93, %5
   %33 = and i1 %32, %31
-  br i1 %33, label %.lr.ph81, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %33, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %25
-  %34 = trunc nsw i64 %indvars.iv97 to i32
+  %34 = trunc nsw i64 %indvars.iv92 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.130.lcssa = phi i32 [ %.02987, %.preheader ], [ %34, %._crit_edge.loopexit ]
+  %.130.lcssa = phi i32 [ %.02982, %.preheader ], [ %34, %._crit_edge.loopexit ]
   %.028.lcssa = phi i32 [ 0, %.preheader ], [ %28, %._crit_edge.loopexit ]
   %35 = add i32 %.130.lcssa, 2
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader62, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ %6, %.preheader62 ]
-  %.02777 = phi i32 [ %48, %44 ], [ 0, %.preheader62 ]
-  %.276 = phi i32 [ %47, %44 ], [ 0, %.preheader62 ]
+  %.02775 = phi i32 [ %48, %44 ], [ 0, %.preheader62 ]
+  %.274 = phi i32 [ %47, %44 ], [ 0, %.preheader62 ]
   %36 = getelementptr i8, ptr %0, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
@@ -2249,13 +2249,13 @@ hexval.exit38:                                    ; preds = %42
   br label %addUnicode.exit.thread
 
 44:                                               ; preds = %42, %40, %.lr.ph
-  %.sink117 = phi i32 [ -48, %.lr.ph ], [ -87, %40 ], [ -55, %42 ]
-  %45 = add nsw i32 %.sink117, %38
+  %.sink112 = phi i32 [ -48, %.lr.ph ], [ -87, %40 ], [ -55, %42 ]
+  %45 = add nsw i32 %.sink112, %38
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %46 = shl i32 %.276, 4
+  %46 = shl i32 %.274, 4
   %47 = or i32 %45, %46
-  %48 = add nuw nsw i32 %.02777, 1
-  %49 = icmp ult i32 %.02777, 3
+  %48 = add nuw nsw i32 %.02775, 1
+  %49 = icmp ult i32 %.02775, 3
   %50 = icmp slt i64 %indvars.iv.next, %5
   %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !15
@@ -2268,7 +2268,7 @@ hexval.exit38:                                    ; preds = %42
   %.231 = phi i32 [ %35, %._crit_edge ], [ %52, %.loopexit.loopexit ]
   %.1 = phi i32 [ %.028.lcssa, %._crit_edge ], [ %47, %.loopexit.loopexit ]
   %53 = and i32 %.1, -1024
-  %.not.i = icmp eq i32 %.04785, -1
+  %.not.i = icmp eq i32 %.04781, -1
   switch i32 %53, label %74 [
     i32 55296, label %54
     i32 56320, label %61
@@ -2303,7 +2303,7 @@ hexval.exit38:                                    ; preds = %42
   br label %addUnicode.exit.thread
 
 68:                                               ; preds = %61
-  %69 = shl i32 %.04785, 10
+  %69 = shl i32 %.04781, 10
   %70 = and i32 %69, 1047552
   %71 = add nuw nsw i32 %70, 65536
   %72 = and i32 %.1, 1023
@@ -2325,29 +2325,29 @@ hexval.exit38:                                    ; preds = %42
   br label %addUnicode.exit.thread
 
 addUnicode.exit:                                  ; preds = %.loopexit.thread, %68, %74
-  %.231103 = phi i32 [ %.231, %68 ], [ %.231, %74 ], [ %.02987, %.loopexit.thread ]
+  %.23198 = phi i32 [ %.231, %68 ], [ %.231, %74 ], [ %.02982, %.loopexit.thread ]
   %.021.i = phi i32 [ %73, %68 ], [ %.1, %74 ], [ 0, %.loopexit.thread ]
   %81 = tail call fastcc zeroext i1 @addUnicodeChar(i32 noundef %.021.i, ptr noundef %2)
-  %82 = add i32 %.231103, 2
+  %82 = add i32 %.23198, 2
   %83 = icmp slt i32 %82, %1
   %or.cond = select i1 %81, i1 %83, i1 false
-  br i1 %or.cond, label %.lr.ph89.backedge, label %addUnicode.exit.thread
+  br i1 %or.cond, label %.lr.ph84.backedge, label %addUnicode.exit.thread
 
 addUnicode.exit.thread58:                         ; preds = %54
   %84 = add i32 %.231, 2
   %85 = icmp slt i32 %84, %1
-  br i1 %85, label %.lr.ph89.backedge, label %._crit_edge90
+  br i1 %85, label %.lr.ph84.backedge, label %._crit_edge85
 
-.lr.ph89.backedge:                                ; preds = %addUnicode.exit.thread58, %addUnicode.exit
-  %.02987.be = phi i32 [ %84, %addUnicode.exit.thread58 ], [ %82, %addUnicode.exit ]
-  %.04785.be = phi i32 [ %.1, %addUnicode.exit.thread58 ], [ -1, %addUnicode.exit ]
-  br label %.lr.ph89, !llvm.loop !16
+.lr.ph84.backedge:                                ; preds = %addUnicode.exit.thread58, %addUnicode.exit
+  %.02982.be = phi i32 [ %84, %addUnicode.exit.thread58 ], [ %82, %addUnicode.exit ]
+  %.04781.be = phi i32 [ %.1, %addUnicode.exit.thread58 ], [ -1, %addUnicode.exit ]
+  br label %.lr.ph84, !llvm.loop !16
 
-._crit_edge90:                                    ; preds = %addUnicode.exit.thread58
+._crit_edge85:                                    ; preds = %addUnicode.exit.thread58
   %86 = icmp eq i32 %.1, -1
   br i1 %86, label %addUnicode.exit.thread, label %87
 
-87:                                               ; preds = %._crit_edge90
+87:                                               ; preds = %._crit_edge85
   %88 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #15
   br i1 %88, label %89, label %addUnicode.exit.thread
 
@@ -2358,8 +2358,8 @@ addUnicode.exit.thread58:                         ; preds = %54
   tail call void @errsave_finish(ptr noundef %2, ptr noundef nonnull @.str.14, i32 noundef 714, ptr noundef nonnull @__func__.parseUnicode) #15
   br label %addUnicode.exit.thread
 
-addUnicode.exit.thread:                           ; preds = %addUnicode.exit, %3, %77, %75, %64, %62, %57, %55, %hexval.exit38, %hexval.exit, %._crit_edge90, %89, %87
-  %.0 = phi i1 [ false, %hexval.exit ], [ false, %hexval.exit38 ], [ false, %87 ], [ false, %89 ], [ true, %._crit_edge90 ], [ false, %55 ], [ false, %57 ], [ false, %62 ], [ false, %64 ], [ false, %75 ], [ false, %77 ], [ true, %3 ], [ %81, %addUnicode.exit ]
+addUnicode.exit.thread:                           ; preds = %addUnicode.exit, %3, %77, %75, %64, %62, %57, %55, %hexval.exit38, %hexval.exit, %._crit_edge85, %89, %87
+  %.0 = phi i1 [ false, %hexval.exit ], [ false, %hexval.exit38 ], [ false, %87 ], [ false, %89 ], [ true, %._crit_edge85 ], [ false, %55 ], [ false, %57 ], [ false, %62 ], [ false, %64 ], [ false, %75 ], [ false, %77 ], [ true, %3 ], [ %81, %addUnicode.exit ]
   ret i1 %.0
 }
 

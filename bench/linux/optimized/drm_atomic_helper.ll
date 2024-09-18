@@ -5916,7 +5916,7 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
 54:                                               ; preds = %47
   %55 = tail call i32 %52(ptr noundef nonnull %45, ptr noundef %49) #9
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.thread, label %.loopexit20.loopexit35
+  br i1 %56, label %.thread, label %.loopexit20.loopexit33
 
 57:                                               ; preds = %47
   %58 = getelementptr inbounds i8, ptr %51, i64 8
@@ -5943,7 +5943,7 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
 70:                                               ; preds = %62
   %71 = tail call i32 @drm_gem_plane_helper_prepare_fb(ptr noundef nonnull %45, ptr noundef %49) #9
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %.thread, label %.loopexit20.loopexit35
+  br i1 %72, label %.thread, label %.loopexit20.loopexit33
 
 .thread:                                          ; preds = %54, %70, %62, %41
   %73 = add nuw nsw i64 %42, 1
@@ -5976,11 +5976,11 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 %90(ptr noundef nonnull %84, ptr noundef %94) #9
   %96 = icmp eq i32 %95, 0
-  %.pre49 = load ptr, ptr %8, align 8
+  %.pre45 = load ptr, ptr %8, align 8
   br i1 %96, label %.thread19, label %97
 
 97:                                               ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %.pre49, i64 704
+  %98 = getelementptr inbounds i8, ptr %.pre45, i64 704
   %99 = load i32, ptr %98, align 8
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %101, label %.loopexit
@@ -5990,7 +5990,7 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
   br label %109
 
 .thread19:                                        ; preds = %86, %92, %79
-  %103 = phi ptr [ %80, %86 ], [ %.pre49, %92 ], [ %80, %79 ]
+  %103 = phi ptr [ %80, %86 ], [ %.pre45, %92 ], [ %80, %79 ]
   %104 = add nuw nsw i64 %81, 1
   %105 = getelementptr inbounds i8, ptr %103, i64 704
   %106 = load i32, ptr %105, align 8
@@ -5999,7 +5999,7 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
   br i1 %108, label %79, label %.loopexit, !llvm.loop !155
 
 109:                                              ; preds = %127, %101
-  %110 = phi ptr [ %.pre49, %101 ], [ %128, %127 ]
+  %110 = phi ptr [ %.pre45, %101 ], [ %128, %127 ]
   %111 = phi i64 [ 0, %101 ], [ %129, %127 ]
   %112 = load ptr, ptr %40, align 8
   %113 = getelementptr %struct.__drm_planes_state, ptr %112, i64 %111
@@ -6023,11 +6023,11 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
 
 126:                                              ; preds = %120
   tail call void %124(ptr noundef nonnull %114, ptr noundef %118) #9
-  %.pre45 = load ptr, ptr %8, align 8
+  %.pre41 = load ptr, ptr %8, align 8
   br label %127
 
 127:                                              ; preds = %126, %120, %116, %109
-  %128 = phi ptr [ %.pre45, %126 ], [ %110, %120 ], [ %110, %116 ], [ %110, %109 ]
+  %128 = phi ptr [ %.pre41, %126 ], [ %110, %120 ], [ %110, %116 ], [ %110, %109 ]
   %129 = add nuw nsw i64 %111, 1
   %130 = getelementptr inbounds i8, ptr %128, i64 704
   %131 = load i32, ptr %130, align 8
@@ -6035,18 +6035,18 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
   %133 = icmp slt i64 %129, %132
   br i1 %133, label %109, label %.loopexit20, !llvm.loop !156
 
-.loopexit20.loopexit35:                           ; preds = %70, %54
+.loopexit20.loopexit33:                           ; preds = %70, %54
   %.ph = phi i32 [ %55, %54 ], [ %71, %70 ]
-  %.pre46 = load ptr, ptr %8, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre46, i64 704
-  %.pre47 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre42 = load ptr, ptr %8, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre42, i64 704
+  %.pre43 = load i32, ptr %.phi.trans.insert, align 8
   br label %.loopexit20
 
-.loopexit20:                                      ; preds = %127, %.loopexit20.loopexit35
-  %134 = phi i32 [ %.pre47, %.loopexit20.loopexit35 ], [ %131, %127 ]
-  %135 = phi ptr [ %.pre46, %.loopexit20.loopexit35 ], [ %128, %127 ]
-  %136 = phi i32 [ %.ph, %.loopexit20.loopexit35 ], [ %95, %127 ]
-  %137 = phi i64 [ %42, %.loopexit20.loopexit35 ], [ %129, %127 ]
+.loopexit20:                                      ; preds = %127, %.loopexit20.loopexit33
+  %134 = phi i32 [ %.pre43, %.loopexit20.loopexit33 ], [ %131, %127 ]
+  %135 = phi ptr [ %.pre42, %.loopexit20.loopexit33 ], [ %128, %127 ]
+  %136 = phi i32 [ %.ph, %.loopexit20.loopexit33 ], [ %95, %127 ]
+  %137 = phi i64 [ %42, %.loopexit20.loopexit33 ], [ %129, %127 ]
   %138 = icmp sgt i32 %134, 0
   br i1 %138, label %139, label %.loopexit
 
@@ -6080,11 +6080,11 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
 
 159:                                              ; preds = %153
   tail call void %157(ptr noundef nonnull %147, ptr noundef %151) #9
-  %.pre48 = load ptr, ptr %8, align 8
+  %.pre44 = load ptr, ptr %8, align 8
   br label %160
 
 160:                                              ; preds = %159, %153, %149, %142
-  %161 = phi ptr [ %.pre48, %159 ], [ %143, %153 ], [ %143, %149 ], [ %143, %142 ]
+  %161 = phi ptr [ %.pre44, %159 ], [ %143, %153 ], [ %143, %149 ], [ %143, %142 ]
   %162 = add nuw nsw i64 %144, 1
   %163 = getelementptr inbounds i8, ptr %161, i64 704
   %164 = load i32, ptr %163, align 8

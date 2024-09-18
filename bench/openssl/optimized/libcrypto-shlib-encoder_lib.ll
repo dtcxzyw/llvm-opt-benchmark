@@ -114,11 +114,25 @@ entry:
   %next_encoder_inst = getelementptr inbounds i8, ptr %data, i64 24
   %0 = load ptr, ptr %next_encoder_inst, align 8
   %cmp.not.not = icmp eq ptr %0, null
-  br i1 %cmp.not.not, label %for.cond.outer.us.preheader, label %for.cond.outer.preheader
+  br i1 %cmp.not.not, label %if.then, label %if.end
 
-for.cond.outer.preheader:                         ; preds = %entry
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %data, align 8
+  %output_structure = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = load ptr, ptr %output_structure, align 8
+  %cmp1 = icmp eq ptr %2, null
+  %cond = sext i1 %cmp1 to i32
+  %count_output_structure = getelementptr inbounds i8, ptr %data, i64 32
+  store i32 %cond, ptr %count_output_structure, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
   %current_encoder_inst_index = getelementptr inbounds i8, ptr %data, i64 16
-  %1 = load i32, ptr %current_encoder_inst_index, align 8
+  %3 = load i32, ptr %current_encoder_inst_index, align 8
+  %cmp2127 = icmp sgt i32 %3, 0
+  br i1 %cmp2127, label %for.body.lr.ph, label %if.end141
+
+for.body.lr.ph:                                   ; preds = %if.end
   %current_encoder_inst_index14 = getelementptr inbounds i8, ptr %new_data, i64 16
   %next_encoder_inst15 = getelementptr inbounds i8, ptr %new_data, i64 24
   %count_output_structure16 = getelementptr inbounds i8, ptr %data, i64 32
@@ -131,261 +145,133 @@ for.cond.outer.preheader:                         ; preds = %entry
   %running_output59 = getelementptr inbounds i8, ptr %data, i64 48
   %running_output_length = getelementptr inbounds i8, ptr %new_data, i64 56
   %running_output_length60 = getelementptr inbounds i8, ptr %data, i64 56
-  %2 = getelementptr inbounds i8, ptr %new_data, i64 8
-  br label %for.cond.outer
+  %4 = getelementptr inbounds i8, ptr %new_data, i64 8
+  br label %for.body
 
-for.cond.outer.us.preheader:                      ; preds = %entry
-  %3 = load ptr, ptr %data, align 8
-  %output_structure = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load ptr, ptr %output_structure, align 8
-  %cmp1 = icmp eq ptr %4, null
-  %cond = sext i1 %cmp1 to i32
-  %count_output_structure = getelementptr inbounds i8, ptr %data, i64 32
-  store i32 %cond, ptr %count_output_structure, align 8
-  %current_encoder_inst_index197 = getelementptr inbounds i8, ptr %data, i64 16
-  %5 = load i32, ptr %current_encoder_inst_index197, align 8
-  %current_encoder_inst_index14198 = getelementptr inbounds i8, ptr %new_data, i64 16
-  %next_encoder_inst15199 = getelementptr inbounds i8, ptr %new_data, i64 24
-  %count_output_structure16200 = getelementptr inbounds i8, ptr %data, i64 32
-  %count_output_structure17201 = getelementptr inbounds i8, ptr %new_data, i64 32
-  %level202 = getelementptr inbounds i8, ptr %data, i64 20
-  %level18203 = getelementptr inbounds i8, ptr %new_data, i64 20
-  %prev_encoder_inst204 = getelementptr inbounds i8, ptr %new_data, i64 40
-  %prev_encoder_inst58205 = getelementptr inbounds i8, ptr %data, i64 40
-  %running_output206 = getelementptr inbounds i8, ptr %new_data, i64 48
-  %running_output59207 = getelementptr inbounds i8, ptr %data, i64 48
-  %running_output_length208 = getelementptr inbounds i8, ptr %new_data, i64 56
-  %running_output_length60209 = getelementptr inbounds i8, ptr %data, i64 56
-  %6 = getelementptr inbounds i8, ptr %new_data, i64 8
-  br label %for.cond.outer.us
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond.backedge
+  %dec128.in = phi i32 [ %3, %for.body.lr.ph ], [ %dec128, %for.cond.backedge ]
+  %dec128 = add nsw i32 %dec128.in, -1
+  br i1 %cmp.not.not, label %if.end5, label %if.then3
 
-for.cond.outer.us:                                ; preds = %for.cond.outer.us.preheader, %if.end56.us
-  %i.0.ph.us = phi i32 [ %dec138.us.us, %if.end56.us ], [ %5, %for.cond.outer.us.preheader ]
-  %cmp2137.us = icmp sgt i32 %i.0.ph.us, 0
-  br i1 %cmp2137.us, label %for.body.us.us, label %if.end141
-
-if.end56.us.loopexit:                             ; preds = %if.end39.us.us
-  store ptr %16, ptr %new_data, align 8
-  br label %if.end56.us
-
-if.end56.us:                                      ; preds = %if.end56.us.loopexit, %if.end54.split.us.us
-  %call57.us = call fastcc i32 @encoder_process(ptr noundef %new_data)
-  %7 = load ptr, ptr %prev_encoder_inst204, align 8
-  store ptr %7, ptr %prev_encoder_inst58205, align 8
-  %8 = load ptr, ptr %running_output206, align 8
-  store ptr %8, ptr %running_output59207, align 8
-  %9 = load i64, ptr %running_output_length208, align 8
-  store i64 %9, ptr %running_output_length60209, align 8
-  switch i32 %call57.us, label %if.then112 [
-    i32 0, label %for.cond.outer.us
-    i32 1, label %sw.bb86
-    i32 -1, label %sw.bb73
-  ]
-
-for.body.us.us:                                   ; preds = %for.cond.outer.us, %for.cond.backedge.us.us
-  %dec138.us.us.in = phi i32 [ %dec138.us.us, %for.cond.backedge.us.us ], [ %i.0.ph.us, %for.cond.outer.us ]
-  %dec138.us.us = add nsw i32 %dec138.us.us.in, -1
-  %10 = load ptr, ptr %data, align 8
-  %encoder_insts.us.us = getelementptr inbounds i8, ptr %10, i64 24
-  %11 = load ptr, ptr %encoder_insts.us.us, align 8
-  %call.i.us.us = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %dec138.us.us) #7
-  %cmp.i65.us.us = icmp eq ptr %call.i.us.us, null
-  br i1 %cmp.i65.us.us, label %OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us, label %if.end.i76.us.us
-
-if.end.i76.us.us:                                 ; preds = %for.body.us.us
-  %12 = load ptr, ptr %call.i.us.us, align 8
-  %encoderctx.i.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 8
-  %13 = load ptr, ptr %encoderctx.i.us.us, align 8
-  %output_type.i.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 16
-  %14 = load ptr, ptr %output_type.i.us.us, align 8
-  %output_structure.i.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 24
-  %15 = load ptr, ptr %output_structure.i.us.us, align 8
-  br label %OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us
-
-OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us: ; preds = %if.end.i76.us.us, %for.body.us.us
-  %retval.0.i7494.us.us = phi ptr [ %14, %if.end.i76.us.us ], [ null, %for.body.us.us ]
-  %retval.0.i67848793.us.us = phi ptr [ %12, %if.end.i76.us.us ], [ null, %for.body.us.us ]
-  %retval.0.i718892.us.us = phi ptr [ %13, %if.end.i76.us.us ], [ null, %for.body.us.us ]
-  %retval.0.i77.us.us = phi ptr [ %15, %if.end.i76.us.us ], [ null, %for.body.us.us ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 64, i1 false)
-  %16 = load ptr, ptr %data, align 8
-  store i32 %dec138.us.us, ptr %current_encoder_inst_index14198, align 8
-  store ptr %call.i.us.us, ptr %next_encoder_inst15199, align 8
-  %17 = load i32, ptr %count_output_structure16200, align 8
-  store i32 %17, ptr %count_output_structure17201, align 8
-  %18 = load i32, ptr %level202, align 4
-  %add.us.us = add nsw i32 %18, 1
-  store i32 %add.us.us, ptr %level18203, align 4
-  %output_type.us.us = getelementptr inbounds i8, ptr %16, i64 8
-  %19 = load ptr, ptr %output_type.us.us, align 8
-  %cmp22.not.us.us = icmp eq ptr %19, null
-  br i1 %cmp22.not.us.us, label %if.end39.us.us, label %land.lhs.true.us.us
-
-land.lhs.true.us.us:                              ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us
-  %call25.us.us = tail call i32 @OPENSSL_strcasecmp(ptr noundef %retval.0.i7494.us.us, ptr noundef nonnull %19) #7
-  %cmp26.not.us.us = icmp eq i32 %call25.us.us, 0
-  br i1 %cmp26.not.us.us, label %land.lhs.true.us.us.if.end39.us.us_crit_edge, label %for.cond.backedge.us.us
-
-land.lhs.true.us.us.if.end39.us.us_crit_edge:     ; preds = %land.lhs.true.us.us
-  %.pre = load ptr, ptr %data, align 8
-  br label %if.end39.us.us
-
-if.end39.us.us:                                   ; preds = %land.lhs.true.us.us.if.end39.us.us_crit_edge, %OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us
-  %20 = phi ptr [ %.pre, %land.lhs.true.us.us.if.end39.us.us_crit_edge ], [ %16, %OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us ]
-  %output_structure41.us.us = getelementptr inbounds i8, ptr %20, i64 16
-  %21 = load ptr, ptr %output_structure41.us.us, align 8
-  %cmp42.us.us = icmp ne ptr %21, null
-  %cmp44.us.us = icmp ne ptr %retval.0.i77.us.us, null
-  %or.cond.us.us = select i1 %cmp42.us.us, i1 %cmp44.us.us, i1 false
-  br i1 %or.cond.us.us, label %if.then45.us.us, label %if.end56.us.loopexit
-
-if.then45.us.us:                                  ; preds = %if.end39.us.us
-  %call48.us.us = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %21, ptr noundef nonnull %retval.0.i77.us.us) #7
-  %cmp49.not.us.us = icmp eq i32 %call48.us.us, 0
-  br i1 %cmp49.not.us.us, label %if.end54.split.us.us, label %for.cond.backedge.us.us
-
-for.cond.backedge.us.us:                          ; preds = %if.then45.us.us, %land.lhs.true.us.us
-  %cmp2.us.us = icmp ugt i32 %dec138.us.us.in, 1
-  br i1 %cmp2.us.us, label %for.body.us.us, label %if.end141.loopexit, !llvm.loop !4
-
-if.end54.split.us.us:                             ; preds = %if.then45.us.us
-  store ptr %16, ptr %new_data, align 8
-  %22 = load i32, ptr %count_output_structure16200, align 8
-  %inc.us = add nsw i32 %22, 1
-  store i32 %inc.us, ptr %count_output_structure16200, align 8
-  br label %if.end56.us
-
-for.cond.outer:                                   ; preds = %for.cond.outer.preheader, %if.end56
-  %i.0.ph = phi i32 [ %dec138, %if.end56 ], [ %1, %for.cond.outer.preheader ]
-  %cmp2137 = icmp sgt i32 %i.0.ph, 0
-  br i1 %cmp2137, label %for.body, label %if.end141
-
-for.body:                                         ; preds = %for.cond.outer, %for.cond.backedge
-  %dec138.in = phi i32 [ %dec138, %for.cond.backedge ], [ %i.0.ph, %for.cond.outer ]
-  %dec138 = add nsw i32 %dec138.in, -1
-  %23 = load ptr, ptr %next_encoder_inst, align 8
-  %cmp.i = icmp eq ptr %23, null
+if.then3:                                         ; preds = %for.body
+  %5 = load ptr, ptr %next_encoder_inst, align 8
+  %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.end5, label %if.end.i
 
-if.end.i:                                         ; preds = %for.body
-  %24 = load ptr, ptr %23, align 8
+if.end.i:                                         ; preds = %if.then3
+  %6 = load ptr, ptr %5, align 8
   br label %if.end5
 
-if.end5:                                          ; preds = %if.end.i, %for.body
-  %next_encoder.0 = phi ptr [ %24, %if.end.i ], [ null, %for.body ]
-  %25 = load ptr, ptr %data, align 8
-  %encoder_insts = getelementptr inbounds i8, ptr %25, i64 24
-  %26 = load ptr, ptr %encoder_insts, align 8
-  %call.i = tail call ptr @OPENSSL_sk_value(ptr noundef %26, i32 noundef %dec138) #7
+if.end5:                                          ; preds = %if.end.i, %if.then3, %for.body
+  %next_encoder.0 = phi ptr [ null, %for.body ], [ %6, %if.end.i ], [ null, %if.then3 ]
+  %7 = load ptr, ptr %data, align 8
+  %encoder_insts = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = load ptr, ptr %encoder_insts, align 8
+  %call.i = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %dec128) #7
   %cmp.i65 = icmp eq ptr %call.i, null
   br i1 %cmp.i65, label %OSSL_ENCODER_INSTANCE_get_output_structure.exit, label %if.end.i76
 
 if.end.i76:                                       ; preds = %if.end5
-  %27 = load ptr, ptr %call.i, align 8
+  %9 = load ptr, ptr %call.i, align 8
   %encoderctx.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %28 = load ptr, ptr %encoderctx.i, align 8
+  %10 = load ptr, ptr %encoderctx.i, align 8
   %output_type.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %29 = load ptr, ptr %output_type.i, align 8
+  %11 = load ptr, ptr %output_type.i, align 8
   %output_structure.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  %30 = load ptr, ptr %output_structure.i, align 8
+  %12 = load ptr, ptr %output_structure.i, align 8
   br label %OSSL_ENCODER_INSTANCE_get_output_structure.exit
 
 OSSL_ENCODER_INSTANCE_get_output_structure.exit:  ; preds = %if.end5, %if.end.i76
-  %retval.0.i7494 = phi ptr [ %29, %if.end.i76 ], [ null, %if.end5 ]
-  %retval.0.i67848793 = phi ptr [ %27, %if.end.i76 ], [ null, %if.end5 ]
-  %retval.0.i718892 = phi ptr [ %28, %if.end.i76 ], [ null, %if.end5 ]
-  %retval.0.i77 = phi ptr [ %30, %if.end.i76 ], [ null, %if.end5 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 64, i1 false)
-  %31 = load ptr, ptr %data, align 8
-  store i32 %dec138, ptr %current_encoder_inst_index14, align 8
+  %retval.0.i7494 = phi ptr [ %11, %if.end.i76 ], [ null, %if.end5 ]
+  %retval.0.i67848793 = phi ptr [ %9, %if.end.i76 ], [ null, %if.end5 ]
+  %retval.0.i718892 = phi ptr [ %10, %if.end.i76 ], [ null, %if.end5 ]
+  %retval.0.i77 = phi ptr [ %12, %if.end.i76 ], [ null, %if.end5 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 64, i1 false)
+  %13 = load ptr, ptr %data, align 8
+  store ptr %13, ptr %new_data, align 8
+  store i32 %dec128, ptr %current_encoder_inst_index14, align 8
   store ptr %call.i, ptr %next_encoder_inst15, align 8
-  %32 = load i32, ptr %count_output_structure16, align 8
-  store i32 %32, ptr %count_output_structure17, align 8
-  %33 = load i32, ptr %level, align 4
-  %add = add nsw i32 %33, 1
+  %14 = load i32, ptr %count_output_structure16, align 8
+  store i32 %14, ptr %count_output_structure17, align 8
+  %15 = load i32, ptr %level, align 4
+  %add = add nsw i32 %15, 1
   store i32 %add, ptr %level18, align 4
+  br i1 %cmp.not.not, label %if.then20, label %if.else
+
+if.then20:                                        ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit
+  %output_type = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = load ptr, ptr %output_type, align 8
+  %cmp22.not = icmp eq ptr %16, null
+  br i1 %cmp22.not, label %if.end39, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %if.then20
+  %call25 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %retval.0.i7494, ptr noundef nonnull %16) #7
+  %cmp26.not = icmp eq i32 %call25, 0
+  br i1 %cmp26.not, label %if.end39, label %for.cond.backedge
+
+for.cond.backedge:                                ; preds = %land.lhs.true, %if.else, %if.then45, %if.end56
+  %cmp2 = icmp ugt i32 %dec128.in, 1
+  br i1 %cmp2, label %for.body, label %if.end141, !llvm.loop !4
+
+if.else:                                          ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit
   %call32 = tail call i32 @OSSL_ENCODER_is_a(ptr noundef %next_encoder.0, ptr noundef %retval.0.i7494) #7
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %for.cond.backedge, label %if.end39
 
-for.cond.backedge:                                ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit, %if.then45
-  %cmp2 = icmp ugt i32 %dec138.in, 1
-  br i1 %cmp2, label %for.body, label %if.end141.loopexit235, !llvm.loop !4
-
-if.end39:                                         ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit
-  %34 = load ptr, ptr %data, align 8
-  %output_structure41 = getelementptr inbounds i8, ptr %34, i64 16
-  %35 = load ptr, ptr %output_structure41, align 8
-  %cmp42 = icmp ne ptr %35, null
+if.end39:                                         ; preds = %if.else, %if.then20, %land.lhs.true
+  %17 = load ptr, ptr %data, align 8
+  %output_structure41 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = load ptr, ptr %output_structure41, align 8
+  %cmp42 = icmp ne ptr %18, null
   %cmp44 = icmp ne ptr %retval.0.i77, null
   %or.cond = select i1 %cmp42, i1 %cmp44, i1 false
-  br i1 %or.cond, label %if.then45, label %if.end56.loopexit
+  br i1 %or.cond, label %if.then45, label %if.end56
 
 if.then45:                                        ; preds = %if.end39
-  %call48 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %35, ptr noundef nonnull %retval.0.i77) #7
+  %call48 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %18, ptr noundef nonnull %retval.0.i77) #7
   %cmp49.not = icmp eq i32 %call48, 0
-  br i1 %cmp49.not, label %if.end54.split, label %for.cond.backedge
+  br i1 %cmp49.not, label %if.end54, label %for.cond.backedge
 
-if.end54.split:                                   ; preds = %if.then45
-  store ptr %31, ptr %new_data, align 8
-  %36 = load i32, ptr %count_output_structure16, align 8
-  %inc = add nsw i32 %36, 1
+if.end54:                                         ; preds = %if.then45
+  %19 = load i32, ptr %count_output_structure16, align 8
+  %inc = add nsw i32 %19, 1
   store i32 %inc, ptr %count_output_structure16, align 8
   br label %if.end56
 
-if.end56.loopexit:                                ; preds = %if.end39
-  store ptr %31, ptr %new_data, align 8
-  br label %if.end56
-
-if.end56:                                         ; preds = %if.end56.loopexit, %if.end54.split
+if.end56:                                         ; preds = %if.end54, %if.end39
   %call57 = call fastcc i32 @encoder_process(ptr noundef %new_data)
-  %37 = load ptr, ptr %prev_encoder_inst, align 8
-  store ptr %37, ptr %prev_encoder_inst58, align 8
-  %38 = load ptr, ptr %running_output, align 8
-  store ptr %38, ptr %running_output59, align 8
-  %39 = load i64, ptr %running_output_length, align 8
-  store i64 %39, ptr %running_output_length60, align 8
+  %20 = load ptr, ptr %prev_encoder_inst, align 8
+  store ptr %20, ptr %prev_encoder_inst58, align 8
+  %21 = load ptr, ptr %running_output, align 8
+  store ptr %21, ptr %running_output59, align 8
+  %22 = load i64, ptr %running_output_length, align 8
+  store i64 %22, ptr %running_output_length60, align 8
   switch i32 %call57, label %if.then112 [
-    i32 0, label %for.cond.outer
+    i32 0, label %for.cond.backedge
     i32 1, label %sw.bb86
     i32 -1, label %sw.bb73
   ]
 
-sw.bb73:                                          ; preds = %if.end56, %if.end56.us
-  %running_output_length60233 = phi ptr [ %running_output_length60209, %if.end56.us ], [ %running_output_length60, %if.end56 ]
-  %running_output59227 = phi ptr [ %running_output59207, %if.end56.us ], [ %running_output59, %if.end56 ]
-  %prev_encoder_inst58220 = phi ptr [ %prev_encoder_inst58205, %if.end56.us ], [ %prev_encoder_inst58, %if.end56 ]
-  %count_output_structure16213 = phi ptr [ %count_output_structure16200, %if.end56.us ], [ %count_output_structure16, %if.end56 ]
-  %.us-phi152 = phi ptr [ %retval.0.i67848793.us.us, %if.end56.us ], [ %retval.0.i67848793, %if.end56 ]
-  %.us-phi153 = phi ptr [ %retval.0.i718892.us.us, %if.end56.us ], [ %retval.0.i718892, %if.end56 ]
-  %.us-phi154 = phi ptr [ %call.i.us.us, %if.end56.us ], [ %call.i, %if.end56 ]
-  %40 = load i32, ptr %count_output_structure16213, align 8
-  %cmp75 = icmp eq i32 %40, 0
+sw.bb73:                                          ; preds = %if.end56
+  %23 = load i32, ptr %count_output_structure16, align 8
+  %cmp75 = icmp eq i32 %23, 0
   br i1 %cmp75, label %return, label %if.end77
 
 if.end77:                                         ; preds = %sw.bb73
-  %41 = load ptr, ptr %data, align 8
-  %construct = getelementptr inbounds i8, ptr %41, i64 32
-  %42 = load ptr, ptr %construct, align 8
-  %construct_data = getelementptr inbounds i8, ptr %41, i64 48
-  %43 = load ptr, ptr %construct_data, align 8
-  %call80 = tail call ptr %42(ptr noundef %.us-phi154, ptr noundef %43) #7
-  %call81 = tail call ptr @OSSL_ENCODER_get0_name(ptr noundef %.us-phi152) #7
+  %24 = load ptr, ptr %data, align 8
+  %construct = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = load ptr, ptr %construct, align 8
+  %construct_data = getelementptr inbounds i8, ptr %24, i64 48
+  %26 = load ptr, ptr %construct_data, align 8
+  %call80 = tail call ptr %25(ptr noundef %call.i, ptr noundef %26) #7
+  %call81 = tail call ptr @OSSL_ENCODER_get0_name(ptr noundef %retval.0.i67848793) #7
   %data_type = getelementptr inbounds i8, ptr %data, i64 64
   store ptr %call81, ptr %data_type, align 8
   %cmp82.not = icmp eq ptr %call80, null
   br i1 %cmp82.not, label %if.end141, label %if.then112
 
-sw.bb86:                                          ; preds = %if.end56, %if.end56.us
-  %running_output_length60230 = phi ptr [ %running_output_length60209, %if.end56.us ], [ %running_output_length60, %if.end56 ]
-  %running_output59224 = phi ptr [ %running_output59207, %if.end56.us ], [ %running_output59, %if.end56 ]
-  %prev_encoder_inst58221 = phi ptr [ %prev_encoder_inst58205, %if.end56.us ], [ %prev_encoder_inst58, %if.end56 ]
-  %44 = phi ptr [ %7, %if.end56.us ], [ %37, %if.end56 ]
-  %45 = phi ptr [ %8, %if.end56.us ], [ %38, %if.end56 ]
-  %.us-phi149 = phi ptr [ %retval.0.i67848793.us.us, %if.end56.us ], [ %retval.0.i67848793, %if.end56 ]
-  %.us-phi150 = phi ptr [ %retval.0.i718892.us.us, %if.end56.us ], [ %retval.0.i718892, %if.end56 ]
-  %.us-phi151 = phi ptr [ %call.i.us.us, %if.end56.us ], [ %call.i, %if.end56 ]
-  %cmp88.not = icmp eq ptr %45, null
+sw.bb86:                                          ; preds = %if.end56
+  %cmp88.not = icmp eq ptr %21, null
   br i1 %cmp88.not, label %if.then94, label %if.end95
 
 if.then94:                                        ; preds = %sw.bb86
@@ -395,20 +281,20 @@ if.then94:                                        ; preds = %sw.bb86
   br label %if.end141
 
 if.end95:                                         ; preds = %sw.bb86
-  %cmp.i78 = icmp eq ptr %44, null
+  %cmp.i78 = icmp eq ptr %20, null
   br i1 %cmp.i78, label %OSSL_ENCODER_INSTANCE_get_output_structure.exit82, label %if.end.i79
 
 if.end.i79:                                       ; preds = %if.end95
-  %output_structure.i80 = getelementptr inbounds i8, ptr %44, i64 24
-  %46 = load ptr, ptr %output_structure.i80, align 8
+  %output_structure.i80 = getelementptr inbounds i8, ptr %20, i64 24
+  %27 = load ptr, ptr %output_structure.i80, align 8
   br label %OSSL_ENCODER_INSTANCE_get_output_structure.exit82
 
 OSSL_ENCODER_INSTANCE_get_output_structure.exit82: ; preds = %if.end95, %if.end.i79
-  %retval.0.i81 = phi ptr [ %46, %if.end.i79 ], [ null, %if.end95 ]
+  %retval.0.i81 = phi ptr [ %27, %if.end.i79 ], [ null, %if.end95 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %abstract, i64 40
   %data_type98 = getelementptr inbounds i8, ptr %data, i64 64
-  %47 = load ptr, ptr %data_type98, align 8
-  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.6, ptr noundef %47, i64 noundef 0) #7
+  %28 = load ptr, ptr %data_type98, align 8
+  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.6, ptr noundef %28, i64 noundef 0) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %abstract, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %cmp99.not = icmp eq ptr %retval.0.i81, null
   br i1 %cmp99.not, label %if.end104, label %if.then101
@@ -422,28 +308,22 @@ if.then101:                                       ; preds = %OSSL_ENCODER_INSTAN
 if.end104:                                        ; preds = %if.then101, %OSSL_ENCODER_INSTANCE_get_output_structure.exit82
   %abstract_p.0 = phi ptr [ %incdec.ptr102, %if.then101 ], [ %incdec.ptr, %OSSL_ENCODER_INSTANCE_get_output_structure.exit82 ]
   %incdec.ptr105 = getelementptr inbounds i8, ptr %abstract_p.0, i64 40
-  %48 = load ptr, ptr %running_output59224, align 8
-  %49 = load i64, ptr %running_output_length60230, align 8
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp106, ptr noundef nonnull @.str.8, ptr noundef %48, i64 noundef %49) #7
+  %29 = load ptr, ptr %running_output59, align 8
+  %30 = load i64, ptr %running_output_length60, align 8
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp106, ptr noundef nonnull @.str.8, ptr noundef %29, i64 noundef %30) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %abstract_p.0, ptr noundef nonnull align 8 dereferenceable(40) %tmp106, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp109) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr105, ptr noundef nonnull align 8 dereferenceable(40) %tmp109, i64 40, i1 false)
   br label %if.then112
 
-if.then112:                                       ; preds = %if.end56, %if.end56.us, %if.end104, %if.end77
-  %running_output_length60232 = phi ptr [ %running_output_length60233, %if.end77 ], [ %running_output_length60230, %if.end104 ], [ %running_output_length60209, %if.end56.us ], [ %running_output_length60, %if.end56 ]
-  %running_output59226 = phi ptr [ %running_output59227, %if.end77 ], [ %running_output59224, %if.end104 ], [ %running_output59207, %if.end56.us ], [ %running_output59, %if.end56 ]
-  %prev_encoder_inst58219 = phi ptr [ %prev_encoder_inst58220, %if.end77 ], [ %prev_encoder_inst58221, %if.end104 ], [ %prev_encoder_inst58205, %if.end56.us ], [ %prev_encoder_inst58, %if.end56 ]
-  %retval.0.i67848793132135 = phi ptr [ %.us-phi152, %if.end77 ], [ %.us-phi149, %if.end104 ], [ %retval.0.i67848793.us.us, %if.end56.us ], [ %retval.0.i67848793, %if.end56 ]
-  %retval.0.i718892127130 = phi ptr [ %.us-phi153, %if.end77 ], [ %.us-phi150, %if.end104 ], [ %retval.0.i718892.us.us, %if.end56.us ], [ %retval.0.i718892, %if.end56 ]
-  %call.i121124 = phi ptr [ %.us-phi154, %if.end77 ], [ %.us-phi151, %if.end104 ], [ %call.i.us.us, %if.end56.us ], [ %call.i, %if.end56 ]
-  %current_abstract.0.ph = phi ptr [ null, %if.end77 ], [ %abstract, %if.end104 ], [ null, %if.end56.us ], [ null, %if.end56 ]
-  %original_data.1.ph = phi ptr [ %call80, %if.end77 ], [ null, %if.end104 ], [ null, %if.end56.us ], [ null, %if.end56 ]
+if.then112:                                       ; preds = %if.end56, %if.end104, %if.end77
+  %current_abstract.0.ph = phi ptr [ null, %if.end77 ], [ %abstract, %if.end104 ], [ null, %if.end56 ]
+  %original_data.1.ph = phi ptr [ %call80, %if.end77 ], [ null, %if.end104 ], [ null, %if.end56 ]
   br i1 %cmp.not.not, label %if.then114, label %if.else115
 
 if.then114:                                       ; preds = %if.then112
   %bio = getelementptr inbounds i8, ptr %data, i64 8
-  %50 = load ptr, ptr %bio, align 8
+  %31 = load ptr, ptr %bio, align 8
   br label %if.end128
 
 if.else115:                                       ; preds = %if.then112
@@ -454,18 +334,18 @@ if.else115:                                       ; preds = %if.then112
 
 if.end128:                                        ; preds = %if.else115, %if.then114
   %allocated_out.1.ph = phi ptr [ %call117, %if.else115 ], [ null, %if.then114 ]
-  %current_out.0.ph = phi ptr [ %call117, %if.else115 ], [ %50, %if.then114 ]
+  %current_out.0.ph = phi ptr [ %call117, %if.else115 ], [ %31, %if.then114 ]
   %call125 = call ptr @ossl_core_bio_new_from_bio(ptr noundef %current_out.0.ph) #7
   %cmp126.not = icmp eq ptr %call125, null
   br i1 %cmp126.not, label %if.end137, label %if.then130
 
 if.then130:                                       ; preds = %if.end128
-  %encode = getelementptr inbounds i8, ptr %retval.0.i67848793132135, i64 104
-  %51 = load ptr, ptr %encode, align 8
-  %52 = load ptr, ptr %data, align 8
-  %53 = load i32, ptr %52, align 8
-  %pwdata = getelementptr inbounds i8, ptr %52, i64 56
-  %call133 = call i32 %51(ptr noundef %retval.0.i718892127130, ptr noundef nonnull %call125, ptr noundef %original_data.1.ph, ptr noundef %current_abstract.0.ph, i32 noundef %53, ptr noundef nonnull @ossl_pw_passphrase_callback_enc, ptr noundef nonnull %pwdata) #7
+  %encode = getelementptr inbounds i8, ptr %retval.0.i67848793, i64 104
+  %32 = load ptr, ptr %encode, align 8
+  %33 = load ptr, ptr %data, align 8
+  %34 = load i32, ptr %33, align 8
+  %pwdata = getelementptr inbounds i8, ptr %33, i64 56
+  %call133 = call i32 %32(ptr noundef %retval.0.i718892, ptr noundef nonnull %call125, ptr noundef %original_data.1.ph, ptr noundef %current_abstract.0.ph, i32 noundef %34, ptr noundef nonnull @ossl_pw_passphrase_callback_enc, ptr noundef nonnull %pwdata) #7
   br label %if.end137
 
 if.end137:                                        ; preds = %if.else115, %if.then130, %if.end128
@@ -473,39 +353,31 @@ if.end137:                                        ; preds = %if.else115, %if.the
   %allocated_out.1110115 = phi ptr [ %allocated_out.1.ph, %if.then130 ], [ %allocated_out.1.ph, %if.end128 ], [ null, %if.else115 ]
   %ok.6 = phi i32 [ %call133, %if.then130 ], [ 0, %if.end128 ], [ 0, %if.else115 ]
   %call138 = call i32 @ossl_core_bio_free(ptr noundef %cbio.0116) #7
-  store ptr %call.i121124, ptr %prev_encoder_inst58219, align 8
-  %54 = icmp eq ptr %original_data.1.ph, null
+  store ptr %call.i, ptr %prev_encoder_inst58, align 8
+  %35 = icmp eq ptr %original_data.1.ph, null
   br label %if.end141
 
-if.end141.loopexit:                               ; preds = %for.cond.backedge.us.us
-  store ptr %16, ptr %new_data, align 8
-  br label %if.end141
-
-if.end141.loopexit235:                            ; preds = %for.cond.backedge
-  store ptr %31, ptr %new_data, align 8
-  br label %if.end141
-
-if.end141:                                        ; preds = %for.cond.outer, %for.cond.outer.us, %if.end141.loopexit235, %if.end141.loopexit, %if.end77, %if.then94, %if.end137
-  %running_output_length60231 = phi ptr [ %running_output_length60232, %if.end137 ], [ %running_output_length60230, %if.then94 ], [ %running_output_length60233, %if.end77 ], [ %running_output_length60209, %if.end141.loopexit ], [ %running_output_length60, %if.end141.loopexit235 ], [ %running_output_length60209, %for.cond.outer.us ], [ %running_output_length60, %for.cond.outer ]
-  %running_output59225 = phi ptr [ %running_output59226, %if.end137 ], [ %running_output59224, %if.then94 ], [ %running_output59227, %if.end77 ], [ %running_output59207, %if.end141.loopexit ], [ %running_output59, %if.end141.loopexit235 ], [ %running_output59207, %for.cond.outer.us ], [ %running_output59, %for.cond.outer ]
-  %ok.2 = phi i32 [ %ok.6, %if.end137 ], [ 0, %if.then94 ], [ 0, %if.end77 ], [ -1, %if.end141.loopexit ], [ -1, %if.end141.loopexit235 ], [ -1, %for.cond.outer.us ], [ -1, %for.cond.outer ]
-  %original_data.0 = phi i1 [ %54, %if.end137 ], [ true, %if.then94 ], [ true, %if.end77 ], [ true, %if.end141.loopexit ], [ true, %if.end141.loopexit235 ], [ true, %for.cond.outer.us ], [ true, %for.cond.outer ]
-  %allocated_out.0 = phi ptr [ %allocated_out.1110115, %if.end137 ], [ null, %if.then94 ], [ null, %if.end77 ], [ null, %if.end141.loopexit ], [ null, %if.end141.loopexit235 ], [ null, %for.cond.outer.us ], [ null, %for.cond.outer ]
-  %55 = load ptr, ptr %running_output59225, align 8
-  call void @CRYPTO_free(ptr noundef %55, ptr noundef nonnull @.str, i32 noundef 652) #7
-  store ptr null, ptr %running_output59225, align 8
+if.end141:                                        ; preds = %for.cond.backedge, %if.end, %if.end77, %if.then94, %if.end137
+  %ok.2 = phi i32 [ %ok.6, %if.end137 ], [ 0, %if.then94 ], [ 0, %if.end77 ], [ -1, %if.end ], [ -1, %for.cond.backedge ]
+  %original_data.0 = phi i1 [ %35, %if.end137 ], [ true, %if.then94 ], [ true, %if.end77 ], [ true, %if.end ], [ true, %for.cond.backedge ]
+  %allocated_out.0 = phi ptr [ %allocated_out.1110115, %if.end137 ], [ null, %if.then94 ], [ null, %if.end77 ], [ null, %if.end ], [ null, %for.cond.backedge ]
+  %running_output142 = getelementptr inbounds i8, ptr %data, i64 48
+  %36 = load ptr, ptr %running_output142, align 8
+  call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str, i32 noundef 652) #7
+  store ptr null, ptr %running_output142, align 8
   %cmp144.not = icmp eq ptr %allocated_out.0, null
   br i1 %cmp144.not, label %if.end151, label %if.then146
 
 if.then146:                                       ; preds = %if.end141
   %call147 = call i64 @BIO_ctrl(ptr noundef nonnull %allocated_out.0, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %buf) #7
-  %56 = load ptr, ptr %buf, align 8
-  %data148 = getelementptr inbounds i8, ptr %56, i64 8
-  %57 = load ptr, ptr %data148, align 8
-  store ptr %57, ptr %running_output59225, align 8
-  %58 = load i64, ptr %56, align 8
-  store i64 %58, ptr %running_output_length60231, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 32, i1 false)
+  %37 = load ptr, ptr %buf, align 8
+  %data148 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load ptr, ptr %data148, align 8
+  store ptr %38, ptr %running_output142, align 8
+  %39 = load i64, ptr %37, align 8
+  %running_output_length150 = getelementptr inbounds i8, ptr %data, i64 56
+  store i64 %39, ptr %running_output_length150, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
   br label %if.end151
 
 if.end151:                                        ; preds = %if.then146, %if.end141
@@ -513,12 +385,12 @@ if.end151:                                        ; preds = %if.then146, %if.end
   br i1 %original_data.0, label %return, label %if.then155
 
 if.then155:                                       ; preds = %if.end151
-  %59 = load ptr, ptr %data, align 8
-  %cleanup = getelementptr inbounds i8, ptr %59, i64 40
-  %60 = load ptr, ptr %cleanup, align 8
-  %construct_data158 = getelementptr inbounds i8, ptr %59, i64 48
-  %61 = load ptr, ptr %construct_data158, align 8
-  call void %60(ptr noundef %61) #7
+  %40 = load ptr, ptr %data, align 8
+  %cleanup = getelementptr inbounds i8, ptr %40, i64 40
+  %41 = load ptr, ptr %cleanup, align 8
+  %construct_data158 = getelementptr inbounds i8, ptr %40, i64 48
+  %42 = load ptr, ptr %construct_data158, align 8
+  call void %41(ptr noundef %42) #7
   br label %return
 
 return:                                           ; preds = %if.end151, %if.then155, %sw.bb73

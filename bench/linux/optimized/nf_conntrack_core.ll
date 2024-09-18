@@ -4076,12 +4076,12 @@ define internal fastcc void @nf_ct_iterate_cleanup(ptr nocapture noundef readonl
   %6 = phi i32 [ %79, %.thread14 ], [ %5, %2 ]
   %7 = phi i64 [ %12, %.thread14 ], [ 0, %2 ]
   %8 = and i64 %7, 4294967295
-  %.pre26 = load ptr, ptr @nf_conntrack_hash, align 8
+  %.pre24 = load ptr, ptr @nf_conntrack_hash, align 8
   br label %9
 
 9:                                                ; preds = %52, %.lr.ph
   %10 = phi i32 [ %6, %.lr.ph ], [ %53, %52 ]
-  %11 = phi ptr [ %.pre26, %.lr.ph ], [ %54, %52 ]
+  %11 = phi ptr [ %.pre24, %.lr.ph ], [ %54, %52 ]
   %12 = phi i64 [ %8, %.lr.ph ], [ %55, %52 ]
   %13 = getelementptr %struct.hlist_nulls_head, ptr %11, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
@@ -4153,12 +4153,12 @@ define internal fastcc void @nf_ct_iterate_cleanup(ptr nocapture noundef readonl
   tail call void @__local_bh_enable_ip(i64 noundef %21, i32 noundef 512) #17
   %51 = tail call i32 @__SCT__cond_resched() #17
   %.pre = load ptr, ptr @nf_conntrack_hash, align 8
-  %.pre27 = load i32, ptr @nf_conntrack_htable_size, align 4
+  %.pre25 = load i32, ptr @nf_conntrack_htable_size, align 4
   br label %52
 
 52:                                               ; preds = %.loopexit, %9
-  %53 = phi i32 [ %10, %9 ], [ %.pre27, %.loopexit ]
-  %54 = phi ptr [ %11, %9 ], [ %.pre, %.loopexit ]
+  %53 = phi i32 [ %.pre25, %.loopexit ], [ %10, %9 ]
+  %54 = phi ptr [ %.pre, %.loopexit ], [ %11, %9 ]
   %55 = add nuw nsw i64 %12, 1
   %56 = zext i32 %53 to i64
   %57 = icmp ult i64 %55, %56

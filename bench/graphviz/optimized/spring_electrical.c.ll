@@ -1337,20 +1337,20 @@ bitarray_new.exit:                                ; preds = %3, %.thread.i.i, %2
   %27 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %12, ptr %27, align 8
   %28 = icmp sgt i32 %7, 0
-  br i1 %28, label %.lr.ph100, label %._crit_edge101
+  br i1 %28, label %.lr.ph97, label %._crit_edge98
 
-.lr.ph100:                                        ; preds = %bitarray_new.exit
+.lr.ph97:                                         ; preds = %bitarray_new.exit
   %29 = getelementptr inbounds i8, ptr %5, i64 8
   %30 = getelementptr inbounds i8, ptr %4, i64 8
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %31
 
-31:                                               ; preds = %.lr.ph100, %144
-  %indvars.iv104 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next105, %144 ]
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %32 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next105
+31:                                               ; preds = %.lr.ph97, %144
+  %indvars.iv101 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next102, %144 ]
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %32 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next102
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv104
+  %34 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv101
   %35 = load i32, ptr %34, align 4
   %36 = sub nsw i32 %33, %35
   %.not = icmp eq i32 %36, 1
@@ -1364,11 +1364,11 @@ bitarray_new.exit:                                ; preds = %3, %.thread.i.i, %2
   store i64 %39, ptr %29, align 8
   %40 = icmp ult i64 %39, 65
   %.0.i = select i1 %40, ptr %5, ptr %38
-  %41 = lshr i64 %indvars.iv104, 3
+  %41 = lshr i64 %indvars.iv101, 3
   %42 = getelementptr inbounds i8, ptr %.0.i, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
-  %45 = trunc nuw nsw i64 %indvars.iv104 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv101 to i32
   %46 = and i32 %45, 7
   %47 = shl nuw nsw i32 1, %46
   %48 = and i32 %47, %44
@@ -1509,8 +1509,8 @@ ints_append.exit:                                 ; preds = %bitarray_set.exit65
   %122 = icmp ugt i64 %.sroa.7.3, 1
   %123 = fdiv double 0x4018552E8777604C, %120
   %124 = select i1 %122, double %123, double 0.000000e+00
-  %.not102 = icmp eq i64 %.sroa.7.3, 0
-  br i1 %.not102, label %._crit_edge95, label %.lr.ph94
+  %.not99 = icmp eq i64 %.sroa.7.3, 0
+  br i1 %.not99, label %._crit_edge95, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %._crit_edge
   %125 = mul nsw i32 %52, %0
@@ -1542,29 +1542,29 @@ ints_append.exit:                                 ; preds = %bitarray_set.exit65
   br i1 %exitcond.not, label %._crit_edge95, label %129
 
 ._crit_edge95:                                    ; preds = %129, %bitarray_set.exit, %._crit_edge
-  %.sroa.0.2.lcssa113118 = phi ptr [ %.sroa.0.3, %._crit_edge ], [ null, %bitarray_set.exit ], [ %.sroa.0.3, %129 ]
-  tail call void @free(ptr noundef %.sroa.0.2.lcssa113118) #25
+  %.sroa.0.2.lcssa110115 = phi ptr [ %.sroa.0.3, %._crit_edge ], [ null, %bitarray_set.exit ], [ %.sroa.0.3, %129 ]
+  tail call void @free(ptr noundef %.sroa.0.2.lcssa110115) #25
   br label %144
 
 144:                                              ; preds = %49, %._crit_edge95, %37, %31
-  %exitcond107.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
-  br i1 %exitcond107.not, label %._crit_edge101.loopexit, label %31
+  %exitcond104.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count
+  br i1 %exitcond104.not, label %._crit_edge98.loopexit, label %31
 
-._crit_edge101.loopexit:                          ; preds = %144
-  %.pre108 = load i64, ptr %27, align 8
-  br label %._crit_edge101
+._crit_edge98.loopexit:                           ; preds = %144
+  %.pre105 = load i64, ptr %27, align 8
+  br label %._crit_edge98
 
-._crit_edge101:                                   ; preds = %._crit_edge101.loopexit, %bitarray_new.exit
-  %145 = phi i64 [ %.pre108, %._crit_edge101.loopexit ], [ %12, %bitarray_new.exit ]
+._crit_edge98:                                    ; preds = %._crit_edge98.loopexit, %bitarray_new.exit
+  %145 = phi i64 [ %.pre105, %._crit_edge98.loopexit ], [ %12, %bitarray_new.exit ]
   %146 = icmp ugt i64 %145, 64
   br i1 %146, label %147, label %bitarray_reset.exit
 
-147:                                              ; preds = %._crit_edge101
+147:                                              ; preds = %._crit_edge98
   %148 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %148) #25
   br label %bitarray_reset.exit
 
-bitarray_reset.exit:                              ; preds = %._crit_edge101, %147
+bitarray_reset.exit:                              ; preds = %._crit_edge98, %147
   ret void
 }
 

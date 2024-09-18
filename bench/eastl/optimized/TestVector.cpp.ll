@@ -34416,9 +34416,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %bReturnValue.033.us = phi i8 [ %bReturnValue.1.us, %for.inc.us ], [ 1, %for.body.lr.ph ]
-  %seqIndex.032.us = phi i32 [ %inc5.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %first.addr.030.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %first, %for.body.lr.ph ]
+  %bReturnValue.032.us = phi i8 [ %bReturnValue.1.us, %for.inc.us ], [ 1, %for.body.lr.ph ]
+  %seqIndex.031.us = phi i32 [ %inc5.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %first.addr.029.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %first, %for.body.lr.ph ]
   %gp_offset.us = load i32, ptr %args, align 16
   %fits_in_gp.us = icmp ult i32 %gp_offset.us, 41
   br i1 %fits_in_gp.us, label %vaarg.in_reg.us, label %vaarg.in_mem.us
@@ -34453,7 +34453,7 @@ cleanup.done.us:                                  ; preds = %vaarg.end.us
   %8 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i.us = add nsw i64 %8, 1
   store i64 %inc4.i.us, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %9 = load i32, ptr %first.addr.030.us, align 8
+  %9 = load i32, ptr %first.addr.029.us, align 8
   %cmp.i.not.us = icmp eq i32 %5, %9
   store i64 %6, ptr @_ZN10TestObject8sTOCountE, align 8
   %10 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
@@ -34462,20 +34462,20 @@ cleanup.done.us:                                  ; preds = %vaarg.end.us
   br i1 %cmp.i.not.us, label %for.inc.us, label %if.then.us
 
 if.then.us:                                       ; preds = %cleanup.done.us, %vaarg.end.us
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.289, i32 noundef %seqIndex.032.us)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.289, i32 noundef %seqIndex.031.us)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %cleanup.done.us
-  %bReturnValue.1.us = phi i8 [ %bReturnValue.033.us, %cleanup.done.us ], [ 0, %if.then.us ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %first.addr.030.us, i64 24
-  %inc5.us = add nuw nsw i32 %seqIndex.032.us, 1
+  %bReturnValue.1.us = phi i8 [ %bReturnValue.032.us, %cleanup.done.us ], [ 0, %if.then.us ]
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %first.addr.029.us, i64 24
+  %inc5.us = add nuw nsw i32 %seqIndex.031.us, 1
   %cmp.not.us = icmp eq ptr %incdec.ptr.us, %last
   br i1 %cmp.not.us, label %for.end12, label %for.body.us, !llvm.loop !244
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %bReturnValue.033 = phi i8 [ %bReturnValue.1, %for.inc ], [ 1, %for.body.lr.ph ]
-  %seqIndex.032 = phi i32 [ %inc5, %for.inc ], [ 0, %for.body.lr.ph ]
-  %first.addr.030 = phi ptr [ %incdec.ptr, %for.inc ], [ %first, %for.body.lr.ph ]
+  %bReturnValue.032 = phi i8 [ %bReturnValue.1, %for.inc ], [ 1, %for.body.lr.ph ]
+  %seqIndex.031 = phi i32 [ %inc5, %for.inc ], [ 0, %for.body.lr.ph ]
+  %first.addr.029 = phi ptr [ %incdec.ptr, %for.inc ], [ %first, %for.body.lr.ph ]
   %gp_offset = load i32, ptr %args, align 16
   %fits_in_gp = icmp ult i32 %gp_offset, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
@@ -34510,7 +34510,7 @@ cleanup.done:                                     ; preds = %vaarg.end
   %17 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i = add nsw i64 %17, 1
   store i64 %inc4.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %18 = load i32, ptr %first.addr.030, align 8
+  %18 = load i32, ptr %first.addr.029, align 8
   %cmp.i.not = icmp eq i32 %14, %18
   store i64 %15, ptr @_ZN10TestObject8sTOCountE, align 8
   %19 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
@@ -34519,13 +34519,13 @@ cleanup.done:                                     ; preds = %vaarg.end
   br i1 %cmp.i.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %vaarg.end, %cleanup.done
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.288, ptr noundef nonnull %pName, i32 noundef %seqIndex.032)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.288, ptr noundef nonnull %pName, i32 noundef %seqIndex.031)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %cleanup.done
-  %bReturnValue.1 = phi i8 [ %bReturnValue.033, %cleanup.done ], [ 0, %if.then ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.030, i64 24
-  %inc5 = add nuw nsw i32 %seqIndex.032, 1
+  %bReturnValue.1 = phi i8 [ %bReturnValue.032, %cleanup.done ], [ 0, %if.then ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.029, i64 24
+  %inc5 = add nuw nsw i32 %seqIndex.031, 1
   %cmp.not = icmp eq ptr %incdec.ptr, %last
   br i1 %cmp.not, label %for.end12, label %for.body, !llvm.loop !244
 
@@ -34536,8 +34536,8 @@ for.end12:                                        ; preds = %for.inc, %for.inc.u
   br i1 %tobool13, label %if.then14, label %if.end49
 
 if.then14:                                        ; preds = %entry, %for.end12
-  %bReturnValue.0.lcssa56 = phi i8 [ %bReturnValue.0.lcssa, %for.end12 ], [ 1, %entry ]
-  %argIndex.0.lcssa55 = phi i32 [ %argIndex.0.lcssa, %for.end12 ], [ 0, %entry ]
+  %bReturnValue.0.lcssa55 = phi i8 [ %bReturnValue.0.lcssa, %for.end12 ], [ 1, %entry ]
+  %argIndex.0.lcssa54 = phi i32 [ %argIndex.0.lcssa, %for.end12 ], [ 0, %entry ]
   %gp_offset17 = load i32, ptr %args, align 16
   %fits_in_gp18 = icmp ult i32 %gp_offset17, 41
   br i1 %fits_in_gp18, label %vaarg.in_reg19, label %vaarg.in_mem21
@@ -34573,29 +34573,29 @@ do.body.preheader:                                ; preds = %vaarg.end25
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end40
-  %overflow_arg_area3847 = phi ptr [ %overflow_arg_area3846, %vaarg.end40 ], [ %overflow_arg_area_p37.promoted, %do.body.preheader ]
-  %gp_offset3245 = phi i32 [ %gp_offset3244, %vaarg.end40 ], [ %args.promoted, %do.body.preheader ]
-  %argIndex.1 = phi i32 [ %inc29, %vaarg.end40 ], [ %argIndex.0.lcssa55, %do.body.preheader ]
+  %overflow_arg_area3846 = phi ptr [ %overflow_arg_area3845, %vaarg.end40 ], [ %overflow_arg_area_p37.promoted, %do.body.preheader ]
+  %gp_offset3244 = phi i32 [ %gp_offset3243, %vaarg.end40 ], [ %args.promoted, %do.body.preheader ]
+  %argIndex.1 = phi i32 [ %inc29, %vaarg.end40 ], [ %argIndex.0.lcssa54, %do.body.preheader ]
   %inc29 = add nuw nsw i32 %argIndex.1, 1
-  %fits_in_gp33 = icmp ult i32 %gp_offset3245, 41
+  %fits_in_gp33 = icmp ult i32 %gp_offset3244, 41
   br i1 %fits_in_gp33, label %vaarg.in_reg34, label %vaarg.in_mem36
 
 vaarg.in_reg34:                                   ; preds = %do.body
-  %26 = zext nneg i32 %gp_offset3245 to i64
+  %26 = zext nneg i32 %gp_offset3244 to i64
   %27 = getelementptr i8, ptr %reg_save_area35, i64 %26
-  %28 = add nuw nsw i32 %gp_offset3245, 8
+  %28 = add nuw nsw i32 %gp_offset3244, 8
   store i32 %28, ptr %args, align 16
   br label %vaarg.end40
 
 vaarg.in_mem36:                                   ; preds = %do.body
-  %overflow_arg_area.next39 = getelementptr i8, ptr %overflow_arg_area3847, i64 8
+  %overflow_arg_area.next39 = getelementptr i8, ptr %overflow_arg_area3846, i64 8
   store ptr %overflow_arg_area.next39, ptr %overflow_arg_area_p37, align 8
   br label %vaarg.end40
 
 vaarg.end40:                                      ; preds = %vaarg.in_mem36, %vaarg.in_reg34
-  %overflow_arg_area3846 = phi ptr [ %overflow_arg_area3847, %vaarg.in_reg34 ], [ %overflow_arg_area.next39, %vaarg.in_mem36 ]
-  %gp_offset3244 = phi i32 [ %28, %vaarg.in_reg34 ], [ %gp_offset3245, %vaarg.in_mem36 ]
-  %vaarg.addr41 = phi ptr [ %27, %vaarg.in_reg34 ], [ %overflow_arg_area3847, %vaarg.in_mem36 ]
+  %overflow_arg_area3845 = phi ptr [ %overflow_arg_area3846, %vaarg.in_reg34 ], [ %overflow_arg_area.next39, %vaarg.in_mem36 ]
+  %gp_offset3243 = phi i32 [ %28, %vaarg.in_reg34 ], [ %gp_offset3244, %vaarg.in_mem36 ]
+  %vaarg.addr41 = phi ptr [ %27, %vaarg.in_reg34 ], [ %overflow_arg_area3846, %vaarg.in_mem36 ]
   %29 = load i32, ptr %vaarg.addr41, align 4
   %cmp42.not = icmp eq i32 %29, -1
   br i1 %cmp42.not, label %do.end, label %do.body, !llvm.loop !245
@@ -34605,15 +34605,15 @@ do.end:                                           ; preds = %vaarg.end40
   br i1 %tobool44.not, label %if.else46, label %if.then45
 
 if.then45:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.290, ptr noundef nonnull %pName, i32 noundef %inc29, i32 noundef %argIndex.0.lcssa55)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.290, ptr noundef nonnull %pName, i32 noundef %inc29, i32 noundef %argIndex.0.lcssa54)
   br label %if.end49
 
 if.else46:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.291, i32 noundef %inc29, i32 noundef %argIndex.0.lcssa55)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.291, i32 noundef %inc29, i32 noundef %argIndex.0.lcssa54)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then45, %if.else46, %vaarg.end25, %for.end12
-  %bReturnValue.2 = phi i8 [ %bReturnValue.0.lcssa56, %vaarg.end25 ], [ %bReturnValue.0.lcssa, %for.end12 ], [ 0, %if.else46 ], [ 0, %if.then45 ]
+  %bReturnValue.2 = phi i8 [ %bReturnValue.0.lcssa55, %vaarg.end25 ], [ %bReturnValue.0.lcssa, %for.end12 ], [ 0, %if.else46 ], [ 0, %if.then45 ]
   call void @llvm.va_end.p0(ptr nonnull %args)
   %tobool51 = trunc nuw i8 %bReturnValue.2 to i1
   ret i1 %tobool51

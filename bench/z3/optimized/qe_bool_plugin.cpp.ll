@@ -1050,12 +1050,12 @@ if.then14:                                        ; preds = %invoke.cont12
           to label %invoke.cont17.invoke unwind label %lpad.loopexit.split-lp
 
 invoke.cont17.invoke:                             ; preds = %if.then14, %if.then34
-  %.sink48 = phi i64 [ 864, %if.then34 ], [ 856, %if.then14 ]
+  %.sink47 = phi i64 [ 864, %if.then34 ], [ 856, %if.then14 ]
   %11 = load ptr, ptr %m_ctx, align 8
   %12 = load i32, ptr %idx, align 4
   %13 = load ptr, ptr %fml, align 8
   %14 = load ptr, ptr %m, align 8
-  %m_false.i11 = getelementptr inbounds i8, ptr %14, i64 %.sink48
+  %m_false.i11 = getelementptr inbounds i8, ptr %14, i64 %.sink47
   %15 = load ptr, ptr %m_false.i11, align 8
   %vtable46 = load ptr, ptr %11, align 8
   %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 80

@@ -929,16 +929,16 @@ _ZL27isSupportedGuardInstructionPKN4llvm11InstructionE.exit: ; preds = %235, %23
   %267 = sub i64 %265, %266
   %268 = sdiv exact i64 %267, 24
   %269 = and i64 %268, 4294967295
-  %.not108.i = icmp eq i64 %269, 0
-  br i1 %.not108.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit59.i, label %.lr.ph113.i
+  %.not106.i = icmp eq i64 %269, 0
+  br i1 %.not106.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit59.i, label %.lr.ph110.i
 
-.lr.ph113.i:                                      ; preds = %262
+.lr.ph110.i:                                      ; preds = %262
   %270 = getelementptr inbounds i8, ptr %252, i64 40
   br label %271
 
-271:                                              ; preds = %._crit_edge.i, %.lr.ph113.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph113.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %.031111.i = phi i32 [ 0, %.lr.ph113.i ], [ %.1.lcssa.i, %._crit_edge.i ]
+271:                                              ; preds = %._crit_edge.i, %.lr.ph110.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph110.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
+  %.031108.i = phi i32 [ 0, %.lr.ph110.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %272 = load ptr, ptr %41, align 8
   %273 = getelementptr inbounds %"struct.std::pair.285", ptr %272, i64 %indvars.iv.i
   %274 = load ptr, ptr %273, align 8
@@ -1116,9 +1116,9 @@ _ZN4llvm4findIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEDaOT_RKT0_.exit.i:
   br i1 %.not35103.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm4findIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEDaOT_RKT0_.exit.i, %_ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i
-  %.1106.i = phi i32 [ %.2.i, %_ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i ], [ %.031111.i, %_ZN4llvm4findIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEDaOT_RKT0_.exit.i ]
-  %.033105.i = phi ptr [ %525, %_ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i ], [ %307, %_ZN4llvm4findIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEDaOT_RKT0_.exit.i ]
-  %354 = load ptr, ptr %.033105.i, align 8
+  %.1105.i = phi i32 [ %.2.i, %_ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i ], [ %.031108.i, %_ZN4llvm4findIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEDaOT_RKT0_.exit.i ]
+  %.033104.i = phi ptr [ %525, %_ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i ], [ %307, %_ZN4llvm4findIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEDaOT_RKT0_.exit.i ]
+  %354 = load ptr, ptr %.033104.i, align 8
   %355 = call noundef zeroext i1 @_ZN4llvm7isGuardEPKNS_4UserE(ptr noundef %354) #22, !noalias !41
   br i1 %355, label %358, label %356
 
@@ -1561,7 +1561,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i: ; preds = %479, %475
 
 _ZN12_GLOBAL__N_117GuardWideningImpl20computeWideningScoreEPN4llvm11InstructionES3_NS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEERNS1_15SmallVectorImplIPNS1_5ValueEEESE_.exit.i: ; preds = %472, %515, %513, %"_ZZN12_GLOBAL__N_117GuardWideningImpl20computeWideningScoreEPN4llvm11InstructionES3_NS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEERNS1_15SmallVectorImplIPNS1_5ValueEEESE_ENK3$_1clEPKS7_.exit.thread.i.i.i", %468, %466, %_ZNK12_GLOBAL__N_117GuardWideningImpl14canBeHoistedToEPKN4llvm5ValueENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEE.exit.i.i, %_ZNK12_GLOBAL__N_117GuardWideningImpl14canBeHoistedToERKN4llvm15SmallVectorImplIPNS1_5ValueEEENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEE.exit.i.i, %367
   %.0.i.i42 = phi i32 [ %467, %466 ], [ 0, %367 ], [ 0, %_ZNK12_GLOBAL__N_117GuardWideningImpl14canBeHoistedToERKN4llvm15SmallVectorImplIPNS1_5ValueEEENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEE.exit.i.i ], [ 0, %_ZNK12_GLOBAL__N_117GuardWideningImpl14canBeHoistedToEPKN4llvm5ValueENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEE.exit.i.i ], [ 2, %468 ], [ %517, %515 ], [ 0, %"_ZZN12_GLOBAL__N_117GuardWideningImpl20computeWideningScoreEPN4llvm11InstructionES3_NS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEERNS1_15SmallVectorImplIPNS1_5ValueEEESE_ENK3$_1clEPKS7_.exit.thread.i.i.i" ], [ 0, %513 ], [ 1, %472 ]
-  %518 = icmp sgt i32 %.0.i.i42, %.1106.i
+  %518 = icmp sgt i32 %.0.i.i42, %.1105.i
   br i1 %518, label %519, label %520
 
 519:                                              ; preds = %_ZN12_GLOBAL__N_117GuardWideningImpl20computeWideningScoreEPN4llvm11InstructionES3_NS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEERNS1_15SmallVectorImplIPNS1_5ValueEEESE_.exit.i
@@ -1569,7 +1569,7 @@ _ZN12_GLOBAL__N_117GuardWideningImpl20computeWideningScoreEPN4llvm11InstructionE
   br label %520
 
 520:                                              ; preds = %519, %_ZN12_GLOBAL__N_117GuardWideningImpl20computeWideningScoreEPN4llvm11InstructionES3_NS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEERNS1_15SmallVectorImplIPNS1_5ValueEEESE_.exit.i
-  %.3.i = phi i32 [ %.0.i.i42, %519 ], [ %.1106.i, %_ZN12_GLOBAL__N_117GuardWideningImpl20computeWideningScoreEPN4llvm11InstructionES3_NS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEERNS1_15SmallVectorImplIPNS1_5ValueEEESE_.exit.i ]
+  %.3.i = phi i32 [ %.0.i.i42, %519 ], [ %.1105.i, %_ZN12_GLOBAL__N_117GuardWideningImpl20computeWideningScoreEPN4llvm11InstructionES3_NS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb1ENS1_10BasicBlockEEELb0ELb0EEERNS1_15SmallVectorImplIPNS1_5ValueEEESE_.exit.i ]
   %521 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #22
   %522 = load ptr, ptr %27, align 8
   %523 = icmp eq ptr %522, %58
@@ -1580,19 +1580,19 @@ _ZN12_GLOBAL__N_117GuardWideningImpl20computeWideningScoreEPN4llvm11InstructionE
   br label %_ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i
 
 _ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i: ; preds = %524, %520, %356
-  %.2.i = phi i32 [ %.1106.i, %356 ], [ %.3.i, %520 ], [ %.3.i, %524 ]
-  %525 = getelementptr inbounds i8, ptr %.033105.i, i64 8
+  %.2.i = phi i32 [ %.1105.i, %356 ], [ %.3.i, %520 ], [ %.3.i, %524 ]
+  %525 = getelementptr inbounds i8, ptr %.033104.i, i64 8
   %.not35.i = icmp eq ptr %525, %353
   br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i, %_ZN4llvm4findIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEDaOT_RKT0_.exit.i
-  %.1.lcssa.i = phi i32 [ %.031111.i, %_ZN4llvm4findIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEDaOT_RKT0_.exit.i ], [ %.2.i, %_ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i ]
+  %.1.lcssa.i = phi i32 [ %.031108.i, %_ZN4llvm4findIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEDaOT_RKT0_.exit.i ], [ %.2.i, %_ZN12_GLOBAL__N_134findInsertionPointForWideConditionEPN4llvm11InstructionE.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, %269
   br i1 %.not.i, label %_ZNKSt8functionIFbPN4llvm10BasicBlockEEEclES2_.exit._crit_edge.i, label %271, !llvm.loop !46
 
 _ZNKSt8functionIFbPN4llvm10BasicBlockEEEclES2_.exit._crit_edge.i: ; preds = %._crit_edge.i, %_ZNKSt8functionIFbPN4llvm10BasicBlockEEEclES2_.exit.i
-  %.031.lcssa.ph.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %.031111.i, %_ZNKSt8functionIFbPN4llvm10BasicBlockEEEclES2_.exit.i ]
+  %.031.lcssa.ph.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %.031108.i, %_ZNKSt8functionIFbPN4llvm10BasicBlockEEEclES2_.exit.i ]
   %526 = icmp eq i32 %.031.lcssa.ph.i, 0
   br i1 %526, label %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit59.i, label %527
 

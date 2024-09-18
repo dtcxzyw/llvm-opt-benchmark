@@ -1963,8 +1963,8 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
 
 _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE2atEm.exit.i: ; preds = %123, %183
   %127 = phi ptr [ %186, %183 ], [ %126, %123 ]
-  %.0115.i = phi i64 [ %184, %183 ], [ 0, %123 ]
-  %128 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.84", ptr %127, i64 %.0115.i
+  %.0111.i = phi i64 [ %184, %183 ], [ 0, %123 ]
+  %128 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.84", ptr %127, i64 %.0111.i
   %129 = getelementptr inbounds i8, ptr %128, i64 8
   %130 = load float, ptr %129, align 4
   %131 = getelementptr inbounds i8, ptr %128, i64 12
@@ -1998,7 +1998,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
   %.sroa.098.1.i = phi <2 x float> [ %.sroa.098.4.vec.insert.i, %142 ], [ zeroinitializer, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE2atEm.exit.i ]
   store <2 x float> %.sroa.098.1.i, ptr %129, align 4
   store <2 x float> %.sroa.4.1.i, ptr %135, align 4
-  %149 = icmp eq i64 %.0115.i, 0
+  %149 = icmp eq i64 %.0111.i, 0
   %150 = extractelement <2 x float> %.sroa.098.1.i, i64 0
   %151 = extractelement <2 x float> %.sroa.098.1.i, i64 1
   %152 = extractelement <2 x float> %.sroa.4.1.i, i64 0
@@ -2010,7 +2010,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
   br i1 %155, label %.sink.split.i, label %183
 
 156:                                              ; preds = %148
-  %157 = add i64 %.0115.i, -1
+  %157 = add i64 %.0111.i, -1
   %158 = load ptr, ptr %124, align 8
   %159 = load ptr, ptr %10, align 8
   %160 = ptrtoint ptr %158 to i64
@@ -2056,7 +2056,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
   br label %183
 
 183:                                              ; preds = %.sink.split.i, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE2atEm.exit109.i, %154
-  %184 = add nuw i64 %.0115.i, 1
+  %184 = add nuw i64 %.0111.i, 1
   %185 = load ptr, ptr %124, align 8
   %186 = load ptr, ptr %10, align 8
   %187 = ptrtoint ptr %185 to i64

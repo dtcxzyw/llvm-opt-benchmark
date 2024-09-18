@@ -8017,7 +8017,6 @@ _ZN6Unpack12UnpReadBuf30Ev.exit:                  ; preds = %37
   br label %111
 
 111:                                              ; preds = %.backedge, %59
-  %.0115 = phi i32 [ undef, %59 ], [ %.0115.be, %.backedge ]
   %112 = load i64, ptr %60, align 8
   %113 = load i64, ptr %61, align 8
   %114 = and i64 %113, %112
@@ -8183,7 +8182,6 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit145:          ; preds = %.preheader.preheade
   br label %.backedge
 
 .backedge:                                        ; preds = %607, %598, %472, %474, %.thread254, %_ZN6Unpack17SafePPMDecodeCharEv.exit146, %189, %250, %443, %563, %172, %174, %_ZN6Unpack14ReadEndOfBlockEv.exit, %470
-  %.0115.be = phi i32 [ %.0115, %172 ], [ %.0115, %174 ], [ %176, %.thread254 ], [ %.0115, %_ZN6Unpack17SafePPMDecodeCharEv.exit146 ], [ %.0115, %189 ], [ %.0115, %250 ], [ %.0115, %443 ], [ %.0115, %_ZN6Unpack14ReadEndOfBlockEv.exit ], [ %.0115, %470 ], [ %.0115, %563 ], [ %.0115, %474 ], [ %.0115, %472 ], [ %.0115, %598 ], [ %.0115, %607 ]
   br label %111, !llvm.loop !75
 
 185:                                              ; preds = %168

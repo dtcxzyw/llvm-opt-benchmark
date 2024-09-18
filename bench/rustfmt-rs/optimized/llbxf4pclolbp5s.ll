@@ -29983,15 +29983,15 @@ common.resume:                                    ; preds = %536, %166, %.loopex
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %262, %410
   %265 = phi ptr [ %412, %410 ], [ %252, %262 ]
-  %.promoted.i214.i.i.i.i.i.i.i = phi i64 [ %.promoted.i.i.i.i.i.i.i.i, %410 ], [ %263, %262 ]
+  %.promoted.i213.i.i.i.i.i.i.i = phi i64 [ %.promoted.i.i.i.i.i.i.i.i, %410 ], [ %263, %262 ]
   %266 = phi i64 [ %411, %410 ], [ %250, %262 ]
-  %.sroa.0.0213.i.i.i.i.i.i.i = phi i1 [ true, %410 ], [ false, %262 ]
-  %.sroa.8.0212.i.i.i.i.i.i.i = phi i8 [ %.051201.i.i.i.i.i.i.i, %410 ], [ undef, %262 ]
+  %.sroa.0.0212.i.i.i.i.i.i.i = phi i1 [ true, %410 ], [ false, %262 ]
+  %.sroa.8.0211.i.i.i.i.i.i.i = phi i8 [ %.051201.i.i.i.i.i.i.i, %410 ], [ undef, %262 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4489)
   br label %267
 
 267:                                              ; preds = %271, %.lr.ph.i.i.i.i.i.i.i.i
-  %268 = phi i64 [ %.promoted.i214.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %272, %271 ]
+  %268 = phi i64 [ %.promoted.i213.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %272, %271 ]
   %269 = getelementptr inbounds [0 x i8], ptr %265, i64 0, i64 %268
   %270 = load i8, ptr %269, align 1, !noalias !4492, !noundef !5
   switch i8 %270, label %274 [
@@ -30200,7 +30200,7 @@ common.resume:                                    ; preds = %536, %166, %.loopex
   br i1 %331, label %.loopexit164.i.i.i.i.i.i.i, label %.loopexit128.i
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h99a5230ca9e7de78E.exit.i.i.i.i.i.i.i": ; preds = %267, %267
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h7edd1940bf760996E.llvm.6776338100628702967"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %.sroa.0.0213.i.i.i.i.i.i.i, i8 %.sroa.8.0212.i.i.i.i.i.i.i)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h7edd1940bf760996E.llvm.6776338100628702967"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %.sroa.0.0212.i.i.i.i.i.i.i, i8 %.sroa.8.0211.i.i.i.i.i.i.i)
           to label %.noexc49.i unwind label %.loopexit.i, !noalias !4388
 
 .noexc49.i:                                       ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h99a5230ca9e7de78E.exit.i.i.i.i.i.i.i"
@@ -30228,7 +30228,7 @@ common.resume:                                    ; preds = %536, %166, %.loopex
   br i1 %338, label %.loopexit164.i.i.i.i.i.i.i, label %.loopexit128.i
 
 .loopexit164.i.i.i.i.i.i.i:                       ; preds = %310, %294, %278, %.noexc51.i, %.noexc48.i, %.noexc47.i
-  br i1 %.sroa.0.0213.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %339
+  br i1 %.sroa.0.0212.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %339
 
 339:                                              ; preds = %.loopexit164.i.i.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4577)
@@ -30249,7 +30249,7 @@ common.resume:                                    ; preds = %536, %166, %.loopex
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %341, %.loopexit164.i.i.i.i.i.i.i, %.noexc49.i
   %.053.ph.i.i.i.i.i.i.i = phi i1 [ false, %.noexc49.i ], [ true, %.loopexit164.i.i.i.i.i.i.i ], [ true, %341 ]
-  %.051.ph.i.i.i.i.i.i.i = phi i8 [ %270, %.noexc49.i ], [ %.sroa.8.0212.i.i.i.i.i.i.i, %.loopexit164.i.i.i.i.i.i.i ], [ %347, %341 ]
+  %.051.ph.i.i.i.i.i.i.i = phi i8 [ %270, %.noexc49.i ], [ %.sroa.8.0211.i.i.i.i.i.i.i, %.loopexit164.i.i.i.i.i.i.i ], [ %347, %341 ]
   %348 = load i64, ptr %64, align 8, !alias.scope !4488, !noalias !4388, !noundef !5
   %.promoted.i100199.i.i.i.i.i.i.i = load i64, ptr %63, align 8, !alias.scope !4488, !noalias !4388
   %349 = icmp ult i64 %.promoted.i100199.i.i.i.i.i.i.i, %348

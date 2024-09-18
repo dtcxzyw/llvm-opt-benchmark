@@ -13378,8 +13378,8 @@ _ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit:       ; preds = %219
   %226 = getelementptr inbounds %"class.llvm::DWARFDebugInfoEntry", ptr %203, i64 %225
   store ptr %spec.select.i6.i, ptr %29, align 8
   store ptr %226, ptr %74, align 8
-  %.not172 = icmp eq ptr %203, null
-  br i1 %.not172, label %227, label %234
+  %.not170 = icmp eq ptr %203, null
+  br i1 %.not170, label %227, label %234
 
 227:                                              ; preds = %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit.thread, %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit
   store i64 0, ptr %98, align 8
@@ -13504,13 +13504,13 @@ _ZNSt8functionIFvvEED2Ev.exit62:                  ; preds = %258, %261
   %263 = load i32, ptr %13, align 4
   %264 = add i32 %263, 1
   store i32 %264, ptr %13, align 4
-  %.pre169 = load ptr, ptr %74, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre169, i64 16
-  %.pre170 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre167 = load ptr, ptr %74, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre167, i64 16
+  %.pre168 = load ptr, ptr %.phi.trans.insert, align 8
   br label %265
 
 265:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit62, %_ZNK4llvm8DWARFDie6getTagEv.exit
-  %266 = phi ptr [ %.pre170, %_ZNSt8functionIFvvEED2Ev.exit62 ], [ %251, %_ZNK4llvm8DWARFDie6getTagEv.exit ]
+  %266 = phi ptr [ %.pre168, %_ZNSt8functionIFvvEED2Ev.exit62 ], [ %251, %_ZNK4llvm8DWARFDie6getTagEv.exit ]
   %.not.i63 = icmp eq ptr %266, null
   br i1 %.not.i63, label %_ZNK4llvm8DWARFDie6getTagEv.exit68, label %_ZNK4llvm8DWARFDie6getTagEv.exit65
 

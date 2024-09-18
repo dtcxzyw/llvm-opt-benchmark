@@ -2245,13 +2245,13 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   br label %69
 
 .loopexit.sink.split:                             ; preds = %89, %57
-  %.lcssa374.sink = phi ptr [ %56, %57 ], [ %91, %89 ]
-  %.lcssa373.sink = phi i64 [ %47, %57 ], [ %82, %89 ]
+  %.lcssa370.sink = phi ptr [ %56, %57 ], [ %91, %89 ]
+  %.lcssa369.sink = phi i64 [ %47, %57 ], [ %82, %89 ]
   %.1171.ph = phi i32 [ %27, %57 ], [ %60, %89 ]
-  %95 = getelementptr i8, ptr %.lcssa374.sink, i64 1
+  %95 = getelementptr i8, ptr %.lcssa370.sink, i64 1
   %96 = ptrtoint ptr %95 to i64
   %.neg = sub i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64), %96
-  %97 = add i64 %.neg, %.lcssa373.sink
+  %97 = add i64 %.neg, %.lcssa369.sink
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %95, i64 %97, i1 false)
   br label %.loopexit
 
@@ -2266,9 +2266,9 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %103 = getelementptr inbounds i8, ptr %7, i64 32
   br label %.outer
 
-.outer:                                           ; preds = %._crit_edge286, %.loopexit
-  %.0172.ph = phi i64 [ %.1173.lcssa, %._crit_edge286 ], [ 0, %.loopexit ]
-  %.4.ph = phi i64 [ %.6, %._crit_edge286 ], [ %.2, %.loopexit ]
+.outer:                                           ; preds = %._crit_edge285, %.loopexit
+  %.0172.ph = phi i64 [ %.1173.lcssa, %._crit_edge285 ], [ 0, %.loopexit ]
+  %.4.ph = phi i64 [ %.6, %._crit_edge285 ], [ %.2, %.loopexit ]
   %104 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.4.ph
   %105 = shl i64 %.4.ph, 32
   %sext217 = sub i64 281470681743360, %105
@@ -2308,17 +2308,17 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 thread-pre-split:                                 ; preds = %116
   %.pr = load i32, ptr @endless_loop, align 4
   %.not219280 = icmp eq i32 %.pr, 0
-  br i1 %.not219280, label %._crit_edge286, label %.lr.ph285
+  br i1 %.not219280, label %._crit_edge285, label %.lr.ph284
 
-.lr.ph285:                                        ; preds = %thread-pre-split, %._crit_edge
-  %.0168284 = phi i64 [ 0, %._crit_edge ], [ %111, %thread-pre-split ]
-  %.5283 = phi i64 [ %240, %._crit_edge ], [ %.4.ph, %thread-pre-split ]
-  %.1173282 = phi i64 [ %.2174, %._crit_edge ], [ %.0172.ph, %thread-pre-split ]
-  %120 = add i64 %.0168284, %.5283
+.lr.ph284:                                        ; preds = %thread-pre-split, %._crit_edge
+  %.0168283 = phi i64 [ 0, %._crit_edge ], [ %111, %thread-pre-split ]
+  %.5282 = phi i64 [ %240, %._crit_edge ], [ %.4.ph, %thread-pre-split ]
+  %.1173281 = phi i64 [ %.2174, %._crit_edge ], [ %.0172.ph, %thread-pre-split ]
+  %120 = add i64 %.0168283, %.5282
   %121 = icmp sgt i64 %120, 0
-  br i1 %121, label %122, label %._crit_edge286
+  br i1 %121, label %122, label %._crit_edge285
 
-122:                                              ; preds = %.lr.ph285
+122:                                              ; preds = %.lr.ph284
   %123 = call i64 @g_ascii_strtoll(ptr noundef nonnull getelementptr inbounds (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), ptr noundef nonnull %5, i32 noundef 16) #16
   %124 = icmp eq i64 %123, 1
   %125 = icmp ugt i64 %120, 3
@@ -2461,14 +2461,14 @@ thread-pre-split:                                 ; preds = %116
   %202 = add i64 %201, %198
   %203 = add i64 %202, %200
   %204 = icmp slt i64 %120, %203
-  br i1 %204, label %._crit_edge286, label %205
+  br i1 %204, label %._crit_edge285, label %205
 
 205:                                              ; preds = %195
   %206 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @capture_android_bluetooth_hcidump.data, ptr noundef nonnull @.str.185, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %101, ptr noundef nonnull %102, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #16
   %207 = icmp eq i32 %206, 8
-  br i1 %207, label %208, label %._crit_edge335
+  br i1 %207, label %208, label %._crit_edge331
 
-._crit_edge335:                                   ; preds = %205
+._crit_edge331:                                   ; preds = %205
   %.pre = load ptr, ptr %5, align 8
   br label %214
 
@@ -2484,9 +2484,9 @@ thread-pre-split:                                 ; preds = %116
   store ptr getelementptr inbounds (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), ptr %5, align 8
   br label %214
 
-214:                                              ; preds = %._crit_edge335, %208
-  %215 = phi ptr [ getelementptr inbounds (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), %208 ], [ %.pre, %._crit_edge335 ]
-  %.2174 = phi i64 [ %213, %208 ], [ %.1173282, %._crit_edge335 ]
+214:                                              ; preds = %._crit_edge331, %208
+  %215 = phi ptr [ getelementptr inbounds (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), %208 ], [ %.pre, %._crit_edge331 ]
+  %.2174 = phi i64 [ %213, %208 ], [ %.1173281, %._crit_edge331 ]
   %216 = ptrtoint ptr %215 to i64
   %217 = add i64 %216, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
   %218 = icmp slt i64 %217, %203
@@ -2527,11 +2527,11 @@ thread-pre-split:                                 ; preds = %116
   %239 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %203
   %240 = sub i64 %120, %203
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %239, i64 %240, i1 false)
-  br i1 %237, label %.lr.ph285, label %._crit_edge286, !llvm.loop !20
+  br i1 %237, label %.lr.ph284, label %._crit_edge285, !llvm.loop !20
 
-._crit_edge286:                                   ; preds = %._crit_edge, %.lr.ph285, %195, %thread-pre-split
-  %.1173.lcssa = phi i64 [ %.0172.ph, %thread-pre-split ], [ %.1173282, %195 ], [ %.1173282, %.lr.ph285 ], [ %.2174, %._crit_edge ]
-  %.6 = phi i64 [ %.4.ph, %thread-pre-split ], [ %120, %195 ], [ %120, %.lr.ph285 ], [ %240, %._crit_edge ]
+._crit_edge285:                                   ; preds = %._crit_edge, %.lr.ph284, %195, %thread-pre-split
+  %.1173.lcssa = phi i64 [ %.0172.ph, %thread-pre-split ], [ %.1173281, %195 ], [ %.1173281, %.lr.ph284 ], [ %.2174, %._crit_edge ]
+  %.6 = phi i64 [ %.4.ph, %thread-pre-split ], [ %120, %195 ], [ %120, %.lr.ph284 ], [ %240, %._crit_edge ]
   br label %.outer, !llvm.loop !21
 
 241:                                              ; preds = %107

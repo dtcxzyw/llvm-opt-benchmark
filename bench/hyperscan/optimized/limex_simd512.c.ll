@@ -1036,11 +1036,11 @@ if.end9:                                          ; preds = %if.end4
   %36 = load i64, ptr %location, align 8
   %add = add i64 %36, %35
   %add16 = add i64 %35, %end
-  %storemerge501 = add i32 %28, 1
-  store i32 %storemerge501, ptr %cur, align 8
-  %cmp20502 = icmp ult i32 %storemerge501, %29
-  %cmp22503 = icmp ule i64 %add, %add16
-  %37 = select i1 %cmp20502, i1 %cmp22503, i1 false
+  %storemerge489 = add i32 %28, 1
+  store i32 %storemerge489, ptr %cur, align 8
+  %cmp20490 = icmp ult i32 %storemerge489, %29
+  %cmp22491 = icmp ule i64 %add, %add16
+  %37 = select i1 %cmp20490, i1 %cmp22491, i1 false
   br i1 %37, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end9
@@ -1133,35 +1133,35 @@ while.body.lr.ph:                                 ; preds = %if.end9
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %nfaExecLimEx512_HandleEvent.exit
-  %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i = phi <2 x i64> [ %ctx.sroa.33.0.copyload, %while.body.lr.ph ], [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i614, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i = phi <2 x i64> [ %ctx.sroa.23.0.copyload, %while.body.lr.ph ], [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i611, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i = phi <2 x i64> [ %ctx.sroa.13.0.copyload, %while.body.lr.ph ], [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i608, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i = phi <2 x i64> [ %ctx.sroa.0.0.copyload, %while.body.lr.ph ], [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i605, %nfaExecLimEx512_HandleEvent.exit ]
-  %storemerge519 = phi i32 [ %storemerge501, %while.body.lr.ph ], [ %storemerge, %nfaExecLimEx512_HandleEvent.exit ]
-  %sp.0518 = phi i64 [ %add, %while.body.lr.ph ], [ %cond, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.85.0517 = phi <2 x i64> [ zeroinitializer, %while.body.lr.ph ], [ %ctx.sroa.85.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.95.0516 = phi <2 x i64> [ zeroinitializer, %while.body.lr.ph ], [ %ctx.sroa.95.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.102.0515 = phi <2 x i64> [ zeroinitializer, %while.body.lr.ph ], [ %ctx.sroa.102.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.109.0514 = phi <2 x i64> [ zeroinitializer, %while.body.lr.ph ], [ %ctx.sroa.109.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.131.0513 = phi i8 [ 0, %while.body.lr.ph ], [ %ctx.sroa.131.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.138.0512 = phi ptr [ undef, %while.body.lr.ph ], [ %ctx.sroa.138.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.116.sroa.0.0507 = phi <2 x i64> [ undef, %while.body.lr.ph ], [ %ctx.sroa.116.sroa.0.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.116.sroa.6.0506 = phi <2 x i64> [ undef, %while.body.lr.ph ], [ %ctx.sroa.116.sroa.6.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.116.sroa.9.0505 = phi <2 x i64> [ undef, %while.body.lr.ph ], [ %ctx.sroa.116.sroa.9.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.116.sroa.12.0504 = phi <2 x i64> [ undef, %while.body.lr.ph ], [ %ctx.sroa.116.sroa.12.1, %nfaExecLimEx512_HandleEvent.exit ]
-  %idxprom26 = zext i32 %storemerge519 to i64
+  %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i = phi <2 x i64> [ %ctx.sroa.33.0.copyload, %while.body.lr.ph ], [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i586, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i = phi <2 x i64> [ %ctx.sroa.23.0.copyload, %while.body.lr.ph ], [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i583, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i = phi <2 x i64> [ %ctx.sroa.13.0.copyload, %while.body.lr.ph ], [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i580, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i = phi <2 x i64> [ %ctx.sroa.0.0.copyload, %while.body.lr.ph ], [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i577, %nfaExecLimEx512_HandleEvent.exit ]
+  %storemerge503 = phi i32 [ %storemerge489, %while.body.lr.ph ], [ %storemerge, %nfaExecLimEx512_HandleEvent.exit ]
+  %sp.0502 = phi i64 [ %add, %while.body.lr.ph ], [ %cond, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.85.0501 = phi <2 x i64> [ zeroinitializer, %while.body.lr.ph ], [ %ctx.sroa.85.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.95.0500 = phi <2 x i64> [ zeroinitializer, %while.body.lr.ph ], [ %ctx.sroa.95.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.102.0499 = phi <2 x i64> [ zeroinitializer, %while.body.lr.ph ], [ %ctx.sroa.102.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.109.0498 = phi <2 x i64> [ zeroinitializer, %while.body.lr.ph ], [ %ctx.sroa.109.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.131.0497 = phi i8 [ 0, %while.body.lr.ph ], [ %ctx.sroa.131.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.138.0496 = phi ptr [ undef, %while.body.lr.ph ], [ %ctx.sroa.138.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.116.sroa.0.0495 = phi <2 x i64> [ undef, %while.body.lr.ph ], [ %ctx.sroa.116.sroa.0.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.116.sroa.6.0494 = phi <2 x i64> [ undef, %while.body.lr.ph ], [ %ctx.sroa.116.sroa.6.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.116.sroa.9.0493 = phi <2 x i64> [ undef, %while.body.lr.ph ], [ %ctx.sroa.116.sroa.9.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.116.sroa.12.0492 = phi <2 x i64> [ undef, %while.body.lr.ph ], [ %ctx.sroa.116.sroa.12.1, %nfaExecLimEx512_HandleEvent.exit ]
+  %idxprom26 = zext i32 %storemerge503 to i64
   %location28 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom26, i32 1
   %38 = load i64, ptr %location28, align 8
   %add29 = add i64 %38, %35
   %cond = call i64 @llvm.umin.i64(i64 %add29, i64 %add16)
-  %cmp32.not = icmp ult i64 %sp.0518, %cond
+  %cmp32.not = icmp ult i64 %sp.0502, %cond
   br i1 %cmp32.not, label %do.end37, label %scan_done
 
 do.end37:                                         ; preds = %while.body
   %39 = load ptr, ptr %buffer, align 8
-  %add.ptr38 = getelementptr inbounds i8, ptr %39, i64 %sp.0518
+  %add.ptr38 = getelementptr inbounds i8, ptr %39, i64 %sp.0502
   %add.ptr39 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.neg
-  %sub = sub nuw i64 %cond, %sp.0518
+  %sub = sub nuw i64 %cond, %sp.0502
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %chunks.i3625.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %emask_chunks.i3626.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %base_index.i3627.i)
@@ -1189,16 +1189,16 @@ do.end37:                                         ; preds = %while.body
 
 without_accel.i.i:                                ; preds = %if.end39.i.i.without_accel.i.i_crit_edge, %do.end37
   %44 = phi i32 [ %42, %do.end37 ], [ %.pre, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.116.sroa.12.6 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.0504, %do.end37 ], [ %ctx.sroa.116.sroa.12.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.116.sroa.9.6 = phi <2 x i64> [ %ctx.sroa.116.sroa.9.0505, %do.end37 ], [ %ctx.sroa.116.sroa.9.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.116.sroa.6.6 = phi <2 x i64> [ %ctx.sroa.116.sroa.6.0506, %do.end37 ], [ %ctx.sroa.116.sroa.6.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.116.sroa.0.6 = phi <2 x i64> [ %ctx.sroa.116.sroa.0.0507, %do.end37 ], [ %ctx.sroa.116.sroa.0.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.138.6 = phi ptr [ %ctx.sroa.138.0512, %do.end37 ], [ %ctx.sroa.138.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.131.6 = phi i8 [ %ctx.sroa.131.0513, %do.end37 ], [ %ctx.sroa.131.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.109.6 = phi <2 x i64> [ %ctx.sroa.109.0514, %do.end37 ], [ %ctx.sroa.109.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.102.6 = phi <2 x i64> [ %ctx.sroa.102.0515, %do.end37 ], [ %ctx.sroa.102.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.95.6 = phi <2 x i64> [ %ctx.sroa.95.0516, %do.end37 ], [ %ctx.sroa.95.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
-  %ctx.sroa.85.6 = phi <2 x i64> [ %ctx.sroa.85.0517, %do.end37 ], [ %ctx.sroa.85.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.116.sroa.12.6 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.0492, %do.end37 ], [ %ctx.sroa.116.sroa.12.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.116.sroa.9.6 = phi <2 x i64> [ %ctx.sroa.116.sroa.9.0493, %do.end37 ], [ %ctx.sroa.116.sroa.9.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.116.sroa.6.6 = phi <2 x i64> [ %ctx.sroa.116.sroa.6.0494, %do.end37 ], [ %ctx.sroa.116.sroa.6.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.116.sroa.0.6 = phi <2 x i64> [ %ctx.sroa.116.sroa.0.0495, %do.end37 ], [ %ctx.sroa.116.sroa.0.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.138.6 = phi ptr [ %ctx.sroa.138.0496, %do.end37 ], [ %ctx.sroa.138.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.131.6 = phi i8 [ %ctx.sroa.131.0497, %do.end37 ], [ %ctx.sroa.131.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.109.6 = phi <2 x i64> [ %ctx.sroa.109.0498, %do.end37 ], [ %ctx.sroa.109.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.102.6 = phi <2 x i64> [ %ctx.sroa.102.0499, %do.end37 ], [ %ctx.sroa.102.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.95.6 = phi <2 x i64> [ %ctx.sroa.95.0500, %do.end37 ], [ %ctx.sroa.95.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
+  %ctx.sroa.85.6 = phi <2 x i64> [ %ctx.sroa.85.0501, %do.end37 ], [ %ctx.sroa.85.3, %if.end39.i.i.without_accel.i.i_crit_edge ]
   %i.i.0.i = phi i64 [ 0, %do.end37 ], [ %call.i.i, %if.end39.i.i.without_accel.i.i_crit_edge ]
   %s.i.sroa.0.0.i = phi <2 x i64> [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i, %do.end37 ], [ %s.i.sroa.0.6.i, %if.end39.i.i.without_accel.i.i_crit_edge ]
   %s.i.sroa.22.0.i = phi <2 x i64> [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i, %do.end37 ], [ %s.i.sroa.22.6.i, %if.end39.i.i.without_accel.i.i_crit_edge ]
@@ -1210,11 +1210,11 @@ without_accel.i.i:                                ; preds = %if.end39.i.i.withou
   %tobool7.i.not.i = icmp eq i32 %and.i.i219, 0
   %idx.ext.i363.i = zext i32 %44 to i64
   %add.ptr.i364.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i363.i
-  %cmp.i366.not2175.i = icmp eq i64 %i.i.0.i, %min_accel_offset.i.0.i
+  %cmp.i366.not2129.i = icmp eq i64 %i.i.0.i, %min_accel_offset.i.0.i
   br i1 %tobool7.i.not.i, label %if.else13.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %without_accel.i.i
-  br i1 %cmp.i366.not2175.i, label %with_accel.i.i, label %if.end.i43.lr.ph.i
+  br i1 %cmp.i366.not2129.i, label %with_accel.i.i, label %if.end.i43.lr.ph.i
 
 if.end.i43.lr.ph.i:                               ; preds = %if.then8.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %shift.i44.i, i64 16) ], !noalias !114
@@ -1238,21 +1238,21 @@ if.end.i43.i:                                     ; preds = %if.end84.i.i, %if.e
   %ctx.sroa.102.7 = phi <2 x i64> [ %ctx.sroa.102.6, %if.end.i43.lr.ph.i ], [ %ctx.sroa.102.8, %if.end84.i.i ]
   %ctx.sroa.95.7 = phi <2 x i64> [ %ctx.sroa.95.6, %if.end.i43.lr.ph.i ], [ %ctx.sroa.95.8, %if.end84.i.i ]
   %ctx.sroa.85.7 = phi <2 x i64> [ %ctx.sroa.85.6, %if.end.i43.lr.ph.i ], [ %ctx.sroa.85.8, %if.end84.i.i ]
-  %s.i25.sroa.15.02163.i = phi <2 x i64> [ %s.i.sroa.58.0.i, %if.end.i43.lr.ph.i ], [ %and.i7282.i, %if.end84.i.i ]
-  %s.i25.sroa.14.02162.i = phi <2 x i64> [ %s.i.sroa.40.0.i, %if.end.i43.lr.ph.i ], [ %and.i7279.i, %if.end84.i.i ]
-  %s.i25.sroa.13.02161.i = phi <2 x i64> [ %s.i.sroa.22.0.i, %if.end.i43.lr.ph.i ], [ %and.i7288.i, %if.end84.i.i ]
-  %s.i25.sroa.0.02160.i = phi <2 x i64> [ %s.i.sroa.0.0.i, %if.end.i43.lr.ph.i ], [ %and.i7285.i, %if.end84.i.i ]
-  %i.i26.02159.i = phi i64 [ %i.i.0.i, %if.end.i43.lr.ph.i ], [ %inc.i52.i, %if.end84.i.i ]
+  %s.i25.sroa.15.02119.i = phi <2 x i64> [ %s.i.sroa.58.0.i, %if.end.i43.lr.ph.i ], [ %and.i7282.i, %if.end84.i.i ]
+  %s.i25.sroa.14.02118.i = phi <2 x i64> [ %s.i.sroa.40.0.i, %if.end.i43.lr.ph.i ], [ %and.i7279.i, %if.end84.i.i ]
+  %s.i25.sroa.13.02117.i = phi <2 x i64> [ %s.i.sroa.22.0.i, %if.end.i43.lr.ph.i ], [ %and.i7288.i, %if.end84.i.i ]
+  %s.i25.sroa.0.02116.i = phi <2 x i64> [ %s.i.sroa.0.0.i, %if.end.i43.lr.ph.i ], [ %and.i7285.i, %if.end84.i.i ]
+  %i.i26.02115.i = phi i64 [ %i.i.0.i, %if.end.i43.lr.ph.i ], [ %inc.i52.i, %if.end84.i.i ]
   %46 = load <2 x i64>, ptr %add.ptr.i5189.i, align 16, !noalias !114
   %47 = load <2 x i64>, ptr %add.ptr.i119.i.i, align 16, !noalias !117
   %48 = load <2 x i64>, ptr %add.ptr.i5184.i, align 16, !noalias !117
-  %and.i7300.i = and <2 x i64> %46, %s.i25.sroa.13.02161.i
-  %and.i7291.i = and <2 x i64> %47, %s.i25.sroa.14.02162.i
-  %and.i7294.i = and <2 x i64> %48, %s.i25.sroa.15.02163.i
+  %and.i7300.i = and <2 x i64> %46, %s.i25.sroa.13.02117.i
+  %and.i7291.i = and <2 x i64> %47, %s.i25.sroa.14.02118.i
+  %and.i7294.i = and <2 x i64> %48, %s.i25.sroa.15.02119.i
   %49 = load i8, ptr %shiftAmount.i45.i, align 4
   %conv8.i.i = zext i8 %49 to i32
   %50 = load <2 x i64>, ptr %shift.i44.i, align 16, !noalias !114
-  %and.i7297.i = and <2 x i64> %50, %s.i25.sroa.0.02160.i
+  %and.i7297.i = and <2 x i64> %50, %s.i25.sroa.0.02116.i
   %vecinit3.i2689.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv8.i.i, i64 0
   %51 = bitcast <4 x i32> %vecinit3.i2689.i to <2 x i64>
   %52 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7297.i, <2 x i64> %51)
@@ -1285,12 +1285,12 @@ sw.bb.i55.i:                                      ; preds = %if.end.i43.i
   %62 = load <2 x i64>, ptr %add.ptr.i116.i.i, align 16, !noalias !129
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094.i, i64 16) ], !noalias !129
   %63 = load <2 x i64>, ptr %add.ptr.i5094.i, align 16, !noalias !129
-  %and.i7204.i = and <2 x i64> %61, %s.i25.sroa.13.02161.i
-  %and.i7195.i = and <2 x i64> %62, %s.i25.sroa.14.02162.i
-  %and.i7198.i = and <2 x i64> %63, %s.i25.sroa.15.02163.i
+  %and.i7204.i = and <2 x i64> %61, %s.i25.sroa.13.02117.i
+  %and.i7195.i = and <2 x i64> %62, %s.i25.sroa.14.02118.i
+  %and.i7198.i = and <2 x i64> %63, %s.i25.sroa.15.02119.i
   %64 = load i8, ptr %arrayidx16.i.i, align 1
   %conv17.i.i = zext i8 %64 to i32
-  %and.i7201.i = and <2 x i64> %60, %s.i25.sroa.0.02160.i
+  %and.i7201.i = and <2 x i64> %60, %s.i25.sroa.0.02116.i
   %vecinit3.i2857.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv17.i.i, i64 0
   %65 = bitcast <4 x i32> %vecinit3.i2857.i to <2 x i64>
   %66 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7201.i, <2 x i64> %65)
@@ -1322,12 +1322,12 @@ sw.bb18.i.i:                                      ; preds = %sw.bb.i55.i, %if.en
   %75 = load <2 x i64>, ptr %add.ptr.i113.i.i, align 16, !noalias !135
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104.i, i64 16) ], !noalias !135
   %76 = load <2 x i64>, ptr %add.ptr.i5104.i, align 16, !noalias !135
-  %and.i7216.i = and <2 x i64> %74, %s.i25.sroa.13.02161.i
-  %and.i7207.i = and <2 x i64> %75, %s.i25.sroa.14.02162.i
-  %and.i7210.i = and <2 x i64> %76, %s.i25.sroa.15.02163.i
+  %and.i7216.i = and <2 x i64> %74, %s.i25.sroa.13.02117.i
+  %and.i7207.i = and <2 x i64> %75, %s.i25.sroa.14.02118.i
+  %and.i7210.i = and <2 x i64> %76, %s.i25.sroa.15.02119.i
   %77 = load i8, ptr %arrayidx26.i.i, align 2
   %conv27.i.i = zext i8 %77 to i32
-  %and.i7213.i = and <2 x i64> %73, %s.i25.sroa.0.02160.i
+  %and.i7213.i = and <2 x i64> %73, %s.i25.sroa.0.02116.i
   %vecinit3.i2833.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv27.i.i, i64 0
   %78 = bitcast <4 x i32> %vecinit3.i2833.i to <2 x i64>
   %79 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7213.i, <2 x i64> %78)
@@ -1359,12 +1359,12 @@ sw.bb28.i.i:                                      ; preds = %sw.bb18.i.i, %if.en
   %88 = load <2 x i64>, ptr %add.ptr.i110.i.i, align 16, !noalias !141
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114.i, i64 16) ], !noalias !141
   %89 = load <2 x i64>, ptr %add.ptr.i5114.i, align 16, !noalias !141
-  %and.i7228.i = and <2 x i64> %87, %s.i25.sroa.13.02161.i
-  %and.i7219.i = and <2 x i64> %88, %s.i25.sroa.14.02162.i
-  %and.i7222.i = and <2 x i64> %89, %s.i25.sroa.15.02163.i
+  %and.i7228.i = and <2 x i64> %87, %s.i25.sroa.13.02117.i
+  %and.i7219.i = and <2 x i64> %88, %s.i25.sroa.14.02118.i
+  %and.i7222.i = and <2 x i64> %89, %s.i25.sroa.15.02119.i
   %90 = load i8, ptr %arrayidx36.i.i, align 1
   %conv37.i.i = zext i8 %90 to i32
-  %and.i7225.i = and <2 x i64> %86, %s.i25.sroa.0.02160.i
+  %and.i7225.i = and <2 x i64> %86, %s.i25.sroa.0.02116.i
   %vecinit3.i2809.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv37.i.i, i64 0
   %91 = bitcast <4 x i32> %vecinit3.i2809.i to <2 x i64>
   %92 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7225.i, <2 x i64> %91)
@@ -1396,12 +1396,12 @@ sw.bb38.i.i:                                      ; preds = %sw.bb28.i.i, %if.en
   %101 = load <2 x i64>, ptr %add.ptr.i107.i.i, align 16, !noalias !147
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124.i, i64 16) ], !noalias !147
   %102 = load <2 x i64>, ptr %add.ptr.i5124.i, align 16, !noalias !147
-  %and.i7240.i = and <2 x i64> %100, %s.i25.sroa.13.02161.i
-  %and.i7231.i = and <2 x i64> %101, %s.i25.sroa.14.02162.i
-  %and.i7234.i = and <2 x i64> %102, %s.i25.sroa.15.02163.i
+  %and.i7240.i = and <2 x i64> %100, %s.i25.sroa.13.02117.i
+  %and.i7231.i = and <2 x i64> %101, %s.i25.sroa.14.02118.i
+  %and.i7234.i = and <2 x i64> %102, %s.i25.sroa.15.02119.i
   %103 = load i8, ptr %arrayidx46.i.i, align 4
   %conv47.i.i = zext i8 %103 to i32
-  %and.i7237.i = and <2 x i64> %99, %s.i25.sroa.0.02160.i
+  %and.i7237.i = and <2 x i64> %99, %s.i25.sroa.0.02116.i
   %vecinit3.i2785.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv47.i.i, i64 0
   %104 = bitcast <4 x i32> %vecinit3.i2785.i to <2 x i64>
   %105 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7237.i, <2 x i64> %104)
@@ -1433,12 +1433,12 @@ sw.bb48.i.i:                                      ; preds = %sw.bb38.i.i, %if.en
   %114 = load <2 x i64>, ptr %add.ptr.i104.i.i, align 16, !noalias !153
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134.i, i64 16) ], !noalias !153
   %115 = load <2 x i64>, ptr %add.ptr.i5134.i, align 16, !noalias !153
-  %and.i7252.i = and <2 x i64> %113, %s.i25.sroa.13.02161.i
-  %and.i7243.i = and <2 x i64> %114, %s.i25.sroa.14.02162.i
-  %and.i7246.i = and <2 x i64> %115, %s.i25.sroa.15.02163.i
+  %and.i7252.i = and <2 x i64> %113, %s.i25.sroa.13.02117.i
+  %and.i7243.i = and <2 x i64> %114, %s.i25.sroa.14.02118.i
+  %and.i7246.i = and <2 x i64> %115, %s.i25.sroa.15.02119.i
   %116 = load i8, ptr %arrayidx56.i.i, align 1
   %conv57.i.i = zext i8 %116 to i32
-  %and.i7249.i = and <2 x i64> %112, %s.i25.sroa.0.02160.i
+  %and.i7249.i = and <2 x i64> %112, %s.i25.sroa.0.02116.i
   %vecinit3.i2761.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv57.i.i, i64 0
   %117 = bitcast <4 x i32> %vecinit3.i2761.i to <2 x i64>
   %118 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7249.i, <2 x i64> %117)
@@ -1470,12 +1470,12 @@ sw.bb58.i.i:                                      ; preds = %sw.bb48.i.i, %if.en
   %127 = load <2 x i64>, ptr %add.ptr.i101.i.i, align 16, !noalias !159
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144.i, i64 16) ], !noalias !159
   %128 = load <2 x i64>, ptr %add.ptr.i5144.i, align 16, !noalias !159
-  %and.i7264.i = and <2 x i64> %126, %s.i25.sroa.13.02161.i
-  %and.i7255.i = and <2 x i64> %127, %s.i25.sroa.14.02162.i
-  %and.i7258.i = and <2 x i64> %128, %s.i25.sroa.15.02163.i
+  %and.i7264.i = and <2 x i64> %126, %s.i25.sroa.13.02117.i
+  %and.i7255.i = and <2 x i64> %127, %s.i25.sroa.14.02118.i
+  %and.i7258.i = and <2 x i64> %128, %s.i25.sroa.15.02119.i
   %129 = load i8, ptr %arrayidx66.i.i, align 2
   %conv67.i.i = zext i8 %129 to i32
-  %and.i7261.i = and <2 x i64> %125, %s.i25.sroa.0.02160.i
+  %and.i7261.i = and <2 x i64> %125, %s.i25.sroa.0.02116.i
   %vecinit3.i2737.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv67.i.i, i64 0
   %130 = bitcast <4 x i32> %vecinit3.i2737.i to <2 x i64>
   %131 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7261.i, <2 x i64> %130)
@@ -1507,12 +1507,12 @@ sw.bb68.i.i:                                      ; preds = %sw.bb58.i.i, %if.en
   %140 = load <2 x i64>, ptr %add.ptr.i98.i.i, align 16, !noalias !165
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154.i, i64 16) ], !noalias !165
   %141 = load <2 x i64>, ptr %add.ptr.i5154.i, align 16, !noalias !165
-  %and.i7276.i = and <2 x i64> %139, %s.i25.sroa.13.02161.i
-  %and.i7267.i = and <2 x i64> %140, %s.i25.sroa.14.02162.i
-  %and.i7270.i = and <2 x i64> %141, %s.i25.sroa.15.02163.i
+  %and.i7276.i = and <2 x i64> %139, %s.i25.sroa.13.02117.i
+  %and.i7267.i = and <2 x i64> %140, %s.i25.sroa.14.02118.i
+  %and.i7270.i = and <2 x i64> %141, %s.i25.sroa.15.02119.i
   %142 = load i8, ptr %arrayidx76.i.i, align 1
   %conv77.i.i = zext i8 %142 to i32
-  %and.i7273.i = and <2 x i64> %138, %s.i25.sroa.0.02160.i
+  %and.i7273.i = and <2 x i64> %138, %s.i25.sroa.0.02116.i
   %vecinit3.i2713.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv77.i.i, i64 0
   %143 = bitcast <4 x i32> %vecinit3.i2713.i to <2 x i64>
   %144 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7273.i, <2 x i64> %143)
@@ -1540,10 +1540,10 @@ sw.epilog.i47.i:                                  ; preds = %sw.bb68.i.i, %if.en
   %152 = load <2 x i64>, ptr %add.ptr.i5179.i, align 16, !noalias !120
   %153 = load <2 x i64>, ptr %add.ptr.i95.i.i, align 16, !noalias !123
   %154 = load <2 x i64>, ptr %add.ptr.i5174.i, align 16, !noalias !123
-  %and.i7057.i = and <2 x i64> %151, %s.i25.sroa.0.02160.i
-  %and.i7060.i = and <2 x i64> %152, %s.i25.sroa.13.02161.i
-  %and.i7051.i = and <2 x i64> %153, %s.i25.sroa.14.02162.i
-  %and.i7054.i = and <2 x i64> %154, %s.i25.sroa.15.02163.i
+  %and.i7057.i = and <2 x i64> %151, %s.i25.sroa.0.02116.i
+  %and.i7060.i = and <2 x i64> %152, %s.i25.sroa.13.02117.i
+  %and.i7051.i = and <2 x i64> %153, %s.i25.sroa.14.02118.i
+  %and.i7054.i = and <2 x i64> %154, %s.i25.sroa.15.02119.i
   %155 = bitcast <2 x i64> %and.i7057.i to <4 x i32>
   %cmp.i3863.i = icmp eq <4 x i32> %155, zeroinitializer
   %sext.i3864.i = sext <4 x i1> %cmp.i3863.i to <4 x i32>
@@ -1570,8 +1570,8 @@ sw.epilog.i47.i:                                  ; preds = %sw.bb68.i.i, %if.en
   br i1 %tobool.i847.not.i, label %if.end84.i.i, label %if.end21.i855.i
 
 if.end21.i855.i:                                  ; preds = %sw.epilog.i47.i
-  %tobool6.i871.not.i = icmp eq i64 %i.i26.02159.i, 0
-  %add.i856.i = add i64 %i.i26.02159.i, %sp.0518
+  %tobool6.i871.not.i = icmp eq i64 %i.i26.02115.i, 0
+  %add.i856.i = add i64 %i.i26.02115.i, %sp.0502
   %conv26.i863.i = select i1 %tobool6.i871.not.i, i8 16, i8 1
   %165 = bitcast <2 x i64> %ctx.sroa.85.7 to <16 x i8>
   %166 = bitcast <2 x i64> %and.i7057.i to <16 x i8>
@@ -1613,18 +1613,18 @@ if.then.i3414.i:                                  ; preds = %lor.rhs.i3906.i
 
 if.then3.i3436.i:                                 ; preds = %if.then.i3414.i
   %183 = load i32, ptr %ctx.sroa.138.7, align 4
-  %cmp.i.i3441.not.not2151.i = icmp eq i32 %183, -1
-  br i1 %cmp.i.i3441.not.not2151.i, label %if.end84.i.i, label %for.body.i.i3450.i
+  %cmp.i.i3441.not.not2109.i = icmp eq i32 %183, -1
+  br i1 %cmp.i.i3441.not.not2109.i, label %if.end84.i.i, label %for.body.i.i3450.i
 
 for.cond.i.i3440.i:                               ; preds = %for.body.i.i3450.i
-  %incdec.ptr.i.i3454.i = getelementptr inbounds i8, ptr %reports.addr.i.i3320.02152.i, i64 4
+  %incdec.ptr.i.i3454.i = getelementptr inbounds i8, ptr %reports.addr.i.i3320.02110.i, i64 4
   %184 = load i32, ptr %incdec.ptr.i.i3454.i, align 4
   %cmp.i.i3441.not.not.i = icmp eq i32 %184, -1
   br i1 %cmp.i.i3441.not.not.i, label %if.end84.i.i, label %for.body.i.i3450.i, !llvm.loop !112
 
 for.body.i.i3450.i:                               ; preds = %if.then3.i3436.i, %for.cond.i.i3440.i
   %185 = phi i32 [ %184, %for.cond.i.i3440.i ], [ %183, %if.then3.i3436.i ]
-  %reports.addr.i.i3320.02152.i = phi ptr [ %incdec.ptr.i.i3454.i, %for.cond.i.i3440.i ], [ %ctx.sroa.138.7, %if.then3.i3436.i ]
+  %reports.addr.i.i3320.02110.i = phi ptr [ %incdec.ptr.i.i3454.i, %for.cond.i.i3440.i ], [ %ctx.sroa.138.7, %if.then3.i3436.i ]
   %call.i173.i3451.i = call i32 %33(i64 noundef 0, i64 noundef %add.i856.i, i32 noundef %185, ptr noundef %34) #11
   %cmp1.i.i3452.i = icmp eq i32 %call.i173.i3451.i, 0
   br i1 %cmp1.i.i3452.i, label %if.then44, label %for.cond.i.i3440.i
@@ -1741,11 +1741,11 @@ if.else.i.i4213.i:                                ; preds = %if.then12.i4211.i
 
 if.else5.i.i4215.i:                               ; preds = %if.else.i.i4213.i
   %cmp6.i.i4216.i = icmp ult i32 %200, 384
-  %s.i25.sroa.14.0.s.i25.sroa.15.0.i = select i1 %cmp6.i.i4216.i, <2 x i64> %s.i25.sroa.14.02162.i, <2 x i64> %s.i25.sroa.15.02163.i
+  %s.i25.sroa.14.0.s.i25.sroa.15.0.i = select i1 %cmp6.i.i4216.i, <2 x i64> %s.i25.sroa.14.02118.i, <2 x i64> %s.i25.sroa.15.02119.i
   br label %testbit512.exit.i4222.i
 
 testbit512.exit.i4222.i:                          ; preds = %if.else5.i.i4215.i, %if.else.i.i4213.i, %if.then12.i4211.i
-  %sub.i.i4049.0.i = phi <2 x i64> [ %s.i25.sroa.0.02160.i, %if.then12.i4211.i ], [ %s.i25.sroa.13.02161.i, %if.else.i.i4213.i ], [ %s.i25.sroa.14.0.s.i25.sroa.15.0.i, %if.else5.i.i4215.i ]
+  %sub.i.i4049.0.i = phi <2 x i64> [ %s.i25.sroa.0.02116.i, %if.then12.i4211.i ], [ %s.i25.sroa.13.02117.i, %if.else.i.i4213.i ], [ %s.i25.sroa.14.0.s.i25.sroa.15.0.i, %if.else5.i.i4215.i ]
   %rem.i116.i4224.i = shl i32 %200, 6
   %mul.i.i4225.i = and i32 %rem.i116.i4224.i, 448
   %add.i.i4226.i = add nuw nsw i32 %mul.i.i4225.i, 95
@@ -1907,18 +1907,18 @@ if.then38.i4142.i:                                ; preds = %if.then35.i4129.i
   %idx.ext41.i4144.i = zext i32 %215 to i64
   %add.ptr42.i4145.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext41.i4144.i
   %216 = load i32, ptr %add.ptr42.i4145.i, align 4
-  %cmp.i157.i4149.not.not2154.i = icmp eq i32 %216, -1
-  br i1 %cmp.i157.i4149.not.not2154.i, label %if.end52.i4156.i, label %for.body.i.i4170.i
+  %cmp.i157.i4149.not.not2112.i = icmp eq i32 %216, -1
+  br i1 %cmp.i157.i4149.not.not2112.i, label %if.end52.i4156.i, label %for.body.i.i4170.i
 
 for.cond.i.i4148.i:                               ; preds = %for.body.i.i4170.i
-  %incdec.ptr.i.i4174.i = getelementptr inbounds i8, ptr %reports.addr.i.i4010.02155.i, i64 4
+  %incdec.ptr.i.i4174.i = getelementptr inbounds i8, ptr %reports.addr.i.i4010.02113.i, i64 4
   %217 = load i32, ptr %incdec.ptr.i.i4174.i, align 4
   %cmp.i157.i4149.not.not.i = icmp eq i32 %217, -1
   br i1 %cmp.i157.i4149.not.not.i, label %if.end52.i4156.i, label %for.body.i.i4170.i, !llvm.loop !112
 
 for.body.i.i4170.i:                               ; preds = %if.then38.i4142.i, %for.cond.i.i4148.i
   %218 = phi i32 [ %217, %for.cond.i.i4148.i ], [ %216, %if.then38.i4142.i ]
-  %reports.addr.i.i4010.02155.i = phi ptr [ %incdec.ptr.i.i4174.i, %for.cond.i.i4148.i ], [ %add.ptr42.i4145.i, %if.then38.i4142.i ]
+  %reports.addr.i.i4010.02113.i = phi ptr [ %incdec.ptr.i.i4174.i, %for.cond.i.i4148.i ], [ %add.ptr42.i4145.i, %if.then38.i4142.i ]
   %call.i.i4171.i = call i32 %33(i64 noundef 0, i64 noundef %add.i856.i, i32 noundef %218, ptr noundef %34) #11
   %cmp1.i.i4172.i = icmp eq i32 %call.i.i4171.i, 0
   br i1 %cmp1.i.i4172.i, label %if.then44, label %for.cond.i.i4148.i
@@ -2040,7 +2040,7 @@ if.end84.i.i:                                     ; preds = %for.cond.i.i3440.i,
   %succ.i27.sroa.24.7.ph.i = phi <2 x i64> [ %succ.i27.sroa.24.0.i, %sw.epilog.i47.i ], [ %or.i143.i3499.i, %do.end48.i3494.i ], [ %or.i143.i3499.i, %if.then60.i3514.i ], [ %or.i143.i3499.i, %if.then63.i3518.i ], [ %or.i143.i3499.i, %if.then53.i3523.i ], [ %or.i131.i3419.i, %if.then.i3414.i ], [ %or.i131.i3419.i, %if.then3.i3436.i ], [ %or.i131.i3419.i, %for.cond.i.i3440.i ]
   %succ.i27.sroa.48.7.ph.i = phi <2 x i64> [ %succ.i27.sroa.48.0.i, %sw.epilog.i47.i ], [ %or.i134.i3504.i, %do.end48.i3494.i ], [ %or.i134.i3504.i, %if.then60.i3514.i ], [ %or.i134.i3504.i, %if.then63.i3518.i ], [ %or.i134.i3504.i, %if.then53.i3523.i ], [ %or.i.i3424.i, %if.then.i3414.i ], [ %or.i.i3424.i, %if.then3.i3436.i ], [ %or.i.i3424.i, %for.cond.i.i3440.i ]
   %succ.i27.sroa.72.7.ph.i = phi <2 x i64> [ %succ.i27.sroa.72.0.i, %sw.epilog.i47.i ], [ %or.i137.i3507.i, %do.end48.i3494.i ], [ %or.i137.i3507.i, %if.then60.i3514.i ], [ %or.i137.i3507.i, %if.then63.i3518.i ], [ %or.i137.i3507.i, %if.then53.i3523.i ], [ %or.i125.i3427.i, %if.then.i3414.i ], [ %or.i125.i3427.i, %if.then3.i3436.i ], [ %or.i125.i3427.i, %for.cond.i.i3440.i ]
-  %arrayidx85.i.i = getelementptr inbounds i8, ptr %add.ptr39, i64 %i.i26.02159.i
+  %arrayidx85.i.i = getelementptr inbounds i8, ptr %add.ptr39, i64 %i.i26.02115.i
   %228 = load i8, ptr %arrayidx85.i.i, align 1
   %idxprom.i49.i = zext i8 %228 to i64
   %arrayidx88.i.i = getelementptr inbounds [256 x i8], ptr %add.ptr, i64 0, i64 %idxprom.i49.i
@@ -2062,12 +2062,12 @@ if.end84.i.i:                                     ; preds = %for.cond.i.i3440.i,
   %and.i7288.i = and <2 x i64> %231, %succ.i27.sroa.24.7.ph.i
   %and.i7279.i = and <2 x i64> %232, %succ.i27.sroa.48.7.ph.i
   %and.i7282.i = and <2 x i64> %233, %succ.i27.sroa.72.7.ph.i
-  %inc.i52.i = add i64 %i.i26.02159.i, 1
+  %inc.i52.i = add i64 %i.i26.02115.i, 1
   %cmp.i38.not.not.i = icmp eq i64 %inc.i52.i, %min_accel_offset.i.0.i
   br i1 %cmp.i38.not.not.i, label %with_accel.i.i, label %if.end.i43.i, !llvm.loop !196
 
 if.else13.i.i:                                    ; preds = %without_accel.i.i
-  br i1 %cmp.i366.not2175.i, label %with_accel.i.i, label %land.lhs.true.i569.i
+  br i1 %cmp.i366.not2129.i, label %with_accel.i.i, label %land.lhs.true.i569.i
 
 land.lhs.true.i569.i:                             ; preds = %if.else13.i.i, %if.end84.i388.i
   %ctx.sroa.116.sroa.12.9 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.12.6, %if.else13.i.i ]
@@ -2080,14 +2080,14 @@ land.lhs.true.i569.i:                             ; preds = %if.else13.i.i, %if.
   %ctx.sroa.102.9 = phi <2 x i64> [ %ctx.sroa.102.10, %if.end84.i388.i ], [ %ctx.sroa.102.6, %if.else13.i.i ]
   %ctx.sroa.95.9 = phi <2 x i64> [ %ctx.sroa.95.10, %if.end84.i388.i ], [ %ctx.sroa.95.6, %if.else13.i.i ]
   %ctx.sroa.85.9 = phi <2 x i64> [ %ctx.sroa.85.10, %if.end84.i388.i ], [ %ctx.sroa.85.6, %if.else13.i.i ]
-  %s.i323.sroa.15.02182.i = phi <2 x i64> [ %and.i7174.i, %if.end84.i388.i ], [ %s.i.sroa.58.0.i, %if.else13.i.i ]
-  %s.i323.sroa.14.02181.i = phi <2 x i64> [ %and.i7171.i, %if.end84.i388.i ], [ %s.i.sroa.40.0.i, %if.else13.i.i ]
-  %s.i323.sroa.13.02180.i = phi <2 x i64> [ %and.i7180.i, %if.end84.i388.i ], [ %s.i.sroa.22.0.i, %if.else13.i.i ]
-  %s.i323.sroa.0.02179.i = phi <2 x i64> [ %and.i7177.i, %if.end84.i388.i ], [ %s.i.sroa.0.0.i, %if.else13.i.i ]
-  %i.i324.02178.i = phi i64 [ %inc.i399.i, %if.end84.i388.i ], [ %i.i.0.i, %if.else13.i.i ]
-  %or.i420.i575.i = or <2 x i64> %s.i323.sroa.14.02181.i, %s.i323.sroa.15.02182.i
-  %234 = or <2 x i64> %or.i420.i575.i, %s.i323.sroa.13.02180.i
-  %or.i423.i576.i = or <2 x i64> %234, %s.i323.sroa.0.02179.i
+  %s.i323.sroa.15.02134.i = phi <2 x i64> [ %and.i7174.i, %if.end84.i388.i ], [ %s.i.sroa.58.0.i, %if.else13.i.i ]
+  %s.i323.sroa.14.02133.i = phi <2 x i64> [ %and.i7171.i, %if.end84.i388.i ], [ %s.i.sroa.40.0.i, %if.else13.i.i ]
+  %s.i323.sroa.13.02132.i = phi <2 x i64> [ %and.i7180.i, %if.end84.i388.i ], [ %s.i.sroa.22.0.i, %if.else13.i.i ]
+  %s.i323.sroa.0.02131.i = phi <2 x i64> [ %and.i7177.i, %if.end84.i388.i ], [ %s.i.sroa.0.0.i, %if.else13.i.i ]
+  %i.i324.02130.i = phi i64 [ %inc.i399.i, %if.end84.i388.i ], [ %i.i.0.i, %if.else13.i.i ]
+  %or.i420.i575.i = or <2 x i64> %s.i323.sroa.14.02133.i, %s.i323.sroa.15.02134.i
+  %234 = or <2 x i64> %or.i420.i575.i, %s.i323.sroa.13.02132.i
+  %or.i423.i576.i = or <2 x i64> %234, %s.i323.sroa.0.02131.i
   %235 = bitcast <2 x i64> %or.i423.i576.i to <16 x i8>
   %236 = icmp ne <16 x i8> %235, zeroinitializer
   %237 = bitcast <16 x i1> %236 to i16
@@ -2103,12 +2103,12 @@ if.end.i371.i:                                    ; preds = %land.lhs.true.i569.
   %240 = load <2 x i64>, ptr %add.ptr.i119.i.i, align 16, !noalias !200
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5184.i, i64 16) ], !noalias !200
   %241 = load <2 x i64>, ptr %add.ptr.i5184.i, align 16, !noalias !200
-  %and.i7192.i = and <2 x i64> %239, %s.i323.sroa.13.02180.i
-  %and.i7183.i = and <2 x i64> %240, %s.i323.sroa.14.02181.i
-  %and.i7186.i = and <2 x i64> %241, %s.i323.sroa.15.02182.i
+  %and.i7192.i = and <2 x i64> %239, %s.i323.sroa.13.02132.i
+  %and.i7183.i = and <2 x i64> %240, %s.i323.sroa.14.02133.i
+  %and.i7186.i = and <2 x i64> %241, %s.i323.sroa.15.02134.i
   %242 = load i8, ptr %shiftAmount.i45.i, align 4
   %conv8.i379.i = zext i8 %242 to i32
-  %and.i7189.i = and <2 x i64> %238, %s.i323.sroa.0.02179.i
+  %and.i7189.i = and <2 x i64> %238, %s.i323.sroa.0.02131.i
   %vecinit3.i2881.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv8.i379.i, i64 0
   %243 = bitcast <4 x i32> %vecinit3.i2881.i to <2 x i64>
   %244 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7189.i, <2 x i64> %243)
@@ -2141,12 +2141,12 @@ sw.bb.i545.i:                                     ; preds = %if.end.i371.i
   %254 = load <2 x i64>, ptr %add.ptr.i116.i.i, align 16, !noalias !206
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094.i, i64 16) ], !noalias !206
   %255 = load <2 x i64>, ptr %add.ptr.i5094.i, align 16, !noalias !206
-  %and.i7096.i = and <2 x i64> %253, %s.i323.sroa.13.02180.i
-  %and.i7087.i = and <2 x i64> %254, %s.i323.sroa.14.02181.i
-  %and.i7090.i = and <2 x i64> %255, %s.i323.sroa.15.02182.i
+  %and.i7096.i = and <2 x i64> %253, %s.i323.sroa.13.02132.i
+  %and.i7087.i = and <2 x i64> %254, %s.i323.sroa.14.02133.i
+  %and.i7090.i = and <2 x i64> %255, %s.i323.sroa.15.02134.i
   %256 = load i8, ptr %arrayidx16.i.i, align 1
   %conv17.i555.i = zext i8 %256 to i32
-  %and.i7093.i = and <2 x i64> %252, %s.i323.sroa.0.02179.i
+  %and.i7093.i = and <2 x i64> %252, %s.i323.sroa.0.02131.i
   %vecinit3.i3049.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv17.i555.i, i64 0
   %257 = bitcast <4 x i32> %vecinit3.i3049.i to <2 x i64>
   %258 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7093.i, <2 x i64> %257)
@@ -2178,12 +2178,12 @@ sw.bb18.i521.i:                                   ; preds = %sw.bb.i545.i, %if.e
   %267 = load <2 x i64>, ptr %add.ptr.i113.i.i, align 16, !noalias !212
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104.i, i64 16) ], !noalias !212
   %268 = load <2 x i64>, ptr %add.ptr.i5104.i, align 16, !noalias !212
-  %and.i7108.i = and <2 x i64> %266, %s.i323.sroa.13.02180.i
-  %and.i7099.i = and <2 x i64> %267, %s.i323.sroa.14.02181.i
-  %and.i7102.i = and <2 x i64> %268, %s.i323.sroa.15.02182.i
+  %and.i7108.i = and <2 x i64> %266, %s.i323.sroa.13.02132.i
+  %and.i7099.i = and <2 x i64> %267, %s.i323.sroa.14.02133.i
+  %and.i7102.i = and <2 x i64> %268, %s.i323.sroa.15.02134.i
   %269 = load i8, ptr %arrayidx26.i.i, align 2
   %conv27.i531.i = zext i8 %269 to i32
-  %and.i7105.i = and <2 x i64> %265, %s.i323.sroa.0.02179.i
+  %and.i7105.i = and <2 x i64> %265, %s.i323.sroa.0.02131.i
   %vecinit3.i3025.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv27.i531.i, i64 0
   %270 = bitcast <4 x i32> %vecinit3.i3025.i to <2 x i64>
   %271 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7105.i, <2 x i64> %270)
@@ -2215,12 +2215,12 @@ sw.bb28.i497.i:                                   ; preds = %sw.bb18.i521.i, %if
   %280 = load <2 x i64>, ptr %add.ptr.i110.i.i, align 16, !noalias !218
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114.i, i64 16) ], !noalias !218
   %281 = load <2 x i64>, ptr %add.ptr.i5114.i, align 16, !noalias !218
-  %and.i7120.i = and <2 x i64> %279, %s.i323.sroa.13.02180.i
-  %and.i7111.i = and <2 x i64> %280, %s.i323.sroa.14.02181.i
-  %and.i7114.i = and <2 x i64> %281, %s.i323.sroa.15.02182.i
+  %and.i7120.i = and <2 x i64> %279, %s.i323.sroa.13.02132.i
+  %and.i7111.i = and <2 x i64> %280, %s.i323.sroa.14.02133.i
+  %and.i7114.i = and <2 x i64> %281, %s.i323.sroa.15.02134.i
   %282 = load i8, ptr %arrayidx36.i.i, align 1
   %conv37.i507.i = zext i8 %282 to i32
-  %and.i7117.i = and <2 x i64> %278, %s.i323.sroa.0.02179.i
+  %and.i7117.i = and <2 x i64> %278, %s.i323.sroa.0.02131.i
   %vecinit3.i3001.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv37.i507.i, i64 0
   %283 = bitcast <4 x i32> %vecinit3.i3001.i to <2 x i64>
   %284 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7117.i, <2 x i64> %283)
@@ -2252,12 +2252,12 @@ sw.bb38.i473.i:                                   ; preds = %sw.bb28.i497.i, %if
   %293 = load <2 x i64>, ptr %add.ptr.i107.i.i, align 16, !noalias !224
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124.i, i64 16) ], !noalias !224
   %294 = load <2 x i64>, ptr %add.ptr.i5124.i, align 16, !noalias !224
-  %and.i7132.i = and <2 x i64> %292, %s.i323.sroa.13.02180.i
-  %and.i7123.i = and <2 x i64> %293, %s.i323.sroa.14.02181.i
-  %and.i7126.i = and <2 x i64> %294, %s.i323.sroa.15.02182.i
+  %and.i7132.i = and <2 x i64> %292, %s.i323.sroa.13.02132.i
+  %and.i7123.i = and <2 x i64> %293, %s.i323.sroa.14.02133.i
+  %and.i7126.i = and <2 x i64> %294, %s.i323.sroa.15.02134.i
   %295 = load i8, ptr %arrayidx46.i.i, align 4
   %conv47.i483.i = zext i8 %295 to i32
-  %and.i7129.i = and <2 x i64> %291, %s.i323.sroa.0.02179.i
+  %and.i7129.i = and <2 x i64> %291, %s.i323.sroa.0.02131.i
   %vecinit3.i2977.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv47.i483.i, i64 0
   %296 = bitcast <4 x i32> %vecinit3.i2977.i to <2 x i64>
   %297 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7129.i, <2 x i64> %296)
@@ -2289,12 +2289,12 @@ sw.bb48.i449.i:                                   ; preds = %sw.bb38.i473.i, %if
   %306 = load <2 x i64>, ptr %add.ptr.i104.i.i, align 16, !noalias !230
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134.i, i64 16) ], !noalias !230
   %307 = load <2 x i64>, ptr %add.ptr.i5134.i, align 16, !noalias !230
-  %and.i7144.i = and <2 x i64> %305, %s.i323.sroa.13.02180.i
-  %and.i7135.i = and <2 x i64> %306, %s.i323.sroa.14.02181.i
-  %and.i7138.i = and <2 x i64> %307, %s.i323.sroa.15.02182.i
+  %and.i7144.i = and <2 x i64> %305, %s.i323.sroa.13.02132.i
+  %and.i7135.i = and <2 x i64> %306, %s.i323.sroa.14.02133.i
+  %and.i7138.i = and <2 x i64> %307, %s.i323.sroa.15.02134.i
   %308 = load i8, ptr %arrayidx56.i.i, align 1
   %conv57.i459.i = zext i8 %308 to i32
-  %and.i7141.i = and <2 x i64> %304, %s.i323.sroa.0.02179.i
+  %and.i7141.i = and <2 x i64> %304, %s.i323.sroa.0.02131.i
   %vecinit3.i2953.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv57.i459.i, i64 0
   %309 = bitcast <4 x i32> %vecinit3.i2953.i to <2 x i64>
   %310 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7141.i, <2 x i64> %309)
@@ -2326,12 +2326,12 @@ sw.bb58.i425.i:                                   ; preds = %sw.bb48.i449.i, %if
   %319 = load <2 x i64>, ptr %add.ptr.i101.i.i, align 16, !noalias !236
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144.i, i64 16) ], !noalias !236
   %320 = load <2 x i64>, ptr %add.ptr.i5144.i, align 16, !noalias !236
-  %and.i7156.i = and <2 x i64> %318, %s.i323.sroa.13.02180.i
-  %and.i7147.i = and <2 x i64> %319, %s.i323.sroa.14.02181.i
-  %and.i7150.i = and <2 x i64> %320, %s.i323.sroa.15.02182.i
+  %and.i7156.i = and <2 x i64> %318, %s.i323.sroa.13.02132.i
+  %and.i7147.i = and <2 x i64> %319, %s.i323.sroa.14.02133.i
+  %and.i7150.i = and <2 x i64> %320, %s.i323.sroa.15.02134.i
   %321 = load i8, ptr %arrayidx66.i.i, align 2
   %conv67.i435.i = zext i8 %321 to i32
-  %and.i7153.i = and <2 x i64> %317, %s.i323.sroa.0.02179.i
+  %and.i7153.i = and <2 x i64> %317, %s.i323.sroa.0.02131.i
   %vecinit3.i2929.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv67.i435.i, i64 0
   %322 = bitcast <4 x i32> %vecinit3.i2929.i to <2 x i64>
   %323 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7153.i, <2 x i64> %322)
@@ -2363,12 +2363,12 @@ sw.bb68.i401.i:                                   ; preds = %sw.bb58.i425.i, %if
   %332 = load <2 x i64>, ptr %add.ptr.i98.i.i, align 16, !noalias !242
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154.i, i64 16) ], !noalias !242
   %333 = load <2 x i64>, ptr %add.ptr.i5154.i, align 16, !noalias !242
-  %and.i7168.i = and <2 x i64> %331, %s.i323.sroa.13.02180.i
-  %and.i7159.i = and <2 x i64> %332, %s.i323.sroa.14.02181.i
-  %and.i7162.i = and <2 x i64> %333, %s.i323.sroa.15.02182.i
+  %and.i7168.i = and <2 x i64> %331, %s.i323.sroa.13.02132.i
+  %and.i7159.i = and <2 x i64> %332, %s.i323.sroa.14.02133.i
+  %and.i7162.i = and <2 x i64> %333, %s.i323.sroa.15.02134.i
   %334 = load i8, ptr %arrayidx76.i.i, align 1
   %conv77.i411.i = zext i8 %334 to i32
-  %and.i7165.i = and <2 x i64> %330, %s.i323.sroa.0.02179.i
+  %and.i7165.i = and <2 x i64> %330, %s.i323.sroa.0.02131.i
   %vecinit3.i2905.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv77.i411.i, i64 0
   %335 = bitcast <4 x i32> %vecinit3.i2905.i to <2 x i64>
   %336 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7165.i, <2 x i64> %335)
@@ -2400,10 +2400,10 @@ sw.epilog.i382.i:                                 ; preds = %sw.bb68.i401.i, %if
   %345 = load <2 x i64>, ptr %add.ptr.i95.i.i, align 16, !noalias !248
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5174.i, i64 16) ], !noalias !248
   %346 = load <2 x i64>, ptr %add.ptr.i5174.i, align 16, !noalias !248
-  %and.i7081.i = and <2 x i64> %343, %s.i323.sroa.0.02179.i
-  %and.i7084.i = and <2 x i64> %344, %s.i323.sroa.13.02180.i
-  %and.i7075.i = and <2 x i64> %345, %s.i323.sroa.14.02181.i
-  %and.i7078.i = and <2 x i64> %346, %s.i323.sroa.15.02182.i
+  %and.i7081.i = and <2 x i64> %343, %s.i323.sroa.0.02131.i
+  %and.i7084.i = and <2 x i64> %344, %s.i323.sroa.13.02132.i
+  %and.i7075.i = and <2 x i64> %345, %s.i323.sroa.14.02133.i
+  %and.i7078.i = and <2 x i64> %346, %s.i323.sroa.15.02134.i
   %347 = bitcast <2 x i64> %and.i7081.i to <4 x i32>
   %cmp.i3879.i = icmp eq <4 x i32> %347, zeroinitializer
   %sext.i3880.i = sext <4 x i1> %cmp.i3879.i to <4 x i32>
@@ -2430,8 +2430,8 @@ sw.epilog.i382.i:                                 ; preds = %sw.bb68.i401.i, %if
   br i1 %tobool.i759.not.i, label %if.end84.i388.i, label %if.end21.i764.i
 
 if.end21.i764.i:                                  ; preds = %sw.epilog.i382.i
-  %tobool6.i.not.i = icmp eq i64 %i.i324.02178.i, 0
-  %add.i765.i = add i64 %i.i324.02178.i, %sp.0518
+  %tobool6.i.not.i = icmp eq i64 %i.i324.02130.i, 0
+  %add.i765.i = add i64 %i.i324.02130.i, %sp.0502
   %conv26.i.i = select i1 %tobool6.i.not.i, i8 16, i8 1
   %357 = bitcast <2 x i64> %ctx.sroa.85.9 to <16 x i8>
   %358 = bitcast <2 x i64> %and.i7081.i to <16 x i8>
@@ -2473,18 +2473,18 @@ if.then.i3640.i:                                  ; preds = %lor.rhs.i.i
 
 if.then3.i3662.i:                                 ; preds = %if.then.i3640.i
   %375 = load i32, ptr %ctx.sroa.138.9, align 4
-  %cmp.i.i3667.not.not2170.i = icmp eq i32 %375, -1
-  br i1 %cmp.i.i3667.not.not2170.i, label %if.end84.i388.i, label %for.body.i.i3676.i
+  %cmp.i.i3667.not.not2124.i = icmp eq i32 %375, -1
+  br i1 %cmp.i.i3667.not.not2124.i, label %if.end84.i388.i, label %for.body.i.i3676.i
 
 for.cond.i.i3666.i:                               ; preds = %for.body.i.i3676.i
-  %incdec.ptr.i.i3680.i = getelementptr inbounds i8, ptr %reports.addr.i.i3546.02171.i, i64 4
+  %incdec.ptr.i.i3680.i = getelementptr inbounds i8, ptr %reports.addr.i.i3546.02125.i, i64 4
   %376 = load i32, ptr %incdec.ptr.i.i3680.i, align 4
   %cmp.i.i3667.not.not.i = icmp eq i32 %376, -1
   br i1 %cmp.i.i3667.not.not.i, label %if.end84.i388.i, label %for.body.i.i3676.i, !llvm.loop !112
 
 for.body.i.i3676.i:                               ; preds = %if.then3.i3662.i, %for.cond.i.i3666.i
   %377 = phi i32 [ %376, %for.cond.i.i3666.i ], [ %375, %if.then3.i3662.i ]
-  %reports.addr.i.i3546.02171.i = phi ptr [ %incdec.ptr.i.i3680.i, %for.cond.i.i3666.i ], [ %ctx.sroa.138.9, %if.then3.i3662.i ]
+  %reports.addr.i.i3546.02125.i = phi ptr [ %incdec.ptr.i.i3680.i, %for.cond.i.i3666.i ], [ %ctx.sroa.138.9, %if.then3.i3662.i ]
   %call.i173.i3677.i = call i32 %33(i64 noundef 0, i64 noundef %add.i765.i, i32 noundef %377, ptr noundef %34) #11
   %cmp1.i.i3678.i = icmp eq i32 %call.i173.i3677.i, 0
   br i1 %cmp1.i.i3678.i, label %if.then44, label %for.cond.i.i3666.i
@@ -2505,17 +2505,17 @@ do.body26.i3691.preheader.i:                      ; preds = %for.body.i3756.i
 
 for.body.i3756.i:                                 ; preds = %for.body.i3756.i, %if.end14.i3682.i
   %379 = phi i32 [ 0, %if.end14.i3682.i ], [ %add.i3763.i, %for.body.i3756.i ]
-  %indvars.iv2245.i = phi i64 [ 0, %if.end14.i3682.i ], [ %indvars.iv.next2246.i, %for.body.i3756.i ]
-  %arrayidx21.i3760.i = getelementptr inbounds [8 x i64], ptr %emask_chunks.i3626.i, i64 0, i64 %indvars.iv2245.i
+  %indvars.iv2185.i = phi i64 [ 0, %if.end14.i3682.i ], [ %indvars.iv.next2186.i, %for.body.i3756.i ]
+  %arrayidx21.i3760.i = getelementptr inbounds [8 x i64], ptr %emask_chunks.i3626.i, i64 0, i64 %indvars.iv2185.i
   %380 = load i64, ptr %arrayidx21.i3760.i, align 8
   %381 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %380)
   %cast.i.i3761.i = trunc nuw nsw i64 %381 to i32
   %add.i3763.i = add i32 %379, %cast.i.i3761.i
-  %indvars.iv.next2246.i = add nuw nsw i64 %indvars.iv2245.i, 1
-  %arrayidx25.i3766.i = getelementptr inbounds [8 x i32], ptr %base_index.i3627.i, i64 0, i64 %indvars.iv.next2246.i
+  %indvars.iv.next2186.i = add nuw nsw i64 %indvars.iv2185.i, 1
+  %arrayidx25.i3766.i = getelementptr inbounds [8 x i32], ptr %base_index.i3627.i, i64 0, i64 %indvars.iv.next2186.i
   store i32 %add.i3763.i, ptr %arrayidx25.i3766.i, align 4
-  %exitcond2248.not.i = icmp eq i64 %indvars.iv.next2246.i, 7
-  br i1 %exitcond2248.not.i, label %do.body26.i3691.preheader.i, label %for.body.i3756.i, !llvm.loop !168
+  %exitcond2188.not.i = icmp eq i64 %indvars.iv.next2186.i, 7
+  br i1 %exitcond2188.not.i, label %do.body26.i3691.preheader.i, label %for.body.i3756.i, !llvm.loop !168
 
 do.body26.i3691.i:                                ; preds = %do.end45.i3718.i, %do.body26.i3691.preheader.i
   %ctx.sroa.43.sroa.0.16 = phi <2 x i64> [ zeroinitializer, %do.body26.i3691.preheader.i ], [ %ctx.sroa.43.sroa.0.18, %do.end45.i3718.i ]
@@ -2601,11 +2601,11 @@ if.else.i.i.i:                                    ; preds = %if.then12.i4000.i
 
 if.else5.i.i.i:                                   ; preds = %if.else.i.i.i
   %cmp6.i.i.i = icmp ult i32 %392, 384
-  %s.i323.sroa.14.0.s.i323.sroa.15.0.i = select i1 %cmp6.i.i.i, <2 x i64> %s.i323.sroa.14.02181.i, <2 x i64> %s.i323.sroa.15.02182.i
+  %s.i323.sroa.14.0.s.i323.sroa.15.0.i = select i1 %cmp6.i.i.i, <2 x i64> %s.i323.sroa.14.02133.i, <2 x i64> %s.i323.sroa.15.02134.i
   br label %testbit512.exit.i.i
 
 testbit512.exit.i.i:                              ; preds = %if.else5.i.i.i, %if.else.i.i.i, %if.then12.i4000.i
-  %sub.i.i3943.0.i = phi <2 x i64> [ %s.i323.sroa.0.02179.i, %if.then12.i4000.i ], [ %s.i323.sroa.13.02180.i, %if.else.i.i.i ], [ %s.i323.sroa.14.0.s.i323.sroa.15.0.i, %if.else5.i.i.i ]
+  %sub.i.i3943.0.i = phi <2 x i64> [ %s.i323.sroa.0.02131.i, %if.then12.i4000.i ], [ %s.i323.sroa.13.02132.i, %if.else.i.i.i ], [ %s.i323.sroa.14.0.s.i323.sroa.15.0.i, %if.else5.i.i.i ]
   %rem.i116.i.i = shl i32 %392, 6
   %mul.i.i.i = and i32 %rem.i116.i.i, 448
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 95
@@ -2767,18 +2767,18 @@ if.then38.i.i:                                    ; preds = %if.then35.i.i
   %idx.ext41.i.i = zext i32 %407 to i64
   %add.ptr42.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext41.i.i
   %408 = load i32, ptr %add.ptr42.i.i, align 4
-  %cmp.i157.i.not.not2173.i = icmp eq i32 %408, -1
-  br i1 %cmp.i157.i.not.not2173.i, label %if.end52.i.i, label %for.body.i.i3986.i
+  %cmp.i157.i.not.not2127.i = icmp eq i32 %408, -1
+  br i1 %cmp.i157.i.not.not2127.i, label %if.end52.i.i, label %for.body.i.i3986.i
 
 for.cond.i.i3979.i:                               ; preds = %for.body.i.i3986.i
-  %incdec.ptr.i.i3988.i = getelementptr inbounds i8, ptr %reports.addr.i.i3934.02174.i, i64 4
+  %incdec.ptr.i.i3988.i = getelementptr inbounds i8, ptr %reports.addr.i.i3934.02128.i, i64 4
   %409 = load i32, ptr %incdec.ptr.i.i3988.i, align 4
   %cmp.i157.i.not.not.i = icmp eq i32 %409, -1
   br i1 %cmp.i157.i.not.not.i, label %if.end52.i.i, label %for.body.i.i3986.i, !llvm.loop !112
 
 for.body.i.i3986.i:                               ; preds = %if.then38.i.i, %for.cond.i.i3979.i
   %410 = phi i32 [ %409, %for.cond.i.i3979.i ], [ %408, %if.then38.i.i ]
-  %reports.addr.i.i3934.02174.i = phi ptr [ %incdec.ptr.i.i3988.i, %for.cond.i.i3979.i ], [ %add.ptr42.i.i, %if.then38.i.i ]
+  %reports.addr.i.i3934.02128.i = phi ptr [ %incdec.ptr.i.i3988.i, %for.cond.i.i3979.i ], [ %add.ptr42.i.i, %if.then38.i.i ]
   %call.i.i.i = call i32 %33(i64 noundef 0, i64 noundef %add.i765.i, i32 noundef %410, ptr noundef %34) #11
   %cmp1.i.i3987.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp1.i.i3987.i, label %if.then44, label %for.cond.i.i3979.i
@@ -2900,7 +2900,7 @@ if.end84.i388.i:                                  ; preds = %for.cond.i.i3666.i,
   %succ.i325.sroa.24.7.ph.i = phi <2 x i64> [ %succ.i325.sroa.24.0.i, %sw.epilog.i382.i ], [ %or.i143.i3725.i, %do.end48.i3720.i ], [ %or.i143.i3725.i, %if.then60.i3740.i ], [ %or.i143.i3725.i, %if.then63.i3744.i ], [ %or.i143.i3725.i, %if.then53.i3749.i ], [ %or.i131.i3645.i, %if.then.i3640.i ], [ %or.i131.i3645.i, %if.then3.i3662.i ], [ %or.i131.i3645.i, %for.cond.i.i3666.i ]
   %succ.i325.sroa.48.7.ph.i = phi <2 x i64> [ %succ.i325.sroa.48.0.i, %sw.epilog.i382.i ], [ %or.i134.i3730.i, %do.end48.i3720.i ], [ %or.i134.i3730.i, %if.then60.i3740.i ], [ %or.i134.i3730.i, %if.then63.i3744.i ], [ %or.i134.i3730.i, %if.then53.i3749.i ], [ %or.i.i3650.i, %if.then.i3640.i ], [ %or.i.i3650.i, %if.then3.i3662.i ], [ %or.i.i3650.i, %for.cond.i.i3666.i ]
   %succ.i325.sroa.72.7.ph.i = phi <2 x i64> [ %succ.i325.sroa.72.0.i, %sw.epilog.i382.i ], [ %or.i137.i3733.i, %do.end48.i3720.i ], [ %or.i137.i3733.i, %if.then60.i3740.i ], [ %or.i137.i3733.i, %if.then63.i3744.i ], [ %or.i137.i3733.i, %if.then53.i3749.i ], [ %or.i125.i3653.i, %if.then.i3640.i ], [ %or.i125.i3653.i, %if.then3.i3662.i ], [ %or.i125.i3653.i, %for.cond.i.i3666.i ]
-  %arrayidx85.i389.i = getelementptr inbounds i8, ptr %add.ptr39, i64 %i.i324.02178.i
+  %arrayidx85.i389.i = getelementptr inbounds i8, ptr %add.ptr39, i64 %i.i324.02130.i
   %420 = load i8, ptr %arrayidx85.i389.i, align 1
   %idxprom.i390.i = zext i8 %420 to i64
   %arrayidx88.i391.i = getelementptr inbounds [256 x i8], ptr %add.ptr, i64 0, i64 %idxprom.i390.i
@@ -2922,29 +2922,29 @@ if.end84.i388.i:                                  ; preds = %for.cond.i.i3666.i,
   %and.i7180.i = and <2 x i64> %423, %succ.i325.sroa.24.7.ph.i
   %and.i7171.i = and <2 x i64> %424, %succ.i325.sroa.48.7.ph.i
   %and.i7174.i = and <2 x i64> %425, %succ.i325.sroa.72.7.ph.i
-  %inc.i399.i = add i64 %i.i324.02178.i, 1
+  %inc.i399.i = add i64 %i.i324.02130.i, 1
   %cmp.i366.not.i = icmp eq i64 %inc.i399.i, %min_accel_offset.i.0.i
   br i1 %cmp.i366.not.i, label %with_accel.i.i, label %land.lhs.true.i569.i, !llvm.loop !196
 
 with_accel.i.i:                                   ; preds = %if.end84.i.i, %if.end84.i388.i, %land.lhs.true.i569.i, %if.else13.i.i, %if.then8.i.i, %do.end37
-  %ctx.sroa.116.sroa.12.2 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.6, %if.else13.i.i ], [ %ctx.sroa.116.sroa.12.6, %if.then8.i.i ], [ %ctx.sroa.116.sroa.12.0504, %do.end37 ], [ %ctx.sroa.116.sroa.12.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.12.9, %land.lhs.true.i569.i ], [ %ctx.sroa.116.sroa.12.8, %if.end84.i.i ]
-  %ctx.sroa.116.sroa.9.2 = phi <2 x i64> [ %ctx.sroa.116.sroa.9.6, %if.else13.i.i ], [ %ctx.sroa.116.sroa.9.6, %if.then8.i.i ], [ %ctx.sroa.116.sroa.9.0505, %do.end37 ], [ %ctx.sroa.116.sroa.9.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.9.9, %land.lhs.true.i569.i ], [ %ctx.sroa.116.sroa.9.8, %if.end84.i.i ]
-  %ctx.sroa.116.sroa.6.2 = phi <2 x i64> [ %ctx.sroa.116.sroa.6.6, %if.else13.i.i ], [ %ctx.sroa.116.sroa.6.6, %if.then8.i.i ], [ %ctx.sroa.116.sroa.6.0506, %do.end37 ], [ %ctx.sroa.116.sroa.6.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.6.9, %land.lhs.true.i569.i ], [ %ctx.sroa.116.sroa.6.8, %if.end84.i.i ]
-  %ctx.sroa.116.sroa.0.2 = phi <2 x i64> [ %ctx.sroa.116.sroa.0.6, %if.else13.i.i ], [ %ctx.sroa.116.sroa.0.6, %if.then8.i.i ], [ %ctx.sroa.116.sroa.0.0507, %do.end37 ], [ %ctx.sroa.116.sroa.0.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.0.9, %land.lhs.true.i569.i ], [ %ctx.sroa.116.sroa.0.8, %if.end84.i.i ]
-  %ctx.sroa.138.2 = phi ptr [ %ctx.sroa.138.6, %if.else13.i.i ], [ %ctx.sroa.138.6, %if.then8.i.i ], [ %ctx.sroa.138.0512, %do.end37 ], [ %ctx.sroa.138.10, %if.end84.i388.i ], [ %ctx.sroa.138.9, %land.lhs.true.i569.i ], [ %ctx.sroa.138.8, %if.end84.i.i ]
-  %ctx.sroa.131.2 = phi i8 [ %ctx.sroa.131.6, %if.else13.i.i ], [ %ctx.sroa.131.6, %if.then8.i.i ], [ %ctx.sroa.131.0513, %do.end37 ], [ %ctx.sroa.131.10, %if.end84.i388.i ], [ %ctx.sroa.131.9, %land.lhs.true.i569.i ], [ %ctx.sroa.131.8, %if.end84.i.i ]
-  %ctx.sroa.109.2 = phi <2 x i64> [ %ctx.sroa.109.6, %if.else13.i.i ], [ %ctx.sroa.109.6, %if.then8.i.i ], [ %ctx.sroa.109.0514, %do.end37 ], [ %ctx.sroa.109.10, %if.end84.i388.i ], [ %ctx.sroa.109.9, %land.lhs.true.i569.i ], [ %ctx.sroa.109.8, %if.end84.i.i ]
-  %ctx.sroa.102.2 = phi <2 x i64> [ %ctx.sroa.102.6, %if.else13.i.i ], [ %ctx.sroa.102.6, %if.then8.i.i ], [ %ctx.sroa.102.0515, %do.end37 ], [ %ctx.sroa.102.10, %if.end84.i388.i ], [ %ctx.sroa.102.9, %land.lhs.true.i569.i ], [ %ctx.sroa.102.8, %if.end84.i.i ]
-  %ctx.sroa.95.2 = phi <2 x i64> [ %ctx.sroa.95.6, %if.else13.i.i ], [ %ctx.sroa.95.6, %if.then8.i.i ], [ %ctx.sroa.95.0516, %do.end37 ], [ %ctx.sroa.95.10, %if.end84.i388.i ], [ %ctx.sroa.95.9, %land.lhs.true.i569.i ], [ %ctx.sroa.95.8, %if.end84.i.i ]
-  %ctx.sroa.85.2 = phi <2 x i64> [ %ctx.sroa.85.6, %if.else13.i.i ], [ %ctx.sroa.85.6, %if.then8.i.i ], [ %ctx.sroa.85.0517, %do.end37 ], [ %ctx.sroa.85.10, %if.end84.i388.i ], [ %ctx.sroa.85.9, %land.lhs.true.i569.i ], [ %ctx.sroa.85.8, %if.end84.i.i ]
-  %i.i.1.i = phi i64 [ %i.i.0.i, %if.else13.i.i ], [ %i.i.0.i, %if.then8.i.i ], [ 0, %do.end37 ], [ %min_accel_offset.i.0.i, %if.end84.i388.i ], [ %i.i324.02178.i, %land.lhs.true.i569.i ], [ %min_accel_offset.i.0.i, %if.end84.i.i ]
-  %s.i.sroa.0.1.i = phi <2 x i64> [ %s.i.sroa.0.0.i, %if.else13.i.i ], [ %s.i.sroa.0.0.i, %if.then8.i.i ], [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i, %do.end37 ], [ %and.i7177.i, %if.end84.i388.i ], [ %s.i323.sroa.0.02179.i, %land.lhs.true.i569.i ], [ %and.i7285.i, %if.end84.i.i ]
-  %s.i.sroa.22.1.i = phi <2 x i64> [ %s.i.sroa.22.0.i, %if.else13.i.i ], [ %s.i.sroa.22.0.i, %if.then8.i.i ], [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i, %do.end37 ], [ %and.i7180.i, %if.end84.i388.i ], [ %s.i323.sroa.13.02180.i, %land.lhs.true.i569.i ], [ %and.i7288.i, %if.end84.i.i ]
-  %s.i.sroa.40.1.i = phi <2 x i64> [ %s.i.sroa.40.0.i, %if.else13.i.i ], [ %s.i.sroa.40.0.i, %if.then8.i.i ], [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i, %do.end37 ], [ %and.i7171.i, %if.end84.i388.i ], [ %s.i323.sroa.14.02181.i, %land.lhs.true.i569.i ], [ %and.i7279.i, %if.end84.i.i ]
-  %s.i.sroa.58.1.i = phi <2 x i64> [ %s.i.sroa.58.0.i, %if.else13.i.i ], [ %s.i.sroa.58.0.i, %if.then8.i.i ], [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i, %do.end37 ], [ %and.i7174.i, %if.end84.i388.i ], [ %s.i323.sroa.15.02182.i, %land.lhs.true.i569.i ], [ %and.i7282.i, %if.end84.i.i ]
+  %ctx.sroa.116.sroa.12.2 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.6, %if.else13.i.i ], [ %ctx.sroa.116.sroa.12.6, %if.then8.i.i ], [ %ctx.sroa.116.sroa.12.0492, %do.end37 ], [ %ctx.sroa.116.sroa.12.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.12.9, %land.lhs.true.i569.i ], [ %ctx.sroa.116.sroa.12.8, %if.end84.i.i ]
+  %ctx.sroa.116.sroa.9.2 = phi <2 x i64> [ %ctx.sroa.116.sroa.9.6, %if.else13.i.i ], [ %ctx.sroa.116.sroa.9.6, %if.then8.i.i ], [ %ctx.sroa.116.sroa.9.0493, %do.end37 ], [ %ctx.sroa.116.sroa.9.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.9.9, %land.lhs.true.i569.i ], [ %ctx.sroa.116.sroa.9.8, %if.end84.i.i ]
+  %ctx.sroa.116.sroa.6.2 = phi <2 x i64> [ %ctx.sroa.116.sroa.6.6, %if.else13.i.i ], [ %ctx.sroa.116.sroa.6.6, %if.then8.i.i ], [ %ctx.sroa.116.sroa.6.0494, %do.end37 ], [ %ctx.sroa.116.sroa.6.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.6.9, %land.lhs.true.i569.i ], [ %ctx.sroa.116.sroa.6.8, %if.end84.i.i ]
+  %ctx.sroa.116.sroa.0.2 = phi <2 x i64> [ %ctx.sroa.116.sroa.0.6, %if.else13.i.i ], [ %ctx.sroa.116.sroa.0.6, %if.then8.i.i ], [ %ctx.sroa.116.sroa.0.0495, %do.end37 ], [ %ctx.sroa.116.sroa.0.10, %if.end84.i388.i ], [ %ctx.sroa.116.sroa.0.9, %land.lhs.true.i569.i ], [ %ctx.sroa.116.sroa.0.8, %if.end84.i.i ]
+  %ctx.sroa.138.2 = phi ptr [ %ctx.sroa.138.6, %if.else13.i.i ], [ %ctx.sroa.138.6, %if.then8.i.i ], [ %ctx.sroa.138.0496, %do.end37 ], [ %ctx.sroa.138.10, %if.end84.i388.i ], [ %ctx.sroa.138.9, %land.lhs.true.i569.i ], [ %ctx.sroa.138.8, %if.end84.i.i ]
+  %ctx.sroa.131.2 = phi i8 [ %ctx.sroa.131.6, %if.else13.i.i ], [ %ctx.sroa.131.6, %if.then8.i.i ], [ %ctx.sroa.131.0497, %do.end37 ], [ %ctx.sroa.131.10, %if.end84.i388.i ], [ %ctx.sroa.131.9, %land.lhs.true.i569.i ], [ %ctx.sroa.131.8, %if.end84.i.i ]
+  %ctx.sroa.109.2 = phi <2 x i64> [ %ctx.sroa.109.6, %if.else13.i.i ], [ %ctx.sroa.109.6, %if.then8.i.i ], [ %ctx.sroa.109.0498, %do.end37 ], [ %ctx.sroa.109.10, %if.end84.i388.i ], [ %ctx.sroa.109.9, %land.lhs.true.i569.i ], [ %ctx.sroa.109.8, %if.end84.i.i ]
+  %ctx.sroa.102.2 = phi <2 x i64> [ %ctx.sroa.102.6, %if.else13.i.i ], [ %ctx.sroa.102.6, %if.then8.i.i ], [ %ctx.sroa.102.0499, %do.end37 ], [ %ctx.sroa.102.10, %if.end84.i388.i ], [ %ctx.sroa.102.9, %land.lhs.true.i569.i ], [ %ctx.sroa.102.8, %if.end84.i.i ]
+  %ctx.sroa.95.2 = phi <2 x i64> [ %ctx.sroa.95.6, %if.else13.i.i ], [ %ctx.sroa.95.6, %if.then8.i.i ], [ %ctx.sroa.95.0500, %do.end37 ], [ %ctx.sroa.95.10, %if.end84.i388.i ], [ %ctx.sroa.95.9, %land.lhs.true.i569.i ], [ %ctx.sroa.95.8, %if.end84.i.i ]
+  %ctx.sroa.85.2 = phi <2 x i64> [ %ctx.sroa.85.6, %if.else13.i.i ], [ %ctx.sroa.85.6, %if.then8.i.i ], [ %ctx.sroa.85.0501, %do.end37 ], [ %ctx.sroa.85.10, %if.end84.i388.i ], [ %ctx.sroa.85.9, %land.lhs.true.i569.i ], [ %ctx.sroa.85.8, %if.end84.i.i ]
+  %i.i.1.i = phi i64 [ %i.i.0.i, %if.else13.i.i ], [ %i.i.0.i, %if.then8.i.i ], [ 0, %do.end37 ], [ %min_accel_offset.i.0.i, %if.end84.i388.i ], [ %i.i324.02130.i, %land.lhs.true.i569.i ], [ %min_accel_offset.i.0.i, %if.end84.i.i ]
+  %s.i.sroa.0.1.i = phi <2 x i64> [ %s.i.sroa.0.0.i, %if.else13.i.i ], [ %s.i.sroa.0.0.i, %if.then8.i.i ], [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i, %do.end37 ], [ %and.i7177.i, %if.end84.i388.i ], [ %s.i323.sroa.0.02131.i, %land.lhs.true.i569.i ], [ %and.i7285.i, %if.end84.i.i ]
+  %s.i.sroa.22.1.i = phi <2 x i64> [ %s.i.sroa.22.0.i, %if.else13.i.i ], [ %s.i.sroa.22.0.i, %if.then8.i.i ], [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i, %do.end37 ], [ %and.i7180.i, %if.end84.i388.i ], [ %s.i323.sroa.13.02132.i, %land.lhs.true.i569.i ], [ %and.i7288.i, %if.end84.i.i ]
+  %s.i.sroa.40.1.i = phi <2 x i64> [ %s.i.sroa.40.0.i, %if.else13.i.i ], [ %s.i.sroa.40.0.i, %if.then8.i.i ], [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i, %do.end37 ], [ %and.i7171.i, %if.end84.i388.i ], [ %s.i323.sroa.14.02133.i, %land.lhs.true.i569.i ], [ %and.i7279.i, %if.end84.i.i ]
+  %s.i.sroa.58.1.i = phi <2 x i64> [ %s.i.sroa.58.0.i, %if.else13.i.i ], [ %s.i.sroa.58.0.i, %if.then8.i.i ], [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i, %do.end37 ], [ %and.i7174.i, %if.end84.i388.i ], [ %s.i323.sroa.15.02134.i, %land.lhs.true.i569.i ], [ %and.i7282.i, %if.end84.i.i ]
   %min_accel_offset.i.1.i = phi i64 [ %i.i.0.i, %if.else13.i.i ], [ %i.i.0.i, %if.then8.i.i ], [ 0, %do.end37 ], [ %min_accel_offset.i.0.i, %land.lhs.true.i569.i ], [ %min_accel_offset.i.0.i, %if.end84.i388.i ], [ %min_accel_offset.i.0.i, %if.end84.i.i ]
-  %cmp22.i.not2202.i = icmp eq i64 %i.i.1.i, %sub
-  br i1 %cmp22.i.not2202.i, label %for.end.i.i, label %for.body.i.i212
+  %cmp22.i.not2150.i = icmp eq i64 %i.i.1.i, %sub
+  br i1 %cmp22.i.not2150.i, label %for.end.i.i, label %for.body.i.i212
 
 for.body.i.i212:                                  ; preds = %with_accel.i.i, %if.end142.i.i
   %ctx.sroa.116.sroa.12.3 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.4, %if.end142.i.i ], [ %ctx.sroa.116.sroa.12.2, %with_accel.i.i ]
@@ -2957,12 +2957,12 @@ for.body.i.i212:                                  ; preds = %with_accel.i.i, %if
   %ctx.sroa.102.3 = phi <2 x i64> [ %ctx.sroa.102.4, %if.end142.i.i ], [ %ctx.sroa.102.2, %with_accel.i.i ]
   %ctx.sroa.95.3 = phi <2 x i64> [ %ctx.sroa.95.4, %if.end142.i.i ], [ %ctx.sroa.95.2, %with_accel.i.i ]
   %ctx.sroa.85.3 = phi <2 x i64> [ %ctx.sroa.85.4, %if.end142.i.i ], [ %ctx.sroa.85.2, %with_accel.i.i ]
-  %s.i.sroa.58.42207.i = phi <2 x i64> [ %and.i7402.i, %if.end142.i.i ], [ %s.i.sroa.58.1.i, %with_accel.i.i ]
-  %s.i.sroa.40.42206.i = phi <2 x i64> [ %and.i7399.i, %if.end142.i.i ], [ %s.i.sroa.40.1.i, %with_accel.i.i ]
-  %s.i.sroa.22.42205.i = phi <2 x i64> [ %and.i7408.i, %if.end142.i.i ], [ %s.i.sroa.22.1.i, %with_accel.i.i ]
-  %s.i.sroa.0.42204.i = phi <2 x i64> [ %and.i7405.i, %if.end142.i.i ], [ %s.i.sroa.0.1.i, %with_accel.i.i ]
-  %i.i.42203.i = phi i64 [ %inc.i.i, %if.end142.i.i ], [ %i.i.1.i, %with_accel.i.i ]
-  %add.i.i213 = add i64 %i.i.42203.i, 16
+  %s.i.sroa.58.42155.i = phi <2 x i64> [ %and.i7402.i, %if.end142.i.i ], [ %s.i.sroa.58.1.i, %with_accel.i.i ]
+  %s.i.sroa.40.42154.i = phi <2 x i64> [ %and.i7399.i, %if.end142.i.i ], [ %s.i.sroa.40.1.i, %with_accel.i.i ]
+  %s.i.sroa.22.42153.i = phi <2 x i64> [ %and.i7408.i, %if.end142.i.i ], [ %s.i.sroa.22.1.i, %with_accel.i.i ]
+  %s.i.sroa.0.42152.i = phi <2 x i64> [ %and.i7405.i, %if.end142.i.i ], [ %s.i.sroa.0.1.i, %with_accel.i.i ]
+  %i.i.42151.i = phi i64 [ %inc.i.i, %if.end142.i.i ], [ %i.i.1.i, %with_accel.i.i ]
+  %add.i.i213 = add i64 %i.i.42151.i, 16
   %cmp24.i.not.i = icmp ugt i64 %add.i.i213, %sub
   br i1 %cmp24.i.not.i, label %if.end60.i.i, label %land.lhs.true.i.i
 
@@ -2976,13 +2976,13 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i212
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5214.i, i64 16) ], !noalias !278
   %429 = load <2 x i64>, ptr %add.ptr.i5214.i, align 16, !noalias !278
   %not.i1045.i = xor <2 x i64> %426, <i64 -1, i64 -1>
-  %and.i1046.i = and <2 x i64> %s.i.sroa.0.42204.i, %not.i1045.i
+  %and.i1046.i = and <2 x i64> %s.i.sroa.0.42152.i, %not.i1045.i
   %not.i1049.i = xor <2 x i64> %427, <i64 -1, i64 -1>
-  %and.i1050.i = and <2 x i64> %s.i.sroa.22.42205.i, %not.i1049.i
+  %and.i1050.i = and <2 x i64> %s.i.sroa.22.42153.i, %not.i1049.i
   %not.i.i214 = xor <2 x i64> %428, <i64 -1, i64 -1>
-  %and.i1038.i = and <2 x i64> %s.i.sroa.40.42206.i, %not.i.i214
+  %and.i1038.i = and <2 x i64> %s.i.sroa.40.42154.i, %not.i.i214
   %not.i1041.i = xor <2 x i64> %429, <i64 -1, i64 -1>
-  %and.i1042.i = and <2 x i64> %s.i.sroa.58.42207.i, %not.i1041.i
+  %and.i1042.i = and <2 x i64> %s.i.sroa.58.42155.i, %not.i1041.i
   %or.i567.i.i = or <2 x i64> %and.i1050.i, %and.i1046.i
   %or.i564.i.i = or <2 x i64> %or.i567.i.i, %and.i1038.i
   %or.i570.i.i = or <2 x i64> %or.i564.i.i, %and.i1042.i
@@ -2993,12 +2993,12 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i212
   br i1 %tobool.i.i.not.i, label %if.then29.i.i, label %if.end60.i.i
 
 if.then29.i.i:                                    ; preds = %land.lhs.true.i.i
-  store <2 x i64> %s.i.sroa.0.42204.i, ptr %s.i588.i, align 64
-  store <2 x i64> %s.i.sroa.22.42205.i, ptr %s.i.sroa.22.0.s.i588.sroa_idx.i, align 16
-  store <2 x i64> %s.i.sroa.40.42206.i, ptr %s.i.sroa.40.0.s.i588.sroa_idx.i, align 32
-  store <2 x i64> %s.i.sroa.58.42207.i, ptr %s.i.sroa.58.0.s.i588.sroa_idx.i, align 16
-  %call.i.i = call i64 @doAccel512(ptr noundef nonnull %s.i588.i, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr.i.i211, ptr noundef nonnull %add.ptr2.i.i, ptr noundef %add.ptr39, i64 noundef %i.i.42203.i, i64 noundef %sub) #11
-  %cmp34.i.not.i = icmp eq i64 %call.i.i, %i.i.42203.i
+  store <2 x i64> %s.i.sroa.0.42152.i, ptr %s.i588.i, align 64
+  store <2 x i64> %s.i.sroa.22.42153.i, ptr %s.i.sroa.22.0.s.i588.sroa_idx.i, align 16
+  store <2 x i64> %s.i.sroa.40.42154.i, ptr %s.i.sroa.40.0.s.i588.sroa_idx.i, align 32
+  store <2 x i64> %s.i.sroa.58.42155.i, ptr %s.i.sroa.58.0.s.i588.sroa_idx.i, align 16
+  %call.i.i = call i64 @doAccel512(ptr noundef nonnull %s.i588.i, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr.i.i211, ptr noundef nonnull %add.ptr2.i.i, ptr noundef %add.ptr39, i64 noundef %i.i.42151.i, i64 noundef %sub) #11
+  %cmp34.i.not.i = icmp eq i64 %call.i.i, %i.i.42151.i
   br i1 %cmp34.i.not.i, label %if.end39.i.i, label %if.then36.i.i
 
 if.then36.i.i:                                    ; preds = %if.then29.i.i
@@ -3010,22 +3010,22 @@ if.then36.i.i:                                    ; preds = %if.then29.i.i
   %435 = load <2 x i64>, ptr %add.ptr.i231.i.i, align 16, !noalias !284
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5204.i, i64 16) ], !noalias !284
   %436 = load <2 x i64>, ptr %add.ptr.i5204.i, align 16, !noalias !284
-  %and.i7309.i = and <2 x i64> %433, %s.i.sroa.0.42204.i
-  %and.i7312.i = and <2 x i64> %434, %s.i.sroa.22.42205.i
-  %and.i7303.i = and <2 x i64> %435, %s.i.sroa.40.42206.i
-  %and.i7306.i = and <2 x i64> %436, %s.i.sroa.58.42207.i
+  %and.i7309.i = and <2 x i64> %433, %s.i.sroa.0.42152.i
+  %and.i7312.i = and <2 x i64> %434, %s.i.sroa.22.42153.i
+  %and.i7303.i = and <2 x i64> %435, %s.i.sroa.40.42154.i
+  %and.i7306.i = and <2 x i64> %436, %s.i.sroa.58.42155.i
   br label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then36.i.i, %if.then29.i.i
-  %s.i.sroa.0.6.i = phi <2 x i64> [ %and.i7309.i, %if.then36.i.i ], [ %s.i.sroa.0.42204.i, %if.then29.i.i ]
-  %s.i.sroa.22.6.i = phi <2 x i64> [ %and.i7312.i, %if.then36.i.i ], [ %s.i.sroa.22.42205.i, %if.then29.i.i ]
-  %s.i.sroa.40.6.i = phi <2 x i64> [ %and.i7303.i, %if.then36.i.i ], [ %s.i.sroa.40.42206.i, %if.then29.i.i ]
-  %s.i.sroa.58.6.i = phi <2 x i64> [ %and.i7306.i, %if.then36.i.i ], [ %s.i.sroa.58.42207.i, %if.then29.i.i ]
+  %s.i.sroa.0.6.i = phi <2 x i64> [ %and.i7309.i, %if.then36.i.i ], [ %s.i.sroa.0.42152.i, %if.then29.i.i ]
+  %s.i.sroa.22.6.i = phi <2 x i64> [ %and.i7312.i, %if.then36.i.i ], [ %s.i.sroa.22.42153.i, %if.then29.i.i ]
+  %s.i.sroa.40.6.i = phi <2 x i64> [ %and.i7303.i, %if.then36.i.i ], [ %s.i.sroa.40.42154.i, %if.then29.i.i ]
+  %s.i.sroa.58.6.i = phi <2 x i64> [ %and.i7306.i, %if.then36.i.i ], [ %s.i.sroa.58.42155.i, %if.then29.i.i ]
   %cmp56.i.i = icmp eq i64 %call.i.i, %sub
   br i1 %cmp56.i.i, label %for.end.i.i, label %if.end39.i.i.without_accel.i.i_crit_edge
 
 if.end39.i.i.without_accel.i.i_crit_edge:         ; preds = %if.end39.i.i
-  %tobool40.i.not.i = icmp ne i64 %i.i.42203.i, 0
+  %tobool40.i.not.i = icmp ne i64 %i.i.42151.i, 0
   %add42.i.i = add i64 %min_accel_offset.i.1.i, 4
   %cmp43.i.i = icmp ult i64 %call.i.i, %add42.i.i
   %or.cond1884.i = and i1 %tobool40.i.not.i, %cmp43.i.i
@@ -3046,12 +3046,12 @@ if.end60.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %439 = load <2 x i64>, ptr %add.ptr.i119.i.i, align 16, !noalias !290
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5184.i, i64 16) ], !noalias !290
   %440 = load <2 x i64>, ptr %add.ptr.i5184.i, align 16, !noalias !290
-  %and.i7420.i = and <2 x i64> %438, %s.i.sroa.22.42205.i
-  %and.i7411.i = and <2 x i64> %439, %s.i.sroa.40.42206.i
-  %and.i7414.i = and <2 x i64> %440, %s.i.sroa.58.42207.i
+  %and.i7420.i = and <2 x i64> %438, %s.i.sroa.22.42153.i
+  %and.i7411.i = and <2 x i64> %439, %s.i.sroa.40.42154.i
+  %and.i7414.i = and <2 x i64> %440, %s.i.sroa.58.42155.i
   %441 = load i8, ptr %shiftAmount.i45.i, align 4
   %conv66.i.i = zext i8 %441 to i32
-  %and.i7417.i = and <2 x i64> %437, %s.i.sroa.0.42204.i
+  %and.i7417.i = and <2 x i64> %437, %s.i.sroa.0.42152.i
   %vecinit3.i2497.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv66.i.i, i64 0
   %442 = bitcast <4 x i32> %vecinit3.i2497.i to <2 x i64>
   %443 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7417.i, <2 x i64> %442)
@@ -3084,12 +3084,12 @@ sw.bb.i.i:                                        ; preds = %if.end60.i.i
   %453 = load <2 x i64>, ptr %add.ptr.i116.i.i, align 16, !noalias !296
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094.i, i64 16) ], !noalias !296
   %454 = load <2 x i64>, ptr %add.ptr.i5094.i, align 16, !noalias !296
-  %and.i7324.i = and <2 x i64> %452, %s.i.sroa.22.42205.i
-  %and.i7315.i = and <2 x i64> %453, %s.i.sroa.40.42206.i
-  %and.i7318.i = and <2 x i64> %454, %s.i.sroa.58.42207.i
+  %and.i7324.i = and <2 x i64> %452, %s.i.sroa.22.42153.i
+  %and.i7315.i = and <2 x i64> %453, %s.i.sroa.40.42154.i
+  %and.i7318.i = and <2 x i64> %454, %s.i.sroa.58.42155.i
   %455 = load i8, ptr %arrayidx16.i.i, align 1
   %conv75.i.i = zext i8 %455 to i32
-  %and.i7321.i = and <2 x i64> %451, %s.i.sroa.0.42204.i
+  %and.i7321.i = and <2 x i64> %451, %s.i.sroa.0.42152.i
   %vecinit3.i2665.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv75.i.i, i64 0
   %456 = bitcast <4 x i32> %vecinit3.i2665.i to <2 x i64>
   %457 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7321.i, <2 x i64> %456)
@@ -3121,12 +3121,12 @@ sw.bb76.i.i:                                      ; preds = %sw.bb.i.i, %if.end6
   %466 = load <2 x i64>, ptr %add.ptr.i113.i.i, align 16, !noalias !302
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104.i, i64 16) ], !noalias !302
   %467 = load <2 x i64>, ptr %add.ptr.i5104.i, align 16, !noalias !302
-  %and.i7336.i = and <2 x i64> %465, %s.i.sroa.22.42205.i
-  %and.i7327.i = and <2 x i64> %466, %s.i.sroa.40.42206.i
-  %and.i7330.i = and <2 x i64> %467, %s.i.sroa.58.42207.i
+  %and.i7336.i = and <2 x i64> %465, %s.i.sroa.22.42153.i
+  %and.i7327.i = and <2 x i64> %466, %s.i.sroa.40.42154.i
+  %and.i7330.i = and <2 x i64> %467, %s.i.sroa.58.42155.i
   %468 = load i8, ptr %arrayidx26.i.i, align 2
   %conv85.i.i = zext i8 %468 to i32
-  %and.i7333.i = and <2 x i64> %464, %s.i.sroa.0.42204.i
+  %and.i7333.i = and <2 x i64> %464, %s.i.sroa.0.42152.i
   %vecinit3.i2641.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv85.i.i, i64 0
   %469 = bitcast <4 x i32> %vecinit3.i2641.i to <2 x i64>
   %470 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7333.i, <2 x i64> %469)
@@ -3158,12 +3158,12 @@ sw.bb86.i.i:                                      ; preds = %sw.bb76.i.i, %if.en
   %479 = load <2 x i64>, ptr %add.ptr.i110.i.i, align 16, !noalias !308
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114.i, i64 16) ], !noalias !308
   %480 = load <2 x i64>, ptr %add.ptr.i5114.i, align 16, !noalias !308
-  %and.i7348.i = and <2 x i64> %478, %s.i.sroa.22.42205.i
-  %and.i7339.i = and <2 x i64> %479, %s.i.sroa.40.42206.i
-  %and.i7342.i = and <2 x i64> %480, %s.i.sroa.58.42207.i
+  %and.i7348.i = and <2 x i64> %478, %s.i.sroa.22.42153.i
+  %and.i7339.i = and <2 x i64> %479, %s.i.sroa.40.42154.i
+  %and.i7342.i = and <2 x i64> %480, %s.i.sroa.58.42155.i
   %481 = load i8, ptr %arrayidx36.i.i, align 1
   %conv95.i.i = zext i8 %481 to i32
-  %and.i7345.i = and <2 x i64> %477, %s.i.sroa.0.42204.i
+  %and.i7345.i = and <2 x i64> %477, %s.i.sroa.0.42152.i
   %vecinit3.i2617.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv95.i.i, i64 0
   %482 = bitcast <4 x i32> %vecinit3.i2617.i to <2 x i64>
   %483 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7345.i, <2 x i64> %482)
@@ -3195,12 +3195,12 @@ sw.bb96.i.i:                                      ; preds = %sw.bb86.i.i, %if.en
   %492 = load <2 x i64>, ptr %add.ptr.i107.i.i, align 16, !noalias !314
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124.i, i64 16) ], !noalias !314
   %493 = load <2 x i64>, ptr %add.ptr.i5124.i, align 16, !noalias !314
-  %and.i7360.i = and <2 x i64> %491, %s.i.sroa.22.42205.i
-  %and.i7351.i = and <2 x i64> %492, %s.i.sroa.40.42206.i
-  %and.i7354.i = and <2 x i64> %493, %s.i.sroa.58.42207.i
+  %and.i7360.i = and <2 x i64> %491, %s.i.sroa.22.42153.i
+  %and.i7351.i = and <2 x i64> %492, %s.i.sroa.40.42154.i
+  %and.i7354.i = and <2 x i64> %493, %s.i.sroa.58.42155.i
   %494 = load i8, ptr %arrayidx46.i.i, align 4
   %conv105.i.i = zext i8 %494 to i32
-  %and.i7357.i = and <2 x i64> %490, %s.i.sroa.0.42204.i
+  %and.i7357.i = and <2 x i64> %490, %s.i.sroa.0.42152.i
   %vecinit3.i2593.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv105.i.i, i64 0
   %495 = bitcast <4 x i32> %vecinit3.i2593.i to <2 x i64>
   %496 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7357.i, <2 x i64> %495)
@@ -3232,12 +3232,12 @@ sw.bb106.i.i:                                     ; preds = %sw.bb96.i.i, %if.en
   %505 = load <2 x i64>, ptr %add.ptr.i104.i.i, align 16, !noalias !320
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134.i, i64 16) ], !noalias !320
   %506 = load <2 x i64>, ptr %add.ptr.i5134.i, align 16, !noalias !320
-  %and.i7372.i = and <2 x i64> %504, %s.i.sroa.22.42205.i
-  %and.i7363.i = and <2 x i64> %505, %s.i.sroa.40.42206.i
-  %and.i7366.i = and <2 x i64> %506, %s.i.sroa.58.42207.i
+  %and.i7372.i = and <2 x i64> %504, %s.i.sroa.22.42153.i
+  %and.i7363.i = and <2 x i64> %505, %s.i.sroa.40.42154.i
+  %and.i7366.i = and <2 x i64> %506, %s.i.sroa.58.42155.i
   %507 = load i8, ptr %arrayidx56.i.i, align 1
   %conv115.i.i = zext i8 %507 to i32
-  %and.i7369.i = and <2 x i64> %503, %s.i.sroa.0.42204.i
+  %and.i7369.i = and <2 x i64> %503, %s.i.sroa.0.42152.i
   %vecinit3.i2569.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv115.i.i, i64 0
   %508 = bitcast <4 x i32> %vecinit3.i2569.i to <2 x i64>
   %509 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7369.i, <2 x i64> %508)
@@ -3269,12 +3269,12 @@ sw.bb116.i.i:                                     ; preds = %sw.bb106.i.i, %if.e
   %518 = load <2 x i64>, ptr %add.ptr.i101.i.i, align 16, !noalias !326
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144.i, i64 16) ], !noalias !326
   %519 = load <2 x i64>, ptr %add.ptr.i5144.i, align 16, !noalias !326
-  %and.i7384.i = and <2 x i64> %517, %s.i.sroa.22.42205.i
-  %and.i7375.i = and <2 x i64> %518, %s.i.sroa.40.42206.i
-  %and.i7378.i = and <2 x i64> %519, %s.i.sroa.58.42207.i
+  %and.i7384.i = and <2 x i64> %517, %s.i.sroa.22.42153.i
+  %and.i7375.i = and <2 x i64> %518, %s.i.sroa.40.42154.i
+  %and.i7378.i = and <2 x i64> %519, %s.i.sroa.58.42155.i
   %520 = load i8, ptr %arrayidx66.i.i, align 2
   %conv125.i.i = zext i8 %520 to i32
-  %and.i7381.i = and <2 x i64> %516, %s.i.sroa.0.42204.i
+  %and.i7381.i = and <2 x i64> %516, %s.i.sroa.0.42152.i
   %vecinit3.i2545.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv125.i.i, i64 0
   %521 = bitcast <4 x i32> %vecinit3.i2545.i to <2 x i64>
   %522 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7381.i, <2 x i64> %521)
@@ -3306,12 +3306,12 @@ sw.bb126.i.i:                                     ; preds = %sw.bb116.i.i, %if.e
   %531 = load <2 x i64>, ptr %add.ptr.i98.i.i, align 16, !noalias !332
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154.i, i64 16) ], !noalias !332
   %532 = load <2 x i64>, ptr %add.ptr.i5154.i, align 16, !noalias !332
-  %and.i7396.i = and <2 x i64> %530, %s.i.sroa.22.42205.i
-  %and.i7387.i = and <2 x i64> %531, %s.i.sroa.40.42206.i
-  %and.i7390.i = and <2 x i64> %532, %s.i.sroa.58.42207.i
+  %and.i7396.i = and <2 x i64> %530, %s.i.sroa.22.42153.i
+  %and.i7387.i = and <2 x i64> %531, %s.i.sroa.40.42154.i
+  %and.i7390.i = and <2 x i64> %532, %s.i.sroa.58.42155.i
   %533 = load i8, ptr %arrayidx76.i.i, align 1
   %conv135.i.i = zext i8 %533 to i32
-  %and.i7393.i = and <2 x i64> %529, %s.i.sroa.0.42204.i
+  %and.i7393.i = and <2 x i64> %529, %s.i.sroa.0.42152.i
   %vecinit3.i2521.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv135.i.i, i64 0
   %534 = bitcast <4 x i32> %vecinit3.i2521.i to <2 x i64>
   %535 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7393.i, <2 x i64> %534)
@@ -3343,10 +3343,10 @@ sw.epilog.i.i:                                    ; preds = %sw.bb126.i.i, %if.e
   %544 = load <2 x i64>, ptr %add.ptr.i95.i.i, align 16, !noalias !338
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5174.i, i64 16) ], !noalias !338
   %545 = load <2 x i64>, ptr %add.ptr.i5174.i, align 16, !noalias !338
-  %and.i7033.i = and <2 x i64> %542, %s.i.sroa.0.42204.i
-  %and.i7036.i = and <2 x i64> %543, %s.i.sroa.22.42205.i
-  %and.i7027.i = and <2 x i64> %544, %s.i.sroa.40.42206.i
-  %and.i7030.i = and <2 x i64> %545, %s.i.sroa.58.42207.i
+  %and.i7033.i = and <2 x i64> %542, %s.i.sroa.0.42152.i
+  %and.i7036.i = and <2 x i64> %543, %s.i.sroa.22.42153.i
+  %and.i7027.i = and <2 x i64> %544, %s.i.sroa.40.42154.i
+  %and.i7030.i = and <2 x i64> %545, %s.i.sroa.58.42155.i
   %546 = bitcast <2 x i64> %and.i7033.i to <4 x i32>
   %cmp.i3847.i = icmp eq <4 x i32> %546, zeroinitializer
   %sext.i3848.i = sext <4 x i1> %cmp.i3847.i to <4 x i32>
@@ -3373,8 +3373,8 @@ sw.epilog.i.i:                                    ; preds = %sw.bb126.i.i, %if.e
   br i1 %tobool.i962.not.i, label %if.end142.i.i, label %if.end21.i970.i
 
 if.end21.i970.i:                                  ; preds = %sw.epilog.i.i
-  %tobool6.i986.not.i = icmp eq i64 %i.i.42203.i, 0
-  %add.i971.i = add i64 %i.i.42203.i, %sp.0518
+  %tobool6.i986.not.i = icmp eq i64 %i.i.42151.i, 0
+  %add.i971.i = add i64 %i.i.42151.i, %sp.0502
   %conv26.i978.i = select i1 %tobool6.i986.not.i, i8 16, i8 1
   %556 = bitcast <2 x i64> %ctx.sroa.85.3 to <16 x i8>
   %557 = bitcast <2 x i64> %and.i7033.i to <16 x i8>
@@ -3416,18 +3416,18 @@ if.then.i3286.i:                                  ; preds = %lor.rhs.i3916.i
 
 if.then3.i.i:                                     ; preds = %if.then.i3286.i
   %574 = load i32, ptr %ctx.sroa.138.3, align 4
-  %cmp.i.i3294.not.not2197.i = icmp eq i32 %574, -1
-  br i1 %cmp.i.i3294.not.not2197.i, label %if.end142.i.i, label %for.body.i.i.i
+  %cmp.i.i3294.not.not2145.i = icmp eq i32 %574, -1
+  br i1 %cmp.i.i3294.not.not2145.i, label %if.end142.i.i, label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %reports.addr.i.i.02198.i, i64 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %reports.addr.i.i.02146.i, i64 4
   %575 = load i32, ptr %incdec.ptr.i.i.i, align 4
   %cmp.i.i3294.not.not.i = icmp eq i32 %575, -1
   br i1 %cmp.i.i3294.not.not.i, label %if.end142.i.i, label %for.body.i.i.i, !llvm.loop !112
 
 for.body.i.i.i:                                   ; preds = %if.then3.i.i, %for.cond.i.i.i
   %576 = phi i32 [ %575, %for.cond.i.i.i ], [ %574, %if.then3.i.i ]
-  %reports.addr.i.i.02198.i = phi ptr [ %incdec.ptr.i.i.i, %for.cond.i.i.i ], [ %ctx.sroa.138.3, %if.then3.i.i ]
+  %reports.addr.i.i.02146.i = phi ptr [ %incdec.ptr.i.i.i, %for.cond.i.i.i ], [ %ctx.sroa.138.3, %if.then3.i.i ]
   %call.i173.i.i = call i32 %33(i64 noundef 0, i64 noundef %add.i971.i, i32 noundef %576, ptr noundef %34) #11
   %cmp1.i.i.i = icmp eq i32 %call.i173.i.i, 0
   br i1 %cmp1.i.i.i, label %if.then44, label %for.cond.i.i.i
@@ -3448,17 +3448,17 @@ do.body26.i.preheader.i:                          ; preds = %for.body.i3313.i
 
 for.body.i3313.i:                                 ; preds = %for.body.i3313.i, %if.end14.i.i
   %578 = phi i32 [ 0, %if.end14.i.i ], [ %add.i3315.i, %for.body.i3313.i ]
-  %indvars.iv2249.i = phi i64 [ 0, %if.end14.i.i ], [ %indvars.iv.next2250.i, %for.body.i3313.i ]
-  %arrayidx21.i.i = getelementptr inbounds [8 x i64], ptr %emask_chunks.i.i, i64 0, i64 %indvars.iv2249.i
+  %indvars.iv2189.i = phi i64 [ 0, %if.end14.i.i ], [ %indvars.iv.next2190.i, %for.body.i3313.i ]
+  %arrayidx21.i.i = getelementptr inbounds [8 x i64], ptr %emask_chunks.i.i, i64 0, i64 %indvars.iv2189.i
   %579 = load i64, ptr %arrayidx21.i.i, align 8
   %580 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %579)
   %cast.i.i.i = trunc nuw nsw i64 %580 to i32
   %add.i3315.i = add i32 %578, %cast.i.i.i
-  %indvars.iv.next2250.i = add nuw nsw i64 %indvars.iv2249.i, 1
-  %arrayidx25.i.i = getelementptr inbounds [8 x i32], ptr %base_index.i.i, i64 0, i64 %indvars.iv.next2250.i
+  %indvars.iv.next2190.i = add nuw nsw i64 %indvars.iv2189.i, 1
+  %arrayidx25.i.i = getelementptr inbounds [8 x i32], ptr %base_index.i.i, i64 0, i64 %indvars.iv.next2190.i
   store i32 %add.i3315.i, ptr %arrayidx25.i.i, align 4
-  %exitcond2252.not.i = icmp eq i64 %indvars.iv.next2250.i, 7
-  br i1 %exitcond2252.not.i, label %do.body26.i.preheader.i, label %for.body.i3313.i, !llvm.loop !168
+  %exitcond2192.not.i = icmp eq i64 %indvars.iv.next2190.i, 7
+  br i1 %exitcond2192.not.i, label %do.body26.i.preheader.i, label %for.body.i3313.i, !llvm.loop !168
 
 do.body26.i.i:                                    ; preds = %do.end45.i.i, %do.body26.i.preheader.i
   %ctx.sroa.43.sroa.0.4 = phi <2 x i64> [ zeroinitializer, %do.body26.i.preheader.i ], [ %ctx.sroa.43.sroa.0.6, %do.end45.i.i ]
@@ -3544,11 +3544,11 @@ if.else.i.i4445.i:                                ; preds = %if.then12.i4443.i
 
 if.else5.i.i4447.i:                               ; preds = %if.else.i.i4445.i
   %cmp6.i.i4448.i = icmp ult i32 %591, 384
-  %s.i.sroa.40.4.s.i.sroa.58.4.i = select i1 %cmp6.i.i4448.i, <2 x i64> %s.i.sroa.40.42206.i, <2 x i64> %s.i.sroa.58.42207.i
+  %s.i.sroa.40.4.s.i.sroa.58.4.i = select i1 %cmp6.i.i4448.i, <2 x i64> %s.i.sroa.40.42154.i, <2 x i64> %s.i.sroa.58.42155.i
   br label %testbit512.exit.i4454.i
 
 testbit512.exit.i4454.i:                          ; preds = %if.else5.i.i4447.i, %if.else.i.i4445.i, %if.then12.i4443.i
-  %sub.i.i4281.0.i = phi <2 x i64> [ %s.i.sroa.0.42204.i, %if.then12.i4443.i ], [ %s.i.sroa.22.42205.i, %if.else.i.i4445.i ], [ %s.i.sroa.40.4.s.i.sroa.58.4.i, %if.else5.i.i4447.i ]
+  %sub.i.i4281.0.i = phi <2 x i64> [ %s.i.sroa.0.42152.i, %if.then12.i4443.i ], [ %s.i.sroa.22.42153.i, %if.else.i.i4445.i ], [ %s.i.sroa.40.4.s.i.sroa.58.4.i, %if.else5.i.i4447.i ]
   %rem.i116.i4456.i = shl i32 %591, 6
   %mul.i.i4457.i = and i32 %rem.i116.i4456.i, 448
   %add.i.i4458.i = add nuw nsw i32 %mul.i.i4457.i, 95
@@ -3710,18 +3710,18 @@ if.then38.i4374.i:                                ; preds = %if.then35.i4361.i
   %idx.ext41.i4376.i = zext i32 %606 to i64
   %add.ptr42.i4377.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext41.i4376.i
   %607 = load i32, ptr %add.ptr42.i4377.i, align 4
-  %cmp.i157.i4381.not.not2200.i = icmp eq i32 %607, -1
-  br i1 %cmp.i157.i4381.not.not2200.i, label %if.end52.i4388.i, label %for.body.i.i4402.i
+  %cmp.i157.i4381.not.not2148.i = icmp eq i32 %607, -1
+  br i1 %cmp.i157.i4381.not.not2148.i, label %if.end52.i4388.i, label %for.body.i.i4402.i
 
 for.cond.i.i4380.i:                               ; preds = %for.body.i.i4402.i
-  %incdec.ptr.i.i4406.i = getelementptr inbounds i8, ptr %reports.addr.i.i4242.02201.i, i64 4
+  %incdec.ptr.i.i4406.i = getelementptr inbounds i8, ptr %reports.addr.i.i4242.02149.i, i64 4
   %608 = load i32, ptr %incdec.ptr.i.i4406.i, align 4
   %cmp.i157.i4381.not.not.i = icmp eq i32 %608, -1
   br i1 %cmp.i157.i4381.not.not.i, label %if.end52.i4388.i, label %for.body.i.i4402.i, !llvm.loop !112
 
 for.body.i.i4402.i:                               ; preds = %if.then38.i4374.i, %for.cond.i.i4380.i
   %609 = phi i32 [ %608, %for.cond.i.i4380.i ], [ %607, %if.then38.i4374.i ]
-  %reports.addr.i.i4242.02201.i = phi ptr [ %incdec.ptr.i.i4406.i, %for.cond.i.i4380.i ], [ %add.ptr42.i4377.i, %if.then38.i4374.i ]
+  %reports.addr.i.i4242.02149.i = phi ptr [ %incdec.ptr.i.i4406.i, %for.cond.i.i4380.i ], [ %add.ptr42.i4377.i, %if.then38.i4374.i ]
   %call.i.i4403.i = call i32 %33(i64 noundef 0, i64 noundef %add.i971.i, i32 noundef %609, ptr noundef %34) #11
   %cmp1.i.i4404.i = icmp eq i32 %call.i.i4403.i, 0
   br i1 %cmp1.i.i4404.i, label %if.then44, label %for.cond.i.i4380.i
@@ -3843,7 +3843,7 @@ if.end142.i.i:                                    ; preds = %for.cond.i.i.i, %if
   %succ.i.sroa.24.7.ph.i = phi <2 x i64> [ %succ.i.sroa.24.0.i, %sw.epilog.i.i ], [ %or.i143.i.i, %do.end48.i.i ], [ %or.i143.i.i, %if.then60.i.i ], [ %or.i143.i.i, %if.then63.i.i ], [ %or.i143.i.i, %if.then53.i.i ], [ %or.i131.i.i, %if.then.i3286.i ], [ %or.i131.i.i, %if.then3.i.i ], [ %or.i131.i.i, %for.cond.i.i.i ]
   %succ.i.sroa.48.7.ph.i = phi <2 x i64> [ %succ.i.sroa.48.0.i, %sw.epilog.i.i ], [ %or.i134.i.i, %do.end48.i.i ], [ %or.i134.i.i, %if.then60.i.i ], [ %or.i134.i.i, %if.then63.i.i ], [ %or.i134.i.i, %if.then53.i.i ], [ %or.i.i3287.i, %if.then.i3286.i ], [ %or.i.i3287.i, %if.then3.i.i ], [ %or.i.i3287.i, %for.cond.i.i.i ]
   %succ.i.sroa.72.7.ph.i = phi <2 x i64> [ %succ.i.sroa.72.0.i, %sw.epilog.i.i ], [ %or.i137.i.i, %do.end48.i.i ], [ %or.i137.i.i, %if.then60.i.i ], [ %or.i137.i.i, %if.then63.i.i ], [ %or.i137.i.i, %if.then53.i.i ], [ %or.i125.i.i, %if.then.i3286.i ], [ %or.i125.i.i, %if.then3.i.i ], [ %or.i125.i.i, %for.cond.i.i.i ]
-  %arrayidx143.i.i = getelementptr inbounds i8, ptr %add.ptr39, i64 %i.i.42203.i
+  %arrayidx143.i.i = getelementptr inbounds i8, ptr %add.ptr39, i64 %i.i.42151.i
   %619 = load i8, ptr %arrayidx143.i.i, align 1
   %idxprom.i.i216 = zext i8 %619 to i64
   %arrayidx146.i.i = getelementptr inbounds [256 x i8], ptr %add.ptr, i64 0, i64 %idxprom.i.i216
@@ -3865,7 +3865,7 @@ if.end142.i.i:                                    ; preds = %for.cond.i.i.i, %if
   %and.i7408.i = and <2 x i64> %622, %succ.i.sroa.24.7.ph.i
   %and.i7399.i = and <2 x i64> %623, %succ.i.sroa.48.7.ph.i
   %and.i7402.i = and <2 x i64> %624, %succ.i.sroa.72.7.ph.i
-  %inc.i.i = add i64 %i.i.42203.i, 1
+  %inc.i.i = add i64 %i.i.42151.i, 1
   %cmp22.i.not.i = icmp eq i64 %inc.i.i, %sub
   br i1 %cmp22.i.not.i, label %for.end.i.i, label %for.body.i.i212, !llvm.loop !365
 
@@ -4063,16 +4063,16 @@ scan_done:                                        ; preds = %scan_done.sink.spli
   %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32..sroa.2126.0.copyload = phi <2 x i64> [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i, %while.body ], [ %s.i.sroa.40.5.i, %scan_done.sink.split ]
   %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16..sroa.0.sroa.2129.0.copyload = phi <2 x i64> [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i, %while.body ], [ %s.i.sroa.22.5.i, %scan_done.sink.split ]
   %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0..sroa.0.sroa.0128.0.copyload = phi <2 x i64> [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i, %while.body ], [ %s.i.sroa.0.5.i, %scan_done.sink.split ]
-  %ctx.sroa.116.sroa.12.1 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.0504, %while.body ], [ %ctx.sroa.116.sroa.12.5, %scan_done.sink.split ]
-  %ctx.sroa.116.sroa.9.1 = phi <2 x i64> [ %ctx.sroa.116.sroa.9.0505, %while.body ], [ %ctx.sroa.116.sroa.9.5, %scan_done.sink.split ]
-  %ctx.sroa.116.sroa.6.1 = phi <2 x i64> [ %ctx.sroa.116.sroa.6.0506, %while.body ], [ %ctx.sroa.116.sroa.6.5, %scan_done.sink.split ]
-  %ctx.sroa.116.sroa.0.1 = phi <2 x i64> [ %ctx.sroa.116.sroa.0.0507, %while.body ], [ %ctx.sroa.116.sroa.0.5, %scan_done.sink.split ]
-  %ctx.sroa.138.1 = phi ptr [ %ctx.sroa.138.0512, %while.body ], [ %ctx.sroa.138.5, %scan_done.sink.split ]
-  %ctx.sroa.131.1 = phi i8 [ %ctx.sroa.131.0513, %while.body ], [ %ctx.sroa.131.5, %scan_done.sink.split ]
-  %ctx.sroa.109.1 = phi <2 x i64> [ %ctx.sroa.109.0514, %while.body ], [ %ctx.sroa.109.5, %scan_done.sink.split ]
-  %ctx.sroa.102.1 = phi <2 x i64> [ %ctx.sroa.102.0515, %while.body ], [ %ctx.sroa.102.5, %scan_done.sink.split ]
-  %ctx.sroa.95.1 = phi <2 x i64> [ %ctx.sroa.95.0516, %while.body ], [ %ctx.sroa.95.5, %scan_done.sink.split ]
-  %ctx.sroa.85.1 = phi <2 x i64> [ %ctx.sroa.85.0517, %while.body ], [ %ctx.sroa.85.5, %scan_done.sink.split ]
+  %ctx.sroa.116.sroa.12.1 = phi <2 x i64> [ %ctx.sroa.116.sroa.12.0492, %while.body ], [ %ctx.sroa.116.sroa.12.5, %scan_done.sink.split ]
+  %ctx.sroa.116.sroa.9.1 = phi <2 x i64> [ %ctx.sroa.116.sroa.9.0493, %while.body ], [ %ctx.sroa.116.sroa.9.5, %scan_done.sink.split ]
+  %ctx.sroa.116.sroa.6.1 = phi <2 x i64> [ %ctx.sroa.116.sroa.6.0494, %while.body ], [ %ctx.sroa.116.sroa.6.5, %scan_done.sink.split ]
+  %ctx.sroa.116.sroa.0.1 = phi <2 x i64> [ %ctx.sroa.116.sroa.0.0495, %while.body ], [ %ctx.sroa.116.sroa.0.5, %scan_done.sink.split ]
+  %ctx.sroa.138.1 = phi ptr [ %ctx.sroa.138.0496, %while.body ], [ %ctx.sroa.138.5, %scan_done.sink.split ]
+  %ctx.sroa.131.1 = phi i8 [ %ctx.sroa.131.0497, %while.body ], [ %ctx.sroa.131.5, %scan_done.sink.split ]
+  %ctx.sroa.109.1 = phi <2 x i64> [ %ctx.sroa.109.0498, %while.body ], [ %ctx.sroa.109.5, %scan_done.sink.split ]
+  %ctx.sroa.102.1 = phi <2 x i64> [ %ctx.sroa.102.0499, %while.body ], [ %ctx.sroa.102.5, %scan_done.sink.split ]
+  %ctx.sroa.95.1 = phi <2 x i64> [ %ctx.sroa.95.0500, %while.body ], [ %ctx.sroa.95.5, %scan_done.sink.split ]
+  %ctx.sroa.85.1 = phi <2 x i64> [ %ctx.sroa.85.0501, %while.body ], [ %ctx.sroa.85.5, %scan_done.sink.split ]
   %648 = load i32, ptr %cur, align 8
   %idxprom52 = zext i32 %648 to i64
   %arrayidx53 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom52
@@ -4125,16 +4125,16 @@ sw.default.i:                                     ; preds = %if.end76
   br label %nfaExecLimEx512_HandleEvent.exit.sink.split
 
 nfaExecLimEx512_HandleEvent.exit.sink.split:      ; preds = %sw.bb.i, %sw.default.i
-  %arrayidx.i471.sink704 = phi ptr [ %arrayidx.i471, %sw.default.i ], [ %cond.i.i, %sw.bb.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i471.sink704, i64 16) ], !noalias !31
-  %653 = load <2 x i64>, ptr %arrayidx.i471.sink704, align 16, !noalias !31
-  %add.ptr.i527 = getelementptr inbounds i8, ptr %arrayidx.i471.sink704, i64 16
+  %arrayidx.i471.sink676 = phi ptr [ %arrayidx.i471, %sw.default.i ], [ %cond.i.i, %sw.bb.i ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i471.sink676, i64 16) ], !noalias !31
+  %653 = load <2 x i64>, ptr %arrayidx.i471.sink676, align 16, !noalias !31
+  %add.ptr.i527 = getelementptr inbounds i8, ptr %arrayidx.i471.sink676, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i527, i64 16) ], !noalias !31
   %654 = load <2 x i64>, ptr %add.ptr.i527, align 16, !noalias !31
-  %add.ptr.i.i473 = getelementptr inbounds i8, ptr %arrayidx.i471.sink704, i64 32
+  %add.ptr.i.i473 = getelementptr inbounds i8, ptr %arrayidx.i471.sink676, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i473, i64 16) ], !noalias !31
   %655 = load <2 x i64>, ptr %add.ptr.i.i473, align 16, !noalias !31
-  %add.ptr.i523 = getelementptr inbounds i8, ptr %arrayidx.i471.sink704, i64 48
+  %add.ptr.i523 = getelementptr inbounds i8, ptr %arrayidx.i471.sink676, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i523, i64 16) ], !noalias !31
   %656 = load <2 x i64>, ptr %add.ptr.i523, align 16, !noalias !31
   %or.i30.i474 = or <2 x i64> %653, %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0..sroa.0.sroa.0128.0.copyload
@@ -4148,10 +4148,10 @@ nfaExecLimEx512_HandleEvent.exit.sink.split:      ; preds = %sw.bb.i, %sw.defaul
   br label %nfaExecLimEx512_HandleEvent.exit
 
 nfaExecLimEx512_HandleEvent.exit:                 ; preds = %nfaExecLimEx512_HandleEvent.exit.sink.split, %if.end76, %if.end76
-  %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i614 = phi <2 x i64> [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48..sroa.3127.0.copyload, %if.end76 ], [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48..sroa.3127.0.copyload, %if.end76 ], [ %or.i27.i485, %nfaExecLimEx512_HandleEvent.exit.sink.split ]
-  %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i611 = phi <2 x i64> [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32..sroa.2126.0.copyload, %if.end76 ], [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32..sroa.2126.0.copyload, %if.end76 ], [ %or.i.i482, %nfaExecLimEx512_HandleEvent.exit.sink.split ]
-  %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i608 = phi <2 x i64> [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16..sroa.0.sroa.2129.0.copyload, %if.end76 ], [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16..sroa.0.sroa.2129.0.copyload, %if.end76 ], [ %or.i33.i477, %nfaExecLimEx512_HandleEvent.exit.sink.split ]
-  %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i605 = phi <2 x i64> [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0..sroa.0.sroa.0128.0.copyload, %if.end76 ], [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0..sroa.0.sroa.0128.0.copyload, %if.end76 ], [ %or.i30.i474, %nfaExecLimEx512_HandleEvent.exit.sink.split ]
+  %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i586 = phi <2 x i64> [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48..sroa.3127.0.copyload, %if.end76 ], [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48..sroa.3127.0.copyload, %if.end76 ], [ %or.i27.i485, %nfaExecLimEx512_HandleEvent.exit.sink.split ]
+  %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i583 = phi <2 x i64> [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32..sroa.2126.0.copyload, %if.end76 ], [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32..sroa.2126.0.copyload, %if.end76 ], [ %or.i.i482, %nfaExecLimEx512_HandleEvent.exit.sink.split ]
+  %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i580 = phi <2 x i64> [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16..sroa.0.sroa.2129.0.copyload, %if.end76 ], [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16..sroa.0.sroa.2129.0.copyload, %if.end76 ], [ %or.i33.i477, %nfaExecLimEx512_HandleEvent.exit.sink.split ]
+  %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i577 = phi <2 x i64> [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0..sroa.0.sroa.0128.0.copyload, %if.end76 ], [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0..sroa.0.sroa.0128.0.copyload, %if.end76 ], [ %or.i30.i474, %nfaExecLimEx512_HandleEvent.exit.sink.split ]
   %storemerge = add i32 %648, 1
   store i32 %storemerge, ptr %cur, align 8
   %657 = load i32, ptr %end5, align 4
@@ -4159,10 +4159,10 @@ nfaExecLimEx512_HandleEvent.exit:                 ; preds = %nfaExecLimEx512_Han
   br i1 %cmp20, label %while.body, label %while.end, !llvm.loop !381
 
 while.end:                                        ; preds = %nfaExecLimEx512_HandleEvent.exit, %if.end9
-  %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48..sroa.3191.0.copyload = phi <2 x i64> [ %ctx.sroa.33.0.copyload, %if.end9 ], [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i614, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32..sroa.2190.0.copyload = phi <2 x i64> [ %ctx.sroa.23.0.copyload, %if.end9 ], [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i611, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16..sroa.0.sroa.2195.0.copyload = phi <2 x i64> [ %ctx.sroa.13.0.copyload, %if.end9 ], [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i608, %nfaExecLimEx512_HandleEvent.exit ]
-  %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0..sroa.0.sroa.0194.0.copyload = phi <2 x i64> [ %ctx.sroa.0.0.copyload, %if.end9 ], [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i605, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48..sroa.3191.0.copyload = phi <2 x i64> [ %ctx.sroa.33.0.copyload, %if.end9 ], [ %ctx.sroa.33.0.ctx.sroa.33.0.ctx.sroa.33.48.s.i.sroa.58.0.copyload.i586, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32..sroa.2190.0.copyload = phi <2 x i64> [ %ctx.sroa.23.0.copyload, %if.end9 ], [ %ctx.sroa.23.0.ctx.sroa.23.0.ctx.sroa.23.32.s.i.sroa.40.0.copyload.i583, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16..sroa.0.sroa.2195.0.copyload = phi <2 x i64> [ %ctx.sroa.13.0.copyload, %if.end9 ], [ %ctx.sroa.13.0.ctx.sroa.13.0.ctx.sroa.13.16.s.i.sroa.22.0.copyload.i580, %nfaExecLimEx512_HandleEvent.exit ]
+  %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0..sroa.0.sroa.0194.0.copyload = phi <2 x i64> [ %ctx.sroa.0.0.copyload, %if.end9 ], [ %ctx.sroa.0.0.ctx.sroa.0.0.ctx.sroa.0.0.s.i.sroa.0.0.copyload.i577, %nfaExecLimEx512_HandleEvent.exit ]
   %sp.0.lcssa = phi i64 [ %add, %if.end9 ], [ %cond, %nfaExecLimEx512_HandleEvent.exit ]
   %repeatCount.i = getelementptr inbounds i8, ptr %n, i64 364
   %658 = load i32, ptr %repeatCount.i, align 4
@@ -5219,11 +5219,11 @@ without_accel.i:                                  ; preds = %entry, %if.end39.i
   %5 = load i32, ptr %exceptionOffset.i, align 8
   %idx.ext.i363 = zext i32 %5 to i64
   %add.ptr.i364 = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i363
-  %cmp.i366.not2027 = icmp eq i64 %i.i.0, %min_accel_offset.i.0
+  %cmp.i366.not1999 = icmp eq i64 %i.i.0, %min_accel_offset.i.0
   br i1 %tobool7.i.not, label %if.else13.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %without_accel.i
-  br i1 %cmp.i366.not2027, label %with_accel.i, label %if.end.i43.lr.ph
+  br i1 %cmp.i366.not1999, label %with_accel.i, label %if.end.i43.lr.ph
 
 if.end.i43.lr.ph:                                 ; preds = %if.then8.i
   %shift.i44 = getelementptr inbounds i8, ptr %limex, i64 1152
@@ -5305,21 +5305,21 @@ if.end.i43.lr.ph:                                 ; preds = %if.then8.i
   br label %if.end.i43
 
 if.end.i43:                                       ; preds = %if.end.i43.lr.ph, %if.end84.i
-  %s.i25.sroa.15.02019 = phi <2 x i64> [ %s.i.sroa.58.0, %if.end.i43.lr.ph ], [ %and.i7282, %if.end84.i ]
-  %s.i25.sroa.14.02018 = phi <2 x i64> [ %s.i.sroa.40.0, %if.end.i43.lr.ph ], [ %and.i7279, %if.end84.i ]
-  %s.i25.sroa.13.02017 = phi <2 x i64> [ %s.i.sroa.22.0, %if.end.i43.lr.ph ], [ %and.i7288, %if.end84.i ]
-  %s.i25.sroa.0.02016 = phi <2 x i64> [ %s.i.sroa.0.0, %if.end.i43.lr.ph ], [ %and.i7285, %if.end84.i ]
-  %i.i26.02014 = phi i64 [ %i.i.0, %if.end.i43.lr.ph ], [ %inc.i52, %if.end84.i ]
+  %s.i25.sroa.15.01993 = phi <2 x i64> [ %s.i.sroa.58.0, %if.end.i43.lr.ph ], [ %and.i7282, %if.end84.i ]
+  %s.i25.sroa.14.01992 = phi <2 x i64> [ %s.i.sroa.40.0, %if.end.i43.lr.ph ], [ %and.i7279, %if.end84.i ]
+  %s.i25.sroa.13.01991 = phi <2 x i64> [ %s.i.sroa.22.0, %if.end.i43.lr.ph ], [ %and.i7288, %if.end84.i ]
+  %s.i25.sroa.0.01990 = phi <2 x i64> [ %s.i.sroa.0.0, %if.end.i43.lr.ph ], [ %and.i7285, %if.end84.i ]
+  %i.i26.01988 = phi i64 [ %i.i.0, %if.end.i43.lr.ph ], [ %inc.i52, %if.end84.i ]
   %6 = load <2 x i64>, ptr %add.ptr.i5189, align 16, !noalias !441
   %7 = load <2 x i64>, ptr %add.ptr.i119.i, align 16, !noalias !444
   %8 = load <2 x i64>, ptr %add.ptr.i5184, align 16, !noalias !444
-  %and.i7300 = and <2 x i64> %6, %s.i25.sroa.13.02017
-  %and.i7291 = and <2 x i64> %7, %s.i25.sroa.14.02018
-  %and.i7294 = and <2 x i64> %8, %s.i25.sroa.15.02019
+  %and.i7300 = and <2 x i64> %6, %s.i25.sroa.13.01991
+  %and.i7291 = and <2 x i64> %7, %s.i25.sroa.14.01992
+  %and.i7294 = and <2 x i64> %8, %s.i25.sroa.15.01993
   %9 = load i8, ptr %shiftAmount.i45, align 4
   %conv8.i = zext i8 %9 to i32
   %10 = load <2 x i64>, ptr %shift.i44, align 16, !noalias !441
-  %and.i7297 = and <2 x i64> %10, %s.i25.sroa.0.02016
+  %and.i7297 = and <2 x i64> %10, %s.i25.sroa.0.01990
   %vecinit3.i2689 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv8.i, i64 0
   %11 = bitcast <4 x i32> %vecinit3.i2689 to <2 x i64>
   %12 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7297, <2 x i64> %11)
@@ -5352,12 +5352,12 @@ sw.bb.i55:                                        ; preds = %if.end.i43
   %22 = load <2 x i64>, ptr %add.ptr.i116.i, align 16, !noalias !456
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094, i64 16) ], !noalias !456
   %23 = load <2 x i64>, ptr %add.ptr.i5094, align 16, !noalias !456
-  %and.i7204 = and <2 x i64> %21, %s.i25.sroa.13.02017
-  %and.i7195 = and <2 x i64> %22, %s.i25.sroa.14.02018
-  %and.i7198 = and <2 x i64> %23, %s.i25.sroa.15.02019
+  %and.i7204 = and <2 x i64> %21, %s.i25.sroa.13.01991
+  %and.i7195 = and <2 x i64> %22, %s.i25.sroa.14.01992
+  %and.i7198 = and <2 x i64> %23, %s.i25.sroa.15.01993
   %24 = load i8, ptr %arrayidx16.i, align 1
   %conv17.i = zext i8 %24 to i32
-  %and.i7201 = and <2 x i64> %20, %s.i25.sroa.0.02016
+  %and.i7201 = and <2 x i64> %20, %s.i25.sroa.0.01990
   %vecinit3.i2857 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv17.i, i64 0
   %25 = bitcast <4 x i32> %vecinit3.i2857 to <2 x i64>
   %26 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7201, <2 x i64> %25)
@@ -5389,12 +5389,12 @@ sw.bb18.i:                                        ; preds = %sw.bb.i55, %if.end.
   %35 = load <2 x i64>, ptr %add.ptr.i113.i, align 16, !noalias !462
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104, i64 16) ], !noalias !462
   %36 = load <2 x i64>, ptr %add.ptr.i5104, align 16, !noalias !462
-  %and.i7216 = and <2 x i64> %34, %s.i25.sroa.13.02017
-  %and.i7207 = and <2 x i64> %35, %s.i25.sroa.14.02018
-  %and.i7210 = and <2 x i64> %36, %s.i25.sroa.15.02019
+  %and.i7216 = and <2 x i64> %34, %s.i25.sroa.13.01991
+  %and.i7207 = and <2 x i64> %35, %s.i25.sroa.14.01992
+  %and.i7210 = and <2 x i64> %36, %s.i25.sroa.15.01993
   %37 = load i8, ptr %arrayidx26.i, align 2
   %conv27.i = zext i8 %37 to i32
-  %and.i7213 = and <2 x i64> %33, %s.i25.sroa.0.02016
+  %and.i7213 = and <2 x i64> %33, %s.i25.sroa.0.01990
   %vecinit3.i2833 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv27.i, i64 0
   %38 = bitcast <4 x i32> %vecinit3.i2833 to <2 x i64>
   %39 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7213, <2 x i64> %38)
@@ -5426,12 +5426,12 @@ sw.bb28.i:                                        ; preds = %sw.bb18.i, %if.end.
   %48 = load <2 x i64>, ptr %add.ptr.i110.i, align 16, !noalias !468
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114, i64 16) ], !noalias !468
   %49 = load <2 x i64>, ptr %add.ptr.i5114, align 16, !noalias !468
-  %and.i7228 = and <2 x i64> %47, %s.i25.sroa.13.02017
-  %and.i7219 = and <2 x i64> %48, %s.i25.sroa.14.02018
-  %and.i7222 = and <2 x i64> %49, %s.i25.sroa.15.02019
+  %and.i7228 = and <2 x i64> %47, %s.i25.sroa.13.01991
+  %and.i7219 = and <2 x i64> %48, %s.i25.sroa.14.01992
+  %and.i7222 = and <2 x i64> %49, %s.i25.sroa.15.01993
   %50 = load i8, ptr %arrayidx36.i, align 1
   %conv37.i = zext i8 %50 to i32
-  %and.i7225 = and <2 x i64> %46, %s.i25.sroa.0.02016
+  %and.i7225 = and <2 x i64> %46, %s.i25.sroa.0.01990
   %vecinit3.i2809 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv37.i, i64 0
   %51 = bitcast <4 x i32> %vecinit3.i2809 to <2 x i64>
   %52 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7225, <2 x i64> %51)
@@ -5463,12 +5463,12 @@ sw.bb38.i:                                        ; preds = %sw.bb28.i, %if.end.
   %61 = load <2 x i64>, ptr %add.ptr.i107.i, align 16, !noalias !474
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124, i64 16) ], !noalias !474
   %62 = load <2 x i64>, ptr %add.ptr.i5124, align 16, !noalias !474
-  %and.i7240 = and <2 x i64> %60, %s.i25.sroa.13.02017
-  %and.i7231 = and <2 x i64> %61, %s.i25.sroa.14.02018
-  %and.i7234 = and <2 x i64> %62, %s.i25.sroa.15.02019
+  %and.i7240 = and <2 x i64> %60, %s.i25.sroa.13.01991
+  %and.i7231 = and <2 x i64> %61, %s.i25.sroa.14.01992
+  %and.i7234 = and <2 x i64> %62, %s.i25.sroa.15.01993
   %63 = load i8, ptr %arrayidx46.i, align 4
   %conv47.i = zext i8 %63 to i32
-  %and.i7237 = and <2 x i64> %59, %s.i25.sroa.0.02016
+  %and.i7237 = and <2 x i64> %59, %s.i25.sroa.0.01990
   %vecinit3.i2785 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv47.i, i64 0
   %64 = bitcast <4 x i32> %vecinit3.i2785 to <2 x i64>
   %65 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7237, <2 x i64> %64)
@@ -5500,12 +5500,12 @@ sw.bb48.i:                                        ; preds = %sw.bb38.i, %if.end.
   %74 = load <2 x i64>, ptr %add.ptr.i104.i, align 16, !noalias !480
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134, i64 16) ], !noalias !480
   %75 = load <2 x i64>, ptr %add.ptr.i5134, align 16, !noalias !480
-  %and.i7252 = and <2 x i64> %73, %s.i25.sroa.13.02017
-  %and.i7243 = and <2 x i64> %74, %s.i25.sroa.14.02018
-  %and.i7246 = and <2 x i64> %75, %s.i25.sroa.15.02019
+  %and.i7252 = and <2 x i64> %73, %s.i25.sroa.13.01991
+  %and.i7243 = and <2 x i64> %74, %s.i25.sroa.14.01992
+  %and.i7246 = and <2 x i64> %75, %s.i25.sroa.15.01993
   %76 = load i8, ptr %arrayidx56.i, align 1
   %conv57.i = zext i8 %76 to i32
-  %and.i7249 = and <2 x i64> %72, %s.i25.sroa.0.02016
+  %and.i7249 = and <2 x i64> %72, %s.i25.sroa.0.01990
   %vecinit3.i2761 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv57.i, i64 0
   %77 = bitcast <4 x i32> %vecinit3.i2761 to <2 x i64>
   %78 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7249, <2 x i64> %77)
@@ -5537,12 +5537,12 @@ sw.bb58.i:                                        ; preds = %sw.bb48.i, %if.end.
   %87 = load <2 x i64>, ptr %add.ptr.i101.i, align 16, !noalias !486
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144, i64 16) ], !noalias !486
   %88 = load <2 x i64>, ptr %add.ptr.i5144, align 16, !noalias !486
-  %and.i7264 = and <2 x i64> %86, %s.i25.sroa.13.02017
-  %and.i7255 = and <2 x i64> %87, %s.i25.sroa.14.02018
-  %and.i7258 = and <2 x i64> %88, %s.i25.sroa.15.02019
+  %and.i7264 = and <2 x i64> %86, %s.i25.sroa.13.01991
+  %and.i7255 = and <2 x i64> %87, %s.i25.sroa.14.01992
+  %and.i7258 = and <2 x i64> %88, %s.i25.sroa.15.01993
   %89 = load i8, ptr %arrayidx66.i, align 2
   %conv67.i = zext i8 %89 to i32
-  %and.i7261 = and <2 x i64> %85, %s.i25.sroa.0.02016
+  %and.i7261 = and <2 x i64> %85, %s.i25.sroa.0.01990
   %vecinit3.i2737 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv67.i, i64 0
   %90 = bitcast <4 x i32> %vecinit3.i2737 to <2 x i64>
   %91 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7261, <2 x i64> %90)
@@ -5574,12 +5574,12 @@ sw.bb68.i:                                        ; preds = %sw.bb58.i, %if.end.
   %100 = load <2 x i64>, ptr %add.ptr.i98.i, align 16, !noalias !492
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154, i64 16) ], !noalias !492
   %101 = load <2 x i64>, ptr %add.ptr.i5154, align 16, !noalias !492
-  %and.i7276 = and <2 x i64> %99, %s.i25.sroa.13.02017
-  %and.i7267 = and <2 x i64> %100, %s.i25.sroa.14.02018
-  %and.i7270 = and <2 x i64> %101, %s.i25.sroa.15.02019
+  %and.i7276 = and <2 x i64> %99, %s.i25.sroa.13.01991
+  %and.i7267 = and <2 x i64> %100, %s.i25.sroa.14.01992
+  %and.i7270 = and <2 x i64> %101, %s.i25.sroa.15.01993
   %102 = load i8, ptr %arrayidx76.i, align 1
   %conv77.i = zext i8 %102 to i32
-  %and.i7273 = and <2 x i64> %98, %s.i25.sroa.0.02016
+  %and.i7273 = and <2 x i64> %98, %s.i25.sroa.0.01990
   %vecinit3.i2713 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv77.i, i64 0
   %103 = bitcast <4 x i32> %vecinit3.i2713 to <2 x i64>
   %104 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7273, <2 x i64> %103)
@@ -5607,10 +5607,10 @@ sw.epilog.i47:                                    ; preds = %sw.bb68.i, %if.end.
   %112 = load <2 x i64>, ptr %add.ptr.i5179, align 16, !noalias !447
   %113 = load <2 x i64>, ptr %add.ptr.i95.i, align 16, !noalias !450
   %114 = load <2 x i64>, ptr %add.ptr.i5174, align 16, !noalias !450
-  %and.i7057 = and <2 x i64> %111, %s.i25.sroa.0.02016
-  %and.i7060 = and <2 x i64> %112, %s.i25.sroa.13.02017
-  %and.i7051 = and <2 x i64> %113, %s.i25.sroa.14.02018
-  %and.i7054 = and <2 x i64> %114, %s.i25.sroa.15.02019
+  %and.i7057 = and <2 x i64> %111, %s.i25.sroa.0.01990
+  %and.i7060 = and <2 x i64> %112, %s.i25.sroa.13.01991
+  %and.i7051 = and <2 x i64> %113, %s.i25.sroa.14.01992
+  %and.i7054 = and <2 x i64> %114, %s.i25.sroa.15.01993
   %115 = bitcast <2 x i64> %and.i7057 to <4 x i32>
   %cmp.i3863 = icmp eq <4 x i32> %115, zeroinitializer
   %sext.i3864 = sext <4 x i1> %cmp.i3863 to <4 x i32>
@@ -5637,7 +5637,7 @@ sw.epilog.i47:                                    ; preds = %sw.bb68.i, %if.end.
   br i1 %tobool.i847.not, label %if.end84.i, label %if.end.i852
 
 if.end.i852:                                      ; preds = %sw.epilog.i47
-  %tobool6.i871.not.not = icmp eq i64 %i.i26.02014, 0
+  %tobool6.i871.not.not = icmp eq i64 %i.i26.01988, 0
   br i1 %tobool6.i871.not.not, label %if.end21.i855, label %if.then7.i872
 
 if.then7.i872:                                    ; preds = %if.end.i852
@@ -5649,10 +5649,10 @@ if.then7.i872:                                    ; preds = %if.end.i852
   %127 = load <2 x i64>, ptr %add.ptr.i.i875, align 16, !noalias !498
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4974, i64 16) ], !noalias !498
   %128 = load <2 x i64>, ptr %add.ptr.i4974, align 16, !noalias !498
-  %and.i7045 = and <2 x i64> %125, %s.i25.sroa.0.02016
-  %and.i7048 = and <2 x i64> %126, %s.i25.sroa.13.02017
-  %and.i7039 = and <2 x i64> %127, %s.i25.sroa.14.02018
-  %and.i7042 = and <2 x i64> %128, %s.i25.sroa.15.02019
+  %and.i7045 = and <2 x i64> %125, %s.i25.sroa.0.01990
+  %and.i7048 = and <2 x i64> %126, %s.i25.sroa.13.01991
+  %and.i7039 = and <2 x i64> %127, %s.i25.sroa.14.01992
+  %and.i7042 = and <2 x i64> %128, %s.i25.sroa.15.01993
   %or.i54.i884 = or <2 x i64> %and.i7048, %and.i7045
   %or.i.i880 = or <2 x i64> %or.i54.i884, %and.i7039
   %or.i57.i885 = or <2 x i64> %or.i.i880, %and.i7042
@@ -5663,7 +5663,7 @@ if.then7.i872:                                    ; preds = %if.end.i852
   br i1 %tobool.i.i889.not, label %if.end21.i855, label %nfaExecLimEx512_Stream.exit.sink.split.sink.split
 
 if.end21.i855:                                    ; preds = %if.then7.i872, %if.end.i852
-  %add.i856 = add i64 %i.i26.02014, %offset
+  %add.i856 = add i64 %i.i26.01988, %offset
   %cached_estate.i34113903.sroa.0.sroa.0.0.copyload1858 = load <16 x i8>, ptr %cached_estate.i3411, align 1
   %cached_estate.i34113903.sroa.2.0.copyload1860 = load <16 x i8>, ptr %cached_estate.i34113903.sroa.2.0.cached_estate.i3411.sroa_idx, align 1
   %cached_estate.i34113903.sroa.3.0.copyload1861 = load <16 x i8>, ptr %cached_estate.i34113903.sroa.3.0.cached_estate.i3411.sroa_idx, align 1
@@ -5803,11 +5803,11 @@ if.else.i.i4213:                                  ; preds = %if.then12.i4211
 
 if.else5.i.i4215:                                 ; preds = %if.else.i.i4213
   %cmp6.i.i4216 = icmp ult i32 %160, 384
-  %s.i25.sroa.14.0.s.i25.sroa.15.0 = select i1 %cmp6.i.i4216, <2 x i64> %s.i25.sroa.14.02018, <2 x i64> %s.i25.sroa.15.02019
+  %s.i25.sroa.14.0.s.i25.sroa.15.0 = select i1 %cmp6.i.i4216, <2 x i64> %s.i25.sroa.14.01992, <2 x i64> %s.i25.sroa.15.01993
   br label %testbit512.exit.i4222
 
 testbit512.exit.i4222:                            ; preds = %if.else5.i.i4215, %if.else.i.i4213, %if.then12.i4211
-  %sub.i.i4049.0 = phi <2 x i64> [ %s.i25.sroa.0.02016, %if.then12.i4211 ], [ %s.i25.sroa.13.02017, %if.else.i.i4213 ], [ %s.i25.sroa.14.0.s.i25.sroa.15.0, %if.else5.i.i4215 ]
+  %sub.i.i4049.0 = phi <2 x i64> [ %s.i25.sroa.0.01990, %if.then12.i4211 ], [ %s.i25.sroa.13.01991, %if.else.i.i4213 ], [ %s.i25.sroa.14.0.s.i25.sroa.15.0, %if.else5.i.i4215 ]
   %rem.i116.i4224 = shl i32 %160, 6
   %mul.i.i4225 = and i32 %rem.i116.i4224, 448
   %add.i.i4226 = add nuw nsw i32 %mul.i.i4225, 95
@@ -5960,9 +5960,9 @@ if.end32.i4090:                                   ; preds = %if.else24.i4197, %t
   %reports.i4091 = getelementptr inbounds i8, ptr %arrayidx39.i3486, i64 128
   %175 = load i32, ptr %reports.i4091, align 64
   %cmp33.i4092.not = icmp ne i32 %175, -1
-  %brmerge.not1978 = and i1 %tobool6.i871.not.not, %cmp33.i4092.not
+  %brmerge.not1962 = and i1 %tobool6.i871.not.not, %cmp33.i4092.not
   %cmp71.i4140 = icmp eq i32 %cacheable.i3398.2, 1
-  %or.cond1872 = select i1 %brmerge.not1978, i1 %cmp71.i4140, i1 false
+  %or.cond1872 = select i1 %brmerge.not1962, i1 %cmp71.i4140, i1 false
   %cacheable.i3398.4 = select i1 %or.cond1872, i32 0, i32 %cacheable.i3398.2
   %successors.i4096 = getelementptr inbounds i8, ptr %arrayidx39.i3486, i64 64
   call void @llvm.assume(i1 true) [ "align"(ptr %successors.i4096, i64 16) ], !noalias !507
@@ -6068,7 +6068,7 @@ if.end84.i:                                       ; preds = %sw.epilog.i47, %if.
   %succ.i27.sroa.24.7.ph = phi <2 x i64> [ %or.i143.i3499, %if.then53.i3523 ], [ %or.i143.i3499, %if.then60.i3514 ], [ %or.i143.i3499, %if.then63.i3518 ], [ %or.i143.i3499, %do.end48.i3494 ], [ %or.i131.i3419, %if.then.i3414 ], [ %succ.i27.sroa.24.0, %sw.epilog.i47 ]
   %succ.i27.sroa.48.7.ph = phi <2 x i64> [ %or.i134.i3504, %if.then53.i3523 ], [ %or.i134.i3504, %if.then60.i3514 ], [ %or.i134.i3504, %if.then63.i3518 ], [ %or.i134.i3504, %do.end48.i3494 ], [ %or.i.i3424, %if.then.i3414 ], [ %succ.i27.sroa.48.0, %sw.epilog.i47 ]
   %succ.i27.sroa.72.7.ph = phi <2 x i64> [ %or.i137.i3507, %if.then53.i3523 ], [ %or.i137.i3507, %if.then60.i3514 ], [ %or.i137.i3507, %if.then63.i3518 ], [ %or.i137.i3507, %do.end48.i3494 ], [ %or.i125.i3427, %if.then.i3414 ], [ %succ.i27.sroa.72.0, %sw.epilog.i47 ]
-  %arrayidx85.i = getelementptr inbounds i8, ptr %input, i64 %i.i26.02014
+  %arrayidx85.i = getelementptr inbounds i8, ptr %input, i64 %i.i26.01988
   %186 = load i8, ptr %arrayidx85.i, align 1
   %idxprom.i49 = zext i8 %186 to i64
   %arrayidx88.i = getelementptr inbounds [256 x i8], ptr %limex, i64 0, i64 %idxprom.i49
@@ -6090,12 +6090,12 @@ if.end84.i:                                       ; preds = %sw.epilog.i47, %if.
   %and.i7288 = and <2 x i64> %189, %succ.i27.sroa.24.7.ph
   %and.i7279 = and <2 x i64> %190, %succ.i27.sroa.48.7.ph
   %and.i7282 = and <2 x i64> %191, %succ.i27.sroa.72.7.ph
-  %inc.i52 = add i64 %i.i26.02014, 1
+  %inc.i52 = add i64 %i.i26.01988, 1
   %cmp.i38.not.not = icmp eq i64 %inc.i52, %min_accel_offset.i.0
   br i1 %cmp.i38.not.not, label %with_accel.i, label %if.end.i43, !llvm.loop !196
 
 if.else13.i:                                      ; preds = %without_accel.i
-  br i1 %cmp.i366.not2027, label %with_accel.i, label %land.lhs.true.i569.lr.ph
+  br i1 %cmp.i366.not1999, label %with_accel.i, label %land.lhs.true.i569.lr.ph
 
 land.lhs.true.i569.lr.ph:                         ; preds = %if.else13.i
   %shift.i372 = getelementptr inbounds i8, ptr %limex, i64 1152
@@ -6169,14 +6169,14 @@ land.lhs.true.i569.lr.ph:                         ; preds = %if.else13.i
   br label %land.lhs.true.i569
 
 land.lhs.true.i569:                               ; preds = %land.lhs.true.i569.lr.ph, %if.end84.i388
-  %s.i323.sroa.15.02035 = phi <2 x i64> [ %s.i.sroa.58.0, %land.lhs.true.i569.lr.ph ], [ %and.i7174, %if.end84.i388 ]
-  %s.i323.sroa.14.02034 = phi <2 x i64> [ %s.i.sroa.40.0, %land.lhs.true.i569.lr.ph ], [ %and.i7171, %if.end84.i388 ]
-  %s.i323.sroa.13.02033 = phi <2 x i64> [ %s.i.sroa.22.0, %land.lhs.true.i569.lr.ph ], [ %and.i7180, %if.end84.i388 ]
-  %s.i323.sroa.0.02032 = phi <2 x i64> [ %s.i.sroa.0.0, %land.lhs.true.i569.lr.ph ], [ %and.i7177, %if.end84.i388 ]
-  %i.i324.02030 = phi i64 [ %i.i.0, %land.lhs.true.i569.lr.ph ], [ %inc.i399, %if.end84.i388 ]
-  %or.i420.i575 = or <2 x i64> %s.i323.sroa.13.02033, %s.i323.sroa.0.02032
-  %192 = or <2 x i64> %or.i420.i575, %s.i323.sroa.14.02034
-  %or.i423.i576 = or <2 x i64> %192, %s.i323.sroa.15.02035
+  %s.i323.sroa.15.02005 = phi <2 x i64> [ %s.i.sroa.58.0, %land.lhs.true.i569.lr.ph ], [ %and.i7174, %if.end84.i388 ]
+  %s.i323.sroa.14.02004 = phi <2 x i64> [ %s.i.sroa.40.0, %land.lhs.true.i569.lr.ph ], [ %and.i7171, %if.end84.i388 ]
+  %s.i323.sroa.13.02003 = phi <2 x i64> [ %s.i.sroa.22.0, %land.lhs.true.i569.lr.ph ], [ %and.i7180, %if.end84.i388 ]
+  %s.i323.sroa.0.02002 = phi <2 x i64> [ %s.i.sroa.0.0, %land.lhs.true.i569.lr.ph ], [ %and.i7177, %if.end84.i388 ]
+  %i.i324.02000 = phi i64 [ %i.i.0, %land.lhs.true.i569.lr.ph ], [ %inc.i399, %if.end84.i388 ]
+  %or.i420.i575 = or <2 x i64> %s.i323.sroa.13.02003, %s.i323.sroa.0.02002
+  %192 = or <2 x i64> %or.i420.i575, %s.i323.sroa.14.02004
+  %or.i423.i576 = or <2 x i64> %192, %s.i323.sroa.15.02005
   %193 = bitcast <2 x i64> %or.i423.i576 to <16 x i8>
   %194 = icmp ne <16 x i8> %193, zeroinitializer
   %195 = bitcast <16 x i1> %194 to i16
@@ -6192,12 +6192,12 @@ if.end.i371:                                      ; preds = %land.lhs.true.i569
   %198 = load <2 x i64>, ptr %add.ptr.i119.i374, align 16, !noalias !528
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5084, i64 16) ], !noalias !528
   %199 = load <2 x i64>, ptr %add.ptr.i5084, align 16, !noalias !528
-  %and.i7192 = and <2 x i64> %197, %s.i323.sroa.13.02033
-  %and.i7183 = and <2 x i64> %198, %s.i323.sroa.14.02034
-  %and.i7186 = and <2 x i64> %199, %s.i323.sroa.15.02035
+  %and.i7192 = and <2 x i64> %197, %s.i323.sroa.13.02003
+  %and.i7183 = and <2 x i64> %198, %s.i323.sroa.14.02004
+  %and.i7186 = and <2 x i64> %199, %s.i323.sroa.15.02005
   %200 = load i8, ptr %shiftAmount.i378, align 4
   %conv8.i379 = zext i8 %200 to i32
-  %and.i7189 = and <2 x i64> %196, %s.i323.sroa.0.02032
+  %and.i7189 = and <2 x i64> %196, %s.i323.sroa.0.02002
   %vecinit3.i2881 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv8.i379, i64 0
   %201 = bitcast <4 x i32> %vecinit3.i2881 to <2 x i64>
   %202 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7189, <2 x i64> %201)
@@ -6230,12 +6230,12 @@ sw.bb.i545:                                       ; preds = %if.end.i371
   %212 = load <2 x i64>, ptr %add.ptr.i116.i549, align 16, !noalias !534
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4994, i64 16) ], !noalias !534
   %213 = load <2 x i64>, ptr %add.ptr.i4994, align 16, !noalias !534
-  %and.i7096 = and <2 x i64> %211, %s.i323.sroa.13.02033
-  %and.i7087 = and <2 x i64> %212, %s.i323.sroa.14.02034
-  %and.i7090 = and <2 x i64> %213, %s.i323.sroa.15.02035
+  %and.i7096 = and <2 x i64> %211, %s.i323.sroa.13.02003
+  %and.i7087 = and <2 x i64> %212, %s.i323.sroa.14.02004
+  %and.i7090 = and <2 x i64> %213, %s.i323.sroa.15.02005
   %214 = load i8, ptr %arrayidx16.i554, align 1
   %conv17.i555 = zext i8 %214 to i32
-  %and.i7093 = and <2 x i64> %210, %s.i323.sroa.0.02032
+  %and.i7093 = and <2 x i64> %210, %s.i323.sroa.0.02002
   %vecinit3.i3049 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv17.i555, i64 0
   %215 = bitcast <4 x i32> %vecinit3.i3049 to <2 x i64>
   %216 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7093, <2 x i64> %215)
@@ -6267,12 +6267,12 @@ sw.bb18.i521:                                     ; preds = %sw.bb.i545, %if.end
   %225 = load <2 x i64>, ptr %add.ptr.i113.i525, align 16, !noalias !540
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5004, i64 16) ], !noalias !540
   %226 = load <2 x i64>, ptr %add.ptr.i5004, align 16, !noalias !540
-  %and.i7108 = and <2 x i64> %224, %s.i323.sroa.13.02033
-  %and.i7099 = and <2 x i64> %225, %s.i323.sroa.14.02034
-  %and.i7102 = and <2 x i64> %226, %s.i323.sroa.15.02035
+  %and.i7108 = and <2 x i64> %224, %s.i323.sroa.13.02003
+  %and.i7099 = and <2 x i64> %225, %s.i323.sroa.14.02004
+  %and.i7102 = and <2 x i64> %226, %s.i323.sroa.15.02005
   %227 = load i8, ptr %arrayidx26.i530, align 2
   %conv27.i531 = zext i8 %227 to i32
-  %and.i7105 = and <2 x i64> %223, %s.i323.sroa.0.02032
+  %and.i7105 = and <2 x i64> %223, %s.i323.sroa.0.02002
   %vecinit3.i3025 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv27.i531, i64 0
   %228 = bitcast <4 x i32> %vecinit3.i3025 to <2 x i64>
   %229 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7105, <2 x i64> %228)
@@ -6304,12 +6304,12 @@ sw.bb28.i497:                                     ; preds = %sw.bb18.i521, %if.e
   %238 = load <2 x i64>, ptr %add.ptr.i110.i501, align 16, !noalias !546
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5014, i64 16) ], !noalias !546
   %239 = load <2 x i64>, ptr %add.ptr.i5014, align 16, !noalias !546
-  %and.i7120 = and <2 x i64> %237, %s.i323.sroa.13.02033
-  %and.i7111 = and <2 x i64> %238, %s.i323.sroa.14.02034
-  %and.i7114 = and <2 x i64> %239, %s.i323.sroa.15.02035
+  %and.i7120 = and <2 x i64> %237, %s.i323.sroa.13.02003
+  %and.i7111 = and <2 x i64> %238, %s.i323.sroa.14.02004
+  %and.i7114 = and <2 x i64> %239, %s.i323.sroa.15.02005
   %240 = load i8, ptr %arrayidx36.i506, align 1
   %conv37.i507 = zext i8 %240 to i32
-  %and.i7117 = and <2 x i64> %236, %s.i323.sroa.0.02032
+  %and.i7117 = and <2 x i64> %236, %s.i323.sroa.0.02002
   %vecinit3.i3001 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv37.i507, i64 0
   %241 = bitcast <4 x i32> %vecinit3.i3001 to <2 x i64>
   %242 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7117, <2 x i64> %241)
@@ -6341,12 +6341,12 @@ sw.bb38.i473:                                     ; preds = %sw.bb28.i497, %if.e
   %251 = load <2 x i64>, ptr %add.ptr.i107.i477, align 16, !noalias !552
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5024, i64 16) ], !noalias !552
   %252 = load <2 x i64>, ptr %add.ptr.i5024, align 16, !noalias !552
-  %and.i7132 = and <2 x i64> %250, %s.i323.sroa.13.02033
-  %and.i7123 = and <2 x i64> %251, %s.i323.sroa.14.02034
-  %and.i7126 = and <2 x i64> %252, %s.i323.sroa.15.02035
+  %and.i7132 = and <2 x i64> %250, %s.i323.sroa.13.02003
+  %and.i7123 = and <2 x i64> %251, %s.i323.sroa.14.02004
+  %and.i7126 = and <2 x i64> %252, %s.i323.sroa.15.02005
   %253 = load i8, ptr %arrayidx46.i482, align 4
   %conv47.i483 = zext i8 %253 to i32
-  %and.i7129 = and <2 x i64> %249, %s.i323.sroa.0.02032
+  %and.i7129 = and <2 x i64> %249, %s.i323.sroa.0.02002
   %vecinit3.i2977 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv47.i483, i64 0
   %254 = bitcast <4 x i32> %vecinit3.i2977 to <2 x i64>
   %255 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7129, <2 x i64> %254)
@@ -6378,12 +6378,12 @@ sw.bb48.i449:                                     ; preds = %sw.bb38.i473, %if.e
   %264 = load <2 x i64>, ptr %add.ptr.i104.i453, align 16, !noalias !558
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5034, i64 16) ], !noalias !558
   %265 = load <2 x i64>, ptr %add.ptr.i5034, align 16, !noalias !558
-  %and.i7144 = and <2 x i64> %263, %s.i323.sroa.13.02033
-  %and.i7135 = and <2 x i64> %264, %s.i323.sroa.14.02034
-  %and.i7138 = and <2 x i64> %265, %s.i323.sroa.15.02035
+  %and.i7144 = and <2 x i64> %263, %s.i323.sroa.13.02003
+  %and.i7135 = and <2 x i64> %264, %s.i323.sroa.14.02004
+  %and.i7138 = and <2 x i64> %265, %s.i323.sroa.15.02005
   %266 = load i8, ptr %arrayidx56.i458, align 1
   %conv57.i459 = zext i8 %266 to i32
-  %and.i7141 = and <2 x i64> %262, %s.i323.sroa.0.02032
+  %and.i7141 = and <2 x i64> %262, %s.i323.sroa.0.02002
   %vecinit3.i2953 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv57.i459, i64 0
   %267 = bitcast <4 x i32> %vecinit3.i2953 to <2 x i64>
   %268 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7141, <2 x i64> %267)
@@ -6415,12 +6415,12 @@ sw.bb58.i425:                                     ; preds = %sw.bb48.i449, %if.e
   %277 = load <2 x i64>, ptr %add.ptr.i101.i429, align 16, !noalias !564
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5044, i64 16) ], !noalias !564
   %278 = load <2 x i64>, ptr %add.ptr.i5044, align 16, !noalias !564
-  %and.i7156 = and <2 x i64> %276, %s.i323.sroa.13.02033
-  %and.i7147 = and <2 x i64> %277, %s.i323.sroa.14.02034
-  %and.i7150 = and <2 x i64> %278, %s.i323.sroa.15.02035
+  %and.i7156 = and <2 x i64> %276, %s.i323.sroa.13.02003
+  %and.i7147 = and <2 x i64> %277, %s.i323.sroa.14.02004
+  %and.i7150 = and <2 x i64> %278, %s.i323.sroa.15.02005
   %279 = load i8, ptr %arrayidx66.i434, align 2
   %conv67.i435 = zext i8 %279 to i32
-  %and.i7153 = and <2 x i64> %275, %s.i323.sroa.0.02032
+  %and.i7153 = and <2 x i64> %275, %s.i323.sroa.0.02002
   %vecinit3.i2929 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv67.i435, i64 0
   %280 = bitcast <4 x i32> %vecinit3.i2929 to <2 x i64>
   %281 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7153, <2 x i64> %280)
@@ -6452,12 +6452,12 @@ sw.bb68.i401:                                     ; preds = %sw.bb58.i425, %if.e
   %290 = load <2 x i64>, ptr %add.ptr.i98.i405, align 16, !noalias !570
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5054, i64 16) ], !noalias !570
   %291 = load <2 x i64>, ptr %add.ptr.i5054, align 16, !noalias !570
-  %and.i7168 = and <2 x i64> %289, %s.i323.sroa.13.02033
-  %and.i7159 = and <2 x i64> %290, %s.i323.sroa.14.02034
-  %and.i7162 = and <2 x i64> %291, %s.i323.sroa.15.02035
+  %and.i7168 = and <2 x i64> %289, %s.i323.sroa.13.02003
+  %and.i7159 = and <2 x i64> %290, %s.i323.sroa.14.02004
+  %and.i7162 = and <2 x i64> %291, %s.i323.sroa.15.02005
   %292 = load i8, ptr %arrayidx76.i410, align 1
   %conv77.i411 = zext i8 %292 to i32
-  %and.i7165 = and <2 x i64> %288, %s.i323.sroa.0.02032
+  %and.i7165 = and <2 x i64> %288, %s.i323.sroa.0.02002
   %vecinit3.i2905 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv77.i411, i64 0
   %293 = bitcast <4 x i32> %vecinit3.i2905 to <2 x i64>
   %294 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7165, <2 x i64> %293)
@@ -6489,10 +6489,10 @@ sw.epilog.i382:                                   ; preds = %sw.bb68.i401, %if.e
   %303 = load <2 x i64>, ptr %add.ptr.i95.i385, align 16, !noalias !576
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5074, i64 16) ], !noalias !576
   %304 = load <2 x i64>, ptr %add.ptr.i5074, align 16, !noalias !576
-  %and.i7081 = and <2 x i64> %301, %s.i323.sroa.0.02032
-  %and.i7084 = and <2 x i64> %302, %s.i323.sroa.13.02033
-  %and.i7075 = and <2 x i64> %303, %s.i323.sroa.14.02034
-  %and.i7078 = and <2 x i64> %304, %s.i323.sroa.15.02035
+  %and.i7081 = and <2 x i64> %301, %s.i323.sroa.0.02002
+  %and.i7084 = and <2 x i64> %302, %s.i323.sroa.13.02003
+  %and.i7075 = and <2 x i64> %303, %s.i323.sroa.14.02004
+  %and.i7078 = and <2 x i64> %304, %s.i323.sroa.15.02005
   %305 = bitcast <2 x i64> %and.i7081 to <4 x i32>
   %cmp.i3879 = icmp eq <4 x i32> %305, zeroinitializer
   %sext.i3880 = sext <4 x i1> %cmp.i3879 to <4 x i32>
@@ -6519,7 +6519,7 @@ sw.epilog.i382:                                   ; preds = %sw.bb68.i401, %if.e
   br i1 %tobool.i759.not, label %if.end84.i388, label %if.end.i763
 
 if.end.i763:                                      ; preds = %sw.epilog.i382
-  %tobool6.i.not.not = icmp eq i64 %i.i324.02030, 0
+  %tobool6.i.not.not = icmp eq i64 %i.i324.02000, 0
   br i1 %tobool6.i.not.not, label %if.end21.i764, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i763
@@ -6531,10 +6531,10 @@ if.then7.i:                                       ; preds = %if.end.i763
   %317 = load <2 x i64>, ptr %add.ptr.i.i770, align 16, !noalias !582
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4984, i64 16) ], !noalias !582
   %318 = load <2 x i64>, ptr %add.ptr.i4984, align 16, !noalias !582
-  %and.i7069 = and <2 x i64> %315, %s.i323.sroa.0.02032
-  %and.i7072 = and <2 x i64> %316, %s.i323.sroa.13.02033
-  %and.i7063 = and <2 x i64> %317, %s.i323.sroa.14.02034
-  %and.i7066 = and <2 x i64> %318, %s.i323.sroa.15.02035
+  %and.i7069 = and <2 x i64> %315, %s.i323.sroa.0.02002
+  %and.i7072 = and <2 x i64> %316, %s.i323.sroa.13.02003
+  %and.i7063 = and <2 x i64> %317, %s.i323.sroa.14.02004
+  %and.i7066 = and <2 x i64> %318, %s.i323.sroa.15.02005
   %or.i54.i = or <2 x i64> %and.i7072, %and.i7069
   %or.i.i772 = or <2 x i64> %or.i54.i, %and.i7063
   %or.i57.i = or <2 x i64> %or.i.i772, %and.i7066
@@ -6545,7 +6545,7 @@ if.then7.i:                                       ; preds = %if.end.i763
   br i1 %tobool.i.i779.not, label %if.end21.i764, label %nfaExecLimEx512_Stream.exit.sink.split.sink.split
 
 if.end21.i764:                                    ; preds = %if.then7.i, %if.end.i763
-  %add.i765 = add i64 %i.i324.02030, %offset
+  %add.i765 = add i64 %i.i324.02000, %offset
   %cached_estate.i36373899.sroa.0.sroa.0.0.copyload1853 = load <16 x i8>, ptr %cached_estate.i3637, align 1
   %cached_estate.i36373899.sroa.2.0.copyload1855 = load <16 x i8>, ptr %cached_estate.i36373899.sroa.2.0.cached_estate.i3637.sroa_idx, align 1
   %cached_estate.i36373899.sroa.3.0.copyload1856 = load <16 x i8>, ptr %cached_estate.i36373899.sroa.3.0.cached_estate.i3637.sroa_idx, align 1
@@ -6598,17 +6598,17 @@ if.end14.i3682:                                   ; preds = %lor.rhs.i4601, %if.
 
 for.body.i3756:                                   ; preds = %if.end14.i3682, %for.body.i3756
   %335 = phi i32 [ 0, %if.end14.i3682 ], [ %add.i3763, %for.body.i3756 ]
-  %indvars.iv2090 = phi i64 [ 0, %if.end14.i3682 ], [ %indvars.iv.next2091, %for.body.i3756 ]
-  %arrayidx21.i3760 = getelementptr inbounds [8 x i64], ptr %emask_chunks.i3626, i64 0, i64 %indvars.iv2090
+  %indvars.iv2050 = phi i64 [ 0, %if.end14.i3682 ], [ %indvars.iv.next2051, %for.body.i3756 ]
+  %arrayidx21.i3760 = getelementptr inbounds [8 x i64], ptr %emask_chunks.i3626, i64 0, i64 %indvars.iv2050
   %336 = load i64, ptr %arrayidx21.i3760, align 8
   %337 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %336)
   %cast.i.i3761 = trunc nuw nsw i64 %337 to i32
   %add.i3763 = add i32 %335, %cast.i.i3761
-  %indvars.iv.next2091 = add nuw nsw i64 %indvars.iv2090, 1
-  %arrayidx25.i3766 = getelementptr inbounds [8 x i32], ptr %base_index.i3627, i64 0, i64 %indvars.iv.next2091
+  %indvars.iv.next2051 = add nuw nsw i64 %indvars.iv2050, 1
+  %arrayidx25.i3766 = getelementptr inbounds [8 x i32], ptr %base_index.i3627, i64 0, i64 %indvars.iv.next2051
   store i32 %add.i3763, ptr %arrayidx25.i3766, align 4
-  %exitcond2093.not = icmp eq i64 %indvars.iv.next2091, 7
-  br i1 %exitcond2093.not, label %do.body26.i3691, label %for.body.i3756, !llvm.loop !168
+  %exitcond2053.not = icmp eq i64 %indvars.iv.next2051, 7
+  br i1 %exitcond2053.not, label %do.body26.i3691, label %for.body.i3756, !llvm.loop !168
 
 do.body26.i3691:                                  ; preds = %for.body.i3756, %do.end45.i3718
   %succ.i325.sroa.0.9 = phi <2 x i64> [ %succ.i325.sroa.0.11, %do.end45.i3718 ], [ %succ.i325.sroa.0.0, %for.body.i3756 ]
@@ -6685,11 +6685,11 @@ if.else.i.i:                                      ; preds = %if.then12.i4000
 
 if.else5.i.i:                                     ; preds = %if.else.i.i
   %cmp6.i.i = icmp ult i32 %350, 384
-  %s.i323.sroa.14.0.s.i323.sroa.15.0 = select i1 %cmp6.i.i, <2 x i64> %s.i323.sroa.14.02034, <2 x i64> %s.i323.sroa.15.02035
+  %s.i323.sroa.14.0.s.i323.sroa.15.0 = select i1 %cmp6.i.i, <2 x i64> %s.i323.sroa.14.02004, <2 x i64> %s.i323.sroa.15.02005
   br label %testbit512.exit.i
 
 testbit512.exit.i:                                ; preds = %if.else5.i.i, %if.else.i.i, %if.then12.i4000
-  %sub.i.i3943.0 = phi <2 x i64> [ %s.i323.sroa.0.02032, %if.then12.i4000 ], [ %s.i323.sroa.13.02033, %if.else.i.i ], [ %s.i323.sroa.14.0.s.i323.sroa.15.0, %if.else5.i.i ]
+  %sub.i.i3943.0 = phi <2 x i64> [ %s.i323.sroa.0.02002, %if.then12.i4000 ], [ %s.i323.sroa.13.02003, %if.else.i.i ], [ %s.i323.sroa.14.0.s.i323.sroa.15.0, %if.else5.i.i ]
   %rem.i116.i = shl i32 %350, 6
   %mul.i.i = and i32 %rem.i116.i, 448
   %add.i.i = add nuw nsw i32 %mul.i.i, 95
@@ -6842,9 +6842,9 @@ if.end32.i:                                       ; preds = %if.else24.i, %testb
   %reports.i3965 = getelementptr inbounds i8, ptr %arrayidx39.i3712, i64 128
   %365 = load i32, ptr %reports.i3965, align 64
   %cmp33.i.not = icmp ne i32 %365, -1
-  %brmerge1876.not1979 = and i1 %tobool6.i.not.not, %cmp33.i.not
+  %brmerge1876.not1963 = and i1 %tobool6.i.not.not, %cmp33.i.not
   %cmp71.i = icmp eq i32 %cacheable.i3624.2, 1
-  %or.cond1877 = select i1 %brmerge1876.not1979, i1 %cmp71.i, i1 false
+  %or.cond1877 = select i1 %brmerge1876.not1963, i1 %cmp71.i, i1 false
   %cacheable.i3624.4 = select i1 %or.cond1877, i32 0, i32 %cacheable.i3624.2
   %successors.i = getelementptr inbounds i8, ptr %arrayidx39.i3712, i64 64
   call void @llvm.assume(i1 true) [ "align"(ptr %successors.i, i64 16) ], !noalias !591
@@ -6950,7 +6950,7 @@ if.end84.i388:                                    ; preds = %sw.epilog.i382, %if
   %succ.i325.sroa.24.7.ph = phi <2 x i64> [ %or.i143.i3725, %if.then53.i3749 ], [ %or.i143.i3725, %if.then60.i3740 ], [ %or.i143.i3725, %if.then63.i3744 ], [ %or.i143.i3725, %do.end48.i3720 ], [ %or.i131.i3645, %if.then.i3640 ], [ %succ.i325.sroa.24.0, %sw.epilog.i382 ]
   %succ.i325.sroa.48.7.ph = phi <2 x i64> [ %or.i134.i3730, %if.then53.i3749 ], [ %or.i134.i3730, %if.then60.i3740 ], [ %or.i134.i3730, %if.then63.i3744 ], [ %or.i134.i3730, %do.end48.i3720 ], [ %or.i.i3650, %if.then.i3640 ], [ %succ.i325.sroa.48.0, %sw.epilog.i382 ]
   %succ.i325.sroa.72.7.ph = phi <2 x i64> [ %or.i137.i3733, %if.then53.i3749 ], [ %or.i137.i3733, %if.then60.i3740 ], [ %or.i137.i3733, %if.then63.i3744 ], [ %or.i137.i3733, %do.end48.i3720 ], [ %or.i125.i3653, %if.then.i3640 ], [ %succ.i325.sroa.72.0, %sw.epilog.i382 ]
-  %arrayidx85.i389 = getelementptr inbounds i8, ptr %input, i64 %i.i324.02030
+  %arrayidx85.i389 = getelementptr inbounds i8, ptr %input, i64 %i.i324.02000
   %376 = load i8, ptr %arrayidx85.i389, align 1
   %idxprom.i390 = zext i8 %376 to i64
   %arrayidx88.i391 = getelementptr inbounds [256 x i8], ptr %limex, i64 0, i64 %idxprom.i390
@@ -6972,19 +6972,19 @@ if.end84.i388:                                    ; preds = %sw.epilog.i382, %if
   %and.i7180 = and <2 x i64> %379, %succ.i325.sroa.24.7.ph
   %and.i7171 = and <2 x i64> %380, %succ.i325.sroa.48.7.ph
   %and.i7174 = and <2 x i64> %381, %succ.i325.sroa.72.7.ph
-  %inc.i399 = add i64 %i.i324.02030, 1
+  %inc.i399 = add i64 %i.i324.02000, 1
   %cmp.i366.not = icmp eq i64 %inc.i399, %min_accel_offset.i.0
   br i1 %cmp.i366.not, label %with_accel.i, label %land.lhs.true.i569, !llvm.loop !196
 
 with_accel.i:                                     ; preds = %if.end84.i, %land.lhs.true.i569, %if.end84.i388, %if.then8.i, %if.else13.i, %entry
-  %i.i.1 = phi i64 [ 0, %entry ], [ %i.i.0, %if.else13.i ], [ %i.i.0, %if.then8.i ], [ %i.i324.02030, %land.lhs.true.i569 ], [ %min_accel_offset.i.0, %if.end84.i388 ], [ %min_accel_offset.i.0, %if.end84.i ]
-  %s.i.sroa.0.1 = phi <2 x i64> [ %s.i.sroa.0.0.copyload, %entry ], [ %s.i.sroa.0.0, %if.else13.i ], [ %s.i.sroa.0.0, %if.then8.i ], [ %s.i323.sroa.0.02032, %land.lhs.true.i569 ], [ %and.i7177, %if.end84.i388 ], [ %and.i7285, %if.end84.i ]
-  %s.i.sroa.22.1 = phi <2 x i64> [ %s.i.sroa.22.0.copyload, %entry ], [ %s.i.sroa.22.0, %if.else13.i ], [ %s.i.sroa.22.0, %if.then8.i ], [ %s.i323.sroa.13.02033, %land.lhs.true.i569 ], [ %and.i7180, %if.end84.i388 ], [ %and.i7288, %if.end84.i ]
-  %s.i.sroa.40.1 = phi <2 x i64> [ %s.i.sroa.40.0.copyload, %entry ], [ %s.i.sroa.40.0, %if.else13.i ], [ %s.i.sroa.40.0, %if.then8.i ], [ %s.i323.sroa.14.02034, %land.lhs.true.i569 ], [ %and.i7171, %if.end84.i388 ], [ %and.i7279, %if.end84.i ]
-  %s.i.sroa.58.1 = phi <2 x i64> [ %s.i.sroa.58.0.copyload, %entry ], [ %s.i.sroa.58.0, %if.else13.i ], [ %s.i.sroa.58.0, %if.then8.i ], [ %s.i323.sroa.15.02035, %land.lhs.true.i569 ], [ %and.i7174, %if.end84.i388 ], [ %and.i7282, %if.end84.i ]
+  %i.i.1 = phi i64 [ 0, %entry ], [ %i.i.0, %if.else13.i ], [ %i.i.0, %if.then8.i ], [ %i.i324.02000, %land.lhs.true.i569 ], [ %min_accel_offset.i.0, %if.end84.i388 ], [ %min_accel_offset.i.0, %if.end84.i ]
+  %s.i.sroa.0.1 = phi <2 x i64> [ %s.i.sroa.0.0.copyload, %entry ], [ %s.i.sroa.0.0, %if.else13.i ], [ %s.i.sroa.0.0, %if.then8.i ], [ %s.i323.sroa.0.02002, %land.lhs.true.i569 ], [ %and.i7177, %if.end84.i388 ], [ %and.i7285, %if.end84.i ]
+  %s.i.sroa.22.1 = phi <2 x i64> [ %s.i.sroa.22.0.copyload, %entry ], [ %s.i.sroa.22.0, %if.else13.i ], [ %s.i.sroa.22.0, %if.then8.i ], [ %s.i323.sroa.13.02003, %land.lhs.true.i569 ], [ %and.i7180, %if.end84.i388 ], [ %and.i7288, %if.end84.i ]
+  %s.i.sroa.40.1 = phi <2 x i64> [ %s.i.sroa.40.0.copyload, %entry ], [ %s.i.sroa.40.0, %if.else13.i ], [ %s.i.sroa.40.0, %if.then8.i ], [ %s.i323.sroa.14.02004, %land.lhs.true.i569 ], [ %and.i7171, %if.end84.i388 ], [ %and.i7279, %if.end84.i ]
+  %s.i.sroa.58.1 = phi <2 x i64> [ %s.i.sroa.58.0.copyload, %entry ], [ %s.i.sroa.58.0, %if.else13.i ], [ %s.i.sroa.58.0, %if.then8.i ], [ %s.i323.sroa.15.02005, %land.lhs.true.i569 ], [ %and.i7174, %if.end84.i388 ], [ %and.i7282, %if.end84.i ]
   %min_accel_offset.i.1 = phi i64 [ 0, %entry ], [ %i.i.0, %if.else13.i ], [ %i.i.0, %if.then8.i ], [ %min_accel_offset.i.0, %if.end84.i388 ], [ %min_accel_offset.i.0, %land.lhs.true.i569 ], [ %min_accel_offset.i.0, %if.end84.i ]
-  %cmp22.i.not2051 = icmp eq i64 %i.i.1, %length
-  br i1 %cmp22.i.not2051, label %for.end.i, label %for.body.i.lr.ph
+  %cmp22.i.not2017 = icmp eq i64 %i.i.1, %length
+  br i1 %cmp22.i.not2017, label %for.end.i, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %with_accel.i
   %accel_and_friends.i = getelementptr inbounds i8, ptr %limex, i64 832
@@ -7062,12 +7062,12 @@ for.body.i.lr.ph:                                 ; preds = %with_accel.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.end142.i
-  %s.i.sroa.58.42057 = phi <2 x i64> [ %s.i.sroa.58.1, %for.body.i.lr.ph ], [ %and.i7402, %if.end142.i ]
-  %s.i.sroa.40.42056 = phi <2 x i64> [ %s.i.sroa.40.1, %for.body.i.lr.ph ], [ %and.i7399, %if.end142.i ]
-  %s.i.sroa.22.42055 = phi <2 x i64> [ %s.i.sroa.22.1, %for.body.i.lr.ph ], [ %and.i7408, %if.end142.i ]
-  %s.i.sroa.0.42054 = phi <2 x i64> [ %s.i.sroa.0.1, %for.body.i.lr.ph ], [ %and.i7405, %if.end142.i ]
-  %i.i.42052 = phi i64 [ %i.i.1, %for.body.i.lr.ph ], [ %inc.i, %if.end142.i ]
-  %add.i = add i64 %i.i.42052, 16
+  %s.i.sroa.58.42023 = phi <2 x i64> [ %s.i.sroa.58.1, %for.body.i.lr.ph ], [ %and.i7402, %if.end142.i ]
+  %s.i.sroa.40.42022 = phi <2 x i64> [ %s.i.sroa.40.1, %for.body.i.lr.ph ], [ %and.i7399, %if.end142.i ]
+  %s.i.sroa.22.42021 = phi <2 x i64> [ %s.i.sroa.22.1, %for.body.i.lr.ph ], [ %and.i7408, %if.end142.i ]
+  %s.i.sroa.0.42020 = phi <2 x i64> [ %s.i.sroa.0.1, %for.body.i.lr.ph ], [ %and.i7405, %if.end142.i ]
+  %i.i.42018 = phi i64 [ %i.i.1, %for.body.i.lr.ph ], [ %inc.i, %if.end142.i ]
+  %add.i = add i64 %i.i.42018, 16
   %cmp24.i.not = icmp ugt i64 %add.i, %length
   br i1 %cmp24.i.not, label %if.end60.i, label %land.lhs.true.i
 
@@ -7081,13 +7081,13 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5214, i64 16) ], !noalias !612
   %385 = load <2 x i64>, ptr %add.ptr.i5214, align 16, !noalias !612
   %not.i1045 = xor <2 x i64> %382, <i64 -1, i64 -1>
-  %and.i1046 = and <2 x i64> %s.i.sroa.0.42054, %not.i1045
+  %and.i1046 = and <2 x i64> %s.i.sroa.0.42020, %not.i1045
   %not.i1049 = xor <2 x i64> %383, <i64 -1, i64 -1>
-  %and.i1050 = and <2 x i64> %s.i.sroa.22.42055, %not.i1049
+  %and.i1050 = and <2 x i64> %s.i.sroa.22.42021, %not.i1049
   %not.i = xor <2 x i64> %384, <i64 -1, i64 -1>
-  %and.i1038 = and <2 x i64> %s.i.sroa.40.42056, %not.i
+  %and.i1038 = and <2 x i64> %s.i.sroa.40.42022, %not.i
   %not.i1041 = xor <2 x i64> %385, <i64 -1, i64 -1>
-  %and.i1042 = and <2 x i64> %s.i.sroa.58.42057, %not.i1041
+  %and.i1042 = and <2 x i64> %s.i.sroa.58.42023, %not.i1041
   %or.i567.i = or <2 x i64> %and.i1050, %and.i1046
   %or.i564.i = or <2 x i64> %or.i567.i, %and.i1038
   %or.i570.i = or <2 x i64> %or.i564.i, %and.i1042
@@ -7098,15 +7098,15 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %tobool.i.i.not, label %if.then29.i, label %if.end60.i
 
 if.then29.i:                                      ; preds = %land.lhs.true.i
-  store <2 x i64> %s.i.sroa.0.42054, ptr %s.i588, align 64
+  store <2 x i64> %s.i.sroa.0.42020, ptr %s.i588, align 64
   %s.i.sroa.22.0.s.i588.sroa_idx = getelementptr inbounds i8, ptr %s.i588, i64 16
-  store <2 x i64> %s.i.sroa.22.42055, ptr %s.i.sroa.22.0.s.i588.sroa_idx, align 16
+  store <2 x i64> %s.i.sroa.22.42021, ptr %s.i.sroa.22.0.s.i588.sroa_idx, align 16
   %s.i.sroa.40.0.s.i588.sroa_idx = getelementptr inbounds i8, ptr %s.i588, i64 32
-  store <2 x i64> %s.i.sroa.40.42056, ptr %s.i.sroa.40.0.s.i588.sroa_idx, align 32
+  store <2 x i64> %s.i.sroa.40.42022, ptr %s.i.sroa.40.0.s.i588.sroa_idx, align 32
   %s.i.sroa.58.0.s.i588.sroa_idx = getelementptr inbounds i8, ptr %s.i588, i64 48
-  store <2 x i64> %s.i.sroa.58.42057, ptr %s.i.sroa.58.0.s.i588.sroa_idx, align 16
-  %call.i = call i64 @doAccel512(ptr noundef nonnull %s.i588, ptr noundef nonnull %limex, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr2.i, ptr noundef %input, i64 noundef %i.i.42052, i64 noundef %length) #11
-  %cmp34.i.not = icmp eq i64 %call.i, %i.i.42052
+  store <2 x i64> %s.i.sroa.58.42023, ptr %s.i.sroa.58.0.s.i588.sroa_idx, align 16
+  %call.i = call i64 @doAccel512(ptr noundef nonnull %s.i588, ptr noundef nonnull %limex, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr2.i, ptr noundef %input, i64 noundef %i.i.42018, i64 noundef %length) #11
+  %cmp34.i.not = icmp eq i64 %call.i, %i.i.42018
   br i1 %cmp34.i.not, label %if.end39.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.then29.i
@@ -7122,18 +7122,18 @@ if.then36.i:                                      ; preds = %if.then29.i
   %391 = load <2 x i64>, ptr %add.ptr.i231.i, align 16, !noalias !618
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5204, i64 16) ], !noalias !618
   %392 = load <2 x i64>, ptr %add.ptr.i5204, align 16, !noalias !618
-  %and.i7309 = and <2 x i64> %389, %s.i.sroa.0.42054
-  %and.i7312 = and <2 x i64> %390, %s.i.sroa.22.42055
-  %and.i7303 = and <2 x i64> %391, %s.i.sroa.40.42056
-  %and.i7306 = and <2 x i64> %392, %s.i.sroa.58.42057
+  %and.i7309 = and <2 x i64> %389, %s.i.sroa.0.42020
+  %and.i7312 = and <2 x i64> %390, %s.i.sroa.22.42021
+  %and.i7303 = and <2 x i64> %391, %s.i.sroa.40.42022
+  %and.i7306 = and <2 x i64> %392, %s.i.sroa.58.42023
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then36.i, %if.then29.i
-  %s.i.sroa.0.6 = phi <2 x i64> [ %and.i7309, %if.then36.i ], [ %s.i.sroa.0.42054, %if.then29.i ]
-  %s.i.sroa.22.6 = phi <2 x i64> [ %and.i7312, %if.then36.i ], [ %s.i.sroa.22.42055, %if.then29.i ]
-  %s.i.sroa.40.6 = phi <2 x i64> [ %and.i7303, %if.then36.i ], [ %s.i.sroa.40.42056, %if.then29.i ]
-  %s.i.sroa.58.6 = phi <2 x i64> [ %and.i7306, %if.then36.i ], [ %s.i.sroa.58.42057, %if.then29.i ]
-  %tobool40.i.not = icmp ne i64 %i.i.42052, 0
+  %s.i.sroa.0.6 = phi <2 x i64> [ %and.i7309, %if.then36.i ], [ %s.i.sroa.0.42020, %if.then29.i ]
+  %s.i.sroa.22.6 = phi <2 x i64> [ %and.i7312, %if.then36.i ], [ %s.i.sroa.22.42021, %if.then29.i ]
+  %s.i.sroa.40.6 = phi <2 x i64> [ %and.i7303, %if.then36.i ], [ %s.i.sroa.40.42022, %if.then29.i ]
+  %s.i.sroa.58.6 = phi <2 x i64> [ %and.i7306, %if.then36.i ], [ %s.i.sroa.58.42023, %if.then29.i ]
+  %tobool40.i.not = icmp ne i64 %i.i.42018, 0
   %add42.i = add i64 %min_accel_offset.i.1, 4
   %cmp43.i = icmp ult i64 %call.i, %add42.i
   %or.cond1879 = and i1 %tobool40.i.not, %cmp43.i
@@ -7154,12 +7154,12 @@ if.end60.i:                                       ; preds = %land.lhs.true.i, %f
   %395 = load <2 x i64>, ptr %add.ptr.i225.i, align 16, !noalias !624
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5314, i64 16) ], !noalias !624
   %396 = load <2 x i64>, ptr %add.ptr.i5314, align 16, !noalias !624
-  %and.i7420 = and <2 x i64> %394, %s.i.sroa.22.42055
-  %and.i7411 = and <2 x i64> %395, %s.i.sroa.40.42056
-  %and.i7414 = and <2 x i64> %396, %s.i.sroa.58.42057
+  %and.i7420 = and <2 x i64> %394, %s.i.sroa.22.42021
+  %and.i7411 = and <2 x i64> %395, %s.i.sroa.40.42022
+  %and.i7414 = and <2 x i64> %396, %s.i.sroa.58.42023
   %397 = load i8, ptr %shiftAmount.i, align 4
   %conv66.i = zext i8 %397 to i32
-  %and.i7417 = and <2 x i64> %393, %s.i.sroa.0.42054
+  %and.i7417 = and <2 x i64> %393, %s.i.sroa.0.42020
   %vecinit3.i2497 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv66.i, i64 0
   %398 = bitcast <4 x i32> %vecinit3.i2497 to <2 x i64>
   %399 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7417, <2 x i64> %398)
@@ -7192,12 +7192,12 @@ sw.bb.i:                                          ; preds = %if.end60.i
   %409 = load <2 x i64>, ptr %add.ptr.i222.i, align 16, !noalias !630
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5224, i64 16) ], !noalias !630
   %410 = load <2 x i64>, ptr %add.ptr.i5224, align 16, !noalias !630
-  %and.i7324 = and <2 x i64> %408, %s.i.sroa.22.42055
-  %and.i7315 = and <2 x i64> %409, %s.i.sroa.40.42056
-  %and.i7318 = and <2 x i64> %410, %s.i.sroa.58.42057
+  %and.i7324 = and <2 x i64> %408, %s.i.sroa.22.42021
+  %and.i7315 = and <2 x i64> %409, %s.i.sroa.40.42022
+  %and.i7318 = and <2 x i64> %410, %s.i.sroa.58.42023
   %411 = load i8, ptr %arrayidx74.i, align 1
   %conv75.i = zext i8 %411 to i32
-  %and.i7321 = and <2 x i64> %407, %s.i.sroa.0.42054
+  %and.i7321 = and <2 x i64> %407, %s.i.sroa.0.42020
   %vecinit3.i2665 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv75.i, i64 0
   %412 = bitcast <4 x i32> %vecinit3.i2665 to <2 x i64>
   %413 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7321, <2 x i64> %412)
@@ -7229,12 +7229,12 @@ sw.bb76.i:                                        ; preds = %sw.bb.i, %if.end60.
   %422 = load <2 x i64>, ptr %add.ptr.i219.i, align 16, !noalias !636
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5234, i64 16) ], !noalias !636
   %423 = load <2 x i64>, ptr %add.ptr.i5234, align 16, !noalias !636
-  %and.i7336 = and <2 x i64> %421, %s.i.sroa.22.42055
-  %and.i7327 = and <2 x i64> %422, %s.i.sroa.40.42056
-  %and.i7330 = and <2 x i64> %423, %s.i.sroa.58.42057
+  %and.i7336 = and <2 x i64> %421, %s.i.sroa.22.42021
+  %and.i7327 = and <2 x i64> %422, %s.i.sroa.40.42022
+  %and.i7330 = and <2 x i64> %423, %s.i.sroa.58.42023
   %424 = load i8, ptr %arrayidx84.i, align 2
   %conv85.i = zext i8 %424 to i32
-  %and.i7333 = and <2 x i64> %420, %s.i.sroa.0.42054
+  %and.i7333 = and <2 x i64> %420, %s.i.sroa.0.42020
   %vecinit3.i2641 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv85.i, i64 0
   %425 = bitcast <4 x i32> %vecinit3.i2641 to <2 x i64>
   %426 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7333, <2 x i64> %425)
@@ -7266,12 +7266,12 @@ sw.bb86.i:                                        ; preds = %sw.bb76.i, %if.end6
   %435 = load <2 x i64>, ptr %add.ptr.i216.i, align 16, !noalias !642
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5244, i64 16) ], !noalias !642
   %436 = load <2 x i64>, ptr %add.ptr.i5244, align 16, !noalias !642
-  %and.i7348 = and <2 x i64> %434, %s.i.sroa.22.42055
-  %and.i7339 = and <2 x i64> %435, %s.i.sroa.40.42056
-  %and.i7342 = and <2 x i64> %436, %s.i.sroa.58.42057
+  %and.i7348 = and <2 x i64> %434, %s.i.sroa.22.42021
+  %and.i7339 = and <2 x i64> %435, %s.i.sroa.40.42022
+  %and.i7342 = and <2 x i64> %436, %s.i.sroa.58.42023
   %437 = load i8, ptr %arrayidx94.i, align 1
   %conv95.i = zext i8 %437 to i32
-  %and.i7345 = and <2 x i64> %433, %s.i.sroa.0.42054
+  %and.i7345 = and <2 x i64> %433, %s.i.sroa.0.42020
   %vecinit3.i2617 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv95.i, i64 0
   %438 = bitcast <4 x i32> %vecinit3.i2617 to <2 x i64>
   %439 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7345, <2 x i64> %438)
@@ -7303,12 +7303,12 @@ sw.bb96.i:                                        ; preds = %sw.bb86.i, %if.end6
   %448 = load <2 x i64>, ptr %add.ptr.i213.i, align 16, !noalias !648
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5254, i64 16) ], !noalias !648
   %449 = load <2 x i64>, ptr %add.ptr.i5254, align 16, !noalias !648
-  %and.i7360 = and <2 x i64> %447, %s.i.sroa.22.42055
-  %and.i7351 = and <2 x i64> %448, %s.i.sroa.40.42056
-  %and.i7354 = and <2 x i64> %449, %s.i.sroa.58.42057
+  %and.i7360 = and <2 x i64> %447, %s.i.sroa.22.42021
+  %and.i7351 = and <2 x i64> %448, %s.i.sroa.40.42022
+  %and.i7354 = and <2 x i64> %449, %s.i.sroa.58.42023
   %450 = load i8, ptr %arrayidx104.i, align 4
   %conv105.i = zext i8 %450 to i32
-  %and.i7357 = and <2 x i64> %446, %s.i.sroa.0.42054
+  %and.i7357 = and <2 x i64> %446, %s.i.sroa.0.42020
   %vecinit3.i2593 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv105.i, i64 0
   %451 = bitcast <4 x i32> %vecinit3.i2593 to <2 x i64>
   %452 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7357, <2 x i64> %451)
@@ -7340,12 +7340,12 @@ sw.bb106.i:                                       ; preds = %sw.bb96.i, %if.end6
   %461 = load <2 x i64>, ptr %add.ptr.i210.i, align 16, !noalias !654
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5264, i64 16) ], !noalias !654
   %462 = load <2 x i64>, ptr %add.ptr.i5264, align 16, !noalias !654
-  %and.i7372 = and <2 x i64> %460, %s.i.sroa.22.42055
-  %and.i7363 = and <2 x i64> %461, %s.i.sroa.40.42056
-  %and.i7366 = and <2 x i64> %462, %s.i.sroa.58.42057
+  %and.i7372 = and <2 x i64> %460, %s.i.sroa.22.42021
+  %and.i7363 = and <2 x i64> %461, %s.i.sroa.40.42022
+  %and.i7366 = and <2 x i64> %462, %s.i.sroa.58.42023
   %463 = load i8, ptr %arrayidx114.i, align 1
   %conv115.i = zext i8 %463 to i32
-  %and.i7369 = and <2 x i64> %459, %s.i.sroa.0.42054
+  %and.i7369 = and <2 x i64> %459, %s.i.sroa.0.42020
   %vecinit3.i2569 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv115.i, i64 0
   %464 = bitcast <4 x i32> %vecinit3.i2569 to <2 x i64>
   %465 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7369, <2 x i64> %464)
@@ -7377,12 +7377,12 @@ sw.bb116.i:                                       ; preds = %sw.bb106.i, %if.end
   %474 = load <2 x i64>, ptr %add.ptr.i207.i, align 16, !noalias !660
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5274, i64 16) ], !noalias !660
   %475 = load <2 x i64>, ptr %add.ptr.i5274, align 16, !noalias !660
-  %and.i7384 = and <2 x i64> %473, %s.i.sroa.22.42055
-  %and.i7375 = and <2 x i64> %474, %s.i.sroa.40.42056
-  %and.i7378 = and <2 x i64> %475, %s.i.sroa.58.42057
+  %and.i7384 = and <2 x i64> %473, %s.i.sroa.22.42021
+  %and.i7375 = and <2 x i64> %474, %s.i.sroa.40.42022
+  %and.i7378 = and <2 x i64> %475, %s.i.sroa.58.42023
   %476 = load i8, ptr %arrayidx124.i, align 2
   %conv125.i = zext i8 %476 to i32
-  %and.i7381 = and <2 x i64> %472, %s.i.sroa.0.42054
+  %and.i7381 = and <2 x i64> %472, %s.i.sroa.0.42020
   %vecinit3.i2545 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv125.i, i64 0
   %477 = bitcast <4 x i32> %vecinit3.i2545 to <2 x i64>
   %478 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7381, <2 x i64> %477)
@@ -7414,12 +7414,12 @@ sw.bb126.i:                                       ; preds = %sw.bb116.i, %if.end
   %487 = load <2 x i64>, ptr %add.ptr.i204.i, align 16, !noalias !666
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5284, i64 16) ], !noalias !666
   %488 = load <2 x i64>, ptr %add.ptr.i5284, align 16, !noalias !666
-  %and.i7396 = and <2 x i64> %486, %s.i.sroa.22.42055
-  %and.i7387 = and <2 x i64> %487, %s.i.sroa.40.42056
-  %and.i7390 = and <2 x i64> %488, %s.i.sroa.58.42057
+  %and.i7396 = and <2 x i64> %486, %s.i.sroa.22.42021
+  %and.i7387 = and <2 x i64> %487, %s.i.sroa.40.42022
+  %and.i7390 = and <2 x i64> %488, %s.i.sroa.58.42023
   %489 = load i8, ptr %arrayidx134.i, align 1
   %conv135.i = zext i8 %489 to i32
-  %and.i7393 = and <2 x i64> %485, %s.i.sroa.0.42054
+  %and.i7393 = and <2 x i64> %485, %s.i.sroa.0.42020
   %vecinit3.i2521 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv135.i, i64 0
   %490 = bitcast <4 x i32> %vecinit3.i2521 to <2 x i64>
   %491 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7393, <2 x i64> %490)
@@ -7451,10 +7451,10 @@ sw.epilog.i:                                      ; preds = %sw.bb126.i, %if.end
   %500 = load <2 x i64>, ptr %add.ptr.i201.i, align 16, !noalias !672
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5304, i64 16) ], !noalias !672
   %501 = load <2 x i64>, ptr %add.ptr.i5304, align 16, !noalias !672
-  %and.i7033 = and <2 x i64> %498, %s.i.sroa.0.42054
-  %and.i7036 = and <2 x i64> %499, %s.i.sroa.22.42055
-  %and.i7027 = and <2 x i64> %500, %s.i.sroa.40.42056
-  %and.i7030 = and <2 x i64> %501, %s.i.sroa.58.42057
+  %and.i7033 = and <2 x i64> %498, %s.i.sroa.0.42020
+  %and.i7036 = and <2 x i64> %499, %s.i.sroa.22.42021
+  %and.i7027 = and <2 x i64> %500, %s.i.sroa.40.42022
+  %and.i7030 = and <2 x i64> %501, %s.i.sroa.58.42023
   %502 = bitcast <2 x i64> %and.i7033 to <4 x i32>
   %cmp.i3847 = icmp eq <4 x i32> %502, zeroinitializer
   %sext.i3848 = sext <4 x i1> %cmp.i3847 to <4 x i32>
@@ -7481,7 +7481,7 @@ sw.epilog.i:                                      ; preds = %sw.bb126.i, %if.end
   br i1 %tobool.i962.not, label %if.end142.i, label %if.end.i967
 
 if.end.i967:                                      ; preds = %sw.epilog.i
-  %tobool6.i986.not.not = icmp eq i64 %i.i.42052, 0
+  %tobool6.i986.not.not = icmp eq i64 %i.i.42018, 0
   br i1 %tobool6.i986.not.not, label %if.end21.i970, label %if.then7.i987
 
 if.then7.i987:                                    ; preds = %if.end.i967
@@ -7493,10 +7493,10 @@ if.then7.i987:                                    ; preds = %if.end.i967
   %514 = load <2 x i64>, ptr %add.ptr.i.i990, align 16, !noalias !678
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4964, i64 16) ], !noalias !678
   %515 = load <2 x i64>, ptr %add.ptr.i4964, align 16, !noalias !678
-  %and.i7021 = and <2 x i64> %512, %s.i.sroa.0.42054
-  %and.i7024 = and <2 x i64> %513, %s.i.sroa.22.42055
-  %and.i7015 = and <2 x i64> %514, %s.i.sroa.40.42056
-  %and.i7018 = and <2 x i64> %515, %s.i.sroa.58.42057
+  %and.i7021 = and <2 x i64> %512, %s.i.sroa.0.42020
+  %and.i7024 = and <2 x i64> %513, %s.i.sroa.22.42021
+  %and.i7015 = and <2 x i64> %514, %s.i.sroa.40.42022
+  %and.i7018 = and <2 x i64> %515, %s.i.sroa.58.42023
   %or.i54.i999 = or <2 x i64> %and.i7024, %and.i7021
   %or.i.i995 = or <2 x i64> %or.i54.i999, %and.i7015
   %or.i57.i1000 = or <2 x i64> %or.i.i995, %and.i7018
@@ -7507,7 +7507,7 @@ if.then7.i987:                                    ; preds = %if.end.i967
   br i1 %tobool.i.i1004.not, label %if.end21.i970, label %nfaExecLimEx512_Stream.exit.sink.split.sink.split
 
 if.end21.i970:                                    ; preds = %if.then7.i987, %if.end.i967
-  %add.i971 = add i64 %i.i.42052, %offset
+  %add.i971 = add i64 %i.i.42018, %offset
   %cached_estate.i3913.sroa.0.sroa.0.0.copyload1864 = load <16 x i8>, ptr %cached_estate.i, align 1
   %cached_estate.i3913.sroa.2.0.copyload1866 = load <16 x i8>, ptr %cached_estate.i3913.sroa.2.0.cached_estate.i.sroa_idx, align 1
   %cached_estate.i3913.sroa.3.0.copyload1867 = load <16 x i8>, ptr %cached_estate.i3913.sroa.3.0.cached_estate.i.sroa_idx, align 1
@@ -7560,17 +7560,17 @@ if.end14.i:                                       ; preds = %lor.rhs.i4503, %if.
 
 for.body.i3313:                                   ; preds = %if.end14.i, %for.body.i3313
   %532 = phi i32 [ 0, %if.end14.i ], [ %add.i3315, %for.body.i3313 ]
-  %indvars.iv2094 = phi i64 [ 0, %if.end14.i ], [ %indvars.iv.next2095, %for.body.i3313 ]
-  %arrayidx21.i = getelementptr inbounds [8 x i64], ptr %emask_chunks.i, i64 0, i64 %indvars.iv2094
+  %indvars.iv2054 = phi i64 [ 0, %if.end14.i ], [ %indvars.iv.next2055, %for.body.i3313 ]
+  %arrayidx21.i = getelementptr inbounds [8 x i64], ptr %emask_chunks.i, i64 0, i64 %indvars.iv2054
   %533 = load i64, ptr %arrayidx21.i, align 8
   %534 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %533)
   %cast.i.i = trunc nuw nsw i64 %534 to i32
   %add.i3315 = add i32 %532, %cast.i.i
-  %indvars.iv.next2095 = add nuw nsw i64 %indvars.iv2094, 1
-  %arrayidx25.i = getelementptr inbounds [8 x i32], ptr %base_index.i, i64 0, i64 %indvars.iv.next2095
+  %indvars.iv.next2055 = add nuw nsw i64 %indvars.iv2054, 1
+  %arrayidx25.i = getelementptr inbounds [8 x i32], ptr %base_index.i, i64 0, i64 %indvars.iv.next2055
   store i32 %add.i3315, ptr %arrayidx25.i, align 4
-  %exitcond2097.not = icmp eq i64 %indvars.iv.next2095, 7
-  br i1 %exitcond2097.not, label %do.body26.i, label %for.body.i3313, !llvm.loop !168
+  %exitcond2057.not = icmp eq i64 %indvars.iv.next2055, 7
+  br i1 %exitcond2057.not, label %do.body26.i, label %for.body.i3313, !llvm.loop !168
 
 do.body26.i:                                      ; preds = %for.body.i3313, %do.end45.i
   %succ.i.sroa.0.9 = phi <2 x i64> [ %succ.i.sroa.0.11, %do.end45.i ], [ %succ.i.sroa.0.0, %for.body.i3313 ]
@@ -7647,11 +7647,11 @@ if.else.i.i4445:                                  ; preds = %if.then12.i4443
 
 if.else5.i.i4447:                                 ; preds = %if.else.i.i4445
   %cmp6.i.i4448 = icmp ult i32 %547, 384
-  %s.i.sroa.40.4.s.i.sroa.58.4 = select i1 %cmp6.i.i4448, <2 x i64> %s.i.sroa.40.42056, <2 x i64> %s.i.sroa.58.42057
+  %s.i.sroa.40.4.s.i.sroa.58.4 = select i1 %cmp6.i.i4448, <2 x i64> %s.i.sroa.40.42022, <2 x i64> %s.i.sroa.58.42023
   br label %testbit512.exit.i4454
 
 testbit512.exit.i4454:                            ; preds = %if.else5.i.i4447, %if.else.i.i4445, %if.then12.i4443
-  %sub.i.i4281.0 = phi <2 x i64> [ %s.i.sroa.0.42054, %if.then12.i4443 ], [ %s.i.sroa.22.42055, %if.else.i.i4445 ], [ %s.i.sroa.40.4.s.i.sroa.58.4, %if.else5.i.i4447 ]
+  %sub.i.i4281.0 = phi <2 x i64> [ %s.i.sroa.0.42020, %if.then12.i4443 ], [ %s.i.sroa.22.42021, %if.else.i.i4445 ], [ %s.i.sroa.40.4.s.i.sroa.58.4, %if.else5.i.i4447 ]
   %rem.i116.i4456 = shl i32 %547, 6
   %mul.i.i4457 = and i32 %rem.i116.i4456, 448
   %add.i.i4458 = add nuw nsw i32 %mul.i.i4457, 95
@@ -7804,9 +7804,9 @@ if.end32.i4322:                                   ; preds = %if.else24.i4429, %t
   %reports.i4323 = getelementptr inbounds i8, ptr %arrayidx39.i, i64 128
   %562 = load i32, ptr %reports.i4323, align 64
   %cmp33.i4324.not = icmp ne i32 %562, -1
-  %brmerge1883.not1980 = and i1 %tobool6.i986.not.not, %cmp33.i4324.not
+  %brmerge1883.not1964 = and i1 %tobool6.i986.not.not, %cmp33.i4324.not
   %cmp71.i4372 = icmp eq i32 %cacheable.i.2, 1
-  %or.cond1884 = select i1 %brmerge1883.not1980, i1 %cmp71.i4372, i1 false
+  %or.cond1884 = select i1 %brmerge1883.not1964, i1 %cmp71.i4372, i1 false
   %cacheable.i.4 = select i1 %or.cond1884, i32 0, i32 %cacheable.i.2
   %successors.i4328 = getelementptr inbounds i8, ptr %arrayidx39.i, i64 64
   call void @llvm.assume(i1 true) [ "align"(ptr %successors.i4328, i64 16) ], !noalias !687
@@ -7912,7 +7912,7 @@ if.end142.i:                                      ; preds = %sw.epilog.i, %if.th
   %succ.i.sroa.24.7.ph = phi <2 x i64> [ %or.i143.i, %if.then53.i ], [ %or.i143.i, %if.then60.i ], [ %or.i143.i, %if.then63.i ], [ %or.i143.i, %do.end48.i ], [ %or.i131.i, %if.then.i3286 ], [ %succ.i.sroa.24.0, %sw.epilog.i ]
   %succ.i.sroa.48.7.ph = phi <2 x i64> [ %or.i134.i, %if.then53.i ], [ %or.i134.i, %if.then60.i ], [ %or.i134.i, %if.then63.i ], [ %or.i134.i, %do.end48.i ], [ %or.i.i3287, %if.then.i3286 ], [ %succ.i.sroa.48.0, %sw.epilog.i ]
   %succ.i.sroa.72.7.ph = phi <2 x i64> [ %or.i137.i, %if.then53.i ], [ %or.i137.i, %if.then60.i ], [ %or.i137.i, %if.then63.i ], [ %or.i137.i, %do.end48.i ], [ %or.i125.i, %if.then.i3286 ], [ %succ.i.sroa.72.0, %sw.epilog.i ]
-  %arrayidx143.i = getelementptr inbounds i8, ptr %input, i64 %i.i.42052
+  %arrayidx143.i = getelementptr inbounds i8, ptr %input, i64 %i.i.42018
   %573 = load i8, ptr %arrayidx143.i, align 1
   %idxprom.i = zext i8 %573 to i64
   %arrayidx146.i = getelementptr inbounds [256 x i8], ptr %limex, i64 0, i64 %idxprom.i
@@ -7934,7 +7934,7 @@ if.end142.i:                                      ; preds = %sw.epilog.i, %if.th
   %and.i7408 = and <2 x i64> %576, %succ.i.sroa.24.7.ph
   %and.i7399 = and <2 x i64> %577, %succ.i.sroa.48.7.ph
   %and.i7402 = and <2 x i64> %578, %succ.i.sroa.72.7.ph
-  %inc.i = add i64 %i.i.42052, 1
+  %inc.i = add i64 %i.i.42018, 1
   %cmp22.i.not = icmp eq i64 %inc.i, %length
   br i1 %cmp22.i.not, label %for.end.i, label %for.body.i, !llvm.loop !365
 
@@ -7979,28 +7979,28 @@ if.then158.i:                                     ; preds = %for.end.i
   br i1 %tobool.i659.i.not, label %nfaExecLimEx512_Stream.exit, label %nfaExecLimEx512_Stream.exit.sink.split
 
 nfaExecLimEx512_Stream.exit.sink.split.sink.split: ; preds = %if.then7.i872, %if.then7.i, %if.then7.i987
-  %s.i25.sroa.0.02016.lcssa.sink = phi <2 x i64> [ %s.i.sroa.0.42054, %if.then7.i987 ], [ %s.i323.sroa.0.02032, %if.then7.i ], [ %s.i25.sroa.0.02016, %if.then7.i872 ]
-  %s.i.sroa.22.42055.lcssa2103.sink.ph = phi <2 x i64> [ %s.i.sroa.22.42055, %if.then7.i987 ], [ %s.i323.sroa.13.02033, %if.then7.i ], [ %s.i25.sroa.13.02017, %if.then7.i872 ]
-  %s.i.sroa.40.42056.lcssa2105.sink.ph = phi <2 x i64> [ %s.i.sroa.40.42056, %if.then7.i987 ], [ %s.i323.sroa.14.02034, %if.then7.i ], [ %s.i25.sroa.14.02018, %if.then7.i872 ]
-  %s.i.sroa.58.42057.lcssa2107.sink.ph = phi <2 x i64> [ %s.i.sroa.58.42057, %if.then7.i987 ], [ %s.i323.sroa.15.02035, %if.then7.i ], [ %s.i25.sroa.15.02019, %if.then7.i872 ]
-  %i.i.42052.lcssa2099.sink.ph.ph = phi i64 [ %i.i.42052, %if.then7.i987 ], [ %i.i324.02030, %if.then7.i ], [ %i.i26.02014, %if.then7.i872 ]
-  store <2 x i64> %s.i25.sroa.0.02016.lcssa.sink, ptr %ctx, align 64
+  %s.i25.sroa.0.01990.lcssa.sink = phi <2 x i64> [ %s.i.sroa.0.42020, %if.then7.i987 ], [ %s.i323.sroa.0.02002, %if.then7.i ], [ %s.i25.sroa.0.01990, %if.then7.i872 ]
+  %s.i.sroa.22.42021.lcssa2063.sink.ph = phi <2 x i64> [ %s.i.sroa.22.42021, %if.then7.i987 ], [ %s.i323.sroa.13.02003, %if.then7.i ], [ %s.i25.sroa.13.01991, %if.then7.i872 ]
+  %s.i.sroa.40.42022.lcssa2065.sink.ph = phi <2 x i64> [ %s.i.sroa.40.42022, %if.then7.i987 ], [ %s.i323.sroa.14.02004, %if.then7.i ], [ %s.i25.sroa.14.01992, %if.then7.i872 ]
+  %s.i.sroa.58.42023.lcssa2067.sink.ph = phi <2 x i64> [ %s.i.sroa.58.42023, %if.then7.i987 ], [ %s.i323.sroa.15.02005, %if.then7.i ], [ %s.i25.sroa.15.01993, %if.then7.i872 ]
+  %i.i.42018.lcssa2059.sink.ph.ph = phi i64 [ %i.i.42018, %if.then7.i987 ], [ %i.i324.02000, %if.then7.i ], [ %i.i26.01988, %if.then7.i872 ]
+  store <2 x i64> %s.i25.sroa.0.01990.lcssa.sink, ptr %ctx, align 64
   br label %nfaExecLimEx512_Stream.exit.sink.split
 
 nfaExecLimEx512_Stream.exit.sink.split:           ; preds = %nfaExecLimEx512_Stream.exit.sink.split.sink.split, %if.then158.i
-  %s.i.sroa.22.42055.lcssa2103.sink = phi <2 x i64> [ %s.i.sroa.22.5, %if.then158.i ], [ %s.i.sroa.22.42055.lcssa2103.sink.ph, %nfaExecLimEx512_Stream.exit.sink.split.sink.split ]
-  %s.i.sroa.40.42056.lcssa2105.sink = phi <2 x i64> [ %s.i.sroa.40.5, %if.then158.i ], [ %s.i.sroa.40.42056.lcssa2105.sink.ph, %nfaExecLimEx512_Stream.exit.sink.split.sink.split ]
-  %s.i.sroa.58.42057.lcssa2107.sink = phi <2 x i64> [ %s.i.sroa.58.5, %if.then158.i ], [ %s.i.sroa.58.42057.lcssa2107.sink.ph, %nfaExecLimEx512_Stream.exit.sink.split.sink.split ]
-  %i.i.42052.lcssa2099.sink.ph = phi i64 [ %length, %if.then158.i ], [ %i.i.42052.lcssa2099.sink.ph.ph, %nfaExecLimEx512_Stream.exit.sink.split.sink.split ]
-  store <2 x i64> %s.i.sroa.22.42055.lcssa2103.sink, ptr %s.i.sroa.22.0.ctx.sroa_idx, align 16
-  store <2 x i64> %s.i.sroa.40.42056.lcssa2105.sink, ptr %s.i.sroa.40.0.ctx.sroa_idx, align 32
-  store <2 x i64> %s.i.sroa.58.42057.lcssa2107.sink, ptr %s.i.sroa.58.0.ctx.sroa_idx, align 16
+  %s.i.sroa.22.42021.lcssa2063.sink = phi <2 x i64> [ %s.i.sroa.22.5, %if.then158.i ], [ %s.i.sroa.22.42021.lcssa2063.sink.ph, %nfaExecLimEx512_Stream.exit.sink.split.sink.split ]
+  %s.i.sroa.40.42022.lcssa2065.sink = phi <2 x i64> [ %s.i.sroa.40.5, %if.then158.i ], [ %s.i.sroa.40.42022.lcssa2065.sink.ph, %nfaExecLimEx512_Stream.exit.sink.split.sink.split ]
+  %s.i.sroa.58.42023.lcssa2067.sink = phi <2 x i64> [ %s.i.sroa.58.5, %if.then158.i ], [ %s.i.sroa.58.42023.lcssa2067.sink.ph, %nfaExecLimEx512_Stream.exit.sink.split.sink.split ]
+  %i.i.42018.lcssa2059.sink.ph = phi i64 [ %length, %if.then158.i ], [ %i.i.42018.lcssa2059.sink.ph.ph, %nfaExecLimEx512_Stream.exit.sink.split.sink.split ]
+  store <2 x i64> %s.i.sroa.22.42021.lcssa2063.sink, ptr %s.i.sroa.22.0.ctx.sroa_idx, align 16
+  store <2 x i64> %s.i.sroa.40.42022.lcssa2065.sink, ptr %s.i.sroa.40.0.ctx.sroa_idx, align 32
+  store <2 x i64> %s.i.sroa.58.42023.lcssa2067.sink, ptr %s.i.sroa.58.0.ctx.sroa_idx, align 16
   br label %nfaExecLimEx512_Stream.exit
 
 nfaExecLimEx512_Stream.exit:                      ; preds = %nfaExecLimEx512_Stream.exit.sink.split, %if.then158.i, %for.end.i
-  %i.i.42052.lcssa2099.sink = phi i64 [ %length, %for.end.i ], [ %length, %if.then158.i ], [ %i.i.42052.lcssa2099.sink.ph, %nfaExecLimEx512_Stream.exit.sink.split ]
+  %i.i.42018.lcssa2059.sink = phi i64 [ %length, %for.end.i ], [ %length, %if.then158.i ], [ %i.i.42018.lcssa2059.sink.ph, %nfaExecLimEx512_Stream.exit.sink.split ]
   %retval.i.0 = phi i8 [ 1, %for.end.i ], [ 1, %if.then158.i ], [ 0, %nfaExecLimEx512_Stream.exit.sink.split ]
-  store i64 %i.i.42052.lcssa2099.sink, ptr %final_loc, align 8
+  store i64 %i.i.42018.lcssa2059.sink, ptr %final_loc, align 8
   ret i8 %retval.i.0
 }
 
@@ -8837,11 +8837,11 @@ without_accel.i:                                  ; preds = %entry, %if.end39.i
   %5 = load i32, ptr %exceptionOffset.i, align 8
   %idx.ext.i363 = zext i32 %5 to i64
   %add.ptr.i364 = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i363
-  %cmp.i366.not1951 = icmp eq i64 %i.i.0, %min_accel_offset.i.0
+  %cmp.i366.not1945 = icmp eq i64 %i.i.0, %min_accel_offset.i.0
   br i1 %tobool7.i.not, label %if.else13.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %without_accel.i
-  br i1 %cmp.i366.not1951, label %with_accel.i, label %if.end.i43.lr.ph
+  br i1 %cmp.i366.not1945, label %with_accel.i, label %if.end.i43.lr.ph
 
 if.end.i43.lr.ph:                                 ; preds = %if.then8.i
   %shift.i44 = getelementptr inbounds i8, ptr %limex, i64 1152
@@ -8919,21 +8919,21 @@ if.end.i43.lr.ph:                                 ; preds = %if.then8.i
   br label %if.end.i43
 
 if.end.i43:                                       ; preds = %if.end.i43.lr.ph, %if.end84.i
-  %s.i25.sroa.15.01943 = phi <2 x i64> [ %s.i.sroa.58.0, %if.end.i43.lr.ph ], [ %and.i7282, %if.end84.i ]
-  %s.i25.sroa.14.01942 = phi <2 x i64> [ %s.i.sroa.40.0, %if.end.i43.lr.ph ], [ %and.i7279, %if.end84.i ]
-  %s.i25.sroa.13.01941 = phi <2 x i64> [ %s.i.sroa.22.0, %if.end.i43.lr.ph ], [ %and.i7288, %if.end84.i ]
-  %s.i25.sroa.0.01940 = phi <2 x i64> [ %s.i.sroa.0.0, %if.end.i43.lr.ph ], [ %and.i7285, %if.end84.i ]
-  %i.i26.01939 = phi i64 [ %i.i.0, %if.end.i43.lr.ph ], [ %inc.i52, %if.end84.i ]
+  %s.i25.sroa.15.01939 = phi <2 x i64> [ %s.i.sroa.58.0, %if.end.i43.lr.ph ], [ %and.i7282, %if.end84.i ]
+  %s.i25.sroa.14.01938 = phi <2 x i64> [ %s.i.sroa.40.0, %if.end.i43.lr.ph ], [ %and.i7279, %if.end84.i ]
+  %s.i25.sroa.13.01937 = phi <2 x i64> [ %s.i.sroa.22.0, %if.end.i43.lr.ph ], [ %and.i7288, %if.end84.i ]
+  %s.i25.sroa.0.01936 = phi <2 x i64> [ %s.i.sroa.0.0, %if.end.i43.lr.ph ], [ %and.i7285, %if.end84.i ]
+  %i.i26.01935 = phi i64 [ %i.i.0, %if.end.i43.lr.ph ], [ %inc.i52, %if.end84.i ]
   %6 = load <2 x i64>, ptr %add.ptr.i5189, align 16, !noalias !755
   %7 = load <2 x i64>, ptr %add.ptr.i119.i, align 16, !noalias !758
   %8 = load <2 x i64>, ptr %add.ptr.i5184, align 16, !noalias !758
-  %and.i7300 = and <2 x i64> %6, %s.i25.sroa.13.01941
-  %and.i7291 = and <2 x i64> %7, %s.i25.sroa.14.01942
-  %and.i7294 = and <2 x i64> %8, %s.i25.sroa.15.01943
+  %and.i7300 = and <2 x i64> %6, %s.i25.sroa.13.01937
+  %and.i7291 = and <2 x i64> %7, %s.i25.sroa.14.01938
+  %and.i7294 = and <2 x i64> %8, %s.i25.sroa.15.01939
   %9 = load i8, ptr %shiftAmount.i45, align 4
   %conv8.i = zext i8 %9 to i32
   %10 = load <2 x i64>, ptr %shift.i44, align 16, !noalias !755
-  %and.i7297 = and <2 x i64> %10, %s.i25.sroa.0.01940
+  %and.i7297 = and <2 x i64> %10, %s.i25.sroa.0.01936
   %vecinit3.i2689 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv8.i, i64 0
   %11 = bitcast <4 x i32> %vecinit3.i2689 to <2 x i64>
   %12 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7297, <2 x i64> %11)
@@ -8966,12 +8966,12 @@ sw.bb.i55:                                        ; preds = %if.end.i43
   %22 = load <2 x i64>, ptr %add.ptr.i116.i, align 16, !noalias !770
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5094, i64 16) ], !noalias !770
   %23 = load <2 x i64>, ptr %add.ptr.i5094, align 16, !noalias !770
-  %and.i7204 = and <2 x i64> %21, %s.i25.sroa.13.01941
-  %and.i7195 = and <2 x i64> %22, %s.i25.sroa.14.01942
-  %and.i7198 = and <2 x i64> %23, %s.i25.sroa.15.01943
+  %and.i7204 = and <2 x i64> %21, %s.i25.sroa.13.01937
+  %and.i7195 = and <2 x i64> %22, %s.i25.sroa.14.01938
+  %and.i7198 = and <2 x i64> %23, %s.i25.sroa.15.01939
   %24 = load i8, ptr %arrayidx16.i, align 1
   %conv17.i = zext i8 %24 to i32
-  %and.i7201 = and <2 x i64> %20, %s.i25.sroa.0.01940
+  %and.i7201 = and <2 x i64> %20, %s.i25.sroa.0.01936
   %vecinit3.i2857 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv17.i, i64 0
   %25 = bitcast <4 x i32> %vecinit3.i2857 to <2 x i64>
   %26 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7201, <2 x i64> %25)
@@ -9003,12 +9003,12 @@ sw.bb18.i:                                        ; preds = %sw.bb.i55, %if.end.
   %35 = load <2 x i64>, ptr %add.ptr.i113.i, align 16, !noalias !776
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5104, i64 16) ], !noalias !776
   %36 = load <2 x i64>, ptr %add.ptr.i5104, align 16, !noalias !776
-  %and.i7216 = and <2 x i64> %34, %s.i25.sroa.13.01941
-  %and.i7207 = and <2 x i64> %35, %s.i25.sroa.14.01942
-  %and.i7210 = and <2 x i64> %36, %s.i25.sroa.15.01943
+  %and.i7216 = and <2 x i64> %34, %s.i25.sroa.13.01937
+  %and.i7207 = and <2 x i64> %35, %s.i25.sroa.14.01938
+  %and.i7210 = and <2 x i64> %36, %s.i25.sroa.15.01939
   %37 = load i8, ptr %arrayidx26.i, align 2
   %conv27.i = zext i8 %37 to i32
-  %and.i7213 = and <2 x i64> %33, %s.i25.sroa.0.01940
+  %and.i7213 = and <2 x i64> %33, %s.i25.sroa.0.01936
   %vecinit3.i2833 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv27.i, i64 0
   %38 = bitcast <4 x i32> %vecinit3.i2833 to <2 x i64>
   %39 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7213, <2 x i64> %38)
@@ -9040,12 +9040,12 @@ sw.bb28.i:                                        ; preds = %sw.bb18.i, %if.end.
   %48 = load <2 x i64>, ptr %add.ptr.i110.i, align 16, !noalias !782
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5114, i64 16) ], !noalias !782
   %49 = load <2 x i64>, ptr %add.ptr.i5114, align 16, !noalias !782
-  %and.i7228 = and <2 x i64> %47, %s.i25.sroa.13.01941
-  %and.i7219 = and <2 x i64> %48, %s.i25.sroa.14.01942
-  %and.i7222 = and <2 x i64> %49, %s.i25.sroa.15.01943
+  %and.i7228 = and <2 x i64> %47, %s.i25.sroa.13.01937
+  %and.i7219 = and <2 x i64> %48, %s.i25.sroa.14.01938
+  %and.i7222 = and <2 x i64> %49, %s.i25.sroa.15.01939
   %50 = load i8, ptr %arrayidx36.i, align 1
   %conv37.i = zext i8 %50 to i32
-  %and.i7225 = and <2 x i64> %46, %s.i25.sroa.0.01940
+  %and.i7225 = and <2 x i64> %46, %s.i25.sroa.0.01936
   %vecinit3.i2809 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv37.i, i64 0
   %51 = bitcast <4 x i32> %vecinit3.i2809 to <2 x i64>
   %52 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7225, <2 x i64> %51)
@@ -9077,12 +9077,12 @@ sw.bb38.i:                                        ; preds = %sw.bb28.i, %if.end.
   %61 = load <2 x i64>, ptr %add.ptr.i107.i, align 16, !noalias !788
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5124, i64 16) ], !noalias !788
   %62 = load <2 x i64>, ptr %add.ptr.i5124, align 16, !noalias !788
-  %and.i7240 = and <2 x i64> %60, %s.i25.sroa.13.01941
-  %and.i7231 = and <2 x i64> %61, %s.i25.sroa.14.01942
-  %and.i7234 = and <2 x i64> %62, %s.i25.sroa.15.01943
+  %and.i7240 = and <2 x i64> %60, %s.i25.sroa.13.01937
+  %and.i7231 = and <2 x i64> %61, %s.i25.sroa.14.01938
+  %and.i7234 = and <2 x i64> %62, %s.i25.sroa.15.01939
   %63 = load i8, ptr %arrayidx46.i, align 4
   %conv47.i = zext i8 %63 to i32
-  %and.i7237 = and <2 x i64> %59, %s.i25.sroa.0.01940
+  %and.i7237 = and <2 x i64> %59, %s.i25.sroa.0.01936
   %vecinit3.i2785 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv47.i, i64 0
   %64 = bitcast <4 x i32> %vecinit3.i2785 to <2 x i64>
   %65 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7237, <2 x i64> %64)
@@ -9114,12 +9114,12 @@ sw.bb48.i:                                        ; preds = %sw.bb38.i, %if.end.
   %74 = load <2 x i64>, ptr %add.ptr.i104.i, align 16, !noalias !794
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5134, i64 16) ], !noalias !794
   %75 = load <2 x i64>, ptr %add.ptr.i5134, align 16, !noalias !794
-  %and.i7252 = and <2 x i64> %73, %s.i25.sroa.13.01941
-  %and.i7243 = and <2 x i64> %74, %s.i25.sroa.14.01942
-  %and.i7246 = and <2 x i64> %75, %s.i25.sroa.15.01943
+  %and.i7252 = and <2 x i64> %73, %s.i25.sroa.13.01937
+  %and.i7243 = and <2 x i64> %74, %s.i25.sroa.14.01938
+  %and.i7246 = and <2 x i64> %75, %s.i25.sroa.15.01939
   %76 = load i8, ptr %arrayidx56.i, align 1
   %conv57.i = zext i8 %76 to i32
-  %and.i7249 = and <2 x i64> %72, %s.i25.sroa.0.01940
+  %and.i7249 = and <2 x i64> %72, %s.i25.sroa.0.01936
   %vecinit3.i2761 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv57.i, i64 0
   %77 = bitcast <4 x i32> %vecinit3.i2761 to <2 x i64>
   %78 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7249, <2 x i64> %77)
@@ -9151,12 +9151,12 @@ sw.bb58.i:                                        ; preds = %sw.bb48.i, %if.end.
   %87 = load <2 x i64>, ptr %add.ptr.i101.i, align 16, !noalias !800
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5144, i64 16) ], !noalias !800
   %88 = load <2 x i64>, ptr %add.ptr.i5144, align 16, !noalias !800
-  %and.i7264 = and <2 x i64> %86, %s.i25.sroa.13.01941
-  %and.i7255 = and <2 x i64> %87, %s.i25.sroa.14.01942
-  %and.i7258 = and <2 x i64> %88, %s.i25.sroa.15.01943
+  %and.i7264 = and <2 x i64> %86, %s.i25.sroa.13.01937
+  %and.i7255 = and <2 x i64> %87, %s.i25.sroa.14.01938
+  %and.i7258 = and <2 x i64> %88, %s.i25.sroa.15.01939
   %89 = load i8, ptr %arrayidx66.i, align 2
   %conv67.i = zext i8 %89 to i32
-  %and.i7261 = and <2 x i64> %85, %s.i25.sroa.0.01940
+  %and.i7261 = and <2 x i64> %85, %s.i25.sroa.0.01936
   %vecinit3.i2737 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv67.i, i64 0
   %90 = bitcast <4 x i32> %vecinit3.i2737 to <2 x i64>
   %91 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7261, <2 x i64> %90)
@@ -9188,12 +9188,12 @@ sw.bb68.i:                                        ; preds = %sw.bb58.i, %if.end.
   %100 = load <2 x i64>, ptr %add.ptr.i98.i, align 16, !noalias !806
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5154, i64 16) ], !noalias !806
   %101 = load <2 x i64>, ptr %add.ptr.i5154, align 16, !noalias !806
-  %and.i7276 = and <2 x i64> %99, %s.i25.sroa.13.01941
-  %and.i7267 = and <2 x i64> %100, %s.i25.sroa.14.01942
-  %and.i7270 = and <2 x i64> %101, %s.i25.sroa.15.01943
+  %and.i7276 = and <2 x i64> %99, %s.i25.sroa.13.01937
+  %and.i7267 = and <2 x i64> %100, %s.i25.sroa.14.01938
+  %and.i7270 = and <2 x i64> %101, %s.i25.sroa.15.01939
   %102 = load i8, ptr %arrayidx76.i, align 1
   %conv77.i = zext i8 %102 to i32
-  %and.i7273 = and <2 x i64> %98, %s.i25.sroa.0.01940
+  %and.i7273 = and <2 x i64> %98, %s.i25.sroa.0.01936
   %vecinit3.i2713 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv77.i, i64 0
   %103 = bitcast <4 x i32> %vecinit3.i2713 to <2 x i64>
   %104 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7273, <2 x i64> %103)
@@ -9221,10 +9221,10 @@ sw.epilog.i47:                                    ; preds = %sw.bb68.i, %if.end.
   %112 = load <2 x i64>, ptr %add.ptr.i5179, align 16, !noalias !761
   %113 = load <2 x i64>, ptr %add.ptr.i95.i, align 16, !noalias !764
   %114 = load <2 x i64>, ptr %add.ptr.i5174, align 16, !noalias !764
-  %and.i7057 = and <2 x i64> %111, %s.i25.sroa.0.01940
-  %and.i7060 = and <2 x i64> %112, %s.i25.sroa.13.01941
-  %and.i7051 = and <2 x i64> %113, %s.i25.sroa.14.01942
-  %and.i7054 = and <2 x i64> %114, %s.i25.sroa.15.01943
+  %and.i7057 = and <2 x i64> %111, %s.i25.sroa.0.01936
+  %and.i7060 = and <2 x i64> %112, %s.i25.sroa.13.01937
+  %and.i7051 = and <2 x i64> %113, %s.i25.sroa.14.01938
+  %and.i7054 = and <2 x i64> %114, %s.i25.sroa.15.01939
   %115 = bitcast <2 x i64> %and.i7057 to <4 x i32>
   %cmp.i3863 = icmp eq <4 x i32> %115, zeroinitializer
   %sext.i3864 = sext <4 x i1> %cmp.i3863 to <4 x i32>
@@ -9251,8 +9251,8 @@ sw.epilog.i47:                                    ; preds = %sw.bb68.i, %if.end.
   br i1 %tobool.i847.not, label %if.end84.i, label %if.end21.i855
 
 if.end21.i855:                                    ; preds = %sw.epilog.i47
-  %tobool6.i871.not = icmp eq i64 %i.i26.01939, 0
-  %add.i856 = add i64 %i.i26.01939, %offset
+  %tobool6.i871.not = icmp eq i64 %i.i26.01935, 0
+  %add.i856 = add i64 %i.i26.01935, %offset
   %cached_estate.i34113903.sroa.0.sroa.0.0.copyload1858 = load <16 x i8>, ptr %cached_estate.i3411, align 1
   %cached_estate.i34113903.sroa.2.0.copyload1860 = load <16 x i8>, ptr %cached_estate.i34113903.sroa.2.0.cached_estate.i3411.sroa_idx, align 1
   %cached_estate.i34113903.sroa.3.0.copyload1861 = load <16 x i8>, ptr %cached_estate.i34113903.sroa.3.0.cached_estate.i3411.sroa_idx, align 1
@@ -9392,11 +9392,11 @@ if.else.i.i4213:                                  ; preds = %if.then12.i4211
 
 if.else5.i.i4215:                                 ; preds = %if.else.i.i4213
   %cmp6.i.i4216 = icmp ult i32 %153, 384
-  %s.i25.sroa.14.0.s.i25.sroa.15.0 = select i1 %cmp6.i.i4216, <2 x i64> %s.i25.sroa.14.01942, <2 x i64> %s.i25.sroa.15.01943
+  %s.i25.sroa.14.0.s.i25.sroa.15.0 = select i1 %cmp6.i.i4216, <2 x i64> %s.i25.sroa.14.01938, <2 x i64> %s.i25.sroa.15.01939
   br label %testbit512.exit.i4222
 
 testbit512.exit.i4222:                            ; preds = %if.else5.i.i4215, %if.else.i.i4213, %if.then12.i4211
-  %sub.i.i4049.0 = phi <2 x i64> [ %s.i25.sroa.0.01940, %if.then12.i4211 ], [ %s.i25.sroa.13.01941, %if.else.i.i4213 ], [ %s.i25.sroa.14.0.s.i25.sroa.15.0, %if.else5.i.i4215 ]
+  %sub.i.i4049.0 = phi <2 x i64> [ %s.i25.sroa.0.01936, %if.then12.i4211 ], [ %s.i25.sroa.13.01937, %if.else.i.i4213 ], [ %s.i25.sroa.14.0.s.i25.sroa.15.0, %if.else5.i.i4215 ]
   %rem.i116.i4224 = shl i32 %153, 6
   %mul.i.i4225 = and i32 %rem.i116.i4224, 448
   %add.i.i4226 = add nuw nsw i32 %mul.i.i4225, 95
@@ -9657,7 +9657,7 @@ if.end84.i:                                       ; preds = %sw.epilog.i47, %if.
   %succ.i27.sroa.24.7 = phi <2 x i64> [ %succ.i27.sroa.24.0, %sw.epilog.i47 ], [ %or.i131.i3419, %if.then.i3414 ], [ %or.i143.i3499, %do.end48.i3494 ], [ %or.i143.i3499, %if.then63.i3518 ], [ %or.i143.i3499, %if.then60.i3514 ], [ %or.i143.i3499, %if.then53.i3523 ]
   %succ.i27.sroa.48.7 = phi <2 x i64> [ %succ.i27.sroa.48.0, %sw.epilog.i47 ], [ %or.i.i3424, %if.then.i3414 ], [ %or.i134.i3504, %do.end48.i3494 ], [ %or.i134.i3504, %if.then63.i3518 ], [ %or.i134.i3504, %if.then60.i3514 ], [ %or.i134.i3504, %if.then53.i3523 ]
   %succ.i27.sroa.72.7 = phi <2 x i64> [ %succ.i27.sroa.72.0, %sw.epilog.i47 ], [ %or.i125.i3427, %if.then.i3414 ], [ %or.i137.i3507, %do.end48.i3494 ], [ %or.i137.i3507, %if.then63.i3518 ], [ %or.i137.i3507, %if.then60.i3514 ], [ %or.i137.i3507, %if.then53.i3523 ]
-  %arrayidx85.i = getelementptr inbounds i8, ptr %input, i64 %i.i26.01939
+  %arrayidx85.i = getelementptr inbounds i8, ptr %input, i64 %i.i26.01935
   %179 = load i8, ptr %arrayidx85.i, align 1
   %idxprom.i49 = zext i8 %179 to i64
   %arrayidx88.i = getelementptr inbounds [256 x i8], ptr %limex, i64 0, i64 %idxprom.i49
@@ -9679,12 +9679,12 @@ if.end84.i:                                       ; preds = %sw.epilog.i47, %if.
   %and.i7288 = and <2 x i64> %182, %succ.i27.sroa.24.7
   %and.i7279 = and <2 x i64> %183, %succ.i27.sroa.48.7
   %and.i7282 = and <2 x i64> %184, %succ.i27.sroa.72.7
-  %inc.i52 = add i64 %i.i26.01939, 1
+  %inc.i52 = add i64 %i.i26.01935, 1
   %cmp.i38.not = icmp eq i64 %inc.i52, %min_accel_offset.i.0
   br i1 %cmp.i38.not, label %with_accel.i, label %if.end.i43, !llvm.loop !196
 
 if.else13.i:                                      ; preds = %without_accel.i
-  br i1 %cmp.i366.not1951, label %with_accel.i, label %land.lhs.true.i569.lr.ph
+  br i1 %cmp.i366.not1945, label %with_accel.i, label %land.lhs.true.i569.lr.ph
 
 land.lhs.true.i569.lr.ph:                         ; preds = %if.else13.i
   %shift.i372 = getelementptr inbounds i8, ptr %limex, i64 1152
@@ -9754,14 +9754,14 @@ land.lhs.true.i569.lr.ph:                         ; preds = %if.else13.i
   br label %land.lhs.true.i569
 
 land.lhs.true.i569:                               ; preds = %land.lhs.true.i569.lr.ph, %if.end84.i388
-  %s.i323.sroa.15.01958 = phi <2 x i64> [ %s.i.sroa.58.0, %land.lhs.true.i569.lr.ph ], [ %and.i7174, %if.end84.i388 ]
-  %s.i323.sroa.14.01957 = phi <2 x i64> [ %s.i.sroa.40.0, %land.lhs.true.i569.lr.ph ], [ %and.i7171, %if.end84.i388 ]
-  %s.i323.sroa.13.01956 = phi <2 x i64> [ %s.i.sroa.22.0, %land.lhs.true.i569.lr.ph ], [ %and.i7180, %if.end84.i388 ]
-  %s.i323.sroa.0.01955 = phi <2 x i64> [ %s.i.sroa.0.0, %land.lhs.true.i569.lr.ph ], [ %and.i7177, %if.end84.i388 ]
-  %i.i324.01954 = phi i64 [ %i.i.0, %land.lhs.true.i569.lr.ph ], [ %inc.i399, %if.end84.i388 ]
-  %or.i420.i575 = or <2 x i64> %s.i323.sroa.13.01956, %s.i323.sroa.0.01955
-  %185 = or <2 x i64> %or.i420.i575, %s.i323.sroa.14.01957
-  %or.i423.i576 = or <2 x i64> %185, %s.i323.sroa.15.01958
+  %s.i323.sroa.15.01950 = phi <2 x i64> [ %s.i.sroa.58.0, %land.lhs.true.i569.lr.ph ], [ %and.i7174, %if.end84.i388 ]
+  %s.i323.sroa.14.01949 = phi <2 x i64> [ %s.i.sroa.40.0, %land.lhs.true.i569.lr.ph ], [ %and.i7171, %if.end84.i388 ]
+  %s.i323.sroa.13.01948 = phi <2 x i64> [ %s.i.sroa.22.0, %land.lhs.true.i569.lr.ph ], [ %and.i7180, %if.end84.i388 ]
+  %s.i323.sroa.0.01947 = phi <2 x i64> [ %s.i.sroa.0.0, %land.lhs.true.i569.lr.ph ], [ %and.i7177, %if.end84.i388 ]
+  %i.i324.01946 = phi i64 [ %i.i.0, %land.lhs.true.i569.lr.ph ], [ %inc.i399, %if.end84.i388 ]
+  %or.i420.i575 = or <2 x i64> %s.i323.sroa.13.01948, %s.i323.sroa.0.01947
+  %185 = or <2 x i64> %or.i420.i575, %s.i323.sroa.14.01949
+  %or.i423.i576 = or <2 x i64> %185, %s.i323.sroa.15.01950
   %186 = bitcast <2 x i64> %or.i423.i576 to <16 x i8>
   %187 = icmp ne <16 x i8> %186, zeroinitializer
   %188 = bitcast <16 x i1> %187 to i16
@@ -9777,12 +9777,12 @@ if.end.i371:                                      ; preds = %land.lhs.true.i569
   %191 = load <2 x i64>, ptr %add.ptr.i119.i374, align 16, !noalias !836
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5084, i64 16) ], !noalias !836
   %192 = load <2 x i64>, ptr %add.ptr.i5084, align 16, !noalias !836
-  %and.i7192 = and <2 x i64> %190, %s.i323.sroa.13.01956
-  %and.i7183 = and <2 x i64> %191, %s.i323.sroa.14.01957
-  %and.i7186 = and <2 x i64> %192, %s.i323.sroa.15.01958
+  %and.i7192 = and <2 x i64> %190, %s.i323.sroa.13.01948
+  %and.i7183 = and <2 x i64> %191, %s.i323.sroa.14.01949
+  %and.i7186 = and <2 x i64> %192, %s.i323.sroa.15.01950
   %193 = load i8, ptr %shiftAmount.i378, align 4
   %conv8.i379 = zext i8 %193 to i32
-  %and.i7189 = and <2 x i64> %189, %s.i323.sroa.0.01955
+  %and.i7189 = and <2 x i64> %189, %s.i323.sroa.0.01947
   %vecinit3.i2881 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv8.i379, i64 0
   %194 = bitcast <4 x i32> %vecinit3.i2881 to <2 x i64>
   %195 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7189, <2 x i64> %194)
@@ -9815,12 +9815,12 @@ sw.bb.i545:                                       ; preds = %if.end.i371
   %205 = load <2 x i64>, ptr %add.ptr.i116.i549, align 16, !noalias !842
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4994, i64 16) ], !noalias !842
   %206 = load <2 x i64>, ptr %add.ptr.i4994, align 16, !noalias !842
-  %and.i7096 = and <2 x i64> %204, %s.i323.sroa.13.01956
-  %and.i7087 = and <2 x i64> %205, %s.i323.sroa.14.01957
-  %and.i7090 = and <2 x i64> %206, %s.i323.sroa.15.01958
+  %and.i7096 = and <2 x i64> %204, %s.i323.sroa.13.01948
+  %and.i7087 = and <2 x i64> %205, %s.i323.sroa.14.01949
+  %and.i7090 = and <2 x i64> %206, %s.i323.sroa.15.01950
   %207 = load i8, ptr %arrayidx16.i554, align 1
   %conv17.i555 = zext i8 %207 to i32
-  %and.i7093 = and <2 x i64> %203, %s.i323.sroa.0.01955
+  %and.i7093 = and <2 x i64> %203, %s.i323.sroa.0.01947
   %vecinit3.i3049 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv17.i555, i64 0
   %208 = bitcast <4 x i32> %vecinit3.i3049 to <2 x i64>
   %209 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7093, <2 x i64> %208)
@@ -9852,12 +9852,12 @@ sw.bb18.i521:                                     ; preds = %sw.bb.i545, %if.end
   %218 = load <2 x i64>, ptr %add.ptr.i113.i525, align 16, !noalias !848
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5004, i64 16) ], !noalias !848
   %219 = load <2 x i64>, ptr %add.ptr.i5004, align 16, !noalias !848
-  %and.i7108 = and <2 x i64> %217, %s.i323.sroa.13.01956
-  %and.i7099 = and <2 x i64> %218, %s.i323.sroa.14.01957
-  %and.i7102 = and <2 x i64> %219, %s.i323.sroa.15.01958
+  %and.i7108 = and <2 x i64> %217, %s.i323.sroa.13.01948
+  %and.i7099 = and <2 x i64> %218, %s.i323.sroa.14.01949
+  %and.i7102 = and <2 x i64> %219, %s.i323.sroa.15.01950
   %220 = load i8, ptr %arrayidx26.i530, align 2
   %conv27.i531 = zext i8 %220 to i32
-  %and.i7105 = and <2 x i64> %216, %s.i323.sroa.0.01955
+  %and.i7105 = and <2 x i64> %216, %s.i323.sroa.0.01947
   %vecinit3.i3025 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv27.i531, i64 0
   %221 = bitcast <4 x i32> %vecinit3.i3025 to <2 x i64>
   %222 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7105, <2 x i64> %221)
@@ -9889,12 +9889,12 @@ sw.bb28.i497:                                     ; preds = %sw.bb18.i521, %if.e
   %231 = load <2 x i64>, ptr %add.ptr.i110.i501, align 16, !noalias !854
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5014, i64 16) ], !noalias !854
   %232 = load <2 x i64>, ptr %add.ptr.i5014, align 16, !noalias !854
-  %and.i7120 = and <2 x i64> %230, %s.i323.sroa.13.01956
-  %and.i7111 = and <2 x i64> %231, %s.i323.sroa.14.01957
-  %and.i7114 = and <2 x i64> %232, %s.i323.sroa.15.01958
+  %and.i7120 = and <2 x i64> %230, %s.i323.sroa.13.01948
+  %and.i7111 = and <2 x i64> %231, %s.i323.sroa.14.01949
+  %and.i7114 = and <2 x i64> %232, %s.i323.sroa.15.01950
   %233 = load i8, ptr %arrayidx36.i506, align 1
   %conv37.i507 = zext i8 %233 to i32
-  %and.i7117 = and <2 x i64> %229, %s.i323.sroa.0.01955
+  %and.i7117 = and <2 x i64> %229, %s.i323.sroa.0.01947
   %vecinit3.i3001 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv37.i507, i64 0
   %234 = bitcast <4 x i32> %vecinit3.i3001 to <2 x i64>
   %235 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7117, <2 x i64> %234)
@@ -9926,12 +9926,12 @@ sw.bb38.i473:                                     ; preds = %sw.bb28.i497, %if.e
   %244 = load <2 x i64>, ptr %add.ptr.i107.i477, align 16, !noalias !860
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5024, i64 16) ], !noalias !860
   %245 = load <2 x i64>, ptr %add.ptr.i5024, align 16, !noalias !860
-  %and.i7132 = and <2 x i64> %243, %s.i323.sroa.13.01956
-  %and.i7123 = and <2 x i64> %244, %s.i323.sroa.14.01957
-  %and.i7126 = and <2 x i64> %245, %s.i323.sroa.15.01958
+  %and.i7132 = and <2 x i64> %243, %s.i323.sroa.13.01948
+  %and.i7123 = and <2 x i64> %244, %s.i323.sroa.14.01949
+  %and.i7126 = and <2 x i64> %245, %s.i323.sroa.15.01950
   %246 = load i8, ptr %arrayidx46.i482, align 4
   %conv47.i483 = zext i8 %246 to i32
-  %and.i7129 = and <2 x i64> %242, %s.i323.sroa.0.01955
+  %and.i7129 = and <2 x i64> %242, %s.i323.sroa.0.01947
   %vecinit3.i2977 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv47.i483, i64 0
   %247 = bitcast <4 x i32> %vecinit3.i2977 to <2 x i64>
   %248 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7129, <2 x i64> %247)
@@ -9963,12 +9963,12 @@ sw.bb48.i449:                                     ; preds = %sw.bb38.i473, %if.e
   %257 = load <2 x i64>, ptr %add.ptr.i104.i453, align 16, !noalias !866
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5034, i64 16) ], !noalias !866
   %258 = load <2 x i64>, ptr %add.ptr.i5034, align 16, !noalias !866
-  %and.i7144 = and <2 x i64> %256, %s.i323.sroa.13.01956
-  %and.i7135 = and <2 x i64> %257, %s.i323.sroa.14.01957
-  %and.i7138 = and <2 x i64> %258, %s.i323.sroa.15.01958
+  %and.i7144 = and <2 x i64> %256, %s.i323.sroa.13.01948
+  %and.i7135 = and <2 x i64> %257, %s.i323.sroa.14.01949
+  %and.i7138 = and <2 x i64> %258, %s.i323.sroa.15.01950
   %259 = load i8, ptr %arrayidx56.i458, align 1
   %conv57.i459 = zext i8 %259 to i32
-  %and.i7141 = and <2 x i64> %255, %s.i323.sroa.0.01955
+  %and.i7141 = and <2 x i64> %255, %s.i323.sroa.0.01947
   %vecinit3.i2953 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv57.i459, i64 0
   %260 = bitcast <4 x i32> %vecinit3.i2953 to <2 x i64>
   %261 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7141, <2 x i64> %260)
@@ -10000,12 +10000,12 @@ sw.bb58.i425:                                     ; preds = %sw.bb48.i449, %if.e
   %270 = load <2 x i64>, ptr %add.ptr.i101.i429, align 16, !noalias !872
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5044, i64 16) ], !noalias !872
   %271 = load <2 x i64>, ptr %add.ptr.i5044, align 16, !noalias !872
-  %and.i7156 = and <2 x i64> %269, %s.i323.sroa.13.01956
-  %and.i7147 = and <2 x i64> %270, %s.i323.sroa.14.01957
-  %and.i7150 = and <2 x i64> %271, %s.i323.sroa.15.01958
+  %and.i7156 = and <2 x i64> %269, %s.i323.sroa.13.01948
+  %and.i7147 = and <2 x i64> %270, %s.i323.sroa.14.01949
+  %and.i7150 = and <2 x i64> %271, %s.i323.sroa.15.01950
   %272 = load i8, ptr %arrayidx66.i434, align 2
   %conv67.i435 = zext i8 %272 to i32
-  %and.i7153 = and <2 x i64> %268, %s.i323.sroa.0.01955
+  %and.i7153 = and <2 x i64> %268, %s.i323.sroa.0.01947
   %vecinit3.i2929 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv67.i435, i64 0
   %273 = bitcast <4 x i32> %vecinit3.i2929 to <2 x i64>
   %274 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7153, <2 x i64> %273)
@@ -10037,12 +10037,12 @@ sw.bb68.i401:                                     ; preds = %sw.bb58.i425, %if.e
   %283 = load <2 x i64>, ptr %add.ptr.i98.i405, align 16, !noalias !878
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5054, i64 16) ], !noalias !878
   %284 = load <2 x i64>, ptr %add.ptr.i5054, align 16, !noalias !878
-  %and.i7168 = and <2 x i64> %282, %s.i323.sroa.13.01956
-  %and.i7159 = and <2 x i64> %283, %s.i323.sroa.14.01957
-  %and.i7162 = and <2 x i64> %284, %s.i323.sroa.15.01958
+  %and.i7168 = and <2 x i64> %282, %s.i323.sroa.13.01948
+  %and.i7159 = and <2 x i64> %283, %s.i323.sroa.14.01949
+  %and.i7162 = and <2 x i64> %284, %s.i323.sroa.15.01950
   %285 = load i8, ptr %arrayidx76.i410, align 1
   %conv77.i411 = zext i8 %285 to i32
-  %and.i7165 = and <2 x i64> %281, %s.i323.sroa.0.01955
+  %and.i7165 = and <2 x i64> %281, %s.i323.sroa.0.01947
   %vecinit3.i2905 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv77.i411, i64 0
   %286 = bitcast <4 x i32> %vecinit3.i2905 to <2 x i64>
   %287 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7165, <2 x i64> %286)
@@ -10074,10 +10074,10 @@ sw.epilog.i382:                                   ; preds = %sw.bb68.i401, %if.e
   %296 = load <2 x i64>, ptr %add.ptr.i95.i385, align 16, !noalias !884
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5074, i64 16) ], !noalias !884
   %297 = load <2 x i64>, ptr %add.ptr.i5074, align 16, !noalias !884
-  %and.i7081 = and <2 x i64> %294, %s.i323.sroa.0.01955
-  %and.i7084 = and <2 x i64> %295, %s.i323.sroa.13.01956
-  %and.i7075 = and <2 x i64> %296, %s.i323.sroa.14.01957
-  %and.i7078 = and <2 x i64> %297, %s.i323.sroa.15.01958
+  %and.i7081 = and <2 x i64> %294, %s.i323.sroa.0.01947
+  %and.i7084 = and <2 x i64> %295, %s.i323.sroa.13.01948
+  %and.i7075 = and <2 x i64> %296, %s.i323.sroa.14.01949
+  %and.i7078 = and <2 x i64> %297, %s.i323.sroa.15.01950
   %298 = bitcast <2 x i64> %and.i7081 to <4 x i32>
   %cmp.i3879 = icmp eq <4 x i32> %298, zeroinitializer
   %sext.i3880 = sext <4 x i1> %cmp.i3879 to <4 x i32>
@@ -10104,8 +10104,8 @@ sw.epilog.i382:                                   ; preds = %sw.bb68.i401, %if.e
   br i1 %tobool.i759.not, label %if.end84.i388, label %if.end21.i764
 
 if.end21.i764:                                    ; preds = %sw.epilog.i382
-  %tobool6.i.not = icmp eq i64 %i.i324.01954, 0
-  %add.i765 = add i64 %i.i324.01954, %offset
+  %tobool6.i.not = icmp eq i64 %i.i324.01946, 0
+  %add.i765 = add i64 %i.i324.01946, %offset
   %cached_estate.i36373899.sroa.0.sroa.0.0.copyload1853 = load <16 x i8>, ptr %cached_estate.i3637, align 1
   %cached_estate.i36373899.sroa.2.0.copyload1855 = load <16 x i8>, ptr %cached_estate.i36373899.sroa.2.0.cached_estate.i3637.sroa_idx, align 1
   %cached_estate.i36373899.sroa.3.0.copyload1856 = load <16 x i8>, ptr %cached_estate.i36373899.sroa.3.0.cached_estate.i3637.sroa_idx, align 1
@@ -10158,17 +10158,17 @@ if.end14.i3682:                                   ; preds = %lor.rhs.i4601, %if.
 
 for.body.i3756:                                   ; preds = %if.end14.i3682, %for.body.i3756
   %321 = phi i32 [ 0, %if.end14.i3682 ], [ %add.i3763, %for.body.i3756 ]
-  %indvars.iv1995 = phi i64 [ 0, %if.end14.i3682 ], [ %indvars.iv.next1996, %for.body.i3756 ]
-  %arrayidx21.i3760 = getelementptr inbounds [8 x i64], ptr %emask_chunks.i3626, i64 0, i64 %indvars.iv1995
+  %indvars.iv1979 = phi i64 [ 0, %if.end14.i3682 ], [ %indvars.iv.next1980, %for.body.i3756 ]
+  %arrayidx21.i3760 = getelementptr inbounds [8 x i64], ptr %emask_chunks.i3626, i64 0, i64 %indvars.iv1979
   %322 = load i64, ptr %arrayidx21.i3760, align 8
   %323 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %322)
   %cast.i.i3761 = trunc nuw nsw i64 %323 to i32
   %add.i3763 = add i32 %321, %cast.i.i3761
-  %indvars.iv.next1996 = add nuw nsw i64 %indvars.iv1995, 1
-  %arrayidx25.i3766 = getelementptr inbounds [8 x i32], ptr %base_index.i3627, i64 0, i64 %indvars.iv.next1996
+  %indvars.iv.next1980 = add nuw nsw i64 %indvars.iv1979, 1
+  %arrayidx25.i3766 = getelementptr inbounds [8 x i32], ptr %base_index.i3627, i64 0, i64 %indvars.iv.next1980
   store i32 %add.i3763, ptr %arrayidx25.i3766, align 4
-  %exitcond1998.not = icmp eq i64 %indvars.iv.next1996, 7
-  br i1 %exitcond1998.not, label %do.body26.i3691, label %for.body.i3756, !llvm.loop !168
+  %exitcond1982.not = icmp eq i64 %indvars.iv.next1980, 7
+  br i1 %exitcond1982.not, label %do.body26.i3691, label %for.body.i3756, !llvm.loop !168
 
 do.body26.i3691:                                  ; preds = %for.body.i3756, %do.end45.i3718
   %succ.i325.sroa.0.9 = phi <2 x i64> [ %succ.i325.sroa.0.11, %do.end45.i3718 ], [ %succ.i325.sroa.0.0, %for.body.i3756 ]
@@ -10245,11 +10245,11 @@ if.else.i.i:                                      ; preds = %if.then12.i4000
 
 if.else5.i.i:                                     ; preds = %if.else.i.i
   %cmp6.i.i = icmp ult i32 %336, 384
-  %s.i323.sroa.14.0.s.i323.sroa.15.0 = select i1 %cmp6.i.i, <2 x i64> %s.i323.sroa.14.01957, <2 x i64> %s.i323.sroa.15.01958
+  %s.i323.sroa.14.0.s.i323.sroa.15.0 = select i1 %cmp6.i.i, <2 x i64> %s.i323.sroa.14.01949, <2 x i64> %s.i323.sroa.15.01950
   br label %testbit512.exit.i
 
 testbit512.exit.i:                                ; preds = %if.else5.i.i, %if.else.i.i, %if.then12.i4000
-  %sub.i.i3943.0 = phi <2 x i64> [ %s.i323.sroa.0.01955, %if.then12.i4000 ], [ %s.i323.sroa.13.01956, %if.else.i.i ], [ %s.i323.sroa.14.0.s.i323.sroa.15.0, %if.else5.i.i ]
+  %sub.i.i3943.0 = phi <2 x i64> [ %s.i323.sroa.0.01947, %if.then12.i4000 ], [ %s.i323.sroa.13.01948, %if.else.i.i ], [ %s.i323.sroa.14.0.s.i323.sroa.15.0, %if.else5.i.i ]
   %rem.i116.i = shl i32 %336, 6
   %mul.i.i = and i32 %rem.i116.i, 448
   %add.i.i = add nuw nsw i32 %mul.i.i, 95
@@ -10510,7 +10510,7 @@ if.end84.i388:                                    ; preds = %sw.epilog.i382, %if
   %succ.i325.sroa.24.7 = phi <2 x i64> [ %succ.i325.sroa.24.0, %sw.epilog.i382 ], [ %or.i131.i3645, %if.then.i3640 ], [ %or.i143.i3725, %do.end48.i3720 ], [ %or.i143.i3725, %if.then63.i3744 ], [ %or.i143.i3725, %if.then60.i3740 ], [ %or.i143.i3725, %if.then53.i3749 ]
   %succ.i325.sroa.48.7 = phi <2 x i64> [ %succ.i325.sroa.48.0, %sw.epilog.i382 ], [ %or.i.i3650, %if.then.i3640 ], [ %or.i134.i3730, %do.end48.i3720 ], [ %or.i134.i3730, %if.then63.i3744 ], [ %or.i134.i3730, %if.then60.i3740 ], [ %or.i134.i3730, %if.then53.i3749 ]
   %succ.i325.sroa.72.7 = phi <2 x i64> [ %succ.i325.sroa.72.0, %sw.epilog.i382 ], [ %or.i125.i3653, %if.then.i3640 ], [ %or.i137.i3733, %do.end48.i3720 ], [ %or.i137.i3733, %if.then63.i3744 ], [ %or.i137.i3733, %if.then60.i3740 ], [ %or.i137.i3733, %if.then53.i3749 ]
-  %arrayidx85.i389 = getelementptr inbounds i8, ptr %input, i64 %i.i324.01954
+  %arrayidx85.i389 = getelementptr inbounds i8, ptr %input, i64 %i.i324.01946
   %362 = load i8, ptr %arrayidx85.i389, align 1
   %idxprom.i390 = zext i8 %362 to i64
   %arrayidx88.i391 = getelementptr inbounds [256 x i8], ptr %limex, i64 0, i64 %idxprom.i390
@@ -10532,19 +10532,19 @@ if.end84.i388:                                    ; preds = %sw.epilog.i382, %if
   %and.i7180 = and <2 x i64> %365, %succ.i325.sroa.24.7
   %and.i7171 = and <2 x i64> %366, %succ.i325.sroa.48.7
   %and.i7174 = and <2 x i64> %367, %succ.i325.sroa.72.7
-  %inc.i399 = add i64 %i.i324.01954, 1
+  %inc.i399 = add i64 %i.i324.01946, 1
   %cmp.i366.not = icmp eq i64 %inc.i399, %min_accel_offset.i.0
   br i1 %cmp.i366.not, label %with_accel.i, label %land.lhs.true.i569, !llvm.loop !196
 
 with_accel.i:                                     ; preds = %if.end84.i, %if.end84.i388, %land.lhs.true.i569, %if.then8.i, %if.else13.i, %entry
-  %i.i.1 = phi i64 [ 0, %entry ], [ %i.i.0, %if.else13.i ], [ %i.i.0, %if.then8.i ], [ %min_accel_offset.i.0, %if.end84.i388 ], [ %i.i324.01954, %land.lhs.true.i569 ], [ %min_accel_offset.i.0, %if.end84.i ]
-  %s.i.sroa.0.1 = phi <2 x i64> [ %s.i.sroa.0.0.copyload, %entry ], [ %s.i.sroa.0.0, %if.else13.i ], [ %s.i.sroa.0.0, %if.then8.i ], [ %and.i7177, %if.end84.i388 ], [ %s.i323.sroa.0.01955, %land.lhs.true.i569 ], [ %and.i7285, %if.end84.i ]
-  %s.i.sroa.22.1 = phi <2 x i64> [ %s.i.sroa.22.0.copyload, %entry ], [ %s.i.sroa.22.0, %if.else13.i ], [ %s.i.sroa.22.0, %if.then8.i ], [ %and.i7180, %if.end84.i388 ], [ %s.i323.sroa.13.01956, %land.lhs.true.i569 ], [ %and.i7288, %if.end84.i ]
-  %s.i.sroa.40.1 = phi <2 x i64> [ %s.i.sroa.40.0.copyload, %entry ], [ %s.i.sroa.40.0, %if.else13.i ], [ %s.i.sroa.40.0, %if.then8.i ], [ %and.i7171, %if.end84.i388 ], [ %s.i323.sroa.14.01957, %land.lhs.true.i569 ], [ %and.i7279, %if.end84.i ]
-  %s.i.sroa.58.1 = phi <2 x i64> [ %s.i.sroa.58.0.copyload, %entry ], [ %s.i.sroa.58.0, %if.else13.i ], [ %s.i.sroa.58.0, %if.then8.i ], [ %and.i7174, %if.end84.i388 ], [ %s.i323.sroa.15.01958, %land.lhs.true.i569 ], [ %and.i7282, %if.end84.i ]
+  %i.i.1 = phi i64 [ 0, %entry ], [ %i.i.0, %if.else13.i ], [ %i.i.0, %if.then8.i ], [ %min_accel_offset.i.0, %if.end84.i388 ], [ %i.i324.01946, %land.lhs.true.i569 ], [ %min_accel_offset.i.0, %if.end84.i ]
+  %s.i.sroa.0.1 = phi <2 x i64> [ %s.i.sroa.0.0.copyload, %entry ], [ %s.i.sroa.0.0, %if.else13.i ], [ %s.i.sroa.0.0, %if.then8.i ], [ %and.i7177, %if.end84.i388 ], [ %s.i323.sroa.0.01947, %land.lhs.true.i569 ], [ %and.i7285, %if.end84.i ]
+  %s.i.sroa.22.1 = phi <2 x i64> [ %s.i.sroa.22.0.copyload, %entry ], [ %s.i.sroa.22.0, %if.else13.i ], [ %s.i.sroa.22.0, %if.then8.i ], [ %and.i7180, %if.end84.i388 ], [ %s.i323.sroa.13.01948, %land.lhs.true.i569 ], [ %and.i7288, %if.end84.i ]
+  %s.i.sroa.40.1 = phi <2 x i64> [ %s.i.sroa.40.0.copyload, %entry ], [ %s.i.sroa.40.0, %if.else13.i ], [ %s.i.sroa.40.0, %if.then8.i ], [ %and.i7171, %if.end84.i388 ], [ %s.i323.sroa.14.01949, %land.lhs.true.i569 ], [ %and.i7279, %if.end84.i ]
+  %s.i.sroa.58.1 = phi <2 x i64> [ %s.i.sroa.58.0.copyload, %entry ], [ %s.i.sroa.58.0, %if.else13.i ], [ %s.i.sroa.58.0, %if.then8.i ], [ %and.i7174, %if.end84.i388 ], [ %s.i323.sroa.15.01950, %land.lhs.true.i569 ], [ %and.i7282, %if.end84.i ]
   %min_accel_offset.i.1 = phi i64 [ 0, %entry ], [ %i.i.0, %if.else13.i ], [ %i.i.0, %if.then8.i ], [ %min_accel_offset.i.0, %land.lhs.true.i569 ], [ %min_accel_offset.i.0, %if.end84.i388 ], [ %min_accel_offset.i.0, %if.end84.i ]
-  %cmp22.i.not1974 = icmp eq i64 %i.i.1, %length
-  br i1 %cmp22.i.not1974, label %for.end.i, label %for.body.i.lr.ph
+  %cmp22.i.not1962 = icmp eq i64 %i.i.1, %length
+  br i1 %cmp22.i.not1962, label %for.end.i, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %with_accel.i
   %accel_and_friends.i = getelementptr inbounds i8, ptr %limex, i64 832
@@ -10618,12 +10618,12 @@ for.body.i.lr.ph:                                 ; preds = %with_accel.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.end142.i
-  %s.i.sroa.58.41979 = phi <2 x i64> [ %s.i.sroa.58.1, %for.body.i.lr.ph ], [ %and.i7402, %if.end142.i ]
-  %s.i.sroa.40.41978 = phi <2 x i64> [ %s.i.sroa.40.1, %for.body.i.lr.ph ], [ %and.i7399, %if.end142.i ]
-  %s.i.sroa.22.41977 = phi <2 x i64> [ %s.i.sroa.22.1, %for.body.i.lr.ph ], [ %and.i7408, %if.end142.i ]
-  %s.i.sroa.0.41976 = phi <2 x i64> [ %s.i.sroa.0.1, %for.body.i.lr.ph ], [ %and.i7405, %if.end142.i ]
-  %i.i.41975 = phi i64 [ %i.i.1, %for.body.i.lr.ph ], [ %inc.i, %if.end142.i ]
-  %add.i = add i64 %i.i.41975, 16
+  %s.i.sroa.58.41967 = phi <2 x i64> [ %s.i.sroa.58.1, %for.body.i.lr.ph ], [ %and.i7402, %if.end142.i ]
+  %s.i.sroa.40.41966 = phi <2 x i64> [ %s.i.sroa.40.1, %for.body.i.lr.ph ], [ %and.i7399, %if.end142.i ]
+  %s.i.sroa.22.41965 = phi <2 x i64> [ %s.i.sroa.22.1, %for.body.i.lr.ph ], [ %and.i7408, %if.end142.i ]
+  %s.i.sroa.0.41964 = phi <2 x i64> [ %s.i.sroa.0.1, %for.body.i.lr.ph ], [ %and.i7405, %if.end142.i ]
+  %i.i.41963 = phi i64 [ %i.i.1, %for.body.i.lr.ph ], [ %inc.i, %if.end142.i ]
+  %add.i = add i64 %i.i.41963, 16
   %cmp24.i.not = icmp ugt i64 %add.i, %length
   br i1 %cmp24.i.not, label %if.end60.i, label %land.lhs.true.i
 
@@ -10637,13 +10637,13 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5214, i64 16) ], !noalias !914
   %371 = load <2 x i64>, ptr %add.ptr.i5214, align 16, !noalias !914
   %not.i1045 = xor <2 x i64> %368, <i64 -1, i64 -1>
-  %and.i1046 = and <2 x i64> %s.i.sroa.0.41976, %not.i1045
+  %and.i1046 = and <2 x i64> %s.i.sroa.0.41964, %not.i1045
   %not.i1049 = xor <2 x i64> %369, <i64 -1, i64 -1>
-  %and.i1050 = and <2 x i64> %s.i.sroa.22.41977, %not.i1049
+  %and.i1050 = and <2 x i64> %s.i.sroa.22.41965, %not.i1049
   %not.i = xor <2 x i64> %370, <i64 -1, i64 -1>
-  %and.i1038 = and <2 x i64> %s.i.sroa.40.41978, %not.i
+  %and.i1038 = and <2 x i64> %s.i.sroa.40.41966, %not.i
   %not.i1041 = xor <2 x i64> %371, <i64 -1, i64 -1>
-  %and.i1042 = and <2 x i64> %s.i.sroa.58.41979, %not.i1041
+  %and.i1042 = and <2 x i64> %s.i.sroa.58.41967, %not.i1041
   %or.i567.i = or <2 x i64> %and.i1050, %and.i1046
   %or.i564.i = or <2 x i64> %or.i567.i, %and.i1038
   %or.i570.i = or <2 x i64> %or.i564.i, %and.i1042
@@ -10654,15 +10654,15 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %tobool.i.i.not, label %if.then29.i, label %if.end60.i
 
 if.then29.i:                                      ; preds = %land.lhs.true.i
-  store <2 x i64> %s.i.sroa.0.41976, ptr %s.i588, align 64
+  store <2 x i64> %s.i.sroa.0.41964, ptr %s.i588, align 64
   %s.i.sroa.22.0.s.i588.sroa_idx = getelementptr inbounds i8, ptr %s.i588, i64 16
-  store <2 x i64> %s.i.sroa.22.41977, ptr %s.i.sroa.22.0.s.i588.sroa_idx, align 16
+  store <2 x i64> %s.i.sroa.22.41965, ptr %s.i.sroa.22.0.s.i588.sroa_idx, align 16
   %s.i.sroa.40.0.s.i588.sroa_idx = getelementptr inbounds i8, ptr %s.i588, i64 32
-  store <2 x i64> %s.i.sroa.40.41978, ptr %s.i.sroa.40.0.s.i588.sroa_idx, align 32
+  store <2 x i64> %s.i.sroa.40.41966, ptr %s.i.sroa.40.0.s.i588.sroa_idx, align 32
   %s.i.sroa.58.0.s.i588.sroa_idx = getelementptr inbounds i8, ptr %s.i588, i64 48
-  store <2 x i64> %s.i.sroa.58.41979, ptr %s.i.sroa.58.0.s.i588.sroa_idx, align 16
-  %call.i = call i64 @doAccel512(ptr noundef nonnull %s.i588, ptr noundef nonnull %limex, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr2.i, ptr noundef %input, i64 noundef %i.i.41975, i64 noundef %length) #11
-  %cmp34.i.not = icmp eq i64 %call.i, %i.i.41975
+  store <2 x i64> %s.i.sroa.58.41967, ptr %s.i.sroa.58.0.s.i588.sroa_idx, align 16
+  %call.i = call i64 @doAccel512(ptr noundef nonnull %s.i588, ptr noundef nonnull %limex, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr2.i, ptr noundef %input, i64 noundef %i.i.41963, i64 noundef %length) #11
+  %cmp34.i.not = icmp eq i64 %call.i, %i.i.41963
   br i1 %cmp34.i.not, label %if.end39.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.then29.i
@@ -10678,18 +10678,18 @@ if.then36.i:                                      ; preds = %if.then29.i
   %377 = load <2 x i64>, ptr %add.ptr.i231.i, align 16, !noalias !920
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5204, i64 16) ], !noalias !920
   %378 = load <2 x i64>, ptr %add.ptr.i5204, align 16, !noalias !920
-  %and.i7309 = and <2 x i64> %375, %s.i.sroa.0.41976
-  %and.i7312 = and <2 x i64> %376, %s.i.sroa.22.41977
-  %and.i7303 = and <2 x i64> %377, %s.i.sroa.40.41978
-  %and.i7306 = and <2 x i64> %378, %s.i.sroa.58.41979
+  %and.i7309 = and <2 x i64> %375, %s.i.sroa.0.41964
+  %and.i7312 = and <2 x i64> %376, %s.i.sroa.22.41965
+  %and.i7303 = and <2 x i64> %377, %s.i.sroa.40.41966
+  %and.i7306 = and <2 x i64> %378, %s.i.sroa.58.41967
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then36.i, %if.then29.i
-  %s.i.sroa.0.6 = phi <2 x i64> [ %and.i7309, %if.then36.i ], [ %s.i.sroa.0.41976, %if.then29.i ]
-  %s.i.sroa.22.6 = phi <2 x i64> [ %and.i7312, %if.then36.i ], [ %s.i.sroa.22.41977, %if.then29.i ]
-  %s.i.sroa.40.6 = phi <2 x i64> [ %and.i7303, %if.then36.i ], [ %s.i.sroa.40.41978, %if.then29.i ]
-  %s.i.sroa.58.6 = phi <2 x i64> [ %and.i7306, %if.then36.i ], [ %s.i.sroa.58.41979, %if.then29.i ]
-  %tobool40.i.not = icmp ne i64 %i.i.41975, 0
+  %s.i.sroa.0.6 = phi <2 x i64> [ %and.i7309, %if.then36.i ], [ %s.i.sroa.0.41964, %if.then29.i ]
+  %s.i.sroa.22.6 = phi <2 x i64> [ %and.i7312, %if.then36.i ], [ %s.i.sroa.22.41965, %if.then29.i ]
+  %s.i.sroa.40.6 = phi <2 x i64> [ %and.i7303, %if.then36.i ], [ %s.i.sroa.40.41966, %if.then29.i ]
+  %s.i.sroa.58.6 = phi <2 x i64> [ %and.i7306, %if.then36.i ], [ %s.i.sroa.58.41967, %if.then29.i ]
+  %tobool40.i.not = icmp ne i64 %i.i.41963, 0
   %add42.i = add i64 %min_accel_offset.i.1, 4
   %cmp43.i = icmp ult i64 %call.i, %add42.i
   %or.cond1879 = and i1 %tobool40.i.not, %cmp43.i
@@ -10710,12 +10710,12 @@ if.end60.i:                                       ; preds = %land.lhs.true.i, %f
   %381 = load <2 x i64>, ptr %add.ptr.i225.i, align 16, !noalias !926
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5314, i64 16) ], !noalias !926
   %382 = load <2 x i64>, ptr %add.ptr.i5314, align 16, !noalias !926
-  %and.i7420 = and <2 x i64> %380, %s.i.sroa.22.41977
-  %and.i7411 = and <2 x i64> %381, %s.i.sroa.40.41978
-  %and.i7414 = and <2 x i64> %382, %s.i.sroa.58.41979
+  %and.i7420 = and <2 x i64> %380, %s.i.sroa.22.41965
+  %and.i7411 = and <2 x i64> %381, %s.i.sroa.40.41966
+  %and.i7414 = and <2 x i64> %382, %s.i.sroa.58.41967
   %383 = load i8, ptr %shiftAmount.i, align 4
   %conv66.i = zext i8 %383 to i32
-  %and.i7417 = and <2 x i64> %379, %s.i.sroa.0.41976
+  %and.i7417 = and <2 x i64> %379, %s.i.sroa.0.41964
   %vecinit3.i2497 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv66.i, i64 0
   %384 = bitcast <4 x i32> %vecinit3.i2497 to <2 x i64>
   %385 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7417, <2 x i64> %384)
@@ -10748,12 +10748,12 @@ sw.bb.i:                                          ; preds = %if.end60.i
   %395 = load <2 x i64>, ptr %add.ptr.i222.i, align 16, !noalias !932
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5224, i64 16) ], !noalias !932
   %396 = load <2 x i64>, ptr %add.ptr.i5224, align 16, !noalias !932
-  %and.i7324 = and <2 x i64> %394, %s.i.sroa.22.41977
-  %and.i7315 = and <2 x i64> %395, %s.i.sroa.40.41978
-  %and.i7318 = and <2 x i64> %396, %s.i.sroa.58.41979
+  %and.i7324 = and <2 x i64> %394, %s.i.sroa.22.41965
+  %and.i7315 = and <2 x i64> %395, %s.i.sroa.40.41966
+  %and.i7318 = and <2 x i64> %396, %s.i.sroa.58.41967
   %397 = load i8, ptr %arrayidx74.i, align 1
   %conv75.i = zext i8 %397 to i32
-  %and.i7321 = and <2 x i64> %393, %s.i.sroa.0.41976
+  %and.i7321 = and <2 x i64> %393, %s.i.sroa.0.41964
   %vecinit3.i2665 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv75.i, i64 0
   %398 = bitcast <4 x i32> %vecinit3.i2665 to <2 x i64>
   %399 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7321, <2 x i64> %398)
@@ -10785,12 +10785,12 @@ sw.bb76.i:                                        ; preds = %sw.bb.i, %if.end60.
   %408 = load <2 x i64>, ptr %add.ptr.i219.i, align 16, !noalias !938
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5234, i64 16) ], !noalias !938
   %409 = load <2 x i64>, ptr %add.ptr.i5234, align 16, !noalias !938
-  %and.i7336 = and <2 x i64> %407, %s.i.sroa.22.41977
-  %and.i7327 = and <2 x i64> %408, %s.i.sroa.40.41978
-  %and.i7330 = and <2 x i64> %409, %s.i.sroa.58.41979
+  %and.i7336 = and <2 x i64> %407, %s.i.sroa.22.41965
+  %and.i7327 = and <2 x i64> %408, %s.i.sroa.40.41966
+  %and.i7330 = and <2 x i64> %409, %s.i.sroa.58.41967
   %410 = load i8, ptr %arrayidx84.i, align 2
   %conv85.i = zext i8 %410 to i32
-  %and.i7333 = and <2 x i64> %406, %s.i.sroa.0.41976
+  %and.i7333 = and <2 x i64> %406, %s.i.sroa.0.41964
   %vecinit3.i2641 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv85.i, i64 0
   %411 = bitcast <4 x i32> %vecinit3.i2641 to <2 x i64>
   %412 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7333, <2 x i64> %411)
@@ -10822,12 +10822,12 @@ sw.bb86.i:                                        ; preds = %sw.bb76.i, %if.end6
   %421 = load <2 x i64>, ptr %add.ptr.i216.i, align 16, !noalias !944
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5244, i64 16) ], !noalias !944
   %422 = load <2 x i64>, ptr %add.ptr.i5244, align 16, !noalias !944
-  %and.i7348 = and <2 x i64> %420, %s.i.sroa.22.41977
-  %and.i7339 = and <2 x i64> %421, %s.i.sroa.40.41978
-  %and.i7342 = and <2 x i64> %422, %s.i.sroa.58.41979
+  %and.i7348 = and <2 x i64> %420, %s.i.sroa.22.41965
+  %and.i7339 = and <2 x i64> %421, %s.i.sroa.40.41966
+  %and.i7342 = and <2 x i64> %422, %s.i.sroa.58.41967
   %423 = load i8, ptr %arrayidx94.i, align 1
   %conv95.i = zext i8 %423 to i32
-  %and.i7345 = and <2 x i64> %419, %s.i.sroa.0.41976
+  %and.i7345 = and <2 x i64> %419, %s.i.sroa.0.41964
   %vecinit3.i2617 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv95.i, i64 0
   %424 = bitcast <4 x i32> %vecinit3.i2617 to <2 x i64>
   %425 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7345, <2 x i64> %424)
@@ -10859,12 +10859,12 @@ sw.bb96.i:                                        ; preds = %sw.bb86.i, %if.end6
   %434 = load <2 x i64>, ptr %add.ptr.i213.i, align 16, !noalias !950
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5254, i64 16) ], !noalias !950
   %435 = load <2 x i64>, ptr %add.ptr.i5254, align 16, !noalias !950
-  %and.i7360 = and <2 x i64> %433, %s.i.sroa.22.41977
-  %and.i7351 = and <2 x i64> %434, %s.i.sroa.40.41978
-  %and.i7354 = and <2 x i64> %435, %s.i.sroa.58.41979
+  %and.i7360 = and <2 x i64> %433, %s.i.sroa.22.41965
+  %and.i7351 = and <2 x i64> %434, %s.i.sroa.40.41966
+  %and.i7354 = and <2 x i64> %435, %s.i.sroa.58.41967
   %436 = load i8, ptr %arrayidx104.i, align 4
   %conv105.i = zext i8 %436 to i32
-  %and.i7357 = and <2 x i64> %432, %s.i.sroa.0.41976
+  %and.i7357 = and <2 x i64> %432, %s.i.sroa.0.41964
   %vecinit3.i2593 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv105.i, i64 0
   %437 = bitcast <4 x i32> %vecinit3.i2593 to <2 x i64>
   %438 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7357, <2 x i64> %437)
@@ -10896,12 +10896,12 @@ sw.bb106.i:                                       ; preds = %sw.bb96.i, %if.end6
   %447 = load <2 x i64>, ptr %add.ptr.i210.i, align 16, !noalias !956
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5264, i64 16) ], !noalias !956
   %448 = load <2 x i64>, ptr %add.ptr.i5264, align 16, !noalias !956
-  %and.i7372 = and <2 x i64> %446, %s.i.sroa.22.41977
-  %and.i7363 = and <2 x i64> %447, %s.i.sroa.40.41978
-  %and.i7366 = and <2 x i64> %448, %s.i.sroa.58.41979
+  %and.i7372 = and <2 x i64> %446, %s.i.sroa.22.41965
+  %and.i7363 = and <2 x i64> %447, %s.i.sroa.40.41966
+  %and.i7366 = and <2 x i64> %448, %s.i.sroa.58.41967
   %449 = load i8, ptr %arrayidx114.i, align 1
   %conv115.i = zext i8 %449 to i32
-  %and.i7369 = and <2 x i64> %445, %s.i.sroa.0.41976
+  %and.i7369 = and <2 x i64> %445, %s.i.sroa.0.41964
   %vecinit3.i2569 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv115.i, i64 0
   %450 = bitcast <4 x i32> %vecinit3.i2569 to <2 x i64>
   %451 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7369, <2 x i64> %450)
@@ -10933,12 +10933,12 @@ sw.bb116.i:                                       ; preds = %sw.bb106.i, %if.end
   %460 = load <2 x i64>, ptr %add.ptr.i207.i, align 16, !noalias !962
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5274, i64 16) ], !noalias !962
   %461 = load <2 x i64>, ptr %add.ptr.i5274, align 16, !noalias !962
-  %and.i7384 = and <2 x i64> %459, %s.i.sroa.22.41977
-  %and.i7375 = and <2 x i64> %460, %s.i.sroa.40.41978
-  %and.i7378 = and <2 x i64> %461, %s.i.sroa.58.41979
+  %and.i7384 = and <2 x i64> %459, %s.i.sroa.22.41965
+  %and.i7375 = and <2 x i64> %460, %s.i.sroa.40.41966
+  %and.i7378 = and <2 x i64> %461, %s.i.sroa.58.41967
   %462 = load i8, ptr %arrayidx124.i, align 2
   %conv125.i = zext i8 %462 to i32
-  %and.i7381 = and <2 x i64> %458, %s.i.sroa.0.41976
+  %and.i7381 = and <2 x i64> %458, %s.i.sroa.0.41964
   %vecinit3.i2545 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv125.i, i64 0
   %463 = bitcast <4 x i32> %vecinit3.i2545 to <2 x i64>
   %464 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7381, <2 x i64> %463)
@@ -10970,12 +10970,12 @@ sw.bb126.i:                                       ; preds = %sw.bb116.i, %if.end
   %473 = load <2 x i64>, ptr %add.ptr.i204.i, align 16, !noalias !968
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5284, i64 16) ], !noalias !968
   %474 = load <2 x i64>, ptr %add.ptr.i5284, align 16, !noalias !968
-  %and.i7396 = and <2 x i64> %472, %s.i.sroa.22.41977
-  %and.i7387 = and <2 x i64> %473, %s.i.sroa.40.41978
-  %and.i7390 = and <2 x i64> %474, %s.i.sroa.58.41979
+  %and.i7396 = and <2 x i64> %472, %s.i.sroa.22.41965
+  %and.i7387 = and <2 x i64> %473, %s.i.sroa.40.41966
+  %and.i7390 = and <2 x i64> %474, %s.i.sroa.58.41967
   %475 = load i8, ptr %arrayidx134.i, align 1
   %conv135.i = zext i8 %475 to i32
-  %and.i7393 = and <2 x i64> %471, %s.i.sroa.0.41976
+  %and.i7393 = and <2 x i64> %471, %s.i.sroa.0.41964
   %vecinit3.i2521 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv135.i, i64 0
   %476 = bitcast <4 x i32> %vecinit3.i2521 to <2 x i64>
   %477 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i7393, <2 x i64> %476)
@@ -11007,10 +11007,10 @@ sw.epilog.i:                                      ; preds = %sw.bb126.i, %if.end
   %486 = load <2 x i64>, ptr %add.ptr.i201.i, align 16, !noalias !974
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5304, i64 16) ], !noalias !974
   %487 = load <2 x i64>, ptr %add.ptr.i5304, align 16, !noalias !974
-  %and.i7033 = and <2 x i64> %484, %s.i.sroa.0.41976
-  %and.i7036 = and <2 x i64> %485, %s.i.sroa.22.41977
-  %and.i7027 = and <2 x i64> %486, %s.i.sroa.40.41978
-  %and.i7030 = and <2 x i64> %487, %s.i.sroa.58.41979
+  %and.i7033 = and <2 x i64> %484, %s.i.sroa.0.41964
+  %and.i7036 = and <2 x i64> %485, %s.i.sroa.22.41965
+  %and.i7027 = and <2 x i64> %486, %s.i.sroa.40.41966
+  %and.i7030 = and <2 x i64> %487, %s.i.sroa.58.41967
   %488 = bitcast <2 x i64> %and.i7033 to <4 x i32>
   %cmp.i3847 = icmp eq <4 x i32> %488, zeroinitializer
   %sext.i3848 = sext <4 x i1> %cmp.i3847 to <4 x i32>
@@ -11037,8 +11037,8 @@ sw.epilog.i:                                      ; preds = %sw.bb126.i, %if.end
   br i1 %tobool.i962.not, label %if.end142.i, label %if.end21.i970
 
 if.end21.i970:                                    ; preds = %sw.epilog.i
-  %tobool6.i986.not = icmp eq i64 %i.i.41975, 0
-  %add.i971 = add i64 %i.i.41975, %offset
+  %tobool6.i986.not = icmp eq i64 %i.i.41963, 0
+  %add.i971 = add i64 %i.i.41963, %offset
   %cached_estate.i3913.sroa.0.sroa.0.0.copyload1864 = load <16 x i8>, ptr %cached_estate.i, align 1
   %cached_estate.i3913.sroa.2.0.copyload1866 = load <16 x i8>, ptr %cached_estate.i3913.sroa.2.0.cached_estate.i.sroa_idx, align 1
   %cached_estate.i3913.sroa.3.0.copyload1867 = load <16 x i8>, ptr %cached_estate.i3913.sroa.3.0.cached_estate.i.sroa_idx, align 1
@@ -11091,17 +11091,17 @@ if.end14.i:                                       ; preds = %lor.rhs.i4503, %if.
 
 for.body.i3313:                                   ; preds = %if.end14.i, %for.body.i3313
   %511 = phi i32 [ 0, %if.end14.i ], [ %add.i3315, %for.body.i3313 ]
-  %indvars.iv1999 = phi i64 [ 0, %if.end14.i ], [ %indvars.iv.next2000, %for.body.i3313 ]
-  %arrayidx21.i = getelementptr inbounds [8 x i64], ptr %emask_chunks.i, i64 0, i64 %indvars.iv1999
+  %indvars.iv1983 = phi i64 [ 0, %if.end14.i ], [ %indvars.iv.next1984, %for.body.i3313 ]
+  %arrayidx21.i = getelementptr inbounds [8 x i64], ptr %emask_chunks.i, i64 0, i64 %indvars.iv1983
   %512 = load i64, ptr %arrayidx21.i, align 8
   %513 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %512)
   %cast.i.i = trunc nuw nsw i64 %513 to i32
   %add.i3315 = add i32 %511, %cast.i.i
-  %indvars.iv.next2000 = add nuw nsw i64 %indvars.iv1999, 1
-  %arrayidx25.i = getelementptr inbounds [8 x i32], ptr %base_index.i, i64 0, i64 %indvars.iv.next2000
+  %indvars.iv.next1984 = add nuw nsw i64 %indvars.iv1983, 1
+  %arrayidx25.i = getelementptr inbounds [8 x i32], ptr %base_index.i, i64 0, i64 %indvars.iv.next1984
   store i32 %add.i3315, ptr %arrayidx25.i, align 4
-  %exitcond2002.not = icmp eq i64 %indvars.iv.next2000, 7
-  br i1 %exitcond2002.not, label %do.body26.i, label %for.body.i3313, !llvm.loop !168
+  %exitcond1986.not = icmp eq i64 %indvars.iv.next1984, 7
+  br i1 %exitcond1986.not, label %do.body26.i, label %for.body.i3313, !llvm.loop !168
 
 do.body26.i:                                      ; preds = %for.body.i3313, %do.end45.i
   %succ.i.sroa.0.9 = phi <2 x i64> [ %succ.i.sroa.0.11, %do.end45.i ], [ %succ.i.sroa.0.0, %for.body.i3313 ]
@@ -11178,11 +11178,11 @@ if.else.i.i4445:                                  ; preds = %if.then12.i4443
 
 if.else5.i.i4447:                                 ; preds = %if.else.i.i4445
   %cmp6.i.i4448 = icmp ult i32 %526, 384
-  %s.i.sroa.40.4.s.i.sroa.58.4 = select i1 %cmp6.i.i4448, <2 x i64> %s.i.sroa.40.41978, <2 x i64> %s.i.sroa.58.41979
+  %s.i.sroa.40.4.s.i.sroa.58.4 = select i1 %cmp6.i.i4448, <2 x i64> %s.i.sroa.40.41966, <2 x i64> %s.i.sroa.58.41967
   br label %testbit512.exit.i4454
 
 testbit512.exit.i4454:                            ; preds = %if.else5.i.i4447, %if.else.i.i4445, %if.then12.i4443
-  %sub.i.i4281.0 = phi <2 x i64> [ %s.i.sroa.0.41976, %if.then12.i4443 ], [ %s.i.sroa.22.41977, %if.else.i.i4445 ], [ %s.i.sroa.40.4.s.i.sroa.58.4, %if.else5.i.i4447 ]
+  %sub.i.i4281.0 = phi <2 x i64> [ %s.i.sroa.0.41964, %if.then12.i4443 ], [ %s.i.sroa.22.41965, %if.else.i.i4445 ], [ %s.i.sroa.40.4.s.i.sroa.58.4, %if.else5.i.i4447 ]
   %rem.i116.i4456 = shl i32 %526, 6
   %mul.i.i4457 = and i32 %rem.i116.i4456, 448
   %add.i.i4458 = add nuw nsw i32 %mul.i.i4457, 95
@@ -11443,7 +11443,7 @@ if.end142.i:                                      ; preds = %sw.epilog.i, %if.th
   %succ.i.sroa.24.7 = phi <2 x i64> [ %succ.i.sroa.24.0, %sw.epilog.i ], [ %or.i131.i, %if.then.i3286 ], [ %or.i143.i, %do.end48.i ], [ %or.i143.i, %if.then63.i ], [ %or.i143.i, %if.then60.i ], [ %or.i143.i, %if.then53.i ]
   %succ.i.sroa.48.7 = phi <2 x i64> [ %succ.i.sroa.48.0, %sw.epilog.i ], [ %or.i.i3287, %if.then.i3286 ], [ %or.i134.i, %do.end48.i ], [ %or.i134.i, %if.then63.i ], [ %or.i134.i, %if.then60.i ], [ %or.i134.i, %if.then53.i ]
   %succ.i.sroa.72.7 = phi <2 x i64> [ %succ.i.sroa.72.0, %sw.epilog.i ], [ %or.i125.i, %if.then.i3286 ], [ %or.i137.i, %do.end48.i ], [ %or.i137.i, %if.then63.i ], [ %or.i137.i, %if.then60.i ], [ %or.i137.i, %if.then53.i ]
-  %arrayidx143.i = getelementptr inbounds i8, ptr %input, i64 %i.i.41975
+  %arrayidx143.i = getelementptr inbounds i8, ptr %input, i64 %i.i.41963
   %552 = load i8, ptr %arrayidx143.i, align 1
   %idxprom.i = zext i8 %552 to i64
   %arrayidx146.i = getelementptr inbounds [256 x i8], ptr %limex, i64 0, i64 %idxprom.i
@@ -11465,7 +11465,7 @@ if.end142.i:                                      ; preds = %sw.epilog.i, %if.th
   %and.i7408 = and <2 x i64> %555, %succ.i.sroa.24.7
   %and.i7399 = and <2 x i64> %556, %succ.i.sroa.48.7
   %and.i7402 = and <2 x i64> %557, %succ.i.sroa.72.7
-  %inc.i = add i64 %i.i.41975, 1
+  %inc.i = add i64 %i.i.41963, 1
   %cmp22.i.not = icmp eq i64 %inc.i, %length
   br i1 %cmp22.i.not, label %for.end.i, label %for.body.i, !llvm.loop !365
 
@@ -12411,14 +12411,14 @@ entry:
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.end84
-  %i.0677 = phi i64 [ %length, %entry ], [ %dec, %if.end84 ]
-  %s.sroa.0.0676 = phi <2 x i64> [ %s.sroa.0.0.copyload, %entry ], [ %and.i2442, %if.end84 ]
-  %s.sroa.15.0675 = phi <2 x i64> [ %s.sroa.15.0.copyload, %entry ], [ %and.i2445, %if.end84 ]
-  %s.sroa.16.0674 = phi <2 x i64> [ %s.sroa.16.0.copyload, %entry ], [ %and.i2436, %if.end84 ]
-  %s.sroa.17.0673 = phi <2 x i64> [ %s.sroa.17.0.copyload, %entry ], [ %and.i2439, %if.end84 ]
-  %or.i478 = or <2 x i64> %s.sroa.16.0674, %s.sroa.17.0673
-  %1 = or <2 x i64> %or.i478, %s.sroa.15.0675
-  %or.i481 = or <2 x i64> %1, %s.sroa.0.0676
+  %i.0672 = phi i64 [ %length, %entry ], [ %dec, %if.end84 ]
+  %s.sroa.0.0671 = phi <2 x i64> [ %s.sroa.0.0.copyload, %entry ], [ %and.i2442, %if.end84 ]
+  %s.sroa.15.0670 = phi <2 x i64> [ %s.sroa.15.0.copyload, %entry ], [ %and.i2445, %if.end84 ]
+  %s.sroa.16.0669 = phi <2 x i64> [ %s.sroa.16.0.copyload, %entry ], [ %and.i2436, %if.end84 ]
+  %s.sroa.17.0668 = phi <2 x i64> [ %s.sroa.17.0.copyload, %entry ], [ %and.i2439, %if.end84 ]
+  %or.i478 = or <2 x i64> %s.sroa.16.0669, %s.sroa.17.0668
+  %1 = or <2 x i64> %or.i478, %s.sroa.15.0670
+  %or.i481 = or <2 x i64> %1, %s.sroa.0.0671
   %2 = bitcast <2 x i64> %or.i481 to <16 x i8>
   %3 = icmp ne <16 x i8> %2, zeroinitializer
   %4 = bitcast <16 x i1> %3 to i16
@@ -12426,10 +12426,10 @@ do.end:                                           ; preds = %entry, %if.end84
   br i1 %tobool.i.not, label %do.end4, label %do.body6
 
 do.end4:                                          ; preds = %do.end
-  store <2 x i64> %s.sroa.0.0676, ptr %ctx, align 64
-  store <2 x i64> %s.sroa.15.0675, ptr %s.sroa.15.0.s1.sroa_idx, align 16
-  store <2 x i64> %s.sroa.16.0674, ptr %s.sroa.16.0.s1.sroa_idx, align 32
-  store <2 x i64> %s.sroa.17.0673, ptr %s.sroa.17.0.s1.sroa_idx, align 16
+  store <2 x i64> %s.sroa.0.0671, ptr %ctx, align 64
+  store <2 x i64> %s.sroa.15.0670, ptr %s.sroa.15.0.s1.sroa_idx, align 16
+  store <2 x i64> %s.sroa.16.0669, ptr %s.sroa.16.0.s1.sroa_idx, align 32
+  store <2 x i64> %s.sroa.17.0668, ptr %s.sroa.17.0.s1.sroa_idx, align 16
   br label %return
 
 do.body6:                                         ; preds = %do.end
@@ -12441,12 +12441,12 @@ do.body6:                                         ; preds = %do.end
   %7 = load <2 x i64>, ptr %add.ptr.i152, align 16, !noalias !1028
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i1644, i64 16) ], !noalias !1028
   %8 = load <2 x i64>, ptr %add.ptr.i1644, align 16, !noalias !1028
-  %and.i2349 = and <2 x i64> %6, %s.sroa.15.0675
-  %and.i2340 = and <2 x i64> %7, %s.sroa.16.0674
-  %and.i2343 = and <2 x i64> %8, %s.sroa.17.0673
+  %and.i2349 = and <2 x i64> %6, %s.sroa.15.0670
+  %and.i2340 = and <2 x i64> %7, %s.sroa.16.0669
+  %and.i2343 = and <2 x i64> %8, %s.sroa.17.0668
   %9 = load i8, ptr %shiftAmount, align 4
   %conv = zext i8 %9 to i32
-  %and.i2346 = and <2 x i64> %5, %s.sroa.0.0676
+  %and.i2346 = and <2 x i64> %5, %s.sroa.0.0671
   %vecinit3.i1131 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv, i64 0
   %10 = bitcast <4 x i32> %vecinit3.i1131 to <2 x i64>
   %11 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i2346, <2 x i64> %10)
@@ -12479,12 +12479,12 @@ sw.bb:                                            ; preds = %do.body6
   %21 = load <2 x i64>, ptr %add.ptr.i149, align 16, !noalias !1034
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i1654, i64 16) ], !noalias !1034
   %22 = load <2 x i64>, ptr %add.ptr.i1654, align 16, !noalias !1034
-  %and.i2361 = and <2 x i64> %20, %s.sroa.15.0675
-  %and.i2352 = and <2 x i64> %21, %s.sroa.16.0674
-  %and.i2355 = and <2 x i64> %22, %s.sroa.17.0673
+  %and.i2361 = and <2 x i64> %20, %s.sroa.15.0670
+  %and.i2352 = and <2 x i64> %21, %s.sroa.16.0669
+  %and.i2355 = and <2 x i64> %22, %s.sroa.17.0668
   %23 = load i8, ptr %arrayidx16, align 1
   %conv17 = zext i8 %23 to i32
-  %and.i2358 = and <2 x i64> %19, %s.sroa.0.0676
+  %and.i2358 = and <2 x i64> %19, %s.sroa.0.0671
   %vecinit3.i1155 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv17, i64 0
   %24 = bitcast <4 x i32> %vecinit3.i1155 to <2 x i64>
   %25 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i2358, <2 x i64> %24)
@@ -12516,12 +12516,12 @@ sw.bb18:                                          ; preds = %sw.bb, %do.body6
   %34 = load <2 x i64>, ptr %add.ptr.i146, align 16, !noalias !1040
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i1664, i64 16) ], !noalias !1040
   %35 = load <2 x i64>, ptr %add.ptr.i1664, align 16, !noalias !1040
-  %and.i2373 = and <2 x i64> %33, %s.sroa.15.0675
-  %and.i2364 = and <2 x i64> %34, %s.sroa.16.0674
-  %and.i2367 = and <2 x i64> %35, %s.sroa.17.0673
+  %and.i2373 = and <2 x i64> %33, %s.sroa.15.0670
+  %and.i2364 = and <2 x i64> %34, %s.sroa.16.0669
+  %and.i2367 = and <2 x i64> %35, %s.sroa.17.0668
   %36 = load i8, ptr %arrayidx26, align 2
   %conv27 = zext i8 %36 to i32
-  %and.i2370 = and <2 x i64> %32, %s.sroa.0.0676
+  %and.i2370 = and <2 x i64> %32, %s.sroa.0.0671
   %vecinit3.i1179 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv27, i64 0
   %37 = bitcast <4 x i32> %vecinit3.i1179 to <2 x i64>
   %38 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i2370, <2 x i64> %37)
@@ -12553,12 +12553,12 @@ sw.bb28:                                          ; preds = %sw.bb18, %do.body6
   %47 = load <2 x i64>, ptr %add.ptr.i143, align 16, !noalias !1046
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i1674, i64 16) ], !noalias !1046
   %48 = load <2 x i64>, ptr %add.ptr.i1674, align 16, !noalias !1046
-  %and.i2385 = and <2 x i64> %46, %s.sroa.15.0675
-  %and.i2376 = and <2 x i64> %47, %s.sroa.16.0674
-  %and.i2379 = and <2 x i64> %48, %s.sroa.17.0673
+  %and.i2385 = and <2 x i64> %46, %s.sroa.15.0670
+  %and.i2376 = and <2 x i64> %47, %s.sroa.16.0669
+  %and.i2379 = and <2 x i64> %48, %s.sroa.17.0668
   %49 = load i8, ptr %arrayidx36, align 1
   %conv37 = zext i8 %49 to i32
-  %and.i2382 = and <2 x i64> %45, %s.sroa.0.0676
+  %and.i2382 = and <2 x i64> %45, %s.sroa.0.0671
   %vecinit3.i1203 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv37, i64 0
   %50 = bitcast <4 x i32> %vecinit3.i1203 to <2 x i64>
   %51 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i2382, <2 x i64> %50)
@@ -12590,12 +12590,12 @@ sw.bb38:                                          ; preds = %sw.bb28, %do.body6
   %60 = load <2 x i64>, ptr %add.ptr.i140, align 16, !noalias !1052
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i1684, i64 16) ], !noalias !1052
   %61 = load <2 x i64>, ptr %add.ptr.i1684, align 16, !noalias !1052
-  %and.i2397 = and <2 x i64> %59, %s.sroa.15.0675
-  %and.i2388 = and <2 x i64> %60, %s.sroa.16.0674
-  %and.i2391 = and <2 x i64> %61, %s.sroa.17.0673
+  %and.i2397 = and <2 x i64> %59, %s.sroa.15.0670
+  %and.i2388 = and <2 x i64> %60, %s.sroa.16.0669
+  %and.i2391 = and <2 x i64> %61, %s.sroa.17.0668
   %62 = load i8, ptr %arrayidx46, align 4
   %conv47 = zext i8 %62 to i32
-  %and.i2394 = and <2 x i64> %58, %s.sroa.0.0676
+  %and.i2394 = and <2 x i64> %58, %s.sroa.0.0671
   %vecinit3.i1227 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv47, i64 0
   %63 = bitcast <4 x i32> %vecinit3.i1227 to <2 x i64>
   %64 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i2394, <2 x i64> %63)
@@ -12627,12 +12627,12 @@ sw.bb48:                                          ; preds = %sw.bb38, %do.body6
   %73 = load <2 x i64>, ptr %add.ptr.i137, align 16, !noalias !1058
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i1694, i64 16) ], !noalias !1058
   %74 = load <2 x i64>, ptr %add.ptr.i1694, align 16, !noalias !1058
-  %and.i2409 = and <2 x i64> %72, %s.sroa.15.0675
-  %and.i2400 = and <2 x i64> %73, %s.sroa.16.0674
-  %and.i2403 = and <2 x i64> %74, %s.sroa.17.0673
+  %and.i2409 = and <2 x i64> %72, %s.sroa.15.0670
+  %and.i2400 = and <2 x i64> %73, %s.sroa.16.0669
+  %and.i2403 = and <2 x i64> %74, %s.sroa.17.0668
   %75 = load i8, ptr %arrayidx56, align 1
   %conv57 = zext i8 %75 to i32
-  %and.i2406 = and <2 x i64> %71, %s.sroa.0.0676
+  %and.i2406 = and <2 x i64> %71, %s.sroa.0.0671
   %vecinit3.i1251 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv57, i64 0
   %76 = bitcast <4 x i32> %vecinit3.i1251 to <2 x i64>
   %77 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i2406, <2 x i64> %76)
@@ -12664,12 +12664,12 @@ sw.bb58:                                          ; preds = %sw.bb48, %do.body6
   %86 = load <2 x i64>, ptr %add.ptr.i134, align 16, !noalias !1064
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i1704, i64 16) ], !noalias !1064
   %87 = load <2 x i64>, ptr %add.ptr.i1704, align 16, !noalias !1064
-  %and.i2421 = and <2 x i64> %85, %s.sroa.15.0675
-  %and.i2412 = and <2 x i64> %86, %s.sroa.16.0674
-  %and.i2415 = and <2 x i64> %87, %s.sroa.17.0673
+  %and.i2421 = and <2 x i64> %85, %s.sroa.15.0670
+  %and.i2412 = and <2 x i64> %86, %s.sroa.16.0669
+  %and.i2415 = and <2 x i64> %87, %s.sroa.17.0668
   %88 = load i8, ptr %arrayidx66, align 2
   %conv67 = zext i8 %88 to i32
-  %and.i2418 = and <2 x i64> %84, %s.sroa.0.0676
+  %and.i2418 = and <2 x i64> %84, %s.sroa.0.0671
   %vecinit3.i1275 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv67, i64 0
   %89 = bitcast <4 x i32> %vecinit3.i1275 to <2 x i64>
   %90 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i2418, <2 x i64> %89)
@@ -12701,12 +12701,12 @@ sw.bb68:                                          ; preds = %sw.bb58, %do.body6
   %99 = load <2 x i64>, ptr %add.ptr.i131, align 16, !noalias !1070
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i1714, i64 16) ], !noalias !1070
   %100 = load <2 x i64>, ptr %add.ptr.i1714, align 16, !noalias !1070
-  %and.i2433 = and <2 x i64> %98, %s.sroa.15.0675
-  %and.i2424 = and <2 x i64> %99, %s.sroa.16.0674
-  %and.i2427 = and <2 x i64> %100, %s.sroa.17.0673
+  %and.i2433 = and <2 x i64> %98, %s.sroa.15.0670
+  %and.i2424 = and <2 x i64> %99, %s.sroa.16.0669
+  %and.i2427 = and <2 x i64> %100, %s.sroa.17.0668
   %101 = load i8, ptr %arrayidx76, align 1
   %conv77 = zext i8 %101 to i32
-  %and.i2430 = and <2 x i64> %97, %s.sroa.0.0676
+  %and.i2430 = and <2 x i64> %97, %s.sroa.0.0671
   %vecinit3.i1299 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv77, i64 0
   %102 = bitcast <4 x i32> %vecinit3.i1299 to <2 x i64>
   %103 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i2430, <2 x i64> %102)
@@ -12738,10 +12738,10 @@ do.end79:                                         ; preds = %do.body6, %sw.bb68
   %112 = load <2 x i64>, ptr %add.ptr.i128, align 16, !noalias !1076
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i1724, i64 16) ], !noalias !1076
   %113 = load <2 x i64>, ptr %add.ptr.i1724, align 16, !noalias !1076
-  %and.i2334 = and <2 x i64> %110, %s.sroa.0.0676
-  %and.i2337 = and <2 x i64> %111, %s.sroa.15.0675
-  %and.i2328 = and <2 x i64> %112, %s.sroa.16.0674
-  %and.i2331 = and <2 x i64> %113, %s.sroa.17.0673
+  %and.i2334 = and <2 x i64> %110, %s.sroa.0.0671
+  %and.i2337 = and <2 x i64> %111, %s.sroa.15.0670
+  %and.i2328 = and <2 x i64> %112, %s.sroa.16.0669
+  %and.i2331 = and <2 x i64> %113, %s.sroa.17.0668
   %114 = bitcast <2 x i64> %and.i2334 to <4 x i32>
   %cmp.i1428 = icmp eq <4 x i32> %114, zeroinitializer
   %sext.i1429 = sext <4 x i1> %cmp.i1428 to <4 x i32>
@@ -12768,7 +12768,7 @@ do.end79:                                         ; preds = %do.body6, %sw.bb68
   br i1 %tobool.i640.not, label %if.end84, label %if.end21.i
 
 if.end21.i:                                       ; preds = %do.end79
-  %add.i = add i64 %i.0677, %offset
+  %add.i = add i64 %i.0672, %offset
   %cached_estate.i1436.sroa.0.sroa.0.0.copyload596 = load <16 x i8>, ptr %cached_estate.i, align 1
   %cached_estate.i1436.sroa.2.0.copyload598 = load <16 x i8>, ptr %cached_estate.i1436.sroa.2.0.cached_estate.i.sroa_idx, align 1
   %cached_estate.i1436.sroa.3.0.copyload599 = load <16 x i8>, ptr %cached_estate.i1436.sroa.3.0.cached_estate.i.sroa_idx, align 1
@@ -12815,18 +12815,18 @@ if.then3.i:                                       ; preds = %if.then.i1391
   %138 = load ptr, ptr %callback.i, align 32
   %139 = load ptr, ptr %context.i, align 8
   %140 = load i32, ptr %137, align 4
-  %cmp.i.i1397.not.not667 = icmp eq i32 %140, -1
-  br i1 %cmp.i.i1397.not.not667, label %if.end84, label %for.body.i.i
+  %cmp.i.i1397.not.not663 = icmp eq i32 %140, -1
+  br i1 %cmp.i.i1397.not.not663, label %if.end84, label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.i.0668, i64 4
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.i.0664, i64 4
   %141 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i.i1397.not.not = icmp eq i32 %141, -1
   br i1 %cmp.i.i1397.not.not, label %if.end84, label %for.body.i.i, !llvm.loop !112
 
 for.body.i.i:                                     ; preds = %if.then3.i, %for.cond.i.i
   %142 = phi i32 [ %141, %for.cond.i.i ], [ %140, %if.then3.i ]
-  %reports.addr.i.i.0668 = phi ptr [ %incdec.ptr.i.i, %for.cond.i.i ], [ %137, %if.then3.i ]
+  %reports.addr.i.i.0664 = phi ptr [ %incdec.ptr.i.i, %for.cond.i.i ], [ %137, %if.then3.i ]
   %call.i173.i = tail call i32 %138(i64 noundef 0, i64 noundef %add.i, i32 noundef %142, ptr noundef %139) #11
   %cmp1.i.i = icmp eq i32 %call.i173.i, 0
   br i1 %cmp1.i.i, label %return, label %for.cond.i.i
@@ -12907,18 +12907,18 @@ if.then38.i:                                      ; preds = %do.body30.i
   %153 = load ptr, ptr %callback.i, align 32
   %154 = load ptr, ptr %context.i, align 8
   %155 = load i32, ptr %add.ptr42.i, align 4
-  %cmp.i157.i.not.not670 = icmp eq i32 %155, -1
-  br i1 %cmp.i157.i.not.not670, label %if.end52.i, label %for.body.i.i1484
+  %cmp.i157.i.not.not666 = icmp eq i32 %155, -1
+  br i1 %cmp.i157.i.not.not666, label %if.end52.i, label %for.body.i.i1484
 
 for.cond.i.i1479:                                 ; preds = %for.body.i.i1484
-  %incdec.ptr.i.i1486 = getelementptr inbounds i8, ptr %reports.addr.i.i1441.0671, i64 4
+  %incdec.ptr.i.i1486 = getelementptr inbounds i8, ptr %reports.addr.i.i1441.0667, i64 4
   %156 = load i32, ptr %incdec.ptr.i.i1486, align 4
   %cmp.i157.i.not.not = icmp eq i32 %156, -1
   br i1 %cmp.i157.i.not.not, label %if.end52.i, label %for.body.i.i1484, !llvm.loop !112
 
 for.body.i.i1484:                                 ; preds = %if.then38.i, %for.cond.i.i1479
   %157 = phi i32 [ %156, %for.cond.i.i1479 ], [ %155, %if.then38.i ]
-  %reports.addr.i.i1441.0671 = phi ptr [ %incdec.ptr.i.i1486, %for.cond.i.i1479 ], [ %add.ptr42.i, %if.then38.i ]
+  %reports.addr.i.i1441.0667 = phi ptr [ %incdec.ptr.i.i1486, %for.cond.i.i1479 ], [ %add.ptr42.i, %if.then38.i ]
   %call.i.i = tail call i32 %153(i64 noundef 0, i64 noundef %add.i, i32 noundef %157, ptr noundef %154) #11
   %cmp1.i.i1485 = icmp eq i32 %call.i.i, 0
   br i1 %cmp1.i.i1485, label %return, label %for.cond.i.i1479
@@ -13023,7 +13023,7 @@ if.end84:                                         ; preds = %for.cond.i.i, %if.t
   %succ.sroa.24.7.ph = phi <2 x i64> [ %succ.sroa.24.6, %do.end79 ], [ %or.i131.i, %if.then.i1391 ], [ %or.i143.i, %if.then53.i ], [ %or.i143.i, %do.end48.i ], [ %or.i131.i, %if.then3.i ], [ %or.i131.i, %for.cond.i.i ]
   %succ.sroa.48.7.ph = phi <2 x i64> [ %succ.sroa.48.6, %do.end79 ], [ %or.i.i1392, %if.then.i1391 ], [ %or.i134.i, %if.then53.i ], [ %or.i134.i, %do.end48.i ], [ %or.i.i1392, %if.then3.i ], [ %or.i.i1392, %for.cond.i.i ]
   %succ.sroa.72.7.ph = phi <2 x i64> [ %succ.sroa.72.6, %do.end79 ], [ %or.i125.i, %if.then.i1391 ], [ %or.i137.i, %if.then53.i ], [ %or.i137.i, %do.end48.i ], [ %or.i125.i, %if.then3.i ], [ %or.i125.i, %for.cond.i.i ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.0677
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.0672
   %167 = load i8, ptr %gep, align 1
   %idxprom = zext i8 %167 to i64
   %arrayidx88 = getelementptr inbounds [256 x i8], ptr %limex, i64 0, i64 %idxprom
@@ -13045,7 +13045,7 @@ if.end84:                                         ; preds = %for.cond.i.i, %if.t
   %and.i2445 = and <2 x i64> %170, %succ.sroa.24.7.ph
   %and.i2436 = and <2 x i64> %171, %succ.sroa.48.7.ph
   %and.i2439 = and <2 x i64> %172, %succ.sroa.72.7.ph
-  %dec = add i64 %i.0677, -1
+  %dec = add i64 %i.0672, -1
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %for.end, label %do.end, !llvm.loop !1097
 

@@ -420,17 +420,17 @@ define { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_a
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
   %31 = tail call i32 @jv_array_length(i64 %29, ptr %30) #14
-  %.not74106 = icmp sgt i32 %31, 0
-  br i1 %.not74106, label %.lr.ph112, label %.loopexit
+  %.not74100 = icmp sgt i32 %31, 0
+  br i1 %.not74100, label %.lr.ph104, label %.loopexit
 
-.lr.ph112:                                        ; preds = %.preheader91, %._crit_edge
-  %.sroa.6.2111 = phi ptr [ %.sroa.6.3, %._crit_edge ], [ %27, %.preheader91 ]
-  %.sroa.065.2110 = phi i64 [ %.sroa.065.3, %._crit_edge ], [ %26, %.preheader91 ]
-  %.1109 = phi i32 [ %60, %._crit_edge ], [ 0, %.preheader91 ]
+.lr.ph104:                                        ; preds = %.preheader91, %._crit_edge
+  %.sroa.6.2103 = phi ptr [ %.sroa.6.3, %._crit_edge ], [ %27, %.preheader91 ]
+  %.sroa.065.2102 = phi i64 [ %.sroa.065.3, %._crit_edge ], [ %26, %.preheader91 ]
+  %.1101 = phi i32 [ %60, %._crit_edge ], [ 0, %.preheader91 ]
   %32 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
-  %35 = tail call { i64, ptr } @jv_array_get(i64 %33, ptr %34, i32 noundef %.1109) #14
+  %35 = tail call { i64, ptr } @jv_array_get(i64 %33, ptr %34, i32 noundef %.1101) #14
   %36 = extractvalue { i64, ptr } %35, 0
   %37 = extractvalue { i64, ptr } %35, 1
   %38 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #14
@@ -438,10 +438,10 @@ define { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_a
   %40 = extractvalue { i64, ptr } %38, 1
   %41 = tail call i32 @jv_array_length(i64 %39, ptr %40) #14
   %.not7892 = icmp sgt i32 %41, 0
-  br i1 %.not7892, label %.lr.ph, label %.loopexit125
+  br i1 %.not7892, label %.lr.ph, label %.loopexit113
 
-.lr.ph:                                           ; preds = %.lr.ph112, %52
-  %.17193 = phi i32 [ %53, %52 ], [ 0, %.lr.ph112 ]
+.lr.ph:                                           ; preds = %.lr.ph104, %52
+  %.17193 = phi i32 [ %53, %52 ], [ 0, %.lr.ph104 ]
   %42 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #14
   %43 = extractvalue { i64, ptr } %42, 0
   %44 = extractvalue { i64, ptr } %42, 1
@@ -458,24 +458,24 @@ define { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_a
 52:                                               ; preds = %.lr.ph
   %53 = add nuw nsw i32 %.17193, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %.loopexit125, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit113, label %.lr.ph, !llvm.loop !4
 
-.loopexit125:                                     ; preds = %52, %.lr.ph112
+.loopexit113:                                     ; preds = %52, %.lr.ph104
   %54 = tail call { i64, ptr } @jv_copy(i64 %36, ptr %37) #14
   %55 = extractvalue { i64, ptr } %54, 0
   %56 = extractvalue { i64, ptr } %54, 1
-  %57 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.065.2110, ptr %.sroa.6.2111, i64 %55, ptr %56) #14
+  %57 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.065.2102, ptr %.sroa.6.2103, i64 %55, ptr %56) #14
   %58 = extractvalue { i64, ptr } %57, 0
   %59 = extractvalue { i64, ptr } %57, 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.loopexit125
-  %.sroa.065.3 = phi i64 [ %58, %.loopexit125 ], [ %.sroa.065.2110, %.lr.ph ]
-  %.sroa.6.3 = phi ptr [ %59, %.loopexit125 ], [ %.sroa.6.2111, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.loopexit113
+  %.sroa.065.3 = phi i64 [ %58, %.loopexit113 ], [ %.sroa.065.2102, %.lr.ph ]
+  %.sroa.6.3 = phi ptr [ %59, %.loopexit113 ], [ %.sroa.6.2103, %.lr.ph ]
   tail call void @jv_free(i64 %36, ptr %37) #14
-  %60 = add nuw nsw i32 %.1109, 1
-  %exitcond123.not = icmp eq i32 %60, %31
-  br i1 %exitcond123.not, label %.loopexit, label %.lr.ph112, !llvm.loop !6
+  %60 = add nuw nsw i32 %.1101, 1
+  %exitcond111.not = icmp eq i32 %60, %31
+  br i1 %exitcond111.not, label %.loopexit, label %.lr.ph104, !llvm.loop !6
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader91
   %.sroa.065.1.lcssa = phi i64 [ %26, %.preheader91 ], [ %.sroa.065.3, %._crit_edge ]

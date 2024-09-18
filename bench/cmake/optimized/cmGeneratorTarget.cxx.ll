@@ -24176,19 +24176,19 @@ define dso_local void @_ZNK17cmGeneratorTarget23ComputeAllConfigSourcesEv(ptr no
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %2, align 8
-  %.not130 = icmp eq ptr %12, %13
-  br i1 %.not130, label %._crit_edge129, label %.lr.ph128
+  %.not110 = icmp eq ptr %12, %13
+  br i1 %.not110, label %._crit_edge109, label %.lr.ph108
 
-.lr.ph128:                                        ; preds = %1
+.lr.ph108:                                        ; preds = %1
   %14 = getelementptr inbounds i8, ptr %0, i64 1392
   %15 = getelementptr inbounds i8, ptr %0, i64 1400
   %16 = getelementptr inbounds i8, ptr %0, i64 1408
   br label %17
 
-17:                                               ; preds = %.lr.ph128, %._crit_edge
-  %18 = phi ptr [ %13, %.lr.ph128 ], [ %206, %._crit_edge ]
-  %storemerge126 = phi i64 [ 0, %.lr.ph128 ], [ %204, %._crit_edge ]
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %18, i64 %storemerge126
+17:                                               ; preds = %.lr.ph108, %._crit_edge
+  %18 = phi ptr [ %13, %.lr.ph108 ], [ %206, %._crit_edge ]
+  %storemerge106 = phi i64 [ 0, %.lr.ph108 ], [ %204, %._crit_edge ]
+  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %18, i64 %storemerge106
   %20 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNK17cmGeneratorTarget16GetKindedSourcesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2728) %0, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %21 unwind label %.loopexit.split-lp81.loopexit
 
@@ -24196,14 +24196,14 @@ define dso_local void @_ZNK17cmGeneratorTarget23ComputeAllConfigSourcesEv(ptr no
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8
-  %.not116 = icmp eq ptr %22, %24
-  br i1 %.not116, label %._crit_edge, label %.lr.ph
+  %.not104 = icmp eq ptr %22, %24
+  br i1 %.not104, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %_ZNSt6vectorImSaImEE9push_backERKm.exit
-  %.sroa.054.0120 = phi ptr [ %203, %_ZNSt6vectorImSaImEE9push_backERKm.exit ], [ %22, %21 ]
+  %.sroa.054.0105 = phi ptr [ %203, %_ZNSt6vectorImSaImEE9push_backERKm.exit ], [ %22, %21 ]
   %25 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %25, null
-  %.pre = load ptr, ptr %.sroa.054.0120, align 8
+  %.pre = load ptr, ptr %.sroa.054.0105, align 8
   br i1 %.not10.i.i.i, label %_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph, %.lr.ph.i.i.i
@@ -24231,7 +24231,7 @@ _ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit: ; pre
   br i1 %31, label %_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit.thread, label %_ZN17cmGeneratorTarget15AllConfigSourceD2Ev.exit
 
 _ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit.thread: ; preds = %.lr.ph, %_ZNSt8_Rb_treeIPK12cmSourceFileSt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit
-  %32 = getelementptr inbounds i8, ptr %.sroa.054.0120, i64 24
+  %32 = getelementptr inbounds i8, ptr %.sroa.054.0105, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = load ptr, ptr %15, align 8
   %35 = load ptr, ptr %16, align 8
@@ -24247,7 +24247,7 @@ _ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit.thread
   %38 = load ptr, ptr %15, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 40
   store ptr %39, ptr %15, align 8
-  %.pre145 = load ptr, ptr %14, align 8
+  %.pre119 = load ptr, ptr %14, align 8
   br label %_ZNSt6vectorIN17cmGeneratorTarget15AllConfigSourceESaIS1_EE9push_backEOS1_.exit
 
 40:                                               ; preds = %_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit.thread
@@ -24333,14 +24333,14 @@ _ZNSt6vectorIN17cmGeneratorTarget15AllConfigSourceESaIS1_EE11_S_relocateEPS1_S4_
   br label %_ZNSt6vectorIN17cmGeneratorTarget15AllConfigSourceESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN17cmGeneratorTarget15AllConfigSourceESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc, %36
-  %72 = phi ptr [ %55, %.noexc ], [ %.pre145, %36 ]
+  %72 = phi ptr [ %55, %.noexc ], [ %.pre119, %36 ]
   %73 = phi ptr [ %69, %.noexc ], [ %39, %36 ]
   %74 = ptrtoint ptr %73 to i64
   %75 = ptrtoint ptr %72 to i64
   %76 = sub i64 %74, %75
   %77 = sdiv exact i64 %76, 40
   %78 = add nsw i64 %77, -1
-  %79 = load ptr, ptr %.sroa.054.0120, align 8
+  %79 = load ptr, ptr %.sroa.054.0105, align 8
   %80 = load ptr, ptr %7, align 8
   %.not10.i.i.i.i = icmp eq ptr %80, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
@@ -24610,7 +24610,7 @@ _ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exi
   br label %_ZN17cmGeneratorTarget15AllConfigSourceD2Ev.exit15
 
 _ZN17cmGeneratorTarget15AllConfigSourceD2Ev.exit: ; preds = %.thread73, %.thread.i.i.i, %85, %_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit
-  %.sroa.051.0 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit ], [ %.19.i.i.i.i, %85 ], [ %88, %.thread.i.i.i ], [ %.sroa.070.0.i79, %.thread73 ]
+  %.sroa.051.0 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit ], [ %88, %.thread.i.i.i ], [ %.sroa.070.0.i79, %.thread73 ], [ %.19.i.i.i.i, %85 ]
   %169 = getelementptr inbounds i8, ptr %.sroa.051.0, i64 40
   %170 = load i64, ptr %169, align 8
   %171 = load ptr, ptr %14, align 8
@@ -24623,7 +24623,7 @@ _ZN17cmGeneratorTarget15AllConfigSourceD2Ev.exit: ; preds = %.thread73, %.thread
   br i1 %.not.i, label %180, label %177
 
 177:                                              ; preds = %_ZN17cmGeneratorTarget15AllConfigSourceD2Ev.exit
-  store i64 %storemerge126, ptr %174, align 8
+  store i64 %storemerge106, ptr %174, align 8
   %178 = load ptr, ptr %173, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 8
   store ptr %179, ptr %173, align 8
@@ -24662,7 +24662,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %180
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %192, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
   %195 = phi ptr [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %194, %192 ]
   %196 = getelementptr inbounds i64, ptr %195, i64 %187
-  store i64 %storemerge126, ptr %196, align 8
+  store i64 %storemerge106, ptr %196, align 8
   %197 = icmp sgt i64 %184, 0
   br i1 %197, label %198, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
 
@@ -24688,12 +24688,12 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %177
-  %203 = getelementptr inbounds i8, ptr %.sroa.054.0120, i64 32
+  %203 = getelementptr inbounds i8, ptr %.sroa.054.0105, i64 32
   %.not = icmp eq ptr %203, %24
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit, %21
-  %204 = add nuw i64 %storemerge126, 1
+  %204 = add nuw i64 %storemerge106, 1
   %205 = load ptr, ptr %11, align 8
   %206 = load ptr, ptr %2, align 8
   %207 = ptrtoint ptr %205 to i64
@@ -24701,25 +24701,25 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   %209 = sub i64 %207, %208
   %210 = ashr exact i64 %209, 5
   %211 = icmp ult i64 %204, %210
-  br i1 %211, label %17, label %._crit_edge129.loopexit, !llvm.loop !259
+  br i1 %211, label %17, label %._crit_edge109.loopexit, !llvm.loop !259
 
-._crit_edge129.loopexit:                          ; preds = %._crit_edge
-  %.pre146 = load ptr, ptr %7, align 8
-  br label %._crit_edge129
+._crit_edge109.loopexit:                          ; preds = %._crit_edge
+  %.pre120 = load ptr, ptr %7, align 8
+  br label %._crit_edge109
 
-._crit_edge129:                                   ; preds = %._crit_edge129.loopexit, %1
-  %212 = phi ptr [ %.pre146, %._crit_edge129.loopexit ], [ null, %1 ]
+._crit_edge109:                                   ; preds = %._crit_edge109.loopexit, %1
+  %212 = phi ptr [ %.pre120, %._crit_edge109.loopexit ], [ null, %1 ]
   invoke void @_ZNSt8_Rb_treeIPK12cmSourceFileSt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %212)
           to label %_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEED2Ev.exit unwind label %213
 
-213:                                              ; preds = %._crit_edge129
+213:                                              ; preds = %._crit_edge109
   %214 = landingpad { ptr, i32 }
           catch ptr null
   %215 = extractvalue { ptr, i32 } %214, 0
   call void @__clang_call_terminate(ptr %215) #32
   unreachable
 
-_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEED2Ev.exit: ; preds = %._crit_edge129
+_ZNSt3mapIPK12cmSourceFilemSt4lessIS2_ESaISt4pairIKS2_mEEED2Ev.exit: ; preds = %._crit_edge109
   %216 = load ptr, ptr %2, align 8
   %217 = load ptr, ptr %11, align 8
   %.not4.i.i.i.i = icmp eq ptr %216, %217

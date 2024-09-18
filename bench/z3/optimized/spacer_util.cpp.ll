@@ -4185,7 +4185,7 @@ invoke.cont:                                      ; preds = %if.end
   br label %for.cond
 
 for.cond:                                         ; preds = %invoke.cont, %for.inc166
-  %i.0 = phi i32 [ 0, %invoke.cont ], [ %inc167, %for.inc166 ]
+  %i.0 = phi i32 [ %inc167, %for.inc166 ], [ 0, %invoke.cont ]
   %3 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i57 = icmp eq ptr %3, null
   br i1 %cmp.i.i57, label %invoke.cont3, label %if.end.i.i
@@ -4907,7 +4907,7 @@ invoke.cont110.lor.lhs.false112_crit_edge:        ; preds = %invoke.cont110
   br label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %invoke.cont110.lor.lhs.false112_crit_edge, %land.rhs.i.i.i287, %if.else106, %_ZNK11ast_manager5is_eqEPK4expr.exit.i291, %land.lhs.true.i295
-  %bf.load.i.i.i.i303 = phi i32 [ %bf.load.i.i.i.i303.pre, %invoke.cont110.lor.lhs.false112_crit_edge ], [ %bf.load.i.i.i.i283, %land.lhs.true.i295 ], [ %bf.load.i.i.i.i283, %_ZNK11ast_manager5is_eqEPK4expr.exit.i291 ], [ %bf.load.i.i.i.i283, %if.else106 ], [ %bf.load.i.i.i.i283, %land.rhs.i.i.i287 ]
+  %bf.load.i.i.i.i303 = phi i32 [ %bf.load.i.i.i.i303.pre, %invoke.cont110.lor.lhs.false112_crit_edge ], [ %bf.load.i.i.i.i283, %land.rhs.i.i.i287 ], [ %bf.load.i.i.i.i283, %if.else106 ], [ %bf.load.i.i.i.i283, %_ZNK11ast_manager5is_eqEPK4expr.exit.i291 ], [ %bf.load.i.i.i.i283, %land.lhs.true.i295 ]
   %bf.clear.i.i.i.i304 = and i32 %bf.load.i.i.i.i303, 65535
   %cmp.i.i.i305 = icmp eq i32 %bf.clear.i.i.i.i304, 0
   br i1 %cmp.i.i.i305, label %land.rhs.i.i.i307, label %for.inc166
@@ -5335,7 +5335,7 @@ terminate.lpad.i404:                              ; preds = %.noexc.i405, %for.e
   unreachable
 
 for.inc166:                                       ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit, %land.rhs.i.i.i307, %lor.lhs.false112, %_ZNK11ast_manager5is_eqEPK4expr.exit.i311, %land.lhs.true.i315, %.noexc.i405, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit149, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %invoke.cont116
-  %i.1 = phi i32 [ %i.0, %invoke.cont116 ], [ %add, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %add, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit149 ], [ %i.0, %.noexc.i405 ], [ %i.0, %land.lhs.true.i315 ], [ %i.0, %_ZNK11ast_manager5is_eqEPK4expr.exit.i311 ], [ %i.0, %lor.lhs.false112 ], [ %i.0, %land.rhs.i.i.i307 ], [ %i.0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit ]
+  %i.1 = phi i32 [ %i.0, %invoke.cont116 ], [ %add, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit149 ], [ %add, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %i.0, %.noexc.i405 ], [ %i.0, %land.lhs.true.i315 ], [ %i.0, %_ZNK11ast_manager5is_eqEPK4expr.exit.i311 ], [ %i.0, %lor.lhs.false112 ], [ %i.0, %land.rhs.i.i.i307 ], [ %i.0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit ]
   %inc167 = add i32 %i.1, 1
   br label %for.cond, !llvm.loop !23
 

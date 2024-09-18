@@ -1917,19 +1917,19 @@ cleanup.action24:                                 ; preds = %if.then.i.i37, %cle
 
 cleanup.action24.thread:                          ; preds = %invoke.cont
   %28 = load ptr, ptr %10, align 8
-  %idxprom.i.i.i39133 = zext i32 %13 to i64
-  %arrayidx.i.i.i40134 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %28, i64 %idxprom.i.i.i39133
-  %bf.load.i.i41135 = load i32, ptr %arrayidx.i.i.i40134, align 4
-  %bf.clear.i.i42136 = and i32 %bf.load.i.i41135, 1023
-  %cmp.not.i.i43137 = icmp eq i32 %bf.clear.i.i42136, 1023
-  br i1 %cmp.not.i.i43137, label %if.end39, label %if.then.i.i44.thread
+  %idxprom.i.i.i39131 = zext i32 %13 to i64
+  %arrayidx.i.i.i40132 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %28, i64 %idxprom.i.i.i39131
+  %bf.load.i.i41133 = load i32, ptr %arrayidx.i.i.i40132, align 4
+  %bf.clear.i.i42134 = and i32 %bf.load.i.i41133, 1023
+  %cmp.not.i.i43135 = icmp eq i32 %bf.clear.i.i42134, 1023
+  br i1 %cmp.not.i.i43135, label %if.end39, label %if.then.i.i44.thread
 
 if.then.i.i44.thread:                             ; preds = %cleanup.action24.thread
-  %dec.i.i45142 = add i32 %bf.load.i.i41135, 1023
-  %bf.value.i.i46143 = and i32 %dec.i.i45142, 1023
-  %bf.clear7.i.i47144 = and i32 %bf.load.i.i41135, -1024
-  %bf.set.i.i48145 = or disjoint i32 %bf.value.i.i46143, %bf.clear7.i.i47144
-  store i32 %bf.set.i.i48145, ptr %arrayidx.i.i.i40134, align 4
+  %dec.i.i45140 = add i32 %bf.load.i.i41133, 1023
+  %bf.value.i.i46141 = and i32 %dec.i.i45140, 1023
+  %bf.clear7.i.i47142 = and i32 %bf.load.i.i41133, -1024
+  %bf.set.i.i48143 = or disjoint i32 %bf.value.i.i46141, %bf.clear7.i.i47142
+  store i32 %bf.set.i.i48143, ptr %arrayidx.i.i.i40132, align 4
   br label %if.end39
 
 if.then.i.i44:                                    ; preds = %cleanup.action24

@@ -58,20 +58,20 @@ define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %
 .preheader:                                       ; preds = %5
   %8 = trunc i64 %1 to i32
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph59, label %.loopexit
+  br i1 %9, label %.lr.ph58, label %.loopexit
 
-.lr.ph59:                                         ; preds = %.preheader
+.lr.ph58:                                         ; preds = %.preheader
   %10 = getelementptr inbounds i8, ptr %0, i64 720
   %11 = getelementptr inbounds i8, ptr %0, i64 784
   %12 = getelementptr inbounds i8, ptr %0, i64 808
   %13 = getelementptr inbounds i8, ptr %0, i64 824
   %.not51 = icmp eq ptr %4, null
-  %wide.trip.count67 = and i64 %1, 2147483647
+  %wide.trip.count66 = and i64 %1, 2147483647
   br label %14
 
-14:                                               ; preds = %.lr.ph59, %111
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next65, %111 ]
-  %15 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv64
+14:                                               ; preds = %.lr.ph58, %111
+  %indvars.iv63 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next64, %111 ]
+  %15 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv63
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %6, %16
   br i1 %17, label %111, label %18
@@ -95,8 +95,8 @@ define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %
   %28 = getelementptr inbounds i8, ptr %19, i64 72
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 4294967295
-  %.not60 = icmp eq i64 %30, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph
+  %.not59 = icmp eq i64 %30, 0
+  br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %31 = getelementptr inbounds i8, ptr %19, i64 64
@@ -228,11 +228,11 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %77
 
 86:                                               ; preds = %85
   %87 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #10
-  %.pre69 = load i8, ptr @opal_uses_threads, align 1
+  %.pre68 = load i8, ptr @opal_uses_threads, align 1
   br label %88
 
 88:                                               ; preds = %85, %86
-  %89 = phi i8 [ %60, %85 ], [ %.pre69, %86 ]
+  %89 = phi i8 [ %60, %85 ], [ %.pre68, %86 ]
   %90 = load volatile ptr, ptr %12, align 8
   %91 = getelementptr inbounds i8, ptr %41, i64 24
   store volatile ptr %90, ptr %91, align 8
@@ -267,19 +267,19 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %77
   br i1 %.not51, label %109, label %106
 
 106:                                              ; preds = %105
-  %107 = trunc nuw nsw i64 %indvars.iv64 to i32
+  %107 = trunc nuw nsw i64 %indvars.iv63 to i32
   %108 = tail call i32 @opal_bitmap_set_bit(ptr noundef nonnull %4, i32 noundef %107) #10
   br label %109
 
 109:                                              ; preds = %106, %105
-  %110 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv64
+  %110 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv63
   store ptr %.4, ptr %110, align 8
   br label %111
 
 111:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %18, %14, %109
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %14, !llvm.loop !8
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %.loopexit, label %14, !llvm.loop !8
 
 .loopexit:                                        ; preds = %111, %.preheader, %55, %opal_obj_new.exit.thread, %5
   %.044 = phi i32 [ -2, %5 ], [ -2, %opal_obj_new.exit.thread ], [ -2, %55 ], [ 0, %.preheader ], [ 0, %111 ]

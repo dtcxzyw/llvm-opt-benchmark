@@ -17151,13 +17151,13 @@ _ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaI
   br i1 %.not.i.i.i.i270, label %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit, label %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit.sink.split
 
 _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit.sink.split: ; preds = %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i269, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i183, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i
-  %.sink394 = phi ptr [ %118, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %123, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i183 ], [ %164, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i269 ]
-  %.sink392 = phi ptr [ %343, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %525, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i183 ], [ %720, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i269 ]
-  %721 = load ptr, ptr %.sink394, align 8
+  %.sink391 = phi ptr [ %118, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %123, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i183 ], [ %164, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i269 ]
+  %.sink389 = phi ptr [ %343, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %525, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i183 ], [ %720, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i269 ]
+  %721 = load ptr, ptr %.sink391, align 8
   %722 = ptrtoint ptr %721 to i64
-  %723 = ptrtoint ptr %.sink392 to i64
+  %723 = ptrtoint ptr %.sink389 to i64
   %724 = sub i64 %722, %723
-  call void @_ZdlPvm(ptr noundef nonnull %.sink392, i64 noundef %724) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sink389, i64 noundef %724) #22
   br label %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit
 
 _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit: ; preds = %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit.sink.split, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i269, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i183, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit72.thread, %526, %_ZNK5clang9NamedDecl7getNameEv.exit228.thread

@@ -574,12 +574,12 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorIPN3euf5e
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0244 = phi i32 [ %4, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.0242 = phi i32 [ %4, %for.body.lr.ph ], [ %inc, %for.inc ]
   %11 = load ptr, ptr %m_fmls.i, align 8
   %vtable = load ptr, ptr %11, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr %12(ptr noundef nonnull align 8 dereferenceable(160) %11, i32 noundef %i.0244)
+  %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr %12(ptr noundef nonnull align 8 dereferenceable(160) %11, i32 noundef %i.0242)
   %m_fml.i = getelementptr inbounds i8, ptr %call3, i64 8
   %m_dep.i = getelementptr inbounds i8, ptr %call3, i64 24
   %13 = load ptr, ptr %m_dep.i, align 8, !noalias !8
@@ -1135,7 +1135,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i108: ; preds = %_ZN6vectorI
   br i1 %cmp.not.i114, label %for.inc, label %for.body.i101
 
 for.inc:                                          ; preds = %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i80, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i35, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i108, %if.else15, %if.then12, %"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.exit"
-  %inc = add nuw i32 %i.0244, 1
+  %inc = add nuw i32 %i.0242, 1
   %exitcond.not = icmp eq i32 %inc, %call.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 

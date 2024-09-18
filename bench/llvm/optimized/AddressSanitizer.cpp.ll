@@ -6235,8 +6235,8 @@ _ZN4llvm11SmallPtrSetIPNS_5ValueELj16EED2Ev.exit.i: ; preds = %2134, %_ZN4llvm11
   br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %2136, %_ZNK4llvm11Instruction7isEHPadEv.exit.i
-  %.063.i = phi ptr [ %2233, %_ZNK4llvm11Instruction7isEHPadEv.exit.i ], [ %2138, %2136 ]
-  %2141 = load ptr, ptr %.063.i, align 8
+  %.061.i = phi ptr [ %2233, %_ZNK4llvm11Instruction7isEHPadEv.exit.i ], [ %2138, %2136 ]
+  %2141 = load ptr, ptr %.061.i, align 8
   %2142 = getelementptr inbounds i8, ptr %2141, i64 24
   %2143 = getelementptr inbounds i8, ptr %2141, i64 40
   %2144 = load ptr, ptr %2143, align 8
@@ -6330,7 +6330,7 @@ _ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.i._ZNK4llvm13T
 _ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.i._ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i_crit_edge, %2177
   %.pre-phi163 = phi i64 [ %.pre162, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.i._ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i_crit_edge ], [ %2179, %2177 ]
   %.pre-phi = phi i64 [ %.pre, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.i._ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i_crit_edge ], [ %2178, %2177 ]
-  %.0.copyload.i.i.i.i.i.i71.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.pre.i, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.i._ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i_crit_edge ], [ %.0.copyload.i.i.i.i.i.i, %2177 ]
+  %.0.copyload.i.i.i.i.i.i69.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.pre.i, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.i._ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i_crit_edge ], [ %.0.copyload.i.i.i.i.i.i, %2177 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %.pre-phi, 0
   %.not5.i.i.i = icmp eq i64 %.pre-phi163, 0
   %.not.i.i29.i = or i1 %.not.i.i.i.i.i.i, %.not5.i.i.i
@@ -6348,7 +6348,7 @@ _ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit._ZNK4llvm13TinyPtrVecto
 
 _ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread3.i.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread3_crit_edge.i.i, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i
   %.pre-phi.i.i = phi i64 [ %.pre.i.i36, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread3_crit_edge.i.i ], [ %.pre-phi, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.pre.i.i, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread3_crit_edge.i.i ], [ %.0.copyload.i.i.i.i.i.i71.i, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i ]
+  %.0.copyload.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.pre.i.i, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit._ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread3_crit_edge.i.i ], [ %.0.copyload.i.i.i.i.i.i69.i, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.thread49.thread.i ]
   %2184 = icmp eq i64 %.pre-phi.i.i, 0
   br i1 %2184, label %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE4sizeEv.exit.thread53.i, label %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE4sizeEv.exit.i
 
@@ -6491,7 +6491,7 @@ _ZN4llvm17OperandBundleDefTIPNS_5ValueEED2Ev.exit38.i: ; preds = %2228, %_ZN4llv
   br label %_ZNK4llvm11Instruction7isEHPadEv.exit.i
 
 _ZNK4llvm11Instruction7isEHPadEv.exit.i:          ; preds = %_ZN4llvm17OperandBundleDefTIPNS_5ValueEED2Ev.exit38.i, %2199, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5frontEv.exit.i, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE4sizeEv.exit.thread.i, %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE5emptyEv.exit.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit.i
-  %2233 = getelementptr inbounds i8, ptr %.063.i, i64 8
+  %2233 = getelementptr inbounds i8, ptr %.061.i, i64 8
   %.not.i37 = icmp eq ptr %2233, %2140
   br i1 %.not.i37, label %._crit_edge.i, label %.lr.ph.i31
 

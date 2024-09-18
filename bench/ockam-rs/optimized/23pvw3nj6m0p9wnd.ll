@@ -115667,8 +115667,8 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   br label %305
 
 305:                                              ; preds = %42, %301
-  %306 = phi ptr [ %303, %301 ], [ %.pre573, %42 ]
-  %307 = phi ptr [ %302, %301 ], [ %.pre571, %42 ]
+  %306 = phi ptr [ %.pre573, %42 ], [ %303, %301 ]
+  %307 = phi ptr [ %.pre571, %42 ], [ %302, %301 ]
   %308 = getelementptr inbounds i8, ptr %1, i64 264
   call void @llvm.experimental.noalias.scope.decl(metadata !16340)
   %309 = getelementptr inbounds i8, ptr %1, i64 272
@@ -116253,8 +116253,8 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   br label %490
 
 490:                                              ; preds = %43, %485
-  %491 = phi ptr [ %487, %485 ], [ %.pre579, %43 ]
-  %492 = phi ptr [ %486, %485 ], [ %.pre577, %43 ]
+  %491 = phi ptr [ %.pre579, %43 ], [ %487, %485 ]
+  %492 = phi ptr [ %.pre577, %43 ], [ %486, %485 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
   %493 = getelementptr inbounds i8, ptr %1, i64 264
   call void @llvm.experimental.noalias.scope.decl(metadata !16411)

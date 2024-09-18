@@ -4278,8 +4278,8 @@ if.else.i:                                        ; preds = %nbd_co_receive_one_
   %cmp6.i = icmp slt i32 %20, 0
   %21 = load i32, ptr %request_ret.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %21, 0
-  %or.cond = select i1 %cmp6.i, i1 %tobool.not.i.i, i1 false
-  br i1 %or.cond, label %if.then1.i.i, label %if.end9.i
+  %or.cond51 = select i1 %cmp6.i, i1 %tobool.not.i.i, i1 false
+  br i1 %or.cond51, label %if.then1.i.i, label %if.end9.i
 
 if.then1.i.i:                                     ; preds = %if.else.i
   store i32 %20, ptr %request_ret.i.i, align 4
@@ -4288,8 +4288,8 @@ if.then1.i.i:                                     ; preds = %if.else.i
 if.end9.i:                                        ; preds = %if.then1.i.i, %if.else.i, %nbd_iter_channel_error.exit.i
   %22 = load i32, ptr %iter.i, align 8
   %cmp12.i = icmp slt i32 %22, 0
-  %or.cond74 = select i1 %local_reply.i.sroa.0.5, i1 true, i1 %cmp12.i
-  br i1 %or.cond74, label %nbd_co_receive_return_code.exit, label %if.end14.i
+  %or.cond = select i1 %local_reply.i.sroa.0.5, i1 true, i1 %cmp12.i
+  br i1 %or.cond, label %nbd_co_receive_return_code.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end9.i
   store i8 1, ptr %only_structured.i, align 1

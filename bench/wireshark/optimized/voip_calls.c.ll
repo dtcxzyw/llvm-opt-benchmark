@@ -5061,16 +5061,16 @@ define internal range(i32 0, 2) i32 @mgcp_calls_packet(ptr noundef %0, ptr nound
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @g_queue_peek_nth_link(ptr noundef %25, i32 noundef 0) #12
   %.not188275 = icmp eq ptr %26, null
-  br i1 %.not188275, label %.thread, label %.lr.ph279
+  br i1 %.not188275, label %.thread, label %.lr.ph278
 
-.lr.ph279:                                        ; preds = %23
+.lr.ph278:                                        ; preds = %23
   %27 = getelementptr inbounds i8, ptr %3, i64 48
   %28 = getelementptr inbounds i8, ptr %1, i64 40
   br label %29
 
-29:                                               ; preds = %.lr.ph279, %58
-  %.0165277 = phi ptr [ %26, %.lr.ph279 ], [ %60, %58 ]
-  %30 = load ptr, ptr %.0165277, align 8
+29:                                               ; preds = %.lr.ph278, %58
+  %.0165276 = phi ptr [ %26, %.lr.ph278 ], [ %60, %58 ]
+  %30 = load ptr, ptr %.0165276, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 76
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 3
@@ -5120,13 +5120,13 @@ define internal range(i32 0, 2) i32 @mgcp_calls_packet(ptr noundef %0, ptr nound
   br label %58
 
 58:                                               ; preds = %38, %57, %42, %34, %29
-  %59 = getelementptr inbounds i8, ptr %.0165277, i64 8
+  %59 = getelementptr inbounds i8, ptr %.0165276, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not188 = icmp eq ptr %60, null
   br i1 %.not188, label %.thread, label %29, !llvm.loop !27
 
 61:                                               ; preds = %53, %56
-  %62 = load ptr, ptr %.0165277, align 8
+  %62 = load ptr, ptr %.0165276, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.thread, label %165
 
@@ -5250,7 +5250,7 @@ define internal range(i32 0, 2) i32 @mgcp_calls_packet(ptr noundef %0, ptr nound
 
 128:                                              ; preds = %120, %112
   %129 = phi ptr [ %121, %120 ], [ %113, %112 ]
-  %.1.ph293 = phi i32 [ 0, %120 ], [ 1, %112 ]
+  %.1.ph292 = phi i32 [ 0, %120 ], [ 1, %112 ]
   %.sink = phi ptr [ %127, %120 ], [ %119, %112 ]
   %130 = getelementptr inbounds i8, ptr %129, i64 24
   store ptr %.sink, ptr %130, align 8
@@ -5297,7 +5297,7 @@ copy_address.exit:                                ; preds = %128, %139
   %156 = tail call noalias ptr @g_strdup(ptr noundef %155) #12
   store ptr %156, ptr %151, align 8
   %157 = getelementptr inbounds i8, ptr %151, i64 8
-  store i32 %.1.ph293, ptr %157, align 8
+  store i32 %.1.ph292, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %129, i64 72
   store i32 0, ptr %158, align 8
   %159 = getelementptr inbounds i8, ptr %8, i64 32
@@ -5436,14 +5436,14 @@ copy_address.exit:                                ; preds = %128, %139
   %224 = tail call ptr @g_strchomp(ptr noundef %223) #12
   %225 = load ptr, ptr %222, align 8
   %226 = load i8, ptr %225, align 1
-  %.not280 = icmp eq i8 %226, 114
-  br i1 %.not280, label %sub_1, label %.lr.ph.i.tail.thread
+  %.not279 = icmp eq i8 %226, 114
+  br i1 %.not279, label %sub_1, label %.lr.ph.i.tail.thread
 
 sub_1:                                            ; preds = %.lr.ph.i
   %227 = getelementptr inbounds i8, ptr %225, i64 1
   %228 = load i8, ptr %227, align 1
-  %.not281 = icmp eq i8 %228, 103
-  br i1 %.not281, label %.lr.ph.i.tail, label %.lr.ph.i.tail.thread
+  %.not280 = icmp eq i8 %228, 103
+  br i1 %.not280, label %.lr.ph.i.tail, label %.lr.ph.i.tail.thread
 
 .lr.ph.i.tail:                                    ; preds = %sub_1
   %229 = getelementptr inbounds i8, ptr %225, i64 2
@@ -5497,14 +5497,14 @@ is_mgcp_signal.exit.thread:                       ; preds = %210, %is_mgcp_signa
   %248 = tail call ptr @g_strchomp(ptr noundef %247) #12
   %249 = load ptr, ptr %246, align 8
   %250 = load i8, ptr %249, align 1
-  %.not282 = icmp eq i8 %250, 114
-  br i1 %.not282, label %sub_1265, label %.lr.ph.i221.tail.thread
+  %.not281 = icmp eq i8 %250, 114
+  br i1 %.not281, label %sub_1265, label %.lr.ph.i221.tail.thread
 
 sub_1265:                                         ; preds = %.lr.ph.i221
   %251 = getelementptr inbounds i8, ptr %249, i64 1
   %252 = load i8, ptr %251, align 1
-  %.not283 = icmp eq i8 %252, 111
-  br i1 %.not283, label %.lr.ph.i221.tail, label %.lr.ph.i221.tail.thread
+  %.not282 = icmp eq i8 %252, 111
+  br i1 %.not282, label %.lr.ph.i221.tail, label %.lr.ph.i221.tail.thread
 
 .lr.ph.i221.tail:                                 ; preds = %sub_1265
   %253 = getelementptr inbounds i8, ptr %249, i64 2
@@ -5514,7 +5514,7 @@ sub_1265:                                         ; preds = %.lr.ph.i221
 
 is_mgcp_signal.exit227.thread257:                 ; preds = %.lr.ph.i221.tail.thread, %238
   tail call void @g_strfreev(ptr noundef nonnull %239) #12
-  %.pre287 = load ptr, ptr %211, align 8
+  %.pre286 = load ptr, ptr %211, align 8
   br label %is_mgcp_signal.exit227.thread
 
 is_mgcp_signal.exit227:                           ; preds = %.lr.ph.i221.tail
@@ -5522,7 +5522,7 @@ is_mgcp_signal.exit227:                           ; preds = %.lr.ph.i221.tail
   br label %258
 
 is_mgcp_signal.exit227.thread:                    ; preds = %235, %is_mgcp_signal.exit227.thread257
-  %256 = phi ptr [ null, %235 ], [ %.pre287, %is_mgcp_signal.exit227.thread257 ]
+  %256 = phi ptr [ null, %235 ], [ %.pre286, %is_mgcp_signal.exit227.thread257 ]
   %257 = tail call fastcc i32 @is_mgcp_signal(ptr noundef nonnull @.str.98, ptr noundef %256)
   %.not206 = icmp eq i32 %257, 0
   br i1 %.not206, label %261, label %258

@@ -1014,6 +1014,7 @@ declare i32 @commit_lock_file(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @link_alt_odb_entries(ptr nocapture noundef readonly %r, ptr noundef %alt, i32 noundef range(i32 10, 59) %sep, ptr noundef %relative_base, i32 noundef range(i32 0, 7) %depth) unnamed_addr #1 {
 entry:
+  %buf.i = alloca %struct.strbuf, align 8
   %_swap_buffer.i = alloca [24 x i8], align 16
   %r.i = alloca i32, align 4
   %pathbuf.i = alloca %struct.strbuf, align 8
@@ -1056,6 +1057,11 @@ if.end6:                                          ; preds = %if.end
   %path = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %path, align 8
   %call7 = call ptr @strbuf_realpath(ptr noundef nonnull %objdirbuf, ptr noundef %4, i32 noundef 1) #25
+  %5 = load i8, ptr %alt, align 1
+  %tobool8.not47 = icmp eq i8 %5, 0
+  br i1 %tobool8.not47, label %while.end, label %while.body.lr.ph
+
+while.body.lr.ph:                                 ; preds = %if.end6
   %len2.i.i = getelementptr inbounds i8, ptr %entry1, i64 8
   %buf.i.i = getelementptr inbounds i8, ptr %entry1, i64 16
   %buf = getelementptr inbounds i8, ptr %objdirbuf, i64 16
@@ -1063,15 +1069,11 @@ if.end6:                                          ; preds = %if.end
   %len.i.i = getelementptr inbounds i8, ptr %pathbuf.i, i64 8
   %buf.i39 = getelementptr inbounds i8, ptr %pathbuf.i, i64 16
   %add.i = add nuw nsw i32 %depth, 1
-  br label %while.cond
+  %buf3.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  br label %while.body
 
-while.cond:                                       ; preds = %while.cond.backedge, %if.end6
-  %alt.addr.0 = phi ptr [ %alt, %if.end6 ], [ %spec.select.i, %while.cond.backedge ]
-  %5 = load i8, ptr %alt.addr.0, align 1
-  %tobool8.not = icmp eq i8 %5, 0
-  br i1 %tobool8.not, label %while.end, label %while.body
-
-while.body:                                       ; preds = %while.cond
+while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
+  %alt.addr.048 = phi ptr [ %alt, %while.body.lr.ph ], [ %spec.select.i, %while.cond.backedge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   store i64 0, ptr %len2.i.i, align 8
   %6 = load ptr, ptr %buf.i.i, align 8
@@ -1083,29 +1085,29 @@ if.then4.i.i:                                     ; preds = %while.body
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %while.body
-  %7 = load i8, ptr %alt.addr.0, align 1
+  %7 = load i8, ptr %alt.addr.048, align 1
   switch i8 %7, label %if.else7.i [
     i8 35, label %if.then.i
     i8 34, label %land.lhs.true.i
   ]
 
 if.then.i:                                        ; preds = %strbuf_setlen.exit.i
-  %call.i7 = call ptr @strchrnul(ptr noundef nonnull %alt.addr.0, i32 noundef %sep) #26
+  %call.i7 = call ptr @strchrnul(ptr noundef nonnull %alt.addr.048, i32 noundef %sep) #26
   store ptr %call.i7, ptr %end.i, align 8
   br label %parse_alt_odb_entry.exit
 
 land.lhs.true.i:                                  ; preds = %strbuf_setlen.exit.i
-  %call5.i = call i32 @unquote_c_style(ptr noundef nonnull %entry1, ptr noundef nonnull %alt.addr.0, ptr noundef nonnull %end.i) #25
+  %call5.i = call i32 @unquote_c_style(ptr noundef nonnull %entry1, ptr noundef nonnull %alt.addr.048, ptr noundef nonnull %end.i) #25
   %tobool.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i, label %parse_alt_odb_entry.exit, label %if.else7.i
 
 if.else7.i:                                       ; preds = %land.lhs.true.i, %strbuf_setlen.exit.i
-  %call8.i = call ptr @strchrnul(ptr noundef nonnull %alt.addr.0, i32 noundef %sep) #26
+  %call8.i = call ptr @strchrnul(ptr noundef nonnull %alt.addr.048, i32 noundef %sep) #26
   store ptr %call8.i, ptr %end.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call8.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %alt.addr.0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %alt.addr.048 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @strbuf_add(ptr noundef nonnull %entry1, ptr noundef nonnull %alt.addr.0, i64 noundef %sub.ptr.sub.i) #25
+  call void @strbuf_add(ptr noundef nonnull %entry1, ptr noundef nonnull %alt.addr.048, i64 noundef %sub.ptr.sub.i) #25
   br label %parse_alt_odb_entry.exit
 
 parse_alt_odb_entry.exit:                         ; preds = %if.then.i, %land.lhs.true.i, %if.else7.i
@@ -1118,9 +1120,6 @@ parse_alt_odb_entry.exit:                         ; preds = %if.then.i, %land.lh
   %10 = load i64, ptr %len2.i.i, align 8
   %tobool10.not = icmp eq i64 %10, 0
   br i1 %tobool10.not, label %while.cond.backedge, label %if.end12
-
-while.cond.backedge:                              ; preds = %parse_alt_odb_entry.exit, %link_alt_odb_entry.exit
-  br label %while.cond, !llvm.loop !12
 
 if.end12:                                         ; preds = %parse_alt_odb_entry.exit
   %11 = load ptr, ptr %buf, align 8
@@ -1229,7 +1228,7 @@ if.then4.i:                                       ; preds = %if.end.i27
 strbuf_setlen.exit:                               ; preds = %if.end.i27, %if.then4.i
   %27 = phi i64 [ %sub.i, %if.end.i27 ], [ %.pre, %if.then4.i ]
   %tobool13.not.i = icmp eq i64 %27, 0
-  br i1 %tobool13.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !13
+  br i1 %tobool13.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %strbuf_setlen.exit, %land.rhs.i, %if.end12.i
   %28 = load ptr, ptr %objects, align 8
@@ -1317,17 +1316,41 @@ if.end22.i:                                       ; preds = %alt_odb_usable.exit
   %arrayidx30.i = getelementptr inbounds ptr, ptr %47, i64 %idxprom.i
   store ptr %call23.i, ptr %arrayidx30.i, align 8
   %48 = load ptr, ptr %path.i, align 8
-  call fastcc void @read_info_alternates(ptr noundef nonnull %r, ptr noundef %48, i32 noundef %add.i)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.index_mem.nbuf, i64 24, i1 false)
+  %call.i49 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.67, ptr noundef %48) #25
+  %call1.i = call i64 @strbuf_read_file(ptr noundef nonnull %buf.i, ptr noundef %call.i49, i64 noundef 1024) #25
+  %cmp.i50 = icmp slt i64 %call1.i, 0
+  br i1 %cmp.i50, label %if.then.i52, label %if.end.i51
+
+if.then.i52:                                      ; preds = %if.end22.i
+  %call2.i = call i32 @warn_on_fopen_errors(ptr noundef %call.i49) #25
+  br label %read_info_alternates.exit
+
+if.end.i51:                                       ; preds = %if.end22.i
+  %49 = load ptr, ptr %buf3.i, align 8
+  call fastcc void @link_alt_odb_entries(ptr noundef nonnull readonly %r, ptr noundef %49, i32 noundef 10, ptr noundef %48, i32 noundef %add.i)
+  call void @strbuf_release(ptr noundef nonnull %buf.i) #25
+  br label %read_info_alternates.exit
+
+read_info_alternates.exit:                        ; preds = %if.then.i52, %if.end.i51
+  call void @free(ptr noundef %call.i49) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br label %link_alt_odb_entry.exit
 
-link_alt_odb_entry.exit:                          ; preds = %alt_odb_usable.exit.thread, %_.exit36, %alt_odb_usable.exit, %if.end22.i
+link_alt_odb_entry.exit:                          ; preds = %alt_odb_usable.exit.thread, %_.exit36, %alt_odb_usable.exit, %read_info_alternates.exit
   call void @strbuf_release(ptr noundef nonnull %tmp.i) #25
   call void @strbuf_release(ptr noundef nonnull %pathbuf.i) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pathbuf.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i)
   br label %while.cond.backedge
 
-while.end:                                        ; preds = %while.cond
+while.cond.backedge:                              ; preds = %link_alt_odb_entry.exit, %parse_alt_odb_entry.exit
+  %50 = load i8, ptr %spec.select.i, align 1
+  %tobool8.not = icmp eq i8 %50, 0
+  br i1 %tobool8.not, label %while.end, label %while.body, !llvm.loop !13
+
+while.end:                                        ; preds = %while.cond.backedge, %if.end6
   call void @strbuf_release(ptr noundef nonnull %entry1) #25
   call void @strbuf_release(ptr noundef nonnull %objdirbuf) #25
   br label %return
@@ -1379,7 +1402,7 @@ if.then.i:                                        ; preds = %if.end
 if.end.i:                                         ; preds = %if.end
   %buf3.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %6 = load ptr, ptr %buf3.i, align 8
-  call fastcc void @link_alt_odb_entries(ptr noundef nonnull readonly %r, ptr noundef %6, i32 noundef 10, ptr noundef %5, i32 noundef 0) #28
+  call fastcc void @link_alt_odb_entries(ptr noundef nonnull readonly %r, ptr noundef %6, i32 noundef 10, ptr noundef %5, i32 noundef 0)
   call void @strbuf_release(ptr noundef nonnull %buf.i) #25
   br label %read_info_alternates.exit
 
@@ -1895,32 +1918,6 @@ for.body:                                         ; preds = %for.cond
 for.end:                                          ; preds = %for.body, %for.cond
   %r.1 = phi i32 [ %call, %for.body ], [ 0, %for.cond ]
   ret i32 %r.1
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @read_info_alternates(ptr nocapture noundef readonly %r, ptr noundef %relative_base, i32 noundef range(i32 0, 7) %depth) unnamed_addr #1 {
-entry:
-  %buf = alloca %struct.strbuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.index_mem.nbuf, i64 24, i1 false)
-  %call = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.67, ptr noundef %relative_base) #25
-  %call1 = call i64 @strbuf_read_file(ptr noundef nonnull %buf, ptr noundef %call, i64 noundef 1024) #25
-  %cmp = icmp slt i64 %call1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call2 = call i32 @warn_on_fopen_errors(ptr noundef %call) #25
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %buf3 = getelementptr inbounds i8, ptr %buf, i64 16
-  %0 = load ptr, ptr %buf3, align 8
-  call fastcc void @link_alt_odb_entries(ptr noundef %r, ptr noundef %0, i32 noundef 10, ptr noundef %relative_base, i32 noundef %depth)
-  call void @strbuf_release(ptr noundef nonnull %buf) #25
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  call void @free(ptr noundef %call) #25
-  ret void
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7320,7 +7317,6 @@ attributes #24 = { noreturn nounwind }
 attributes #25 = { nounwind }
 attributes #26 = { nounwind willreturn memory(read) }
 attributes #27 = { nounwind willreturn memory(none) }
-attributes #28 = { "function-inline-cost-multiplier"="2" }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -5758,8 +5758,8 @@ if.end.i.i194:                                    ; preds = %_ZNSt10unique_ptrIN
   %edge_tops.i.i195 = getelementptr inbounds i8, ptr %614, i64 184
   %cur_class_vertices.val42.i.i = load i64, ptr %521, align 8
   %add.ptr.i.i152.i.i = getelementptr inbounds ptr, ptr %cur_class_vertices.val35.i.i, i64 %cur_class_vertices.val42.i.i
-  %cmp.i.i.i.i153.not848.i.i = icmp eq i64 %cur_class_vertices.val42.i.i, 0
-  br i1 %cmp.i.i.i.i153.not848.i.i, label %for.end123.i.i, label %for.body.lr.ph.i.i
+  %cmp.i.i.i.i153.not769.i.i = icmp eq i64 %cur_class_vertices.val42.i.i, 0
+  br i1 %cmp.i.i.i.i153.not769.i.i, label %for.end123.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i.i194
   %in_edge_list.i.i.i.i174.i.i = getelementptr inbounds i8, ptr %523, i64 104
@@ -5786,8 +5786,8 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i.i194
   br label %for.body.i.i197
 
 for.body.i.i197:                                  ; preds = %for.inc121.i.i, %for.body.lr.ph.i.i
-  %__begin1.sroa.0.0849.i.i = phi ptr [ %cur_class_vertices.val35.i.i, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i.i.i385.i.i, %for.inc121.i.i ]
-  %615 = load ptr, ptr %__begin1.sroa.0.0849.i.i, align 8
+  %__begin1.sroa.0.0770.i.i = phi ptr [ %cur_class_vertices.val35.i.i, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i.i.i385.i.i, %for.inc121.i.i ]
+  %615 = load ptr, ptr %__begin1.sroa.0.0770.i.i, align 8
   %v25.i.i = getelementptr inbounds i8, ptr %615, i64 64
   %__x.032.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i159, align 8
   %cmp.not33.i.i.i = icmp eq ptr %__x.032.i.i.i, null
@@ -5920,16 +5920,16 @@ call.i154.i.noexc.i:                              ; preds = %call5.i.i.i.i.i.i.i
   %625 = getelementptr i8, ptr %615, i64 8
   %.val40.i.i = load i64, ptr %625, align 8
   %add.ptr.i.i155.i.i = getelementptr inbounds ptr, ptr %.val.i.i199, i64 %.val40.i.i
-  %cmp.i.i.i.i156.not827.i.i = icmp eq i64 %.val40.i.i, 0
-  br i1 %cmp.i.i.i.i156.not827.i.i, label %for.end.i.i, label %for.body29.lr.ph.i.i
+  %cmp.i.i.i.i156.not765.i.i = icmp eq i64 %.val40.i.i, 0
+  br i1 %cmp.i.i.i.i156.not765.i.i, label %for.end.i.i, label %for.body29.lr.ph.i.i
 
 for.body29.lr.ph.i.i:                             ; preds = %call.i154.i.noexc.i
   %626 = getelementptr i8, ptr %615, i64 80
   br label %for.body29.i.i
 
 for.body29.i.i:                                   ; preds = %for.inc.i.i, %for.body29.lr.ph.i.i
-  %__begin2.sroa.0.0828.i.i = phi ptr [ %.val.i.i199, %for.body29.lr.ph.i.i ], [ %incdec.ptr.i.i.i.i.i.i207, %for.inc.i.i ]
-  %627 = load ptr, ptr %__begin2.sroa.0.0828.i.i, align 8
+  %__begin2.sroa.0.0766.i.i = phi ptr [ %.val.i.i199, %for.body29.lr.ph.i.i ], [ %incdec.ptr.i.i.i.i.i.i207, %for.inc.i.i ]
+  %627 = load ptr, ptr %__begin2.sroa.0.0766.i.i, align 8
   store ptr %627, ptr %pred_info.i.i, align 8
   %628 = load ptr, ptr %new_vertex_info.i.i, align 8
   invoke fastcc void @_ZN3ue28flat_setIPNS_12_GLOBAL__N_110VertexInfoENS1_16VertexInfoPtrCmpESaIS3_EE6insertERKS3_(ptr noalias align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %628, ptr noundef nonnull align 8 dereferenceable(8) %pred_info.i.i)
@@ -6469,7 +6469,7 @@ if.end62.i.i:                                     ; preds = %_ZN5boost9container
           to label %for.inc.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc.i.i:                                      ; preds = %if.end62.i.i, %.noexc18.i
-  %incdec.ptr.i.i.i.i.i.i207 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0828.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i.i207 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0766.i.i, i64 8
   %cmp.i.i.i.i156.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i207, %add.ptr.i.i155.i.i
   br i1 %cmp.i.i.i.i156.not.i.i, label %for.end.i.i, label %for.body29.i.i
 
@@ -6479,16 +6479,16 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %call.
   %674 = getelementptr i8, ptr %615, i64 40
   %succ68.val38.i.i = load i64, ptr %674, align 8
   %add.ptr.i.i248.i.i = getelementptr inbounds ptr, ptr %succ68.val.i.i, i64 %succ68.val38.i.i
-  %cmp.i.i.i.i249.not834.i.i = icmp eq i64 %succ68.val38.i.i, 0
-  br i1 %cmp.i.i.i.i249.not834.i.i, label %for.inc121.i.i, label %for.body73.lr.ph.i.i
+  %cmp.i.i.i.i249.not767.i.i = icmp eq i64 %succ68.val38.i.i, 0
+  br i1 %cmp.i.i.i.i249.not767.i.i, label %for.inc121.i.i, label %for.body73.lr.ph.i.i
 
 for.body73.lr.ph.i.i:                             ; preds = %for.end.i.i
   %675 = getelementptr i8, ptr %615, i64 80
   br label %for.body73.i.i
 
 for.body73.i.i:                                   ; preds = %for.inc118.i.i, %for.body73.lr.ph.i.i
-  %__begin269.sroa.0.0835.i.i = phi ptr [ %succ68.val.i.i, %for.body73.lr.ph.i.i ], [ %incdec.ptr.i.i.i.i384.i.i, %for.inc118.i.i ]
-  %676 = load ptr, ptr %__begin269.sroa.0.0835.i.i, align 8
+  %__begin269.sroa.0.0768.i.i = phi ptr [ %succ68.val.i.i, %for.body73.lr.ph.i.i ], [ %incdec.ptr.i.i.i.i384.i.i, %for.inc118.i.i ]
+  %676 = load ptr, ptr %__begin269.sroa.0.0768.i.i, align 8
   store ptr %676, ptr %succ_info.i.i, align 8
   %v75.i.i = getelementptr inbounds i8, ptr %676, i64 64
   %succ_v.sroa.0.0.copyload.i.i = load ptr, ptr %v75.i.i, align 8
@@ -7239,12 +7239,12 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit647.i.i: ; preds = %_ZN5boost9
   br i1 %cmp.i.i.i.i.not.i.i382.i.i, label %for.inc118.i.i, label %for.body.i.i379.i.i, !llvm.loop !244
 
 for.inc118.i.i:                                   ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit647.i.i, %if.then106.i.i, %.noexc32.i, %_ZN3ue223add_edge_if_not_presentINS_8NGHolderEEESt4pairINT_15edge_descriptorEbENS3_17vertex_descriptorES6_RS3_.exit334.i.i
-  %incdec.ptr.i.i.i.i384.i.i = getelementptr inbounds i8, ptr %__begin269.sroa.0.0835.i.i, i64 8
+  %incdec.ptr.i.i.i.i384.i.i = getelementptr inbounds i8, ptr %__begin269.sroa.0.0768.i.i, i64 8
   %cmp.i.i.i.i249.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i384.i.i, %add.ptr.i.i248.i.i
   br i1 %cmp.i.i.i.i249.not.i.i, label %for.inc121.i.i, label %for.body73.i.i
 
 for.inc121.i.i:                                   ; preds = %for.inc118.i.i, %for.end.i.i
-  %incdec.ptr.i.i.i.i385.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0849.i.i, i64 8
+  %incdec.ptr.i.i.i.i385.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0770.i.i, i64 8
   %cmp.i.i.i.i153.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i385.i.i, %add.ptr.i.i152.i.i
   br i1 %cmp.i.i.i.i153.not.i.i, label %for.end123.i.i, label %for.body.i.i197
 

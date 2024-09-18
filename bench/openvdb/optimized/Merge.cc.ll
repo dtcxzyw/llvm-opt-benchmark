@@ -116136,8 +116136,8 @@ for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_04t
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEppEv.exit
-  %iter.sroa.1.038 = phi i32 [ %add.i.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEppEv.exit ]
-  %idxprom = zext i32 %iter.sroa.1.038 to i64
+  %iter.sroa.1.037 = phi i32 [ %add.i.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEppEv.exit ]
+  %idxprom = zext i32 %iter.sroa.1.037 to i64
   %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %this, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   tail call void @_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EE5pruneERKb(ptr noundef nonnull align 8 dereferenceable(33808) %3, ptr noundef nonnull align 1 dereferenceable(1) %tolerance)
@@ -116288,11 +116288,11 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4
 
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EED2Ev.exit: ; preds = %for.inc.i.i.i.i, %for.inc.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEEEppEv.exit.i, %land.rhs.i.i.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EE12beginChildOnEv.exit.i
   tail call void @_ZdlPv(ptr noundef %3) #25
-  %and.i = and i32 %iter.sroa.1.038, 63
+  %and.i = and i32 %iter.sroa.1.037, 63
   %sh_prom.i = zext nneg i32 %and.i to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %not.i = xor i64 %shl.i, -1
-  %shr.i = lshr i32 %iter.sroa.1.038, 6
+  %shr.i = lshr i32 %iter.sroa.1.037, 6
   %idxprom.i8 = zext nneg i32 %shr.i to i64
   %arrayidx.i9 = getelementptr inbounds [512 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i8
   %20 = load i64, ptr %arrayidx.i9, align 8
@@ -116308,7 +116308,7 @@ _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EED2E
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %land.rhs.i5.i, %for.body.i, %lor.lhs.false.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EED2Ev.exit
-  %add.i.i.i12 = add i32 %iter.sroa.1.038, 1
+  %add.i.i.i12 = add i32 %iter.sroa.1.037, 1
   %shr.i.i.i.i = lshr i32 %add.i.i.i12, 6
   %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i12, 32767
   br i1 %cmp.i.i.i.i, label %for.end, label %if.end.i.i.i.i
@@ -116498,8 +116498,8 @@ for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_04t
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEEEppEv.exit
-  %iter.sroa.1.019 = phi i32 [ %add.i.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEEEppEv.exit ]
-  %idxprom = zext i32 %iter.sroa.1.019 to i64
+  %iter.sroa.1.018 = phi i32 [ %add.i.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEEEppEv.exit ]
+  %idxprom = zext i32 %iter.sroa.1.018 to i64
   %arrayidx = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.703"], ptr %this, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i64, ptr %3, align 8
@@ -116527,11 +116527,11 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
 
 delete.notnull:                                   ; preds = %while.body.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
-  %and.i = and i32 %iter.sroa.1.019, 63
+  %and.i = and i32 %iter.sroa.1.018, 63
   %sh_prom.i = zext nneg i32 %and.i to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %not.i = xor i64 %shl.i, -1
-  %shr.i = lshr i32 %iter.sroa.1.019, 6
+  %shr.i = lshr i32 %iter.sroa.1.018, 6
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i = getelementptr inbounds [64 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i
   %6 = load i64, ptr %arrayidx.i, align 8
@@ -116547,7 +116547,7 @@ delete.notnull:                                   ; preds = %while.body.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %for.body, %delete.notnull
-  %add.i.i.i8 = add i32 %iter.sroa.1.019, 1
+  %add.i.i.i8 = add i32 %iter.sroa.1.018, 1
   %shr.i.i.i.i = lshr i32 %add.i.i.i8, 6
   %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i8, 4095
   br i1 %cmp.i.i.i.i, label %for.end, label %if.end.i.i.i.i

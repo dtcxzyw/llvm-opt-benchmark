@@ -1389,9 +1389,9 @@ define hidden void @_ZN3mbe8expander7matcher12collect_vars17hdcd5419d06bab655E(p
   ret void
 
 19:                                               ; preds = %.lr.ph, %.critedge23
-  %.sroa.028.053 = phi ptr [ %8, %.lr.ph ], [ %20, %.critedge23 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.028.053, i64 128
-  %21 = load i64, ptr %.sroa.028.053, align 8, !range !276, !noundef !4
+  %.sroa.028.049 = phi ptr [ %8, %.lr.ph ], [ %20, %.critedge23 ]
+  %20 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 128
+  %21 = load i64, ptr %.sroa.028.049, align 8, !range !276, !noundef !4
   %22 = add nsw i64 %21, -4
   %23 = icmp ult i64 %22, 10
   %24 = select i1 %23, i64 %22, i64 5
@@ -1411,7 +1411,7 @@ define hidden void @_ZN3mbe8expander7matcher12collect_vars17hdcd5419d06bab655E(p
 25:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.635)
-  %26 = getelementptr inbounds i8, ptr %.sroa.028.053, i64 8
+  %26 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !277)
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %27 = load i8, ptr %26, align 8, !range !56, !alias.scope !280, !noalias !277, !noundef !4
@@ -1427,9 +1427,9 @@ default.unreachable:                              ; preds = %25
   unreachable
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.sroa.028.053, i64 16
+  %30 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 16
   %.val.i = load ptr, ptr %30, align 8, !alias.scope !280, !noalias !277, !nonnull !4, !noundef !4
-  %31 = getelementptr inbounds i8, ptr %.sroa.028.053, i64 24
+  %31 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 24
   %.val1.i = load i64, ptr %31, align 8, !alias.scope !280, !noalias !277
   %32 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !282
   %33 = icmp slt i64 %32, 0
@@ -1440,18 +1440,18 @@ default.unreachable:                              ; preds = %25
   unreachable
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %.sroa.028.053, i64 16
+  %36 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 16
   %37 = load ptr, ptr %36, align 8, !alias.scope !280, !noalias !277, !nonnull !4, !align !283, !noundef !4
-  %38 = getelementptr inbounds i8, ptr %.sroa.028.053, i64 24
+  %38 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 24
   %39 = load i64, ptr %38, align 8, !alias.scope !280, !noalias !277, !noundef !4
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit"
 
 40:                                               ; preds = %25
-  %41 = getelementptr inbounds i8, ptr %.sroa.028.053, i64 9
+  %41 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.635, ptr noundef nonnull align 1 dereferenceable(7) %41, i64 7, i1 false), !alias.scope !282
-  %.sroa.736.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.028.053, i64 16
+  %.sroa.736.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.028.049, i64 16
   %.sroa.736.1.copyload = load ptr, ptr %.sroa.736.1..sroa_idx, align 1, !alias.scope !282
-  %.sroa.9.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.028.053, i64 24
+  %.sroa.9.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.028.049, i64 24
   %.sroa.9.1.copyload = load i64, ptr %.sroa.9.1..sroa_idx, align 1, !alias.scope !282
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit"
 
@@ -1514,12 +1514,12 @@ default.unreachable:                              ; preds = %25
   br i1 %.not, label %.critedge23, label %61
 
 56:                                               ; preds = %19
-  %57 = getelementptr inbounds i8, ptr %.sroa.028.053, i64 104
+  %57 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 104
   call void @_ZN3mbe8expander7matcher12collect_vars17hdcd5419d06bab655E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %57)
   br label %.critedge23
 
 58:                                               ; preds = %19
-  %59 = getelementptr inbounds i8, ptr %.sroa.028.053, i64 8
+  %59 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 8
   call void @_ZN3mbe8expander7matcher12collect_vars17hdcd5419d06bab655E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %59)
   br label %.critedge23
 

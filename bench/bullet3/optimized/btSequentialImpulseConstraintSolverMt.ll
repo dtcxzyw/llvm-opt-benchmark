@@ -3561,11 +3561,11 @@ invoke.cont39:                                    ; preds = %if.then36
   %37 = load float, ptr %arrayidx12.i35, align 4
   %add13.i = fadd float %gyroForce.sroa.11.8.vec.extract56, %37
   store float %add13.i, ptr %arrayidx12.i35, align 4
-  %.pre65 = load i32, ptr %m_rigidbodyFlags.i, align 8
+  %.pre63 = load i32, ptr %m_rigidbodyFlags.i, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %invoke.cont39, %if.end
-  %38 = phi i32 [ %.pre65, %invoke.cont39 ], [ %31, %if.end ]
+  %38 = phi i32 [ %.pre63, %invoke.cont39 ], [ %31, %if.end ]
   %and48 = and i32 %38, 8
   %tobool49.not = icmp eq i32 %and48, 0
   br i1 %tobool49.not, label %for.inc, label %if.then50

@@ -63734,7 +63734,7 @@ _ZN13rust_analyzer11diagnostics20DiagnosticCollection20add_check_diagnostic17h3e
   br label %485
 
 485:                                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit119", %_ZN13rust_analyzer11diagnostics20DiagnosticCollection20add_check_diagnostic17h3e39821908e48d92E.exit
-  %.4 = phi i8 [ 0, %_ZN13rust_analyzer11diagnostics20DiagnosticCollection20add_check_diagnostic17h3e39821908e48d92E.exit ], [ 1, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit119" ]
+  %.4 = phi i8 [ 1, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit119" ], [ 0, %_ZN13rust_analyzer11diagnostics20DiagnosticCollection20add_check_diagnostic17h3e39821908e48d92E.exit ]
   %486 = atomicrmw sub ptr %159, i64 16 release, align 8, !noalias !8222
   %487 = and i64 %486, -14
   %488 = icmp eq i64 %487, 18

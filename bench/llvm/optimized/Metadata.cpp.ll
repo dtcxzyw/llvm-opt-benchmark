@@ -27266,19 +27266,19 @@ define dso_local void @_ZN4llvm12GlobalObject12copyMetadataEPKS0_j(ptr noundef n
   br i1 %.not38, label %.thread.us, label %.lr.ph.split
 
 .thread.us:                                       ; preds = %.lr.ph, %.thread.us
-  %.090.us = phi ptr [ %19, %.thread.us ], [ %9, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i8, ptr %.090.us, i64 8
+  %.086.us = phi ptr [ %19, %.thread.us ], [ %9, %.lr.ph ]
+  %16 = getelementptr inbounds nuw i8, ptr %.086.us, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = load i32, ptr %.090.us, align 8
+  %18 = load i32, ptr %.086.us, align 8
   call void @_ZN4llvm5Value11addMetadataEjRNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %17)
-  %19 = getelementptr inbounds i8, ptr %.090.us, i64 16
+  %19 = getelementptr inbounds i8, ptr %.086.us, i64 16
   %.not.us = icmp eq ptr %19, %11
   br i1 %.not.us, label %._crit_edge, label %.thread.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %144
-  %.090 = phi ptr [ %145, %144 ], [ %9, %.lr.ph ]
-  %20 = load i32, ptr %.090, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %.090, i64 8
+  %.086 = phi ptr [ %145, %144 ], [ %9, %.lr.ph ]
+  %20 = load i32, ptr %.086, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %.086, i64 8
   %22 = load ptr, ptr %21, align 8
   switch i32 %20, label %142 [
     i32 19, label %23
@@ -27296,9 +27296,9 @@ define dso_local void @_ZN4llvm12GlobalObject12copyMetadataEPKS0_j(ptr noundef n
   %28 = getelementptr inbounds i8, ptr %22, i64 -32
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #23
-  %.pre94 = load ptr, ptr %21, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre94, i64 -16
-  %.pre95 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre90 = load ptr, ptr %21, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre90, i64 -16
+  %.pre91 = load i64, ptr %.phi.trans.insert, align 8
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 31:                                               ; preds = %23
@@ -27309,8 +27309,8 @@ define dso_local void @_ZN4llvm12GlobalObject12copyMetadataEPKS0_j(ptr noundef n
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %27, %31
-  %36 = phi i64 [ %25, %31 ], [ %.pre95, %27 ]
-  %37 = phi ptr [ %22, %31 ], [ %.pre94, %27 ]
+  %36 = phi i64 [ %25, %31 ], [ %.pre91, %27 ]
+  %37 = phi ptr [ %22, %31 ], [ %.pre90, %27 ]
   %.sroa.0.0.i.i = phi ptr [ %35, %31 ], [ %29, %27 ]
   %38 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
@@ -27518,17 +27518,17 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   %141 = call noundef ptr @_ZN4llvm26DIGlobalVariableExpression7getImplERNS_11LLVMContextEPNS_8MetadataES4_NS3_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef %.034657082, ptr noundef %139, i32 noundef 0, i1 noundef zeroext true) #23
   %.idx = shl nuw nsw i64 %124, 3
   call void @_ZdlPvm(ptr noundef nonnull %126, i64 noundef %.idx) #25
-  %.pre93 = load i32, ptr %.090, align 8
+  %.pre89 = load i32, ptr %.086, align 8
   br label %142
 
 142:                                              ; preds = %.lr.ph.split, %_ZNSt6vectorImSaImEED2Ev.exit
-  %143 = phi i32 [ %.pre93, %_ZNSt6vectorImSaImEED2Ev.exit ], [ %20, %.lr.ph.split ]
+  %143 = phi i32 [ %.pre89, %_ZNSt6vectorImSaImEED2Ev.exit ], [ %20, %.lr.ph.split ]
   %.033 = phi ptr [ %141, %_ZNSt6vectorImSaImEED2Ev.exit ], [ %22, %.lr.ph.split ]
   call void @_ZN4llvm5Value11addMetadataEjRNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %143, ptr noundef nonnull align 8 dereferenceable(16) %.033)
   br label %144
 
 144:                                              ; preds = %142, %_ZN4llvm5APIntD2Ev.exit44
-  %145 = getelementptr inbounds i8, ptr %.090, i64 16
+  %145 = getelementptr inbounds i8, ptr %.086, i64 16
   %.not = icmp eq ptr %145, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 

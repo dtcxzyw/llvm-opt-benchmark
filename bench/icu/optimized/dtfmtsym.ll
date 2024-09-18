@@ -16841,8 +16841,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %stringMap.0266 = phi ptr [ null, %for.body.lr.ph ], [ %stringMap.1257, %for.inc ]
-  %i.0264 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %stringMap.0265 = phi ptr [ null, %for.body.lr.ph ], [ %stringMap.1257, %for.inc ]
+  %i.0263 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %key.addr, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %keyUString, ptr noundef %3, i32 noundef -1, i32 noundef 0)
   %4 = load i16, ptr %fUnion.i.i.i, align 8
@@ -16883,7 +16883,7 @@ invoke.cont16:                                    ; preds = %if.end13
   br i1 %cmp, label %if.then18, label %invoke.cont67
 
 if.then18:                                        ; preds = %invoke.cont16
-  %cmp19 = icmp eq i32 %i.0264, 0
+  %cmp19 = icmp eq i32 %i.0263, 0
   br i1 %cmp19, label %if.then20, label %if.end34
 
 if.then20:                                        ; preds = %if.then18
@@ -16930,7 +16930,7 @@ if.end31:                                         ; preds = %invoke.cont26
           to label %if.end34 unwind label %lpad
 
 if.end34:                                         ; preds = %if.end31, %if.then18
-  %stringMap.2 = phi ptr [ %stringMap.0266, %if.then18 ], [ %call22, %if.end31 ]
+  %stringMap.2 = phi ptr [ %stringMap.0265, %if.then18 ], [ %call22, %if.end31 ]
   %vtable35 = load ptr, ptr %value, align 8
   %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 32
   %14 = load ptr, ptr %vfn36, align 8
@@ -17087,14 +17087,14 @@ invoke.cont102:                                   ; preds = %lor.lhs.false101
 
 invoke.cont102.invoke.cont108_crit_edge:          ; preds = %invoke.cont102
   %.pre = load i16, ptr %fUnion.i.i, align 8
-  %.pre270 = load i32, ptr %fLength.i, align 4
-  %.pre271 = ashr i16 %.pre, 5
-  %.pre272 = sext i16 %.pre271 to i32
+  %.pre269 = load i32, ptr %fLength.i, align 4
+  %.pre270 = ashr i16 %.pre, 5
+  %.pre271 = sext i16 %.pre270 to i32
   br label %invoke.cont108
 
 invoke.cont108:                                   ; preds = %invoke.cont102.invoke.cont108_crit_edge, %invoke.cont98
-  %shr.i.i142.pre-phi = phi i32 [ %.pre272, %invoke.cont102.invoke.cont108_crit_edge ], [ %shr.i.i134, %invoke.cont98 ]
-  %36 = phi i32 [ %.pre270, %invoke.cont102.invoke.cont108_crit_edge ], [ %35, %invoke.cont98 ]
+  %shr.i.i142.pre-phi = phi i32 [ %.pre271, %invoke.cont102.invoke.cont108_crit_edge ], [ %shr.i.i134, %invoke.cont98 ]
+  %36 = phi i32 [ %.pre269, %invoke.cont102.invoke.cont108_crit_edge ], [ %35, %invoke.cont98 ]
   %37 = phi i16 [ %.pre, %invoke.cont102.invoke.cont108_crit_edge ], [ %33, %invoke.cont98 ]
   %length.1 = phi i32 [ 7, %invoke.cont102.invoke.cont108_crit_edge ], [ 0, %invoke.cont98 ]
   %add107 = add nuw nsw i32 %length.1, %length.0
@@ -17424,8 +17424,8 @@ cleanup241:                                       ; preds = %new.cont.i98
   br i1 %cmp.i102.inv, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %cleanup241.thread250, %cleanup241
-  %stringMap.1257 = phi ptr [ %stringMap.0266, %cleanup241.thread250 ], [ %stringMap.2, %cleanup241 ]
-  %inc = add nuw nsw i32 %i.0264, 1
+  %stringMap.1257 = phi ptr [ %stringMap.0265, %cleanup241.thread250 ], [ %stringMap.2, %cleanup241 ]
+  %inc = add nuw nsw i32 %i.0263, 1
   %call6 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %table, i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool7.not = icmp eq i8 %call6, 0
   br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !38

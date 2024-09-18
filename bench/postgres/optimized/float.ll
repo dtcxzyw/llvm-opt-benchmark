@@ -3362,7 +3362,7 @@ define dso_local i64 @dcosd(ptr nocapture noundef readonly %0) local_unnamed_add
   br label %16
 
 16:                                               ; preds = %14, %15
-  %17 = tail call double @fmod(double noundef %5, double noundef 3.600000e+02) #19
+  %17 = frem nnan double %5, 3.600000e+02
   %18 = fcmp olt double %17, 0.000000e+00
   %19 = fneg double %17
   %.016 = select i1 %18, double %19, double %17
@@ -3423,9 +3423,6 @@ cosd_q1.exit:                                     ; preds = %25, %33
   ret i64 %.015
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @fmod(double noundef, double noundef) local_unnamed_addr #10
-
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dcotd(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = alloca double, align 8
@@ -3460,7 +3457,7 @@ define dso_local i64 @dcotd(ptr nocapture noundef readonly %0) local_unnamed_add
   br label %19
 
 19:                                               ; preds = %17, %18
-  %20 = tail call double @fmod(double noundef %8, double noundef 3.600000e+02) #19
+  %20 = frem nnan double %8, 3.600000e+02
   %21 = fcmp olt double %20, 0.000000e+00
   %22 = fneg double %20
   %.020 = select i1 %21, double %22, double %20
@@ -3587,7 +3584,7 @@ define dso_local i64 @dsind(ptr nocapture noundef readonly %0) local_unnamed_add
   br label %16
 
 16:                                               ; preds = %14, %15
-  %17 = tail call double @fmod(double noundef %5, double noundef 3.600000e+02) #19
+  %17 = frem nnan double %5, 3.600000e+02
   %18 = fcmp olt double %17, 0.000000e+00
   %19 = fneg double %17
   %.017 = select i1 %18, double %19, double %17
@@ -3685,7 +3682,7 @@ define dso_local i64 @dtand(ptr nocapture noundef readonly %0) local_unnamed_add
   br label %19
 
 19:                                               ; preds = %17, %18
-  %20 = tail call double @fmod(double noundef %8, double noundef 3.600000e+02) #19
+  %20 = frem nnan double %8, 3.600000e+02
   %21 = fcmp olt double %20, 0.000000e+00
   %22 = fneg double %20
   %.020 = select i1 %21, double %22, double %20

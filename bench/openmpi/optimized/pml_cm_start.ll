@@ -45,16 +45,16 @@ define i32 @mca_pml_cm_start(i64 noundef %0, ptr nocapture noundef %1) local_unn
   %11 = alloca %struct.iovec, align 8
   %12 = alloca i32, align 4
   %13 = alloca i64, align 8
-  %.not187 = icmp eq i64 %0, 0
-  br i1 %.not187, label %ompi_request_complete.exit, label %.lr.ph
+  %.not186 = icmp eq i64 %0, 0
+  br i1 %.not186, label %ompi_request_complete.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   br label %15
 
 15:                                               ; preds = %.lr.ph, %ompi_request_complete.exit.thread
-  %.0128179 = phi i64 [ 0, %.lr.ph ], [ %371, %ompi_request_complete.exit.thread ]
-  %16 = getelementptr inbounds ptr, ptr %1, i64 %.0128179
+  %.0128178 = phi i64 [ 0, %.lr.ph ], [ %371, %ompi_request_complete.exit.thread ]
+  %16 = getelementptr inbounds ptr, ptr %1, i64 %.0128178
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 56
   %19 = load i32, ptr %18, align 8
@@ -848,7 +848,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %335, %332
   br i1 %.not, label %ompi_request_complete.exit.thread, label %ompi_request_complete.exit
 
 ompi_request_complete.exit.thread:                ; preds = %345, %342, %opal_thread_add_fetch_32.exit.i.i, %opal_thread_swap_ptr.exit.i, %318, %308, %311, %352, %15
-  %371 = add nuw i64 %.0128179, 1
+  %371 = add nuw i64 %.0128178, 1
   %exitcond.not = icmp eq i64 %371, %0
   br i1 %exitcond.not, label %ompi_request_complete.exit, label %15, !llvm.loop !9
 

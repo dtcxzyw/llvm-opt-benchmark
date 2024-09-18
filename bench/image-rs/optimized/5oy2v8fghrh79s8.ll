@@ -54546,7 +54546,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i.i: ; preds = %
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033.exit.i.i.i.i.i.i.i"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE.llvm.9832446184049035033.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i298", %.body.i.i, %100
-  %common.resume.op = phi { ptr, i32 } [ %86, %100 ], [ %112, %.body.i.i ], [ %eh.lpad-body814, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i298" ], [ %eh.lpad-body814, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE.llvm.9832446184049035033.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %100 ], [ %112, %.body.i.i ], [ %eh.lpad-body793, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i298" ], [ %eh.lpad-body793, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE.llvm.9832446184049035033.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 100:                                              ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i.i.i.i.i.i.i.i.i.i", %85
@@ -54672,13 +54672,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
           cleanup
   br label %.body
 
-.loopexit.loopexit.split-lp.loopexit:             ; preds = %295
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE.llvm.9832446184049035033.exit"
-
-.loopexit.loopexit.split-lp.loopexit.split-lp:    ; preds = %297
-  %lpad.loopexit.split-lp537 = landingpad { ptr, i32 }
+.body.thread:                                     ; preds = %297, %295
+  %lpad.loopexit.split-lp534 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE.llvm.9832446184049035033.exit"
 
@@ -55146,7 +55141,7 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread399: ; preds = %.pr
 
 295:                                              ; preds = %285
   %296 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %288, i1 noundef zeroext false)
-          to label %299 unwind label %.loopexit.loopexit.split-lp.loopexit
+          to label %299 unwind label %.body.thread
 
 297:                                              ; preds = %285
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -55155,7 +55150,7 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread399: ; preds = %.pr
   store ptr %.sroa.19.0.ph, ptr %.sroa.4158.0..sroa_idx, align 8
   store i64 %.sroa.35.0.ph, ptr %.sroa.4158.sroa.4.0..sroa.4158.0..sroa_idx.sroa_idx, align 8
   invoke fastcc void @"_ZN5image6codecs3pnm7decoder12HeaderReader21read_arbitrary_header28_$u7b$$u7b$closure$u7d$$u7d$17h4d0214b8664d4eccE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %287, i64 noundef %288, ptr noalias nocapture noundef align 8 dereferenceable(24) %10)
-          to label %298 unwind label %.loopexit.loopexit.split-lp.loopexit.split-lp
+          to label %298 unwind label %.body.thread
 
 298:                                              ; preds = %297
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -55174,9 +55169,9 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread399: ; preds = %.pr
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %299, %298
-  %.sroa.0312.0.ph.be = phi i64 [ %300, %299 ], [ %.sroa.045.0.copyload, %298 ]
-  %.sroa.19.0.ph.be = phi ptr [ %301, %299 ], [ %.sroa.448.sroa.0.0.copyload, %298 ]
-  %.sroa.35.0.ph.be = phi i64 [ %288, %299 ], [ %.sroa.448.sroa.3.0.copyload, %298 ]
+  %.sroa.0312.0.ph.be = phi i64 [ %.sroa.045.0.copyload, %298 ], [ %300, %299 ]
+  %.sroa.19.0.ph.be = phi ptr [ %.sroa.448.sroa.0.0.copyload, %298 ], [ %301, %299 ]
+  %.sroa.35.0.ph.be = phi i64 [ %.sroa.448.sroa.3.0.copyload, %298 ], [ %288, %299 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %107
@@ -55389,8 +55384,8 @@ switch.early.test:                                ; preds = %"_ZN73_$LT$$u5b$A$u
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.19.0.ph, i64 noundef %.sroa.0312.0.ph, i64 noundef 1) #45, !noalias !21236
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit297"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE.llvm.9832446184049035033.exit": ; preds = %.loopexit.loopexit.split-lp.loopexit, %.loopexit.loopexit.split-lp.loopexit.split-lp, %.body, %.body, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i.i"
-  %eh.lpad-body814 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i.i" ], [ %lpad.loopexit, %.loopexit.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp537, %.loopexit.loopexit.split-lp.loopexit.split-lp ]
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE.llvm.9832446184049035033.exit": ; preds = %.body.thread, %.body, %.body, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i.i"
+  %eh.lpad-body793 = phi { ptr, i32 } [ %lpad.loopexit.split-lp534, %.body.thread ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21245)
   call void @llvm.experimental.noalias.scope.decl(metadata !21248)
   call void @llvm.experimental.noalias.scope.decl(metadata !21251)

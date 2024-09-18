@@ -2603,9 +2603,9 @@ define void @_ZN3gmx47biasesAreCompatibleForSharingBetweenSimulationsERKNS_9AwhP
   %19 = ptrtoint ptr %15 to i64
   %20 = sub i64 %18, %19
   %21 = icmp sgt i64 %20, 0
-  br i1 %21, label %.lr.ph189, label %._crit_edge
+  br i1 %21, label %.lr.ph183, label %._crit_edge
 
-.lr.ph189:                                        ; preds = %4
+.lr.ph183:                                        ; preds = %4
   %22 = udiv exact i64 %20, 96
   %23 = getelementptr inbounds i8, ptr %3, i64 24
   %24 = getelementptr inbounds i8, ptr %0, i64 36
@@ -2617,23 +2617,23 @@ define void @_ZN3gmx47biasesAreCompatibleForSharingBetweenSimulationsERKNS_9AwhP
   %30 = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
   br label %31
 
-31:                                               ; preds = %.lr.ph189, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %indvars.iv210 = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next211, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %32 = getelementptr inbounds %"class.gmx::AwhBiasParams", ptr %15, i64 %indvars.iv210, i32 13
+31:                                               ; preds = %.lr.ph183, %_ZNSt6vectorIiSaIiEED2Ev.exit
+  %indvars.iv204 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next205, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %32 = getelementptr inbounds %"class.gmx::AwhBiasParams", ptr %15, i64 %indvars.iv204, i32 13
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv210
+  %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv204
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 1
   br i1 %39, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %40
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %23, align 8
-  %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv210
+  %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv204
   %43 = load i32, ptr %42, align 4
   %44 = shl nsw i32 %38, 1
   %45 = sext i32 %44 to i64
@@ -2685,7 +2685,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc80, %_ZNSt6ve
   %68 = ptrtoint ptr %.sroa.0120.2 to i64
   %69 = sub i64 %.sroa.14.2, %68
   %70 = load ptr, ptr %27, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv210
+  %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv204
   %72 = load ptr, ptr %71, align 8
   %73 = lshr exact i64 %69, 2
   %74 = trunc i64 %73 to i32
@@ -2693,8 +2693,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc80, %_ZNSt6ve
           to label %_ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIiEEi.exit unwind label %89
 
 _ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIiEEi.exit: ; preds = %67, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %.not229 = icmp eq i32 %38, 0
-  br i1 %.not229, label %_ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIiEEi.exit._ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i_crit_edge, label %.lr.ph
+  %.not223 = icmp eq i32 %38, 0
+  br i1 %.not223, label %_ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIiEEi.exit._ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i_crit_edge, label %.lr.ph
 
 _ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIiEEi.exit._ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i_crit_edge: ; preds = %_ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIiEEi.exit
   %.pre = zext nneg i32 %38 to i64
@@ -2852,7 +2852,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %79, %_ZNK3gmx1
 _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %.noexc88, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0101.2 = phi ptr [ %114, %.noexc88 ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.0.i.i.i.i.i86 = phi i64 [ %118, %.noexc88 ], [ 0, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %119 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv210
+  %119 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv204
   %120 = load i64, ptr %119, align 8
   %121 = getelementptr inbounds i64, ptr %.sroa.0101.2, i64 %54
   store i64 %120, ptr %121, align 8
@@ -2870,7 +2870,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %.noexc88, %_ZNSt6ve
   %130 = ptrtoint ptr %.sroa.0101.2 to i64
   %131 = sub i64 %.0.i.i.i.i.i86, %130
   %132 = load ptr, ptr %27, align 8
-  %133 = getelementptr inbounds ptr, ptr %132, i64 %indvars.iv210
+  %133 = getelementptr inbounds ptr, ptr %132, i64 %indvars.iv204
   %134 = load ptr, ptr %133, align 8
   %135 = lshr exact i64 %131, 3
   %136 = trunc i64 %135 to i32
@@ -2878,7 +2878,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %.noexc88, %_ZNSt6ve
           to label %_ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIlEEi.exit unwind label %.thread161
 
 _ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIlEEi.exit: ; preds = %129, %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit
-  br i1 %.not229, label %_ZNSt6vectorIlSaIlEED2Ev.exit.thread, label %.lr.ph180
+  br i1 %.not223, label %_ZNSt6vectorIlSaIlEED2Ev.exit.thread, label %.lr.ph180
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.thread:             ; preds = %_ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIlEEi.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0101.2) #21
@@ -2889,19 +2889,19 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.thread:             ; preds = %_ZNK3gmx11BiasShari
   br label %140
 
 139:                                              ; preds = %140
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %exitcond209.not = icmp eq i64 %indvars.iv.next206, %.pre-phi
-  br i1 %exitcond209.not, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %140, !llvm.loop !26
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %exitcond203.not = icmp eq i64 %indvars.iv.next200, %.pre-phi
+  br i1 %exitcond203.not, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %140, !llvm.loop !26
 
 140:                                              ; preds = %.lr.ph180, %139
-  %indvars.iv205 = phi i64 [ 1, %.lr.ph180 ], [ %indvars.iv.next206, %139 ]
-  %141 = getelementptr inbounds i64, ptr %.sroa.0101.2, i64 %indvars.iv205
+  %indvars.iv199 = phi i64 [ 1, %.lr.ph180 ], [ %indvars.iv.next200, %139 ]
+  %141 = getelementptr inbounds i64, ptr %.sroa.0101.2, i64 %indvars.iv199
   %142 = load i64, ptr %141, align 8
   %.not = icmp eq i64 %142, %138
   br i1 %.not, label %139, label %143
 
 143:                                              ; preds = %140
-  %144 = trunc nuw nsw i64 %indvars.iv210 to i32
+  %144 = trunc nuw nsw i64 %indvars.iv204 to i32
   %145 = tail call ptr @__cxa_allocate_exception(i64 24) #22
   %146 = add nuw nsw i32 %144, 1
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str.11, i32 noundef %146)
@@ -3001,9 +3001,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %139
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit98
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %164, %_ZNSt6vectorIlSaIlEED2Ev.exit, %31, %35
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %exitcond213.not = icmp eq i64 %indvars.iv.next211, %30
-  br i1 %exitcond213.not, label %._crit_edge, label %31, !llvm.loop !27
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %exitcond207.not = icmp eq i64 %indvars.iv.next205, %30
+  br i1 %exitcond207.not, label %._crit_edge, label %31, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %4
   ret void

@@ -30375,7 +30375,7 @@ for.cond:                                         ; preds = %_ZN4cvc58internal12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %childrenChanged.01744 = phi i8 [ 0, %for.body.lr.ph ], [ %childrenChanged.1, %for.cond ]
+  %childrenChanged.01743 = phi i8 [ 0, %for.body.lr.ph ], [ %childrenChanged.1, %for.cond ]
   %20 = load ptr, ptr %tn, align 8
   store ptr %20, ptr %agg.tmp30, align 8
   %bf.load.i.i146 = load i64, ptr %20, align 8
@@ -30901,7 +30901,7 @@ if.else.i:                                        ; preds = %if.end69
           to label %invoke.cont70 unwind label %lpad64
 
 invoke.cont70:                                    ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %if.else.i
-  %tobool71 = trunc nuw i8 %childrenChanged.01744 to i1
+  %tobool71 = trunc nuw i8 %childrenChanged.01743 to i1
   br i1 %tobool71, label %cleanup, label %lor.rhs72
 
 lor.rhs72:                                        ; preds = %invoke.cont70
@@ -30920,8 +30920,8 @@ call2.i.i.i.noexc297:                             ; preds = %lor.rhs72
   %inc.i.i279 = zext i1 %cmp.i.i278 to i64
   %spec.select.i.i280 = add nuw i64 %indvars.iv, %inc.i.i279
   %d_children.i.i281 = getelementptr inbounds i8, ptr %76, i64 16
-  %sext1756 = shl i64 %spec.select.i.i280, 32
-  %idxprom.i.i282 = ashr exact i64 %sext1756, 32
+  %sext1755 = shl i64 %spec.select.i.i280, 32
+  %idxprom.i.i282 = ashr exact i64 %sext1755, 32
   %arrayidx.i.i283 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i281, i64 0, i64 %idxprom.i.i282
   %77 = load ptr, ptr %arrayidx.i.i283, align 8, !noalias !277
   %bf.load.i.i.i284 = load i64, ptr %77, align 8
@@ -30983,7 +30983,7 @@ terminate.lpad.i311:                              ; preds = %if.then13.i.i310
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont70, %if.then13.i.i310, %if.then.i.i304, %cleanup.action, %if.else.i.i.i259, %if.then.i.i.i263, %if.then13.i.i.i261
-  %childrenChanged.1 = phi i8 [ %childrenChanged.01744, %if.then13.i.i.i261 ], [ %childrenChanged.01744, %if.then.i.i.i263 ], [ %childrenChanged.01744, %if.else.i.i.i259 ], [ %80, %cleanup.action ], [ %80, %if.then.i.i304 ], [ %80, %if.then13.i.i310 ], [ 1, %invoke.cont70 ]
+  %childrenChanged.1 = phi i8 [ %childrenChanged.01743, %if.then13.i.i.i261 ], [ %childrenChanged.01743, %if.then.i.i.i263 ], [ %childrenChanged.01743, %if.else.i.i.i259 ], [ %80, %cleanup.action ], [ %80, %if.then.i.i304 ], [ %80, %if.then13.i.i310 ], [ 1, %invoke.cont70 ]
   %84 = load ptr, ptr %nvc, align 8
   %bf.load.i.i313 = load i64, ptr %84, align 8
   %85 = and i64 %bf.load.i.i313, 1152920405095219200
@@ -32916,13 +32916,13 @@ ehcleanup862:                                     ; preds = %ehcleanup860, %lpad
   br label %ehcleanup864
 
 cleanup863.sink.split:                            ; preds = %if.then102, %if.then8, %if.then
-  %bf.load.i.i373.sink1766 = phi i64 [ %bf.load.i.i, %if.then ], [ %bf.load.i.i89, %if.then8 ], [ %bf.load.i.i373, %if.then102 ]
-  %.sink1765 = phi ptr [ %0, %if.then ], [ %3, %if.then8 ], [ %113, %if.then102 ]
-  %bf.value.i.i382 = add i64 %bf.load.i.i373.sink1766, 1099511627776
+  %bf.load.i.i373.sink1765 = phi i64 [ %bf.load.i.i, %if.then ], [ %bf.load.i.i89, %if.then8 ], [ %bf.load.i.i373, %if.then102 ]
+  %.sink1764 = phi ptr [ %0, %if.then ], [ %3, %if.then8 ], [ %113, %if.then102 ]
+  %bf.value.i.i382 = add i64 %bf.load.i.i373.sink1765, 1099511627776
   %bf.shl.i.i383 = and i64 %bf.value.i.i382, 1152920405095219200
-  %bf.clear7.i.i384 = and i64 %bf.load.i.i373.sink1766, -1152920405095219201
+  %bf.clear7.i.i384 = and i64 %bf.load.i.i373.sink1765, -1152920405095219201
   %bf.set.i.i385 = or disjoint i64 %bf.shl.i.i383, %bf.clear7.i.i384
-  store i64 %bf.set.i.i385, ptr %.sink1765, align 8
+  store i64 %bf.set.i.i385, ptr %.sink1764, align 8
   br label %cleanup863
 
 cleanup863:                                       ; preds = %cleanup863.sink.split, %if.then13.i.i379.invoke, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1651, %if.else.i.i377, %if.else.i.i93, %if.else.i.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit

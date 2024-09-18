@@ -6685,11 +6685,11 @@ _ZN14core_hashtableI17default_map_entryIj10ptr_vectorI3appEEN9table2mapIS4_6u_ha
 
 for.end.loopexit:                                 ; preds = %_ZN14core_hashtableI17default_map_entryIj10ptr_vectorI3appEEN9table2mapIS4_6u_hash4u_eqE15entry_hash_procENS8_13entry_eq_procEE8iteratorppEv.exit
   %.pre = load ptr, ptr %inv_color, align 8
-  %.pre61 = load i32, ptr %m_capacity.i.i.i.i, align 8
+  %.pre60 = load i32, ptr %m_capacity.i.i.i.i, align 8
   br label %for.end
 
 for.end:                                          ; preds = %while.body.i.i.i.i, %for.end.loopexit, %invoke.cont13
-  %34 = phi i32 [ %.pre61, %for.end.loopexit ], [ %1, %invoke.cont13 ], [ %1, %while.body.i.i.i.i ]
+  %34 = phi i32 [ %.pre60, %for.end.loopexit ], [ %1, %invoke.cont13 ], [ %1, %while.body.i.i.i.i ]
   %35 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %invoke.cont13 ], [ %0, %while.body.i.i.i.i ]
   %cmp.i.i.i.i.i.i34 = icmp eq ptr %35, null
   br i1 %cmp.i.i.i.i.i.i34, label %_ZN5u_mapI10ptr_vectorI3appEED2Ev.exit, label %for.cond.preheader.i.i.i.i.i.i

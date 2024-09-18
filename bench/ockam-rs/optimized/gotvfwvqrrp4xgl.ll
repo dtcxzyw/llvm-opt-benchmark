@@ -135579,10 +135579,10 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h8dd33fa22af64acfE.exit.i.i: ; preds = %604
   br label %630
 
 630:                                              ; preds = %625, %439
-  %631 = phi ptr [ %469, %625 ], [ %423, %439 ]
-  %632 = phi ptr [ %470, %625 ], [ %422, %439 ]
-  %633 = phi ptr [ %627, %625 ], [ %.pre280.i, %439 ]
-  %634 = phi ptr [ %626, %625 ], [ %.pre278.i, %439 ]
+  %631 = phi ptr [ %423, %439 ], [ %469, %625 ]
+  %632 = phi ptr [ %422, %439 ], [ %470, %625 ]
+  %633 = phi ptr [ %.pre280.i, %439 ], [ %627, %625 ]
+  %634 = phi ptr [ %.pre278.i, %439 ], [ %626, %625 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %78), !noalias !20109
   %635 = getelementptr inbounds i8, ptr %0, i64 800
   call void @llvm.experimental.noalias.scope.decl(metadata !20211)

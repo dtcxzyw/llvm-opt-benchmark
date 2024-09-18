@@ -3200,11 +3200,11 @@ isoent_remove_child.exit.i.i:                     ; preds = %697, %677
   br label %isoent_add_child_head.exit.i.i
 
 isoent_add_child_head.exit.i.i:                   ; preds = %725, %721, %isoent_remove_child.exit.i.i, %665, %660
-  %.02474.i.i = load ptr, ptr %656, align 8
-  %.not2875.i.i = icmp eq ptr %.02474.i.i, null
-  br i1 %.not2875.i.i, label %isoent_rr_move.exit.thread.i, label %.lr.ph79.i.i
+  %.02468.i.i = load ptr, ptr %656, align 8
+  %.not2869.i.i = icmp eq ptr %.02468.i.i, null
+  br i1 %.not2869.i.i, label %isoent_rr_move.exit.thread.i, label %.lr.ph72.i.i
 
-.lr.ph79.i.i:                                     ; preds = %isoent_add_child_head.exit.i.i
+.lr.ph72.i.i:                                     ; preds = %isoent_add_child_head.exit.i.i
   %727 = getelementptr inbounds i8, ptr %655, i64 232
   %728 = getelementptr inbounds i8, ptr %653, i64 208
   br label %729
@@ -3213,10 +3213,10 @@ thread-pre-split.i.i:                             ; preds = %902
   %.pr.i.i211 = load ptr, ptr %656, align 8
   br label %729
 
-729:                                              ; preds = %thread-pre-split.i.i, %.lr.ph79.i.i
-  %730 = phi ptr [ %.pr.i.i211, %thread-pre-split.i.i ], [ %.02474.i.i, %.lr.ph79.i.i ]
-  %.02478.i.i = phi ptr [ %.024.i.i, %thread-pre-split.i.i ], [ %.02474.i.i, %.lr.ph79.i.i ]
-  %.04776.i.i = phi ptr [ %.249.i.i, %thread-pre-split.i.i ], [ %664, %.lr.ph79.i.i ]
+729:                                              ; preds = %thread-pre-split.i.i, %.lr.ph72.i.i
+  %730 = phi ptr [ %.pr.i.i211, %thread-pre-split.i.i ], [ %.02468.i.i, %.lr.ph72.i.i ]
+  %.02471.i.i = phi ptr [ %.024.i.i, %thread-pre-split.i.i ], [ %.02468.i.i, %.lr.ph72.i.i ]
+  %.04770.i.i = phi ptr [ %.249.i.i, %thread-pre-split.i.i ], [ %664, %.lr.ph72.i.i ]
   %731 = icmp eq ptr %730, null
   br i1 %731, label %path_table_last_entry.exit.i.i, label %732
 
@@ -3230,24 +3230,24 @@ path_table_last_entry.exit.i.i:                   ; preds = %732, %729
   br label %735
 
 735:                                              ; preds = %.loopexit.i105.i, %path_table_last_entry.exit.i.i
-  %.173.i.i = phi ptr [ %.02478.i.i, %path_table_last_entry.exit.i.i ], [ %901, %.loopexit.i105.i ]
-  %.14871.i.i = phi ptr [ %.04776.i.i, %path_table_last_entry.exit.i.i ], [ %.249.i.i, %.loopexit.i105.i ]
-  %736 = getelementptr inbounds i8, ptr %.173.i.i, i64 232
+  %.167.i.i = phi ptr [ %.02471.i.i, %path_table_last_entry.exit.i.i ], [ %901, %.loopexit.i105.i ]
+  %.14866.i.i = phi ptr [ %.04770.i.i, %path_table_last_entry.exit.i.i ], [ %.249.i.i, %.loopexit.i105.i ]
+  %736 = getelementptr inbounds i8, ptr %.167.i.i, i64 232
   %737 = load i8, ptr %736, align 8
   %738 = and i8 %737, 2
   %.not30.i.i = icmp eq i8 %738, 0
   br i1 %.not30.i.i, label %.loopexit.i105.i, label %739
 
 739:                                              ; preds = %735
-  %740 = getelementptr inbounds i8, ptr %.173.i.i, i64 80
-  %.066.i.i = load ptr, ptr %740, align 8
-  %.not3167.i.i = icmp eq ptr %.066.i.i, null
-  br i1 %.not3167.i.i, label %.loopexit.i105.i, label %.lr.ph.i103.i
+  %740 = getelementptr inbounds i8, ptr %.167.i.i, i64 80
+  %.062.i.i = load ptr, ptr %740, align 8
+  %.not3163.i.i = icmp eq ptr %.062.i.i, null
+  br i1 %.not3163.i.i, label %.loopexit.i105.i, label %.lr.ph.i103.i
 
 .lr.ph.i103.i:                                    ; preds = %739, %isoent_collect_dirs.exit.i.i
-  %.069.i.i = phi ptr [ %.0.i104.i, %isoent_collect_dirs.exit.i.i ], [ %.066.i.i, %739 ]
-  %.35068.i.i = phi ptr [ %.451.i.i, %isoent_collect_dirs.exit.i.i ], [ %.14871.i.i, %739 ]
-  %741 = icmp eq ptr %.35068.i.i, null
+  %.065.i.i = phi ptr [ %.0.i104.i, %isoent_collect_dirs.exit.i.i ], [ %.062.i.i, %739 ]
+  %.35064.i.i = phi ptr [ %.451.i.i, %isoent_collect_dirs.exit.i.i ], [ %.14866.i.i, %739 ]
+  %741 = icmp eq ptr %.35064.i.i, null
   br i1 %741, label %742, label %794
 
 742:                                              ; preds = %.lr.ph.i103.i
@@ -3345,8 +3345,8 @@ isoent_add_child_head.exit.i.i.i:                 ; preds = %778, %774, %749
   br label %794
 
 794:                                              ; preds = %isoent_add_child_head.exit.i.i.i, %.lr.ph.i103.i
-  %.451.i.i = phi ptr [ %746, %isoent_add_child_head.exit.i.i.i ], [ %.35068.i.i, %.lr.ph.i103.i ]
-  %795 = getelementptr i8, ptr %.069.i.i, i64 24
+  %.451.i.i = phi ptr [ %746, %isoent_add_child_head.exit.i.i.i ], [ %.35064.i.i, %.lr.ph.i103.i ]
+  %795 = getelementptr i8, ptr %.065.i.i, i64 24
   %.val.i.i.i = load ptr, ptr %795, align 8
   %796 = call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #24
   %797 = icmp eq ptr %796, null
@@ -3388,13 +3388,13 @@ isoent_clone.exit.i.i.i:                          ; preds = %794
   br label %isoent_make_path_table.exit.thread
 
 816:                                              ; preds = %812, %798
-  %817 = getelementptr inbounds i8, ptr %.069.i.i, i64 32
+  %817 = getelementptr inbounds i8, ptr %.065.i.i, i64 32
   %818 = load ptr, ptr %817, align 8
   %819 = getelementptr inbounds i8, ptr %796, i64 192
   store ptr %818, ptr %819, align 8
-  %820 = getelementptr inbounds i8, ptr %.069.i.i, i64 200
+  %820 = getelementptr inbounds i8, ptr %.065.i.i, i64 200
   store ptr %796, ptr %820, align 8
-  %821 = getelementptr inbounds i8, ptr %.069.i.i, i64 40
+  %821 = getelementptr inbounds i8, ptr %.065.i.i, i64 40
   %822 = load ptr, ptr %821, align 8
   %.not.i35.i.i = icmp eq ptr %822, null
   br i1 %.not.i35.i.i, label %827, label %823
@@ -3402,7 +3402,7 @@ isoent_clone.exit.i.i.i:                          ; preds = %794
 823:                                              ; preds = %816
   %824 = load ptr, ptr %801, align 8
   store ptr %822, ptr %824, align 8
-  %825 = getelementptr inbounds i8, ptr %.069.i.i, i64 48
+  %825 = getelementptr inbounds i8, ptr %.065.i.i, i64 48
   %826 = load ptr, ptr %825, align 8
   store ptr %826, ptr %801, align 8
   br label %827
@@ -3422,15 +3422,15 @@ isoent_clone.exit.i.i.i:                          ; preds = %794
   br i1 %.not63.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !19
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %827
-  %830 = getelementptr inbounds i8, ptr %.069.i.i, i64 56
+  %830 = getelementptr inbounds i8, ptr %.065.i.i, i64 56
   %831 = load i32, ptr %830, align 8
   %832 = getelementptr inbounds i8, ptr %796, i64 56
   store i32 %831, ptr %832, align 8
   store i32 0, ptr %830, align 8
   store ptr null, ptr %821, align 8
-  %833 = getelementptr inbounds i8, ptr %.069.i.i, i64 48
+  %833 = getelementptr inbounds i8, ptr %.065.i.i, i64 48
   store ptr %821, ptr %833, align 8
-  %834 = getelementptr inbounds i8, ptr %.069.i.i, i64 80
+  %834 = getelementptr inbounds i8, ptr %.065.i.i, i64 80
   %835 = load ptr, ptr %834, align 8
   %.not64.i.i.i = icmp eq ptr %835, null
   br i1 %.not64.i.i.i, label %840, label %836
@@ -3438,19 +3438,19 @@ isoent_clone.exit.i.i.i:                          ; preds = %794
 836:                                              ; preds = %._crit_edge.i.i.i
   %837 = load ptr, ptr %804, align 8
   store ptr %835, ptr %837, align 8
-  %838 = getelementptr inbounds i8, ptr %.069.i.i, i64 88
+  %838 = getelementptr inbounds i8, ptr %.065.i.i, i64 88
   %839 = load ptr, ptr %838, align 8
   store ptr %839, ptr %804, align 8
   br label %840
 
 840:                                              ; preds = %836, %._crit_edge.i.i.i
-  %841 = getelementptr inbounds i8, ptr %.069.i.i, i64 96
+  %841 = getelementptr inbounds i8, ptr %.065.i.i, i64 96
   %842 = load i32, ptr %841, align 8
   %843 = getelementptr inbounds i8, ptr %796, i64 96
   store i32 %842, ptr %843, align 8
   store i32 0, ptr %841, align 8
   store ptr null, ptr %834, align 8
-  %844 = getelementptr inbounds i8, ptr %.069.i.i, i64 88
+  %844 = getelementptr inbounds i8, ptr %.065.i.i, i64 88
   store ptr %834, ptr %844, align 8
   %845 = getelementptr inbounds i8, ptr %.451.i.i, i64 64
   %846 = call i32 @__archive_rb_tree_insert_node(ptr noundef nonnull %845, ptr noundef nonnull %796) #23
@@ -3498,7 +3498,7 @@ isoent_clone.exit.i.i.i:                          ; preds = %794
   %870 = call i32 @archive_entry_nlink(ptr noundef %869) #23
   %871 = add i32 %870, 1
   call void @archive_entry_set_nlink(ptr noundef %869, i32 noundef %871) #23
-  %872 = getelementptr inbounds i8, ptr %.069.i.i, i64 232
+  %872 = getelementptr inbounds i8, ptr %.065.i.i, i64 232
   %873 = load i8, ptr %872, align 8
   %874 = and i8 %873, -3
   store i8 %874, ptr %872, align 8
@@ -3557,14 +3557,14 @@ isoent_clone.exit.i.i.i:                          ; preds = %794
   br i1 %.not27.i41.i.i, label %isoent_collect_dirs.exit.i.i, label %875, !llvm.loop !16
 
 isoent_collect_dirs.exit.i.i:                     ; preds = %.loopexit.i.i.i
-  %899 = getelementptr inbounds i8, ptr %.069.i.i, i64 120
+  %899 = getelementptr inbounds i8, ptr %.065.i.i, i64 120
   %.0.i104.i = load ptr, ptr %899, align 8
   %.not31.i.i = icmp eq ptr %.0.i104.i, null
   br i1 %.not31.i.i, label %.loopexit.i105.i, label %.lr.ph.i103.i, !llvm.loop !20
 
 .loopexit.i105.i:                                 ; preds = %isoent_collect_dirs.exit.i.i, %739, %735
-  %.249.i.i = phi ptr [ %.14871.i.i, %735 ], [ %.14871.i.i, %739 ], [ %.451.i.i, %isoent_collect_dirs.exit.i.i ]
-  %900 = getelementptr inbounds i8, ptr %.173.i.i, i64 128
+  %.249.i.i = phi ptr [ %.14866.i.i, %735 ], [ %.14866.i.i, %739 ], [ %.451.i.i, %isoent_collect_dirs.exit.i.i ]
+  %900 = getelementptr inbounds i8, ptr %.167.i.i, i64 128
   %901 = load ptr, ptr %900, align 8
   %.not29.i.i = icmp eq ptr %901, null
   br i1 %.not29.i.i, label %902, label %735, !llvm.loop !21

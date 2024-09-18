@@ -18513,8 +18513,8 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform4unit10clone_unit17hf
 .noexc464:                                        ; preds = %96
   unreachable
 
-97:                                               ; preds = %._crit_edge1504, %679, %100, %98
-  %.pn431 = phi { ptr, i32 } [ %99, %98 ], [ %.pn429558, %679 ], [ %.pn425, %100 ], [ %.pn427564, %._crit_edge1504 ]
+97:                                               ; preds = %._crit_edge970, %679, %100, %98
+  %.pn431 = phi { ptr, i32 } [ %99, %98 ], [ %.pn429558, %679 ], [ %.pn425, %100 ], [ %.pn427564, %._crit_edge970 ]
   invoke void @"_ZN4core3ptr137drop_in_place$LT$gimli..read..dwarf..Unit$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17hf2551b88f550ab9bE"(ptr noalias noundef nonnull align 8 dereferenceable(424) %2) #18
           to label %common.resume unwind label %393
 
@@ -19367,11 +19367,11 @@ _ZN18wasmtime_cranelift5debug9transform4refs11UnitRefsMap6insert17h5638f96c2c934
   br i1 %351, label %"_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hdc19adb03ca1c60dE.exit.loopexit", label %336
 
 "_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hdc19adb03ca1c60dE.exit.loopexit": ; preds = %336, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$$LP$usize$C$alloc..vec..Vec$LT$$LP$u64$C$u64$RP$$GT$$RP$$GT$$GT$17h73bdf7f6f5493183E.exit.i"
-  %.pre1503 = load i64, ptr %72, align 8
+  %.pre969 = load i64, ptr %72, align 8
   br label %"_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hdc19adb03ca1c60dE.exit"
 
 "_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hdc19adb03ca1c60dE.exit": ; preds = %"_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hdc19adb03ca1c60dE.exit.loopexit", %"_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hb431b9320bc5e2e4E.exit"
-  %352 = phi i64 [ %.pre1503, %"_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hdc19adb03ca1c60dE.exit.loopexit" ], [ %332, %"_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hb431b9320bc5e2e4E.exit" ]
+  %352 = phi i64 [ %.pre969, %"_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hdc19adb03ca1c60dE.exit.loopexit" ], [ %332, %"_ZN18wasmtime_cranelift5debug9transform4unit22InheritedAttr$LT$T$GT$6update17hb431b9320bc5e2e4E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1309)
   %.promoted.i491 = load i64, ptr %.sroa.5272.0..sroa_idx, align 8, !alias.scope !1309
   %353 = icmp eq i64 %.promoted.i491, 0
@@ -19688,9 +19688,9 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   br label %.body484
 
 434:                                              ; preds = %.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit"
-  %.sroa.0151.01106 = phi i64 [ %290, %.preheader ], [ %436, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit" ]
+  %.sroa.0151.0836 = phi i64 [ %290, %.preheader ], [ %436, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit" ]
   %435 = phi i64 [ %.promoted, %.preheader ], [ %441, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit" ]
-  %436 = add i64 %.sroa.0151.01106, 1
+  %436 = add i64 %.sroa.0151.0836, 1
   %437 = icmp eq i64 %435, 0
   br i1 %437, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit", label %438
 
@@ -19703,7 +19703,7 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit": ; preds = %434, %438
   %441 = phi i64 [ 0, %434 ], [ %439, %438 ]
-  %exitcond.not = icmp eq i64 %.sroa.0151.01106, 0
+  %exitcond.not = icmp eq i64 %.sroa.0151.0836, 0
   br i1 %exitcond.not, label %.thread627, label %434
 
 442:                                              ; preds = %.thread627
@@ -20467,14 +20467,14 @@ common.resume:                                    ; preds = %97, %665, %670
   %.pn427564 = phi { ptr, i32 } [ %104, %.thread559 ], [ %.pn425, %102 ]
   %.1563 = phi i8 [ 1, %.thread559 ], [ %.3, %102 ]
   invoke void @"_ZN4core3ptr80drop_in_place$LT$wasmtime_cranelift..debug..transform..refs..PendingUnitRefs$GT$17h42b46ba69fb704e9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93) #18
-          to label %._crit_edge1504 unwind label %393
+          to label %._crit_edge970 unwind label %393
 
-._crit_edge1504:                                  ; preds = %678
-  %.pre1505 = trunc nuw i8 %.1563 to i1
-  br i1 %.pre1505, label %679, label %97
+._crit_edge970:                                   ; preds = %678
+  %.pre971 = trunc nuw i8 %.1563 to i1
+  br i1 %.pre971, label %679, label %97
 
-679:                                              ; preds = %._crit_edge1504, %.thread, %100
-  %.pn429558 = phi { ptr, i32 } [ %101, %.thread ], [ %.pn425, %100 ], [ %.pn427564, %._crit_edge1504 ]
+679:                                              ; preds = %._crit_edge970, %.thread, %100
+  %.pn429558 = phi { ptr, i32 } [ %101, %.thread ], [ %.pn425, %100 ], [ %.pn427564, %._crit_edge970 ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$wasmtime_cranelift..debug..transform..refs..UnitRefsMap$GT$17h1f1e8d6ee3dc2afdE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %94) #18
           to label %97 unwind label %393
 }

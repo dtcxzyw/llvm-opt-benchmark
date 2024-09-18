@@ -2357,10 +2357,10 @@ define void @_ZN13WirelessFrame16getInterfaceInfoEv(ptr nocapture noundef nonnul
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 8
-  %.not245 = icmp eq i32 %57, 0
-  br i1 %.not245, label %.invoke, label %.lr.ph243
+  %.not219 = icmp eq i32 %57, 0
+  br i1 %.not219, label %.invoke, label %.lr.ph217
 
-.lr.ph243:                                        ; preds = %.preheader209
+.lr.ph217:                                        ; preds = %.preheader209
   %58 = getelementptr inbounds i8, ptr %17, i64 8
   %59 = getelementptr inbounds i8, ptr %15, i64 8
   %60 = getelementptr inbounds i8, ptr %17, i64 16
@@ -2411,11 +2411,11 @@ define void @_ZN13WirelessFrame16getInterfaceInfoEv(ptr nocapture noundef nonnul
           cleanup
   br label %_ZN7QStringD2Ev.exit192
 
-92:                                               ; preds = %.lr.ph243, %_ZN7QStringD2Ev.exit188
-  %indvars.iv250 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next251, %_ZN7QStringD2Ev.exit188 ]
-  %93 = phi ptr [ %55, %.lr.ph243 ], [ %404, %_ZN7QStringD2Ev.exit188 ]
+92:                                               ; preds = %.lr.ph217, %_ZN7QStringD2Ev.exit188
+  %indvars.iv222 = phi i64 [ 0, %.lr.ph217 ], [ %indvars.iv.next223, %_ZN7QStringD2Ev.exit188 ]
+  %93 = phi ptr [ %55, %.lr.ph217 ], [ %404, %_ZN7QStringD2Ev.exit188 ]
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr ptr, ptr %94, i64 %indvars.iv250
+  %95 = getelementptr ptr, ptr %94, i64 %indvars.iv222
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %96, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
@@ -2480,8 +2480,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %99, %_ZN17QArrayDat
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 8
   %119 = load i32, ptr %118, align 8
-  %.not246 = icmp eq i32 %119, 0
-  br i1 %.not246, label %._crit_edge, label %.lr.ph
+  %.not220 = icmp eq i32 %119, 0
+  br i1 %.not220, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN7QStringD2Ev.exit95
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7QStringD2Ev.exit95 ], [ 0, %.preheader ]
@@ -3318,12 +3318,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i190:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit192
 
 _ZN7QStringD2Ev.exit188:                          ; preds = %398, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i186, %395, %_ZN7QStringD2Ev.exit
-  %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %404 = load ptr, ptr %54, align 8
   %405 = getelementptr inbounds i8, ptr %404, i64 8
   %406 = load i32, ptr %405, align 8
   %407 = zext i32 %406 to i64
-  %408 = icmp ult i64 %indvars.iv.next251, %407
+  %408 = icmp ult i64 %indvars.iv.next223, %407
   br i1 %408, label %92, label %.invoke, !llvm.loop !11
 
 409:                                              ; preds = %.invoke

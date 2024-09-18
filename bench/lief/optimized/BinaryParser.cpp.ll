@@ -41409,10 +41409,10 @@ define linkonce_odr hidden i64 @_ZN4LIEF5MachO12BinaryParser19parse_load_command
   store i64 0, ptr %208, align 8
   store i64 0, ptr %117, align 8
   %209 = load i64, ptr %115, align 8
-  %.not1608 = icmp eq i64 %209, 0
-  br i1 %.not1608, label %._crit_edge, label %.lr.ph1604
+  %.not1605 = icmp eq i64 %209, 0
+  br i1 %.not1605, label %._crit_edge, label %.lr.ph1601
 
-.lr.ph1604:                                       ; preds = %203
+.lr.ph1601:                                       ; preds = %203
   %.sroa.278.0..sroa_idx = getelementptr inbounds i8, ptr %118, i64 8
   %210 = getelementptr inbounds i8, ptr %173, i64 16
   %211 = getelementptr inbounds i8, ptr %173, i64 8
@@ -41495,16 +41495,16 @@ define linkonce_odr hidden i64 @_ZN4LIEF5MachO12BinaryParser19parse_load_command
   %282 = getelementptr inbounds i8, ptr %118, i64 4
   br label %283
 
-283:                                              ; preds = %.lr.ph1604, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995
-  %.01601 = phi i64 [ %182, %.lr.ph1604 ], [ %1918, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
-  %.01341600 = phi i32 [ -1, %.lr.ph1604 ], [ %.11259, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
-  %.01351599 = phi i64 [ -1, %.lr.ph1604 ], [ %.11361257, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
+283:                                              ; preds = %.lr.ph1601, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995
+  %.01598 = phi i64 [ %182, %.lr.ph1601 ], [ %1918, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
+  %.01341597 = phi i32 [ -1, %.lr.ph1601 ], [ %.11259, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
+  %.01351596 = phi i64 [ -1, %.lr.ph1601 ], [ %.11361257, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
   %284 = load ptr, ptr %180, align 8
   %285 = invoke noundef i64 @_ZNK4LIEF12BinaryStream3posEv(ptr noundef nonnull align 8 dereferenceable(24) %284)
           to label %.noexc unwind label %296
 
 .noexc:                                           ; preds = %283
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %284, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %284, i64 noundef %.01598)
           to label %.noexc183 unwind label %296
 
 .noexc183:                                        ; preds = %.noexc
@@ -41600,7 +41600,7 @@ _ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_1
           to label %.noexc189 unwind label %.body.thread1282
 
 .noexc189:                                        ; preds = %300
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %301, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %301, i64 noundef %.01598)
           to label %.noexc190 unwind label %.body.thread1282
 
 .noexc190:                                        ; preds = %.noexc189
@@ -41719,7 +41719,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO8LinkEditESt14default_deleteIS2_EED2Ev.exit: ; pre
 
 _ZNSt10unique_ptrIN4LIEF5MachO14SegmentCommandESt14default_deleteIS2_EED2Ev.exit: ; preds = %.noexc199, %_ZNSt10unique_ptrIN4LIEF5MachO8LinkEditESt14default_deleteIS2_EED2Ev.exit
   %.sroa.01189.3 = phi ptr [ %322, %_ZNSt10unique_ptrIN4LIEF5MachO8LinkEditESt14default_deleteIS2_EED2Ev.exit ], [ %329, %.noexc199 ]
-  %332 = add i64 %.01601, 72
+  %332 = add i64 %.01598, 72
   %333 = load ptr, ptr %177, align 8
   %334 = getelementptr inbounds i8, ptr %333, i64 176
   %335 = getelementptr inbounds i8, ptr %333, i64 184
@@ -41824,7 +41824,7 @@ _ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit: ; pred
 382:                                              ; preds = %_ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit
   %383 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %381, ptr noundef nonnull @.str.139) #22
   %384 = icmp eq i32 %383, 0
-  %385 = icmp slt i64 %.01351599, 0
+  %385 = icmp slt i64 %.01351596, 0
   %or.cond = select i1 %384, i1 %385, i1 false
   br i1 %or.cond, label %386, label %388
 
@@ -41833,7 +41833,7 @@ _ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit: ; pred
           to label %388 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 388:                                              ; preds = %386, %382
-  %.2137 = phi i64 [ %.01351599, %382 ], [ %387, %386 ]
+  %.2137 = phi i64 [ %.01351596, %382 ], [ %387, %386 ]
   %389 = load ptr, ptr %180, align 8
   %390 = invoke noundef zeroext i1 @_ZN4LIEF12MemoryStream7classofERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(24) %389)
           to label %391 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -41983,7 +41983,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
 447:                                              ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238, %_ZNSt6vectorIhSaIhEED2Ev.exit
   %.0151 = phi i64 [ 0, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %555, %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238 ]
   %.0149 = phi i64 [ %332, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %554, %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238 ]
-  %.2 = phi i32 [ %.01341600, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %.3, %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238 ]
+  %.2 = phi i32 [ %.01341597, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %.3, %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238 ]
   %448 = invoke noundef i32 @_ZNK4LIEF5MachO14SegmentCommand17numberof_sectionsEv(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.01189.3)
           to label %449 unwind label %.body.thread1290.loopexit
 
@@ -42337,7 +42337,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238: ; p
           to label %.noexc241 unwind label %.body.thread1282
 
 .noexc241:                                        ; preds = %574
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %575, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %575, i64 noundef %.01598)
           to label %.noexc242 unwind label %.body.thread1282
 
 .noexc242:                                        ; preds = %.noexc241
@@ -42420,7 +42420,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO12DylibCommandESt14default_deleteIS2_EED2Ev.exit: 
   %595 = load i32, ptr %274, align 4
   %596 = load ptr, ptr %180, align 8
   %597 = zext i32 %595 to i64
-  %598 = add i64 %.01601, %597
+  %598 = add i64 %.01598, %597
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %125, ptr noundef nonnull align 8 dereferenceable(24) %596, i64 noundef %598, i64 noundef -1)
           to label %599 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -42449,7 +42449,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit258: ; preds = %.noexc256
           cleanup
   br label %605
 
-.loopexit.split-lp1345:                           ; preds = %.invoke1907
+.loopexit.split-lp1345:                           ; preds = %.invoke1904
   %lpad.loopexit.split-lp1347 = landingpad { ptr, i32 }
           cleanup
   br label %605
@@ -42491,13 +42491,13 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit258: ; preds = %.noexc256
   %623 = ptrtoint ptr %621 to i64
   %624 = sub i64 %622, %623
   %625 = icmp eq i64 %624, 9223372036854775800
-  br i1 %625, label %.invoke1907, label %_ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %625, label %.invoke1904, label %_ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
-.invoke1907:                                      ; preds = %648, %620
+.invoke1904:                                      ; preds = %648, %620
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #25
-          to label %.cont1908 unwind label %.loopexit.split-lp1345
+          to label %.cont1905 unwind label %.loopexit.split-lp1345
 
-.cont1908:                                        ; preds = %.invoke1907
+.cont1905:                                        ; preds = %.invoke1904
   unreachable
 
 _ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %620
@@ -42566,7 +42566,7 @@ _ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit: ; preds 
   %651 = ptrtoint ptr %649 to i64
   %652 = sub i64 %650, %651
   %653 = icmp eq i64 %652, 9223372036854775800
-  br i1 %653, label %.invoke1907, label %_ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i266
+  br i1 %653, label %.invoke1904, label %_ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i266
 
 _ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i266: ; preds = %648
   %654 = ashr exact i64 %652, 3
@@ -42626,7 +42626,7 @@ _ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275: ; pre
           to label %.noexc280 unwind label %.body.thread1282
 
 .noexc280:                                        ; preds = %673
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %674, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %674, i64 noundef %.01598)
           to label %.noexc281 unwind label %.body.thread1282
 
 .noexc281:                                        ; preds = %.noexc280
@@ -42701,7 +42701,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO12RPathCommandESt14default_deleteIS2_EED2Ev.exit: 
   %690 = load i32, ptr %271, align 8
   %691 = load ptr, ptr %180, align 8
   %692 = zext i32 %690 to i64
-  %693 = add i64 %.01601, %692
+  %693 = add i64 %.01598, %692
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %127, ptr noundef nonnull align 8 dereferenceable(24) %691, i64 noundef %693, i64 noundef -1)
           to label %694 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -42768,7 +42768,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit298: ; preds = %.noexc296
           to label %.noexc305 unwind label %.body.thread1282
 
 .noexc305:                                        ; preds = %713
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %714, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %714, i64 noundef %.01598)
           to label %.noexc306 unwind label %.body.thread1282
 
 .noexc306:                                        ; preds = %.noexc305
@@ -42853,7 +42853,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314: ; preds = %.noexc312
           to label %.noexc331 unwind label %.body.thread1282
 
 .noexc331:                                        ; preds = %734
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %735, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %735, i64 noundef %.01598)
           to label %.noexc332 unwind label %.body.thread1282
 
 .noexc332:                                        ; preds = %.noexc331
@@ -42928,7 +42928,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO15DylinkerCommandESt14default_deleteIS2_EED2Ev.exi
   %751 = load i32, ptr %268, align 8
   %752 = load ptr, ptr %180, align 8
   %753 = zext i32 %751 to i64
-  %754 = add i64 %.01601, %753
+  %754 = add i64 %.01598, %753
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %130, ptr noundef nonnull align 8 dereferenceable(24) %752, i64 noundef %754, i64 noundef -1)
           to label %755 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -42995,7 +42995,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit349: ; preds = %.noexc347
           to label %.noexc357 unwind label %.body.thread1282
 
 .noexc357:                                        ; preds = %774
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %775, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %775, i64 noundef %.01598)
           to label %.noexc358 unwind label %.body.thread1282
 
 .noexc358:                                        ; preds = %.noexc357
@@ -43098,7 +43098,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO13ThreadCommandESt14default_deleteIS2_EED2Ev.exit:
 
 803:                                              ; preds = %.noexc373
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %90)
-  %804 = add i64 %.01601, 16
+  %804 = add i64 %.01598, 16
   %805 = load ptr, ptr %177, align 8
   %806 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %805)
           to label %807 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -43265,7 +43265,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389: ; preds = %.noexc387
           to label %.noexc395 unwind label %.body.thread1282
 
 .noexc395:                                        ; preds = %864
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %865, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %865, i64 noundef %.01598)
           to label %.noexc396 unwind label %.body.thread1282
 
 .noexc396:                                        ; preds = %.noexc395
@@ -43354,8 +43354,8 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404: ; preds = %.noexc402
 .preheader:                                       ; preds = %885
   store i64 0, ptr %133, align 8
   %889 = load i32, ptr %258, align 4
-  %.not1612 = icmp eq i32 %889, 0
-  br i1 %.not1612, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1595
+  %.not1609 = icmp eq i32 %889, 0
+  br i1 %.not1609, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1595
 
 .lr.ph1595:                                       ; preds = %.preheader, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit
   %890 = load ptr, ptr %180, align 8
@@ -43390,7 +43390,7 @@ _ZNK4LIEF12BinaryStream4readINS_5MachO7details8nlist_64EEEN2tl8expectedIT_11lief
   store i32 1, ptr %134, align 8, !alias.scope !410
   store i8 0, ptr %259, align 8, !alias.scope !410
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81), !noalias !404
-  br label %.loopexit1714
+  br label %.loopexit1711
 
 898:                                              ; preds = %.noexc415
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false)
@@ -43400,15 +43400,15 @@ _ZNK4LIEF12BinaryStream4readINS_5MachO7details8nlist_64EEEN2tl8expectedIT_11lief
           to label %_ZNK4LIEF12BinaryStream4readINS_5MachO7details8nlist_64EEEN2tl8expectedIT_11lief_errorsEEv.exit unwind label %.body.thread1290.loopexit.split-lp.loopexit
 
 _ZNK4LIEF12BinaryStream4readINS_5MachO7details8nlist_64EEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds = %898
-  %.pre1702 = load i8, ptr %259, align 8
-  %899 = trunc i8 %.pre1702 to i1
-  br i1 %899, label %902, label %.loopexit1714
+  %.pre1699 = load i8, ptr %259, align 8
+  %899 = trunc i8 %.pre1699 to i1
+  br i1 %899, label %902, label %.loopexit1711
 
-.loopexit1714:                                    ; preds = %_ZNK4LIEF12BinaryStream4readINS_5MachO7details8nlist_64EEEN2tl8expectedIT_11lief_errorsEEv.exit, %_ZNK4LIEF12BinaryStream4readINS_5MachO7details8nlist_64EEEN2tl8expectedIT_11lief_errorsEEv.exit.thread
+.loopexit1711:                                    ; preds = %_ZNK4LIEF12BinaryStream4readINS_5MachO7details8nlist_64EEEN2tl8expectedIT_11lief_errorsEEv.exit, %_ZNK4LIEF12BinaryStream4readINS_5MachO7details8nlist_64EEEN2tl8expectedIT_11lief_errorsEEv.exit.thread
   %900 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEv()
           to label %.noexc417 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc417:                                        ; preds = %.loopexit1714
+.noexc417:                                        ; preds = %.loopexit1711
   %901 = load ptr, ptr %900, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
@@ -43668,7 +43668,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit434: ; pr
           to label %.noexc440 unwind label %.body.thread1282
 
 .noexc440:                                        ; preds = %994
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %995, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %995, i64 noundef %.01598)
           to label %.noexc441 unwind label %.body.thread1282
 
 .noexc441:                                        ; preds = %.noexc440
@@ -43766,7 +43766,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit449: ; preds = %.noexc447
           to label %.noexc461 unwind label %.body.thread1282
 
 .noexc461:                                        ; preds = %1018
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1019, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1019, i64 noundef %.01598)
           to label %.noexc462 unwind label %.body.thread1282
 
 .noexc462:                                        ; preds = %.noexc461
@@ -43870,7 +43870,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit: ; pre
           to label %.noexc482 unwind label %.body.thread1282
 
 .noexc482:                                        ; preds = %1044
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1045, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1045, i64 noundef %.01598)
           to label %.noexc483 unwind label %.body.thread1282
 
 .noexc483:                                        ; preds = %.noexc482
@@ -43988,7 +43988,7 @@ _ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit: ; preds = %.noexc498
           to label %.noexc504 unwind label %.body.thread1282
 
 .noexc504:                                        ; preds = %1072
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1073, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1073, i64 noundef %.01598)
           to label %.noexc505 unwind label %.body.thread1282
 
 .noexc505:                                        ; preds = %.noexc504
@@ -44103,7 +44103,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit513: ; preds = %.noexc511
           to label %.noexc528 unwind label %.body.thread1282
 
 .noexc528:                                        ; preds = %1101
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1102, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1102, i64 noundef %.01598)
           to label %.noexc529 unwind label %.body.thread1282
 
 .noexc529:                                        ; preds = %.noexc528
@@ -44178,11 +44178,11 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit537: ; preds = %.noexc535
 
 _ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader: ; preds = %.noexc538
   %1120 = load i32, ptr %248, align 4
-  %.not1611 = icmp eq i32 %1120, 0
-  br i1 %.not1611, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1594
+  %.not1608 = icmp eq i32 %1120, 0
+  br i1 %.not1608, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1594
 
 .lr.ph1594:                                       ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader
-  %1121 = add i64 %.01601, 24
+  %1121 = add i64 %.01598, 24
   %1122 = getelementptr inbounds i8, ptr %1119, i64 96
   %1123 = getelementptr inbounds i8, ptr %1119, i64 104
   %1124 = getelementptr inbounds i8, ptr %1119, i64 88
@@ -44278,7 +44278,7 @@ _ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7detail
           to label %.noexc562 unwind label %.body.thread1282
 
 .noexc562:                                        ; preds = %1152
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1153, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1153, i64 noundef %.01598)
           to label %.noexc563 unwind label %.body.thread1282
 
 .noexc563:                                        ; preds = %.noexc562
@@ -44364,7 +44364,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit577: ; preds = %.noexc575
           to label %.noexc581 unwind label %.body.thread1282
 
 .noexc581:                                        ; preds = %1173
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1174, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1174, i64 noundef %.01598)
           to label %.noexc582 unwind label %.body.thread1282
 
 .noexc582:                                        ; preds = %.noexc581
@@ -44450,7 +44450,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit597: ; preds = %.noexc595
           to label %.noexc601 unwind label %.body.thread1282
 
 .noexc601:                                        ; preds = %1194
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1195, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1195, i64 noundef %.01598)
           to label %.noexc602 unwind label %.body.thread1282
 
 .noexc602:                                        ; preds = %.noexc601
@@ -44547,8 +44547,8 @@ _ZNSt10unique_ptrIN4LIEF5MachO10DataInCodeESt14default_deleteIS2_EED2Ev.exit: ; 
 
 .preheader1322:                                   ; preds = %1221
   store i64 0, ptr %149, align 8
-  %.not1610 = icmp ult i32 %1215, 8
-  br i1 %.not1610, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1592
+  %.not1607 = icmp ult i32 %1215, 8
+  br i1 %.not1607, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1592
 
 .lr.ph1592:                                       ; preds = %.preheader1322, %1237
   %1223 = load ptr, ptr %180, align 8
@@ -44585,11 +44585,11 @@ _ZNSt10unique_ptrIN4LIEF5MachO10DataInCodeESt14default_deleteIS2_EED2Ev.exit: ; 
           to label %1234 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1234:                                             ; preds = %1233
-  %.sroa.3.sroa.2.0.i.i6191709 = trunc nuw nsw i64 %.lobit.i.i618 to i8
-  %.not.not.i.i6201710 = icmp eq i64 %1230, 0
-  %.sroa.03.0.insert.insert.i.i6211711 = select i1 %.not.not.i.i6201710, i64 1, i64 %1231
-  store i64 %.sroa.03.0.insert.insert.i.i6211711, ptr %150, align 8
-  store i8 %.sroa.3.sroa.2.0.i.i6191709, ptr %.sroa.235.0..sroa_idx, align 8
+  %.sroa.3.sroa.2.0.i.i6191706 = trunc nuw nsw i64 %.lobit.i.i618 to i8
+  %.not.not.i.i6201707 = icmp eq i64 %1230, 0
+  %.sroa.03.0.insert.insert.i.i6211708 = select i1 %.not.not.i.i6201707, i64 1, i64 %1231
+  store i64 %.sroa.03.0.insert.insert.i.i6211708, ptr %150, align 8
+  store i8 %.sroa.3.sroa.2.0.i.i6191706, ptr %.sroa.235.0..sroa_idx, align 8
   invoke void @_ZN4LIEF5MachO13DataCodeEntryC1ERKNS0_7details18data_in_code_entryE(ptr noundef nonnull align 8 dereferenceable(20) %151, ptr noundef nonnull align 4 dereferenceable(8) %150)
           to label %1235 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -44650,7 +44650,7 @@ _ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit631: ; preds = %.noexc629
           to label %.noexc637 unwind label %.body.thread1282
 
 .noexc637:                                        ; preds = %1249
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1250, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1250, i64 noundef %.01598)
           to label %.noexc638 unwind label %.body.thread1282
 
 .noexc638:                                        ; preds = %.noexc637
@@ -44748,7 +44748,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit646: ; preds = %.noexc644
           to label %.noexc659 unwind label %.body.thread1282
 
 .noexc659:                                        ; preds = %1273
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1274, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1274, i64 noundef %.01598)
           to label %.noexc660 unwind label %.body.thread1282
 
 .noexc660:                                        ; preds = %.noexc659
@@ -44885,7 +44885,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit669: ; preds = %.noexc667
           to label %.noexc682 unwind label %.body.thread1282
 
 .noexc682:                                        ; preds = %1319
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1320, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1320, i64 noundef %.01598)
           to label %.noexc683 unwind label %.body.thread1282
 
 .noexc683:                                        ; preds = %.noexc682
@@ -44970,7 +44970,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit692: ; preds = %.noexc690
           to label %.noexc709 unwind label %.body.thread1282
 
 .noexc709:                                        ; preds = %1340
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1341, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1341, i64 noundef %.01598)
           to label %.noexc710 unwind label %.body.thread1282
 
 .noexc710:                                        ; preds = %.noexc709
@@ -45029,7 +45029,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit718: ; preds = %.noexc716
 
 1353:                                             ; preds = %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details21sub_framework_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit
   %1354 = load ptr, ptr %180, align 8
-  %1355 = add i64 %.01601, %.sroa.3.0.insert.ext.i.i703
+  %1355 = add i64 %.01598, %.sroa.3.0.insert.ext.i.i703
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %156, ptr noundef nonnull align 8 dereferenceable(24) %1354, i64 noundef %1355, i64 noundef -1)
           to label %1356 unwind label %.body.thread1282
 
@@ -45107,7 +45107,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO12SubFrameworkESt14default_deleteIS2_EED2Ev.exit: 
           to label %.noexc743 unwind label %.body.thread1282
 
 .noexc743:                                        ; preds = %1377
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1378, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1378, i64 noundef %.01598)
           to label %.noexc744 unwind label %.body.thread1282
 
 .noexc744:                                        ; preds = %.noexc743
@@ -45166,7 +45166,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit753: ; preds = %.noexc751
 
 1390:                                             ; preds = %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details16dylinker_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit750
   %1391 = load ptr, ptr %180, align 8
-  %1392 = add i64 %.01601, %.sroa.3.0.insert.ext.i.i737
+  %1392 = add i64 %.01598, %.sroa.3.0.insert.ext.i.i737
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %158, ptr noundef nonnull align 8 dereferenceable(24) %1391, i64 noundef %1392, i64 noundef -1)
           to label %1393 unwind label %.body.thread1282
 
@@ -45262,7 +45262,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO15DyldEnvironmentESt14default_deleteIS2_EED2Ev.exi
           to label %.noexc773 unwind label %.body.thread1282
 
 .noexc773:                                        ; preds = %1419
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1420, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1420, i64 noundef %.01598)
           to label %.noexc774 unwind label %.body.thread1282
 
 .noexc774:                                        ; preds = %.noexc773
@@ -45365,7 +45365,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit782: ; preds = %.noexc780
           to label %.noexc794 unwind label %.body.thread1282
 
 .noexc794:                                        ; preds = %1445
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1446, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1446, i64 noundef %.01598)
           to label %.noexc795 unwind label %.body.thread1282
 
 .noexc795:                                        ; preds = %.noexc794
@@ -45448,7 +45448,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO14FilesetCommandESt14default_deleteIS2_EED2Ev.exit
   %1466 = load i32, ptr %224, align 8
   %1467 = load ptr, ptr %180, align 8
   %1468 = zext i32 %1466 to i64
-  %1469 = add i64 %.01601, %1468
+  %1469 = add i64 %.01598, %1468
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %163, ptr noundef nonnull align 8 dereferenceable(24) %1467, i64 noundef %1469, i64 noundef -1)
           to label %1470 unwind label %.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -45667,11 +45667,11 @@ _ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i.i832: ; preds = 
   %1540 = getelementptr inbounds i8, ptr %1539, i64 8
   %1541 = load ptr, ptr %1540, align 8
   call void %1541(ptr noundef nonnull align 8 dereferenceable(24) %1538) #22
-  %.pre1701 = load ptr, ptr %180, align 8
+  %.pre1698 = load ptr, ptr %180, align 8
   br label %_ZNSt10unique_ptrIN4LIEF12BinaryStreamESt14default_deleteIS1_EEaSEOS4_.exit833
 
 _ZNSt10unique_ptrIN4LIEF12BinaryStreamESt14default_deleteIS1_EEaSEOS4_.exit833: ; preds = %1536, %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i.i832
-  %1542 = phi ptr [ %1537, %1536 ], [ %.pre1701, %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i.i832 ]
+  %1542 = phi ptr [ %1537, %1536 ], [ %.pre1698, %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i.i832 ]
   invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1542, i64 noundef %1503)
           to label %1543 unwind label %1532
 
@@ -45776,7 +45776,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev.exit839: ; pr
           to label %.noexc848 unwind label %.body.thread1282
 
 .noexc848:                                        ; preds = %1577
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1578, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1578, i64 noundef %.01598)
           to label %.noexc849 unwind label %.body.thread1282
 
 .noexc849:                                        ; preds = %.noexc848
@@ -46049,7 +46049,7 @@ _ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit: ; preds = %.noexc874
           to label %.noexc884 unwind label %.body.thread1282
 
 .noexc884:                                        ; preds = %1673
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1674, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1674, i64 noundef %.01598)
           to label %.noexc885 unwind label %.body.thread1282
 
 .noexc885:                                        ; preds = %.noexc884
@@ -46171,7 +46171,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit906: ; preds = %.noexc904
           to label %.noexc912 unwind label %.body.thread1282
 
 .noexc912:                                        ; preds = %1703
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1704, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1704, i64 noundef %.01598)
           to label %.noexc913 unwind label %.body.thread1282
 
 .noexc913:                                        ; preds = %.noexc912
@@ -46301,8 +46301,8 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %1746, %_ZNSt6v
 _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %1726, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
   %1749 = phi i32 [ %1728, %1726 ], [ %.pre, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
   store i64 0, ptr %172, align 8
-  %.not1609 = icmp eq i32 %1749, 0
-  br i1 %.not1609, label %.loopexit1332, label %.lr.ph
+  %.not1606 = icmp eq i32 %1749, 0
+  br i1 %.not1606, label %.loopexit1332, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE7reserveEm.exit
   %1750 = getelementptr inbounds i8, ptr %1718, i64 72
@@ -46501,7 +46501,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit946: ; preds = %.noexc944
           to label %.noexc953 unwind label %.body.thread1282
 
 .noexc953:                                        ; preds = %1808
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1809, i64 noundef %.01601)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1809, i64 noundef %.01598)
           to label %.noexc954 unwind label %.body.thread1282
 
 .noexc954:                                        ; preds = %.noexc953
@@ -46709,8 +46709,8 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_error
   br i1 %.not1300, label %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread
 
 _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread: ; preds = %1300, %1310, %1237, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit, %.preheader1322, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader, %.preheader, %.noexc983, %.noexc967, %.loopexit1332, %.noexc898, %1569, %1566, %.noexc783, %.noexc693, %.noexc647, %.noexc589, %.noexc569, %.noexc517, %.noexc450, %770, %767, %.noexc315, %709, %706, %672, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275, %557, %567, %572, %564, %561, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377, %817, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380, %829, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383, %841, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386, %853, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit419, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit631, %1664, %1657, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276
-  %.11260 = phi i32 [ %.01341600, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.01341600, %.noexc983 ], [ %.01341600, %.noexc967 ], [ %.01341600, %.loopexit1332 ], [ %.01341600, %.noexc898 ], [ %.01341600, %1569 ], [ %.01341600, %1566 ], [ %.01341600, %.noexc783 ], [ %.01341600, %.noexc693 ], [ %.01341600, %.noexc647 ], [ %.01341600, %.noexc589 ], [ %.01341600, %.noexc569 ], [ %.01341600, %.noexc517 ], [ %.01341600, %.noexc450 ], [ %.01341600, %770 ], [ %.01341600, %767 ], [ %.01341600, %.noexc315 ], [ %.01341600, %709 ], [ %.01341600, %706 ], [ %.01341600, %672 ], [ %.01341600, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.2, %557 ], [ %.2, %561 ], [ %.2, %564 ], [ %.2, %567 ], [ %573, %572 ], [ %.01341600, %817 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %.01341600, %829 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %.01341600, %841 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %.01341600, %853 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit419 ], [ %.01341600, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %.01341600, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit631 ], [ %.01341600, %1664 ], [ %.01341600, %1657 ], [ %.01341600, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %.01341600, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %.01341600, %.preheader ], [ %.01341600, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %.01341600, %.preheader1322 ], [ %.01341600, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %.01341600, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %.01341600, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.01341600, %1237 ], [ %.01341600, %1310 ], [ %.01341600, %1300 ]
-  %.11361258 = phi i64 [ %.01351599, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.01351599, %.noexc983 ], [ %.01351599, %.noexc967 ], [ %.01351599, %.loopexit1332 ], [ %.01351599, %.noexc898 ], [ %.01351599, %1569 ], [ %.01351599, %1566 ], [ %.01351599, %.noexc783 ], [ %.01351599, %.noexc693 ], [ %.01351599, %.noexc647 ], [ %.01351599, %.noexc589 ], [ %.01351599, %.noexc569 ], [ %.01351599, %.noexc517 ], [ %.01351599, %.noexc450 ], [ %.01351599, %770 ], [ %.01351599, %767 ], [ %.01351599, %.noexc315 ], [ %.01351599, %709 ], [ %.01351599, %706 ], [ %.01351599, %672 ], [ %.01351599, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.2137, %557 ], [ %.2137, %561 ], [ %.2137, %564 ], [ %.2137, %567 ], [ %.2137, %572 ], [ %.01351599, %817 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %.01351599, %829 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %.01351599, %841 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %.01351599, %853 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit419 ], [ %.01351599, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %.01351599, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit631 ], [ %.01351599, %1664 ], [ %.01351599, %1657 ], [ %.01351599, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %.01351599, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %.01351599, %.preheader ], [ %.01351599, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %.01351599, %.preheader1322 ], [ %.01351599, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %.01351599, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %.01351599, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.01351599, %1237 ], [ %.01351599, %1310 ], [ %.01351599, %1300 ]
+  %.11260 = phi i32 [ %.01341597, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.01341597, %.noexc983 ], [ %.01341597, %.noexc967 ], [ %.01341597, %.loopexit1332 ], [ %.01341597, %.noexc898 ], [ %.01341597, %1569 ], [ %.01341597, %1566 ], [ %.01341597, %.noexc783 ], [ %.01341597, %.noexc693 ], [ %.01341597, %.noexc647 ], [ %.01341597, %.noexc589 ], [ %.01341597, %.noexc569 ], [ %.01341597, %.noexc517 ], [ %.01341597, %.noexc450 ], [ %.01341597, %770 ], [ %.01341597, %767 ], [ %.01341597, %.noexc315 ], [ %.01341597, %709 ], [ %.01341597, %706 ], [ %.01341597, %672 ], [ %.01341597, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.2, %557 ], [ %.2, %561 ], [ %.2, %564 ], [ %.2, %567 ], [ %573, %572 ], [ %.01341597, %817 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %.01341597, %829 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %.01341597, %841 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %.01341597, %853 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit419 ], [ %.01341597, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %.01341597, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit631 ], [ %.01341597, %1664 ], [ %.01341597, %1657 ], [ %.01341597, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %.01341597, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %.01341597, %.preheader ], [ %.01341597, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %.01341597, %.preheader1322 ], [ %.01341597, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %.01341597, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %.01341597, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.01341597, %1237 ], [ %.01341597, %1310 ], [ %.01341597, %1300 ]
+  %.11361258 = phi i64 [ %.01351596, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.01351596, %.noexc983 ], [ %.01351596, %.noexc967 ], [ %.01351596, %.loopexit1332 ], [ %.01351596, %.noexc898 ], [ %.01351596, %1569 ], [ %.01351596, %1566 ], [ %.01351596, %.noexc783 ], [ %.01351596, %.noexc693 ], [ %.01351596, %.noexc647 ], [ %.01351596, %.noexc589 ], [ %.01351596, %.noexc569 ], [ %.01351596, %.noexc517 ], [ %.01351596, %.noexc450 ], [ %.01351596, %770 ], [ %.01351596, %767 ], [ %.01351596, %.noexc315 ], [ %.01351596, %709 ], [ %.01351596, %706 ], [ %.01351596, %672 ], [ %.01351596, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.2137, %557 ], [ %.2137, %561 ], [ %.2137, %564 ], [ %.2137, %567 ], [ %.2137, %572 ], [ %.01351596, %817 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %.01351596, %829 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %.01351596, %841 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %.01351596, %853 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit419 ], [ %.01351596, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %.01351596, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit631 ], [ %.01351596, %1664 ], [ %.01351596, %1657 ], [ %.01351596, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %.01351596, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %.01351596, %.preheader ], [ %.01351596, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %.01351596, %.preheader1322 ], [ %.01351596, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %.01351596, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %.01351596, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.01351596, %1237 ], [ %.01351596, %1310 ], [ %.01351596, %1300 ]
   %.sroa.01189.21256 = phi ptr [ %.sroa.01189.2, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %1862, %.noexc983 ], [ %1829, %.noexc967 ], [ %1718, %.loopexit1332 ], [ %1694, %.noexc898 ], [ %1463, %1569 ], [ %1463, %1566 ], [ %1437, %.noexc783 ], [ %1337, %.noexc693 ], [ %1267, %.noexc647 ], [ %1188, %.noexc589 ], [ %1167, %.noexc569 ], [ %1093, %.noexc517 ], [ %1012, %.noexc450 ], [ %748, %770 ], [ %748, %767 ], [ %731, %.noexc315 ], [ %687, %709 ], [ %687, %706 ], [ %592, %672 ], [ %592, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.sroa.01189.3, %557 ], [ %.sroa.01189.3, %561 ], [ %.sroa.01189.3, %564 ], [ %.sroa.01189.3, %567 ], [ %.sroa.01189.3, %572 ], [ %792, %817 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %792, %829 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %792, %841 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %792, %853 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %882, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit419 ], [ %1036, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %1062, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %1212, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit631 ], [ %1601, %1664 ], [ %1601, %1657 ], [ %1601, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %1601, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %882, %.preheader ], [ %1119, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %1212, %.preheader1322 ], [ %882, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %1119, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %1119, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %1212, %1237 ], [ %1291, %1310 ], [ %1291, %1300 ]
   %1865 = load ptr, ptr %180, align 8
   %1866 = getelementptr inbounds i8, ptr %.sroa.01189.21256, i64 8
@@ -46719,7 +46719,7 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_error
   %1869 = load ptr, ptr %1865, align 8
   %1870 = getelementptr inbounds i8, ptr %1869, i64 24
   %1871 = load ptr, ptr %1870, align 8
-  %1872 = invoke i64 %1871(ptr noundef nonnull align 8 dereferenceable(24) %1865, ptr noundef nonnull align 8 dereferenceable(24) %1866, i64 noundef %.01601, i64 noundef %1868)
+  %1872 = invoke i64 %1871(ptr noundef nonnull align 8 dereferenceable(24) %1865, ptr noundef nonnull align 8 dereferenceable(24) %1866, i64 noundef %.01598, i64 noundef %1868)
           to label %1873 unwind label %.body.loopexit
 
 1873:                                             ; preds = %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread
@@ -46745,7 +46745,7 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_error
   br label %1880
 
 1880:                                             ; preds = %1878, %1873
-  invoke void @_ZN4LIEF5MachO11LoadCommand14command_offsetEm(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.01189.21256, i64 noundef %.01601)
+  invoke void @_ZN4LIEF5MachO11LoadCommand14command_offsetEm(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.01189.21256, i64 noundef %.01598)
           to label %1881 unwind label %.body.loopexit
 
 1881:                                             ; preds = %1880
@@ -46835,11 +46835,11 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS3_EESa
   br label %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995
 
 _ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995: ; preds = %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit449, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit470, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit491, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit513, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit537, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit577, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit611, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit646, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit669, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit692, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit718, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit753, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit782, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit803, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit858, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit906, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit946, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit975, %.noexc992, %1888, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276
-  %.11259 = phi i32 [ %.01341600, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.11260, %1888 ], [ %.11260, %.noexc992 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit975 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit946 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit906 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit858 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit803 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit782 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit753 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit718 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit692 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit669 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit646 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit611 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit597 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit577 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit537 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit513 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit491 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit470 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit449 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289 ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit ], [ %.01341600, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit ]
-  %.11361257 = phi i64 [ %.01351599, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.11361258, %1888 ], [ %.11361258, %.noexc992 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit975 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit946 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit906 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit858 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit803 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit782 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit753 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit718 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit692 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit669 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit646 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit611 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit597 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit577 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit537 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit513 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit491 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit470 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit449 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289 ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit ], [ %.01351599, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit ]
+  %.11259 = phi i32 [ %.01341597, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.11260, %1888 ], [ %.11260, %.noexc992 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit975 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit946 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit906 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit858 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit803 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit782 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit753 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit718 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit692 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit669 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit646 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit611 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit597 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit577 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit537 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit513 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit491 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit470 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit449 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289 ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit ], [ %.01341597, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit ]
+  %.11361257 = phi i64 [ %.01351596, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.11361258, %1888 ], [ %.11361258, %.noexc992 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit975 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit946 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit906 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit858 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit803 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit782 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit753 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit718 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit692 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit669 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit646 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit611 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit597 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit577 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit537 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit513 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit491 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit470 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit449 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289 ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit ], [ %.01351596, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit ]
   %1916 = load i32, ptr %282, align 4
   %1917 = zext i32 %1916 to i64
-  %1918 = add i64 %.01601, %1917
+  %1918 = add i64 %.01598, %1917
   %1919 = load i64, ptr %117, align 8
   %1920 = add i64 %1919, 1
   store i64 %1920, ptr %117, align 8
@@ -46877,8 +46877,8 @@ _ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995
           cleanup
   br label %_ZNKSt14default_deleteIN4LIEF5MachO11LoadCommandEEclEPS2_.exit.i997
 
-.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO14SegmentCommandESt14default_deleteIS2_EED2Ev.exit, %345, %370, %_ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit, %386, %388, %396, %399, %427, %430, %432, %439, %441, %.noexc214, %404, %406, %466, %468, %.noexc225, %.loopexit, %559, %562, %565, %570, %_ZNSt10unique_ptrIN4LIEF5MachO12DylibCommandESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF5MachO12RPathCommandESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF5MachO15DylinkerCommandESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF5MachO13ThreadCommandESt14default_deleteIS2_EED2Ev.exit, %797, %799, %.noexc373, %803, %807, %810, %819, %.noexc375, %822, %831, %.noexc378, %834, %843, %.noexc381, %846, %855, %.noexc384, %858, %.noexc387, %885, %.loopexit1714, %.noexc417, %_ZNSt10unique_ptrIN4LIEF5MachO13SourceVersionESt14default_deleteIS2_EED2Ev.exit, %.noexc498, %_ZNSt10unique_ptrIN4LIEF5MachO10DataInCodeESt14default_deleteIS2_EED2Ev.exit, %1216, %1221, %1243, %.noexc629, %1294, %_ZNSt10unique_ptrIN4LIEF5MachO14FilesetCommandESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF5MachO17DyldChainedFixupsESt14default_deleteIS2_EED2Ev.exit, %1606, %1616, %1618, %.noexc872, %1621, %1632, %1639, %1641, %1643, %1658, %1660, %1662, %1650, %1652, %1653, %1655, %1657, %1636, %.noexc874, %1611, %1613, %.noexc870, %1721, %.noexc925
-  %.sroa.01189.0.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %1718, %.noexc925 ], [ %1718, %1721 ], [ %1601, %.noexc870 ], [ %1601, %1613 ], [ %1601, %1611 ], [ %1601, %.noexc874 ], [ %1601, %1636 ], [ %1601, %1657 ], [ %1601, %1655 ], [ %1601, %1653 ], [ %1601, %1652 ], [ %1601, %1650 ], [ %1601, %1662 ], [ %1601, %1660 ], [ %1601, %1658 ], [ %1601, %1643 ], [ %1601, %1641 ], [ %1601, %1639 ], [ %1601, %1632 ], [ %1601, %1621 ], [ %1601, %.noexc872 ], [ %1601, %1618 ], [ %1601, %1616 ], [ %1601, %1606 ], [ %1601, %_ZNSt10unique_ptrIN4LIEF5MachO17DyldChainedFixupsESt14default_deleteIS2_EED2Ev.exit ], [ %1463, %_ZNSt10unique_ptrIN4LIEF5MachO14FilesetCommandESt14default_deleteIS2_EED2Ev.exit ], [ %1291, %1294 ], [ %1212, %.noexc629 ], [ %1212, %1243 ], [ %1212, %1221 ], [ %1212, %1216 ], [ %1212, %_ZNSt10unique_ptrIN4LIEF5MachO10DataInCodeESt14default_deleteIS2_EED2Ev.exit ], [ %1062, %.noexc498 ], [ %1062, %_ZNSt10unique_ptrIN4LIEF5MachO13SourceVersionESt14default_deleteIS2_EED2Ev.exit ], [ %882, %.noexc417 ], [ %882, %.loopexit1714 ], [ %882, %885 ], [ %792, %.noexc387 ], [ %792, %858 ], [ %792, %.noexc384 ], [ %792, %855 ], [ %792, %846 ], [ %792, %.noexc381 ], [ %792, %843 ], [ %792, %834 ], [ %792, %.noexc378 ], [ %792, %831 ], [ %792, %822 ], [ %792, %.noexc375 ], [ %792, %819 ], [ %792, %810 ], [ %792, %807 ], [ %792, %803 ], [ %792, %.noexc373 ], [ %792, %799 ], [ %792, %797 ], [ %792, %_ZNSt10unique_ptrIN4LIEF5MachO13ThreadCommandESt14default_deleteIS2_EED2Ev.exit ], [ %748, %_ZNSt10unique_ptrIN4LIEF5MachO15DylinkerCommandESt14default_deleteIS2_EED2Ev.exit ], [ %687, %_ZNSt10unique_ptrIN4LIEF5MachO12RPathCommandESt14default_deleteIS2_EED2Ev.exit ], [ %592, %_ZNSt10unique_ptrIN4LIEF5MachO12DylibCommandESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.01189.3, %570 ], [ %.sroa.01189.3, %565 ], [ %.sroa.01189.3, %562 ], [ %.sroa.01189.3, %559 ], [ %.sroa.01189.3, %.loopexit ], [ %.sroa.01189.3, %.noexc225 ], [ %.sroa.01189.3, %468 ], [ %.sroa.01189.3, %466 ], [ %.sroa.01189.3, %406 ], [ %.sroa.01189.3, %404 ], [ %.sroa.01189.3, %.noexc214 ], [ %.sroa.01189.3, %441 ], [ %.sroa.01189.3, %439 ], [ %.sroa.01189.3, %432 ], [ %.sroa.01189.3, %430 ], [ %.sroa.01189.3, %427 ], [ %.sroa.01189.3, %399 ], [ %.sroa.01189.3, %396 ], [ %.sroa.01189.3, %388 ], [ %.sroa.01189.3, %386 ], [ %.sroa.01189.3, %_ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.01189.3, %370 ], [ %.sroa.01189.3, %345 ], [ %.sroa.01189.3, %_ZNSt10unique_ptrIN4LIEF5MachO14SegmentCommandESt14default_deleteIS2_EED2Ev.exit ]
+.body.thread1290.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO14SegmentCommandESt14default_deleteIS2_EED2Ev.exit, %345, %370, %_ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit, %386, %388, %396, %399, %427, %430, %432, %439, %441, %.noexc214, %404, %406, %466, %468, %.noexc225, %.loopexit, %559, %562, %565, %570, %_ZNSt10unique_ptrIN4LIEF5MachO12DylibCommandESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF5MachO12RPathCommandESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF5MachO15DylinkerCommandESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF5MachO13ThreadCommandESt14default_deleteIS2_EED2Ev.exit, %797, %799, %.noexc373, %803, %807, %810, %819, %.noexc375, %822, %831, %.noexc378, %834, %843, %.noexc381, %846, %855, %.noexc384, %858, %.noexc387, %885, %.loopexit1711, %.noexc417, %_ZNSt10unique_ptrIN4LIEF5MachO13SourceVersionESt14default_deleteIS2_EED2Ev.exit, %.noexc498, %_ZNSt10unique_ptrIN4LIEF5MachO10DataInCodeESt14default_deleteIS2_EED2Ev.exit, %1216, %1221, %1243, %.noexc629, %1294, %_ZNSt10unique_ptrIN4LIEF5MachO14FilesetCommandESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF5MachO17DyldChainedFixupsESt14default_deleteIS2_EED2Ev.exit, %1606, %1616, %1618, %.noexc872, %1621, %1632, %1639, %1641, %1643, %1658, %1660, %1662, %1650, %1652, %1653, %1655, %1657, %1636, %.noexc874, %1611, %1613, %.noexc870, %1721, %.noexc925
+  %.sroa.01189.0.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %1718, %.noexc925 ], [ %1718, %1721 ], [ %1601, %.noexc870 ], [ %1601, %1613 ], [ %1601, %1611 ], [ %1601, %.noexc874 ], [ %1601, %1636 ], [ %1601, %1657 ], [ %1601, %1655 ], [ %1601, %1653 ], [ %1601, %1652 ], [ %1601, %1650 ], [ %1601, %1662 ], [ %1601, %1660 ], [ %1601, %1658 ], [ %1601, %1643 ], [ %1601, %1641 ], [ %1601, %1639 ], [ %1601, %1632 ], [ %1601, %1621 ], [ %1601, %.noexc872 ], [ %1601, %1618 ], [ %1601, %1616 ], [ %1601, %1606 ], [ %1601, %_ZNSt10unique_ptrIN4LIEF5MachO17DyldChainedFixupsESt14default_deleteIS2_EED2Ev.exit ], [ %1463, %_ZNSt10unique_ptrIN4LIEF5MachO14FilesetCommandESt14default_deleteIS2_EED2Ev.exit ], [ %1291, %1294 ], [ %1212, %.noexc629 ], [ %1212, %1243 ], [ %1212, %1221 ], [ %1212, %1216 ], [ %1212, %_ZNSt10unique_ptrIN4LIEF5MachO10DataInCodeESt14default_deleteIS2_EED2Ev.exit ], [ %1062, %.noexc498 ], [ %1062, %_ZNSt10unique_ptrIN4LIEF5MachO13SourceVersionESt14default_deleteIS2_EED2Ev.exit ], [ %882, %.noexc417 ], [ %882, %.loopexit1711 ], [ %882, %885 ], [ %792, %.noexc387 ], [ %792, %858 ], [ %792, %.noexc384 ], [ %792, %855 ], [ %792, %846 ], [ %792, %.noexc381 ], [ %792, %843 ], [ %792, %834 ], [ %792, %.noexc378 ], [ %792, %831 ], [ %792, %822 ], [ %792, %.noexc375 ], [ %792, %819 ], [ %792, %810 ], [ %792, %807 ], [ %792, %803 ], [ %792, %.noexc373 ], [ %792, %799 ], [ %792, %797 ], [ %792, %_ZNSt10unique_ptrIN4LIEF5MachO13ThreadCommandESt14default_deleteIS2_EED2Ev.exit ], [ %748, %_ZNSt10unique_ptrIN4LIEF5MachO15DylinkerCommandESt14default_deleteIS2_EED2Ev.exit ], [ %687, %_ZNSt10unique_ptrIN4LIEF5MachO12RPathCommandESt14default_deleteIS2_EED2Ev.exit ], [ %592, %_ZNSt10unique_ptrIN4LIEF5MachO12DylibCommandESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.01189.3, %570 ], [ %.sroa.01189.3, %565 ], [ %.sroa.01189.3, %562 ], [ %.sroa.01189.3, %559 ], [ %.sroa.01189.3, %.loopexit ], [ %.sroa.01189.3, %.noexc225 ], [ %.sroa.01189.3, %468 ], [ %.sroa.01189.3, %466 ], [ %.sroa.01189.3, %406 ], [ %.sroa.01189.3, %404 ], [ %.sroa.01189.3, %.noexc214 ], [ %.sroa.01189.3, %441 ], [ %.sroa.01189.3, %439 ], [ %.sroa.01189.3, %432 ], [ %.sroa.01189.3, %430 ], [ %.sroa.01189.3, %427 ], [ %.sroa.01189.3, %399 ], [ %.sroa.01189.3, %396 ], [ %.sroa.01189.3, %388 ], [ %.sroa.01189.3, %386 ], [ %.sroa.01189.3, %_ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.01189.3, %370 ], [ %.sroa.01189.3, %345 ], [ %.sroa.01189.3, %_ZNSt10unique_ptrIN4LIEF5MachO14SegmentCommandESt14default_deleteIS2_EED2Ev.exit ]
   %lpad.loopexit1338 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNKSt14default_deleteIN4LIEF5MachO11LoadCommandEEclEPS2_.exit.i997
@@ -46913,13 +46913,13 @@ _ZNKSt14default_deleteIN4LIEF5MachO11LoadCommandEEclEPS2_.exit.i997: ; preds = %
   br label %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit998
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit
-  %.0134.lcssa.ph = phi i32 [ %.01341600, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.11259, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
-  %.0.lcssa.ph = phi i64 [ %.01601, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %1918, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
-  %.pre1703 = load ptr, ptr %205, align 8
+  %.0134.lcssa.ph = phi i32 [ %.01341597, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.11259, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
+  %.0.lcssa.ph = phi i64 [ %.01598, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %1918, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit995 ]
+  %.pre1700 = load ptr, ptr %205, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %203
-  %1926 = phi ptr [ null, %203 ], [ %.pre1703, %._crit_edge.loopexit ]
+  %1926 = phi ptr [ null, %203 ], [ %.pre1700, %._crit_edge.loopexit ]
   %.0134.lcssa = phi i32 [ -1, %203 ], [ %.0134.lcssa.ph, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ %182, %203 ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
   %1927 = trunc i64 %.0.lcssa to i32
@@ -61155,10 +61155,10 @@ define linkonce_odr hidden i64 @_ZN4LIEF5MachO12BinaryParser19parse_load_command
   store i64 0, ptr %208, align 8
   store i64 0, ptr %117, align 8
   %209 = load i64, ptr %115, align 8
-  %.not1617 = icmp eq i64 %209, 0
-  br i1 %.not1617, label %._crit_edge, label %.lr.ph1613
+  %.not1614 = icmp eq i64 %209, 0
+  br i1 %.not1614, label %._crit_edge, label %.lr.ph1610
 
-.lr.ph1613:                                       ; preds = %203
+.lr.ph1610:                                       ; preds = %203
   %.sroa.278.0..sroa_idx = getelementptr inbounds i8, ptr %118, i64 8
   %210 = getelementptr inbounds i8, ptr %173, i64 16
   %211 = getelementptr inbounds i8, ptr %173, i64 8
@@ -61242,16 +61242,16 @@ define linkonce_odr hidden i64 @_ZN4LIEF5MachO12BinaryParser19parse_load_command
   %282 = getelementptr inbounds i8, ptr %118, i64 4
   br label %283
 
-283:                                              ; preds = %.lr.ph1613, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004
-  %.01610 = phi i64 [ %182, %.lr.ph1613 ], [ %1917, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
-  %.01341609 = phi i32 [ -1, %.lr.ph1613 ], [ %.11268, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
-  %.01351608 = phi i64 [ -1, %.lr.ph1613 ], [ %.11361266, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
+283:                                              ; preds = %.lr.ph1610, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004
+  %.01607 = phi i64 [ %182, %.lr.ph1610 ], [ %1917, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
+  %.01341606 = phi i32 [ -1, %.lr.ph1610 ], [ %.11268, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
+  %.01351605 = phi i64 [ -1, %.lr.ph1610 ], [ %.11361266, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
   %284 = load ptr, ptr %180, align 8
   %285 = invoke noundef i64 @_ZNK4LIEF12BinaryStream3posEv(ptr noundef nonnull align 8 dereferenceable(24) %284)
           to label %.noexc unwind label %296
 
 .noexc:                                           ; preds = %283
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %284, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %284, i64 noundef %.01607)
           to label %.noexc183 unwind label %296
 
 .noexc183:                                        ; preds = %.noexc
@@ -61347,7 +61347,7 @@ _ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_1
           to label %.noexc189 unwind label %.body.thread1291
 
 .noexc189:                                        ; preds = %300
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %301, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %301, i64 noundef %.01607)
           to label %.noexc190 unwind label %.body.thread1291
 
 .noexc190:                                        ; preds = %.noexc189
@@ -61466,7 +61466,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO8LinkEditESt14default_deleteIS2_EED2Ev.exit: ; pre
 
 _ZNSt10unique_ptrIN4LIEF5MachO14SegmentCommandESt14default_deleteIS2_EED2Ev.exit: ; preds = %.noexc199, %_ZNSt10unique_ptrIN4LIEF5MachO8LinkEditESt14default_deleteIS2_EED2Ev.exit
   %.sroa.01198.3 = phi ptr [ %322, %_ZNSt10unique_ptrIN4LIEF5MachO8LinkEditESt14default_deleteIS2_EED2Ev.exit ], [ %329, %.noexc199 ]
-  %332 = add i64 %.01610, 56
+  %332 = add i64 %.01607, 56
   %333 = load ptr, ptr %177, align 8
   %334 = getelementptr inbounds i8, ptr %333, i64 176
   %335 = getelementptr inbounds i8, ptr %333, i64 184
@@ -61571,7 +61571,7 @@ _ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit: ; pred
 382:                                              ; preds = %_ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit
   %383 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %381, ptr noundef nonnull @.str.139) #22
   %384 = icmp eq i32 %383, 0
-  %385 = icmp slt i64 %.01351608, 0
+  %385 = icmp slt i64 %.01351605, 0
   %or.cond = select i1 %384, i1 %385, i1 false
   br i1 %or.cond, label %386, label %388
 
@@ -61580,7 +61580,7 @@ _ZNSt6vectorIPN4LIEF5MachO14SegmentCommandESaIS3_EE9push_backERKS3_.exit: ; pred
           to label %388 unwind label %.body.thread1299.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 388:                                              ; preds = %386, %382
-  %.2137 = phi i64 [ %.01351608, %382 ], [ %387, %386 ]
+  %.2137 = phi i64 [ %.01351605, %382 ], [ %387, %386 ]
   %389 = load ptr, ptr %180, align 8
   %390 = invoke noundef zeroext i1 @_ZN4LIEF12MemoryStream7classofERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(24) %389)
           to label %391 unwind label %.body.thread1299.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -61730,7 +61730,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
 447:                                              ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238, %_ZNSt6vectorIhSaIhEED2Ev.exit
   %.0151 = phi i64 [ 0, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %555, %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238 ]
   %.0149 = phi i64 [ %332, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %554, %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238 ]
-  %.2 = phi i32 [ %.01341609, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %.3, %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238 ]
+  %.2 = phi i32 [ %.01341606, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %.3, %_ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238 ]
   %448 = invoke noundef i32 @_ZNK4LIEF5MachO14SegmentCommand17numberof_sectionsEv(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.01198.3)
           to label %449 unwind label %.body.thread1299.loopexit
 
@@ -62084,7 +62084,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO7SectionESt14default_deleteIS2_EED2Ev.exit238: ; p
           to label %.noexc241 unwind label %.body.thread1291
 
 .noexc241:                                        ; preds = %574
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %575, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %575, i64 noundef %.01607)
           to label %.noexc242 unwind label %.body.thread1291
 
 .noexc242:                                        ; preds = %.noexc241
@@ -62167,7 +62167,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO12DylibCommandESt14default_deleteIS2_EED2Ev.exit: 
   %595 = load i32, ptr %274, align 4
   %596 = load ptr, ptr %180, align 8
   %597 = zext i32 %595 to i64
-  %598 = add i64 %.01610, %597
+  %598 = add i64 %.01607, %597
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %125, ptr noundef nonnull align 8 dereferenceable(24) %596, i64 noundef %598, i64 noundef -1)
           to label %599 unwind label %.body.thread1299.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -62196,7 +62196,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit258: ; preds = %.noexc256
           cleanup
   br label %605
 
-.loopexit.split-lp1354:                           ; preds = %.invoke1920
+.loopexit.split-lp1354:                           ; preds = %.invoke1917
   %lpad.loopexit.split-lp1356 = landingpad { ptr, i32 }
           cleanup
   br label %605
@@ -62238,13 +62238,13 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit258: ; preds = %.noexc256
   %623 = ptrtoint ptr %621 to i64
   %624 = sub i64 %622, %623
   %625 = icmp eq i64 %624, 9223372036854775800
-  br i1 %625, label %.invoke1920, label %_ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %625, label %.invoke1917, label %_ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
-.invoke1920:                                      ; preds = %648, %620
+.invoke1917:                                      ; preds = %648, %620
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #25
-          to label %.cont1921 unwind label %.loopexit.split-lp1354
+          to label %.cont1918 unwind label %.loopexit.split-lp1354
 
-.cont1921:                                        ; preds = %.invoke1920
+.cont1918:                                        ; preds = %.invoke1917
   unreachable
 
 _ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %620
@@ -62313,7 +62313,7 @@ _ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit: ; preds 
   %651 = ptrtoint ptr %649 to i64
   %652 = sub i64 %650, %651
   %653 = icmp eq i64 %652, 9223372036854775800
-  br i1 %653, label %.invoke1920, label %_ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i266
+  br i1 %653, label %.invoke1917, label %_ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i266
 
 _ZNKSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE12_M_check_lenEmPKc.exit.i.i266: ; preds = %648
   %654 = ashr exact i64 %652, 3
@@ -62373,7 +62373,7 @@ _ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275: ; pre
           to label %.noexc280 unwind label %.body.thread1291
 
 .noexc280:                                        ; preds = %673
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %674, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %674, i64 noundef %.01607)
           to label %.noexc281 unwind label %.body.thread1291
 
 .noexc281:                                        ; preds = %.noexc280
@@ -62448,7 +62448,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO12RPathCommandESt14default_deleteIS2_EED2Ev.exit: 
   %690 = load i32, ptr %271, align 8
   %691 = load ptr, ptr %180, align 8
   %692 = zext i32 %690 to i64
-  %693 = add i64 %.01610, %692
+  %693 = add i64 %.01607, %692
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %127, ptr noundef nonnull align 8 dereferenceable(24) %691, i64 noundef %693, i64 noundef -1)
           to label %694 unwind label %.body.thread1299.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -62515,7 +62515,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit298: ; preds = %.noexc296
           to label %.noexc305 unwind label %.body.thread1291
 
 .noexc305:                                        ; preds = %713
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %714, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %714, i64 noundef %.01607)
           to label %.noexc306 unwind label %.body.thread1291
 
 .noexc306:                                        ; preds = %.noexc305
@@ -62600,7 +62600,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314: ; preds = %.noexc312
           to label %.noexc331 unwind label %.body.thread1291
 
 .noexc331:                                        ; preds = %734
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %735, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %735, i64 noundef %.01607)
           to label %.noexc332 unwind label %.body.thread1291
 
 .noexc332:                                        ; preds = %.noexc331
@@ -62675,7 +62675,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO15DylinkerCommandESt14default_deleteIS2_EED2Ev.exi
   %751 = load i32, ptr %268, align 8
   %752 = load ptr, ptr %180, align 8
   %753 = zext i32 %751 to i64
-  %754 = add i64 %.01610, %753
+  %754 = add i64 %.01607, %753
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %130, ptr noundef nonnull align 8 dereferenceable(24) %752, i64 noundef %754, i64 noundef -1)
           to label %755 unwind label %.body.thread1299.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -62742,7 +62742,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit349: ; preds = %.noexc347
           to label %.noexc357 unwind label %.body.thread1291
 
 .noexc357:                                        ; preds = %774
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %775, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %775, i64 noundef %.01607)
           to label %.noexc358 unwind label %.body.thread1291
 
 .noexc358:                                        ; preds = %.noexc357
@@ -62845,7 +62845,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO13ThreadCommandESt14default_deleteIS2_EED2Ev.exit:
 
 803:                                              ; preds = %.noexc373
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %90)
-  %804 = add i64 %.01610, 16
+  %804 = add i64 %.01607, 16
   %805 = load ptr, ptr %177, align 8
   %806 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %805)
           to label %807 unwind label %.body.thread1299.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -63012,7 +63012,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389: ; preds = %.noexc387
           to label %.noexc395 unwind label %.body.thread1291
 
 .noexc395:                                        ; preds = %864
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %865, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %865, i64 noundef %.01607)
           to label %.noexc396 unwind label %.body.thread1291
 
 .noexc396:                                        ; preds = %.noexc395
@@ -63101,8 +63101,8 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404: ; preds = %.noexc402
 .preheader:                                       ; preds = %885
   store i64 0, ptr %133, align 8
   %889 = load i32, ptr %258, align 4
-  %.not1621 = icmp eq i32 %889, 0
-  br i1 %.not1621, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1604
+  %.not1618 = icmp eq i32 %889, 0
+  br i1 %.not1618, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1604
 
 .lr.ph1604:                                       ; preds = %.preheader, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit
   %890 = load ptr, ptr %180, align 8
@@ -63408,7 +63408,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit442: ; pr
           to label %.noexc448 unwind label %.body.thread1291
 
 .noexc448:                                        ; preds = %993
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %994, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %994, i64 noundef %.01607)
           to label %.noexc449 unwind label %.body.thread1291
 
 .noexc449:                                        ; preds = %.noexc448
@@ -63506,7 +63506,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit457: ; preds = %.noexc455
           to label %.noexc469 unwind label %.body.thread1291
 
 .noexc469:                                        ; preds = %1017
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1018, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1018, i64 noundef %.01607)
           to label %.noexc470 unwind label %.body.thread1291
 
 .noexc470:                                        ; preds = %.noexc469
@@ -63610,7 +63610,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit: ; pre
           to label %.noexc490 unwind label %.body.thread1291
 
 .noexc490:                                        ; preds = %1043
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1044, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1044, i64 noundef %.01607)
           to label %.noexc491 unwind label %.body.thread1291
 
 .noexc491:                                        ; preds = %.noexc490
@@ -63728,7 +63728,7 @@ _ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit: ; preds = %.noexc506
           to label %.noexc512 unwind label %.body.thread1291
 
 .noexc512:                                        ; preds = %1071
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1072, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1072, i64 noundef %.01607)
           to label %.noexc513 unwind label %.body.thread1291
 
 .noexc513:                                        ; preds = %.noexc512
@@ -63843,7 +63843,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit521: ; preds = %.noexc519
           to label %.noexc536 unwind label %.body.thread1291
 
 .noexc536:                                        ; preds = %1100
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1101, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1101, i64 noundef %.01607)
           to label %.noexc537 unwind label %.body.thread1291
 
 .noexc537:                                        ; preds = %.noexc536
@@ -63918,11 +63918,11 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit545: ; preds = %.noexc543
 
 _ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader: ; preds = %.noexc546
   %1119 = load i32, ptr %248, align 4
-  %.not1620 = icmp eq i32 %1119, 0
-  br i1 %.not1620, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1603
+  %.not1617 = icmp eq i32 %1119, 0
+  br i1 %.not1617, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1603
 
 .lr.ph1603:                                       ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader
-  %1120 = add i64 %.01610, 24
+  %1120 = add i64 %.01607, 24
   %1121 = getelementptr inbounds i8, ptr %1118, i64 96
   %1122 = getelementptr inbounds i8, ptr %1118, i64 104
   %1123 = getelementptr inbounds i8, ptr %1118, i64 88
@@ -64018,7 +64018,7 @@ _ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7detail
           to label %.noexc570 unwind label %.body.thread1291
 
 .noexc570:                                        ; preds = %1151
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1152, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1152, i64 noundef %.01607)
           to label %.noexc571 unwind label %.body.thread1291
 
 .noexc571:                                        ; preds = %.noexc570
@@ -64104,7 +64104,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit585: ; preds = %.noexc583
           to label %.noexc589 unwind label %.body.thread1291
 
 .noexc589:                                        ; preds = %1172
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1173, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1173, i64 noundef %.01607)
           to label %.noexc590 unwind label %.body.thread1291
 
 .noexc590:                                        ; preds = %.noexc589
@@ -64190,7 +64190,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit605: ; preds = %.noexc603
           to label %.noexc609 unwind label %.body.thread1291
 
 .noexc609:                                        ; preds = %1193
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1194, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1194, i64 noundef %.01607)
           to label %.noexc610 unwind label %.body.thread1291
 
 .noexc610:                                        ; preds = %.noexc609
@@ -64287,8 +64287,8 @@ _ZNSt10unique_ptrIN4LIEF5MachO10DataInCodeESt14default_deleteIS2_EED2Ev.exit: ; 
 
 .preheader1331:                                   ; preds = %1220
   store i64 0, ptr %149, align 8
-  %.not1619 = icmp ult i32 %1214, 8
-  br i1 %.not1619, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1601
+  %.not1616 = icmp ult i32 %1214, 8
+  br i1 %.not1616, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread, label %.lr.ph1601
 
 .lr.ph1601:                                       ; preds = %.preheader1331, %1236
   %1222 = load ptr, ptr %180, align 8
@@ -64325,11 +64325,11 @@ _ZNSt10unique_ptrIN4LIEF5MachO10DataInCodeESt14default_deleteIS2_EED2Ev.exit: ; 
           to label %1233 unwind label %.body.thread1299.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1233:                                             ; preds = %1232
-  %.sroa.3.sroa.2.0.i.i6271722 = trunc nuw nsw i64 %.lobit.i.i626 to i8
-  %.not.not.i.i6281723 = icmp eq i64 %1229, 0
-  %.sroa.03.0.insert.insert.i.i6291724 = select i1 %.not.not.i.i6281723, i64 1, i64 %1230
-  store i64 %.sroa.03.0.insert.insert.i.i6291724, ptr %150, align 8
-  store i8 %.sroa.3.sroa.2.0.i.i6271722, ptr %.sroa.235.0..sroa_idx, align 8
+  %.sroa.3.sroa.2.0.i.i6271719 = trunc nuw nsw i64 %.lobit.i.i626 to i8
+  %.not.not.i.i6281720 = icmp eq i64 %1229, 0
+  %.sroa.03.0.insert.insert.i.i6291721 = select i1 %.not.not.i.i6281720, i64 1, i64 %1230
+  store i64 %.sroa.03.0.insert.insert.i.i6291721, ptr %150, align 8
+  store i8 %.sroa.3.sroa.2.0.i.i6271719, ptr %.sroa.235.0..sroa_idx, align 8
   invoke void @_ZN4LIEF5MachO13DataCodeEntryC1ERKNS0_7details18data_in_code_entryE(ptr noundef nonnull align 8 dereferenceable(20) %151, ptr noundef nonnull align 4 dereferenceable(8) %150)
           to label %1234 unwind label %.body.thread1299.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -64390,7 +64390,7 @@ _ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit639: ; preds = %.noexc637
           to label %.noexc645 unwind label %.body.thread1291
 
 .noexc645:                                        ; preds = %1248
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1249, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1249, i64 noundef %.01607)
           to label %.noexc646 unwind label %.body.thread1291
 
 .noexc646:                                        ; preds = %.noexc645
@@ -64488,7 +64488,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit654: ; preds = %.noexc652
           to label %.noexc667 unwind label %.body.thread1291
 
 .noexc667:                                        ; preds = %1272
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1273, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1273, i64 noundef %.01607)
           to label %.noexc668 unwind label %.body.thread1291
 
 .noexc668:                                        ; preds = %.noexc667
@@ -64625,7 +64625,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit677: ; preds = %.noexc675
           to label %.noexc690 unwind label %.body.thread1291
 
 .noexc690:                                        ; preds = %1318
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1319, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1319, i64 noundef %.01607)
           to label %.noexc691 unwind label %.body.thread1291
 
 .noexc691:                                        ; preds = %.noexc690
@@ -64710,7 +64710,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit700: ; preds = %.noexc698
           to label %.noexc717 unwind label %.body.thread1291
 
 .noexc717:                                        ; preds = %1339
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1340, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1340, i64 noundef %.01607)
           to label %.noexc718 unwind label %.body.thread1291
 
 .noexc718:                                        ; preds = %.noexc717
@@ -64769,7 +64769,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit726: ; preds = %.noexc724
 
 1352:                                             ; preds = %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details21sub_framework_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit
   %1353 = load ptr, ptr %180, align 8
-  %1354 = add i64 %.01610, %.sroa.3.0.insert.ext.i.i711
+  %1354 = add i64 %.01607, %.sroa.3.0.insert.ext.i.i711
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %156, ptr noundef nonnull align 8 dereferenceable(24) %1353, i64 noundef %1354, i64 noundef -1)
           to label %1355 unwind label %.body.thread1291
 
@@ -64847,7 +64847,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO12SubFrameworkESt14default_deleteIS2_EED2Ev.exit: 
           to label %.noexc751 unwind label %.body.thread1291
 
 .noexc751:                                        ; preds = %1376
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1377, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1377, i64 noundef %.01607)
           to label %.noexc752 unwind label %.body.thread1291
 
 .noexc752:                                        ; preds = %.noexc751
@@ -64906,7 +64906,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit761: ; preds = %.noexc759
 
 1389:                                             ; preds = %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details16dylinker_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit758
   %1390 = load ptr, ptr %180, align 8
-  %1391 = add i64 %.01610, %.sroa.3.0.insert.ext.i.i745
+  %1391 = add i64 %.01607, %.sroa.3.0.insert.ext.i.i745
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %158, ptr noundef nonnull align 8 dereferenceable(24) %1390, i64 noundef %1391, i64 noundef -1)
           to label %1392 unwind label %.body.thread1291
 
@@ -65002,7 +65002,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO15DyldEnvironmentESt14default_deleteIS2_EED2Ev.exi
           to label %.noexc781 unwind label %.body.thread1291
 
 .noexc781:                                        ; preds = %1418
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1419, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1419, i64 noundef %.01607)
           to label %.noexc782 unwind label %.body.thread1291
 
 .noexc782:                                        ; preds = %.noexc781
@@ -65105,7 +65105,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit790: ; preds = %.noexc788
           to label %.noexc802 unwind label %.body.thread1291
 
 .noexc802:                                        ; preds = %1444
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1445, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1445, i64 noundef %.01607)
           to label %.noexc803 unwind label %.body.thread1291
 
 .noexc803:                                        ; preds = %.noexc802
@@ -65188,7 +65188,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO14FilesetCommandESt14default_deleteIS2_EED2Ev.exit
   %1465 = load i32, ptr %224, align 8
   %1466 = load ptr, ptr %180, align 8
   %1467 = zext i32 %1465 to i64
-  %1468 = add i64 %.01610, %1467
+  %1468 = add i64 %.01607, %1467
   invoke void @_ZNK4LIEF12BinaryStream14peek_string_atB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected.287") align 8 %163, ptr noundef nonnull align 8 dereferenceable(24) %1466, i64 noundef %1468, i64 noundef -1)
           to label %1469 unwind label %.body.thread1299.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -65407,11 +65407,11 @@ _ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i.i840: ; preds = 
   %1539 = getelementptr inbounds i8, ptr %1538, i64 8
   %1540 = load ptr, ptr %1539, align 8
   call void %1540(ptr noundef nonnull align 8 dereferenceable(24) %1537) #22
-  %.pre1710 = load ptr, ptr %180, align 8
+  %.pre1707 = load ptr, ptr %180, align 8
   br label %_ZNSt10unique_ptrIN4LIEF12BinaryStreamESt14default_deleteIS1_EEaSEOS4_.exit841
 
 _ZNSt10unique_ptrIN4LIEF12BinaryStreamESt14default_deleteIS1_EEaSEOS4_.exit841: ; preds = %1535, %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i.i840
-  %1541 = phi ptr [ %1536, %1535 ], [ %.pre1710, %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i.i840 ]
+  %1541 = phi ptr [ %1536, %1535 ], [ %.pre1707, %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i.i840 ]
   invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1541, i64 noundef %1502)
           to label %1542 unwind label %1531
 
@@ -65516,7 +65516,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev.exit847: ; pr
           to label %.noexc856 unwind label %.body.thread1291
 
 .noexc856:                                        ; preds = %1576
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1577, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1577, i64 noundef %.01607)
           to label %.noexc857 unwind label %.body.thread1291
 
 .noexc857:                                        ; preds = %.noexc856
@@ -65789,7 +65789,7 @@ _ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit: ; preds = %.noexc883
           to label %.noexc893 unwind label %.body.thread1291
 
 .noexc893:                                        ; preds = %1672
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1673, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1673, i64 noundef %.01607)
           to label %.noexc894 unwind label %.body.thread1291
 
 .noexc894:                                        ; preds = %.noexc893
@@ -65911,7 +65911,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit915: ; preds = %.noexc913
           to label %.noexc921 unwind label %.body.thread1291
 
 .noexc921:                                        ; preds = %1702
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1703, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1703, i64 noundef %.01607)
           to label %.noexc922 unwind label %.body.thread1291
 
 .noexc922:                                        ; preds = %.noexc921
@@ -66041,8 +66041,8 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %1745, %_ZNSt6v
 _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %1725, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
   %1748 = phi i32 [ %1727, %1725 ], [ %.pre, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ]
   store i64 0, ptr %172, align 8
-  %.not1618 = icmp eq i32 %1748, 0
-  br i1 %.not1618, label %.loopexit1341, label %.lr.ph
+  %.not1615 = icmp eq i32 %1748, 0
+  br i1 %.not1615, label %.loopexit1341, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE7reserveEm.exit
   %1749 = getelementptr inbounds i8, ptr %1717, i64 72
@@ -66241,7 +66241,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit955: ; preds = %.noexc953
           to label %.noexc962 unwind label %.body.thread1291
 
 .noexc962:                                        ; preds = %1807
-  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1808, i64 noundef %.01610)
+  invoke void @_ZNK4LIEF12BinaryStream6setposEm(ptr noundef nonnull align 8 dereferenceable(24) %1808, i64 noundef %.01607)
           to label %.noexc963 unwind label %.body.thread1291
 
 .noexc963:                                        ; preds = %.noexc962
@@ -66449,8 +66449,8 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_error
   br i1 %.not1309, label %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread
 
 _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread: ; preds = %1299, %1309, %1236, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit, %.preheader1331, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader, %.preheader, %.noexc992, %.noexc976, %.loopexit1341, %.noexc907, %1568, %1565, %.noexc791, %.noexc701, %.noexc655, %.noexc597, %.noexc577, %.noexc525, %.noexc458, %770, %767, %.noexc315, %709, %706, %672, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275, %557, %567, %572, %564, %561, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377, %817, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380, %829, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383, %841, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386, %853, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit427, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit639, %1663, %1656, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276
-  %.11269 = phi i32 [ %.01341609, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.01341609, %.noexc992 ], [ %.01341609, %.noexc976 ], [ %.01341609, %.loopexit1341 ], [ %.01341609, %.noexc907 ], [ %.01341609, %1568 ], [ %.01341609, %1565 ], [ %.01341609, %.noexc791 ], [ %.01341609, %.noexc701 ], [ %.01341609, %.noexc655 ], [ %.01341609, %.noexc597 ], [ %.01341609, %.noexc577 ], [ %.01341609, %.noexc525 ], [ %.01341609, %.noexc458 ], [ %.01341609, %770 ], [ %.01341609, %767 ], [ %.01341609, %.noexc315 ], [ %.01341609, %709 ], [ %.01341609, %706 ], [ %.01341609, %672 ], [ %.01341609, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.2, %557 ], [ %.2, %561 ], [ %.2, %564 ], [ %.2, %567 ], [ %573, %572 ], [ %.01341609, %817 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %.01341609, %829 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %.01341609, %841 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %.01341609, %853 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit427 ], [ %.01341609, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %.01341609, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit639 ], [ %.01341609, %1663 ], [ %.01341609, %1656 ], [ %.01341609, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %.01341609, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %.01341609, %.preheader ], [ %.01341609, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %.01341609, %.preheader1331 ], [ %.01341609, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %.01341609, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %.01341609, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.01341609, %1236 ], [ %.01341609, %1309 ], [ %.01341609, %1299 ]
-  %.11361267 = phi i64 [ %.01351608, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.01351608, %.noexc992 ], [ %.01351608, %.noexc976 ], [ %.01351608, %.loopexit1341 ], [ %.01351608, %.noexc907 ], [ %.01351608, %1568 ], [ %.01351608, %1565 ], [ %.01351608, %.noexc791 ], [ %.01351608, %.noexc701 ], [ %.01351608, %.noexc655 ], [ %.01351608, %.noexc597 ], [ %.01351608, %.noexc577 ], [ %.01351608, %.noexc525 ], [ %.01351608, %.noexc458 ], [ %.01351608, %770 ], [ %.01351608, %767 ], [ %.01351608, %.noexc315 ], [ %.01351608, %709 ], [ %.01351608, %706 ], [ %.01351608, %672 ], [ %.01351608, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.2137, %557 ], [ %.2137, %561 ], [ %.2137, %564 ], [ %.2137, %567 ], [ %.2137, %572 ], [ %.01351608, %817 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %.01351608, %829 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %.01351608, %841 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %.01351608, %853 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit427 ], [ %.01351608, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %.01351608, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit639 ], [ %.01351608, %1663 ], [ %.01351608, %1656 ], [ %.01351608, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %.01351608, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %.01351608, %.preheader ], [ %.01351608, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %.01351608, %.preheader1331 ], [ %.01351608, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %.01351608, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %.01351608, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.01351608, %1236 ], [ %.01351608, %1309 ], [ %.01351608, %1299 ]
+  %.11269 = phi i32 [ %.01341606, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.01341606, %.noexc992 ], [ %.01341606, %.noexc976 ], [ %.01341606, %.loopexit1341 ], [ %.01341606, %.noexc907 ], [ %.01341606, %1568 ], [ %.01341606, %1565 ], [ %.01341606, %.noexc791 ], [ %.01341606, %.noexc701 ], [ %.01341606, %.noexc655 ], [ %.01341606, %.noexc597 ], [ %.01341606, %.noexc577 ], [ %.01341606, %.noexc525 ], [ %.01341606, %.noexc458 ], [ %.01341606, %770 ], [ %.01341606, %767 ], [ %.01341606, %.noexc315 ], [ %.01341606, %709 ], [ %.01341606, %706 ], [ %.01341606, %672 ], [ %.01341606, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.2, %557 ], [ %.2, %561 ], [ %.2, %564 ], [ %.2, %567 ], [ %573, %572 ], [ %.01341606, %817 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %.01341606, %829 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %.01341606, %841 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %.01341606, %853 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit427 ], [ %.01341606, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %.01341606, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit639 ], [ %.01341606, %1663 ], [ %.01341606, %1656 ], [ %.01341606, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %.01341606, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %.01341606, %.preheader ], [ %.01341606, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %.01341606, %.preheader1331 ], [ %.01341606, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %.01341606, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %.01341606, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.01341606, %1236 ], [ %.01341606, %1309 ], [ %.01341606, %1299 ]
+  %.11361267 = phi i64 [ %.01351605, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.01351605, %.noexc992 ], [ %.01351605, %.noexc976 ], [ %.01351605, %.loopexit1341 ], [ %.01351605, %.noexc907 ], [ %.01351605, %1568 ], [ %.01351605, %1565 ], [ %.01351605, %.noexc791 ], [ %.01351605, %.noexc701 ], [ %.01351605, %.noexc655 ], [ %.01351605, %.noexc597 ], [ %.01351605, %.noexc577 ], [ %.01351605, %.noexc525 ], [ %.01351605, %.noexc458 ], [ %.01351605, %770 ], [ %.01351605, %767 ], [ %.01351605, %.noexc315 ], [ %.01351605, %709 ], [ %.01351605, %706 ], [ %.01351605, %672 ], [ %.01351605, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.2137, %557 ], [ %.2137, %561 ], [ %.2137, %564 ], [ %.2137, %567 ], [ %.2137, %572 ], [ %.01351605, %817 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %.01351605, %829 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %.01351605, %841 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %.01351605, %853 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit427 ], [ %.01351605, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %.01351605, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit639 ], [ %.01351605, %1663 ], [ %.01351605, %1656 ], [ %.01351605, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %.01351605, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %.01351605, %.preheader ], [ %.01351605, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %.01351605, %.preheader1331 ], [ %.01351605, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %.01351605, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %.01351605, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.01351605, %1236 ], [ %.01351605, %1309 ], [ %.01351605, %1299 ]
   %.sroa.01198.21265 = phi ptr [ %.sroa.01198.2, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %1861, %.noexc992 ], [ %1828, %.noexc976 ], [ %1717, %.loopexit1341 ], [ %1693, %.noexc907 ], [ %1462, %1568 ], [ %1462, %1565 ], [ %1436, %.noexc791 ], [ %1336, %.noexc701 ], [ %1266, %.noexc655 ], [ %1187, %.noexc597 ], [ %1166, %.noexc577 ], [ %1092, %.noexc525 ], [ %1011, %.noexc458 ], [ %748, %770 ], [ %748, %767 ], [ %731, %.noexc315 ], [ %687, %709 ], [ %687, %706 ], [ %592, %672 ], [ %592, %_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EE9push_backERKS3_.exit275 ], [ %.sroa.01198.3, %557 ], [ %.sroa.01198.3, %561 ], [ %.sroa.01198.3, %564 ], [ %.sroa.01198.3, %567 ], [ %.sroa.01198.3, %572 ], [ %792, %817 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit377 ], [ %792, %829 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit380 ], [ %792, %841 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit383 ], [ %792, %853 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit386 ], [ %792, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit389 ], [ %882, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit427 ], [ %1035, %_ZNSt10unique_ptrIN4LIEF5MachO8DyldInfoESt14default_deleteIS2_EED2Ev.exit ], [ %1061, %_ZN4LIEF7logging6Logger5debugIJmEEEvPKcDpRKT_.exit ], [ %1211, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit639 ], [ %1600, %1663 ], [ %1600, %1656 ], [ %1600, %_ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit ], [ %1600, %_ZN4LIEF7logging6Logger4warnIJjEEEvPKcDpRKT_.exit ], [ %882, %.preheader ], [ %1118, %_ZNSt10unique_ptrIN4LIEF5MachO12BuildVersionESt14default_deleteIS2_EED2Ev.exit.preheader ], [ %1211, %.preheader1331 ], [ %882, %_ZNSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS2_EED2Ev.exit ], [ %1118, %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EE12emplace_backIJRNS1_7details18build_tool_versionEEEERS2_DpOT_.exit ], [ %1118, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details18build_tool_versionEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %1211, %1236 ], [ %1290, %1309 ], [ %1290, %1299 ]
   %1864 = load ptr, ptr %180, align 8
   %1865 = getelementptr inbounds i8, ptr %.sroa.01198.21265, i64 8
@@ -66459,7 +66459,7 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_error
   %1868 = load ptr, ptr %1864, align 8
   %1869 = getelementptr inbounds i8, ptr %1868, i64 24
   %1870 = load ptr, ptr %1869, align 8
-  %1871 = invoke i64 %1870(ptr noundef nonnull align 8 dereferenceable(24) %1864, ptr noundef nonnull align 8 dereferenceable(24) %1865, i64 noundef %.01610, i64 noundef %1867)
+  %1871 = invoke i64 %1870(ptr noundef nonnull align 8 dereferenceable(24) %1864, ptr noundef nonnull align 8 dereferenceable(24) %1865, i64 noundef %.01607, i64 noundef %1867)
           to label %1872 unwind label %.body.loopexit
 
 1872:                                             ; preds = %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276.thread
@@ -66485,7 +66485,7 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_error
   br label %1879
 
 1879:                                             ; preds = %1877, %1872
-  invoke void @_ZN4LIEF5MachO11LoadCommand14command_offsetEm(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.01198.21265, i64 noundef %.01610)
+  invoke void @_ZN4LIEF5MachO11LoadCommand14command_offsetEm(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.01198.21265, i64 noundef %.01607)
           to label %1880 unwind label %.body.loopexit
 
 1880:                                             ; preds = %1879
@@ -66575,11 +66575,11 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS3_EESa
   br label %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004
 
 _ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004: ; preds = %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit457, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit478, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit499, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit521, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit545, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit585, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit619, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit654, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit677, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit700, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit726, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit761, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit790, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit811, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit866, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit915, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit955, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit984, %.noexc1001, %1887, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276
-  %.11268 = phi i32 [ %.01341609, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.11269, %1887 ], [ %.11269, %.noexc1001 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit984 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit955 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit915 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit866 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit811 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit790 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit761 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit726 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit700 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit677 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit654 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit619 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit605 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit585 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit545 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit521 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit499 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit478 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit457 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289 ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit ], [ %.01341609, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit ]
-  %.11361266 = phi i64 [ %.01351608, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.11361267, %1887 ], [ %.11361267, %.noexc1001 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit984 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit955 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit915 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit866 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit811 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit790 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit761 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit726 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit700 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit677 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit654 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit619 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit605 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit585 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit545 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit521 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit499 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit478 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit457 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289 ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit ], [ %.01351608, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit ]
+  %.11268 = phi i32 [ %.01341606, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.11269, %1887 ], [ %.11269, %.noexc1001 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit984 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit955 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit915 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit866 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit811 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit790 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit761 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit726 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit700 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit677 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit654 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit619 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit605 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit585 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit545 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit521 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit499 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit478 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit457 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289 ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit ], [ %.01341606, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit ]
+  %.11361266 = phi i64 [ %.01351605, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit276 ], [ %.11361267, %1887 ], [ %.11361267, %.noexc1001 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit984 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit955 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit915 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit866 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit811 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit790 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit761 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit726 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit700 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit677 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit654 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit619 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit605 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit585 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit545 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit521 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit499 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit478 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit457 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit404 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit366 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit340 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit314 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit289 ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit ], [ %.01351605, %_ZN4LIEF7logging6Logger3errIJmEEEvPKcDpRKT_.exit ]
   %1915 = load i32, ptr %282, align 4
   %1916 = zext i32 %1915 to i64
-  %1917 = add i64 %.01610, %1916
+  %1917 = add i64 %.01607, %1916
   %1918 = load i64, ptr %117, align 8
   %1919 = add i64 %1918, 1
   store i64 %1919, ptr %117, align 8
@@ -66653,13 +66653,13 @@ _ZNKSt14default_deleteIN4LIEF5MachO11LoadCommandEEclEPS2_.exit.i1006: ; preds = 
   br label %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1007
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit
-  %.0134.lcssa.ph = phi i32 [ %.01341609, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.11268, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
-  %.0.lcssa.ph = phi i64 [ %.01610, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %1917, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
-  %.pre1711 = load ptr, ptr %205, align 8
+  %.0134.lcssa.ph = phi i32 [ %.01341606, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %.11268, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
+  %.0.lcssa.ph = phi i64 [ %.01607, %_ZNK4LIEF12BinaryStream4peekINS_5MachO7details12load_commandEEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %1917, %_ZNSt10unique_ptrIN4LIEF5MachO11LoadCommandESt14default_deleteIS2_EED2Ev.exit1004 ]
+  %.pre1708 = load ptr, ptr %205, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %203
-  %1925 = phi ptr [ null, %203 ], [ %.pre1711, %._crit_edge.loopexit ]
+  %1925 = phi ptr [ null, %203 ], [ %.pre1708, %._crit_edge.loopexit ]
   %.0134.lcssa = phi i32 [ -1, %203 ], [ %.0134.lcssa.ph, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ %182, %203 ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
   %1926 = trunc i64 %.0.lcssa to i32

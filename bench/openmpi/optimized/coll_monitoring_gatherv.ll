@@ -32,7 +32,7 @@ define i32 @mca_coll_monitoring_gatherv(ptr noundef %0, i32 noundef %1, ptr noun
 
 21:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %.02939 = phi i64 [ 0, %.lr.ph ], [ %.1, %70 ]
+  %.02938 = phi i64 [ 0, %.lr.ph ], [ %.1, %70 ]
   %22 = icmp eq i64 %indvars.iv, %20
   br i1 %22, label %70, label %23
 
@@ -117,11 +117,11 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %60
   %67 = sext i32 %25 to i64
   %68 = mul i64 %.val32, %67
   call void @mca_common_monitoring_record_coll(i32 noundef %66, i64 noundef %68) #3
-  %69 = add i64 %68, %.02939
+  %69 = add i64 %68, %.02938
   br label %70
 
 70:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %64, %21
-  %.1 = phi i64 [ %.02939, %21 ], [ %69, %64 ], [ %.02939, %mca_common_monitoring_get_world_rank.exit ]
+  %.1 = phi i64 [ %.02938, %21 ], [ %69, %64 ], [ %.02938, %mca_common_monitoring_get_world_rank.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !4
@@ -172,7 +172,7 @@ define i32 @mca_coll_monitoring_igatherv(ptr noundef %0, i32 noundef %1, ptr nou
 
 22:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %.03040 = phi i64 [ 0, %.lr.ph ], [ %.1, %71 ]
+  %.03039 = phi i64 [ 0, %.lr.ph ], [ %.1, %71 ]
   %23 = icmp eq i64 %indvars.iv, %21
   br i1 %23, label %71, label %24
 
@@ -257,11 +257,11 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %61
   %68 = sext i32 %26 to i64
   %69 = mul i64 %.val33, %68
   call void @mca_common_monitoring_record_coll(i32 noundef %67, i64 noundef %69) #3
-  %70 = add i64 %69, %.03040
+  %70 = add i64 %69, %.03039
   br label %71
 
 71:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %65, %22
-  %.1 = phi i64 [ %.03040, %22 ], [ %70, %65 ], [ %.03040, %mca_common_monitoring_get_world_rank.exit ]
+  %.1 = phi i64 [ %.03039, %22 ], [ %70, %65 ], [ %.03039, %mca_common_monitoring_get_world_rank.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !6

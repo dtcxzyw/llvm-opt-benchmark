@@ -22302,10 +22302,10 @@ _ZN4core3ops8function6FnOnce9call_once17hc8f9027642c7c21eE.exit.i.i.i.i: ; preds
   br label %1753
 
 1753:                                             ; preds = %1749, %1441
-  %1754 = phi ptr [ %1672, %1749 ], [ %1440, %1441 ]
-  %1755 = phi ptr [ %1673, %1749 ], [ %1439, %1441 ]
-  %1756 = phi ptr [ %1751, %1749 ], [ %.pre581.i, %1441 ]
-  %1757 = phi ptr [ %1750, %1749 ], [ %.pre579.i, %1441 ]
+  %1754 = phi ptr [ %1440, %1441 ], [ %1672, %1749 ]
+  %1755 = phi ptr [ %1439, %1441 ], [ %1673, %1749 ]
+  %1756 = phi ptr [ %.pre581.i, %1441 ], [ %1751, %1749 ]
+  %1757 = phi ptr [ %.pre579.i, %1441 ], [ %1750, %1749 ]
   %1758 = getelementptr inbounds i8, ptr %1, i64 376
   call void @llvm.experimental.noalias.scope.decl(metadata !2828)
   %1759 = getelementptr inbounds i8, ptr %1, i64 384
@@ -22891,10 +22891,10 @@ _ZN4core3ops8function6FnOnce9call_once17hc8f9027642c7c21eE.exit.i.i.i.i: ; preds
   br label %1944
 
 1944:                                             ; preds = %1941, %1442
-  %1945 = phi ptr [ %1754, %1941 ], [ %1440, %1442 ]
-  %1946 = phi ptr [ %1755, %1941 ], [ %1439, %1442 ]
-  %1947 = phi ptr [ %1943, %1941 ], [ %.pre587.i, %1442 ]
-  %1948 = phi ptr [ %1942, %1941 ], [ %.pre585.i, %1442 ]
+  %1945 = phi ptr [ %1440, %1442 ], [ %1754, %1941 ]
+  %1946 = phi ptr [ %1439, %1442 ], [ %1755, %1941 ]
+  %1947 = phi ptr [ %.pre587.i, %1442 ], [ %1943, %1941 ]
+  %1948 = phi ptr [ %.pre585.i, %1442 ], [ %1942, %1941 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !2747
   %1949 = getelementptr inbounds i8, ptr %1, i64 376
   call void @llvm.experimental.noalias.scope.decl(metadata !2901)

@@ -18411,8 +18411,8 @@ for.body14.lr.ph:                                 ; preds = %_ZN4absl12lts_20230
   br label %for.body14
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc35
-  %i10.0275 = phi i32 [ 0, %for.body14.lr.ph ], [ %inc36, %for.inc35 ]
-  %call16 = tail call noundef ptr @_ZNK6google8protobuf14FileDescriptor10dependencyEi(ptr noundef nonnull align 8 dereferenceable(168) %file, i32 noundef %i10.0275)
+  %i10.0272 = phi i32 [ 0, %for.body14.lr.ph ], [ %inc36, %for.inc35 ]
+  %call16 = tail call noundef ptr @_ZNK6google8protobuf14FileDescriptor10dependencyEi(ptr noundef nonnull align 8 dereferenceable(168) %file, i32 noundef %i10.0272)
   %name_.i15 = getelementptr inbounds i8, ptr %call16, i64 8
   %31 = load ptr, ptr %name_.i15, align 8
   %call19 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #25
@@ -18713,7 +18713,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br label %for.inc35
 
 for.inc35:                                        ; preds = %land.rhs.i17, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE6insertIS8_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSF_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESL_.exit92
-  %inc36 = add nuw nsw i32 %i10.0275, 1
+  %inc36 = add nuw nsw i32 %i10.0272, 1
   %80 = load i32, ptr %dependency_count_.i, align 8
   %cmp13 = icmp slt i32 %inc36, %80
   br i1 %cmp13, label %for.body14, label %if.end38, !llvm.loop !544

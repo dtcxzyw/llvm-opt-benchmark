@@ -314,8 +314,8 @@ define void @_ZN3gmx34makeUpdateGroupingsPerMoleculeTypeB5cxx11ERK10gmx_mtop_t(p
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 120
   %15 = load ptr, ptr %14, align 8
-  %.not164 = icmp eq ptr %13, %15
-  br i1 %.not164, label %_ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exit.i.thread, label %.lr.ph
+  %.not140 = icmp eq ptr %13, %15
+  br i1 %.not140, label %_ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exit.i.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 40
@@ -340,12 +340,12 @@ define void @_ZN3gmx34makeUpdateGroupingsPerMoleculeTypeB5cxx11ERK10gmx_mtop_t(p
   br label %37
 
 35:                                               ; preds = %_ZNSt7variantIJN3gmx17RangePartitioningENS0_22IncompatibilityReasonsEEED2Ev.exit25
-  %36 = getelementptr inbounds i8, ptr %.sroa.050.0165, i64 2384
+  %36 = getelementptr inbounds i8, ptr %.sroa.050.0141, i64 2384
   %.not = icmp eq ptr %36, %15
   br i1 %.not, label %._crit_edge.loopexit, label %37
 
 37:                                               ; preds = %.lr.ph, %35
-  %.sroa.050.0165 = phi ptr [ %13, %.lr.ph ], [ %36, %35 ]
+  %.sroa.050.0141 = phi ptr [ %13, %.lr.ph ], [ %36, %35 ]
   %38 = load ptr, ptr %16, align 8
   %39 = load ptr, ptr %17, align 8
   %40 = ptrtoint ptr %39 to i64
@@ -363,7 +363,7 @@ define void @_ZN3gmx34makeUpdateGroupingsPerMoleculeTypeB5cxx11ERK10gmx_mtop_t(p
   %45 = getelementptr inbounds i8, ptr %44, i64 4
   store i32 0, ptr %44, align 4, !noalias !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !5
-  %46 = getelementptr inbounds i8, ptr %.sroa.050.0165, i64 80
+  %46 = getelementptr inbounds i8, ptr %.sroa.050.0141, i64 80
   invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(2256) %46, i32 noundef 4)
           to label %.noexc.i unwind label %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit57.thread.i, !noalias !5
 
@@ -1330,7 +1330,7 @@ _ZN15InteractionListaSEOS_.exit.i:                ; preds = %459
   br label %_ZN15InteractionListaSEOS_.exit.thread.i
 
 _ZN15InteractionListaSEOS_.exit.thread.i:         ; preds = %464, %_ZN15InteractionListaSEOS_.exit.i, %459
-  %465 = getelementptr inbounds i8, ptr %.sroa.050.0165, i64 8
+  %465 = getelementptr inbounds i8, ptr %.sroa.050.0141, i64 8
   %466 = load i32, ptr %465, align 8, !noalias !5
   invoke void @_ZN3gmx11make_at2conEiNS_8ArrayRefIK15InteractionListEENS0_IK9t_iparamsEENS_27FlexibleConstraintTreatmentE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ListOfLists") align 8 %9, i32 noundef %466, ptr nonnull %7, ptr nonnull %26, ptr %38, ptr %43, i32 noundef 0)
           to label %.preheader.i unwind label %698, !noalias !5
@@ -1792,9 +1792,9 @@ _ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit30.i: ; preds = %626, %.loo
   br i1 %654, label %.loopexit129.i.i, label %.cont.i
 
 .cont.i:                                          ; preds = %.loopexit.i33.i, %628
-  %storemerge.i.then.val.i = phi i32 [ %.sroa.5.0.lcssa.i.i.i, %.loopexit.i33.i ], [ %.sroa.6.0.i, %628 ]
-  %.1107.i.i = phi i32 [ %.sroa.speculated.i.i, %.loopexit.i33.i ], [ %.0106142.i.i, %628 ]
-  %.1.i30.i = phi i32 [ %645, %.loopexit.i33.i ], [ %.0145.i.i, %628 ]
+  %storemerge.i.then.val.i = phi i32 [ %.sroa.6.0.i, %628 ], [ %.sroa.5.0.lcssa.i.i.i, %.loopexit.i33.i ]
+  %.1107.i.i = phi i32 [ %.0106142.i.i, %628 ], [ %.sroa.speculated.i.i, %.loopexit.i33.i ]
+  %.1.i30.i = phi i32 [ %.0145.i.i, %628 ], [ %645, %.loopexit.i33.i ]
   %spec.select.i = call i32 @llvm.smax.i32(i32 %.0.i, i32 %storemerge.i.then.val.i)
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %655 = sext i32 %spec.select.i to i64
@@ -1824,7 +1824,7 @@ _ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit30.i: ; preds = %626, %.loo
   br i1 %.not128.i.i, label %.critedge2.i.i, label %669
 
 669:                                              ; preds = %659
-  %670 = invoke fastcc i64 @_ZN3gmxL19vsiteConstructRangeEiRK13gmx_moltype_t(i32 noundef %656, ptr noundef nonnull align 8 dereferenceable(2384) %.sroa.050.0165)
+  %670 = invoke fastcc i64 @_ZN3gmxL19vsiteConstructRangeEiRK13gmx_moltype_t(i32 noundef %656, ptr noundef nonnull align 8 dereferenceable(2384) %.sroa.050.0141)
           to label %671 unwind label %.thread.loopexit.split-lp.i.i, !noalias !5
 
 671:                                              ; preds = %669
@@ -1871,8 +1871,8 @@ _ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit30.i: ; preds = %626, %.loo
   br i1 %.not.i.i.i54.i.i, label %687, label %.thread113.i.i
 
 .thread113.i.i:                                   ; preds = %630, %628, %.loopexit129.i.i, %674, %671, %534
-  %.sroa.9.0119.i.i = phi i8 [ 0, %534 ], [ %.sroa.9.0.i.i, %.loopexit129.i.i ], [ 1, %671 ], [ 1, %674 ], [ 1, %628 ], [ 1, %630 ]
-  %.sroa.0105.0117.i.i = phi i32 [ 1, %534 ], [ %.sroa.0105.0.i.i, %.loopexit129.i.i ], [ 2, %671 ], [ 2, %674 ], [ 3, %630 ], [ 2, %628 ]
+  %.sroa.9.0119.i.i = phi i8 [ %.sroa.9.0.i.i, %.loopexit129.i.i ], [ 1, %674 ], [ 1, %671 ], [ 0, %534 ], [ 1, %628 ], [ 1, %630 ]
+  %.sroa.0105.0117.i.i = phi i32 [ %.sroa.0105.0.i.i, %.loopexit129.i.i ], [ 2, %674 ], [ 2, %671 ], [ 1, %534 ], [ 3, %630 ], [ 2, %628 ]
   %681 = ptrtoint ptr %.sroa.32.0.i.i to i64
   %682 = ptrtoint ptr %.sroa.094.0.i.i to i64
   %683 = sub i64 %681, %682
@@ -1883,8 +1883,8 @@ _ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit30.i: ; preds = %626, %.loo
   br label %687
 
 687:                                              ; preds = %.thread113.i.i, %.loopexit129.i.i
-  %.sroa.9.0120.i.i = phi i8 [ %.sroa.9.0119.i.i, %.thread113.i.i ], [ %.sroa.9.0.i.i, %.loopexit129.i.i ]
-  %.sroa.0105.0118.i.i = phi i32 [ %.sroa.0105.0117.i.i, %.thread113.i.i ], [ %.sroa.0105.0.i.i, %.loopexit129.i.i ]
+  %.sroa.9.0120.i.i = phi i8 [ %.sroa.9.0.i.i, %.loopexit129.i.i ], [ %.sroa.9.0119.i.i, %.thread113.i.i ]
+  %.sroa.0105.0118.i.i = phi i32 [ %.sroa.0105.0.i.i, %.loopexit129.i.i ], [ %.sroa.0105.0117.i.i, %.thread113.i.i ]
   %.sroa.9.0.insert.ext.i.i = zext nneg i8 %.sroa.9.0120.i.i to i64
   br label %688
 
@@ -1911,7 +1911,7 @@ _ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJiS1_EEbRKSt7variantIJDpT0
 
 697:                                              ; preds = %_ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJiS1_EEbRKSt7variantIJDpT0_EE.exit.i
   %.not.i.i37.i = icmp eq i8 %.sroa.9.0120.i.i, 1
-  br i1 %.not.i.i37.i, label %_ZSt3getIN3gmx22IncompatibilityReasonsEJiS1_EERKT_RKSt7variantIJDpT0_EE.exit.i, label %.invoke444
+  br i1 %.not.i.i37.i, label %_ZSt3getIN3gmx22IncompatibilityReasonsEJiS1_EERKT_RKSt7variantIJDpT0_EE.exit.i, label %.invoke393
 
 _ZSt3getIN3gmx22IncompatibilityReasonsEJiS1_EERKT_RKSt7variantIJDpT0_EE.exit.i: ; preds = %697
   store i32 %.sroa.0105.0118.i.i, ptr %11, align 8, !alias.scope !5
@@ -1927,7 +1927,7 @@ _ZSt3getIN3gmx22IncompatibilityReasonsEJiS1_EERKT_RKSt7variantIJDpT0_EE.exit.i: 
           cleanup
   br label %.body35.i
 
-.loopexit.split-lp.i:                             ; preds = %.invoke444, %711
+.loopexit.split-lp.i:                             ; preds = %.invoke393, %711
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body35.i
@@ -1939,17 +1939,17 @@ _ZSt3getIN3gmx22IncompatibilityReasonsEJiS1_EERKT_RKSt7variantIJDpT0_EE.exit.i: 
 
 _ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJiS1_EEbRKSt7variantIJDpT0_EE.exit.thread.i: ; preds = %693, %_ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJiS1_EEbRKSt7variantIJDpT0_EE.exit.i
   %.not.i.i39.i = icmp eq i8 %.sroa.9.0120.i.i, 0
-  br i1 %.not.i.i39.i, label %_ZSt3getIiJiN3gmx22IncompatibilityReasonsEEERKT_RKSt7variantIJDpT0_EE.exit.i, label %.invoke444
+  br i1 %.not.i.i39.i, label %_ZSt3getIiJiN3gmx22IncompatibilityReasonsEEERKT_RKSt7variantIJDpT0_EE.exit.i, label %.invoke393
 
-.invoke444:                                       ; preds = %697, %_ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJiS1_EEbRKSt7variantIJDpT0_EE.exit.thread.i
+.invoke393:                                       ; preds = %697, %_ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJiS1_EEbRKSt7variantIJDpT0_EE.exit.thread.i
   %700 = call ptr @__cxa_allocate_exception(i64 16) #22, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %700, align 8, !noalias !5
   %701 = getelementptr inbounds i8, ptr %700, i64 8
   store ptr @.str.17, ptr %701, align 8, !noalias !5
   invoke void @__cxa_throw(ptr nonnull %700, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #26
-          to label %.cont445 unwind label %.loopexit.split-lp.i, !noalias !5
+          to label %.cont394 unwind label %.loopexit.split-lp.i, !noalias !5
 
-.cont445:                                         ; preds = %.invoke444
+.cont394:                                         ; preds = %.invoke393
   unreachable
 
 _ZSt3getIiJiN3gmx22IncompatibilityReasonsEEERKT_RKSt7variantIJDpT0_EE.exit.i: ; preds = %_ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJiS1_EEbRKSt7variantIJDpT0_EE.exit.thread.i
@@ -2105,7 +2105,7 @@ _ZNSt5arrayI15InteractionListLm94EED2Ev.exit.thread.sink.split.i: ; preds = %130
   br label %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit.thread.i
 
 _ZNSt5arrayI15InteractionListLm94EED2Ev.exit.thread.i: ; preds = %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit.thread.sink.split.i, %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit.i
-  %.sroa.074.094.i = phi ptr [ %44, %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit.thread.sink.split.i ], [ %.sroa.074.3.i, %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit.i ]
+  %.sroa.074.094.i = phi ptr [ %.sroa.074.3.i, %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit.i ], [ %44, %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit.thread.sink.split.i ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.074.094.i) #25, !noalias !5
   br label %747
 
@@ -2331,13 +2331,13 @@ _ZNSt7variantIJN3gmx17RangePartitioningENS0_22IncompatibilityReasonsEEED2Ev.exit
 
 ._crit_edge.loopexit:                             ; preds = %35
   %.pre = load ptr, ptr %10, align 8
-  %.pre274 = load ptr, ptr %32, align 8
-  %.pre276 = load ptr, ptr %33, align 8
+  %.pre223 = load ptr, ptr %32, align 8
+  %.pre225 = load ptr, ptr %33, align 8
   br label %_ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exit.i.thread
 
 _ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %._crit_edge.loopexit, %2
-  %812 = phi ptr [ %.pre276, %._crit_edge.loopexit ], [ null, %2 ]
-  %813 = phi ptr [ %.pre274, %._crit_edge.loopexit ], [ null, %2 ]
+  %812 = phi ptr [ %.pre225, %._crit_edge.loopexit ], [ null, %2 ]
+  %813 = phi ptr [ %.pre223, %._crit_edge.loopexit ], [ null, %2 ]
   %814 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %2 ]
   store ptr %814, ptr %0, align 8
   %815 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2349,13 +2349,13 @@ _ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exit.i.thread: ; pred
   br label %_ZNSt6vectorIN3gmx17RangePartitioningESaIS1_EED2Ev.exit
 
 .loopexit59:                                      ; preds = %_ZNSt7variantIJN3gmx17RangePartitioningENS0_22IncompatibilityReasonsEEED2Ev.exit25
-  %.pre277 = load ptr, ptr %10, align 8
-  %.pre279 = load ptr, ptr %32, align 8
-  %.not4.i.i.i.i = icmp eq ptr %.pre277, %.pre279
+  %.pre226 = load ptr, ptr %10, align 8
+  %.pre228 = load ptr, ptr %32, align 8
+  %.not4.i.i.i.i = icmp eq ptr %.pre226, %.pre228
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit59, %_ZSt8_DestroyIN3gmx17RangePartitioningEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %820, %_ZSt8_DestroyIN3gmx17RangePartitioningEEvPT_.exit.i.i.i.i ], [ %.pre277, %.loopexit59 ]
+  %.05.i.i.i.i = phi ptr [ %820, %_ZSt8_DestroyIN3gmx17RangePartitioningEEvPT_.exit.i.i.i.i ], [ %.pre226, %.loopexit59 ]
   %818 = load ptr, ptr %.05.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %818, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx17RangePartitioningEEvPT_.exit.i.i.i.i, label %819
@@ -2366,7 +2366,7 @@ _ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exit.i.thread: ; pred
 
 _ZSt8_DestroyIN3gmx17RangePartitioningEEvPT_.exit.i.i.i.i: ; preds = %819, %.lr.ph.i.i.i.i
   %820 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i26 = icmp eq ptr %820, %.pre279
+  %.not.i.i.i.i26 = icmp eq ptr %820, %.pre228
   br i1 %.not.i.i.i.i26, label %_ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !31
 
 _ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN3gmx17RangePartitioningEEvPT_.exit.i.i.i.i
@@ -2374,7 +2374,7 @@ _ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exitthread-pre-split.
   br label %_ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %.loopexit59
-  %821 = phi ptr [ %.pr.i27, %_ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre277, %.loopexit59 ]
+  %821 = phi ptr [ %.pr.i27, %_ZSt8_DestroyIPN3gmx17RangePartitioningES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre226, %.loopexit59 ]
   %.not.i.i.i28 = icmp eq ptr %821, null
   br i1 %.not.i.i.i28, label %_ZNSt6vectorIN3gmx17RangePartitioningESaIS1_EED2Ev.exit, label %822
 

@@ -7521,9 +7521,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %76 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph332, label %._crit_edge
+  br i1 %78, label %.lr.ph328, label %._crit_edge
 
-.lr.ph332:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit
+.lr.ph328:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit
   %79 = getelementptr inbounds nuw i8, ptr %27, i64 240
   %80 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %81 = getelementptr inbounds nuw i8, ptr %40, i64 144
@@ -7551,10 +7551,10 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %.sroa.2129.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   br label %92
 
-92:                                               ; preds = %.lr.ph332, %.loopexit
-  %indvars.iv341 = phi i64 [ 0, %.lr.ph332 ], [ %indvars.iv.next342, %.loopexit ]
+92:                                               ; preds = %.lr.ph328, %.loopexit
+  %indvars.iv337 = phi i64 [ 0, %.lr.ph328 ], [ %indvars.iv.next338, %.loopexit ]
   %93 = load ptr, ptr %79, align 8
-  %94 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv341
+  %94 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv337
   %95 = load i32, ptr %94, align 4
   %.not320 = icmp eq i32 %95, -1
   br i1 %.not320, label %.loopexit, label %98
@@ -7566,7 +7566,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
 
 98:                                               ; preds = %92
   %99 = load ptr, ptr %80, align 8
-  %100 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv341
+  %100 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv337
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
   %103 = load ptr, ptr %81, align 8
@@ -7606,7 +7606,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Index13AddWithWeightERKS5_f(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, float noundef 1.000000e+00)
           to label %.loopexit unwind label %.loopexit.split-lp
 
-.loopexit323.split:                               ; preds = %.invoke345, %.invoke, %196, %211, %219
+.loopexit323.split:                               ; preds = %.invoke342, %.invoke, %196, %211, %219
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit323
@@ -7643,25 +7643,25 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %140 = load ptr, ptr %86, align 8
   %141 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %140, i64 %102
   %142 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %117, i64 %112
-  %.not333 = icmp eq i16 %108, 0
-  br i1 %.not333, label %.loopexit, label %.lr.ph
+  %.not329 = icmp eq i16 %108, 0
+  br i1 %.not329, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %139
-  %wide.trip.count339 = zext i16 %108 to i64
+  %wide.trip.count335 = zext i16 %108 to i64
   br i1 %52, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %143 = trunc nuw nsw i64 %indvars.iv341 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv337 to i32
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %166
-  %indvars.iv336 = phi i64 [ %indvars.iv.next337, %166 ], [ 0, %.lr.ph ]
+  %indvars.iv332 = phi i64 [ %indvars.iv.next333, %166 ], [ 0, %.lr.ph ]
   %144 = load ptr, ptr %88, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 96
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds i32, ptr %146, i64 %105
   %148 = load i32, ptr %147, align 4
-  %149 = trunc nuw nsw i64 %indvars.iv336 to i32
+  %149 = trunc nuw nsw i64 %indvars.iv332 to i32
   %150 = add nsw i32 %148, %149
   %151 = sext i32 %150 to i64
   %152 = load ptr, ptr %87, align 8
@@ -7670,7 +7670,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %155 = zext i16 %154 to i64
   %156 = getelementptr inbounds i32, ptr %104, i64 %155
   %157 = load i32, ptr %156, align 4
-  %158 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv336
+  %158 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv332
   %159 = load i32, ptr %158, align 4
   %160 = load ptr, ptr %3, align 8
   %161 = load i32, ptr %89, align 8
@@ -7686,9 +7686,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
           to label %166 unwind label %.loopexit323.split.us
 
 166:                                              ; preds = %.lr.ph.split.us
-  %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
-  %exitcond340.not = icmp eq i64 %indvars.iv.next337, %wide.trip.count339
-  br i1 %exitcond340.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !82
+  %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
+  %exitcond336.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count335
+  br i1 %exitcond336.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !82
 
 .loopexit323.split.us:                            ; preds = %.lr.ph.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -7729,16 +7729,16 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   br label %.invoke
 
 .invoke:                                          ; preds = %227, %187
-  %.sink347 = phi ptr [ %20, %227 ], [ %13, %187 ]
+  %.sink344 = phi ptr [ %20, %227 ], [ %13, %187 ]
   %.sroa.2.0..sroa_idx.sink = phi ptr [ %.sroa.2.0..sroa_idx, %227 ], [ %.sroa.230.0..sroa_idx, %187 ]
   %191 = phi ptr [ %19, %227 ], [ %12, %187 ]
   %192 = phi float [ %.0231, %227 ], [ 1.000000e+00, %187 ]
   %193 = load ptr, ptr %2, align 8
   %194 = load i32, ptr %90, align 8
   %195 = add nsw i32 %194, %181
-  store ptr %193, ptr %.sink347, align 8
+  store ptr %193, ptr %.sink344, align 8
   store i32 %195, ptr %.sroa.2.0..sroa_idx.sink, align 8
-  invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Index13AddWithWeightERKS5_f(ptr noundef nonnull align 8 dereferenceable(12) %191, ptr noundef nonnull align 8 dereferenceable(12) %.sink347, float noundef %192)
+  invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Index13AddWithWeightERKS5_f(ptr noundef nonnull align 8 dereferenceable(12) %191, ptr noundef nonnull align 8 dereferenceable(12) %.sink344, float noundef %192)
           to label %231 unwind label %.loopexit323.split
 
 196:                                              ; preds = %.lr.ph.split
@@ -7750,9 +7750,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %199 = load i8, ptr %198, align 1
   %200 = and i8 %199, 16
   %.not321 = icmp eq i8 %200, 0
-  br i1 %.not321, label %211, label %.invoke345
+  br i1 %.not321, label %211, label %.invoke342
 
-.invoke345:                                       ; preds = %197
+.invoke342:                                       ; preds = %197
   %201 = and i8 %199, 32
   %.not322 = icmp eq i8 %201, 0
   %.not = icmp eq i16 %177, 0
@@ -7764,7 +7764,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %206 = invoke noundef float @_ZNK10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement19getFractionalWeightEitit(ptr noundef nonnull align 8 dereferenceable(64) %36, i32 noundef %143, i16 noundef zeroext %204, i32 noundef %95, i16 noundef zeroext %205)
           to label %207 unwind label %.loopexit323.split
 
-207:                                              ; preds = %.invoke345
+207:                                              ; preds = %.invoke342
   %208 = fsub float 1.000000e+00, %206
   %209 = call float @llvm.fmuladd.f32(float %208, float 7.500000e-01, float %206)
   %210 = fmul float %208, 1.250000e-01
@@ -7812,22 +7812,22 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
 
 231:                                              ; preds = %.invoke
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count339
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count335
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !82
 
 .loopexit:                                        ; preds = %231, %166, %139, %129, %120, %92
-  %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
+  %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
   %232 = load i32, ptr %76, align 8
   %233 = sext i32 %232 to i64
-  %234 = icmp slt i64 %indvars.iv.next342, %233
+  %234 = icmp slt i64 %indvars.iv.next338, %233
   br i1 %234, label %92, label %._crit_edge.loopexit, !llvm.loop !83
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %.pre343 = load ptr, ptr %69, align 8
+  %.pre340 = load ptr, ptr %69, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit
-  %235 = phi ptr [ %.pre343, %._crit_edge.loopexit ], [ %75, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit ]
+  %235 = phi ptr [ %.pre340, %._crit_edge.loopexit ], [ %75, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit ]
   call void @_ZdlPv(ptr noundef %235) #17
   store ptr %66, ptr %7, align 8
   store i32 16, ptr %68, align 4
@@ -16315,9 +16315,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %76 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph332, label %._crit_edge
+  br i1 %78, label %.lr.ph328, label %._crit_edge
 
-.lr.ph332:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit
+.lr.ph328:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit
   %79 = getelementptr inbounds nuw i8, ptr %27, i64 240
   %80 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %81 = getelementptr inbounds nuw i8, ptr %40, i64 144
@@ -16345,10 +16345,10 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %.sroa.2129.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   br label %92
 
-92:                                               ; preds = %.lr.ph332, %.loopexit
-  %indvars.iv341 = phi i64 [ 0, %.lr.ph332 ], [ %indvars.iv.next342, %.loopexit ]
+92:                                               ; preds = %.lr.ph328, %.loopexit
+  %indvars.iv337 = phi i64 [ 0, %.lr.ph328 ], [ %indvars.iv.next338, %.loopexit ]
   %93 = load ptr, ptr %79, align 8
-  %94 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv341
+  %94 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv337
   %95 = load i32, ptr %94, align 4
   %.not320 = icmp eq i32 %95, -1
   br i1 %.not320, label %.loopexit, label %98
@@ -16360,7 +16360,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
 
 98:                                               ; preds = %92
   %99 = load ptr, ptr %80, align 8
-  %100 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv341
+  %100 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv337
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
   %103 = load ptr, ptr %81, align 8
@@ -16400,7 +16400,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Index13AddWithWeightERKS5_d(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, double noundef 1.000000e+00)
           to label %.loopexit unwind label %.loopexit.split-lp
 
-.loopexit323.split:                               ; preds = %.invoke345, %.invoke, %196, %212, %220
+.loopexit323.split:                               ; preds = %.invoke342, %.invoke, %196, %212, %220
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit323
@@ -16437,25 +16437,25 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %140 = load ptr, ptr %86, align 8
   %141 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %140, i64 %102
   %142 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %117, i64 %112
-  %.not333 = icmp eq i16 %108, 0
-  br i1 %.not333, label %.loopexit, label %.lr.ph
+  %.not329 = icmp eq i16 %108, 0
+  br i1 %.not329, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %139
-  %wide.trip.count339 = zext i16 %108 to i64
+  %wide.trip.count335 = zext i16 %108 to i64
   br i1 %52, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %143 = trunc nuw nsw i64 %indvars.iv341 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv337 to i32
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %166
-  %indvars.iv336 = phi i64 [ %indvars.iv.next337, %166 ], [ 0, %.lr.ph ]
+  %indvars.iv332 = phi i64 [ %indvars.iv.next333, %166 ], [ 0, %.lr.ph ]
   %144 = load ptr, ptr %88, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 96
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds i32, ptr %146, i64 %105
   %148 = load i32, ptr %147, align 4
-  %149 = trunc nuw nsw i64 %indvars.iv336 to i32
+  %149 = trunc nuw nsw i64 %indvars.iv332 to i32
   %150 = add nsw i32 %148, %149
   %151 = sext i32 %150 to i64
   %152 = load ptr, ptr %87, align 8
@@ -16464,7 +16464,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %155 = zext i16 %154 to i64
   %156 = getelementptr inbounds i32, ptr %104, i64 %155
   %157 = load i32, ptr %156, align 4
-  %158 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv336
+  %158 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv332
   %159 = load i32, ptr %158, align 4
   %160 = load ptr, ptr %3, align 8
   %161 = load i32, ptr %89, align 8
@@ -16480,9 +16480,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
           to label %166 unwind label %.loopexit323.split.us
 
 166:                                              ; preds = %.lr.ph.split.us
-  %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
-  %exitcond340.not = icmp eq i64 %indvars.iv.next337, %wide.trip.count339
-  br i1 %exitcond340.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !170
+  %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
+  %exitcond336.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count335
+  br i1 %exitcond336.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !170
 
 .loopexit323.split.us:                            ; preds = %.lr.ph.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -16523,16 +16523,16 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   br label %.invoke
 
 .invoke:                                          ; preds = %228, %187
-  %.sink347 = phi ptr [ %20, %228 ], [ %13, %187 ]
+  %.sink344 = phi ptr [ %20, %228 ], [ %13, %187 ]
   %.sroa.2.0..sroa_idx.sink = phi ptr [ %.sroa.2.0..sroa_idx, %228 ], [ %.sroa.230.0..sroa_idx, %187 ]
   %191 = phi ptr [ %19, %228 ], [ %12, %187 ]
   %192 = phi double [ %.0231, %228 ], [ 1.000000e+00, %187 ]
   %193 = load ptr, ptr %2, align 8
   %194 = load i32, ptr %90, align 8
   %195 = add nsw i32 %194, %181
-  store ptr %193, ptr %.sink347, align 8
+  store ptr %193, ptr %.sink344, align 8
   store i32 %195, ptr %.sroa.2.0..sroa_idx.sink, align 8
-  invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Index13AddWithWeightERKS5_d(ptr noundef nonnull align 8 dereferenceable(12) %191, ptr noundef nonnull align 8 dereferenceable(12) %.sink347, double noundef %192)
+  invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Index13AddWithWeightERKS5_d(ptr noundef nonnull align 8 dereferenceable(12) %191, ptr noundef nonnull align 8 dereferenceable(12) %.sink344, double noundef %192)
           to label %232 unwind label %.loopexit323.split
 
 196:                                              ; preds = %.lr.ph.split
@@ -16544,9 +16544,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %199 = load i8, ptr %198, align 1
   %200 = and i8 %199, 16
   %.not321 = icmp eq i8 %200, 0
-  br i1 %.not321, label %212, label %.invoke345
+  br i1 %.not321, label %212, label %.invoke342
 
-.invoke345:                                       ; preds = %197
+.invoke342:                                       ; preds = %197
   %201 = and i8 %199, 32
   %.not322 = icmp eq i8 %201, 0
   %.not = icmp eq i16 %177, 0
@@ -16558,7 +16558,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %206 = invoke noundef float @_ZNK10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement19getFractionalWeightEitit(ptr noundef nonnull align 8 dereferenceable(64) %36, i32 noundef %143, i16 noundef zeroext %204, i32 noundef %95, i16 noundef zeroext %205)
           to label %207 unwind label %.loopexit323.split
 
-207:                                              ; preds = %.invoke345
+207:                                              ; preds = %.invoke342
   %208 = fpext float %206 to double
   %209 = fsub double 1.000000e+00, %208
   %210 = call double @llvm.fmuladd.f64(double %209, double 7.500000e-01, double %208)
@@ -16607,22 +16607,22 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
 
 232:                                              ; preds = %.invoke
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count339
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count335
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !170
 
 .loopexit:                                        ; preds = %232, %166, %139, %129, %120, %92
-  %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
+  %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
   %233 = load i32, ptr %76, align 8
   %234 = sext i32 %233 to i64
-  %235 = icmp slt i64 %indvars.iv.next342, %234
+  %235 = icmp slt i64 %indvars.iv.next338, %234
   br i1 %235, label %92, label %._crit_edge.loopexit, !llvm.loop !171
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %.pre343 = load ptr, ptr %69, align 8
+  %.pre340 = load ptr, ptr %69, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit
-  %236 = phi ptr [ %.pre343, %._crit_edge.loopexit ], [ %75, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit ]
+  %236 = phi ptr [ %.pre340, %._crit_edge.loopexit ], [ %75, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit ]
   call void @_ZdlPv(ptr noundef %236) #17
   store ptr %66, ptr %7, align 8
   store i32 16, ptr %68, align 4

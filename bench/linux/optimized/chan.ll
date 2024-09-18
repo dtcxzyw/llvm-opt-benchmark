@@ -3319,7 +3319,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   tail call void asm sideeffect "3099: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3099b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3099) #13, !srcloc !157
   %.pre = load ptr, ptr %67, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 768
-  %.pre124 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre122 = load ptr, ptr %.phi.trans.insert, align 8
   br label %90
 
 78:                                               ; preds = %75
@@ -3341,7 +3341,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %89, label %.thread67, label %90
 
 90:                                               ; preds = %86, %82, %78, %77, %.preheader94
-  %91 = phi ptr [ %70, %86 ], [ %70, %82 ], [ %70, %78 ], [ %.pre124, %77 ], [ %70, %.preheader94 ]
+  %91 = phi ptr [ %70, %86 ], [ %70, %82 ], [ %70, %78 ], [ %.pre122, %77 ], [ %70, %.preheader94 ]
   %92 = icmp eq ptr %91, null
   %93 = getelementptr i8, ptr %91, i64 -88
   %94 = icmp eq ptr %93, null
@@ -3420,12 +3420,12 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
 
 128:                                              ; preds = %121
   %129 = icmp sgt i32 %.ph61, 1
-  %.pre125.pre = load i8, ptr %7, align 1, !range !11
+  %.pre123.pre = load i8, ptr %7, align 1, !range !11
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %128
-  %131 = icmp eq i8 %.pre125.pre, 0
-  br i1 %131, label %132, label %.thread131, !prof !34
+  %131 = icmp eq i8 %.pre123.pre, 0
+  br i1 %131, label %132, label %.thread129, !prof !34
 
 132:                                              ; preds = %130
   tail call void asm sideeffect "3114: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3114b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3114) #13, !srcloc !166
@@ -3435,11 +3435,11 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
 
 133:                                              ; preds = %128
   %134 = icmp eq ptr %.ph62, null
-  %135 = icmp eq i8 %.pre125.pre, 0
+  %135 = icmp eq i8 %.pre123.pre, 0
   br i1 %134, label %136, label %138
 
 136:                                              ; preds = %133
-  br i1 %135, label %137, label %.thread131, !prof !169
+  br i1 %135, label %137, label %.thread129, !prof !169
 
 137:                                              ; preds = %136
   tail call void asm sideeffect "3116: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3116b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3116) #13, !srcloc !170
@@ -3448,13 +3448,13 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br label %.thread69
 
 138:                                              ; preds = %133
-  br i1 %135, label %257, label %.thread131
+  br i1 %135, label %257, label %.thread129
 
-.thread131:                                       ; preds = %130, %136, %138
+.thread129:                                       ; preds = %130, %136, %138
   %139 = icmp sgt i32 %.ph60, 0
   br i1 %139, label %140, label %207
 
-140:                                              ; preds = %.thread131
+140:                                              ; preds = %.thread129
   %141 = zext nneg i32 %.ph60 to i64
   %142 = shl nuw nsw i64 %141, 5
   %143 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %142, i32 noundef 3520) #14
@@ -3569,7 +3569,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %.thread69
 
-207:                                              ; preds = %.loopexit93, %.thread131
+207:                                              ; preds = %.loopexit93, %.thread129
   %208 = icmp sgt i32 %.ph59, 0
   %209 = icmp sgt i32 %.ph58, 0
   %210 = select i1 %208, i1 true, i1 %209
@@ -3960,11 +3960,11 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %414, label %.loopexit85.loopexit, label %373, !llvm.loop !191
 
 .loopexit85.loopexit:                             ; preds = %413
-  %.pre126 = load ptr, ptr %288, align 8
+  %.pre124 = load ptr, ptr %288, align 8
   br label %.loopexit85
 
 .loopexit85:                                      ; preds = %.loopexit85.loopexit, %368
-  %415 = phi ptr [ %.pre126, %.loopexit85.loopexit ], [ %369, %368 ]
+  %415 = phi ptr [ %.pre124, %.loopexit85.loopexit ], [ %369, %368 ]
   %416 = icmp eq ptr %415, %288
   br i1 %416, label %.loopexit84, label %.preheader83
 
@@ -3992,7 +3992,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   tail call void asm sideeffect "3098: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3098b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3098) #13, !srcloc !155
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1403, i32 2305, i64 12) #13, !srcloc !156
   tail call void asm sideeffect "3099: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3099b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3099) #13, !srcloc !157
-  %.pre127 = load ptr, ptr %420, align 8
+  %.pre125 = load ptr, ptr %420, align 8
   br label %442
 
 433:                                              ; preds = %430
@@ -4014,7 +4014,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br label %482
 
 442:                                              ; preds = %437, %433, %432, %.preheader83
-  %443 = phi ptr [ %421, %437 ], [ %421, %433 ], [ %.pre127, %432 ], [ %421, %.preheader83 ]
+  %443 = phi ptr [ %421, %437 ], [ %421, %433 ], [ %.pre125, %432 ], [ %421, %.preheader83 ]
   %444 = icmp eq ptr %443, %279
   br i1 %444, label %446, label %445, !prof !32
 
@@ -4095,11 +4095,11 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %486, label %.loopexit88.loopexit, label %.preheader87, !llvm.loop !202
 
 .loopexit88.loopexit:                             ; preds = %.loopexit84
-  %.pre128 = load ptr, ptr %3, align 8
+  %.pre126 = load ptr, ptr %3, align 8
   br label %.loopexit88
 
 .loopexit88:                                      ; preds = %.loopexit88.loopexit, %.thread72
-  %487 = phi ptr [ %.pre128, %.loopexit88.loopexit ], [ %277, %.thread72 ]
+  %487 = phi ptr [ %.pre126, %.loopexit88.loopexit ], [ %277, %.thread72 ]
   %488 = icmp eq ptr %487, %3
   br i1 %488, label %.thread67, label %.preheader80
 

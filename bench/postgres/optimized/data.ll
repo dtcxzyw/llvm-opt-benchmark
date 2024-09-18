@@ -1430,8 +1430,8 @@ array_delimiter.exit683:                          ; preds = %array_delimiter.exi
   br label %array_delimiter.exit683.thread721
 
 array_delimiter.exit683.thread721:                ; preds = %563, %227, %255, %array_delimiter.exit683, %array_delimiter.exit683.thread, %126, %garbage_left.exit631.thread700
-  %.8.ph = phi ptr [ %568, %array_delimiter.exit683.thread ], [ %127, %126 ], [ %.2, %garbage_left.exit631.thread700 ], [ %569, %array_delimiter.exit683 ], [ %.pre.i640, %255 ], [ %.pre.i624, %227 ], [ %.7768, %563 ]
-  %.1519.ph = phi i32 [ %558, %array_delimiter.exit683.thread ], [ %.0518, %126 ], [ %.0518, %garbage_left.exit631.thread700 ], [ %558, %array_delimiter.exit683 ], [ %.0518, %255 ], [ %.0518, %227 ], [ %558, %563 ]
+  %.8.ph = phi ptr [ %568, %array_delimiter.exit683.thread ], [ %.2, %garbage_left.exit631.thread700 ], [ %127, %126 ], [ %569, %array_delimiter.exit683 ], [ %.pre.i640, %255 ], [ %.pre.i624, %227 ], [ %.7768, %563 ]
+  %.1519.ph = phi i32 [ %558, %array_delimiter.exit683.thread ], [ %.0518, %garbage_left.exit631.thread700 ], [ %.0518, %126 ], [ %558, %array_delimiter.exit683 ], [ %.0518, %255 ], [ %.0518, %227 ], [ %558, %563 ]
   %.pr = load i8, ptr %.8.ph, align 1
   %.not587 = icmp eq i8 %.pr, 0
   %570 = icmp eq i8 %.pr, 125

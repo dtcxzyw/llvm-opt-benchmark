@@ -2169,47 +2169,47 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
 33:                                               ; preds = %31
   %34 = call ptr @get_op_btree_interpretation(i32 noundef %0) #6
   %.not93 = icmp eq ptr %34, null
-  br i1 %.not93, label %.thread, label %.lr.ph141.split
+  br i1 %.not93, label %.thread, label %.lr.ph134.split
 
-.lr.ph141.split:                                  ; preds = %33
+.lr.ph134.split:                                  ; preds = %33
   %35 = getelementptr inbounds i8, ptr %34, i64 4
   %36 = getelementptr inbounds i8, ptr %34, i64 16
   %37 = getelementptr inbounds i8, ptr %32, i64 4
   %38 = getelementptr inbounds i8, ptr %32, i64 16
   %39 = load i32, ptr %35, align 4
   %40 = icmp sgt i32 %39, 0
-  br i1 %2, label %.lr.ph141.split.split.us.preheader, label %.lr.ph141.split.split.preheader
+  br i1 %2, label %.lr.ph134.split.split.us.preheader, label %.lr.ph134.split.split.preheader
 
-.lr.ph141.split.split.preheader:                  ; preds = %.lr.ph141.split
+.lr.ph134.split.split.preheader:                  ; preds = %.lr.ph134.split
   br i1 %40, label %.lr.ph, label %.thread
 
-.lr.ph141.split.split.us.preheader:               ; preds = %.lr.ph141.split
+.lr.ph134.split.split.us.preheader:               ; preds = %.lr.ph134.split
   br i1 %40, label %.lr.ph.us, label %.thread
 
-.lr.ph.us:                                        ; preds = %.lr.ph141.split.split.us.preheader, %._crit_edge129.split.us.us
-  %.074139.us147202 = phi i8 [ %split131.us.us, %._crit_edge129.split.us.us ], [ 0, %.lr.ph141.split.split.us.preheader ]
-  %indvars.iv177201 = phi i64 [ %indvars.iv.next178, %._crit_edge129.split.us.us ], [ 0, %.lr.ph141.split.split.us.preheader ]
+.lr.ph.us:                                        ; preds = %.lr.ph134.split.split.us.preheader, %._crit_edge126.split.us.us
+  %.074132.us140190 = phi i8 [ %split127.us.us, %._crit_edge126.split.us.us ], [ 0, %.lr.ph134.split.split.us.preheader ]
+  %indvars.iv165189 = phi i64 [ %indvars.iv.next166, %._crit_edge126.split.us.us ], [ 0, %.lr.ph134.split.split.us.preheader ]
   %41 = load ptr, ptr %36, align 8
-  %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv177201
+  %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv165189
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds i8, ptr %43, i64 4
   %46 = getelementptr inbounds i8, ptr %43, i64 12
   %47 = load i32, ptr %37, align 4
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph161, label %._crit_edge129.split.us.us
+  br i1 %48, label %.lr.ph151, label %._crit_edge126.split.us.us
 
-.lr.ph161:                                        ; preds = %.lr.ph.us, %.thread114.us.us
-  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %.thread114.us.us ], [ 0, %.lr.ph.us ]
-  %.2127.us.us158 = phi i8 [ %.4.us.us, %.thread114.us.us ], [ %.074139.us147202, %.lr.ph.us ]
+.lr.ph151:                                        ; preds = %.lr.ph.us, %.thread114.us.us
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.thread114.us.us ], [ 0, %.lr.ph.us ]
+  %.2125.us.us149 = phi i8 [ %.4.us.us, %.thread114.us.us ], [ %.074132.us140190, %.lr.ph.us ]
   %49 = load ptr, ptr %38, align 8
-  %50 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv175
+  %50 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv163
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %51, align 4
   %.not96.us.us = icmp eq i32 %44, %52
   br i1 %.not96.us.us, label %53, label %.thread114.us.us
 
-53:                                               ; preds = %.lr.ph161
+53:                                               ; preds = %.lr.ph151
   %54 = load i32, ptr %45, align 4
   %55 = getelementptr inbounds i8, ptr %51, i64 4
   %56 = load i32, ptr %55, align 4
@@ -2222,7 +2222,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %63 = getelementptr [6 x [6 x i8]], ptr @BT_refutes_table, i64 0, i64 %59, i64 %62
   %64 = getelementptr [6 x [6 x i16]], ptr @BT_refute_table, i64 0, i64 %59, i64 %62
   %.pn109.pn.us.us = load i8, ptr %63, align 1
-  %.5112.in.us.us = or i8 %.pn109.pn.us.us, %.2127.us.us158
+  %.5112.in.us.us = or i8 %.pn109.pn.us.us, %.2125.us.us149
   %.0.us.us = load i16, ptr %64, align 2
   switch i16 %.0.us.us, label %72 [
     i16 0, label %.thread114.us.us
@@ -2258,46 +2258,46 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %80 = icmp eq i8 %79, 105
   br i1 %80, label %.thread, label %.thread114.us.us
 
-.thread114.us.us:                                 ; preds = %78, %77, %65, %53, %.lr.ph161
-  %.4.us.us = phi i8 [ %.2127.us.us158, %.lr.ph161 ], [ %.5112.in.us.us, %53 ], [ %.5112.in.us.us, %78 ], [ %.5112.in.us.us, %77 ], [ %.5112.in.us.us, %65 ]
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+.thread114.us.us:                                 ; preds = %78, %77, %65, %53, %.lr.ph151
+  %.4.us.us = phi i8 [ %.2125.us.us149, %.lr.ph151 ], [ %.5112.in.us.us, %53 ], [ %.5112.in.us.us, %78 ], [ %.5112.in.us.us, %77 ], [ %.5112.in.us.us, %65 ]
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %81 = load i32, ptr %37, align 4
   %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv.next176, %82
-  br i1 %83, label %.lr.ph161, label %._crit_edge129.split.us.us
+  %83 = icmp slt i64 %indvars.iv.next164, %82
+  br i1 %83, label %.lr.ph151, label %._crit_edge126.split.us.us
 
-._crit_edge129.split.us.us:                       ; preds = %.thread114.us.us, %.lr.ph.us
-  %split131.us.us = phi i8 [ %.074139.us147202, %.lr.ph.us ], [ %.4.us.us, %.thread114.us.us ]
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177201, 1
+._crit_edge126.split.us.us:                       ; preds = %.thread114.us.us, %.lr.ph.us
+  %split127.us.us = phi i8 [ %.074132.us140190, %.lr.ph.us ], [ %.4.us.us, %.thread114.us.us ]
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165189, 1
   %84 = load i32, ptr %35, align 4
   %85 = sext i32 %84 to i64
-  %86 = icmp slt i64 %indvars.iv.next178, %85
+  %86 = icmp slt i64 %indvars.iv.next166, %85
   br i1 %86, label %.lr.ph.us, label %.thread
 
-.lr.ph:                                           ; preds = %.lr.ph141.split.split.preheader, %._crit_edge129.split
-  %.074139199 = phi i8 [ %.2127.lcssa, %._crit_edge129.split ], [ 0, %.lr.ph141.split.split.preheader ]
-  %indvars.iv173198 = phi i64 [ %indvars.iv.next174, %._crit_edge129.split ], [ 0, %.lr.ph141.split.split.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph134.split.split.preheader, %._crit_edge126.split
+  %.074132187 = phi i8 [ %.2125.lcssa, %._crit_edge126.split ], [ 0, %.lr.ph134.split.split.preheader ]
+  %indvars.iv161186 = phi i64 [ %indvars.iv.next162, %._crit_edge126.split ], [ 0, %.lr.ph134.split.split.preheader ]
   %87 = load ptr, ptr %36, align 8
-  %88 = getelementptr %union.ListCell, ptr %87, i64 %indvars.iv173198
+  %88 = getelementptr %union.ListCell, ptr %87, i64 %indvars.iv161186
   %89 = load ptr, ptr %88, align 8
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr inbounds i8, ptr %89, i64 4
   %92 = getelementptr inbounds i8, ptr %89, i64 12
   %93 = load i32, ptr %37, align 4
   %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph197, label %._crit_edge129.split
+  br i1 %94, label %.lr.ph185, label %._crit_edge126.split
 
-.lr.ph197:                                        ; preds = %.lr.ph, %.thread114
-  %.2127196 = phi i8 [ %.4, %.thread114 ], [ %.074139199, %.lr.ph ]
-  %indvars.iv195 = phi i64 [ %indvars.iv.next, %.thread114 ], [ 0, %.lr.ph ]
+.lr.ph185:                                        ; preds = %.lr.ph, %.thread114
+  %.2125184 = phi i8 [ %.4, %.thread114 ], [ %.074132187, %.lr.ph ]
+  %indvars.iv183 = phi i64 [ %indvars.iv.next, %.thread114 ], [ 0, %.lr.ph ]
   %95 = load ptr, ptr %38, align 8
-  %96 = getelementptr %union.ListCell, ptr %95, i64 %indvars.iv195
+  %96 = getelementptr %union.ListCell, ptr %95, i64 %indvars.iv183
   %97 = load ptr, ptr %96, align 8
   %98 = load i32, ptr %97, align 4
   %.not96 = icmp eq i32 %90, %98
   br i1 %.not96, label %99, label %.thread114
 
-99:                                               ; preds = %.lr.ph197
+99:                                               ; preds = %.lr.ph185
   %100 = load i32, ptr %91, align 4
   %101 = getelementptr inbounds i8, ptr %97, i64 4
   %102 = load i32, ptr %101, align 4
@@ -2310,7 +2310,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %109 = getelementptr [6 x [6 x i8]], ptr @BT_implies_table, i64 0, i64 %105, i64 %108
   %110 = getelementptr [6 x [6 x i16]], ptr @BT_implic_table, i64 0, i64 %105, i64 %108
   %.pn109.pn = load i8, ptr %109, align 1
-  %.5112.in = or i8 %.pn109.pn, %.2127196
+  %.5112.in = or i8 %.pn109.pn, %.2125184
   %.0 = load i16, ptr %110, align 2
   switch i16 %.0, label %118 [
     i16 0, label %.thread114
@@ -2346,27 +2346,27 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %126 = icmp eq i8 %125, 105
   br i1 %126, label %.thread, label %.thread114
 
-.thread114:                                       ; preds = %111, %99, %124, %123, %.lr.ph197
-  %.4 = phi i8 [ %.2127196, %.lr.ph197 ], [ %.5112.in, %99 ], [ %.5112.in, %124 ], [ %.5112.in, %123 ], [ %.5112.in, %111 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv195, 1
+.thread114:                                       ; preds = %111, %99, %124, %123, %.lr.ph185
+  %.4 = phi i8 [ %.2125184, %.lr.ph185 ], [ %.5112.in, %99 ], [ %.5112.in, %124 ], [ %.5112.in, %123 ], [ %.5112.in, %111 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv183, 1
   %127 = load i32, ptr %37, align 4
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next, %128
-  br i1 %129, label %.lr.ph197, label %._crit_edge129.split, !llvm.loop !25
+  br i1 %129, label %.lr.ph185, label %._crit_edge126.split, !llvm.loop !25
 
-._crit_edge129.split:                             ; preds = %.thread114, %.lr.ph
-  %.2127.lcssa = phi i8 [ %.074139199, %.lr.ph ], [ %.4, %.thread114 ]
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173198, 1
+._crit_edge126.split:                             ; preds = %.thread114, %.lr.ph
+  %.2125.lcssa = phi i8 [ %.074132187, %.lr.ph ], [ %.4, %.thread114 ]
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161186, 1
   %130 = load i32, ptr %35, align 4
   %131 = sext i32 %130 to i64
-  %132 = icmp slt i64 %indvars.iv.next174, %131
+  %132 = icmp slt i64 %indvars.iv.next162, %131
   br i1 %132, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %._crit_edge129.split, %124, %._crit_edge129.split.us.us, %78, %.lr.ph141.split.split.preheader, %.lr.ph141.split.split.us.preheader, %31, %33
-  %.085182 = phi ptr [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph141.split.split.us.preheader ], [ %34, %.lr.ph141.split.split.preheader ], [ %34, %78 ], [ %34, %._crit_edge129.split.us.us ], [ %34, %124 ], [ %34, %._crit_edge129.split ]
-  %.183 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph141.split.split.us.preheader ], [ 0, %.lr.ph141.split.split.preheader ], [ %.580.us.us, %78 ], [ 0, %._crit_edge129.split.us.us ], [ %.580, %124 ], [ 0, %._crit_edge129.split ]
-  %.1 = phi i8 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph141.split.split.us.preheader ], [ 0, %.lr.ph141.split.split.preheader ], [ %.5112.in.us.us, %78 ], [ %split131.us.us, %._crit_edge129.split.us.us ], [ %.5112.in, %124 ], [ %.2127.lcssa, %._crit_edge129.split ]
-  call void @list_free_deep(ptr noundef %.085182) #6
+.thread:                                          ; preds = %._crit_edge126.split, %124, %._crit_edge126.split.us.us, %78, %.lr.ph134.split.split.preheader, %.lr.ph134.split.split.us.preheader, %31, %33
+  %.085170 = phi ptr [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph134.split.split.us.preheader ], [ %34, %.lr.ph134.split.split.preheader ], [ %34, %78 ], [ %34, %._crit_edge126.split.us.us ], [ %34, %124 ], [ %34, %._crit_edge126.split ]
+  %.183 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph134.split.split.us.preheader ], [ 0, %.lr.ph134.split.split.preheader ], [ %.580.us.us, %78 ], [ 0, %._crit_edge126.split.us.us ], [ %.580, %124 ], [ 0, %._crit_edge126.split ]
+  %.1 = phi i8 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph134.split.split.us.preheader ], [ 0, %.lr.ph134.split.split.preheader ], [ %.5112.in.us.us, %78 ], [ %split127.us.us, %._crit_edge126.split.us.us ], [ %.5112.in, %124 ], [ %.2125.lcssa, %._crit_edge126.split ]
+  call void @list_free_deep(ptr noundef %.085170) #6
   call void @list_free_deep(ptr noundef %32) #6
   %133 = trunc i8 %.1 to i1
   br i1 %133, label %134, label %136

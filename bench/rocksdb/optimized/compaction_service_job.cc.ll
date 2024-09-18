@@ -21515,12 +21515,12 @@ land.lhs.true3.lr.ph:                             ; preds = %entry, %if.then.i.i
   br label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true3.lr.ph, %if.end23
-  %start.0135 = phi i64 [ 0, %land.lhs.true3.lr.ph ], [ %add, %if.end23 ]
+  %start.0129 = phi i64 [ 0, %land.lhs.true3.lr.ph ], [ %add, %if.end23 ]
   %cmp = phi i1 [ true, %land.lhs.true3.lr.ph ], [ false, %if.end23 ]
-  %i.0134 = phi i64 [ 0, %land.lhs.true3.lr.ph ], [ 1, %if.end23 ]
+  %i.0128 = phi i64 [ 0, %land.lhs.true3.lr.ph ], [ 1, %if.end23 ]
   %5 = phi ptr [ null, %land.lhs.true3.lr.ph ], [ %25, %if.end23 ]
   %call4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #23
-  %cmp5 = icmp ult i64 %start.0135, %call4
+  %cmp5 = icmp ult i64 %start.0129, %call4
   %6 = load i64, ptr %end, align 8
   %cmp6 = icmp ne i64 %6, -1
   %or.cond2 = select i1 %cmp5, i1 %cmp6, i1 false
@@ -21528,7 +21528,7 @@ land.lhs.true3:                                   ; preds = %land.lhs.true3.lr.p
 
 for.body:                                         ; preds = %land.lhs.true3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #23
-  invoke void @_ZN7rocksdb14OptionTypeInfo9NextTokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcmPmPS6_(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %value, i8 noundef signext %separator, i64 noundef %start.0135, ptr noundef nonnull %end, ptr noundef nonnull %token)
+  invoke void @_ZN7rocksdb14OptionTypeInfo9NextTokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcmPmPS6_(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %value, i8 noundef signext %separator, i64 noundef %start.0129, ptr noundef nonnull %end, ptr noundef nonnull %token)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %for.body
@@ -21565,7 +21565,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8, %_ZNK
   br i1 %cmp.i17, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %invoke.cont10
-  %arrayidx.i.i = getelementptr inbounds [2 x i64], ptr %result, i64 0, i64 %i.0134
+  %arrayidx.i.i = getelementptr inbounds [2 x i64], ptr %result, i64 0, i64 %i.0128
   invoke void @_ZNK7rocksdb14OptionTypeInfo5ParseERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_Pv(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(180) %elem_info, ptr noundef nonnull align 8 dereferenceable(80) %copy, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %token, ptr noundef nonnull %arrayidx.i.i)
           to label %invoke.cont14 unwind label %lpad7
 
@@ -21614,7 +21614,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %if.end23
 
 lpad1:                                            ; preds = %if.then40, %if.then29
-  %storemerge181193 = phi ptr [ %25, %if.then40 ], [ %storemerge181192, %if.then29 ]
+  %storemerge175187 = phi ptr [ %25, %if.then40 ], [ %storemerge175186, %if.then29 ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
@@ -21653,7 +21653,7 @@ if.end27:                                         ; preds = %invoke.cont24
   br i1 %cmp, label %if.then29, label %if.end35
 
 if.then29:                                        ; preds = %land.lhs.true3, %if.end27
-  %storemerge181192 = phi ptr [ %25, %if.end27 ], [ %5, %land.lhs.true3 ]
+  %storemerge175186 = phi ptr [ %25, %if.end27 ], [ %5, %land.lhs.true3 ]
   store ptr @.str.131, ptr %ref.tmp30, align 8
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
   store i64 50, ptr %size_.i, align 8
@@ -21707,7 +21707,7 @@ cleanup.sink.split:                               ; preds = %if.then26, %if.end4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then40, %if.then29
-  %status.sroa.42.2 = phi ptr [ %storemerge181192, %if.then29 ], [ %25, %if.then40 ], [ null, %cleanup.sink.split ]
+  %status.sroa.42.2 = phi ptr [ %storemerge175186, %if.then29 ], [ %25, %if.then40 ], [ null, %cleanup.sink.split ]
   %29 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i94 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i.i94, label %_ZN7rocksdb13ConfigOptionsD2Ev.exit, label %if.then.i.i.i.i95
@@ -21793,7 +21793,7 @@ _ZN7rocksdb6StatusD2Ev.exit104:                   ; preds = %_ZN7rocksdb13Config
   ret void
 
 ehcleanup48:                                      ; preds = %lpad1, %lpad7
-  %status.sroa.42.1 = phi ptr [ %storemerge181193, %lpad1 ], [ %23, %lpad7 ]
+  %status.sroa.42.1 = phi ptr [ %storemerge175187, %lpad1 ], [ %23, %lpad7 ]
   %.pn = phi { ptr, i32 } [ %22, %lpad1 ], [ %24, %lpad7 ]
   call void @_ZN7rocksdb13ConfigOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %copy) #23
   %cmp.not.i.i106 = icmp eq ptr %status.sroa.42.1, null

@@ -17512,8 +17512,8 @@ define dso_local void @_ZN3tev11ImageViewer28reloadImagesWhoseFileChangedEv(ptr 
 
 10:                                               ; preds = %.lr.ph, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit
   %11 = phi ptr [ %7, %.lr.ph ], [ %67, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit ]
-  %.021 = phi i64 [ 0, %.lr.ph ], [ %65, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit ]
-  %12 = getelementptr inbounds %"class.std::__1::shared_ptr.24", ptr %11, i64 %.021
+  %.019 = phi i64 [ 0, %.lr.ph ], [ %65, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit ]
+  %12 = getelementptr inbounds %"class.std::__1::shared_ptr.24", ptr %11, i64 %.019
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -17638,7 +17638,7 @@ _ZN3tev11ImageViewer11reloadImageENSt3__110shared_ptrINS_5ImageEEEb.exit: ; pred
   resume { ptr, i32 } %64
 
 _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit: ; preds = %10, %10, %59, %55, %_ZN3tev11ImageViewer11reloadImageENSt3__110shared_ptrINS_5ImageEEEb.exit, %_ZNSt3__14__fs10filesystem15last_write_timeB8ne190000ERKNS1_4pathE.exit, %25
-  %65 = add nuw i64 %.021, 1
+  %65 = add nuw i64 %.019, 1
   %66 = load ptr, ptr %5, align 8
   %67 = load ptr, ptr %4, align 16
   %68 = ptrtoint ptr %66 to i64

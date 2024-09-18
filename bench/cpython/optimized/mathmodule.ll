@@ -4602,7 +4602,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.then2.i:                                       ; preds = %if.else.i
   %cmp3.i = fcmp oeq double %x.0, 1.000000e+00
   %cond7.i = select i1 %cmp3.i, double 1.000000e+00, double %y.0
-  br label %if.end67.i
+  br label %if.else74.i
 
 if.else8.i:                                       ; preds = %if.else.i
   %isinf.i = fcmp oeq double %6, 0x7FF0000000000000
@@ -4612,7 +4612,7 @@ if.then9.i:                                       ; preds = %if.else8.i
   br i1 %9, label %land.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then9.i
-  %call10.i = tail call double @fmod(double noundef %8, double noundef 2.000000e+00) #15
+  %call10.i = frem nnan double %8, 2.000000e+00
   %cmp11.i = fcmp oeq double %call10.i, 1.000000e+00
   br label %land.end.i
 
@@ -4623,36 +4623,36 @@ land.end.i:                                       ; preds = %land.rhs.i, %if.the
 
 if.then13.i:                                      ; preds = %land.end.i
   %cond18.i = select i1 %12, double %x.0, double 0x7FF0000000000000
-  br label %if.end67.i
+  br label %if.else74.i
 
 if.else19.i:                                      ; preds = %land.end.i
   %cmp20.i = fcmp oeq double %y.0, 0.000000e+00
-  br i1 %cmp20.i, label %if.end67.i, label %if.else22.i
+  br i1 %cmp20.i, label %if.else74.i, label %if.else22.i
 
 if.else22.i:                                      ; preds = %if.else19.i
   %13 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %x.0)
   %cond27.i = select i1 %12, double %13, double 0.000000e+00
-  br label %if.end67.i
+  br label %if.else74.i
 
 if.else29.i:                                      ; preds = %if.else8.i
   %cmp30.i = fcmp oeq double %6, 1.000000e+00
-  br i1 %cmp30.i, label %if.end67.i, label %if.else32.i
+  br i1 %cmp30.i, label %if.else74.i, label %if.else32.i
 
 if.else32.i:                                      ; preds = %if.else29.i
   %cmp33.i = fcmp ogt double %y.0, 0.000000e+00
   %cmp34.i = fcmp ogt double %6, 1.000000e+00
   %or.cond31.i = and i1 %cmp34.i, %cmp33.i
-  br i1 %or.cond31.i, label %if.end67.i, label %if.else36.i
+  br i1 %or.cond31.i, label %if.else74.i, label %if.else36.i
 
 if.else36.i:                                      ; preds = %if.else32.i
   %cmp37.i = fcmp olt double %y.0, 0.000000e+00
   %cmp39.i = fcmp olt double %6, 1.000000e+00
   %or.cond32.i = and i1 %cmp39.i, %cmp37.i
-  br i1 %or.cond32.i, label %if.then40.i, label %if.end67.i
+  br i1 %or.cond32.i, label %if.then40.i, label %if.else74.i
 
 if.then40.i:                                      ; preds = %if.else36.i
   %fneg.i = fneg double %y.0
-  br label %if.end67.i
+  br label %if.else74.i
 
 if.else48.i:                                      ; preds = %if.end31
   %call50.i = tail call double @pow(double noundef %x.0, double noundef %y.0) #15
@@ -4670,17 +4670,16 @@ if.end67.thread9.i:                               ; preds = %if.then51.i
   store i32 34, ptr %call.i, align 4
   br label %if.then3.i.i
 
-if.end67.i:                                       ; preds = %if.else48.i, %if.then40.i, %if.else36.i, %if.else32.i, %if.else29.i, %if.else22.i, %if.else19.i, %if.then13.i, %if.then2.i
-  %r.0.ph.i = phi double [ %cond7.i, %if.then2.i ], [ %fneg.i, %if.then40.i ], [ %cond18.i, %if.then13.i ], [ %cond27.i, %if.else22.i ], [ %call50.i, %if.else48.i ], [ 1.000000e+00, %if.else19.i ], [ 1.000000e+00, %if.else29.i ], [ %y.0, %if.else32.i ], [ 0.000000e+00, %if.else36.i ]
-  %.pr.i = load i32, ptr %call.i, align 4
-  switch i32 %.pr.i, label %if.else7.i.i [
+if.end67.i:                                       ; preds = %if.else48.i
+  %.pr.i.pre = load i32, ptr %call.i, align 4
+  switch i32 %.pr.i.pre, label %if.else7.i.i [
     i32 0, label %if.else74.i
     i32 33, label %if.then.i.i
     i32 34, label %if.end67.i.if.then3.i.i_crit_edge
   ]
 
 if.end67.i.if.then3.i.i_crit_edge:                ; preds = %if.end67.i
-  %.pre = tail call double @llvm.fabs.f64(double %r.0.ph.i)
+  %.pre = tail call double @llvm.fabs.f64(double %call50.i)
   br label %if.then3.i.i
 
 if.then.i.sink.split.i:                           ; preds = %if.then51.i
@@ -4694,7 +4693,6 @@ if.then.i.i:                                      ; preds = %if.then.i.sink.spli
 
 if.then3.i.i:                                     ; preds = %if.end67.i.if.then3.i.i_crit_edge, %if.end67.thread9.i
   %.pre-phi = phi double [ %.pre, %if.end67.i.if.then3.i.i_crit_edge ], [ %14, %if.end67.thread9.i ]
-  %r.012.i = phi double [ %r.0.ph.i, %if.end67.i.if.then3.i.i_crit_edge ], [ %call50.i, %if.end67.thread9.i ]
   %cmp4.i.i = fcmp olt double %.pre-phi, 1.500000e+00
   br i1 %cmp4.i.i, label %if.else74.i, label %if.else6.i.i
 
@@ -4708,8 +4706,8 @@ if.else7.i.i:                                     ; preds = %if.end67.i
   %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %19) #15
   br label %exit
 
-if.else74.i:                                      ; preds = %if.then3.i.i, %if.end67.i, %if.end67.thread5.i
-  %r.08.i = phi double [ %cond.i, %if.end67.thread5.i ], [ %r.0.ph.i, %if.end67.i ], [ %r.012.i, %if.then3.i.i ]
+if.else74.i:                                      ; preds = %if.else36.i, %if.else32.i, %if.else29.i, %if.else19.i, %if.else22.i, %if.then13.i, %if.then40.i, %if.then2.i, %if.then3.i.i, %if.end67.i, %if.end67.thread5.i
+  %r.08.i = phi double [ %cond.i, %if.end67.thread5.i ], [ %call50.i, %if.end67.i ], [ %call50.i, %if.then3.i.i ], [ 0.000000e+00, %if.else36.i ], [ %y.0, %if.else32.i ], [ 1.000000e+00, %if.else29.i ], [ 1.000000e+00, %if.else19.i ], [ %cond27.i, %if.else22.i ], [ %cond18.i, %if.then13.i ], [ %fneg.i, %if.then40.i ], [ %cond7.i, %if.then2.i ]
   %call75.i = tail call ptr @PyFloat_FromDouble(double noundef %r.08.i) #15
   br label %exit
 
@@ -8096,7 +8094,7 @@ lanczos_sum.exit:                                 ; preds = %for.body6.i, %for.b
   br i1 %cmp18, label %if.then19, label %if.end26
 
 if.then19:                                        ; preds = %lanczos_sum.exit
-  %call.i = tail call double @fmod(double noundef %0, double noundef 2.000000e+00) #15
+  %call.i = frem nnan double %0, 2.000000e+00
   %mul.i = fmul double %call.i, 2.000000e+00
   %11 = tail call double @llvm.round.f64(double %mul.i)
   %conv.i = fptosi double %11 to i32
@@ -8405,7 +8403,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call = tail call double @fmod(double noundef %0, double noundef %2) #15
+  %call = frem nnan double %0, %2
   %sub = fsub double %2, %call
   %cmp2 = fcmp olt double %call, %sub
   br i1 %cmp2, label %if.end11, label %if.else

@@ -963,8 +963,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %sw
 
 _ZNK3ue29CharReach4noneEv.exit.i:                 ; preds = %for.body.i.i.i
   %or.cond.i = select i1 %cmp3.not.i.i.i, i1 %cmp.i.i189.i, i1 false
-  %brmerge636.i = select i1 %or.cond.i, i1 true, i1 %cmp.i217.i
-  br i1 %brmerge636.i, label %while.cond.backedge.i, label %if.end58.i
+  %brmerge630.i = select i1 %or.cond.i, i1 true, i1 %cmp.i217.i
+  br i1 %brmerge630.i, label %while.cond.backedge.i, label %if.end58.i
 
 sw.bb26.i:                                        ; preds = %while.body.i, %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i160.i, i64 32, i1 false)
@@ -994,8 +994,8 @@ for.body.i.i169.i:                                ; preds = %for.body.i.i169.i, 
 
 _ZNK3ue29CharReach4noneEv.exit176.i:              ; preds = %for.body.i.i169.i
   %or.cond600.i = select i1 %cmp3.not.i.i172.i, i1 true, i1 %cmp.i216.i
-  %brmerge632.i = select i1 %or.cond600.i, i1 true, i1 %cmp.i217.i
-  br i1 %brmerge632.i, label %while.cond.backedge.i, label %if.end58.i
+  %brmerge626.i = select i1 %or.cond600.i, i1 true, i1 %cmp.i217.i
+  br i1 %brmerge626.i, label %while.cond.backedge.i, label %if.end58.i
 
 sw.bb34.i:                                        ; preds = %while.body.i, %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN3ue2L25CHARREACH_NONWORD_UCP_PREE, i64 32, i1 false)
@@ -1045,8 +1045,8 @@ for.body.i.i.i184.i:                              ; preds = %for.body.i.i.i184.i
 _ZNK3ue29CharReach3anyEv.exit.i:                  ; preds = %for.body.i.i.i184.i
   %not.cmp3.not.i.i.i.i = xor i1 %cmp3.not.i.i.i.i, true
   %or.cond601.not.i = select i1 %not.cmp3.not.i.i.i.i, i1 %cmp.i.i189.i, i1 false
-  %brmerge634.i = select i1 %or.cond601.not.i, i1 true, i1 %cmp.i217.i
-  br i1 %brmerge634.i, label %while.cond.backedge.i, label %if.end58.i
+  %brmerge628.i = select i1 %or.cond601.not.i, i1 true, i1 %cmp.i217.i
+  br i1 %brmerge628.i, label %while.cond.backedge.i, label %if.end58.i
 
 sw.bb44.i:                                        ; preds = %while.body.i, %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN3ue2L22CHARREACH_WORD_UCP_PREE, i64 32, i1 false)
@@ -1096,8 +1096,8 @@ for.body.i.i.i207.i:                              ; preds = %for.body.i.i.i207.i
 _ZNK3ue29CharReach3anyEv.exit215.i:               ; preds = %for.body.i.i.i207.i
   %not.cmp3.not.i.i.i210.i = xor i1 %cmp3.not.i.i.i210.i, true
   %or.cond602.not.i = select i1 %not.cmp3.not.i.i.i210.i, i1 true, i1 %cmp.i216.i
-  %brmerge631.i = select i1 %or.cond602.not.i, i1 true, i1 %cmp.i217.i
-  br i1 %brmerge631.i, label %while.cond.backedge.i, label %if.end58.i
+  %brmerge625.i = select i1 %or.cond602.not.i, i1 true, i1 %cmp.i217.i
+  br i1 %brmerge625.i, label %while.cond.backedge.i, label %if.end58.i
 
 sw.epilog.i:                                      ; preds = %while.body.i
   br i1 %cmp.i217.i, label %if.else.i82, label %if.end58.i
@@ -1298,9 +1298,9 @@ if.then101.i.invoke:                              ; preds = %if.then101.i.invoke
           to label %for.inc.i83 unwind label %lpad36.loopexit
 
 if.else.i82:                                      ; preds = %sw.epilog.i, %if.end58.i, %_ZNK3ue29CharReach4noneEv.exit232.i, %_ZNK3ue29CharReach4noneEv.exit249.i, %_ZNK3ue29CharReach3anyEv.exit276.i, %_ZNK3ue29CharReach3anyEv.exit304.i, %while.end.i
-  %tobool15.not656.i = icmp eq i32 %and.i81, 0
+  %tobool15.not650.i = icmp eq i32 %and.i81, 0
   %cmp.i306.i = icmp ne ptr %44, %agg.tmp55.sroa.0.0.copyload.i
-  %tobool15.not.not.i = xor i1 %tobool15.not656.i, true
+  %tobool15.not.not.i = xor i1 %tobool15.not650.i, true
   %brmerge.i = or i1 %cmp.i306.i, %tobool15.not.not.i
   br i1 %brmerge.i, label %if.else221.i, label %if.then107.i
 
@@ -1594,7 +1594,7 @@ _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pa
   br label %if.then101.i.invoke.sink.split
 
 if.else221.i:                                     ; preds = %if.else.i82
-  %brmerge149.i = or i1 %tobool15.not656.i, %cmp.i306.i
+  %brmerge149.i = or i1 %tobool15.not650.i, %cmp.i306.i
   br i1 %brmerge149.i, label %for.inc.i83.sink.split, label %do.end229.i
 
 do.end229.i:                                      ; preds = %if.else221.i
@@ -1661,7 +1661,7 @@ for.body.i.i.i426.i:                              ; preds = %for.body.i.i.i426.i
 
 _ZNK3ue29CharReach3anyEv.exit434.i:               ; preds = %for.body.i.i.i426.i
   %.not.i = select i1 %cmp3.not.i.i.i411.i, i1 true, i1 %cmp.i216.i
-  %.not638.i = select i1 %cmp3.not.i.i.i429.i, i1 %cmp.i.i189.i, i1 false
+  %.not632.i = select i1 %cmp3.not.i.i.i429.i, i1 %cmp.i.i189.i, i1 false
   %166 = load i32, ptr %assert_flags.i75, align 8
   %and255.i = lshr i32 %166, 11
   %167 = trunc i32 %and255.i to i8
@@ -1671,7 +1671,7 @@ _ZNK3ue29CharReach3anyEv.exit434.i:               ; preds = %for.body.i.i.i426.i
   %frombool264.i = and i8 %168, 1
   %v_nw248.0.i = select i1 %.not.i, i8 0, i8 %frombool264.i
   %v_w247.0.i = select i1 %.not.i, i8 0, i8 %frombool258.i
-  br i1 %.not638.i, label %if.end280.i, label %if.then267.i
+  br i1 %.not632.i, label %if.end280.i, label %if.then267.i
 
 if.then267.i:                                     ; preds = %_ZNK3ue29CharReach3anyEv.exit434.i
   %and268.i = and i32 %166, 1024

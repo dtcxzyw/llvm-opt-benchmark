@@ -6589,9 +6589,9 @@ entry:
   br i1 %cmp.i, label %for.cond.preheader, label %for.end
 
 for.cond.preheader:                               ; preds = %entry
-  %call289 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %itemsTable, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
-  %tobool3.not90 = icmp eq i8 %call289, 0
-  br i1 %tobool3.not90, label %for.end, label %for.body.lr.ph
+  %call288 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %itemsTable, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %tobool3.not89 = icmp eq i8 %call288, 0
+  br i1 %tobool3.not89, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %dest118 = getelementptr inbounds i8, ptr %this, i64 8
@@ -6608,13 +6608,13 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.cond:                                         ; preds = %if.end121
-  %inc = add nuw nsw i32 %i.091, 1
+  %inc = add nuw nsw i32 %i.090, 1
   %call2 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %itemsTable, i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool3.not = icmp eq i8 %call2, 0
   br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %i.091 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  %i.090 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %vtable4 = load ptr, ptr %value, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 24
   %4 = load ptr, ptr %vfn5, align 8
@@ -6711,7 +6711,7 @@ invoke.cont42:                                    ; preds = %invoke.cont37
   br i1 %cmp46.not86, label %cleanup104, label %while.body
 
 while.body:                                       ; preds = %invoke.cont42, %cleanup
-  %fParent88 = phi ptr [ %fParent, %cleanup ], [ %fParent85, %invoke.cont42 ]
+  %fParent87 = phi ptr [ %fParent, %cleanup ], [ %fParent85, %invoke.cont42 ]
   invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localPath)
           to label %invoke.cont47 unwind label %lpad35.loopexit
 
@@ -6725,7 +6725,7 @@ invoke.cont47:                                    ; preds = %while.body
 invoke.cont49:                                    ; preds = %invoke.cont47
   %27 = load ptr, ptr %localPath, align 8
   store ptr %27, ptr %localPathAsCharPtr, align 8
-  %28 = load ptr, ptr %fParent88, align 8
+  %28 = load ptr, ptr %fParent87, align 8
   %fData53 = getelementptr inbounds i8, ptr %28, i64 40
   %rootRes = getelementptr inbounds i8, ptr %28, i64 72
   %29 = load i32, ptr %rootRes, align 8

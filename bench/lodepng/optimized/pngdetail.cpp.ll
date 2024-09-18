@@ -4251,15 +4251,15 @@ for.cond98.preheader:                             ; preds = %invoke.cont93
   %sub.ptr.rhs.cast.i187 = ptrtoint ptr %boundaries_compressed.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i188 = sub i64 %boundaries_compressed.sroa.7.0.lcssa, %sub.ptr.rhs.cast.i187
   %sub.ptr.div.i189 = ashr exact i64 %sub.ptr.sub.i188, 3
-  %umax514 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i189, i64 1)
-  %35 = add i64 %umax514, -1
+  %umax508 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i189, i64 1)
+  %35 = add i64 %umax508, -1
   br label %for.cond98
 
 for.cond98:                                       ; preds = %for.cond98.preheader, %invoke.cont104
   %i97.0 = phi i64 [ %add99, %invoke.cont104 ], [ 0, %for.cond98.preheader ]
   %add99 = add nuw i64 %i97.0, 1
-  %exitcond515.not = icmp eq i64 %i97.0, %35
-  br i1 %exitcond515.not, label %for.end110, label %for.body102
+  %exitcond509.not = icmp eq i64 %i97.0, %35
+  br i1 %exitcond509.not, label %for.end110, label %for.body102
 
 for.body102:                                      ; preds = %for.cond98
   %add.ptr.i190 = getelementptr inbounds i64, ptr %boundaries_compressed.sroa.0.0.lcssa, i64 %i97.0
@@ -4295,13 +4295,13 @@ if.end114:                                        ; preds = %if.then.i.i.i195, %
   %zlib_blocks = getelementptr inbounds i8, ptr %options, i64 32
   %37 = load i8, ptr %zlib_blocks, align 4
   %tobool115 = trunc i8 %37 to i1
-  %.pre527 = load ptr, ptr %zlibinfo, align 8
+  %.pre521 = load ptr, ptr %zlibinfo, align 8
   br i1 %tobool115, label %for.cond118.preheader, label %cleanup
 
 for.cond118.preheader:                            ; preds = %if.end114
   %_M_finish.i197 = getelementptr inbounds i8, ptr %zlibinfo, i64 8
   %38 = load ptr, ptr %_M_finish.i197, align 8
-  %cmp120476.not = icmp eq ptr %38, %.pre527
+  %cmp120476.not = icmp eq ptr %38, %.pre521
   br i1 %cmp120476.not, label %cleanup, label %for.body121.lr.ph
 
 for.body121.lr.ph:                                ; preds = %for.cond118.preheader
@@ -4310,14 +4310,14 @@ for.body121.lr.ph:                                ; preds = %for.cond118.prehead
   br label %for.body121
 
 for.body121:                                      ; preds = %for.body121.lr.ph, %for.inc560
-  %39 = phi ptr [ %.pre527, %for.body121.lr.ph ], [ %117, %for.inc560 ]
-  %i117.0483 = phi i64 [ 0, %for.body121.lr.ph ], [ %inc561, %for.inc560 ]
-  %add.ptr.i202 = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %39, i64 %i117.0483
+  %39 = phi ptr [ %.pre521, %for.body121.lr.ph ], [ %117, %for.inc560 ]
+  %i117.0477 = phi i64 [ 0, %for.body121.lr.ph ], [ %inc561, %for.inc560 ]
+  %add.ptr.i202 = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %39, i64 %i117.0477
   %call124 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.49)
           to label %invoke.cont123 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont123:                                   ; preds = %for.body121
-  %call126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call124, i64 noundef %i117.0483)
+  %call126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call124, i64 noundef %i117.0477)
           to label %invoke.cont125 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont125:                                   ; preds = %invoke.cont123
@@ -4518,8 +4518,8 @@ for.body220:                                      ; preds = %for.cond218.prehead
 
 for.inc224:                                       ; preds = %for.body220
   %inc225 = add nuw nsw i64 %j.0443, 1
-  %exitcond516.not = icmp eq i64 %inc225, 19
-  br i1 %exitcond516.not, label %for.end226, label %for.body220, !llvm.loop !43
+  %exitcond510.not = icmp eq i64 %inc225, 19
+  br i1 %exitcond510.not, label %for.end226, label %for.body220, !llvm.loop !43
 
 for.end226:                                       ; preds = %for.inc224
   %call228 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -4625,8 +4625,8 @@ for.body277:                                      ; preds = %for.cond275.prehead
 
 for.inc281:                                       ; preds = %for.body277
   %inc282 = add nuw nsw i64 %j274.0450, 1
-  %exitcond517.not = icmp eq i64 %inc282, 128
-  br i1 %exitcond517.not, label %for.end283, label %for.body277, !llvm.loop !45
+  %exitcond511.not = icmp eq i64 %inc282, 128
+  br i1 %exitcond511.not, label %for.end283, label %for.body277, !llvm.loop !45
 
 for.end283:                                       ; preds = %for.inc281
   %call285 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -4646,8 +4646,8 @@ for.body291:                                      ; preds = %invoke.cont284, %fo
 
 for.inc296:                                       ; preds = %for.body291
   %inc297 = add nuw nsw i64 %j288.0451, 1
-  %exitcond518.not = icmp eq i64 %inc297, 256
-  br i1 %exitcond518.not, label %for.end298, label %for.body291, !llvm.loop !46
+  %exitcond512.not = icmp eq i64 %inc297, 256
+  br i1 %exitcond512.not, label %for.end298, label %for.body291, !llvm.loop !46
 
 for.end298:                                       ; preds = %for.inc296
   %call300 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -4682,8 +4682,8 @@ for.body314:                                      ; preds = %invoke.cont307, %fo
 
 for.inc319:                                       ; preds = %for.body314
   %inc320 = add nuw nsw i64 %j311.0452, 1
-  %exitcond519.not = icmp eq i64 %inc320, 288
-  br i1 %exitcond519.not, label %for.end321, label %for.body314, !llvm.loop !47
+  %exitcond513.not = icmp eq i64 %inc320, 288
+  br i1 %exitcond513.not, label %for.end321, label %for.body314, !llvm.loop !47
 
 for.end321:                                       ; preds = %for.inc319
   %call323 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -4707,8 +4707,8 @@ for.body329:                                      ; preds = %for.cond327.prehead
 
 for.inc333:                                       ; preds = %for.body329
   %inc334 = add nuw nsw i64 %j326.0453, 1
-  %exitcond520.not = icmp eq i64 %inc334, 32
-  br i1 %exitcond520.not, label %for.end335, label %for.body329, !llvm.loop !48
+  %exitcond514.not = icmp eq i64 %inc334, 32
+  br i1 %exitcond514.not, label %for.end335, label %for.body329, !llvm.loop !48
 
 for.end335:                                       ; preds = %for.inc333
   %call337 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -4869,14 +4869,14 @@ if.end417:                                        ; preds = %for.inc414, %for.co
 
 if.then419:                                       ; preds = %if.end417
   %call5.i.i.i.i2.i.i225 = invoke noalias noundef nonnull dereferenceable(2304) ptr @_Znwm(i64 noundef 2304) #27
-          to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad421
+          to label %for.body.i.i.i.i.i.i.i.i.i.preheader unwind label %lpad421
 
-call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then419
+for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then419
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2304) %call5.i.i.i.i2.i.i225, i8 0, i64 2304, i1 false)
   %call5.i.i.i.i2.i.i234 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #27
-          to label %call5.i.i.i.i2.i.i.noexc233 unwind label %lpad425
+          to label %for.body.i.i.i.i.i.i.i.i.i229.preheader unwind label %lpad425
 
-call5.i.i.i.i2.i.i.noexc233:                      ; preds = %call5.i.i.i.i2.i.i.noexc
+for.body.i.i.i.i.i.i.i.i.i229.preheader:          ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %call5.i.i.i.i2.i.i234, i8 0, i64 256, i1 false)
   %lz77_lcode429 = getelementptr inbounds i8, ptr %add.ptr.i202, i64 144
   %_M_finish.i236 = getelementptr inbounds i8, ptr %add.ptr.i202, i64 152
@@ -4885,7 +4885,7 @@ call5.i.i.i.i2.i.i.noexc233:                      ; preds = %call5.i.i.i.i2.i.i.
   %cmp431464.not = icmp eq ptr %97, %98
   br i1 %cmp431464.not, label %for.end451, label %for.body432.lr.ph
 
-for.body432.lr.ph:                                ; preds = %call5.i.i.i.i2.i.i.noexc233
+for.body432.lr.ph:                                ; preds = %for.body.i.i.i.i.i.i.i.i.i229.preheader
   %lz77_dcode = getelementptr inbounds i8, ptr %add.ptr.i202, i64 168
   br label %for.body432
 
@@ -4902,7 +4902,7 @@ lpad421:                                          ; preds = %if.then419
           cleanup
   br label %ehcleanup564
 
-lpad425:                                          ; preds = %call5.i.i.i.i2.i.i.noexc
+lpad425:                                          ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader
   %102 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorImSaImEED2Ev.exit264
@@ -4936,7 +4936,7 @@ for.inc449:                                       ; preds = %for.body432, %if.el
   %cmp431 = icmp ult i64 %inc450, %sub.ptr.div.i240
   br i1 %cmp431, label %for.body432, label %for.end451, !llvm.loop !50
 
-for.end451:                                       ; preds = %for.inc449, %call5.i.i.i.i2.i.i.noexc233
+for.end451:                                       ; preds = %for.inc449, %for.body.i.i.i.i.i.i.i.i.i229.preheader
   %call454 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.77)
           to label %for.body458 unwind label %_ZNSt6vectorImSaImEED2Ev.exit249.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4953,8 +4953,8 @@ invoke.cont460:                                   ; preds = %for.body458
 
 for.inc464:                                       ; preds = %invoke.cont460
   %inc465 = add nuw nsw i64 %j455.0466, 1
-  %exitcond521.not = icmp eq i64 %inc465, 64
-  br i1 %exitcond521.not, label %for.end466, label %for.body458, !llvm.loop !51
+  %exitcond515.not = icmp eq i64 %inc465, 64
+  br i1 %exitcond515.not, label %for.end466, label %for.body458, !llvm.loop !51
 
 _ZNSt6vectorImSaImEED2Ev.exit249.loopexit:        ; preds = %for.body547, %invoke.cont549
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5017,8 +5017,8 @@ invoke.cont476:                                   ; preds = %for.body474
 
 for.inc480:                                       ; preds = %invoke.cont476
   %inc481 = add nuw nsw i64 %j471.0467, 1
-  %exitcond522.not = icmp eq i64 %inc481, 128
-  br i1 %exitcond522.not, label %for.end482, label %for.body474, !llvm.loop !52
+  %exitcond516.not = icmp eq i64 %inc481, 128
+  br i1 %exitcond516.not, label %for.end482, label %for.body474, !llvm.loop !52
 
 for.end482:                                       ; preds = %for.inc480
   %call484 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -5041,8 +5041,8 @@ invoke.cont492:                                   ; preds = %for.body490
 
 for.inc496:                                       ; preds = %invoke.cont492
   %inc497 = add nuw nsw i64 %j487.0468, 1
-  %exitcond523.not = icmp eq i64 %inc497, 192
-  br i1 %exitcond523.not, label %for.end498, label %for.body490, !llvm.loop !53
+  %exitcond517.not = icmp eq i64 %inc497, 192
+  br i1 %exitcond517.not, label %for.end498, label %for.body490, !llvm.loop !53
 
 for.end498:                                       ; preds = %for.inc496
   %call500 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -5065,8 +5065,8 @@ invoke.cont508:                                   ; preds = %for.body506
 
 for.inc512:                                       ; preds = %invoke.cont508
   %inc513 = add nuw nsw i64 %j503.0469, 1
-  %exitcond524.not = icmp eq i64 %inc513, 256
-  br i1 %exitcond524.not, label %for.end514, label %for.body506, !llvm.loop !54
+  %exitcond518.not = icmp eq i64 %inc513, 256
+  br i1 %exitcond518.not, label %for.end514, label %for.body506, !llvm.loop !54
 
 for.end514:                                       ; preds = %for.inc512
   %call516 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -5107,8 +5107,8 @@ invoke.cont533:                                   ; preds = %for.body531
 
 for.inc537:                                       ; preds = %invoke.cont533
   %inc538 = add nuw nsw i64 %j528.0470, 1
-  %exitcond525.not = icmp eq i64 %inc538, 288
-  br i1 %exitcond525.not, label %for.end539, label %for.body531, !llvm.loop !55
+  %exitcond519.not = icmp eq i64 %inc538, 288
+  br i1 %exitcond519.not, label %for.end539, label %for.body531, !llvm.loop !55
 
 for.end539:                                       ; preds = %for.inc537
   %call541 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -5131,8 +5131,8 @@ invoke.cont549:                                   ; preds = %for.body547
 
 for.inc553:                                       ; preds = %invoke.cont549
   %inc554 = add nuw nsw i64 %j544.0471, 1
-  %exitcond526.not = icmp eq i64 %inc554, 32
-  br i1 %exitcond526.not, label %for.end555, label %for.body547, !llvm.loop !56
+  %exitcond520.not = icmp eq i64 %inc554, 32
+  br i1 %exitcond520.not, label %for.end555, label %for.body547, !llvm.loop !56
 
 for.end555:                                       ; preds = %for.inc553
   %call557 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -5149,7 +5149,7 @@ _ZNSt6vectorImSaImEED2Ev.exit264:                 ; preds = %_ZNSt6vectorImSaImE
   br label %ehcleanup564
 
 for.inc560:                                       ; preds = %if.end344, %_ZNSt6vectorImSaImEED2Ev.exit261, %if.end417
-  %inc561 = add nuw i64 %i117.0483, 1
+  %inc561 = add nuw i64 %i117.0477, 1
   %116 = load ptr, ptr %_M_finish.i197, align 8
   %117 = load ptr, ptr %zlibinfo, align 8
   %sub.ptr.lhs.cast.i198 = ptrtoint ptr %116 to i64
@@ -5160,7 +5160,7 @@ for.inc560:                                       ; preds = %if.end344, %_ZNSt6v
   br i1 %cmp120, label %for.body121, label %cleanup, !llvm.loop !57
 
 cleanup:                                          ; preds = %for.inc560, %invoke.cont174.cleanup_crit_edge, %for.cond118.preheader, %if.end114
-  %118 = phi ptr [ %.pre, %invoke.cont174.cleanup_crit_edge ], [ %.pre527, %for.cond118.preheader ], [ %.pre527, %if.end114 ], [ %117, %for.inc560 ]
+  %118 = phi ptr [ %.pre, %invoke.cont174.cleanup_crit_edge ], [ %.pre521, %for.cond118.preheader ], [ %.pre521, %if.end114 ], [ %117, %for.inc560 ]
   %_M_finish.i265 = getelementptr inbounds i8, ptr %zlibinfo, i64 8
   %119 = load ptr, ptr %_M_finish.i265, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %118, %119

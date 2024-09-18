@@ -17042,18 +17042,18 @@ _ZNK4llvm5APInt11countl_zeroEv.exit.i:            ; preds = %99, %92
   br label %140
 
 140:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread.i, %_ZNK4llvm5APInt11countl_zeroEv.exit.i
-  %.0137379.i = phi i32 [ 0, %_ZNK4llvm5APInt11countl_zeroEv.exit.i ], [ %146, %_ZNK4llvm3EVTeqES0_.exit.thread.i ]
+  %.0137378.i = phi i32 [ 0, %_ZNK4llvm5APInt11countl_zeroEv.exit.i ], [ %146, %_ZNK4llvm3EVTeqES0_.exit.thread.i ]
   store ptr null, ptr %37, align 8
   store i32 0, ptr %102, align 8
-  %141 = icmp ugt i32 %.0137379.i, 1
-  %142 = and i32 %.0137379.i, 1
+  %141 = icmp ugt i32 %.0137378.i, 1
+  %142 = and i32 %.0137378.i, 1
   %143 = load ptr, ptr %103, align 8
   %144 = zext nneg i32 %142 to i64
   %145 = getelementptr inbounds %"class.llvm::SDUse", ptr %143, i64 %144
   %.sroa.0289.0.copyload.i = load ptr, ptr %145, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %145, i64 8
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %146 = add nuw nsw i32 %.0137379.i, 1
+  %146 = add nuw nsw i32 %.0137378.i, 1
   %147 = and i32 %146, 1
   %148 = zext nneg i32 %147 to i64
   %149 = getelementptr inbounds %"class.llvm::SDUse", ptr %143, i64 %148
@@ -17251,8 +17251,8 @@ _ZNK4llvm5APIntneEm.exit.thread.i:                ; preds = %_ZNK4llvm5APIntneEm
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %_ZNK4llvm5APIntneEm.exit.thread.i
   call void @_ZdaPv(ptr noundef nonnull %219) #25
-  %.pre389.i = load i32, ptr %107, align 8
-  %227 = icmp ugt i32 %.pre389.i, 64
+  %.pre388.i = load i32, ptr %107, align 8
+  %227 = icmp ugt i32 %.pre388.i, 64
   br i1 %227, label %228, label %_ZN4llvm5APIntD2Ev.exit157.i
 
 228:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit.i
@@ -18271,9 +18271,9 @@ _ZN4llvm5APIntC2Ejmbb.exit187.i:                  ; preds = %629
   %647 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %89, ptr %647, align 8
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %53, i64 noundef %.0.i.i.i.i.i184.i, i1 noundef zeroext false) #22
-  %.pre390.i = load i32, ptr %647, align 8, !noalias !61
+  %.pre389.i = load i32, ptr %647, align 8, !noalias !61
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  %648 = icmp ult i32 %.pre390.i, 65
+  %648 = icmp ult i32 %.pre389.i, 65
   br i1 %648, label %_ZN4llvm5APIntC2Ejmbb.exit187.i._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i190.i_crit_edge, label %660
 
 _ZN4llvm5APIntC2Ejmbb.exit187.i._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i190.i_crit_edge: ; preds = %_ZN4llvm5APIntC2Ejmbb.exit187.i
@@ -18283,7 +18283,7 @@ _ZN4llvm5APIntC2Ejmbb.exit187.i._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i190.i_
 _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i190.i:  ; preds = %_ZN4llvm5APIntC2Ejmbb.exit187.i._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i190.i_crit_edge, %_ZN4llvm5APIntC2Ejmbb.exit187.thread.i
   %649 = phi i64 [ %646, %_ZN4llvm5APIntC2Ejmbb.exit187.thread.i ], [ %.pre, %_ZN4llvm5APIntC2Ejmbb.exit187.i._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i190.i_crit_edge ]
   %650 = phi ptr [ %645, %_ZN4llvm5APIntC2Ejmbb.exit187.thread.i ], [ %647, %_ZN4llvm5APIntC2Ejmbb.exit187.i._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i190.i_crit_edge ]
-  %651 = phi i32 [ %89, %_ZN4llvm5APIntC2Ejmbb.exit187.thread.i ], [ %.pre390.i, %_ZN4llvm5APIntC2Ejmbb.exit187.i._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i190.i_crit_edge ]
+  %651 = phi i32 [ %89, %_ZN4llvm5APIntC2Ejmbb.exit187.thread.i ], [ %.pre389.i, %_ZN4llvm5APIntC2Ejmbb.exit187.i._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i190.i_crit_edge ]
   %652 = xor i64 %649, -1
   %653 = add nuw nsw i32 %651, 63
   %654 = and i32 %653, 63
@@ -18388,8 +18388,8 @@ _ZNK4llvm3EVTeqES0_.exit.i199.i:                  ; preds = %_ZL13isShiftedMaskm
 _ZN4llvm5APIntD2Ev.exit204.i:                     ; preds = %.critedge.i
   call void @_ZdaPv(ptr noundef nonnull %667) #25
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.pre391.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %701 = icmp ugt i32 %.pre391.i, 64
+  %.pre390.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %701 = icmp ugt i32 %.pre390.i, 64
   br i1 %701, label %702, label %_ZN4llvm5APIntD2Ev.exit205.i
 
 702:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit204.i
@@ -18484,8 +18484,8 @@ _ZN4llvm5APIntC2Ejmbb.exit214.thread.i:           ; preds = %_ZL13isShiftedMaskm
 
 _ZN4llvm5APIntC2Ejmbb.exit214.i:                  ; preds = %_ZL13isShiftedMaskmN4llvm3EVTE.exit212.thread.i
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %55, i64 noundef %.1326.i, i1 noundef zeroext false) #22
-  %.pre392.i = load i32, ptr %734, align 8
-  %741 = icmp ult i32 %.pre392.i, 65
+  %.pre391.i = load i32, ptr %734, align 8
+  %741 = icmp ult i32 %.pre391.i, 65
   br i1 %741, label %_ZN4llvm5APIntC2Ejmbb.exit214.i._ZNK4llvm5APInt8popcountEv.exit.i_crit_edge, label %745
 
 _ZN4llvm5APIntC2Ejmbb.exit214.i._ZNK4llvm5APInt8popcountEv.exit.i_crit_edge: ; preds = %_ZN4llvm5APIntC2Ejmbb.exit214.i

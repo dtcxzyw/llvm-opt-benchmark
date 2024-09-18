@@ -3479,8 +3479,8 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %16 = getelementptr inbounds i8, ptr %4, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %.078) #4
-  %.not182 = icmp eq i16 %15, 0
-  br i1 %.not182, label %._crit_edge.thread, label %.lr.ph.split
+  %.not181 = icmp eq i16 %15, 0
+  br i1 %.not181, label %._crit_edge.thread, label %.lr.ph.split
 
 .thread.us.preheader:                             ; preds = %12
   %19 = getelementptr inbounds i8, ptr %4, i64 408
@@ -3489,16 +3489,16 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %34
-  %.0141.us = phi i32 [ %.1.us, %34 ], [ %1, %.thread.us.preheader ]
-  %.176140.us = phi i32 [ %23, %34 ], [ %1, %.thread.us.preheader ]
-  %.077139.us = phi i16 [ %35, %34 ], [ 0, %.thread.us.preheader ]
-  %.079138.us = phi i16 [ %.180.us, %34 ], [ 0, %.thread.us.preheader ]
-  %.082137.us = phi i16 [ %.183.us, %34 ], [ 0, %.thread.us.preheader ]
-  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %.176140.us) #4
-  %23 = add nuw nsw i32 %.176140.us, 1
-  %24 = add i16 %.079138.us, 1
+  %.0140.us = phi i32 [ %.1.us, %34 ], [ %1, %.thread.us.preheader ]
+  %.176139.us = phi i32 [ %23, %34 ], [ %1, %.thread.us.preheader ]
+  %.077138.us = phi i16 [ %35, %34 ], [ 0, %.thread.us.preheader ]
+  %.079137.us = phi i16 [ %.180.us, %34 ], [ 0, %.thread.us.preheader ]
+  %.082136.us = phi i16 [ %.183.us, %34 ], [ 0, %.thread.us.preheader ]
+  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %.176139.us) #4
+  %23 = add nuw nsw i32 %.176139.us, 1
+  %24 = add i16 %.079137.us, 1
   %.not9499.us = icmp ult i16 %24, 16
-  %25 = zext i16 %.082137.us to i64
+  %25 = zext i16 %.082136.us to i64
   %26 = getelementptr i8, ptr %21, i64 %25
   %27 = zext i8 %22 to i32
   br i1 %.not9499.us, label %.thread125.us, label %.thread112.us
@@ -3506,102 +3506,102 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
 .thread112.us:                                    ; preds = %.thread.us
   %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %26, i64 noundef 32, ptr noundef nonnull @.str.630, i32 noundef %27) #4
   %29 = load i32, ptr @hf_ecmp_cyclic_data, align 4
-  %30 = sub i32 %23, %.0141.us
+  %30 = sub i32 %23, %.0140.us
   %31 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %5, i32 noundef %29, ptr noundef %3, i32 noundef %23, i32 noundef %30, ptr noundef null, ptr noundef nonnull @.str.591, ptr noundef %21) #4
   br label %34
 
 .thread125.us:                                    ; preds = %.thread.us
   %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %26, i64 noundef 32, ptr noundef nonnull @.str.633, i32 noundef %27) #4
-  %33 = add i16 %.082137.us, 3
+  %33 = add i16 %.082136.us, 3
   br label %34
 
 34:                                               ; preds = %.thread125.us, %.thread112.us
   %.183.us = phi i16 [ 0, %.thread112.us ], [ %33, %.thread125.us ]
   %.180.us = phi i16 [ 0, %.thread112.us ], [ %24, %.thread125.us ]
-  %.1.us = phi i32 [ %23, %.thread112.us ], [ %.0141.us, %.thread125.us ]
-  %35 = add nuw i16 %.077139.us, 1
-  %exitcond186.not = icmp eq i16 %35, %2
-  br i1 %exitcond186.not, label %._crit_edge, label %.thread.us, !llvm.loop !22
+  %.1.us = phi i32 [ %23, %.thread112.us ], [ %.0140.us, %.thread125.us ]
+  %35 = add nuw i16 %.077138.us, 1
+  %exitcond185.not = icmp eq i16 %35, %2
+  br i1 %exitcond185.not, label %._crit_edge, label %.thread.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %14
   %36 = icmp eq i8 %0, 1
   br i1 %36, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.split.preheader
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split, %51
-  %.0141.us146 = phi i32 [ %.1.us155, %51 ], [ %1, %.lr.ph.split ]
-  %.176140.us147 = phi i32 [ %38, %51 ], [ %1, %.lr.ph.split ]
-  %.077139.us148 = phi i16 [ %52, %51 ], [ 0, %.lr.ph.split ]
-  %.079138.us149 = phi i16 [ %.180.us154, %51 ], [ 0, %.lr.ph.split ]
-  %.082137.us150 = phi i16 [ %.183.us153, %51 ], [ 0, %.lr.ph.split ]
-  %37 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %.176140.us147) #4
-  %38 = add i32 %.176140.us147, 2
-  %39 = add i16 %.079138.us149, 1
+  %.0140.us145 = phi i32 [ %.1.us154, %51 ], [ %1, %.lr.ph.split ]
+  %.176139.us146 = phi i32 [ %38, %51 ], [ %1, %.lr.ph.split ]
+  %.077138.us147 = phi i16 [ %52, %51 ], [ 0, %.lr.ph.split ]
+  %.079137.us148 = phi i16 [ %.180.us153, %51 ], [ 0, %.lr.ph.split ]
+  %.082136.us149 = phi i16 [ %.183.us152, %51 ], [ 0, %.lr.ph.split ]
+  %37 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %.176139.us146) #4
+  %38 = add i32 %.176139.us146, 2
+  %39 = add i16 %.079137.us148, 1
   %40 = zext i16 %39 to i32
   %.not94.us = icmp ugt i32 %.081, %40
-  %41 = zext i16 %.082137.us150 to i64
+  %41 = zext i16 %.082136.us149 to i64
   %42 = getelementptr i8, ptr %18, i64 %41
   %43 = zext i16 %37 to i32
   br i1 %.not94.us, label %44, label %47
 
 44:                                               ; preds = %.lr.ph.split.split.us.preheader
   %45 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %42, i64 noundef 32, ptr noundef nonnull @.str.634, i32 noundef %43) #4
-  %46 = add i16 %.082137.us150, 5
+  %46 = add i16 %.082136.us149, 5
   br label %51
 
 47:                                               ; preds = %.lr.ph.split.split.us.preheader
   %48 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %42, i64 noundef 32, ptr noundef nonnull @.str.631, i32 noundef %43) #4
   %.pre = load i32, ptr @hf_ecmp_cyclic_data, align 4
-  %49 = sub i32 %38, %.0141.us146
+  %49 = sub i32 %38, %.0140.us145
   %50 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %5, i32 noundef %.pre, ptr noundef %3, i32 noundef %38, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.591, ptr noundef %18) #4
   br label %51
 
 51:                                               ; preds = %47, %44
-  %.183.us153 = phi i16 [ 0, %47 ], [ %46, %44 ]
-  %.180.us154 = phi i16 [ 0, %47 ], [ %39, %44 ]
-  %.1.us155 = phi i32 [ %38, %47 ], [ %.0141.us146, %44 ]
-  %52 = add nuw i16 %.077139.us148, 1
-  %exitcond185.not = icmp eq i16 %52, %15
-  br i1 %exitcond185.not, label %._crit_edge, label %.lr.ph.split.split.us.preheader, !llvm.loop !22
+  %.183.us152 = phi i16 [ 0, %47 ], [ %46, %44 ]
+  %.180.us153 = phi i16 [ 0, %47 ], [ %39, %44 ]
+  %.1.us154 = phi i32 [ %38, %47 ], [ %.0140.us145, %44 ]
+  %52 = add nuw i16 %.077138.us147, 1
+  %exitcond184.not = icmp eq i16 %52, %15
+  br i1 %exitcond184.not, label %._crit_edge, label %.lr.ph.split.split.us.preheader, !llvm.loop !22
 
 .lr.ph.split.split.split.preheader:               ; preds = %.lr.ph.split, %67
-  %.0141 = phi i32 [ %.1, %67 ], [ %1, %.lr.ph.split ]
-  %.176140 = phi i32 [ %54, %67 ], [ %1, %.lr.ph.split ]
-  %.077139 = phi i16 [ %68, %67 ], [ 0, %.lr.ph.split ]
-  %.079138 = phi i16 [ %.180, %67 ], [ 0, %.lr.ph.split ]
-  %.082137 = phi i16 [ %.183, %67 ], [ 0, %.lr.ph.split ]
-  %53 = tail call i32 @tvb_get_ntohl(ptr noundef %3, i32 noundef %.176140) #4
-  %54 = add i32 %.176140, 4
-  %55 = add i16 %.079138, 1
+  %.0140 = phi i32 [ %.1, %67 ], [ %1, %.lr.ph.split ]
+  %.176139 = phi i32 [ %54, %67 ], [ %1, %.lr.ph.split ]
+  %.077138 = phi i16 [ %68, %67 ], [ 0, %.lr.ph.split ]
+  %.079137 = phi i16 [ %.180, %67 ], [ 0, %.lr.ph.split ]
+  %.082136 = phi i16 [ %.183, %67 ], [ 0, %.lr.ph.split ]
+  %53 = tail call i32 @tvb_get_ntohl(ptr noundef %3, i32 noundef %.176139) #4
+  %54 = add i32 %.176139, 4
+  %55 = add i16 %.079137, 1
   %56 = zext i16 %55 to i32
   %.not94 = icmp ugt i32 %.081, %56
-  %57 = zext i16 %.082137 to i64
+  %57 = zext i16 %.082136 to i64
   %58 = getelementptr i8, ptr %18, i64 %57
   br i1 %.not94, label %64, label %59
 
 59:                                               ; preds = %.lr.ph.split.split.split.preheader
   %60 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %58, i64 noundef 32, ptr noundef nonnull @.str.632, i32 noundef %53) #4
   %61 = load i32, ptr @hf_ecmp_cyclic_data, align 4
-  %62 = sub i32 %54, %.0141
+  %62 = sub i32 %54, %.0140
   %63 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %5, i32 noundef %61, ptr noundef %3, i32 noundef %54, i32 noundef %62, ptr noundef null, ptr noundef nonnull @.str.591, ptr noundef %18) #4
   br label %67
 
 64:                                               ; preds = %.lr.ph.split.split.split.preheader
   %65 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %58, i64 noundef 32, ptr noundef nonnull @.str.635, i32 noundef %53) #4
-  %66 = add i16 %.082137, 9
+  %66 = add i16 %.082136, 9
   br label %67
 
 67:                                               ; preds = %59, %64
   %.183 = phi i16 [ 0, %59 ], [ %66, %64 ]
   %.180 = phi i16 [ 0, %59 ], [ %55, %64 ]
-  %.1 = phi i32 [ %54, %59 ], [ %.0141, %64 ]
-  %68 = add nuw i16 %.077139, 1
+  %.1 = phi i32 [ %54, %59 ], [ %.0140, %64 ]
+  %68 = add nuw i16 %.077138, 1
   %exitcond.not = icmp eq i16 %68, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.preheader, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %34, %67, %51
   %69 = phi ptr [ %18, %51 ], [ %18, %67 ], [ %21, %34 ]
-  %.082.lcssa = phi i16 [ %.183.us153, %51 ], [ %.183, %67 ], [ %.183.us, %34 ]
-  %.079.lcssa = phi i16 [ %.180.us154, %51 ], [ %.180, %67 ], [ %.180.us, %34 ]
+  %.082.lcssa = phi i16 [ %.183.us152, %51 ], [ %.183, %67 ], [ %.183.us, %34 ]
+  %.079.lcssa = phi i16 [ %.180.us153, %51 ], [ %.180, %67 ], [ %.180.us, %34 ]
   %.176.lcssa = phi i32 [ %38, %51 ], [ %54, %67 ], [ %23, %34 ]
   %.not = icmp eq i16 %.079.lcssa, 0
   br i1 %.not, label %._crit_edge.thread, label %70

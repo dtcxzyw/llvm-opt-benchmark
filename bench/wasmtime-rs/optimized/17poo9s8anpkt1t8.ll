@@ -7862,8 +7862,8 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_name_section
   %18 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load i64, ptr %17, align 8, !alias.scope !316, !noalias !319, !noundef !4
   %20 = load i64, ptr %18, align 8, !alias.scope !316, !noalias !319, !noundef !4
-  %.not.i427 = icmp ult i64 %19, %20
-  br i1 %.not.i427, label %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.lr.ph", label %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.thread"
+  %.not.i286 = icmp ult i64 %19, %20
+  br i1 %.not.i286, label %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.lr.ph", label %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.thread"
 
 "_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.lr.ph": ; preds = %4
   %.sroa.7145.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
@@ -7912,7 +7912,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_name_section
   %25 = getelementptr inbounds i8, ptr %3, i64 384
   br label %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit"
 
-"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit": ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.lr.ph", %32
+"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit": ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.lr.ph", %33
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8), !noalias !321
   call void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724"(ptr noalias nocapture noundef nonnull sret({ i8, [55 x i8] }) align 8 dereferenceable(56) %8, ptr noalias noundef nonnull align 8 dereferenceable(40) %16), !noalias !319
   %.sroa.0.0.copyload = load i8, ptr %8, align 8, !noalias !323
@@ -7927,29 +7927,29 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_name_section
   switch i8 %.sroa.0.0.copyload, label %default.unreachable [
     i8 13, label %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.thread"
     i8 12, label %.thread
-    i8 11, label %32
+    i8 11, label %33
     i8 0, label %28
-    i8 1, label %.lr.ph422.preheader
-    i8 2, label %.lr.ph.preheader
-    i8 3, label %32
-    i8 4, label %32
-    i8 5, label %32
-    i8 6, label %32
-    i8 7, label %32
-    i8 8, label %32
-    i8 9, label %32
-    i8 10, label %32
+    i8 1, label %.lr.ph285.preheader
+    i8 2, label %.lr.ph284.preheader
+    i8 3, label %33
+    i8 4, label %33
+    i8 5, label %33
+    i8 6, label %33
+    i8 7, label %33
+    i8 8, label %33
+    i8 9, label %33
+    i8 10, label %33
   ]
 
 default.unreachable:                              ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit"
   unreachable
 
-"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.thread": ; preds = %32, %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %4
+"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.thread": ; preds = %33, %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   store i64 -9223372036854775805, ptr %0, align 8
   br label %26
 
-26:                                               ; preds = %51, %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.thread"
+26:                                               ; preds = %52, %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.thread"
   ret void
 
 .thread:                                          ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit"
@@ -7959,16 +7959,16 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
   call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %12, ptr noalias noundef nonnull align 8 %.sroa.7145.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  br label %51
+  br label %52
 
 28:                                               ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit"
   %29 = icmp ne ptr %.sroa.9.0.copyload, null
   call void @llvm.assume(i1 %29)
   %30 = load ptr, ptr %25, align 8, !invariant.load !4, !nonnull !4
   call void %30(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 1 %.sroa.9.0.copyload, i64 noundef %.sroa.10.0.copyload)
-  br label %32
+  br label %33
 
-.lr.ph422.preheader:                              ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit"
+.lr.ph285.preheader:                              ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
   store ptr %.sroa.7145.0.copyload, ptr %15, align 8
   store i64 %.sroa.8.0.copyload, ptr %.sroa.026.sroa.5.0..sroa_idx, align 8
@@ -7981,9 +7981,9 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
   store i8 0, ptr %.sroa.627.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %31 = icmp eq i32 %.sroa.12.0.copyload, 0
-  br i1 %31, label %.lr.ph422._crit_edge, label %.lr.ph575
+  br i1 %31, label %.lr.ph285._crit_edge, label %.lr.ph336
 
-.lr.ph.preheader:                                 ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit"
+.lr.ph284.preheader:                              ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   store ptr %.sroa.7145.0.copyload, ptr %14, align 8
   store i64 %.sroa.8.0.copyload, ptr %.sroa.053.sroa.5.0..sroa_idx, align 8
@@ -7995,115 +7995,116 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
   store i32 %.sroa.12.0.copyload, ptr %.sroa.554.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.655.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  br label %.lr.ph
+  %32 = icmp eq i32 %.sroa.12.0.copyload, 0
+  br i1 %32, label %.lr.ph284._crit_edge, label %.lr.ph
 
-32:                                               ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %.loopexit267, %.loopexit265, %28
-  %33 = load i64, ptr %17, align 8, !alias.scope !324, !noalias !319, !noundef !4
-  %34 = load i64, ptr %18, align 8, !alias.scope !324, !noalias !319, !noundef !4
-  %.not.i = icmp ult i64 %33, %34
+33:                                               ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", %.loopexit267, %.loopexit265, %28
+  %34 = load i64, ptr %17, align 8, !alias.scope !324, !noalias !319, !noundef !4
+  %35 = load i64, ptr %18, align 8, !alias.scope !324, !noalias !319, !noundef !4
+  %.not.i = icmp ult i64 %34, %35
   br i1 %.not.i, label %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit", label %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.thread"
 
-.lr.ph422thread-pre-split:                        ; preds = %.thread537, %48
+.lr.ph285thread-pre-split:                        ; preds = %.thread303, %49
   %.pr = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !326, !noalias !329
-  %35 = icmp eq i32 %.pr, 0
-  br i1 %35, label %.lr.ph422._crit_edge, label %.lr.ph575
+  %36 = icmp eq i32 %.pr, 0
+  br i1 %36, label %.lr.ph285._crit_edge, label %.lr.ph336
 
-.lr.ph422._crit_edge:                             ; preds = %.lr.ph422thread-pre-split, %.lr.ph422.preheader
+.lr.ph285._crit_edge:                             ; preds = %.lr.ph285thread-pre-split, %.lr.ph285.preheader
   store i8 1, ptr %.sroa.627.0..sroa_idx, align 4, !alias.scope !326, !noalias !329
-  %36 = load i64, ptr %.sroa.026.sroa.6.0..sroa_idx, align 8, !alias.scope !326, !noalias !329, !noundef !4
-  %37 = load i64, ptr %.sroa.026.sroa.5.0..sroa_idx, align 8, !alias.scope !326, !noalias !329, !noundef !4
-  %.not1.i = icmp ult i64 %36, %37
+  %37 = load i64, ptr %.sroa.026.sroa.6.0..sroa_idx, align 8, !alias.scope !326, !noalias !329, !noundef !4
+  %38 = load i64, ptr %.sroa.026.sroa.5.0..sroa_idx, align 8, !alias.scope !326, !noalias !329, !noundef !4
+  %.not1.i = icmp ult i64 %37, %38
   br i1 %.not1.i, label %.thread183, label %.loopexit265
 
-.thread183:                                       ; preds = %.lr.ph422._crit_edge
-  %38 = load i64, ptr %.sroa.026.sroa.7.0..sroa_idx, align 8, !alias.scope !326, !noalias !329, !noundef !4
-  %39 = add i64 %38, %36
-  %40 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %39), !noalias !331
+.thread183:                                       ; preds = %.lr.ph285._crit_edge
+  %39 = load i64, ptr %.sroa.026.sroa.7.0..sroa_idx, align 8, !alias.scope !326, !noalias !329, !noundef !4
+  %40 = add i64 %39, %37
+  %41 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %40), !noalias !331
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %.loopexit266
 
-.loopexit265:                                     ; preds = %48, %.lr.ph422._crit_edge
+.loopexit265:                                     ; preds = %49, %.lr.ph285._crit_edge
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
-  br label %32
+  br label %33
 
-.lr.ph575:                                        ; preds = %.lr.ph422.preheader, %.lr.ph422thread-pre-split
+.lr.ph336:                                        ; preds = %.lr.ph285.preheader, %.lr.ph285thread-pre-split
   call void @llvm.experimental.noalias.scope.decl(metadata !326)
   call void @"_ZN92_$LT$wasmparser..readers..core..names..Naming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha2d25d924aec9d3fE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(40) %15), !noalias !329
-  %41 = load ptr, ptr %7, align 8, !noalias !326, !noundef !4
-  %.not.i138 = icmp eq ptr %41, null
-  %42 = zext i1 %.not.i138 to i8
-  store i8 %42, ptr %.sroa.627.0..sroa_idx, align 4, !alias.scope !326, !noalias !329
-  %43 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !326, !noalias !329, !noundef !4
-  %44 = add i32 %43, -1
-  store i32 %44, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !326, !noalias !329
+  %42 = load ptr, ptr %7, align 8, !noalias !326, !noundef !4
+  %.not.i138 = icmp eq ptr %42, null
+  %43 = zext i1 %.not.i138 to i8
+  store i8 %43, ptr %.sroa.627.0..sroa_idx, align 4, !alias.scope !326, !noalias !329
+  %44 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !326, !noalias !329, !noundef !4
+  %45 = add i32 %44, -1
+  store i32 %45, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !326, !noalias !329
   %.sroa.9147.8.copyload = load ptr, ptr %.sroa.9147.8..sroa_idx, align 8, !noalias !326
   %.sroa.11148.8.copyload = load i64, ptr %.sroa.11148.8..sroa_idx, align 8, !noalias !326
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br i1 %.not.i138, label %.loopexit266, label %45
+  br i1 %.not.i138, label %.loopexit266, label %46
 
-45:                                               ; preds = %.lr.ph575
+46:                                               ; preds = %.lr.ph336
   %.sroa.6113.16.extract.trunc = trunc i64 %.sroa.11148.8.copyload to i32
-  %46 = icmp eq i32 %.sroa.6113.16.extract.trunc, -1
-  br i1 %46, label %.thread537, label %48
+  %47 = icmp eq i32 %.sroa.6113.16.extract.trunc, -1
+  br i1 %47, label %.thread303, label %49
 
-.thread537:                                       ; preds = %45
+.thread303:                                       ; preds = %46
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  br label %.lr.ph422thread-pre-split
+  br label %.lr.ph285thread-pre-split
 
-.loopexit266:                                     ; preds = %.lr.ph575, %.thread183
-  %.sroa.9147.3191 = phi ptr [ %40, %.thread183 ], [ %.sroa.9147.8.copyload, %.lr.ph575 ]
-  %47 = icmp ne ptr %.sroa.9147.3191, null
-  call void @llvm.assume(i1 %47)
+.loopexit266:                                     ; preds = %.lr.ph336, %.thread183
+  %.sroa.9147.3191 = phi ptr [ %41, %.thread183 ], [ %.sroa.9147.8.copyload, %.lr.ph336 ]
+  %48 = icmp ne ptr %.sroa.9147.3191, null
+  call void @llvm.assume(i1 %48)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noalias noundef nonnull align 8 %.sroa.9147.3191)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
-  br label %51
+  br label %52
 
-48:                                               ; preds = %45
+49:                                               ; preds = %46
   %.sroa.742.0 = ptrtoint ptr %.sroa.9147.8.copyload to i64
-  %49 = load ptr, ptr %24, align 8, !invariant.load !4, !nonnull !4
-  call void %49(ptr noundef nonnull align 1 %2, i32 noundef %.sroa.6113.16.extract.trunc, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %.sroa.742.0)
-  %.pre536 = load i8, ptr %.sroa.627.0..sroa_idx, align 4, !range !40, !alias.scope !332, !noalias !329
-  %50 = trunc nuw i8 %.pre536 to i1
+  %50 = load ptr, ptr %24, align 8, !invariant.load !4, !nonnull !4
+  call void %50(ptr noundef nonnull align 1 %2, i32 noundef %.sroa.6113.16.extract.trunc, ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %.sroa.742.0)
+  %.pre302 = load i8, ptr %.sroa.627.0..sroa_idx, align 4, !range !40, !alias.scope !332, !noalias !329
+  %51 = trunc nuw i8 %.pre302 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  br i1 %50, label %.loopexit265, label %.lr.ph422thread-pre-split
+  br i1 %51, label %.loopexit265, label %.lr.ph285thread-pre-split
 
-51:                                               ; preds = %86, %.loopexit266, %.thread
+52:                                               ; preds = %86, %.loopexit266, %.thread
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   br label %26
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %64
+.lr.ph284._crit_edge:                             ; preds = %.lr.ph284.backedge, %.lr.ph284.preheader
   store i8 1, ptr %.sroa.655.0..sroa_idx, align 4, !alias.scope !334, !noalias !337
-  %52 = load i64, ptr %.sroa.053.sroa.6.0..sroa_idx, align 8, !alias.scope !334, !noalias !337, !noundef !4
-  %53 = load i64, ptr %.sroa.053.sroa.5.0..sroa_idx, align 8, !alias.scope !334, !noalias !337, !noundef !4
-  %.not2.i = icmp ult i64 %52, %53
+  %53 = load i64, ptr %.sroa.053.sroa.6.0..sroa_idx, align 8, !alias.scope !334, !noalias !337, !noundef !4
+  %54 = load i64, ptr %.sroa.053.sroa.5.0..sroa_idx, align 8, !alias.scope !334, !noalias !337, !noundef !4
+  %.not2.i = icmp ult i64 %53, %54
   br i1 %.not2.i, label %.thread212, label %.loopexit267
 
-.thread212:                                       ; preds = %.lr.ph._crit_edge
-  %54 = load i64, ptr %.sroa.053.sroa.7.0..sroa_idx, align 8, !alias.scope !334, !noalias !337, !noundef !4
-  %55 = add i64 %54, %52
-  %56 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %55), !noalias !339
+.thread212:                                       ; preds = %.lr.ph284._crit_edge
+  %55 = load i64, ptr %.sroa.053.sroa.7.0..sroa_idx, align 8, !alias.scope !334, !noalias !337, !noundef !4
+  %56 = add i64 %55, %53
+  %57 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %56), !noalias !339
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   br label %.loopexit268
 
-.loopexit267:                                     ; preds = %.outer, %.lr.ph._crit_edge
+.loopexit267:                                     ; preds = %.backedge, %.lr.ph284._crit_edge
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
-  br label %32
+  br label %33
 
-.lr.ph573:                                        ; preds = %.lr.ph, %64
+.lr.ph:                                           ; preds = %.lr.ph284.preheader, %.lr.ph284.backedge
   call void @llvm.experimental.noalias.scope.decl(metadata !334)
   call void @"_ZN100_$LT$wasmparser..readers..core..names..IndirectNaming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha85d17ab0b2a95bbE"(ptr noalias nocapture noundef nonnull sret({ [32 x i8], i8, [23 x i8] }) align 8 dereferenceable(56) %6, ptr noalias noundef nonnull align 8 dereferenceable(40) %14), !noalias !337
-  %57 = load i8, ptr %21, align 8, !range !166, !noalias !334, !noundef !4
-  %.not.i139 = icmp eq i8 %57, 2
-  %58 = zext i1 %.not.i139 to i8
-  store i8 %58, ptr %.sroa.655.0..sroa_idx, align 4, !alias.scope !334, !noalias !337
-  %59 = load i32, ptr %.sroa.554.0..sroa_idx, align 8, !alias.scope !334, !noalias !337, !noundef !4
-  %60 = add i32 %59, -1
-  store i32 %60, ptr %.sroa.554.0..sroa_idx, align 8, !alias.scope !334, !noalias !337
+  %58 = load i8, ptr %21, align 8, !range !166, !noalias !334, !noundef !4
+  %.not.i139 = icmp eq i8 %58, 2
+  %59 = zext i1 %.not.i139 to i8
+  store i8 %59, ptr %.sroa.655.0..sroa_idx, align 4, !alias.scope !334, !noalias !337
+  %60 = load i32, ptr %.sroa.554.0..sroa_idx, align 8, !alias.scope !334, !noalias !337, !noundef !4
+  %61 = add i32 %60, -1
+  store i32 %61, ptr %.sroa.554.0..sroa_idx, align 8, !alias.scope !334, !noalias !337
   %.sroa.0149.0.copyload = load ptr, ptr %6, align 8, !noalias !334
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8150, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8150.0..sroa_idx, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx, i64 7, i1 false)
@@ -8111,101 +8112,100 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
   %.sroa.16.0.copyload = load i32, ptr %.sroa.16.0..sroa_idx, align 4, !noalias !334
   %.sroa.17.0.copyload = load i32, ptr %.sroa.17.0..sroa_idx, align 8, !noalias !334
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  br i1 %.not.i139, label %.loopexit268, label %61
+  br i1 %.not.i139, label %.loopexit268, label %62
 
-61:                                               ; preds = %.lr.ph573
-  %62 = icmp eq i32 %.sroa.17.0.copyload, -1
-  br i1 %62, label %64, label %.lr.ph391.preheader
+62:                                               ; preds = %.lr.ph
+  %63 = icmp eq i32 %.sroa.17.0.copyload, -1
+  br i1 %63, label %65, label %.lr.ph.preheader
 
-.loopexit268:                                     ; preds = %.lr.ph573, %.thread212
-  %.sroa.0149.3224 = phi ptr [ %56, %.thread212 ], [ %.sroa.0149.0.copyload, %.lr.ph573 ]
-  %63 = icmp ne ptr %.sroa.0149.3224, null
-  call void @llvm.assume(i1 %63)
+.loopexit268:                                     ; preds = %.lr.ph, %.thread212
+  %.sroa.0149.3224 = phi ptr [ %57, %.thread212 ], [ %.sroa.0149.0.copyload, %.lr.ph ]
+  %64 = icmp ne ptr %.sroa.0149.3224, null
+  call void @llvm.assume(i1 %64)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull align 8 %.sroa.0149.3224)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %86
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  %65 = icmp eq i32 %60, 0
-  br i1 %65, label %.lr.ph._crit_edge, label %.lr.ph573
+  br label %.lr.ph284.backedge
 
-.lr.ph391.preheader:                              ; preds = %61
+.backedge:                                        ; preds = %81, %.lr.ph._crit_edge
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
+  %.pre = load i8, ptr %.sroa.655.0..sroa_idx, align 4, !range !40, !alias.scope !340, !noalias !337
+  %66 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  br i1 %66, label %.loopexit267, label %.lr.ph284.backedge
+
+.lr.ph284.backedge:                               ; preds = %.backedge, %65
+  %67 = load i32, ptr %.sroa.554.0..sroa_idx, align 8, !alias.scope !342, !noalias !337, !noundef !4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %.lr.ph284._crit_edge, label %.lr.ph
+
+.lr.ph.preheader:                                 ; preds = %62
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.085.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8150, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.085.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false)
   store ptr %.sroa.0149.0.copyload, ptr %13, align 8
-  store i8 %57, ptr %.sroa.085.sroa.6.0..sroa_idx, align 8
+  store i8 %58, ptr %.sroa.085.sroa.6.0..sroa_idx, align 8
   store i32 %.sroa.15.0.copyload, ptr %.sroa.085.sroa.8.0..sroa_idx, align 8
   store i32 %.sroa.16.0.copyload, ptr %.sroa.085.sroa.9.0..sroa_idx, align 4
   store i32 %.sroa.15.0.copyload, ptr %.sroa.586.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.687.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %66 = icmp eq i32 %.sroa.15.0.copyload, 0
-  br i1 %66, label %.lr.ph391._crit_edge, label %.lr.ph574
+  %69 = icmp eq i32 %.sroa.15.0.copyload, 0
+  br i1 %69, label %.lr.ph._crit_edge, label %.lr.ph335
 
-.lr.ph391thread-pre-split:                        ; preds = %81
-  %.pr538 = load i32, ptr %.sroa.586.0..sroa_idx, align 8, !alias.scope !340, !noalias !343
-  %67 = icmp eq i32 %.pr538, 0
-  br i1 %67, label %.lr.ph391._crit_edge, label %.lr.ph574
+.lr.phthread-pre-split:                           ; preds = %81
+  %.pr304 = load i32, ptr %.sroa.586.0..sroa_idx, align 8, !alias.scope !344, !noalias !347
+  %70 = icmp eq i32 %.pr304, 0
+  br i1 %70, label %.lr.ph._crit_edge, label %.lr.ph335
 
-.lr.ph391._crit_edge:                             ; preds = %.lr.ph391thread-pre-split, %.lr.ph391.preheader
-  store i8 1, ptr %.sroa.687.0..sroa_idx, align 4, !alias.scope !340, !noalias !343
-  %68 = load i64, ptr %23, align 8, !alias.scope !340, !noalias !343, !noundef !4
-  %69 = load i64, ptr %.sroa.085.sroa.5.0..sroa_idx, align 8, !alias.scope !340, !noalias !343, !noundef !4
-  %.not1.i142 = icmp ult i64 %68, %69
-  br i1 %.not1.i142, label %.thread245, label %.outer
+.lr.ph._crit_edge:                                ; preds = %.lr.phthread-pre-split, %.lr.ph.preheader
+  store i8 1, ptr %.sroa.687.0..sroa_idx, align 4, !alias.scope !344, !noalias !347
+  %71 = load i64, ptr %23, align 8, !alias.scope !344, !noalias !347, !noundef !4
+  %72 = load i64, ptr %.sroa.085.sroa.5.0..sroa_idx, align 8, !alias.scope !344, !noalias !347, !noundef !4
+  %.not1.i142 = icmp ult i64 %71, %72
+  br i1 %.not1.i142, label %.thread245, label %.backedge
 
-.thread245:                                       ; preds = %.lr.ph391._crit_edge
-  %70 = getelementptr inbounds i8, ptr %13, i64 24
-  %71 = load i64, ptr %70, align 8, !alias.scope !340, !noalias !343, !noundef !4
-  %72 = add i64 %71, %68
-  %73 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %72), !noalias !345
+.thread245:                                       ; preds = %.lr.ph._crit_edge
+  %73 = getelementptr inbounds i8, ptr %13, i64 24
+  %74 = load i64, ptr %73, align 8, !alias.scope !344, !noalias !347, !noundef !4
+  %75 = add i64 %74, %71
+  %76 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %75), !noalias !349
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %.loopexit264
 
-.outer:                                           ; preds = %81, %.lr.ph391._crit_edge
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  %74 = load i8, ptr %.sroa.655.0..sroa_idx, align 4, !range !40, !alias.scope !346, !noalias !337, !noundef !4
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %.loopexit267, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.outer
-  %.pre = load i32, ptr %.sroa.554.0..sroa_idx, align 8, !alias.scope !334, !noalias !337
-  %76 = icmp eq i32 %.pre, 0
-  br i1 %76, label %.lr.ph._crit_edge, label %.lr.ph573
-
-.lr.ph574:                                        ; preds = %.lr.ph391.preheader, %.lr.ph391thread-pre-split
-  call void @llvm.experimental.noalias.scope.decl(metadata !340)
-  call void @"_ZN92_$LT$wasmparser..readers..core..names..Naming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha2d25d924aec9d3fE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %13), !noalias !343
-  %77 = load ptr, ptr %5, align 8, !noalias !340, !noundef !4
+.lr.ph335:                                        ; preds = %.lr.ph.preheader, %.lr.phthread-pre-split
+  call void @llvm.experimental.noalias.scope.decl(metadata !344)
+  call void @"_ZN92_$LT$wasmparser..readers..core..names..Naming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha2d25d924aec9d3fE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %13), !noalias !347
+  %77 = load ptr, ptr %5, align 8, !noalias !344, !noundef !4
   %.not.i140 = icmp eq ptr %77, null
   %78 = zext i1 %.not.i140 to i8
-  store i8 %78, ptr %.sroa.687.0..sroa_idx, align 4, !alias.scope !340, !noalias !343
-  %79 = load i32, ptr %.sroa.586.0..sroa_idx, align 8, !alias.scope !340, !noalias !343, !noundef !4
+  store i8 %78, ptr %.sroa.687.0..sroa_idx, align 4, !alias.scope !344, !noalias !347
+  %79 = load i32, ptr %.sroa.586.0..sroa_idx, align 8, !alias.scope !344, !noalias !347, !noundef !4
   %80 = add i32 %79, -1
-  store i32 %80, ptr %.sroa.586.0..sroa_idx, align 8, !alias.scope !340, !noalias !343
-  %.sroa.9154.8.copyload = load ptr, ptr %.sroa.9154.8..sroa_idx, align 8, !noalias !340
-  %.sroa.11155.8.copyload = load i64, ptr %.sroa.11155.8..sroa_idx, align 8, !noalias !340
+  store i32 %80, ptr %.sroa.586.0..sroa_idx, align 8, !alias.scope !344, !noalias !347
+  %.sroa.9154.8.copyload = load ptr, ptr %.sroa.9154.8..sroa_idx, align 8, !noalias !344
+  %.sroa.11155.8.copyload = load i64, ptr %.sroa.11155.8..sroa_idx, align 8, !noalias !344
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br i1 %.not.i140, label %.loopexit264, label %81
 
-81:                                               ; preds = %.lr.ph574
+81:                                               ; preds = %.lr.ph335
   %.sroa.6124.16.extract.trunc = trunc i64 %.sroa.11155.8.copyload to i32
   %.sroa.791.0 = ptrtoint ptr %.sroa.9154.8.copyload to i64
   %82 = load ptr, ptr %22, align 8, !invariant.load !4, !nonnull !4
   call void %82(ptr noundef nonnull align 1 %2, i32 noundef %.sroa.17.0.copyload, i32 noundef %.sroa.6124.16.extract.trunc, ptr noalias noundef nonnull readonly align 1 %77, i64 noundef %.sroa.791.0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %83 = load i8, ptr %.sroa.687.0..sroa_idx, align 4, !range !40, !alias.scope !348, !noalias !343, !noundef !4
+  %83 = load i8, ptr %.sroa.687.0..sroa_idx, align 4, !range !40, !alias.scope !350, !noalias !347, !noundef !4
   %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %.outer, label %.lr.ph391thread-pre-split
+  br i1 %84, label %.backedge, label %.lr.phthread-pre-split
 
-.loopexit264:                                     ; preds = %.lr.ph574, %.thread245
-  %.sroa.9154.4253 = phi ptr [ %73, %.thread245 ], [ %.sroa.9154.8.copyload, %.lr.ph574 ]
+.loopexit264:                                     ; preds = %.lr.ph335, %.thread245
+  %.sroa.9154.4253 = phi ptr [ %76, %.thread245 ], [ %.sroa.9154.8.copyload, %.lr.ph335 ]
   %85 = icmp ne ptr %.sroa.9154.4253, null
   call void @llvm.assume(i1 %85)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -8217,7 +8217,7 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
 
 86:                                               ; preds = %.loopexit264, %.loopexit268
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
-  br label %51
+  br label %52
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -8770,12 +8770,14 @@ attributes #12 = { cold noreturn nounwind }
 !338 = distinct !{!338, !336, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd884a440251af73fE: argument 0"}
 !339 = !{!338, !335}
 !340 = !{!341}
-!341 = distinct !{!341, !342, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9c4de0ec8d7dbadE: argument 1"}
-!342 = distinct !{!342, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9c4de0ec8d7dbadE"}
-!343 = !{!344}
-!344 = distinct !{!344, !342, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9c4de0ec8d7dbadE: argument 0"}
-!345 = !{!344, !341}
-!346 = !{!347}
-!347 = distinct !{!347, !336, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd884a440251af73fE: argument 1:pre.rot:h.rot"}
-!348 = !{!349}
-!349 = distinct !{!349, !342, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9c4de0ec8d7dbadE: argument 1:h.rot"}
+!341 = distinct !{!341, !336, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd884a440251af73fE: argument 1:h.rot"}
+!342 = !{!343}
+!343 = distinct !{!343, !336, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd884a440251af73fE: argument 1:h.rot"}
+!344 = !{!345}
+!345 = distinct !{!345, !346, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9c4de0ec8d7dbadE: argument 1"}
+!346 = distinct !{!346, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9c4de0ec8d7dbadE"}
+!347 = !{!348}
+!348 = distinct !{!348, !346, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9c4de0ec8d7dbadE: argument 0"}
+!349 = !{!348, !345}
+!350 = !{!351}
+!351 = distinct !{!351, !346, !"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9c4de0ec8d7dbadE: argument 1:h.rot"}

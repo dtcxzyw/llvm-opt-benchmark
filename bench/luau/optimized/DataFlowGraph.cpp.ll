@@ -5480,17 +5480,17 @@ _ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit156
   %98 = load i64, ptr %97, align 8
   %99 = getelementptr inbounds ptr, ptr %96, i64 %98
   %.not.i148204 = icmp eq i64 %98, 0
-  br i1 %.not.i148204, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit153, label %.lr.ph208
+  br i1 %.not.i148204, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit153, label %.lr.ph207
 
-.lr.ph208:                                        ; preds = %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit156, %.lr.ph208
-  %.0.i147207 = phi ptr [ %102, %.lr.ph208 ], [ %96, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit156 ]
-  %100 = load ptr, ptr %.0.i147207, align 8
+.lr.ph207:                                        ; preds = %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit156, %.lr.ph207
+  %.0.i147206 = phi ptr [ %102, %.lr.ph207 ], [ %96, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit156 ]
+  %100 = load ptr, ptr %.0.i147206, align 8
   %101 = call noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %92, ptr noundef %100)
-  %102 = getelementptr inbounds i8, ptr %.0.i147207, i64 8
+  %102 = getelementptr inbounds i8, ptr %.0.i147206, i64 8
   %.not.i148 = icmp eq ptr %102, %99
-  br i1 %.not.i148, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit153, label %.lr.ph208
+  br i1 %.not.i148, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit153, label %.lr.ph207
 
-_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit153: ; preds = %.lr.ph208, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit156
+_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit153: ; preds = %.lr.ph207, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit156
   %103 = getelementptr inbounds i8, ptr %2, i64 32
   %104 = load ptr, ptr %103, align 8
   %105 = call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %92, ptr noundef %104)
@@ -5521,16 +5521,16 @@ _ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12
   %118 = getelementptr inbounds i8, ptr %2, i64 40
   %119 = load i64, ptr %118, align 8
   %120 = getelementptr inbounds ptr, ptr %117, i64 %119
-  %.not10.i209 = icmp eq i64 %119, 0
-  br i1 %.not10.i209, label %_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatReturnE.exit, label %.lr.ph.i
+  %.not10.i208 = icmp eq i64 %119, 0
+  br i1 %.not10.i208, label %_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatReturnE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %115, %.lr.ph.i
   %.011.i = phi ptr [ %123, %.lr.ph.i ], [ %117, %115 ]
   %121 = load ptr, ptr %.011.i, align 8
   %122 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %121)
   %123 = getelementptr inbounds i8, ptr %.011.i, i64 8
-  %.not.i210 = icmp eq ptr %123, %120
-  br i1 %.not.i210, label %_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatReturnE.exit, label %.lr.ph.i
+  %.not.i209 = icmp eq ptr %123, %120
+  br i1 %.not.i209, label %_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatReturnE.exit, label %.lr.ph.i
 
 124:                                              ; preds = %112
   %125 = load i32, ptr @_ZN4Luau7AstRttiINS_11AstStatExprEE5valueE, align 4
@@ -6738,10 +6738,10 @@ _ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit33:
   br i1 %.not.i3042, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit33, %.lr.ph
-  %.0.i45 = phi ptr [ %129, %.lr.ph ], [ %123, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit33 ]
-  %127 = load ptr, ptr %.0.i45, align 8
+  %.0.i44 = phi ptr [ %129, %.lr.ph ], [ %123, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit33 ]
+  %127 = load ptr, ptr %.0.i44, align 8
   %128 = call noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %121, ptr noundef %127)
-  %129 = getelementptr inbounds i8, ptr %.0.i45, i64 8
+  %129 = getelementptr inbounds i8, ptr %.0.i44, i64 8
   %.not.i30 = icmp eq ptr %129, %126
   br i1 %.not.i30, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph
 
@@ -7023,17 +7023,17 @@ _ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit35:
   %132 = load i64, ptr %131, align 8
   %133 = getelementptr inbounds ptr, ptr %130, i64 %132
   %.not.i3251 = icmp eq i64 %132, 0
-  br i1 %.not.i3251, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph55
+  br i1 %.not.i3251, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph54
 
-.lr.ph55:                                         ; preds = %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit35, %.lr.ph55
-  %.0.i54 = phi ptr [ %136, %.lr.ph55 ], [ %130, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit35 ]
-  %134 = load ptr, ptr %.0.i54, align 8
+.lr.ph54:                                         ; preds = %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit35, %.lr.ph54
+  %.0.i53 = phi ptr [ %136, %.lr.ph54 ], [ %130, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit35 ]
+  %134 = load ptr, ptr %.0.i53, align 8
   %135 = call noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %128, ptr noundef %134)
-  %136 = getelementptr inbounds i8, ptr %.0.i54, i64 8
+  %136 = getelementptr inbounds i8, ptr %.0.i53, i64 8
   %.not.i32 = icmp eq ptr %136, %133
-  br i1 %.not.i32, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph55
+  br i1 %.not.i32, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph54
 
-_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit: ; preds = %.lr.ph55, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit35
+_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit: ; preds = %.lr.ph54, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit35
   call void @_ZN4Luau8DfgScope7inheritEPKS0_(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef %128)
   call void @_ZN4Luau8DfgScope7inheritEPKS0_(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull %24)
   ret i32 1
@@ -9524,17 +9524,17 @@ _ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit63:
   %211 = load i64, ptr %210, align 8
   %212 = getelementptr inbounds ptr, ptr %209, i64 %211
   %.not.i6087 = icmp eq i64 %211, 0
-  br i1 %.not.i6087, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph91
+  br i1 %.not.i6087, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph90
 
-.lr.ph91:                                         ; preds = %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit63, %.lr.ph91
-  %.0.i5990 = phi ptr [ %215, %.lr.ph91 ], [ %209, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit63 ]
-  %213 = load ptr, ptr %.0.i5990, align 8
+.lr.ph90:                                         ; preds = %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit63, %.lr.ph90
+  %.0.i5989 = phi ptr [ %215, %.lr.ph90 ], [ %209, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit63 ]
+  %213 = load ptr, ptr %.0.i5989, align 8
   %214 = call noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %207, ptr noundef %213)
-  %215 = getelementptr inbounds i8, ptr %.0.i5990, i64 8
+  %215 = getelementptr inbounds i8, ptr %.0.i5989, i64 8
   %.not.i60 = icmp eq ptr %215, %212
-  br i1 %.not.i60, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph91
+  br i1 %.not.i60, label %_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit, label %.lr.ph90
 
-_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit: ; preds = %.lr.ph91, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit63
+_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE.exit: ; preds = %.lr.ph90, %_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE.exit63
   call void @_ZN4Luau8DfgScope7inheritEPKS0_(ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef %207)
   %216 = getelementptr inbounds i8, ptr %0, i64 280
   %217 = load ptr, ptr %216, align 8

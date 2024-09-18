@@ -2654,9 +2654,9 @@ define internal void @_ZNK5faiss11IndexRandom6searchElPKflPfPlPKNS_16SearchParam
   store i64 %21, ptr %10, align 8
   %22 = load i64, ptr %9, align 8
   %.not103 = icmp sgt i64 %22, %21
-  br i1 %.not103, label %._crit_edge110, label %.lr.ph109
+  br i1 %.not103, label %._crit_edge107, label %.lr.ph106
 
-.lr.ph109:                                        ; preds = %17
+.lr.ph106:                                        ; preds = %17
   %23 = getelementptr inbounds i8, ptr %3, i64 40
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   %25 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2669,13 +2669,13 @@ define internal void @_ZNK5faiss11IndexRandom6searchElPKflPfPlPKNS_16SearchParam
   %32 = getelementptr inbounds i8, ptr %3, i64 28
   br label %33
 
-33:                                               ; preds = %.lr.ph109, %._crit_edge102
-  %.044107 = phi i64 [ %22, %.lr.ph109 ], [ %161, %._crit_edge102 ]
+33:                                               ; preds = %.lr.ph106, %._crit_edge102
+  %.044104 = phi i64 [ %22, %.lr.ph106 ], [ %161, %._crit_edge102 ]
   %34 = load i64, ptr %23, align 8
   %35 = load i32, ptr %24, align 8
   %36 = sext i32 %35 to i64
   %37 = load ptr, ptr %4, align 8
-  %38 = mul nsw i64 %.044107, %36
+  %38 = mul nsw i64 %.044104, %36
   %39 = getelementptr inbounds float, ptr %37, i64 %38
   %40 = invoke noundef i64 @_ZN5faiss13ivec_checksumEmPKi(i64 noundef %36, ptr noundef %39)
           to label %41 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2688,7 +2688,7 @@ define internal void @_ZNK5faiss11IndexRandom6searchElPKflPfPlPKNS_16SearchParam
 43:                                               ; preds = %41
   %44 = load ptr, ptr %5, align 8
   %45 = load i64, ptr %6, align 8
-  %46 = mul nsw i64 %45, %.044107
+  %46 = mul nsw i64 %45, %.044104
   %47 = getelementptr inbounds i64, ptr %44, i64 %46
   %48 = load ptr, ptr %7, align 8
   %49 = getelementptr inbounds float, ptr %48, i64 %46
@@ -2707,7 +2707,7 @@ define internal void @_ZNK5faiss11IndexRandom6searchElPKflPfPlPKNS_16SearchParam
   br i1 %54, label %.preheader74, label %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
 
 .preheader74:                                     ; preds = %53, %.loopexit72
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.loopexit72 ], [ 0, %53 ]
+  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.loopexit72 ], [ 0, %53 ]
   br label %.loopexit68
 
 .loopexit68:                                      ; preds = %.loopexit68.backedge, %.preheader74
@@ -2770,7 +2770,7 @@ define internal void @_ZNK5faiss11IndexRandom6searchElPKflPfPlPKNS_16SearchParam
   br i1 %.not17.i.i.i.i.i, label %75, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %64, %.lr.ph.i.i.i.i.i, %78, %.preheader
-  %82 = getelementptr inbounds i64, ptr %47, i64 %indvars.iv120
+  %82 = getelementptr inbounds i64, ptr %47, i64 %indvars.iv117
   store i64 %58, ptr %82, align 8
   %83 = load i64, ptr %31, align 8
   %.not.not.i = icmp eq i64 %83, 0
@@ -2845,9 +2845,9 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %.body
 
 .loopexit72:                                      ; preds = %101, %89, %96, %.noexc52
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %113 = load i64, ptr %6, align 8
-  %114 = icmp sgt i64 %113, %indvars.iv.next121
+  %114 = icmp sgt i64 %113, %indvars.iv.next118
   br i1 %114, label %.preheader74, label %._crit_edge98, !llvm.loop !39
 
 ._crit_edge98:                                    ; preds = %.loopexit72
@@ -2919,7 +2919,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc49
   br i1 %132, label %.lr.ph96.preheader, label %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit
 
 .lr.ph96.preheader:                               ; preds = %.preheader82.thread, %.preheader82
-  %.sroa.0.2129132 = phi ptr [ null, %.preheader82.thread ], [ %127, %.preheader82 ]
+  %.sroa.0.2126129 = phi ptr [ null, %.preheader82.thread ], [ %127, %.preheader82 ]
   br label %.lr.ph96
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2938,9 +2938,9 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc49
           to label %138 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 138:                                              ; preds = %.lr.ph96
-  %139 = getelementptr inbounds i64, ptr %.sroa.0.2129132, i64 %indvars.iv
+  %139 = getelementptr inbounds i64, ptr %.sroa.0.2126129, i64 %indvars.iv
   %140 = sext i32 %137 to i64
-  %141 = getelementptr inbounds i64, ptr %.sroa.0.2129132, i64 %140
+  %141 = getelementptr inbounds i64, ptr %.sroa.0.2126129, i64 %140
   %142 = load i64, ptr %139, align 8
   %143 = load i64, ptr %141, align 8
   store i64 %143, ptr %139, align 8
@@ -2954,8 +2954,8 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc49
   br i1 %147, label %.lr.ph96, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %138, %.preheader82
-  %.sroa.0.2129133 = phi ptr [ %127, %.preheader82 ], [ %.sroa.0.2129132, %138 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2129133) #22
+  %.sroa.0.2126130 = phi ptr [ %127, %.preheader82 ], [ %.sroa.0.2126129, %138 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2126130) #22
   br label %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit
 
 _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit: ; preds = %.preheader82.thread, %._crit_edge, %121, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -2964,7 +2964,7 @@ _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit: ; preds = %.prehe
   br i1 %149, label %.lr.ph101, label %._crit_edge102
 
 .lr.ph101:                                        ; preds = %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit, %151
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %151 ], [ 0, %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit ]
+  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %151 ], [ 0, %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit ]
   %.04199 = phi float [ %157, %151 ], [ 0.000000e+00, %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit ]
   %150 = invoke noundef float @_ZN5faiss15RandomGenerator10rand_floatEv(ptr noundef nonnull align 8 dereferenceable(5000) %13)
           to label %151 unwind label %.loopexit.split-lp.loopexit
@@ -2977,24 +2977,24 @@ _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit: ; preds = %.prehe
   %156 = fneg float %150
   %.0 = select i1 %155, float %156, float %150
   %157 = fadd float %.04199, %.0
-  %158 = getelementptr inbounds float, ptr %49, i64 %indvars.iv123
+  %158 = getelementptr inbounds float, ptr %49, i64 %indvars.iv120
   store float %157, ptr %158, align 4
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %159 = load i64, ptr %6, align 8
-  %160 = icmp sgt i64 %159, %indvars.iv.next124
+  %160 = icmp sgt i64 %159, %indvars.iv.next121
   br i1 %160, label %.lr.ph101, label %._crit_edge102, !llvm.loop !43
 
 ._crit_edge102:                                   ; preds = %151, %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit
-  %161 = add nsw i64 %.044107, 1
+  %161 = add nsw i64 %.044104, 1
   %162 = load i64, ptr %10, align 8
-  %.not.not = icmp slt i64 %.044107, %162
-  br i1 %.not.not, label %33, label %._crit_edge110
+  %.not.not = icmp slt i64 %.044104, %162
+  br i1 %.not.not, label %33, label %._crit_edge107
 
-._crit_edge110:                                   ; preds = %._crit_edge102, %17
+._crit_edge107:                                   ; preds = %._crit_edge102, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
   br label %163
 
-163:                                              ; preds = %._crit_edge110, %8
+163:                                              ; preds = %._crit_edge107, %8
   ret void
 
 .loopexit75:                                      ; preds = %.loopexit68

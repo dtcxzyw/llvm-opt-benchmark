@@ -22992,9 +22992,9 @@ define hidden void @"_ZN166_$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserializ
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.lr.ph, %87
   %30 = phi ptr [ %20, %.lr.ph.i.i.lr.ph ], [ %89, %87 ]
   %31 = phi ptr [ %19, %.lr.ph.i.i.lr.ph ], [ %88, %87 ]
-  %.sroa.0.0229 = phi i32 [ 0, %.lr.ph.i.i.lr.ph ], [ %.sroa.0.1, %87 ]
-  %.sroa.7.0228 = phi i32 [ undef, %.lr.ph.i.i.lr.ph ], [ %.sroa.7.1, %87 ]
-  %.sroa.8.0227 = phi i32 [ undef, %.lr.ph.i.i.lr.ph ], [ %.sroa.8.1, %87 ]
+  %.sroa.0.0228 = phi i32 [ 0, %.lr.ph.i.i.lr.ph ], [ %.sroa.0.1, %87 ]
+  %.sroa.7.0227 = phi i32 [ undef, %.lr.ph.i.i.lr.ph ], [ %.sroa.7.1, %87 ]
+  %.sroa.8.0226 = phi i32 [ undef, %.lr.ph.i.i.lr.ph ], [ %.sroa.8.1, %87 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7182)
   call void @llvm.experimental.noalias.scope.decl(metadata !7184)
   %.pre.i.i = load ptr, ptr %22, align 8, !alias.scope !7186, !noalias !7179
@@ -23059,7 +23059,7 @@ define hidden void @"_ZN166_$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserializ
 
 .body:                                            ; preds = %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %42
   %.2.ph = phi i1 [ false, %42 ], [ false, %.loopexit ], [ %46, %.loopexit.split-lp.loopexit.split-lp ], [ false, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ false, %.loopexit.split-lp.loopexit.loopexit ]
-  %.pn.ph = phi { ptr, i32 } [ %43, %42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit277, %.loopexit.split-lp.loopexit.loopexit ]
+  %.pn.ph = phi { ptr, i32 } [ %43, %42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit276, %.loopexit.split-lp.loopexit.loopexit ]
   %.pr = load i64, ptr %16, align 8
   %.not83 = icmp eq i64 %.pr, -9223372036854775808
   %brmerge170 = or i1 %.2.ph, %.not83
@@ -23071,7 +23071,7 @@ define hidden void @"_ZN166_$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserializ
   br label %.body
 
 .loopexit.split-lp.loopexit.loopexit:             ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$serde..__private..de..content..Content$GT$$GT$17hfaea9f98a13ea3b1E.llvm.15005499655690089915.exit.i.i", %59, %70, %97
-  %lpad.loopexit277 = landingpad { ptr, i32 }
+  %lpad.loopexit276 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -23108,9 +23108,9 @@ define hidden void @"_ZN166_$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserializ
   br label %130
 
 .thread150:                                       ; preds = %87, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h899e130cd09bb316E.llvm.15005499655690089915.exit.i.i", %2
-  %.sroa.8.0224 = phi i32 [ undef, %2 ], [ %.sroa.8.0227, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h899e130cd09bb316E.llvm.15005499655690089915.exit.i.i" ], [ %.sroa.8.1, %87 ]
-  %.sroa.7.0211 = phi i32 [ undef, %2 ], [ %.sroa.7.0228, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h899e130cd09bb316E.llvm.15005499655690089915.exit.i.i" ], [ %.sroa.7.1, %87 ]
-  %.sroa.0.0198 = phi i32 [ 0, %2 ], [ %.sroa.0.0229, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h899e130cd09bb316E.llvm.15005499655690089915.exit.i.i" ], [ %.sroa.0.1, %87 ]
+  %.sroa.8.0224 = phi i32 [ undef, %2 ], [ %.sroa.8.0226, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h899e130cd09bb316E.llvm.15005499655690089915.exit.i.i" ], [ %.sroa.8.1, %87 ]
+  %.sroa.7.0211 = phi i32 [ undef, %2 ], [ %.sroa.7.0227, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h899e130cd09bb316E.llvm.15005499655690089915.exit.i.i" ], [ %.sroa.7.1, %87 ]
+  %.sroa.0.0198 = phi i32 [ 0, %2 ], [ %.sroa.0.0228, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h899e130cd09bb316E.llvm.15005499655690089915.exit.i.i" ], [ %.sroa.0.1, %87 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %13)
   %53 = load i64, ptr %16, align 8, !range !1293, !noundef !9
   %54 = icmp ne i64 %53, -9223372036854775808
@@ -23145,7 +23145,7 @@ _ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit.thread: ; preds = %5
   br i1 %.not81, label %66, label %64
 
 62:                                               ; preds = %47
-  %63 = icmp eq i32 %.sroa.0.0229, 1
+  %63 = icmp eq i32 %.sroa.0.0228, 1
   br i1 %63, label %91, label %93
 
 64:                                               ; preds = %60
@@ -23243,9 +23243,9 @@ _ZN5serde2de9MapAccess10next_value17hd3ec43dacb260c50E.exit: ; preds = %70
   br label %87
 
 87:                                               ; preds = %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit.thread, %101, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentIdentifier$GT$$GT$17h2060c2b2829ad850E.exit"
-  %.sroa.8.1 = phi i32 [ %103, %101 ], [ %.sroa.8.0227, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentIdentifier$GT$$GT$17h2060c2b2829ad850E.exit" ], [ %.sroa.8.0227, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit.thread ]
-  %.sroa.7.1 = phi i32 [ %102, %101 ], [ %.sroa.7.0228, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentIdentifier$GT$$GT$17h2060c2b2829ad850E.exit" ], [ %.sroa.7.0228, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit.thread ]
-  %.sroa.0.1 = phi i32 [ 1, %101 ], [ %.sroa.0.0229, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentIdentifier$GT$$GT$17h2060c2b2829ad850E.exit" ], [ %.sroa.0.0229, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit.thread ]
+  %.sroa.8.1 = phi i32 [ %103, %101 ], [ %.sroa.8.0226, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentIdentifier$GT$$GT$17h2060c2b2829ad850E.exit" ], [ %.sroa.8.0226, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit.thread ]
+  %.sroa.7.1 = phi i32 [ %102, %101 ], [ %.sroa.7.0227, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentIdentifier$GT$$GT$17h2060c2b2829ad850E.exit" ], [ %.sroa.7.0227, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit.thread ]
+  %.sroa.0.1 = phi i32 [ 1, %101 ], [ %.sroa.0.0228, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentIdentifier$GT$$GT$17h2060c2b2829ad850E.exit" ], [ %.sroa.0.0228, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit.thread ]
   %88 = load ptr, ptr %18, align 8, !alias.scope !7238, !noalias !7179, !nonnull !9, !noundef !9
   %89 = load ptr, ptr %17, align 8, !alias.scope !7238, !noalias !7179, !nonnull !9, !noundef !9
   %90 = icmp eq ptr %89, %88
@@ -23272,7 +23272,7 @@ _ZN5serde2de9MapAccess10next_value17hd3ec43dacb260c50E.exit: ; preds = %70
 
 _ZN5serde2de9MapAccess10next_value17hec81afc827da8f7bE.exit.thread: ; preds = %95
   store ptr %96, ptr %28, align 8, !alias.scope !7252, !noalias !7251
-  br label %.loopexit278
+  br label %.loopexit277
 
 97:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !7253
@@ -23289,9 +23289,9 @@ _ZN5serde2de9MapAccess10next_value17hec81afc827da8f7bE.exit.thread: ; preds = %9
 
 _ZN5serde2de9MapAccess10next_value17hec81afc827da8f7bE.exit: ; preds = %97
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !7253
-  %.pre270 = load i32, ptr %14, align 8, !range !2990
-  %100 = trunc nuw i32 %.pre270 to i1
-  br i1 %100, label %.loopexit278, label %101
+  %.pre269 = load i32, ptr %14, align 8, !range !2990
+  %100 = trunc nuw i32 %.pre269 to i1
+  br i1 %100, label %.loopexit277, label %101
 
 101:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hec81afc827da8f7bE.exit
   %102 = load i32, ptr %29, align 4, !noundef !9
@@ -23299,7 +23299,7 @@ _ZN5serde2de9MapAccess10next_value17hec81afc827da8f7bE.exit: ; preds = %97
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br label %87
 
-.loopexit278:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hec81afc827da8f7bE.exit, %_ZN5serde2de9MapAccess10next_value17hec81afc827da8f7bE.exit.thread
+.loopexit277:                                     ; preds = %_ZN5serde2de9MapAccess10next_value17hec81afc827da8f7bE.exit, %_ZN5serde2de9MapAccess10next_value17hec81afc827da8f7bE.exit.thread
   %104 = load ptr, ptr %28, align 8, !nonnull !9, !align !72, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %105 = getelementptr inbounds i8, ptr %0, i64 8
@@ -23383,8 +23383,8 @@ _ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit: ; preds = %57
   %129 = icmp eq i8 %128, 22
   br i1 %129, label %"_ZN4core3ptr91drop_in_place$LT$serde..__private..de..FlatStructAccess$LT$serde_json..error..Error$GT$$GT$17hcb264c6230fb9e25E.exit", label %"_ZN4core3ptr91drop_in_place$LT$serde..__private..de..FlatStructAccess$LT$serde_json..error..Error$GT$$GT$17hcb264c6230fb9e25E.exit.sink.split"
 
-130:                                              ; preds = %49, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit, %.loopexit278, %98, %.loopexit175, %71, %112
-  %.4 = phi i1 [ %54, %112 ], [ false, %71 ], [ false, %.loopexit175 ], [ false, %98 ], [ false, %.loopexit278 ], [ false, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit ], [ false, %49 ]
+130:                                              ; preds = %49, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit, %.loopexit277, %98, %.loopexit175, %71, %112
+  %.4 = phi i1 [ %54, %112 ], [ false, %71 ], [ false, %.loopexit175 ], [ false, %98 ], [ false, %.loopexit277 ], [ false, %_ZN5serde2de9MapAccess10next_value17h449cf0ede488e9c0E.exit ], [ false, %49 ]
   %131 = load i64, ptr %16, align 8, !range !1293, !noundef !9
   %.not84 = icmp eq i64 %131, -9223372036854775808
   %brmerge = or i1 %.4, %.not84

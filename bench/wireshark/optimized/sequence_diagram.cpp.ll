@@ -2589,9 +2589,9 @@ define void @_ZN15SequenceDiagram4drawEP10QCPPainter(ptr noundef nonnull align 8
   %.sroa.0.0.copyload.i = load double, ptr %45, align 8
   %46 = fptosi double %.sroa.0.0.copyload.i to i32
   %47 = sitofp i32 %46 to double
-  %.sroa.2.0..sroa_idx.i169423 = getelementptr inbounds i8, ptr %44, i64 312
-  %.sroa.2.0.copyload.i170424 = load double, ptr %.sroa.2.0..sroa_idx.i169423, align 8
-  %48 = fcmp ogt double %.sroa.2.0.copyload.i170424, %47
+  %.sroa.2.0..sroa_idx.i169422 = getelementptr inbounds i8, ptr %44, i64 312
+  %.sroa.2.0.copyload.i170423 = load double, ptr %.sroa.2.0..sroa_idx.i169422, align 8
+  %48 = fcmp ogt double %.sroa.2.0.copyload.i170423, %47
   br i1 %48, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %42
@@ -2604,12 +2604,12 @@ define void @_ZN15SequenceDiagram4drawEP10QCPPainter(ptr noundef nonnull align 8
 51:                                               ; preds = %.lr.ph, %_ZN5QListIdED2Ev.exit.thread
   %52 = phi ptr [ %44, %.lr.ph ], [ %94, %_ZN5QListIdED2Ev.exit.thread ]
   %53 = phi double [ %47, %.lr.ph ], [ %93, %_ZN5QListIdED2Ev.exit.thread ]
-  %.0141425 = phi i32 [ %46, %.lr.ph ], [ %92, %_ZN5QListIdED2Ev.exit.thread ]
-  %54 = icmp sgt i32 %.0141425, -1
+  %.0141424 = phi i32 [ %46, %.lr.ph ], [ %92, %_ZN5QListIdED2Ev.exit.thread ]
+  %54 = icmp sgt i32 %.0141424, -1
   br i1 %54, label %55, label %_ZN5QListIdED2Ev.exit.thread
 
 55:                                               ; preds = %51
-  %56 = zext nneg i32 %.0141425 to i64
+  %56 = zext nneg i32 %.0141424 to i64
   %57 = getelementptr inbounds i8, ptr %52, i64 360
   %58 = load ptr, ptr %57, align 8, !noalias !48
   %59 = getelementptr inbounds i8, ptr %52, i64 376
@@ -2698,7 +2698,7 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit:      ; preds = %71
   br label %_ZN5QListIdED2Ev.exit.thread
 
 _ZN5QListIdED2Ev.exit.thread:                     ; preds = %51, %63, %.thread385, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit, %_ZN5QListIdED2Ev.exit
-  %92 = add i32 %.0141425, 1
+  %92 = add i32 %.0141424, 1
   %93 = sitofp i32 %92 to double
   %94 = load ptr, ptr %43, align 8
   %.sroa.2.0..sroa_idx.i169 = getelementptr inbounds i8, ptr %94, i64 312
@@ -2731,11 +2731,11 @@ _ZN5QListIdED2Ev.exit.thread:                     ; preds = %51, %63, %.thread38
 _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit: ; preds = %102, %96
   %.sroa.0.0.i.i = phi ptr [ %104, %102 ], [ null, %96 ]
   %105 = getelementptr inbounds i8, ptr %101, i64 16
-  %.sroa.0.0.i.i189434 = select i1 %.not.i.i187, ptr null, ptr %105
-  %.not407435 = icmp eq ptr %.sroa.0.0.i.i, %.sroa.0.0.i.i189434
-  br i1 %.not407435, label %._crit_edge439, label %.lr.ph438
+  %.sroa.0.0.i.i189432 = select i1 %.not.i.i187, ptr null, ptr %105
+  %.not407433 = icmp eq ptr %.sroa.0.0.i.i, %.sroa.0.0.i.i189432
+  br i1 %.not407433, label %._crit_edge436, label %.lr.ph435
 
-.lr.ph438:                                        ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit
+.lr.ph435:                                        ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit
   %106 = getelementptr inbounds i8, ptr %12, i64 4
   %107 = getelementptr inbounds i8, ptr %12, i64 6
   %108 = getelementptr inbounds i8, ptr %0, i64 224
@@ -2769,11 +2769,11 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit: ; preds = %102, %96
   %133 = getelementptr inbounds i8, ptr %3, i64 8
   br label %134
 
-134:                                              ; preds = %.lr.ph438, %.critedge
-  %.sroa.0362.0437 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph438 ], [ %500, %.critedge ]
-  %135 = getelementptr inbounds i8, ptr %.sroa.0362.0437, i64 32
+134:                                              ; preds = %.lr.ph435, %.critedge
+  %.sroa.0362.0434 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph435 ], [ %500, %.critedge ]
+  %135 = getelementptr inbounds i8, ptr %.sroa.0362.0434, i64 32
   %136 = load double, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %.sroa.0362.0437, i64 48
+  %137 = getelementptr inbounds i8, ptr %.sroa.0362.0434, i64 48
   %138 = load ptr, ptr %137, align 8
   store i32 0, ptr %12, align 8
   store i16 -1, ptr %106, align 4
@@ -2931,20 +2931,20 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit: ; preds = %102, %96
   %.sroa.0.0.copyload.i209 = load double, ptr %212, align 8
   %213 = fptosi double %.sroa.0.0.copyload.i209 to i32
   %214 = sitofp i32 %213 to double
-  %.sroa.2.0..sroa_idx.i215426 = getelementptr inbounds i8, ptr %211, i64 312
-  %.sroa.2.0.copyload.i216427 = load double, ptr %.sroa.2.0..sroa_idx.i215426, align 8
-  %215 = fcmp ogt double %.sroa.2.0.copyload.i216427, %214
-  br i1 %215, label %.lr.ph431, label %._crit_edge432
+  %.sroa.2.0..sroa_idx.i215425 = getelementptr inbounds i8, ptr %211, i64 312
+  %.sroa.2.0.copyload.i216426 = load double, ptr %.sroa.2.0..sroa_idx.i215425, align 8
+  %215 = fcmp ogt double %.sroa.2.0.copyload.i216426, %214
+  br i1 %215, label %.lr.ph429, label %._crit_edge430
 
-.lr.ph431:                                        ; preds = %210, %_ZN5QListIdED2Ev.exit224.thread
+.lr.ph429:                                        ; preds = %210, %_ZN5QListIdED2Ev.exit224.thread
   %216 = phi ptr [ %259, %_ZN5QListIdED2Ev.exit224.thread ], [ %211, %210 ]
   %217 = phi double [ %258, %_ZN5QListIdED2Ev.exit224.thread ], [ %214, %210 ]
-  %.0143429 = phi i32 [ %257, %_ZN5QListIdED2Ev.exit224.thread ], [ %213, %210 ]
-  %218 = icmp sgt i32 %.0143429, -1
+  %.0143427 = phi i32 [ %257, %_ZN5QListIdED2Ev.exit224.thread ], [ %213, %210 ]
+  %218 = icmp sgt i32 %.0143427, -1
   br i1 %218, label %219, label %_ZN5QListIdED2Ev.exit224.thread
 
-219:                                              ; preds = %.lr.ph431
-  %220 = zext nneg i32 %.0143429 to i64
+219:                                              ; preds = %.lr.ph429
+  %220 = zext nneg i32 %.0143427 to i64
   %221 = getelementptr inbounds i8, ptr %216, i64 360
   %222 = load ptr, ptr %221, align 8, !noalias !52
   %223 = getelementptr inbounds i8, ptr %216, i64 376
@@ -2975,7 +2975,7 @@ _ZN5QListIdED2Ev.exit224:                         ; preds = %_ZN17QArrayDataPoin
           cleanup
   br label %504
 
-.loopexit.split-lp:                               ; preds = %207, %208, %209, %._crit_edge432, %295, %296
+.loopexit.split-lp:                               ; preds = %207, %208, %209, %._crit_edge430, %295, %296
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %504
@@ -3028,20 +3028,20 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit233:   ; preds = %244
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %_ZN5QListIdED2Ev.exit224.thread
 
-_ZN5QListIdED2Ev.exit224.thread:                  ; preds = %.lr.ph431, %227, %.thread394, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit233, %_ZN5QListIdED2Ev.exit224
-  %257 = add i32 %.0143429, 1
+_ZN5QListIdED2Ev.exit224.thread:                  ; preds = %.lr.ph429, %227, %.thread394, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit233, %_ZN5QListIdED2Ev.exit224
+  %257 = add i32 %.0143427, 1
   %258 = sitofp i32 %257 to double
   %259 = load ptr, ptr %43, align 8
   %.sroa.2.0..sroa_idx.i215 = getelementptr inbounds i8, ptr %259, i64 312
   %.sroa.2.0.copyload.i216 = load double, ptr %.sroa.2.0..sroa_idx.i215, align 8
   %260 = fcmp ogt double %.sroa.2.0.copyload.i216, %258
-  br i1 %260, label %.lr.ph431, label %._crit_edge432, !llvm.loop !55
+  br i1 %260, label %.lr.ph429, label %._crit_edge430, !llvm.loop !55
 
-._crit_edge432:                                   ; preds = %_ZN5QListIdED2Ev.exit224.thread, %210
+._crit_edge430:                                   ; preds = %_ZN5QListIdED2Ev.exit224.thread, %210
   invoke void @_ZN10QCPPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %261 unwind label %.loopexit.split-lp
 
-261:                                              ; preds = %._crit_edge432
+261:                                              ; preds = %._crit_edge430
   %262 = load ptr, ptr %115, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 304
   %.sroa.0.0.copyload.i234 = load double, ptr %263, align 8
@@ -3620,21 +3620,21 @@ _ZN8QPolygonD2Ev.exit312:                         ; preds = %498, %_ZN17QArrayDa
 
 .critedge:                                        ; preds = %.thread400, %291, %_ZN8QPolygonD2Ev.exit, %280, %272, %261
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #22
-  %500 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0362.0437) #26
+  %500 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0362.0434) #26
   %501 = load ptr, ptr %99, align 8
   %502 = load ptr, ptr %501, align 8
   %.not.i.i188 = icmp eq ptr %502, null
   %503 = getelementptr inbounds i8, ptr %502, i64 16
   %.sroa.0.0.i.i189 = select i1 %.not.i.i188, ptr null, ptr %503
   %.not407 = icmp eq ptr %500, %.sroa.0.0.i.i189
-  br i1 %.not407, label %._crit_edge439, label %134, !llvm.loop !56
+  br i1 %.not407, label %._crit_edge436, label %134, !llvm.loop !56
 
 504:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZN8QPolygonD2Ev.exit312, %453, %452
   %.pn163 = phi { ptr, i32 } [ %.pn159.pn.pn, %_ZN8QPolygonD2Ev.exit312 ], [ %454, %453 ], [ %.pn, %452 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #22
   br label %.loopexit.split-lp415
 
-._crit_edge439:                                   ; preds = %.critedge, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit
+._crit_edge436:                                   ; preds = %.critedge, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
   ret void
 

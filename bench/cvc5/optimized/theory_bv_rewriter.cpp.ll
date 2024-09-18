@@ -45920,10 +45920,10 @@ for.body.lr.ph:                                   ; preds = %_ZNK4cvc58internal1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331
-  %mergeStarted.0511 = phi i8 [ 0, %for.body.lr.ph ], [ %mergeStarted.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
-  %i.0510 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
-  %currentLow.0509 = phi i32 [ 0, %for.body.lr.ph ], [ %currentLow.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
-  %currentHigh.0508 = phi i32 [ 0, %for.body.lr.ph ], [ %currentHigh.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
+  %mergeStarted.0510 = phi i8 [ 0, %for.body.lr.ph ], [ %mergeStarted.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
+  %i.0509 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
+  %currentLow.0508 = phi i32 [ 0, %for.body.lr.ph ], [ %currentLow.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
+  %currentHigh.0507 = phi i32 [ 0, %for.body.lr.ph ], [ %currentHigh.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
   %4 = load ptr, ptr %node, align 8, !noalias !1396
   %d_kind.i.i.i.i93 = getelementptr inbounds i8, ptr %4, i64 8
   %bf.load.i.i.i.i94 = load i16, ptr %d_kind.i.i.i.i93, align 8, !noalias !1396
@@ -45937,7 +45937,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 invoke.cont13:                                    ; preds = %for.body
   %cmp.i.i99 = icmp eq i32 %call2.i.i.i104, 2
   %inc.i.i100 = zext i1 %cmp.i.i99 to i64
-  %spec.select.i.i = add nuw i64 %i.0510, %inc.i.i100
+  %spec.select.i.i = add nuw i64 %i.0509, %inc.i.i100
   %d_children.i.i101 = getelementptr inbounds i8, ptr %4, i64 16
   %sext = shl i64 %spec.select.i.i, 32
   %idxprom.i.i102 = ashr exact i64 %sext, 32
@@ -46094,7 +46094,7 @@ lpad18:                                           ; preds = %if.then13.i4.i310, 
   br label %ehcleanup93
 
 if.else:                                          ; preds = %invoke.cont15
-  %tobool = trunc nuw i8 %mergeStarted.0511 to i1
+  %tobool = trunc nuw i8 %mergeStarted.0510 to i1
   br i1 %tobool, label %if.end32, label %if.then22
 
 if.then22:                                        ; preds = %if.else
@@ -46119,8 +46119,8 @@ lpad29:                                           ; preds = %invoke.cont25
   br label %ehcleanup93
 
 if.end32:                                         ; preds = %invoke.cont25, %if.else
-  %currentHigh.2 = phi i32 [ %currentHigh.0508, %if.else ], [ %call26, %invoke.cont25 ]
-  %currentLow.2 = phi i32 [ %currentLow.0509, %if.else ], [ %call31, %invoke.cont25 ]
+  %currentHigh.2 = phi i32 [ %currentHigh.0507, %if.else ], [ %call26, %invoke.cont25 ]
+  %currentLow.2 = phi i32 [ %currentLow.0508, %if.else ], [ %call31, %invoke.cont25 ]
   %d_kind.i145 = getelementptr inbounds i8, ptr %5, i64 8
   %bf.load.i146 = load i16, ptr %d_kind.i145, align 8
   %bf.clear.i147 = and i16 %bf.load.i146, 1023
@@ -46555,21 +46555,21 @@ if.then13.i4.i310:                                ; preds = %if.else.i.i307
           to label %cleanup unwind label %lpad18
 
 cleanup.sink.split:                               ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i302, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
-  %bf.load.i2.i303.sink524 = phi i64 [ %bf.load.i2.i, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %bf.load.i2.i303, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i302 ]
-  %currentHigh.1.ph = phi i32 [ %currentHigh.0508, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %currentHigh.2, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i302 ]
-  %currentLow.1.ph = phi i32 [ %currentLow.0509, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %currentLow.2, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i302 ]
-  %mergeStarted.1.ph = phi i8 [ %mergeStarted.0511, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ 0, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i302 ]
-  %bf.value.i6.i313 = add i64 %bf.load.i2.i303.sink524, 1099511627776
+  %bf.load.i2.i303.sink523 = phi i64 [ %bf.load.i2.i, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %bf.load.i2.i303, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i302 ]
+  %currentHigh.1.ph = phi i32 [ %currentHigh.0507, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %currentHigh.2, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i302 ]
+  %currentLow.1.ph = phi i32 [ %currentLow.0508, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %currentLow.2, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i302 ]
+  %mergeStarted.1.ph = phi i8 [ %mergeStarted.0510, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ 0, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i302 ]
+  %bf.value.i6.i313 = add i64 %bf.load.i2.i303.sink523, 1099511627776
   %bf.shl.i7.i314 = and i64 %bf.value.i6.i313, 1152920405095219200
-  %bf.clear7.i8.i315 = and i64 %bf.load.i2.i303.sink524, -1152920405095219201
+  %bf.clear7.i8.i315 = and i64 %bf.load.i2.i303.sink523, -1152920405095219201
   %bf.set.i9.i316 = or disjoint i64 %bf.shl.i7.i314, %bf.clear7.i8.i315
   store i64 %bf.set.i9.i316, ptr %5, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.else.i.i307, %if.end89, %if.then13.i4.i310, %invoke.cont63, %if.else.i.i139, %invoke.cont19, %if.then13.i4.i
-  %currentHigh.1 = phi i32 [ %currentHigh.0508, %if.then13.i4.i ], [ %currentHigh.0508, %invoke.cont19 ], [ %currentHigh.0508, %if.else.i.i139 ], [ %currentHigh.2, %invoke.cont63 ], [ %currentHigh.2, %if.then13.i4.i310 ], [ %currentHigh.2, %if.end89 ], [ %currentHigh.2, %if.else.i.i307 ], [ %currentHigh.1.ph, %cleanup.sink.split ]
-  %currentLow.1 = phi i32 [ %currentLow.0509, %if.then13.i4.i ], [ %currentLow.0509, %invoke.cont19 ], [ %currentLow.0509, %if.else.i.i139 ], [ %call64, %invoke.cont63 ], [ %currentLow.2, %if.then13.i4.i310 ], [ %currentLow.2, %if.end89 ], [ %currentLow.2, %if.else.i.i307 ], [ %currentLow.1.ph, %cleanup.sink.split ]
-  %mergeStarted.1 = phi i8 [ %mergeStarted.0511, %if.then13.i4.i ], [ %mergeStarted.0511, %invoke.cont19 ], [ %mergeStarted.0511, %if.else.i.i139 ], [ 1, %invoke.cont63 ], [ 0, %if.then13.i4.i310 ], [ 0, %if.end89 ], [ 0, %if.else.i.i307 ], [ %mergeStarted.1.ph, %cleanup.sink.split ]
+  %currentHigh.1 = phi i32 [ %currentHigh.0507, %if.then13.i4.i ], [ %currentHigh.0507, %invoke.cont19 ], [ %currentHigh.0507, %if.else.i.i139 ], [ %currentHigh.2, %invoke.cont63 ], [ %currentHigh.2, %if.then13.i4.i310 ], [ %currentHigh.2, %if.end89 ], [ %currentHigh.2, %if.else.i.i307 ], [ %currentHigh.1.ph, %cleanup.sink.split ]
+  %currentLow.1 = phi i32 [ %currentLow.0508, %if.then13.i4.i ], [ %currentLow.0508, %invoke.cont19 ], [ %currentLow.0508, %if.else.i.i139 ], [ %call64, %invoke.cont63 ], [ %currentLow.2, %if.then13.i4.i310 ], [ %currentLow.2, %if.end89 ], [ %currentLow.2, %if.else.i.i307 ], [ %currentLow.1.ph, %cleanup.sink.split ]
+  %mergeStarted.1 = phi i8 [ %mergeStarted.0510, %if.then13.i4.i ], [ %mergeStarted.0510, %invoke.cont19 ], [ %mergeStarted.0510, %if.else.i.i139 ], [ 1, %invoke.cont63 ], [ 0, %if.then13.i4.i310 ], [ 0, %if.end89 ], [ 0, %if.else.i.i307 ], [ %mergeStarted.1.ph, %cleanup.sink.split ]
   %bf.load.i.i321 = load i64, ptr %5, align 8
   %61 = and i64 %bf.load.i.i321, 1152920405095219200
   %cmp.not.i.i322 = icmp eq i64 %61, 1152920405095219200
@@ -46596,7 +46596,7 @@ terminate.lpad.i330:                              ; preds = %if.then13.i.i329
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331: ; preds = %cleanup, %if.then.i.i323, %if.then13.i.i329
-  %inc = add nuw nsw i64 %i.0510, 1
+  %inc = add nuw nsw i64 %i.0509, 1
   %exitcond.not = icmp eq i64 %inc, %conv.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1408
 

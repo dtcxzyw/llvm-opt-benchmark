@@ -35966,8 +35966,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25HdSchemaBasedVectorSchemaINS_21HdRenderPr
   br label %566
 
 566:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdRenderProductSchemaD2Ev.exit26.i, %.lr.ph.i
-  %.0128.i = phi i64 [ 0, %.lr.ph.i ], [ %2130, %_ZN32pxrInternal_v0_24__pxrReserved__21HdRenderProductSchemaD2Ev.exit26.i ]
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__25HdSchemaBasedVectorSchemaINS_21HdRenderProductSchemaEE10GetElementEm(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdRenderProductSchema") align 8 %39, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef %.0128.i)
+  %.096.i = phi i64 [ 0, %.lr.ph.i ], [ %2130, %_ZN32pxrInternal_v0_24__pxrReserved__21HdRenderProductSchemaD2Ev.exit26.i ]
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__25HdSchemaBasedVectorSchemaINS_21HdRenderProductSchemaEE10GetElementEm(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdRenderProductSchema") align 8 %39, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef %.096.i)
           to label %567 unwind label %.loopexit.i
 
 567:                                              ; preds = %566
@@ -36632,12 +36632,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__25HdSchemaBasedVectorSchemaINS_17HdRenderVa
 .thread.i.i.i.i:                                  ; preds = %845, %842, %835, %.noexc73.i
   %.sroa.0.5.ph.i = phi ptr [ null, %.noexc73.i ], [ null, %835 ], [ %836, %842 ], [ %836, %845 ]
   %.sroa.6.5.ph.i = phi ptr [ null, %.noexc73.i ], [ null, %835 ], [ %838, %842 ], [ %838, %845 ]
-  %.pr160.i = load ptr, ptr %545, align 8, !noalias !178
-  %.not.i.i.i.i67.i = icmp eq ptr %.pr160.i, null
+  %.pr98.i = load ptr, ptr %545, align 8, !noalias !178
+  %.not.i.i.i.i67.i = icmp eq ptr %.pr98.i, null
   br i1 %.not.i.i.i.i67.i, label %.noexc62.i, label %847
 
 847:                                              ; preds = %.thread.i.i.i.i
-  %848 = getelementptr inbounds nuw i8, ptr %.pr160.i, i64 8
+  %848 = getelementptr inbounds nuw i8, ptr %.pr98.i, i64 8
   %849 = load atomic i64, ptr %848 acquire, align 8, !noalias !181
   %850 = icmp eq i64 %849, 4294967297
   %851 = trunc i64 %849 to i32
@@ -36645,12 +36645,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__25HdSchemaBasedVectorSchemaINS_17HdRenderVa
 
 852:                                              ; preds = %847
   store i32 0, ptr %848, align 8, !noalias !181
-  %853 = getelementptr inbounds nuw i8, ptr %.pr160.i, i64 12
+  %853 = getelementptr inbounds nuw i8, ptr %.pr98.i, i64 12
   store i32 0, ptr %853, align 4, !noalias !181
-  %854 = load ptr, ptr %.pr160.i, align 8, !noalias !181
+  %854 = load ptr, ptr %.pr98.i, align 8, !noalias !181
   %855 = getelementptr inbounds i8, ptr %854, i64 16
   %856 = load ptr, ptr %855, align 8, !noalias !181
-  call void %856(ptr noundef nonnull align 8 dereferenceable(16) %.pr160.i) #27, !noalias !181
+  call void %856(ptr noundef nonnull align 8 dereferenceable(16) %.pr98.i) #27, !noalias !181
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i72.i
 
 857:                                              ; preds = %847
@@ -36673,11 +36673,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__25HdSchemaBasedVectorSchemaINS_17HdRenderVa
   br i1 %864, label %865, label %.noexc62.i
 
 865:                                              ; preds = %863
-  %866 = load ptr, ptr %.pr160.i, align 8, !noalias !181
+  %866 = load ptr, ptr %.pr98.i, align 8, !noalias !181
   %867 = getelementptr inbounds i8, ptr %866, i64 16
   %868 = load ptr, ptr %867, align 8, !noalias !181
-  call void %868(ptr noundef nonnull align 8 dereferenceable(16) %.pr160.i) #27, !noalias !181
-  %869 = getelementptr inbounds nuw i8, ptr %.pr160.i, i64 12
+  call void %868(ptr noundef nonnull align 8 dereferenceable(16) %.pr98.i) #27, !noalias !181
+  %869 = getelementptr inbounds nuw i8, ptr %.pr98.i, i64 12
   %870 = load i8, ptr @__libc_single_threaded, align 1, !noalias !178
   %.not.i.i.i.i.i.i2.i70.i = icmp eq i8 %870, 0
   br i1 %.not.i.i.i.i.i.i2.i70.i, label %874, label %871
@@ -36698,10 +36698,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__25HdSchemaBasedVectorSchemaINS_17HdRenderVa
   br i1 %877, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i72.i, label %.noexc62.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i72.i: ; preds = %876, %852
-  %878 = load ptr, ptr %.pr160.i, align 8, !noalias !181
+  %878 = load ptr, ptr %.pr98.i, align 8, !noalias !181
   %879 = getelementptr inbounds i8, ptr %878, i64 24
   %880 = load ptr, ptr %879, align 8, !noalias !181
-  call void %880(ptr noundef nonnull align 8 dereferenceable(16) %.pr160.i) #27, !noalias !181
+  call void %880(ptr noundef nonnull align 8 dereferenceable(16) %.pr98.i) #27, !noalias !181
   br label %.noexc62.i
 
 .noexc62.i:                                       ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i72.i, %876, %863, %.thread.i.i.i.i
@@ -36729,14 +36729,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %888 = icmp eq i8 %.pre.i.i, 0
   store ptr %.sroa.0.5.ph.i, ptr %15, align 8, !alias.scope !175, !noalias !165
   store ptr %.sroa.6.5.ph.i, ptr %531, align 8, !alias.scope !175, !noalias !165
-  br i1 %888, label %892, label %._crit_edge159.i
+  br i1 %888, label %892, label %._crit_edge97.i
 
-._crit_edge159.i:                                 ; preds = %886
+._crit_edge97.i:                                  ; preds = %886
   %.pre.i = load i32, ptr %882, align 4, !noalias !175
   br label %889
 
-889:                                              ; preds = %._crit_edge159.i, %.thread.i.i138
-  %890 = phi i32 [ %.pre.i, %._crit_edge159.i ], [ %885, %.thread.i.i138 ]
+889:                                              ; preds = %._crit_edge97.i, %.thread.i.i138
+  %890 = phi i32 [ %.pre.i, %._crit_edge97.i ], [ %885, %.thread.i.i138 ]
   %891 = add nsw i32 %890, 1
   store i32 %891, ptr %882, align 4, !noalias !175
   br label %894
@@ -39523,7 +39523,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21HdRenderProductSchemaD2Ev.exit26.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__21HdRenderProductSchemaD2Ev.exit26.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i25.i, %2125, %2112, %_ZN32pxrInternal_v0_24__pxrReserved__21HdRenderProductSchemaD2Ev.exit.i
-  %2130 = add nuw i64 %.0128.i, 1
+  %2130 = add nuw i64 %.096.i, 1
   %exitcond.not.i = icmp eq i64 %2130, %510
   br i1 %exitcond.not.i, label %.loopexit, label %566, !llvm.loop !196
 

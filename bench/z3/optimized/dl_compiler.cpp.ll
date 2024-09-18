@@ -11493,12 +11493,12 @@ _ZN6vectorISt4pairIjjELb0EjE3endEv.exit:          ; preds = %if.else
   %49 = load i32, ptr %arrayidx.i.i, align 4
   %50 = zext i32 %49 to i64
   %add.ptr.i104 = getelementptr inbounds %"struct.std::pair", ptr %48, i64 %50
-  %cmp36.not131 = icmp eq i32 %49, 0
-  br i1 %cmp36.not131, label %if.end48, label %for.body37
+  %cmp36.not130 = icmp eq i32 %49, 0
+  br i1 %cmp36.not130, label %if.end48, label %for.body37
 
 for.body37:                                       ; preds = %_ZN6vectorISt4pairIjjELb0EjE3endEv.exit, %invoke.cont45
-  %tdit.0132 = phi ptr [ %incdec.ptr, %invoke.cont45 ], [ %48, %_ZN6vectorISt4pairIjjELb0EjE3endEv.exit ]
-  %51 = load i64, ptr %tdit.0132, align 4
+  %tdit.0131 = phi ptr [ %incdec.ptr, %invoke.cont45 ], [ %48, %_ZN6vectorISt4pairIjjELb0EjE3endEv.exit ]
+  %51 = load i64, ptr %tdit.0131, align 4
   %tdinfo.sroa.0.0.extract.trunc = trunc i64 %51 to i32
   %tdinfo.sroa.2.0.extract.shift = lshr i64 %51, 32
   %52 = load ptr, ptr %tail_regs, align 8
@@ -11511,7 +11511,7 @@ for.body37:                                       ; preds = %_ZN6vectorISt4pairI
 
 invoke.cont45:                                    ; preds = %for.body37
   store i32 %53, ptr %arrayidx.i106, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %tdit.0132, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %tdit.0131, i64 8
   %cmp36.not = icmp eq ptr %incdec.ptr, %add.ptr.i104
   br i1 %cmp36.not, label %if.end48, label %for.body37, !llvm.loop !80
 
@@ -12135,8 +12135,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIP9func_
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc26
-  %hpit.073 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr27, %for.inc26 ]
-  %3 = load ptr, ptr %hpit.073, align 8
+  %hpit.072 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr27, %for.inc26 ]
+  %3 = load ptr, ptr %hpit.072, align 8
   %4 = load ptr, ptr %m_rule_set, align 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7datalog8rule_set19get_predicate_rulesEP9func_decl(ptr noundef nonnull align 8 dereferenceable(248) %4, ptr noundef %3)
   %5 = load ptr, ptr %call3, align 8
@@ -12145,7 +12145,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 _ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit.thread: ; preds = %for.body
   %6 = load ptr, ptr %m_rule_set, align 8
-  %call787 = tail call noundef i32 @_ZNK7datalog8rule_set19get_predicate_stratEP9func_decl(ptr noundef nonnull align 8 dereferenceable(248) %6, ptr noundef %3)
+  %call786 = tail call noundef i32 @_ZNK7datalog8rule_set19get_predicate_stratEP9func_decl(ptr noundef nonnull align 8 dereferenceable(248) %6, ptr noundef %3)
   br label %for.end20
 
 _ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit:    ; preds = %for.body
@@ -12368,7 +12368,7 @@ if.then.i56:                                      ; preds = %_ZN6vectorIPN7datal
   br label %for.inc26
 
 for.inc26:                                        ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %for.cond18.preheader.i.i.i, %if.then.i56, %_ZN6vectorIPN7datalog11instructionELb0EjE9push_backERKS2_.exit.i
-  %incdec.ptr27 = getelementptr inbounds i8, ptr %hpit.073, i64 8
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %hpit.072, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr27, %add.ptr.i
   br i1 %cmp.not, label %for.end28, label %for.body, !llvm.loop !90
 

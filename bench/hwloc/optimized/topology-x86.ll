@@ -4658,8 +4658,8 @@ cpuid_or_from_dump.exit.us.us:                    ; preds = %.lr.ph161
 .lr.ph161:                                        ; preds = %.split.us.split.us, %cpuid_or_from_dump.exit.us.us
   %17 = phi { i32, i64, i32, i32 } [ %14, %cpuid_or_from_dump.exit.us.us ], [ %10, %.split.us.split.us ]
   %.068134.us.us160 = phi i32 [ %13, %cpuid_or_from_dump.exit.us.us ], [ 0, %.split.us.split.us ]
-  %exitcond196.not = icmp eq i32 %.068134.us.us160, 31
-  br i1 %exitcond196.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us.us, !llvm.loop !43
+  %exitcond195.not = icmp eq i32 %.068134.us.us160, 31
+  br i1 %exitcond195.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us.us, !llvm.loop !43
 
 .split.us.split:                                  ; preds = %.split.us
   %18 = extractvalue { i32, i64, i32, i32 } %10, 2
@@ -4673,36 +4673,36 @@ cpuid_or_from_dump.exit.us:                       ; preds = %.lr.ph
   %22 = extractvalue { i32, i64, i32, i32 } %21, 2
   %23 = and i32 %22, 65280
   %.not.us = icmp eq i32 %23, 0
-  br i1 %.not.us, label %.split137.us.loopexit219, label %.lr.ph, !llvm.loop !43
+  br i1 %.not.us, label %.split137.us.loopexit218, label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %.split.us.split, %cpuid_or_from_dump.exit.us
   %24 = phi { i32, i64, i32, i32 } [ %21, %cpuid_or_from_dump.exit.us ], [ %10, %.split.us.split ]
   %.068134.us156 = phi i32 [ %20, %cpuid_or_from_dump.exit.us ], [ 0, %.split.us.split ]
-  %exitcond195.not = icmp eq i32 %.068134.us156, 31
-  br i1 %exitcond195.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us, !llvm.loop !43
+  %exitcond194.not = icmp eq i32 %.068134.us156, 31
+  br i1 %exitcond194.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us, !llvm.loop !43
 
 .split137.us.loopexit:                            ; preds = %cpuid_or_from_dump.exit.us.us
   %25 = extractvalue { i32, i64, i32, i32 } %17, 0
   %26 = and i32 %25, 31
   br label %.split137.us
 
-.split137.us.loopexit219:                         ; preds = %cpuid_or_from_dump.exit.us
+.split137.us.loopexit218:                         ; preds = %cpuid_or_from_dump.exit.us
   %27 = extractvalue { i32, i64, i32, i32 } %24, 0
   %28 = and i32 %27, 31
   br label %.split137.us
 
-.split137.us:                                     ; preds = %.split137.us.loopexit219, %.split137.us.loopexit, %.split.us.split, %.split.us.split.us
-  %.us-phi145 = phi { i32, i64, i32, i32 } [ %10, %.split.us.split.us ], [ %10, %.split.us.split ], [ %14, %.split137.us.loopexit ], [ %21, %.split137.us.loopexit219 ]
-  %.us-phi146 = phi i32 [ 0, %.split.us.split.us ], [ 0, %.split.us.split ], [ %13, %.split137.us.loopexit ], [ %20, %.split137.us.loopexit219 ]
-  %.us-phi147 = phi i32 [ 0, %.split.us.split.us ], [ 0, %.split.us.split ], [ %26, %.split137.us.loopexit ], [ %28, %.split137.us.loopexit219 ]
+.split137.us:                                     ; preds = %.split137.us.loopexit218, %.split137.us.loopexit, %.split.us.split, %.split.us.split.us
+  %.us-phi145 = phi { i32, i64, i32, i32 } [ %10, %.split.us.split.us ], [ %10, %.split.us.split ], [ %14, %.split137.us.loopexit ], [ %21, %.split137.us.loopexit218 ]
+  %.us-phi146 = phi i32 [ 0, %.split.us.split.us ], [ 0, %.split.us.split ], [ %13, %.split137.us.loopexit ], [ %20, %.split137.us.loopexit218 ]
+  %.us-phi147 = phi i32 [ 0, %.split.us.split.us ], [ 0, %.split.us.split ], [ %26, %.split137.us.loopexit ], [ %28, %.split137.us.loopexit218 ]
   %29 = extractvalue { i32, i64, i32, i32 } %.us-phi145, 3
   br label %.split137
 
 .thread.loopexit.split.us:                        ; preds = %.lr.ph, %.lr.ph161
-  %.lcssa258.sink = phi { i32, i64, i32, i32 } [ %17, %.lr.ph161 ], [ %24, %.lr.ph ]
-  %30 = extractvalue { i32, i64, i32, i32 } %.lcssa258.sink, 0
+  %.lcssa257.sink = phi { i32, i64, i32, i32 } [ %17, %.lr.ph161 ], [ %24, %.lr.ph ]
+  %30 = extractvalue { i32, i64, i32, i32 } %.lcssa257.sink, 0
   %31 = and i32 %30, 31
-  %32 = extractvalue { i32, i64, i32, i32 } %.lcssa258.sink, 3
+  %32 = extractvalue { i32, i64, i32, i32 } %.lcssa257.sink, 3
   br label %.thread
 
 .split:                                           ; preds = %.split.preheader, %74
@@ -5019,8 +5019,8 @@ cpuid_or_from_dump.exit94:                        ; preds = %120, %._crit_edge.i
 
 165:                                              ; preds = %144, %158, %159, %155, %156, %162, %161, %153
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond198.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond198.not, label %166, label %93, !llvm.loop !44
+  %exitcond197.not = icmp eq i64 %indvars.iv.next, 32
+  br i1 %exitcond197.not, label %166, label %93, !llvm.loop !44
 
 166:                                              ; preds = %142, %139, %165
   %.071.lcssa = phi i32 [ %.071166, %142 ], [ %.071166, %139 ], [ %storemerge.i87, %165 ]

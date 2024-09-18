@@ -163,8 +163,8 @@ _ZN5clangneEPKNS_9FileEntryERKNS_12FileEntryRefE.exit: ; preds = %35
   %..i.i = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.sroa.speculated.i24, i64 10000)
   store ptr %.sroa.0.0.copyload.sroa.speculated.i21, ptr %8, align 8
   store i64 %..i.i, ptr %49, align 8
-  %.not38.i = icmp eq i64 %.sroa.2.0.copyload.sroa.speculated.i24, 0
-  br i1 %.not38.i, label %_ZN5clang7tooling12_GLOBAL__N_121isDontIncludeMeHeaderEN4llvm9StringRefE.exit, label %.lr.ph.i
+  %.not36.i = icmp eq i64 %.sroa.2.0.copyload.sroa.speculated.i24, 0
+  br i1 %.not36.i, label %_ZN5clang7tooling12_GLOBAL__N_121isDontIncludeMeHeaderEN4llvm9StringRefE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -172,7 +172,7 @@ _ZN5clangneEPKNS_9FileEntryERKNS_12FileEntryRefE.exit: ; preds = %35
   br label %52
 
 52:                                               ; preds = %.critedge2.i, %.lr.ph.i
-  %.0835.i = phi i32 [ 0, %.lr.ph.i ], [ %97, %.critedge2.i ]
+  %.0833.i = phi i32 [ 0, %.lr.ph.i ], [ %97, %.critedge2.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 10, ptr %7, align 1, !noalias !12
   %53 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %7, i64 1, i64 noundef 0) #7, !noalias !15
@@ -308,8 +308,8 @@ _ZN5clang7tooling12_GLOBAL__N_119isErrorAboutIncludeEN4llvm9StringRefE.exit.i: ;
   br i1 %.not.i27, label %.critedge2.i, label %_ZN5clang7tooling12_GLOBAL__N_121isDontIncludeMeHeaderEN4llvm9StringRefE.exit
 
 .critedge2.i:                                     ; preds = %_ZN5clang7tooling12_GLOBAL__N_119isErrorAboutIncludeEN4llvm9StringRefE.exit.i, %_ZN5clang7tooling12_GLOBAL__N_119isErrorAboutIncludeEN4llvm9StringRefE.exit.thread.i, %_ZN5clang7tooling12_GLOBAL__N_14isIfEN4llvm9StringRefE.exit.i, %_ZN5clang7tooling12_GLOBAL__N_14isIfEN4llvm9StringRefE.exit.thread.i
-  %97 = add nuw nsw i32 %.0835.i, 1
-  %98 = icmp ult i32 %.0835.i, 99
+  %97 = add nuw nsw i32 %.0833.i, 1
+  %98 = icmp ult i32 %.0833.i, 99
   %99 = load i64, ptr %49, align 8
   %100 = icmp ne i64 %99, 0
   %or.cond.not.i = select i1 %98, i1 %100, i1 false

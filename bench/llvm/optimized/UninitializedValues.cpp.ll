@@ -997,10 +997,10 @@ define internal fastcc void @_ZNK5clang3CFG15VisitBlockStmtsIN12_GLOBAL__N_112Cl
   %.sroa.01.i.i = alloca %"class.clang::OMPExecutableDirective::used_clauses_child_iterator", align 8
   %76 = alloca %"class.clang::OMPExecutableDirective::used_clauses_child_iterator", align 8
   %77 = alloca ptr, align 8
-  %.not18 = icmp eq ptr %.40.val, %.48.val
-  br i1 %.not18, label %._crit_edge23, label %.lr.ph22
+  %.not16 = icmp eq ptr %.40.val, %.48.val
+  br i1 %.not16, label %._crit_edge20, label %.lr.ph19
 
-.lr.ph22:                                         ; preds = %1
+.lr.ph19:                                         ; preds = %1
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 24
@@ -1154,19 +1154,19 @@ define internal fastcc void @_ZNK5clang3CFG15VisitBlockStmtsIN12_GLOBAL__N_112Cl
   %228 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %229
 
-229:                                              ; preds = %.lr.ph22, %._crit_edge
-  %.020 = phi ptr [ %.40.val, %.lr.ph22 ], [ %2257, %._crit_edge ]
-  %230 = load ptr, ptr %.020, align 8
+229:                                              ; preds = %.lr.ph19, %._crit_edge
+  %.017 = phi ptr [ %.40.val, %.lr.ph19 ], [ %2257, %._crit_edge ]
+  %230 = load ptr, ptr %.017, align 8
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8, !noalias !11
   %233 = load ptr, ptr %230, align 8, !noalias !18
-  %.not1315 = icmp eq ptr %232, %233
-  br i1 %.not1315, label %._crit_edge, label %.lr.ph
+  %.not1314 = icmp eq ptr %232, %233
+  br i1 %.not1314, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %229, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
-  %.sroa.05.016 = phi ptr [ %234, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit ], [ %232, %229 ]
-  %234 = getelementptr inbounds i8, ptr %.sroa.05.016, i64 -16
-  %235 = getelementptr inbounds i8, ptr %.sroa.05.016, i64 -8
+  %.sroa.05.015 = phi ptr [ %234, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit ], [ %232, %229 ]
+  %234 = getelementptr inbounds i8, ptr %.sroa.05.015, i64 -16
+  %235 = getelementptr inbounds i8, ptr %.sroa.05.015, i64 -8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %235, align 8, !noalias !25
   %236 = trunc i64 %.0.copyload.i.i.i.i.i.i to i32
   %237 = shl i32 %236, 2
@@ -6523,11 +6523,11 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit: ; preds = %_ZN
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit, %229
-  %2257 = getelementptr inbounds i8, ptr %.020, i64 8
+  %2257 = getelementptr inbounds i8, ptr %.017, i64 8
   %.not = icmp eq ptr %2257, %.48.val
-  br i1 %.not, label %._crit_edge23, label %229, !llvm.loop !29
+  br i1 %.not, label %._crit_edge20, label %229, !llvm.loop !29
 
-._crit_edge23:                                    ; preds = %._crit_edge, %1
+._crit_edge20:                                    ; preds = %._crit_edge, %1
   ret void
 }
 

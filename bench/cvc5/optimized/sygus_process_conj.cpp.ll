@@ -13623,7 +13623,7 @@ call2.i.i.i.noexc275:                             ; preds = %if.end15.i.i244
   %arrayidx.i.i.i.i247 = getelementptr inbounds ptr, ptr %89, i64 %rem.i.i.i.i.i246
   %90 = load ptr, ptr %arrayidx.i.i.i.i247, align 8
   %tobool.not.i.i.i.i248 = icmp eq ptr %90, null
-  %.pre621 = load ptr, ptr %ref.tmp55, align 8
+  %.pre613 = load ptr, ptr %ref.tmp55, align 8
   br i1 %tobool.not.i.i.i.i248, label %invoke.cont58, label %if.end.i.i.i.i249
 
 if.end.i.i.i.i249:                                ; preds = %call2.i.i.i.noexc275
@@ -13633,7 +13633,7 @@ if.end.i.i.i.i249:                                ; preds = %call2.i.i.i.noexc27
   %92 = load i64, ptr %add.ptr.i9.i.i.i.i251, align 8
   %cmp.i.i10.i.i.i.i252 = icmp eq i64 %call2.i.i.i276, %92
   %93 = load ptr, ptr %add.ptr8.i.i.i.i250, align 8
-  %cmp.i.i.i.i11.i.i.i.i253 = icmp eq ptr %.pre621, %93
+  %cmp.i.i.i.i11.i.i.i.i253 = icmp eq ptr %.pre613, %93
   %94 = select i1 %cmp.i.i10.i.i.i.i252, i1 %cmp.i.i.i.i11.i.i.i.i253, i1 false
   br i1 %94, label %invoke.cont58, label %if.end3.i.i.i.i254
 
@@ -13641,7 +13641,7 @@ for.cond.i.i.i.i262:                              ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i.i263 = getelementptr inbounds i8, ptr %97, i64 8
   %cmp.i.i.i.i.i.i264 = icmp eq i64 %call2.i.i.i276, %98
   %95 = load ptr, ptr %add.ptr.i.i.i.i263, align 8
-  %cmp.i.i.i.i.i.i.i.i265 = icmp eq ptr %.pre621, %95
+  %cmp.i.i.i.i.i.i.i.i265 = icmp eq ptr %.pre613, %95
   %96 = select i1 %cmp.i.i.i.i.i.i264, i1 %cmp.i.i.i.i.i.i.i.i265, i1 false
   br i1 %96, label %invoke.cont58, label %if.end3.i.i.i.i254, !llvm.loop !159
 
@@ -13659,7 +13659,7 @@ lor.lhs.false.i.i.i.i257:                         ; preds = %if.end3.i.i.i.i254
   br i1 %cmp.not.i.i.i.i260, label %for.cond.i.i.i.i262, label %invoke.cont58, !llvm.loop !159
 
 invoke.cont58:                                    ; preds = %lor.lhs.false.i.i.i.i257, %if.end3.i.i.i.i254, %for.cond.i.i.i.i262, %for.body.i.i272, %for.cond.i.i268, %if.end.i.i.i.i249, %call2.i.i.i.noexc275
-  %99 = phi ptr [ %.pre621, %call2.i.i.i.noexc275 ], [ %.pre621, %if.end.i.i.i.i249 ], [ %86, %for.cond.i.i268 ], [ %86, %for.body.i.i272 ], [ %.pre621, %for.cond.i.i.i.i262 ], [ %.pre621, %if.end3.i.i.i.i254 ], [ %.pre621, %lor.lhs.false.i.i.i.i257 ]
+  %99 = phi ptr [ %.pre613, %call2.i.i.i.noexc275 ], [ %.pre613, %if.end.i.i.i.i249 ], [ %86, %for.cond.i.i268 ], [ %86, %for.body.i.i272 ], [ %.pre613, %for.cond.i.i.i.i262 ], [ %.pre613, %if.end3.i.i.i.i254 ], [ %.pre613, %lor.lhs.false.i.i.i.i257 ]
   %retval.sroa.0.1.i.i261 = phi ptr [ null, %call2.i.i.i.noexc275 ], [ %91, %if.end.i.i.i.i249 ], [ %retval.sroa.0.0.i.i270, %for.body.i.i272 ], [ null, %for.cond.i.i268 ], [ null, %lor.lhs.false.i.i.i.i257 ], [ null, %if.end3.i.i.i.i254 ], [ %97, %for.cond.i.i.i.i262 ]
   %bf.load.i.i278 = load i64, ptr %99, align 8
   %100 = and i64 %bf.load.i.i278, 1152920405095219200

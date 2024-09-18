@@ -506,7 +506,7 @@ invoke.cont20.lor.lhs.false_crit_edge:            ; preds = %invoke.cont20
   br label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont20.lor.lhs.false_crit_edge, %land.rhs.i.i.i.i, %if.end19, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i, %land.lhs.true.i.i
-  %bf.load.i.i.i.i.i87 = phi i32 [ %bf.load.i.i.i.i.i87.pre, %invoke.cont20.lor.lhs.false_crit_edge ], [ %bf.load.i.i.i.i.i, %land.lhs.true.i.i ], [ %bf.load.i.i.i.i.i, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i ], [ %bf.load.i.i.i.i.i, %if.end19 ], [ %bf.load.i.i.i.i.i, %land.rhs.i.i.i.i ]
+  %bf.load.i.i.i.i.i87 = phi i32 [ %bf.load.i.i.i.i.i87.pre, %invoke.cont20.lor.lhs.false_crit_edge ], [ %bf.load.i.i.i.i.i, %land.rhs.i.i.i.i ], [ %bf.load.i.i.i.i.i, %if.end19 ], [ %bf.load.i.i.i.i.i, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i ], [ %bf.load.i.i.i.i.i, %land.lhs.true.i.i ]
   %bf.clear.i.i.i.i.i88 = and i32 %bf.load.i.i.i.i.i87, 65535
   %cmp.i.i.i.i89 = icmp eq i32 %bf.clear.i.i.i.i.i88, 0
   br i1 %cmp.i.i.i.i89, label %land.rhs.i.i.i.i90, label %if.end55
@@ -753,7 +753,7 @@ ehcleanup:                                        ; preds = %lpad33, %lpad31
   br label %ehcleanup313
 
 if.end55:                                         ; preds = %invoke.cont22.if.end55_crit_edge, %land.rhs.i.i.i.i90, %lor.lhs.false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.lhs.true.i.i97, %land.rhs.i.i.i.i.i, %land.rhs.i100, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i, %land.lhs.true.i.i.i
-  %bf.load.i.i.i.i135 = phi i32 [ %bf.load.i.i.i.i135.pre, %invoke.cont22.if.end55_crit_edge ], [ %bf.load.i.i.i.i.i87, %land.lhs.true.i.i.i ], [ %bf.load.i.i.i.i.i87, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i ], [ %bf.load.i.i.i.i.i87, %land.rhs.i100 ], [ %bf.load.i.i.i.i.i87, %land.rhs.i.i.i.i.i ], [ %bf.load.i.i.i.i.i87, %land.lhs.true.i.i97 ], [ %bf.load.i.i.i.i.i87, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ %bf.load.i.i.i.i.i87, %lor.lhs.false ], [ %bf.load.i.i.i.i.i87, %land.rhs.i.i.i.i90 ]
+  %bf.load.i.i.i.i135 = phi i32 [ %bf.load.i.i.i.i135.pre, %invoke.cont22.if.end55_crit_edge ], [ %bf.load.i.i.i.i.i87, %land.rhs.i.i.i.i90 ], [ %bf.load.i.i.i.i.i87, %lor.lhs.false ], [ %bf.load.i.i.i.i.i87, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ %bf.load.i.i.i.i.i87, %land.lhs.true.i.i97 ], [ %bf.load.i.i.i.i.i87, %land.rhs.i.i.i.i.i ], [ %bf.load.i.i.i.i.i87, %land.rhs.i100 ], [ %bf.load.i.i.i.i.i87, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i ], [ %bf.load.i.i.i.i.i87, %land.lhs.true.i.i.i ]
   %bf.clear.i.i.i.i136 = and i32 %bf.load.i.i.i.i135, 65535
   %cmp.i.i.i137 = icmp eq i32 %bf.clear.i.i.i.i136, 0
   br i1 %cmp.i.i.i137, label %land.rhs.i.i.i139, label %invoke.cont57

@@ -1932,11 +1932,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120IndirectCallPromot
   br label %195
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit
-  %.pre484 = load ptr, ptr %51, align 8
+  %.pre481 = load ptr, ptr %51, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %184 = phi ptr [ %57, %2 ], [ %.pre484, %._crit_edge.loopexit ]
+  %184 = phi ptr [ %57, %2 ], [ %.pre481, %._crit_edge.loopexit ]
   %.0.lcssa = phi i1 [ false, %2 ], [ %.1, %._crit_edge.loopexit ]
   %.not.i.i.i = icmp eq ptr %184, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm8CallBaseESaIS2_EED2Ev.exit, label %185
@@ -1964,9 +1964,9 @@ _ZN4llvm22ICallPromotionAnalysisD2Ev.exit:        ; preds = %_ZNSt6vectorIPN4llv
   ret i1 %.0.lcssa
 
 195:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit
-  %.0358 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit ]
-  %.sroa.0223.0357 = phi ptr [ %57, %.lr.ph ], [ %2063, %_ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit ]
-  %196 = load ptr, ptr %.sroa.0223.0357, align 8
+  %.0355 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit ]
+  %.sroa.0223.0354 = phi ptr [ %57, %.lr.ph ], [ %2063, %_ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit ]
+  %196 = load ptr, ptr %.sroa.0223.0354, align 8
   %197 = call { ptr, i64 } @_ZN4llvm22ICallPromotionAnalysis36getPromotionCandidatesForInstructionEPKNS_11InstructionERmRj(ptr noundef nonnull align 8 dereferenceable(80) %50, ptr noundef %196, ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 4 dereferenceable(4) %52) #23
   %198 = extractvalue { ptr, i64 } %197, 0
   %199 = extractvalue { ptr, i64 } %197, 1
@@ -1982,14 +1982,14 @@ _ZN4llvm22ICallPromotionAnalysisD2Ev.exit:        ; preds = %_ZNSt6vectorIPN4llv
 203:                                              ; preds = %201
   %204 = load i64, ptr %53, align 8
   %205 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo10isHotCountEm(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 noundef %204) #23
-  br i1 %205, label %._crit_edge477, label %_ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit
+  br i1 %205, label %._crit_edge474, label %_ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit
 
-._crit_edge477:                                   ; preds = %203
+._crit_edge474:                                   ; preds = %203
   %.pre = load i32, ptr %52, align 4
   br label %206
 
-206:                                              ; preds = %._crit_edge477, %201
-  %207 = phi i32 [ %.pre, %._crit_edge477 ], [ %200, %201 ]
+206:                                              ; preds = %._crit_edge474, %201
+  %207 = phi i32 [ %.pre, %._crit_edge474 ], [ %200, %201 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %49)
   %208 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL9ICPCSSkip, i64 128), align 8, !noalias !24
@@ -3880,13 +3880,13 @@ _ZN4llvm16DenseMapIteratorImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEE
   br i1 %.not.i9.i15.i12.i.i84, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit.i47, label %.lr.ph.i6.i12.i5.i.i44, !llvm.loop !57
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit.i47: ; preds = %.critedge2.i8.i14.i11.i.i, %.lr.ph.i6.i12.i5.i.i44, %992, %983
-  %.pre-phi486 = phi i64 [ 0, %992 ], [ %990, %983 ], [ %1000, %.lr.ph.i6.i12.i5.i.i44 ], [ %1000, %.critedge2.i8.i14.i11.i.i ]
+  %.pre-phi483 = phi i64 [ 0, %992 ], [ %990, %983 ], [ %1000, %.lr.ph.i6.i12.i5.i.i44 ], [ %1000, %.critedge2.i8.i14.i11.i.i ]
   %.pre-phi = phi ptr [ %996, %992 ], [ %986, %983 ], [ %996, %.lr.ph.i6.i12.i5.i.i44 ], [ %996, %.critedge2.i8.i14.i11.i.i ]
   %.pn16.i.i = phi ptr [ %996, %992 ], [ %991, %983 ], [ %1003, %.critedge2.i8.i14.i11.i.i ], [ %.sroa.0.3.i6.i.i45, %.lr.ph.i6.i12.i5.i.i44 ]
   %.pn14.i.i = phi ptr [ %1001, %992 ], [ %991, %983 ], [ %1001, %.lr.ph.i6.i12.i5.i.i44 ], [ %1001, %.critedge2.i8.i14.i11.i.i ]
   %1004 = getelementptr inbounds nuw i8, ptr %.03672.i, i64 24
   %1005 = getelementptr inbounds nuw i8, ptr %.03672.i, i64 32
-  %1006 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.341", ptr %.pre-phi, i64 %.pre-phi486
+  %1006 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.341", ptr %.pre-phi, i64 %.pre-phi483
   %.not2668.i = icmp eq ptr %.pn16.i.i, %1006
   br i1 %.not2668.i, label %._crit_edge.i, label %.lr.ph.i50
 
@@ -5631,29 +5631,29 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detai
 
 1764:                                             ; preds = %1763
   %1765 = icmp ugt i32 %.0.i71.i, 16
-  %.pre479 = load i32, ptr %54, align 8
-  br i1 %1765, label %1766, label %._crit_edge480
+  %.pre476 = load i32, ptr %54, align 8
+  br i1 %1765, label %1766, label %._crit_edge477
 
-._crit_edge480:                                   ; preds = %1764
-  %.pre481 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8
-  %.pre482 = load i32, ptr %.phi.trans.insert3.i.i, align 8
+._crit_edge477:                                   ; preds = %1764
+  %.pre478 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8
+  %.pre479 = load i32, ptr %.phi.trans.insert3.i.i, align 8
   br label %1771
 
 1766:                                             ; preds = %1764
-  %1767 = and i32 %.pre479, -2
+  %1767 = and i32 %.pre476, -2
   store i32 %1767, ptr %54, align 8
   %1768 = zext i32 %.0.i71.i to i64
   %1769 = shl nuw nsw i64 %1768, 4
   %1770 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %1769, i64 noundef 8) #23
   store ptr %1770, ptr %.phi.trans.insert.i.i.ptr, align 8
   store i32 %.0.i71.i, ptr %.phi.trans.insert3.i.i, align 8
-  %.pre478 = load i32, ptr %54, align 8
+  %.pre475 = load i32, ptr %54, align 8
   br label %1771
 
-1771:                                             ; preds = %._crit_edge480, %1766
-  %1772 = phi i32 [ %.0.i71.i, %1766 ], [ %.pre482, %._crit_edge480 ]
-  %1773 = phi ptr [ %1770, %1766 ], [ %.pre481, %._crit_edge480 ]
-  %1774 = phi i32 [ %.pre478, %1766 ], [ %.pre479, %._crit_edge480 ]
+1771:                                             ; preds = %._crit_edge477, %1766
+  %1772 = phi i32 [ %.0.i71.i, %1766 ], [ %.pre479, %._crit_edge477 ]
+  %1773 = phi ptr [ %1770, %1766 ], [ %.pre478, %._crit_edge477 ]
+  %1774 = phi i32 [ %.pre475, %1766 ], [ %.pre476, %._crit_edge477 ]
   %1775 = and i32 %1774, 1
   store i32 %1775, ptr %54, align 8
   store i32 0, ptr %138, align 4
@@ -5762,8 +5762,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detai
   %1828 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %1827, i64 noundef 8) #23
   store ptr %1828, ptr %.phi.trans.insert.i.i.ptr, align 8
   store i32 %.0.i71.i, ptr %.phi.trans.insert3.i.i, align 8
-  %.pre483 = load i32, ptr %54, align 8
-  %1829 = and i32 %.pre483, 1
+  %.pre480 = load i32, ptr %54, align 8
+  %1829 = and i32 %.pre480, 1
   br label %1830
 
 1830:                                             ; preds = %1823, %1825
@@ -6198,7 +6198,7 @@ _ZN12_GLOBAL__N_120IndirectCallPromoter23tryToPromoteWithFuncCmpERN4llvm8CallBas
 
 2035:                                             ; preds = %_ZN12_GLOBAL__N_120IndirectCallPromoter23tryToPromoteWithFuncCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmNS6_I18InstrProfValueDataEEjRNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit, %_ZN12_GLOBAL__N_120IndirectCallPromoter25tryToPromoteWithVTableCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmjNS1_15MutableArrayRefI18InstrProfValueDataEERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit
   %.0.i71.pn = phi i1 [ %.0.i71, %_ZN12_GLOBAL__N_120IndirectCallPromoter25tryToPromoteWithVTableCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmjNS1_15MutableArrayRefI18InstrProfValueDataEERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit ], [ %2034, %_ZN12_GLOBAL__N_120IndirectCallPromoter23tryToPromoteWithFuncCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmNS6_I18InstrProfValueDataEEjRNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit ]
-  %.2 = or i1 %.0358, %.0.i71.pn
+  %.2 = or i1 %.0355, %.0.i71.pn
   %2036 = load i32, ptr %54, align 8
   %2037 = and i32 %2036, 1
   %.not.i.i160 = icmp eq i32 %2037, 0
@@ -6262,8 +6262,8 @@ _ZSt8_DestroyIPN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateES2_EvT_
   br label %_ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateESaIS2_EED2Ev.exit: ; preds = %2060, %_ZSt8_DestroyIPN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateES2_EvT_S4_RSaIT0_E.exit.i, %195, %203
-  %.1 = phi i1 [ %.0358, %195 ], [ %.0358, %203 ], [ %.2, %_ZSt8_DestroyIPN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateES2_EvT_S4_RSaIT0_E.exit.i ], [ %.2, %2060 ]
-  %2063 = getelementptr inbounds i8, ptr %.sroa.0223.0357, i64 8
+  %.1 = phi i1 [ %.0355, %203 ], [ %.0355, %195 ], [ %.2, %_ZSt8_DestroyIPN12_GLOBAL__N_120IndirectCallPromoter18PromotionCandidateES2_EvT_S4_RSaIT0_E.exit.i ], [ %.2, %2060 ]
+  %2063 = getelementptr inbounds i8, ptr %.sroa.0223.0354, i64 8
   %.not232 = icmp eq ptr %2063, %59
   br i1 %.not232, label %._crit_edge.loopexit, label %195
 }

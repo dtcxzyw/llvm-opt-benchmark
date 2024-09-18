@@ -115,9 +115,9 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %40 = load i32, ptr %9, align 4
   %41 = icmp ne i32 %40, 0
   %or.cond5 = select i1 %39, i1 %41, i1 false
-  br i1 %or.cond5, label %.lr.ph176, label %48
+  br i1 %or.cond5, label %.lr.ph164, label %48
 
-.lr.ph176:                                        ; preds = %37
+.lr.ph164:                                        ; preds = %37
   %42 = getelementptr inbounds i8, ptr %3, i64 21
   %43 = getelementptr inbounds i8, ptr %3, i64 22
   %44 = getelementptr inbounds i8, ptr %3, i64 23
@@ -130,10 +130,10 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   call void @free(ptr noundef nonnull %36) #9
   br label %193
 
-49:                                               ; preds = %.lr.ph176, %186
-  %indvars.iv182 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next183, %186 ]
-  %.088175 = phi i32 [ 0, %.lr.ph176 ], [ %.189, %186 ]
-  %50 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv182
+49:                                               ; preds = %.lr.ph164, %186
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next171, %186 ]
+  %.088163 = phi i32 [ 0, %.lr.ph164 ], [ %.189, %186 ]
+  %50 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv170
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @clGetDeviceIDs(ptr noundef %51, i64 noundef 4294967295, i32 noundef 0, ptr noundef null, ptr noundef nonnull %10) #9
   %.not96 = icmp eq i32 %52, 0
@@ -152,17 +152,17 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %60 = call i32 @clGetDeviceIDs(ptr noundef %59, i64 noundef 4294967295, i32 noundef %54, ptr noundef nonnull %57, ptr noundef nonnull %10) #9
   %.not98 = icmp ne i32 %60, 0
   %61 = load i32, ptr %10, align 4
-  %.not180 = icmp eq i32 %61, 0
-  %or.cond187 = select i1 %.not98, i1 true, i1 %.not180
-  br i1 %or.cond187, label %.sink.split, label %.lr.ph.preheader
+  %.not168 = icmp eq i32 %61, 0
+  %or.cond175 = select i1 %.not98, i1 true, i1 %.not168
+  br i1 %or.cond175, label %.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %58
-  %62 = trunc nuw i64 %indvars.iv182 to i32
+  %62 = trunc nuw i64 %indvars.iv170 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %182
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %182 ]
-  %.2164 = phi i32 [ %.088175, %.lr.ph.preheader ], [ %.3, %182 ]
+  %.2160 = phi i32 [ %.088163, %.lr.ph.preheader ], [ %.3, %182 ]
   store ptr null, ptr %11, align 8
   %63 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
@@ -221,8 +221,8 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 
 95:                                               ; preds = %85, %93, %91, %80
   %.sink = phi i64 [ 8, %85 ], [ 8, %93 ], [ 8, %91 ], [ 12, %80 ]
-  %.sink186 = getelementptr inbounds i8, ptr %70, i64 40
-  %96 = load ptr, ptr %.sink186, align 8
+  %.sink174 = getelementptr inbounds i8, ptr %70, i64 40
+  %96 = load ptr, ptr %.sink174, align 8
   store i64 %.sink, ptr %96, align 8
   store i8 0, ptr %15, align 16
   %97 = load ptr, ptr %63, align 8
@@ -378,11 +378,11 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 180:                                              ; preds = %178, %176
   %.1 = phi ptr [ %177, %176 ], [ %179, %178 ]
   call void @hwloc_insert_object_by_parent(ptr noundef %17, ptr noundef %.1, ptr noundef nonnull %70) #9
-  %181 = add i32 %.2164, 1
+  %181 = add i32 %.2160, 1
   br label %182
 
 182:                                              ; preds = %.lr.ph, %180
-  %.3 = phi i32 [ %.2164, %.lr.ph ], [ %181, %180 ]
+  %.3 = phi i32 [ %.2160, %.lr.ph ], [ %181, %180 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %183 = load i32, ptr %10, align 4
   %184 = zext i32 %183 to i64
@@ -390,30 +390,30 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br i1 %185, label %.lr.ph, label %.sink.split, !llvm.loop !4
 
 .sink.split:                                      ; preds = %182, %58
-  %.189.ph = phi i32 [ %.088175, %58 ], [ %.3, %182 ]
+  %.189.ph = phi i32 [ %.088163, %58 ], [ %.3, %182 ]
   call void @free(ptr noundef nonnull %57) #9
   br label %186
 
 186:                                              ; preds = %.sink.split, %53, %49
-  %.189 = phi i32 [ %.088175, %53 ], [ %.088175, %49 ], [ %.189.ph, %.sink.split ]
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %.189 = phi i32 [ %.088163, %49 ], [ %.088163, %53 ], [ %.189.ph, %.sink.split ]
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %187 = load i32, ptr %9, align 4
   %188 = zext i32 %187 to i64
-  %189 = icmp ult i64 %indvars.iv.next183, %188
-  br i1 %189, label %49, label %._crit_edge177, !llvm.loop !6
+  %189 = icmp ult i64 %indvars.iv.next171, %188
+  br i1 %189, label %49, label %._crit_edge165, !llvm.loop !6
 
-._crit_edge177:                                   ; preds = %186
+._crit_edge165:                                   ; preds = %186
   call void @free(ptr noundef %36) #9
   %.not95 = icmp eq i32 %.189, 0
   br i1 %.not95, label %193, label %190
 
-190:                                              ; preds = %._crit_edge177
+190:                                              ; preds = %._crit_edge165
   %191 = call ptr @hwloc_topology_get_infos(ptr noundef %17) #9
   %192 = call i32 @hwloc_modify_infos(ptr noundef %191, i64 noundef 1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.6) #9
   br label %193
 
-193:                                              ; preds = %._crit_edge177, %190, %33, %27, %30, %26, %26, %2, %48
-  %.086 = phi i32 [ -1, %48 ], [ 0, %2 ], [ -1, %26 ], [ -1, %26 ], [ -1, %30 ], [ -1, %27 ], [ -1, %33 ], [ 0, %190 ], [ 0, %._crit_edge177 ]
+193:                                              ; preds = %._crit_edge165, %190, %33, %27, %30, %26, %26, %2, %48
+  %.086 = phi i32 [ -1, %48 ], [ 0, %2 ], [ -1, %26 ], [ -1, %26 ], [ -1, %30 ], [ -1, %27 ], [ -1, %33 ], [ 0, %190 ], [ 0, %._crit_edge165 ]
   ret i32 %.086
 }
 

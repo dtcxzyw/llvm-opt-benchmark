@@ -618,17 +618,17 @@ createVolumeControl.exit:                         ; preds = %62, %64
   br label %getControlSlot.exit.thread
 
 76:                                               ; preds = %.preheader, %getControlSlot.exit119.thread
-  %.0160 = phi i32 [ 0, %.preheader ], [ %114, %getControlSlot.exit119.thread ]
-  %.2159 = phi i32 [ 0, %.preheader ], [ %.3, %getControlSlot.exit119.thread ]
+  %.0159 = phi i32 [ 0, %.preheader ], [ %114, %getControlSlot.exit119.thread ]
+  %.2158 = phi i32 [ 0, %.preheader ], [ %.3, %getControlSlot.exit119.thread ]
   br i1 %.not90, label %.critedge117, label %77
 
 77:                                               ; preds = %76
-  %78 = call i32 @snd_mixer_selem_has_playback_channel(ptr noundef %20, i32 noundef %.0160) #11
+  %78 = call i32 @snd_mixer_selem_has_playback_channel(ptr noundef %20, i32 noundef %.0159) #11
   %.not95 = icmp eq i32 %78, 0
   br i1 %.not95, label %getControlSlot.exit119.thread, label %80
 
 .critedge117:                                     ; preds = %76
-  %79 = call i32 @snd_mixer_selem_has_capture_channel(ptr noundef %20, i32 noundef %.0160) #11
+  %79 = call i32 @snd_mixer_selem_has_capture_channel(ptr noundef %20, i32 noundef %.0159) #11
   %.not96 = icmp eq i32 %79, 0
   br i1 %.not96, label %getControlSlot.exit119.thread, label %80
 
@@ -652,7 +652,7 @@ createVolumeControl.exit:                         ; preds = %62, %64
   %92 = getelementptr inbounds i8, ptr %86, i64 16
   store ptr inttoptr (i64 4 to ptr), ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %86, i64 24
-  store i32 %.0160, ptr %93, align 8
+  store i32 %.0159, ptr %93, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   br i1 %.not90, label %96, label %94
@@ -683,22 +683,22 @@ createVolumeControl.exit122:                      ; preds = %94, %96
 
 106:                                              ; preds = %createVolumeControl.exit122
   %107 = load ptr, ptr %46, align 8
-  %108 = call ptr @snd_mixer_selem_channel_name(i32 noundef %.0160) #11
+  %108 = call ptr @snd_mixer_selem_channel_name(i32 noundef %.0159) #11
   %109 = call ptr %107(ptr noundef nonnull %2, ptr noundef %108, ptr noundef nonnull %8, i32 noundef 1) #11
   store ptr %109, ptr %8, align 8
   %.not99 = icmp eq ptr %109, null
   br i1 %.not99, label %getControlSlot.exit119.thread, label %110
 
 110:                                              ; preds = %106
-  %111 = add nsw i32 %.2159, 1
-  %112 = sext i32 %.2159 to i64
+  %111 = add nsw i32 %.2158, 1
+  %112 = sext i32 %.2158 to i64
   %113 = getelementptr inbounds [10 x ptr], ptr %9, i64 0, i64 %112
   store ptr %109, ptr %113, align 8
   br label %getControlSlot.exit119.thread
 
 getControlSlot.exit119.thread:                    ; preds = %createVolumeControl.exit122, %80, %77, %.critedge117, %106, %110
-  %.3 = phi i32 [ %.2159, %.critedge117 ], [ %.2159, %106 ], [ %111, %110 ], [ %.2159, %77 ], [ %.2159, %80 ], [ %.2159, %createVolumeControl.exit122 ]
-  %114 = add nuw nsw i32 %.0160, 1
+  %.3 = phi i32 [ %111, %110 ], [ %.2158, %106 ], [ %.2158, %.critedge117 ], [ %.2158, %77 ], [ %.2158, %80 ], [ %.2158, %createVolumeControl.exit122 ]
+  %114 = add nuw nsw i32 %.0159, 1
   %exitcond.not = icmp eq i32 %114, 32
   br i1 %exitcond.not, label %getControlSlot.exit.thread, label %76, !llvm.loop !9
 

@@ -3443,14 +3443,14 @@ define void @_ZN8WasmEdge6Loader6Loader13loadModuleAOTERNS_3AST10AOTSectionE(ptr
   call void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.33") align 4 %4, ptr noundef nonnull align 8 dereferenceable(88) %17)
   %35 = load i8, ptr %4, align 4
   %36 = trunc i8 %35 to i1
-  br i1 %36, label %.lr.ph125, label %._crit_edge
+  br i1 %36, label %.lr.ph122, label %._crit_edge
 
-.lr.ph125:                                        ; preds = %.lr.ph, %.backedge
+.lr.ph122:                                        ; preds = %.lr.ph, %.backedge
   %37 = load i8, ptr %18, align 4
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %146
 
-39:                                               ; preds = %.lr.ph125
+39:                                               ; preds = %.lr.ph122
   call void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.179") align 4 %5, ptr noundef nonnull align 8 dereferenceable(88) %17)
   %40 = load i8, ptr %5, align 4
   %41 = trunc i8 %40 to i1
@@ -3735,7 +3735,7 @@ _ZN8WasmEdge7FileMgr4seekEm.exit.thread:          ; preds = %64, %66, %_ZN8WasmE
   call void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.33") align 4 %4, ptr noundef nonnull align 8 dereferenceable(88) %17)
   %144 = load i8, ptr %4, align 4
   %145 = trunc i8 %144 to i1
-  br i1 %145, label %.lr.ph125, label %._crit_edge, !llvm.loop !64
+  br i1 %145, label %.lr.ph122, label %._crit_edge, !llvm.loop !64
 
 _ZN8WasmEdge7FileMgr4seekEm.exit:                 ; preds = %74
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
@@ -3746,7 +3746,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit40:                  ; preds = %137, %136, %.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   resume { ptr, i32 } %.pn.pn.pn
 
-146:                                              ; preds = %.lr.ph125
+146:                                              ; preds = %.lr.ph122
   call void @_ZN8WasmEdge7FileMgr11jumpContentEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(88) %17)
   %147 = load i8, ptr %14, align 4
   %148 = trunc i8 %147 to i1

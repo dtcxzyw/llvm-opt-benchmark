@@ -26749,14 +26749,14 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   %37 = getelementptr inbounds i8, ptr %1, i64 72
   switch i8 %3, label %126 [
     i8 1, label %.lr.ph.split.split.us
-    i8 2, label %.lr.ph.split.split.us154
-    i8 4, label %.lr.ph.split.split.us173
+    i8 2, label %.lr.ph.split.split.us148
+    i8 4, label %.lr.ph.split.split.us155
     i8 8, label %.lr.ph.split.split
   ]
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit.us"
-  %.sroa.08.0151.us = phi i64 [ %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit.us" ], [ 0, %.lr.ph ]
-  %38 = add nuw i64 %.sroa.08.0151.us, 1
+  %.sroa.08.0146.us = phi i64 [ %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit.us" ], [ 0, %.lr.ph ]
+  %38 = add nuw i64 %.sroa.08.0146.us, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !6579)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14), !noalias !6582
   store i8 0, ptr %14, align 1, !noalias !6582
@@ -26793,17 +26793,17 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   %51 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6587, !noundef !12
   %52 = add i64 %51, 1
   store i64 %52, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6587
-  %exitcond204.not = icmp eq i64 %38, %2
-  br i1 %exitcond204.not, label %._crit_edge, label %.lr.ph.split.split.us
+  %exitcond174.not = icmp eq i64 %38, %2
+  br i1 %exitcond174.not, label %._crit_edge, label %.lr.ph.split.split.us
 
 .loopexit.split.us:                               ; preds = %47, %.lr.ph.split.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.lr.ph.split.split.us154:                         ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit78.us"
-  %.sroa.08.0151.us156 = phi i64 [ %53, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit78.us" ], [ 0, %.lr.ph ]
-  %53 = add nuw i64 %.sroa.08.0151.us156, 1
+.lr.ph.split.split.us148:                         ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit78.us"
+  %.sroa.08.0146.us149 = phi i64 [ %53, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit78.us" ], [ 0, %.lr.ph ]
+  %53 = add nuw i64 %.sroa.08.0146.us149, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !6590)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12), !noalias !6593
   store i16 0, ptr %12, align 2, !noalias !6593
@@ -26811,9 +26811,9 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   %54 = invoke noundef ptr @_ZN3std2io18default_read_exact17habe55bade244137cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, ptr noalias noundef nonnull align 1 %12, i64 noundef 2)
           to label %.noexc64.us unwind label %.loopexit.split.split.us
 
-.noexc64.us:                                      ; preds = %.lr.ph.split.split.us154
+.noexc64.us:                                      ; preds = %.lr.ph.split.split.us148
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %.split171.us
+  br i1 %55, label %56, label %.split153.us
 
 56:                                               ; preds = %.noexc64.us
   %57 = load i16, ptr %12, align 2, !noalias !6593
@@ -26841,17 +26841,17 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   %67 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6598, !noundef !12
   %68 = add i64 %67, 1
   store i64 %68, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6598
-  %exitcond203.not = icmp eq i64 %53, %2
-  br i1 %exitcond203.not, label %._crit_edge, label %.lr.ph.split.split.us154
+  %exitcond173.not = icmp eq i64 %53, %2
+  br i1 %exitcond173.not, label %._crit_edge, label %.lr.ph.split.split.us148
 
-.loopexit.split.split.us:                         ; preds = %63, %.lr.ph.split.split.us154
-  %lpad.loopexit.us168 = landingpad { ptr, i32 }
+.loopexit.split.split.us:                         ; preds = %63, %.lr.ph.split.split.us148
+  %lpad.loopexit.us150 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.lr.ph.split.split.us173:                         ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit81.us"
-  %.sroa.08.0151.us175 = phi i64 [ %69, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit81.us" ], [ 0, %.lr.ph ]
-  %69 = add nuw i64 %.sroa.08.0151.us175, 1
+.lr.ph.split.split.us155:                         ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit81.us"
+  %.sroa.08.0146.us156 = phi i64 [ %69, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit81.us" ], [ 0, %.lr.ph ]
+  %69 = add nuw i64 %.sroa.08.0146.us156, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !6601)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10), !noalias !6604
   store i32 0, ptr %10, align 4, !noalias !6604
@@ -26859,9 +26859,9 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   %70 = invoke noundef ptr @_ZN3std2io18default_read_exact17habe55bade244137cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, ptr noalias noundef nonnull align 1 %10, i64 noundef 4)
           to label %.noexc68.us unwind label %.loopexit.split.split.split.us
 
-.noexc68.us:                                      ; preds = %.lr.ph.split.split.us173
+.noexc68.us:                                      ; preds = %.lr.ph.split.split.us155
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %.split190.us
+  br i1 %71, label %72, label %.split160.us
 
 72:                                               ; preds = %.noexc68.us
   %73 = load i32, ptr %10, align 4, !noalias !6604
@@ -26889,11 +26889,11 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   %83 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6609, !noundef !12
   %84 = add i64 %83, 1
   store i64 %84, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !6609
-  %exitcond202.not = icmp eq i64 %69, %2
-  br i1 %exitcond202.not, label %._crit_edge, label %.lr.ph.split.split.us173
+  %exitcond172.not = icmp eq i64 %69, %2
+  br i1 %exitcond172.not, label %._crit_edge, label %.lr.ph.split.split.us155
 
-.loopexit.split.split.split.us:                   ; preds = %79, %.lr.ph.split.split.us173
-  %lpad.loopexit.us187 = landingpad { ptr, i32 }
+.loopexit.split.split.split.us:                   ; preds = %79, %.lr.ph.split.split.us155
+  %lpad.loopexit.us157 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
@@ -26909,13 +26909,13 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
           cleanup
   br label %.loopexit
 
-.loopexit.split-lp:                               ; preds = %126, %.split.us, %.split171.us, %.split190.us, %97
+.loopexit.split-lp:                               ; preds = %126, %.split.us, %.split153.us, %.split160.us, %97
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.split.us, %.loopexit.split.split.split, %.loopexit.split.split.split.us, %.loopexit.split.split.us, %.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.us168, %.loopexit.split.split.us ], [ %lpad.loopexit, %.loopexit.split.split.split ], [ %lpad.loopexit.us187, %.loopexit.split.split.split.us ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.us150, %.loopexit.split.split.us ], [ %lpad.loopexit, %.loopexit.split.split.split ], [ %lpad.loopexit.us157, %.loopexit.split.split.split.us ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h170ae95bbee8deaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #82
           to label %134 unwind label %132
 
@@ -26924,8 +26924,8 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   br label %89
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit84"
-  %.sroa.08.0151 = phi i64 [ %87, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit84" ], [ 0, %.lr.ph ]
-  %87 = add nuw i64 %.sroa.08.0151, 1
+  %.sroa.08.0146 = phi i64 [ %87, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe26cebe4e746dc7E.exit84" ], [ 0, %.lr.ph ]
+  %87 = add nuw i64 %.sroa.08.0146, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !6612)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !6615
   store i64 0, ptr %8, align 8, !noalias !6615
@@ -26946,7 +26946,7 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   %91 = invoke noundef nonnull align 8 ptr @_ZN5plist5error9ErrorKind16with_byte_offset17h50b301b32f920477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %.val.i.i)
           to label %100 unwind label %.loopexit.split-lp
 
-.split171.us:                                     ; preds = %.noexc64.us
+.split153.us:                                     ; preds = %.noexc64.us
   %.val.i.i62 = load i64, ptr %23, align 8, !alias.scope !6624, !noalias !6625
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !6627
   %92 = getelementptr inbounds i8, ptr %11, i64 8
@@ -26955,7 +26955,7 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   %93 = invoke noundef nonnull align 8 ptr @_ZN5plist5error9ErrorKind16with_byte_offset17h50b301b32f920477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %.val.i.i62)
           to label %111 unwind label %.loopexit.split-lp
 
-.split190.us:                                     ; preds = %.noexc68.us
+.split160.us:                                     ; preds = %.noexc68.us
   %.val.i.i66 = load i64, ptr %23, align 8, !alias.scope !6628, !noalias !6629
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !6631
   %94 = getelementptr inbounds i8, ptr %9, i64 8
@@ -27009,12 +27009,12 @@ define internal fastcc void @"_ZN5plist6stream13binary_reader21BinaryReader$LT$R
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !6636
   br label %89
 
-111:                                              ; preds = %.split171.us
+111:                                              ; preds = %.split153.us
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !6627
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12), !noalias !6593
   br label %101
 
-112:                                              ; preds = %.split190.us
+112:                                              ; preds = %.split160.us
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !6631
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !6604
   br label %101
@@ -100349,9 +100349,9 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   ret void
 
 49:                                               ; preds = %.lr.ph, %53
-  %.sroa.0.0164 = phi ptr [ %18, %.lr.ph ], [ %50, %53 ]
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 192
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 16
+  %.sroa.0.0163 = phi ptr [ %18, %.lr.ph ], [ %50, %53 ]
+  %50 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 192
+  %51 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 16
   %52 = load i64, ptr %51, align 16, !range !4755, !noundef !12
   switch i64 %52, label %53 [
     i64 0, label %55
@@ -100363,8 +100363,8 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   br i1 %54, label %._crit_edge, label %49
 
 55:                                               ; preds = %49
-  %56 = load double, ptr %.sroa.0.0164, align 16, !noundef !12
-  %57 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 8
+  %56 = load double, ptr %.sroa.0.0163, align 16, !noundef !12
+  %57 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 8
   %58 = load double, ptr %57, align 8, !noundef !12
   %59 = fmul double %56, %.0.i.i.i.i.i.i.i72
   %.0.i.inv.i.i.i.i.i = fcmp uno double %59, 0.000000e+00
@@ -100398,18 +100398,18 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   %74 = fadd double %.sroa.8133.0.copyload, %73
   %.0.i.inv.i.i.i44.i = fcmp ord double %74, 0.000000e+00
   %.0.i.i.i45.i = select i1 %.0.i.inv.i.i.i44.i, double %74, double 0.000000e+00
-  %75 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 24
-  %76 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 96
+  %75 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 24
+  %76 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 96
   %.sroa.088.0.copyload = load double, ptr %76, align 16
-  %.sroa.489.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 104
+  %.sroa.489.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 104
   %.sroa.489.0.copyload = load double, ptr %.sroa.489.0..sroa_idx, align 8
-  %.sroa.590.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 112
+  %.sroa.590.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 112
   %.sroa.590.0.copyload = load double, ptr %.sroa.590.0..sroa_idx, align 16
-  %.sroa.691.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 120
+  %.sroa.691.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 120
   %.sroa.691.0.copyload = load double, ptr %.sroa.691.0..sroa_idx, align 8
-  %.sroa.792.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 128
+  %.sroa.792.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 128
   %.sroa.792.0.copyload = load double, ptr %.sroa.792.0..sroa_idx, align 16
-  %.sroa.893.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 136
+  %.sroa.893.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 136
   %.sroa.893.0.copyload = load double, ptr %.sroa.893.0..sroa_idx, align 8
   %77 = fmul double %.sroa.088.0.copyload, %.0.i.i.i4.i
   %.0.i.inv.i.i.i.i23 = fcmp ord double %77, 0.000000e+00
@@ -100489,17 +100489,17 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   br label %53
 
 105:                                              ; preds = %49
-  %106 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 48
+  %106 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 48
   %107 = load i64, ptr %106, align 16, !range !4755, !noundef !12
   %108 = icmp eq i64 %107, 3
   br i1 %108, label %109, label %53
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 56
+  %110 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !24361)
   %111 = load ptr, ptr %110, align 8, !alias.scope !24361, !noalias !24364, !nonnull !12, !noundef !12
-  %112 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 64
+  %112 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 64
   %113 = load ptr, ptr %112, align 8, !alias.scope !24361, !noalias !24364, !nonnull !12, !align !35, !noundef !12
   %114 = getelementptr inbounds i8, ptr %113, i64 16
   %115 = load i64, ptr %114, align 8, !range !334, !invariant.load !12, !noalias !24366
@@ -100526,8 +100526,8 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   br i1 %125, label %53, label %126
 
 126:                                              ; preds = %122
-  %127 = load double, ptr %.sroa.0.0164, align 16, !noundef !12
-  %128 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 8
+  %127 = load double, ptr %.sroa.0.0163, align 16, !noundef !12
+  %128 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 8
   %129 = load double, ptr %128, align 8, !noundef !12
   %130 = fmul double %127, %.0.i.i.i.i.i.i.i72
   %.0.i.inv.i.i.i.i.i73 = fcmp uno double %130, 0.000000e+00
@@ -100593,7 +100593,7 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   unreachable
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c32926eb311b31fE.llvm.11057974413330164255.exit": ; preds = %156
-  %160 = getelementptr inbounds i8, ptr %.sroa.0.0164, i64 72
+  %160 = getelementptr inbounds i8, ptr %.sroa.0.0163, i64 72
   %161 = load i64, ptr %160, align 8, !range !334, !noundef !12
   store ptr %146, ptr %10, align 8
   store ptr %147, ptr %.sroa.4.0..sroa_idx, align 8
@@ -100781,7 +100781,7 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   %235 = icmp eq i64 %234, -9223372036854775807
   call void @llvm.assume(i1 %235)
   %.pre = load i64, ptr %32, align 8, !alias.scope !24429, !noalias !24434
-  %.pre166 = load ptr, ptr %25, align 8, !alias.scope !24441, !noalias !24434
+  %.pre165 = load ptr, ptr %25, align 8, !alias.scope !24441, !noalias !24434
   br label %248
 
 236:                                              ; preds = %.noexc83, %288
@@ -100793,13 +100793,13 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   %239 = load i64, ptr %.05.i, align 8, !alias.scope !24442, !noundef !12
   %240 = add i64 %239, 1
   store i64 %240, ptr %.05.i, align 8, !alias.scope !24442
-  %.pre167 = load ptr, ptr %12, align 8, !alias.scope !24445
+  %.pre166 = load ptr, ptr %12, align 8, !alias.scope !24445
   call void @llvm.experimental.noalias.scope.decl(metadata !24445)
-  %241 = icmp eq ptr %.pre167, null
+  %241 = icmp eq ptr %.pre166, null
   br i1 %241, label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$$LP$typst..foundations..content..Content$C$typst..layout..frame..Position$RP$$GT$$GT$17h24c1d25861261074E.exit", label %242
 
 242:                                              ; preds = %236
-  %243 = atomicrmw sub ptr %.pre167, i64 1 release, align 8, !noalias !24448
+  %243 = atomicrmw sub ptr %.pre166, i64 1 release, align 8, !noalias !24448
   %244 = icmp eq i64 %243, 1
   br i1 %244, label %245, label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$$LP$typst..foundations..content..Content$C$typst..layout..frame..Position$RP$$GT$$GT$17h24c1d25861261074E.exit"
 
@@ -100817,7 +100817,7 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   br label %288
 
 248:                                              ; preds = %230, %.noexc80
-  %249 = phi ptr [ %210, %230 ], [ %.pre166, %.noexc80 ]
+  %249 = phi ptr [ %210, %230 ], [ %.pre165, %.noexc80 ]
   %250 = phi i64 [ %209, %230 ], [ %.pre, %.noexc80 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !24441)
   call void @llvm.experimental.noalias.scope.decl(metadata !24457)

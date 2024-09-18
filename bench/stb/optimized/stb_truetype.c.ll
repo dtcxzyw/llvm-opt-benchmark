@@ -14593,8 +14593,8 @@ return:                                           ; preds = %entry, %if.end
 define i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef readonly %spc, ptr nocapture noundef readonly %info, ptr nocapture noundef %ranges, i32 noundef %num_ranges, ptr nocapture noundef writeonly %rects) local_unnamed_addr #12 {
 entry:
   %c.i.i = alloca %struct.stbtt__csctx, align 8
-  %cmp86 = icmp sgt i32 %num_ranges, 0
-  br i1 %cmp86, label %for.body.lr.ph, label %for.end67
+  %cmp82 = icmp sgt i32 %num_ranges, 0
+  br i1 %cmp82, label %for.body.lr.ph, label %for.end67
 
 for.body.lr.ph:                                   ; preds = %entry
   %data.i43 = getelementptr inbounds i8, ptr %info, i64 8
@@ -14617,10 +14617,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc65
-  %indvars.iv98 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next99, %for.inc65 ]
-  %k.090 = phi i32 [ 0, %for.body.lr.ph ], [ %k.1.lcssa, %for.inc65 ]
-  %missing_glyph_added.089 = phi i32 [ 0, %for.body.lr.ph ], [ %missing_glyph_added.1.lcssa, %for.inc65 ]
-  %arrayidx = getelementptr inbounds %struct.stbtt_pack_range, ptr %ranges, i64 %indvars.iv98
+  %indvars.iv92 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next93, %for.inc65 ]
+  %k.084 = phi i32 [ 0, %for.body.lr.ph ], [ %k.1.lcssa, %for.inc65 ]
+  %missing_glyph_added.083 = phi i32 [ 0, %for.body.lr.ph ], [ %missing_glyph_added.1.lcssa, %for.inc65 ]
+  %arrayidx = getelementptr inbounds %struct.stbtt_pack_range, ptr %ranges, i64 %indvars.iv92
   %0 = load float, ptr %arrayidx, align 8
   %cmp1 = fcmp ogt float %0, 0.000000e+00
   br i1 %cmp1, label %cond.true, label %cond.false
@@ -14689,13 +14689,13 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 for.body15.lr.ph:                                 ; preds = %cond.end
   %array_of_unicode_codepoints = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %first_unicode_codepoint_in_range = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %14 = sext i32 %k.090 to i64
+  %14 = sext i32 %k.084 to i64
   br label %for.body15
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %if.end63
-  %indvars.iv93 = phi i64 [ %14, %for.body15.lr.ph ], [ %indvars.iv.next94, %if.end63 ]
+  %indvars.iv87 = phi i64 [ %14, %for.body15.lr.ph ], [ %indvars.iv.next88, %if.end63 ]
   %indvars.iv = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next, %if.end63 ]
-  %missing_glyph_added.180 = phi i32 [ %missing_glyph_added.089, %for.body15.lr.ph ], [ %missing_glyph_added.2, %if.end63 ]
+  %missing_glyph_added.178 = phi i32 [ %missing_glyph_added.083, %for.body15.lr.ph ], [ %missing_glyph_added.2, %if.end63 ]
   %15 = load ptr, ptr %array_of_unicode_codepoints, align 8
   %cmp18 = icmp eq ptr %15, null
   br i1 %cmp18, label %cond.true20, label %cond.false23
@@ -14720,12 +14720,12 @@ cond.end29:                                       ; preds = %cond.false23, %cond
 land.lhs.true:                                    ; preds = %cond.end29
   %19 = load i32, ptr %skip_missing, align 8
   %tobool = icmp ne i32 %19, 0
-  %tobool34 = icmp ne i32 %missing_glyph_added.180, 0
+  %tobool34 = icmp ne i32 %missing_glyph_added.178, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool34
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx36 = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv93
+  %arrayidx36 = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv87
   %h = getelementptr inbounds i8, ptr %arrayidx36, i64 16
   store i32 0, ptr %h, align 4
   %w = getelementptr inbounds i8, ptr %arrayidx36, i64 12
@@ -14932,7 +14932,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %if.end44.i.i, %if.e
   %add44 = add i32 %x0.0, %x1.0
   %add46 = add i32 %add44, %67
   %sub47 = add i32 %add46, %66
-  %arrayidx49 = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv93
+  %arrayidx49 = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv87
   %w50 = getelementptr inbounds i8, ptr %arrayidx49, i64 12
   store i32 %sub47, ptr %w50, align 4
   %68 = load i32, ptr %padding, align 4
@@ -14942,12 +14942,12 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %if.end44.i.i, %if.e
   %sub56 = add i32 %add55, %69
   %h59 = getelementptr inbounds i8, ptr %arrayidx49, i64 16
   store i32 %sub56, ptr %h59, align 4
-  %spec.select = select i1 %cmp32, i32 1, i32 %missing_glyph_added.180
+  %spec.select = select i1 %cmp32, i32 1, i32 %missing_glyph_added.178
   br label %if.end63
 
 if.end63:                                         ; preds = %stbtt_GetGlyphBitmapBoxSubpixel.exit, %if.then
-  %missing_glyph_added.2 = phi i32 [ %missing_glyph_added.180, %if.then ], [ %spec.select, %stbtt_GetGlyphBitmapBoxSubpixel.exit ]
-  %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
+  %missing_glyph_added.2 = phi i32 [ %missing_glyph_added.178, %if.then ], [ %spec.select, %stbtt_GetGlyphBitmapBoxSubpixel.exit ]
+  %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = load i32, ptr %num_chars, align 8
   %71 = sext i32 %70 to i64
@@ -14955,14 +14955,14 @@ if.end63:                                         ; preds = %stbtt_GetGlyphBitma
   br i1 %cmp13, label %for.body15, label %for.inc65.loopexit, !llvm.loop !71
 
 for.inc65.loopexit:                               ; preds = %if.end63
-  %72 = trunc nsw i64 %indvars.iv.next94 to i32
+  %72 = trunc nsw i64 %indvars.iv.next88 to i32
   br label %for.inc65
 
 for.inc65:                                        ; preds = %for.inc65.loopexit, %cond.end
-  %missing_glyph_added.1.lcssa = phi i32 [ %missing_glyph_added.089, %cond.end ], [ %missing_glyph_added.2, %for.inc65.loopexit ]
-  %k.1.lcssa = phi i32 [ %k.090, %cond.end ], [ %72, %for.inc65.loopexit ]
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
+  %missing_glyph_added.1.lcssa = phi i32 [ %missing_glyph_added.083, %cond.end ], [ %missing_glyph_added.2, %for.inc65.loopexit ]
+  %k.1.lcssa = phi i32 [ %k.084, %cond.end ], [ %72, %for.inc65.loopexit ]
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
   br i1 %exitcond.not, label %for.end67, label %for.body, !llvm.loop !72
 
 for.end67:                                        ; preds = %for.inc65, %entry
@@ -14980,8 +14980,8 @@ entry:
   %0 = load i32, ptr %h_oversample, align 4
   %v_oversample = getelementptr inbounds i8, ptr %spc, i64 40
   %1 = load i32, ptr %v_oversample, align 8
-  %cmp246 = icmp sgt i32 %num_ranges, 0
-  br i1 %cmp246, label %for.body.lr.ph, label %for.end187
+  %cmp242 = icmp sgt i32 %num_ranges, 0
+  br i1 %cmp242, label %for.body.lr.ph, label %for.end187
 
 for.body.lr.ph:                                   ; preds = %entry
   %data.i120 = getelementptr inbounds i8, ptr %info, i64 8
@@ -15003,11 +15003,11 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc185
-  %indvars.iv268 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next269, %for.inc185 ]
-  %k.0251 = phi i32 [ 0, %for.body.lr.ph ], [ %k.1.lcssa, %for.inc185 ]
-  %missing_glyph.0250 = phi i32 [ -1, %for.body.lr.ph ], [ %missing_glyph.1.lcssa, %for.inc185 ]
-  %return_value.0249 = phi i32 [ 1, %for.body.lr.ph ], [ %return_value.1.lcssa, %for.inc185 ]
-  %arrayidx = getelementptr inbounds %struct.stbtt_pack_range, ptr %ranges, i64 %indvars.iv268
+  %indvars.iv262 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next263, %for.inc185 ]
+  %k.0245 = phi i32 [ 0, %for.body.lr.ph ], [ %k.1.lcssa, %for.inc185 ]
+  %missing_glyph.0244 = phi i32 [ -1, %for.body.lr.ph ], [ %missing_glyph.1.lcssa, %for.inc185 ]
+  %return_value.0243 = phi i32 [ 1, %for.body.lr.ph ], [ %return_value.1.lcssa, %for.inc185 ]
+  %arrayidx = getelementptr inbounds %struct.stbtt_pack_range, ptr %ranges, i64 %indvars.iv262
   %2 = load float, ptr %arrayidx, align 8
   %cmp1 = fcmp ogt float %2, 0.000000e+00
   br i1 %cmp1, label %cond.true, label %cond.false
@@ -15093,15 +15093,15 @@ for.body26.lr.ph:                                 ; preds = %cond.end
   %chardata_for_range = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %array_of_unicode_codepoints = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %first_unicode_codepoint_in_range = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %16 = sext i32 %k.0251 to i64
+  %16 = sext i32 %k.0245 to i64
   br label %for.body26
 
 for.body26:                                       ; preds = %for.body26.lr.ph, %if.end183
-  %indvars.iv263 = phi i64 [ %16, %for.body26.lr.ph ], [ %indvars.iv.next264, %if.end183 ]
+  %indvars.iv257 = phi i64 [ %16, %for.body26.lr.ph ], [ %indvars.iv.next258, %if.end183 ]
   %indvars.iv = phi i64 [ 0, %for.body26.lr.ph ], [ %indvars.iv.next, %if.end183 ]
-  %missing_glyph.1239 = phi i32 [ %missing_glyph.0250, %for.body26.lr.ph ], [ %missing_glyph.2, %if.end183 ]
-  %return_value.1238 = phi i32 [ %return_value.0249, %for.body26.lr.ph ], [ %return_value.2, %if.end183 ]
-  %arrayidx28 = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv263
+  %missing_glyph.1237 = phi i32 [ %missing_glyph.0244, %for.body26.lr.ph ], [ %missing_glyph.2, %if.end183 ]
+  %return_value.1236 = phi i32 [ %return_value.0243, %for.body26.lr.ph ], [ %return_value.2, %if.end183 ]
+  %arrayidx28 = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv257
   %was_packed = getelementptr inbounds i8, ptr %arrayidx28, i64 20
   %17 = load i32, ptr %was_packed, align 4
   %tobool.not = icmp eq i32 %17, 0
@@ -15207,15 +15207,15 @@ if.then.i193:                                     ; preds = %cond.end51
   %cond24.i.i = select i1 %tobool1.not.i.i, i32 0, i32 %40
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %c.i.i)
   %.pre.pre = load i32, ptr %arrayidx28, align 4
-  %.pre271.pre = load i32, ptr %y, align 4
-  %.pre272.pre = load i32, ptr %w, align 4
-  %.pre273.pre = load i32, ptr %h_oversample, align 4
-  %.pre274.pre = load i32, ptr %h, align 4
-  %.pre275.pre = load i32, ptr %v_oversample, align 8
-  %.pre292 = uitofp i32 %.pre273.pre to float
-  %.pre293 = fmul float %cond, %.pre292
-  %.pre294 = uitofp i32 %.pre275.pre to float
-  %.pre295 = fmul float %cond, %.pre294
+  %.pre265.pre = load i32, ptr %y, align 4
+  %.pre266.pre = load i32, ptr %w, align 4
+  %.pre267.pre = load i32, ptr %h_oversample, align 4
+  %.pre268.pre = load i32, ptr %h, align 4
+  %.pre269.pre = load i32, ptr %v_oversample, align 8
+  %.pre286 = uitofp i32 %.pre267.pre to float
+  %.pre287 = fmul float %cond, %.pre286
+  %.pre288 = uitofp i32 %.pre269.pre to float
+  %.pre289 = fmul float %cond, %.pre288
   br label %if.else.i.i
 
 if.else.i198:                                     ; preds = %cond.end51
@@ -15333,13 +15333,13 @@ if.end.i201:                                      ; preds = %if.end44.i.i
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i201, %if.then.i193
-  %.pre291.pre-phi = phi float [ %mul63, %if.end.i201 ], [ %.pre295, %if.then.i193 ]
-  %.pre289.pre-phi = phi float [ %mul, %if.end.i201 ], [ %.pre293, %if.then.i193 ]
-  %.pre275 = phi i32 [ %37, %if.end.i201 ], [ %.pre275.pre, %if.then.i193 ]
-  %.pre274 = phi i32 [ %sub58, %if.end.i201 ], [ %.pre274.pre, %if.then.i193 ]
-  %.pre273 = phi i32 [ %36, %if.end.i201 ], [ %.pre273.pre, %if.then.i193 ]
-  %.pre272 = phi i32 [ %sub, %if.end.i201 ], [ %.pre272.pre, %if.then.i193 ]
-  %.pre271 = phi i32 [ %add55, %if.end.i201 ], [ %.pre271.pre, %if.then.i193 ]
+  %.pre285.pre-phi = phi float [ %mul63, %if.end.i201 ], [ %.pre289, %if.then.i193 ]
+  %.pre283.pre-phi = phi float [ %mul, %if.end.i201 ], [ %.pre287, %if.then.i193 ]
+  %.pre269 = phi i32 [ %37, %if.end.i201 ], [ %.pre269.pre, %if.then.i193 ]
+  %.pre268 = phi i32 [ %sub58, %if.end.i201 ], [ %.pre268.pre, %if.then.i193 ]
+  %.pre267 = phi i32 [ %36, %if.end.i201 ], [ %.pre267.pre, %if.then.i193 ]
+  %.pre266 = phi i32 [ %sub, %if.end.i201 ], [ %.pre266.pre, %if.then.i193 ]
+  %.pre265 = phi i32 [ %add55, %if.end.i201 ], [ %.pre265.pre, %if.then.i193 ]
   %.pre = phi i32 [ %add54, %if.end.i201 ], [ %.pre.pre, %if.then.i193 ]
   %y1.i.i.3 = phi i32 [ %conv33.i, %if.end.i201 ], [ %cond24.i.i, %if.then.i193 ]
   %x0.i.i.0 = phi i32 [ %conv.i208, %if.end.i201 ], [ %cond.i.i, %if.then.i193 ]
@@ -15355,13 +15355,13 @@ if.else.i.i:                                      ; preds = %if.end.i201, %if.th
   br label %stbtt_GetGlyphBitmapBox.exit
 
 stbtt_GetGlyphBitmapBox.exit:                     ; preds = %if.end44.i.i, %if.end.i20.i, %if.else.i198, %if.else.i.i
-  %mul83.pre-phi = phi float [ %mul63, %if.end44.i.i ], [ %mul63, %if.end.i20.i ], [ %mul63, %if.else.i198 ], [ %.pre291.pre-phi, %if.else.i.i ]
-  %mul80.pre-phi = phi float [ %mul, %if.end44.i.i ], [ %mul, %if.end.i20.i ], [ %mul, %if.else.i198 ], [ %.pre289.pre-phi, %if.else.i.i ]
-  %69 = phi i32 [ %37, %if.end44.i.i ], [ %37, %if.end.i20.i ], [ %37, %if.else.i198 ], [ %.pre275, %if.else.i.i ]
-  %70 = phi i32 [ %sub58, %if.end44.i.i ], [ %sub58, %if.end.i20.i ], [ %sub58, %if.else.i198 ], [ %.pre274, %if.else.i.i ]
-  %71 = phi i32 [ %36, %if.end44.i.i ], [ %36, %if.end.i20.i ], [ %36, %if.else.i198 ], [ %.pre273, %if.else.i.i ]
-  %72 = phi i32 [ %sub, %if.end44.i.i ], [ %sub, %if.end.i20.i ], [ %sub, %if.else.i198 ], [ %.pre272, %if.else.i.i ]
-  %73 = phi i32 [ %add55, %if.end44.i.i ], [ %add55, %if.end.i20.i ], [ %add55, %if.else.i198 ], [ %.pre271, %if.else.i.i ]
+  %mul83.pre-phi = phi float [ %mul63, %if.end44.i.i ], [ %mul63, %if.end.i20.i ], [ %mul63, %if.else.i198 ], [ %.pre285.pre-phi, %if.else.i.i ]
+  %mul80.pre-phi = phi float [ %mul, %if.end44.i.i ], [ %mul, %if.end.i20.i ], [ %mul, %if.else.i198 ], [ %.pre283.pre-phi, %if.else.i.i ]
+  %69 = phi i32 [ %37, %if.end44.i.i ], [ %37, %if.end.i20.i ], [ %37, %if.else.i198 ], [ %.pre269, %if.else.i.i ]
+  %70 = phi i32 [ %sub58, %if.end44.i.i ], [ %sub58, %if.end.i20.i ], [ %sub58, %if.else.i198 ], [ %.pre268, %if.else.i.i ]
+  %71 = phi i32 [ %36, %if.end44.i.i ], [ %36, %if.end.i20.i ], [ %36, %if.else.i198 ], [ %.pre267, %if.else.i.i ]
+  %72 = phi i32 [ %sub, %if.end44.i.i ], [ %sub, %if.end.i20.i ], [ %sub, %if.else.i198 ], [ %.pre266, %if.else.i.i ]
+  %73 = phi i32 [ %add55, %if.end44.i.i ], [ %add55, %if.end.i20.i ], [ %add55, %if.else.i198 ], [ %.pre265, %if.else.i.i ]
   %74 = phi i32 [ %add54, %if.end44.i.i ], [ %add54, %if.end.i20.i ], [ %add54, %if.else.i198 ], [ %.pre, %if.else.i.i ]
   %x0.0 = phi i32 [ 0, %if.end44.i.i ], [ 0, %if.end.i20.i ], [ 0, %if.else.i198 ], [ %conv15.i.i, %if.else.i.i ]
   %y0.0 = phi i32 [ 0, %if.end44.i.i ], [ 0, %if.end.i20.i ], [ 0, %if.else.i198 ], [ %conv21.i.i, %if.else.i.i ]
@@ -15379,7 +15379,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %if.end44.i.i, %if.e
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull %info, ptr noundef %add.ptr68, i32 noundef %add72, i32 noundef %add76, i32 noundef %76, float noundef %mul80.pre-phi, float noundef %mul83.pre-phi, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call53)
   %77 = load i32, ptr %h_oversample, align 4
   %cmp85 = icmp ugt i32 %77, 1
-  %.pre277.pre284 = load i32, ptr %arrayidx28, align 4
+  %.pre271.pre278 = load i32, ptr %arrayidx28, align 4
   br i1 %cmp85, label %if.then87, label %if.end
 
 if.then87:                                        ; preds = %stbtt_GetGlyphBitmapBox.exit
@@ -15394,7 +15394,7 @@ if.then87:                                        ; preds = %stbtt_GetGlyphBitma
   br i1 %cmp114.i, label %for.body.lr.ph.i, label %stbtt__h_prefilter.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then87
-  %idx.ext90 = sext i32 %.pre277.pre284 to i64
+  %idx.ext90 = sext i32 %.pre271.pre278 to i64
   %add.ptr91 = getelementptr inbounds i8, ptr %78, i64 %idx.ext90
   %mul94 = mul nsw i32 %80, %79
   %idx.ext95 = sext i32 %mul94 to i64
@@ -15583,16 +15583,16 @@ for.end142.i:                                     ; preds = %for.body130.i, %sw.
   br i1 %exitcond149.not.i, label %stbtt__h_prefilter.exit.loopexit, label %for.body.i, !llvm.loop !63
 
 stbtt__h_prefilter.exit.loopexit:                 ; preds = %for.end142.i
-  %.pre277.pre.pre = load i32, ptr %arrayidx28, align 4
+  %.pre271.pre.pre = load i32, ptr %arrayidx28, align 4
   br label %stbtt__h_prefilter.exit
 
 stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.exit.loopexit, %if.then87
-  %.pre277.pre = phi i32 [ %.pre277.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre277.pre284, %if.then87 ]
+  %.pre271.pre = phi i32 [ %.pre271.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre271.pre278, %if.then87 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   br label %if.end
 
 if.end:                                           ; preds = %stbtt__h_prefilter.exit, %stbtt_GetGlyphBitmapBox.exit
-  %.pre277 = phi i32 [ %.pre277.pre, %stbtt__h_prefilter.exit ], [ %.pre277.pre284, %stbtt_GetGlyphBitmapBox.exit ]
+  %.pre271 = phi i32 [ %.pre271.pre, %stbtt__h_prefilter.exit ], [ %.pre271.pre278, %stbtt_GetGlyphBitmapBox.exit ]
   %101 = load i32, ptr %v_oversample, align 8
   %cmp102 = icmp ugt i32 %101, 1
   br i1 %cmp102, label %if.then104, label %if.end118
@@ -15609,7 +15609,7 @@ if.then104:                                       ; preds = %if.end
   br i1 %cmp129.i, label %for.body.lr.ph.i164, label %stbtt__v_prefilter.exit
 
 for.body.lr.ph.i164:                              ; preds = %if.then104
-  %idx.ext107 = sext i32 %.pre277 to i64
+  %idx.ext107 = sext i32 %.pre271 to i64
   %add.ptr108 = getelementptr inbounds i8, ptr %102, i64 %idx.ext107
   %mul111 = mul nsw i32 %104, %103
   %idx.ext112 = sext i32 %mul111 to i64
@@ -15804,16 +15804,16 @@ for.end157.i:                                     ; preds = %for.body144.i, %sw.
   br i1 %exitcond172.not.i, label %stbtt__v_prefilter.exit.loopexit, label %for.body.i169, !llvm.loop !70
 
 stbtt__v_prefilter.exit.loopexit:                 ; preds = %for.end157.i
-  %.pre276.pre = load i32, ptr %arrayidx28, align 4
+  %.pre270.pre = load i32, ptr %arrayidx28, align 4
   br label %stbtt__v_prefilter.exit
 
 stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.exit.loopexit, %if.then104
-  %.pre276 = phi i32 [ %.pre276.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre277, %if.then104 ]
+  %.pre270 = phi i32 [ %.pre270.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre271, %if.then104 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i163)
   br label %if.end118
 
 if.end118:                                        ; preds = %stbtt__v_prefilter.exit, %if.end
-  %131 = phi i32 [ %.pre276, %stbtt__v_prefilter.exit ], [ %.pre277, %if.end ]
+  %131 = phi i32 [ %.pre270, %stbtt__v_prefilter.exit ], [ %.pre271, %if.end ]
   %conv120 = trunc i32 %131 to i16
   store i16 %conv120, ptr %arrayidx37, align 4
   %132 = load i32, ptr %y, align 4
@@ -15858,7 +15858,7 @@ if.end118:                                        ; preds = %stbtt__v_prefilter.
   store float %142, ptr %yoff2, align 4
   %cmp149 = icmp eq i32 %call53, 0
   %143 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %cmp149, i32 %143, i32 %missing_glyph.1239
+  %spec.select = select i1 %cmp149, i32 %143, i32 %missing_glyph.1237
   br label %if.end183
 
 if.else:                                          ; preds = %land.lhs.true
@@ -15870,22 +15870,22 @@ land.lhs.true162:                                 ; preds = %if.else
   %h163 = getelementptr inbounds i8, ptr %arrayidx28, i64 16
   %145 = load i32, ptr %h163, align 4
   %cmp164 = icmp eq i32 %145, 0
-  %cmp167 = icmp sgt i32 %missing_glyph.1239, -1
+  %cmp167 = icmp sgt i32 %missing_glyph.1237, -1
   %or.cond = select i1 %cmp164, i1 %cmp167, i1 false
   br i1 %or.cond, label %if.then169, label %if.end183
 
 if.then169:                                       ; preds = %land.lhs.true162
   %146 = load ptr, ptr %chardata_for_range, align 8
   %arrayidx174 = getelementptr inbounds %struct.stbtt_packedchar, ptr %146, i64 %indvars.iv
-  %idxprom178 = zext nneg i32 %missing_glyph.1239 to i64
+  %idxprom178 = zext nneg i32 %missing_glyph.1237 to i64
   %arrayidx179 = getelementptr inbounds %struct.stbtt_packedchar, ptr %146, i64 %idxprom178
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx174, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx179, i64 28, i1 false)
   br label %if.end183
 
 if.end183:                                        ; preds = %land.lhs.true31, %for.body26, %if.end118, %land.lhs.true162, %if.else, %if.then169
-  %return_value.2 = phi i32 [ %return_value.1238, %if.then169 ], [ 0, %land.lhs.true162 ], [ 0, %if.else ], [ %return_value.1238, %if.end118 ], [ 0, %for.body26 ], [ 0, %land.lhs.true31 ]
-  %missing_glyph.2 = phi i32 [ %missing_glyph.1239, %if.then169 ], [ %missing_glyph.1239, %land.lhs.true162 ], [ %missing_glyph.1239, %if.else ], [ %spec.select, %if.end118 ], [ %missing_glyph.1239, %for.body26 ], [ %missing_glyph.1239, %land.lhs.true31 ]
-  %indvars.iv.next264 = add nsw i64 %indvars.iv263, 1
+  %return_value.2 = phi i32 [ %return_value.1236, %if.then169 ], [ %return_value.1236, %if.end118 ], [ 0, %if.else ], [ 0, %land.lhs.true162 ], [ 0, %for.body26 ], [ 0, %land.lhs.true31 ]
+  %missing_glyph.2 = phi i32 [ %missing_glyph.1237, %if.then169 ], [ %spec.select, %if.end118 ], [ %missing_glyph.1237, %if.else ], [ %missing_glyph.1237, %land.lhs.true162 ], [ %missing_glyph.1237, %for.body26 ], [ %missing_glyph.1237, %land.lhs.true31 ]
+  %indvars.iv.next258 = add nsw i64 %indvars.iv257, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %147 = load i32, ptr %num_chars, align 8
   %148 = sext i32 %147 to i64
@@ -15893,15 +15893,15 @@ if.end183:                                        ; preds = %land.lhs.true31, %f
   br i1 %cmp24, label %for.body26, label %for.inc185.loopexit, !llvm.loop !73
 
 for.inc185.loopexit:                              ; preds = %if.end183
-  %149 = trunc nsw i64 %indvars.iv.next264 to i32
+  %149 = trunc nsw i64 %indvars.iv.next258 to i32
   br label %for.inc185
 
 for.inc185:                                       ; preds = %for.inc185.loopexit, %cond.end
-  %return_value.1.lcssa = phi i32 [ %return_value.0249, %cond.end ], [ %return_value.2, %for.inc185.loopexit ]
-  %missing_glyph.1.lcssa = phi i32 [ %missing_glyph.0250, %cond.end ], [ %missing_glyph.2, %for.inc185.loopexit ]
-  %k.1.lcssa = phi i32 [ %k.0251, %cond.end ], [ %149, %for.inc185.loopexit ]
-  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count
+  %return_value.1.lcssa = phi i32 [ %return_value.0243, %cond.end ], [ %return_value.2, %for.inc185.loopexit ]
+  %missing_glyph.1.lcssa = phi i32 [ %missing_glyph.0244, %cond.end ], [ %missing_glyph.2, %for.inc185.loopexit ]
+  %k.1.lcssa = phi i32 [ %k.0245, %cond.end ], [ %149, %for.inc185.loopexit ]
+  %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count
   br i1 %exitcond.not, label %for.end187, label %for.body, !llvm.loop !74
 
 for.end187:                                       ; preds = %for.inc185, %entry
@@ -17098,14 +17098,14 @@ if.end7.i.i:                                      ; preds = %if.then.i.i, %if.el
   br label %stbtt__GetGlyphShapeT2.exit.i
 
 stbtt__GetGlyphShapeT2.exit.i:                    ; preds = %if.end7.i.i, %if.then5.i.i
-  %.pre.pre458 = phi ptr [ %call1.i.i, %if.then5.i.i ], [ null, %if.end7.i.i ]
+  %.pre.pre441 = phi ptr [ %call1.i.i, %if.then5.i.i ], [ null, %if.end7.i.i ]
   %retval.0.i.i = phi i32 [ %14, %if.then5.i.i ], [ 0, %if.end7.i.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %count_ctx.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %output_ctx.i.i)
   br label %stbtt_GetGlyphShape.exit
 
 stbtt_GetGlyphShape.exit:                         ; preds = %if.then.i358, %stbtt__GetGlyphShapeT2.exit.i
-  %.pre.pre = phi ptr [ %.pre.pre458, %stbtt__GetGlyphShapeT2.exit.i ], [ %.pre.pre.pre, %if.then.i358 ]
+  %.pre.pre = phi ptr [ %.pre.pre441, %stbtt__GetGlyphShapeT2.exit.i ], [ %.pre.pre.pre, %if.then.i358 ]
   %retval.0.i = phi i32 [ %retval.0.i.i, %stbtt__GetGlyphShapeT2.exit.i ], [ %call.i359, %if.then.i358 ]
   %retval.0.i.fr = freeze i32 %retval.0.i
   %mul = mul nsw i32 %sub8, %sub7
@@ -17123,13 +17123,13 @@ for.body.lr.ph:                                   ; preds = %stbtt_GetGlyphShape
   br label %for.body
 
 for.cond137.preheader:                            ; preds = %for.inc, %stbtt_GetGlyphShape.exit
-  %cmp138416 = icmp slt i32 %sub5, %add6
-  br i1 %cmp138416, label %for.cond141.preheader.lr.ph, label %for.end631
+  %cmp138402 = icmp slt i32 %sub5, %add6
+  br i1 %cmp138402, label %for.cond141.preheader.lr.ph, label %for.end631
 
 for.cond141.preheader.lr.ph:                      ; preds = %for.cond137.preheader
-  %cmp142406 = icmp slt i32 %sub, %add
+  %cmp142400 = icmp slt i32 %sub, %add
   %conv608 = uitofp i8 %onedge_value to float
-  br i1 %cmp142406, label %for.cond141.preheader.lr.ph.split.us, label %for.end631
+  br i1 %cmp142400, label %for.cond141.preheader.lr.ph.split.us, label %for.end631
 
 for.cond141.preheader.lr.ph.split.us:             ; preds = %for.cond141.preheader.lr.ph
   %15 = sext i32 %sub to i64
@@ -17137,22 +17137,22 @@ for.cond141.preheader.lr.ph.split.us:             ; preds = %for.cond141.prehead
   br i1 %cmp26394, label %for.cond141.preheader.us.us.preheader, label %for.cond141.preheader.us
 
 for.cond141.preheader.us.us.preheader:            ; preds = %for.cond141.preheader.lr.ph.split.us
-  %wide.trip.count452 = zext nneg i32 %retval.0.i.fr to i64
+  %wide.trip.count435 = zext nneg i32 %retval.0.i.fr to i64
   br label %for.cond141.preheader.us.us
 
 for.cond141.preheader.us.us:                      ; preds = %for.cond141.preheader.us.us.preheader, %for.cond141.for.inc629_crit_edge.split.us.us.us
-  %y.0420.us.us = phi i32 [ %inc630.us.us, %for.cond141.for.inc629_crit_edge.split.us.us.us ], [ %sub5, %for.cond141.preheader.us.us.preheader ]
-  %conv147.us.us = sitofp i32 %y.0420.us.us to float
+  %y.0403.us.us = phi i32 [ %inc630.us.us, %for.cond141.for.inc629_crit_edge.split.us.us.us ], [ %sub5, %for.cond141.preheader.us.us.preheader ]
+  %conv147.us.us = sitofp i32 %y.0403.us.us to float
   %add148.us.us = fadd float %conv147.us.us, 5.000000e-01
   %div150.us.us = fdiv float %add148.us.us, %fneg
-  %sub620.us.us = sub nsw i32 %y.0420.us.us, %sub5
+  %sub620.us.us = sub nsw i32 %y.0403.us.us, %sub5
   %mul621.us.us = mul nsw i32 %sub620.us.us, %sub7
   %sub622.us.us = sub i32 %mul621.us.us, %sub
   br label %for.body144.us.us.us
 
 for.body144.us.us.us:                             ; preds = %if.end618.us.us.us, %for.cond141.preheader.us.us
-  %indvars.iv454 = phi i64 [ %indvars.iv.next455, %if.end618.us.us.us ], [ %15, %for.cond141.preheader.us.us ]
-  %17 = trunc nsw i64 %indvars.iv454 to i32
+  %indvars.iv437 = phi i64 [ %indvars.iv.next438, %if.end618.us.us.us ], [ %15, %for.cond141.preheader.us.us ]
+  %17 = trunc nsw i64 %indvars.iv437 to i32
   %conv145.us.us.us = sitofp i32 %17 to float
   %add146.us.us.us = fadd float %conv145.us.us.us, 5.000000e-01
   %div149.us.us.us = fdiv float %add146.us.us.us, %scale
@@ -17173,14 +17173,14 @@ if.end618.us.us.us:                               ; preds = %for.cond152.for.end
   %idxprom624.us.us.us = sext i32 %add623.us.us.us to i64
   %arrayidx625.us.us.us = getelementptr inbounds i8, ptr %call20, i64 %idxprom624.us.us.us
   store i8 %conv619.us.us.us, ptr %arrayidx625.us.us.us, align 1
-  %indvars.iv.next455 = add nsw i64 %indvars.iv454, 1
-  %cmp142.us.us.us = icmp slt i64 %indvars.iv.next455, %16
+  %indvars.iv.next438 = add nsw i64 %indvars.iv437, 1
+  %cmp142.us.us.us = icmp slt i64 %indvars.iv.next438, %16
   br i1 %cmp142.us.us.us, label %for.body144.us.us.us, label %for.cond141.for.inc629_crit_edge.split.us.us.us, !llvm.loop !79
 
 for.body155.us.us.us:                             ; preds = %for.inc599.us.us.us, %for.body144.us.us.us
-  %indvars.iv449 = phi i64 [ %indvars.iv.next450, %for.inc599.us.us.us ], [ 0, %for.body144.us.us.us ]
-  %min_dist.0401.us.us.us = phi float [ %min_dist.5.us.us.us, %for.inc599.us.us.us ], [ 9.999990e+05, %for.body144.us.us.us ]
-  %arrayidx158.us.us.us = getelementptr inbounds %struct.stbtt_vertex, ptr %.pre.pre, i64 %indvars.iv449
+  %indvars.iv432 = phi i64 [ %indvars.iv.next433, %for.inc599.us.us.us ], [ 0, %for.body144.us.us.us ]
+  %min_dist.0398.us.us.us = phi float [ %min_dist.5.us.us.us, %for.inc599.us.us.us ], [ 9.999990e+05, %for.body144.us.us.us ]
+  %arrayidx158.us.us.us = getelementptr inbounds %struct.stbtt_vertex, ptr %.pre.pre, i64 %indvars.iv432
   %18 = load i16, ptr %arrayidx158.us.us.us, align 2
   %conv161.us.us.us = sitofp i16 %18 to float
   %mul162.us.us.us = fmul float %scale, %conv161.us.us.us
@@ -17226,15 +17226,15 @@ if.then251.us.us.us:                              ; preds = %for.body155.us.us.u
   %cond341.us.us.us = select i1 %cmp300.us.us.us, float %mul281.us.us.us, float %mul169.us.us.us
   %cmp342.us.us.us = fcmp olt float %cond341.us.us.us, %mul267.us.us.us
   %cond353.us.us.us = select i1 %cmp342.us.us.us, float %mul267.us.us.us, float %cond341.us.us.us
-  %sub354.us.us.us = fsub float %cond287.mul259.us.us.us, %min_dist.0401.us.us.us
+  %sub354.us.us.us = fsub float %cond287.mul259.us.us.us, %min_dist.0398.us.us.us
   %cmp355.us.us.us = fcmp ogt float %add146.us.us.us, %sub354.us.us.us
-  %add358.us.us.us = fadd float %min_dist.0401.us.us.us, %cond335.us.us.us
+  %add358.us.us.us = fadd float %min_dist.0398.us.us.us, %cond335.us.us.us
   %cmp359.us.us.us = fcmp olt float %add146.us.us.us, %add358.us.us.us
   %or.cond353.us.us.us = select i1 %cmp355.us.us.us, i1 %cmp359.us.us.us, i1 false
-  %sub362.us.us.us = fsub float %cond317.us.us.us, %min_dist.0401.us.us.us
+  %sub362.us.us.us = fsub float %cond317.us.us.us, %min_dist.0398.us.us.us
   %cmp363.us.us.us = fcmp ogt float %add148.us.us, %sub362.us.us.us
   %or.cond354.us.us.us = select i1 %or.cond353.us.us.us, i1 %cmp363.us.us.us, i1 false
-  %add366.us.us.us = fadd float %min_dist.0401.us.us.us, %cond353.us.us.us
+  %add366.us.us.us = fadd float %min_dist.0398.us.us.us, %cond353.us.us.us
   %cmp367.us.us.us = fcmp olt float %add148.us.us, %add366.us.us.us
   %or.cond355.us.us.us = select i1 %or.cond354.us.us.us, i1 %cmp367.us.us.us, i1 false
   br i1 %or.cond355.us.us.us, label %if.then369.us.us.us, label %for.inc599.us.us.us
@@ -17248,7 +17248,7 @@ if.then369.us.us.us:                              ; preds = %if.then251.us.us.us
   %add377.us.us.us = fadd float %mul267.us.us.us, %26
   %sub378.us.us.us = fsub float %mul162.us.us.us, %add146.us.us.us
   %sub379.us.us.us = fsub float %mul169.us.us.us, %add148.us.us
-  %arrayidx385.us.us.us = getelementptr inbounds float, ptr %call24, i64 %indvars.iv449
+  %arrayidx385.us.us.us = getelementptr inbounds float, ptr %call24, i64 %indvars.iv432
   %27 = load float, ptr %arrayidx385.us.us.us, align 4
   %cmp387.us.us.us = fcmp oeq float %27, 0.000000e+00
   %mul391.us.us.us = fmul float %sub371.us.us.us, %add377.us.us.us
@@ -17410,10 +17410,10 @@ if.end455.us.us.us:                               ; preds = %if.then407.us.us.us
   %cmp554.us.us.us = phi i1 [ false, %if.then407.us.us.us ], [ false, %if.then403.us.us.us ], [ false, %if.else414.us.us.us ], [ false, %if.else422.us.us.us ], [ true, %if.else.i367.us.us.us ], [ false, %stbtt__cuberoot.exit44.i.us.us.us ]
   %mul461.us.us.us = fmul float %sub379.us.us.us, %sub379.us.us.us
   %44 = call float @llvm.fmuladd.f32(float %sub378.us.us.us, float %sub378.us.us.us, float %mul461.us.us.us)
-  %mul462.us.us.us = fmul float %min_dist.0401.us.us.us, %min_dist.0401.us.us.us
+  %mul462.us.us.us = fmul float %min_dist.0398.us.us.us, %min_dist.0398.us.us.us
   %cmp463.us.us.us = fcmp olt float %44, %mul462.us.us.us
   %sqrt390.us.us.us = call float @llvm.sqrt.f32(float %44)
-  %min_dist.2.us.us.us = select i1 %cmp463.us.us.us, float %sqrt390.us.us.us, float %min_dist.0401.us.us.us
+  %min_dist.2.us.us.us = select i1 %cmp463.us.us.us, float %sqrt390.us.us.us, float %min_dist.0398.us.us.us
   %cmp474.us.us.us = fcmp oge float %res.sroa.0.3.us.us.us, 0.000000e+00
   %cmp478.us.us.us = fcmp ole float %res.sroa.0.3.us.us.us, 1.000000e+00
   %45 = and i1 %cmp474.us.us.us, %cmp478.us.us.us
@@ -17509,7 +17509,7 @@ if.then590.us.us.us:                              ; preds = %if.then564.us.us.us
   br label %for.inc599.us.us.us
 
 land.lhs.true.us.us.us:                           ; preds = %for.body155.us.us.us
-  %arrayidx177.us.us.us = getelementptr inbounds float, ptr %call24, i64 %indvars.iv449
+  %arrayidx177.us.us.us = getelementptr inbounds float, ptr %call24, i64 %indvars.iv432
   %63 = load float, ptr %arrayidx177.us.us.us, align 4
   %cmp178.us.us.us = fcmp une float %63, 0.000000e+00
   br i1 %cmp178.us.us.us, label %if.then180.us.us.us, label %for.inc599.us.us.us
@@ -17527,10 +17527,10 @@ if.then180.us.us.us:                              ; preds = %land.lhs.true.us.us
   %sub201.us.us.us = fsub float %mul169.us.us.us, %add148.us.us
   %mul203.us.us.us = fmul float %sub201.us.us.us, %sub201.us.us.us
   %66 = call float @llvm.fmuladd.f32(float %sub198.us.us.us, float %sub198.us.us.us, float %mul203.us.us.us)
-  %mul204.us.us.us = fmul float %min_dist.0401.us.us.us, %min_dist.0401.us.us.us
+  %mul204.us.us.us = fmul float %min_dist.0398.us.us.us, %min_dist.0398.us.us.us
   %cmp205.us.us.us = fcmp olt float %66, %mul204.us.us.us
   %sqrt389.us.us.us = call float @llvm.sqrt.f32(float %66)
-  %min_dist.1.us.us.us = select i1 %cmp205.us.us.us, float %sqrt389.us.us.us, float %min_dist.0401.us.us.us
+  %min_dist.1.us.us.us = select i1 %cmp205.us.us.us, float %sqrt389.us.us.us, float %min_dist.0398.us.us.us
   %sub212.us.us.us = fsub float %mul188.us.us.us, %mul162.us.us.us
   %sub215.us.us.us = fsub float %mul196.us.us.us, %mul169.us.us.us
   %67 = fneg float %sub198.us.us.us
@@ -17557,10 +17557,10 @@ if.then241.us.us.us:                              ; preds = %if.then225.us.us.us
   br label %for.inc599.us.us.us
 
 for.inc599.us.us.us:                              ; preds = %if.then241.us.us.us, %if.then225.us.us.us, %if.then180.us.us.us, %land.lhs.true.us.us.us, %if.then590.us.us.us, %if.then564.us.us.us, %if.end553.us.us.us, %if.then251.us.us.us, %for.body155.us.us.us
-  %min_dist.5.us.us.us = phi float [ %mul222.us.us.us, %if.then241.us.us.us ], [ %min_dist.1.us.us.us, %if.then225.us.us.us ], [ %min_dist.1.us.us.us, %if.then180.us.us.us ], [ %sqrt393.us.us.us, %if.then590.us.us.us ], [ %min_dist.4.us.us.us, %if.then564.us.us.us ], [ %min_dist.4.us.us.us, %if.end553.us.us.us ], [ %min_dist.0401.us.us.us, %if.then251.us.us.us ], [ %min_dist.0401.us.us.us, %land.lhs.true.us.us.us ], [ %min_dist.0401.us.us.us, %for.body155.us.us.us ]
-  %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
-  %exitcond453.not = icmp eq i64 %indvars.iv.next450, %wide.trip.count452
-  br i1 %exitcond453.not, label %for.cond152.for.end601_crit_edge.us.us.us, label %for.body155.us.us.us, !llvm.loop !80
+  %min_dist.5.us.us.us = phi float [ %mul222.us.us.us, %if.then241.us.us.us ], [ %min_dist.1.us.us.us, %if.then225.us.us.us ], [ %min_dist.1.us.us.us, %if.then180.us.us.us ], [ %sqrt393.us.us.us, %if.then590.us.us.us ], [ %min_dist.4.us.us.us, %if.then564.us.us.us ], [ %min_dist.4.us.us.us, %if.end553.us.us.us ], [ %min_dist.0398.us.us.us, %if.then251.us.us.us ], [ %min_dist.0398.us.us.us, %land.lhs.true.us.us.us ], [ %min_dist.0398.us.us.us, %for.body155.us.us.us ]
+  %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
+  %exitcond436.not = icmp eq i64 %indvars.iv.next433, %wide.trip.count435
+  br i1 %exitcond436.not, label %for.cond152.for.end601_crit_edge.us.us.us, label %for.body155.us.us.us, !llvm.loop !80
 
 for.cond152.for.end601_crit_edge.us.us.us:        ; preds = %for.inc599.us.us.us
   %cmp602.us.us.us = icmp eq i32 %call151.us.us.us, 0
@@ -17571,53 +17571,53 @@ for.cond152.for.end601_crit_edge.us.us.us:        ; preds = %for.inc599.us.us.us
   br i1 %cmp610.us.us.us, label %if.end618.us.us.us, label %if.else613.us.us.us
 
 for.cond141.for.inc629_crit_edge.split.us.us.us:  ; preds = %if.end618.us.us.us
-  %inc630.us.us = add nsw i32 %y.0420.us.us, 1
+  %inc630.us.us = add nsw i32 %y.0403.us.us, 1
   %cmp138.us.us = icmp slt i32 %inc630.us.us, %add6
   br i1 %cmp138.us.us, label %for.cond141.preheader.us.us, label %for.end631, !llvm.loop !81
 
-for.cond141.preheader.us:                         ; preds = %for.cond141.preheader.lr.ph.split.us, %for.cond141.for.inc629_crit_edge.split.us441
-  %y.0420.us = phi i32 [ %inc630.us, %for.cond141.for.inc629_crit_edge.split.us441 ], [ %sub5, %for.cond141.preheader.lr.ph.split.us ]
-  %conv147.us = sitofp i32 %y.0420.us to float
+for.cond141.preheader.us:                         ; preds = %for.cond141.preheader.lr.ph.split.us, %for.cond141.for.inc629_crit_edge.split.us424
+  %y.0403.us = phi i32 [ %inc630.us, %for.cond141.for.inc629_crit_edge.split.us424 ], [ %sub5, %for.cond141.preheader.lr.ph.split.us ]
+  %conv147.us = sitofp i32 %y.0403.us to float
   %add148.us = fadd float %conv147.us, 5.000000e-01
   %div150.us = fdiv float %add148.us, %fneg
-  %sub620.us = sub nsw i32 %y.0420.us, %sub5
+  %sub620.us = sub nsw i32 %y.0403.us, %sub5
   %mul621.us = mul nsw i32 %sub620.us, %sub7
   %sub622.us = sub i32 %mul621.us, %sub
-  br label %for.body144.us421
+  br label %for.body144.us404
 
-for.body144.us421:                                ; preds = %for.cond141.preheader.us, %if.end618.us433
-  %indvars.iv446 = phi i64 [ %15, %for.cond141.preheader.us ], [ %indvars.iv.next447, %if.end618.us433 ]
-  %73 = trunc nsw i64 %indvars.iv446 to i32
-  %conv145.us423 = sitofp i32 %73 to float
-  %add146.us424 = fadd float %conv145.us423, 5.000000e-01
-  %div149.us425 = fdiv float %add146.us424, %scale
-  %call151.us426 = call i32 @stbtt__compute_crossings_x(float noundef %div149.us425, float noundef %div150.us, i32 noundef %retval.0.i.fr, ptr noundef %.pre.pre)
-  %cmp602.us427 = icmp eq i32 %call151.us426, 0
-  %min_dist.6.us428 = select i1 %cmp602.us427, float -9.999990e+05, float 9.999990e+05
-  %74 = call float @llvm.fmuladd.f32(float %pixel_dist_scale, float %min_dist.6.us428, float %conv608)
-  %cmp610.us429 = fcmp olt float %74, 0.000000e+00
-  br i1 %cmp610.us429, label %if.end618.us433, label %if.else613.us430
+for.body144.us404:                                ; preds = %for.cond141.preheader.us, %if.end618.us416
+  %indvars.iv429 = phi i64 [ %15, %for.cond141.preheader.us ], [ %indvars.iv.next430, %if.end618.us416 ]
+  %73 = trunc nsw i64 %indvars.iv429 to i32
+  %conv145.us406 = sitofp i32 %73 to float
+  %add146.us407 = fadd float %conv145.us406, 5.000000e-01
+  %div149.us408 = fdiv float %add146.us407, %scale
+  %call151.us409 = call i32 @stbtt__compute_crossings_x(float noundef %div149.us408, float noundef %div150.us, i32 noundef %retval.0.i.fr, ptr noundef %.pre.pre)
+  %cmp602.us410 = icmp eq i32 %call151.us409, 0
+  %min_dist.6.us411 = select i1 %cmp602.us410, float -9.999990e+05, float 9.999990e+05
+  %74 = call float @llvm.fmuladd.f32(float %pixel_dist_scale, float %min_dist.6.us411, float %conv608)
+  %cmp610.us412 = fcmp olt float %74, 0.000000e+00
+  br i1 %cmp610.us412, label %if.end618.us416, label %if.else613.us413
 
-if.else613.us430:                                 ; preds = %for.body144.us421
-  %cmp614.us431 = fcmp ogt float %74, 2.550000e+02
-  br i1 %cmp614.us431, label %if.then616.us432, label %if.end618.us433
+if.else613.us413:                                 ; preds = %for.body144.us404
+  %cmp614.us414 = fcmp ogt float %74, 2.550000e+02
+  br i1 %cmp614.us414, label %if.then616.us415, label %if.end618.us416
 
-if.then616.us432:                                 ; preds = %if.else613.us430
-  br label %if.end618.us433
+if.then616.us415:                                 ; preds = %if.else613.us413
+  br label %if.end618.us416
 
-if.end618.us433:                                  ; preds = %if.then616.us432, %if.else613.us430, %for.body144.us421
-  %val.0.us434 = phi float [ 2.550000e+02, %if.then616.us432 ], [ %74, %if.else613.us430 ], [ 0.000000e+00, %for.body144.us421 ]
-  %conv619.us435 = fptoui float %val.0.us434 to i8
-  %add623.us436 = add i32 %sub622.us, %73
-  %idxprom624.us437 = sext i32 %add623.us436 to i64
-  %arrayidx625.us438 = getelementptr inbounds i8, ptr %call20, i64 %idxprom624.us437
-  store i8 %conv619.us435, ptr %arrayidx625.us438, align 1
-  %indvars.iv.next447 = add nsw i64 %indvars.iv446, 1
-  %cmp142.us440 = icmp slt i64 %indvars.iv.next447, %16
-  br i1 %cmp142.us440, label %for.body144.us421, label %for.cond141.for.inc629_crit_edge.split.us441, !llvm.loop !79
+if.end618.us416:                                  ; preds = %if.then616.us415, %if.else613.us413, %for.body144.us404
+  %val.0.us417 = phi float [ 2.550000e+02, %if.then616.us415 ], [ %74, %if.else613.us413 ], [ 0.000000e+00, %for.body144.us404 ]
+  %conv619.us418 = fptoui float %val.0.us417 to i8
+  %add623.us419 = add i32 %sub622.us, %73
+  %idxprom624.us420 = sext i32 %add623.us419 to i64
+  %arrayidx625.us421 = getelementptr inbounds i8, ptr %call20, i64 %idxprom624.us420
+  store i8 %conv619.us418, ptr %arrayidx625.us421, align 1
+  %indvars.iv.next430 = add nsw i64 %indvars.iv429, 1
+  %cmp142.us423 = icmp slt i64 %indvars.iv.next430, %16
+  br i1 %cmp142.us423, label %for.body144.us404, label %for.cond141.for.inc629_crit_edge.split.us424, !llvm.loop !79
 
-for.cond141.for.inc629_crit_edge.split.us441:     ; preds = %if.end618.us433
-  %inc630.us = add nsw i32 %y.0420.us, 1
+for.cond141.for.inc629_crit_edge.split.us424:     ; preds = %if.end618.us416
+  %inc630.us = add nsw i32 %y.0403.us, 1
   %cmp138.us = icmp slt i32 %inc630.us, %add6
   br i1 %cmp138.us, label %for.cond141.preheader.us, label %for.end631, !llvm.loop !81
 
@@ -17706,7 +17706,7 @@ for.inc:                                          ; preds = %for.body, %if.then7
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond137.preheader, label %for.body, !llvm.loop !82
 
-for.end631:                                       ; preds = %for.cond141.for.inc629_crit_edge.split.us441, %for.cond141.for.inc629_crit_edge.split.us.us.us, %for.cond141.preheader.lr.ph, %for.cond137.preheader
+for.end631:                                       ; preds = %for.cond141.for.inc629_crit_edge.split.us424, %for.cond141.for.inc629_crit_edge.split.us.us.us, %for.cond141.preheader.lr.ph, %for.cond137.preheader
   call void @free(ptr noundef %call24) #33
   call void @free(ptr noundef %.pre.pre) #33
   br label %return

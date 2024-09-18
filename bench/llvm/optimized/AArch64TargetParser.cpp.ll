@@ -3110,10 +3110,10 @@ define dso_local noundef i64 @_ZN4llvm7AArch6418getCpuSupportsMaskENS_8ArrayRefI
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE.exit.thread
-  %.022 = phi i64 [ %.1, %_ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE.exit.thread ], [ 0, %2 ]
-  %.0821 = phi ptr [ %15, %_ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE.exit.thread ], [ %0, %2 ]
-  %.sroa.0.0.copyload = load ptr, ptr %.0821, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0821, i64 8
+  %.021 = phi i64 [ %.1, %_ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE.exit.thread ], [ 0, %2 ]
+  %.0820 = phi ptr [ %15, %_ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE.exit.thread ], [ %0, %2 ]
+  %.sroa.0.0.copyload = load ptr, ptr %.0820, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0820, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.not.i.i = icmp eq i64 %.sroa.2.0.copyload, 4
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
@@ -3175,12 +3175,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit13.thread24.i:   ; preds = %_ZN4llvmeqENS_9Stri
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..us-phi.i.sroa_idx, align 8
   %12 = zext nneg i32 %.sroa.1.0.copyload to i64
   %13 = shl nuw i64 1, %12
-  %14 = or i64 %13, %.022
+  %14 = or i64 %13, %.021
   br label %_ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE.exit.thread
 
 _ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit13.thread24.i, %_ZN4llvmeqENS_9StringRefES0_.exit13.thread24.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, %.loopexit
-  %.1 = phi i64 [ %14, %.loopexit ], [ %.022, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ %.022, %_ZN4llvmeqENS_9StringRefES0_.exit13.thread24.us.i ], [ %.022, %_ZN4llvmeqENS_9StringRefES0_.exit13.thread24.i ]
-  %15 = getelementptr inbounds i8, ptr %.0821, i64 16
+  %.1 = phi i64 [ %14, %.loopexit ], [ %.021, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ %.021, %_ZN4llvmeqENS_9StringRefES0_.exit13.thread24.us.i ], [ %.021, %_ZN4llvmeqENS_9StringRefES0_.exit13.thread24.i ]
+  %15 = getelementptr inbounds i8, ptr %.0820, i64 16
   %.not = icmp eq ptr %15, %3
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -4920,11 +4920,11 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet29reconstructFromParsedFeat
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
-  %.sroa.014.029 = phi ptr [ %4, %.lr.ph ], [ %43, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
-  %11 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.029, i64 noundef 0) #26
+  %.sroa.014.028 = phi ptr [ %4, %.lr.ph ], [ %43, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
+  %11 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.028, i64 noundef 0) #26
   %12 = load i8, ptr %11, align 1
-  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.029) #26
-  %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.029) #26
+  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.028) #26
+  %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.028) #26
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %.split.us.i, label %.split.i
 
@@ -4998,18 +4998,18 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not.i8, label %42, label %39
 
 39:                                               ; preds = %.loopexit21
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.029) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.028) #26
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 32
   store ptr %41, ptr %7, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 42:                                               ; preds = %.loopexit21
-  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.029)
+  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.028)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %42, %39, %28, %33
-  %43 = getelementptr inbounds i8, ptr %.sroa.014.029, i64 32
+  %43 = getelementptr inbounds i8, ptr %.sroa.014.028, i64 32
   %.not = icmp eq ptr %43, %6
   br i1 %.not, label %._crit_edge, label %10
 

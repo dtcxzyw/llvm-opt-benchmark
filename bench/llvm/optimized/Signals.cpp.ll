@@ -3393,17 +3393,17 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   %7 = alloca %"class.llvm::format_object.146", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i16, ptr %8, align 8
-  %.not86.i = icmp eq i16 %9, 0
-  br i1 %.not86.i, label %_ZN16DSOMarkupPrinter11findBuildIDEP12dl_phdr_info.exit.thread, label %.lr.ph85.i
+  %.not80.i = icmp eq i16 %9, 0
+  br i1 %.not80.i, label %_ZN16DSOMarkupPrinter11findBuildIDEP12dl_phdr_info.exit.thread, label %.lr.ph79.i
 
-.lr.ph85.i:                                       ; preds = %2
+.lr.ph79.i:                                       ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %wide.trip.count.i = zext i16 %9 to i64
   br label %12
 
-12:                                               ; preds = %.loopexit.i, %.lr.ph85.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph85.i ], [ %indvars.iv.next.i, %.loopexit.i ]
+12:                                               ; preds = %.loopexit.i, %.lr.ph79.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph79.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %13 = getelementptr inbounds %struct.Elf64_Phdr, ptr %11, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, 4
@@ -3424,13 +3424,13 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %65, %.lr.ph.preheader.i
-  %.sroa.046.072.i = phi ptr [ %51, %65 ], [ %23, %.lr.ph.preheader.i ]
-  %.sroa.18.071.i = phi i64 [ %50, %65 ], [ %17, %.lr.ph.preheader.i ]
-  %24 = load i32, ptr %.sroa.046.072.i, align 4
-  %25 = getelementptr inbounds i8, ptr %.sroa.046.072.i, i64 8
+  %.sroa.046.075.i = phi ptr [ %51, %65 ], [ %23, %.lr.ph.preheader.i ]
+  %.sroa.18.074.i = phi i64 [ %50, %65 ], [ %17, %.lr.ph.preheader.i ]
+  %24 = load i32, ptr %.sroa.046.075.i, align 4
+  %25 = getelementptr inbounds i8, ptr %.sroa.046.075.i, i64 8
   %26 = load i32, ptr %25, align 4
-  %27 = add i64 %.sroa.18.071.i, -12
-  %28 = getelementptr inbounds i8, ptr %.sroa.046.072.i, i64 12
+  %27 = add i64 %.sroa.18.074.i, -12
+  %28 = getelementptr inbounds i8, ptr %.sroa.046.075.i, i64 12
   %29 = zext i32 %24 to i64
   %..i.i = tail call i64 @llvm.umin.i64(i64 %29, i64 %27)
   %30 = ptrtoint ptr %28 to i64
@@ -3443,7 +3443,7 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   br i1 %.not31.i, label %36, label %.loopexit.i
 
 36:                                               ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds i8, ptr %.sroa.046.072.i, i64 4
+  %37 = getelementptr inbounds i8, ptr %.sroa.046.075.i, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = sub nuw i64 %27, %35
   %40 = getelementptr inbounds i8, ptr %28, i64 %35
@@ -3471,13 +3471,13 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   br i1 %56, label %57, label %65
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.sroa.046.072.i, i64 13
+  %58 = getelementptr inbounds i8, ptr %.sroa.046.075.i, i64 13
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i8 %59, 78
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %.sroa.046.072.i, i64 14
+  %62 = getelementptr inbounds i8, ptr %.sroa.046.075.i, i64 14
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 85
   br i1 %64, label %_ZN16DSOMarkupPrinter11findBuildIDEP12dl_phdr_info.exit, label %65

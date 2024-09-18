@@ -1382,9 +1382,9 @@ define ptr @cvApproxChains(ptr noundef %0, ptr noundef %1, i32 noundef %2, doubl
   ret ptr %.us-phi
 
 88:                                               ; preds = %84, %86, %78, %80, %18, %20
-  %.sink155 = phi ptr [ %8, %20 ], [ %8, %18 ], [ %10, %80 ], [ %10, %78 ], [ %12, %86 ], [ %12, %84 ]
+  %.sink154 = phi ptr [ %8, %20 ], [ %8, %18 ], [ %10, %80 ], [ %10, %78 ], [ %12, %86 ], [ %12, %84 ]
   %.pn93.pn = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ], [ %81, %80 ], [ %79, %78 ], [ %87, %86 ], [ %85, %84 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink155) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink154) #17
   resume { ptr, i32 } %.pn93.pn
 }
 

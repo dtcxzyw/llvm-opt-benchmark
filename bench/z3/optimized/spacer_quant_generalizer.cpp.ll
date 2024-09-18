@@ -3064,8 +3064,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK15ref_vector_co
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7obj_refI4expr11ast_managerED2Ev.exit207
-  %__begin1.0225 = phi ptr [ %45, %for.body.lr.ph ], [ %incdec.ptr, %_ZN7obj_refI4expr11ast_managerED2Ev.exit207 ]
-  %48 = load ptr, ptr %__begin1.0225, align 8
+  %__begin1.0223 = phi ptr [ %45, %for.body.lr.ph ], [ %incdec.ptr, %_ZN7obj_refI4expr11ast_managerED2Ev.exit207 ]
+  %48 = load ptr, ptr %__begin1.0223, align 8
   %49 = load ptr, ptr %m, align 8
   store ptr null, ptr %abs_lit, align 8
   store ptr %49, ptr %m_manager.i108, align 8
@@ -3493,7 +3493,7 @@ terminate.lpad.i206:                              ; preds = %if.then2.i.i.i205
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit207:      ; preds = %if.end150, %if.then.i.i.i200, %if.then2.i.i.i205
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0225, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0223, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 

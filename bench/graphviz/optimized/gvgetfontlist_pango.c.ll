@@ -260,9 +260,9 @@ gv_calloc.exit:                                   ; preds = %1
   br label %14
 
 14:                                               ; preds = %strview_str.exit.i, %gv_calloc.exit
-  %.056120.i = phi i64 [ 0, %gv_calloc.exit ], [ %81, %strview_str.exit.i ]
-  %15 = getelementptr inbounds [10 x %struct.availfont_t], ptr %8, i64 0, i64 %.056120.i
-  %16 = getelementptr inbounds %struct.fontdef_t, ptr @gv_ps_fontdefs, i64 %.056120.i
+  %.056115.i = phi i64 [ 0, %gv_calloc.exit ], [ %81, %strview_str.exit.i ]
+  %15 = getelementptr inbounds [10 x %struct.availfont_t], ptr %8, i64 0, i64 %.056115.i
+  %16 = getelementptr inbounds %struct.fontdef_t, ptr @gv_ps_fontdefs, i64 %.056115.i
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !noalias !4
   store ptr %18, ptr %15, align 8, !alias.scope !4
@@ -283,7 +283,7 @@ gv_calloc.exit:                                   ; preds = %1
 
 28:                                               ; preds = %.lr.ph.i
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %..thread_crit_edge.i, label %.thread89.loopexit123.i
+  br i1 %.not.i.i, label %..thread_crit_edge.i, label %.thread89.loopexit117.i
 
 ..thread_crit_edge.i:                             ; preds = %28
   %29 = call fastcc i32 @get_faces(ptr noundef %24), !noalias !4
@@ -310,46 +310,46 @@ gv_calloc.exit:                                   ; preds = %1
   br i1 %38, label %.preheader.preheader.i, label %strview_str.exit.i
 
 .preheader.preheader.i:                           ; preds = %.preheader.lr.ph.i
-  %wide.trip.count142.i = zext nneg i32 %35 to i64
+  %wide.trip.count136.i = zext nneg i32 %35 to i64
   br label %.preheader.i
 
 .preheader100.loopexit.i:                         ; preds = %.thread82.i
-  %.pre150.i = load i32, ptr %5, align 4, !noalias !4
+  %.pre144.i = load i32, ptr %5, align 4, !noalias !4
   br label %.preheader100.i
 
 .preheader100.i:                                  ; preds = %.preheader100.loopexit.i, %._crit_edge.i
-  %39 = phi i32 [ %33, %._crit_edge.i ], [ %.pre150.i, %.preheader100.loopexit.i ]
+  %39 = phi i32 [ %.pre144.i, %.preheader100.loopexit.i ], [ %33, %._crit_edge.i ]
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph119.i, label %strview_str.exit.i
+  br i1 %40, label %.lr.ph114.i, label %strview_str.exit.i
 
-.lr.ph119.i:                                      ; preds = %.preheader100.i
+.lr.ph114.i:                                      ; preds = %.preheader100.i
   %41 = load ptr, ptr %4, align 8, !noalias !4
   %42 = load ptr, ptr %16, align 16, !noalias !4
-  %wide.trip.count147.i = zext nneg i32 %39 to i64
+  %wide.trip.count141.i = zext nneg i32 %39 to i64
   br label %59
 
 .preheader.i:                                     ; preds = %.thread82.i, %.preheader.preheader.i
-  %indvars.iv139.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next140.i, %.thread82.i ]
+  %indvars.iv133.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next134.i, %.thread82.i ]
   %43 = load i32, ptr %5, align 4, !noalias !4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph113.i, label %.thread82.i
+  br i1 %44, label %.lr.ph110.i, label %.thread82.i
 
-.lr.ph113.i:                                      ; preds = %.preheader.i
+.lr.ph110.i:                                      ; preds = %.preheader.i
   %45 = load ptr, ptr %4, align 8, !noalias !4
   %46 = load ptr, ptr %37, align 8, !noalias !4
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv139.i
+  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv133.i
   %48 = load ptr, ptr %47, align 8, !noalias !4
   %wide.trip.count.i = zext nneg i32 %43 to i64
   br label %50
 
 49:                                               ; preds = %50
-  %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next137.i, %wide.trip.count.i
+  %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next131.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.thread82.i, label %50
 
-50:                                               ; preds = %49, %.lr.ph113.i
-  %indvars.iv136.i = phi i64 [ 0, %.lr.ph113.i ], [ %indvars.iv.next137.i, %49 ]
-  %51 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv136.i
+50:                                               ; preds = %49, %.lr.ph110.i
+  %indvars.iv130.i = phi i64 [ 0, %.lr.ph110.i ], [ %indvars.iv.next131.i, %49 ]
+  %51 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv130.i
   %52 = load ptr, ptr %51, align 8, !noalias !4
   %53 = call ptr @pango_font_family_get_name(ptr noundef %52) #19, !noalias !4
   %54 = call i32 @strcasecmp(ptr noundef %48, ptr noundef %53) #19, !noalias !4
@@ -358,25 +358,25 @@ gv_calloc.exit:                                   ; preds = %1
 
 56:                                               ; preds = %50
   %.not.i58.i = icmp eq ptr %53, null
-  br i1 %.not.i58.i, label %.thread153.i, label %.thread89.loopexit.i
+  br i1 %.not.i58.i, label %.thread147.i, label %.thread89.loopexit.i
 
-.thread153.i:                                     ; preds = %56
+.thread147.i:                                     ; preds = %56
   %57 = call fastcc i32 @get_faces(ptr noundef %52), !noalias !4
   br label %.thread82.i
 
-.thread82.i:                                      ; preds = %49, %.thread153.i, %.preheader.i
-  %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
-  %exitcond143.not.i = icmp eq i64 %indvars.iv.next140.i, %wide.trip.count142.i
-  br i1 %exitcond143.not.i, label %.preheader100.loopexit.i, label %.preheader.i, !llvm.loop !7
+.thread82.i:                                      ; preds = %49, %.thread147.i, %.preheader.i
+  %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
+  %exitcond137.not.i = icmp eq i64 %indvars.iv.next134.i, %wide.trip.count136.i
+  br i1 %exitcond137.not.i, label %.preheader100.loopexit.i, label %.preheader.i, !llvm.loop !7
 
 58:                                               ; preds = %59
-  %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
-  %exitcond148.not.i = icmp eq i64 %indvars.iv.next145.i, %wide.trip.count147.i
-  br i1 %exitcond148.not.i, label %strview_str.exit.i, label %59
+  %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
+  %exitcond142.not.i = icmp eq i64 %indvars.iv.next139.i, %wide.trip.count141.i
+  br i1 %exitcond142.not.i, label %strview_str.exit.i, label %59
 
-59:                                               ; preds = %58, %.lr.ph119.i
-  %indvars.iv144.i = phi i64 [ 0, %.lr.ph119.i ], [ %indvars.iv.next145.i, %58 ]
-  %60 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv144.i
+59:                                               ; preds = %58, %.lr.ph114.i
+  %indvars.iv138.i = phi i64 [ 0, %.lr.ph114.i ], [ %indvars.iv.next139.i, %58 ]
+  %60 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv138.i
   %61 = load ptr, ptr %60, align 8, !noalias !4
   %62 = call ptr @pango_font_family_get_name(ptr noundef %61) #19, !noalias !4
   %63 = call i32 @strcasecmp(ptr noundef %42, ptr noundef %62) #19, !noalias !4
@@ -399,15 +399,15 @@ gv_calloc.exit:                                   ; preds = %1
   %strlen.i59.i = call i64 @strlen(ptr nonnull dereferenceable(1) %53), !noalias !4
   br label %.thread89.i
 
-.thread89.loopexit123.i:                          ; preds = %28
+.thread89.loopexit117.i:                          ; preds = %28
   %strlen.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %25), !noalias !4
   br label %.thread89.i
 
-.thread89.i:                                      ; preds = %.thread89.loopexit123.i, %.thread89.loopexit.i, %67, %66
-  %.lcssa156.sink.i = phi ptr [ %24, %.thread89.loopexit123.i ], [ %52, %.thread89.loopexit.i ], [ %61, %66 ], [ %61, %67 ]
-  %.sroa.06.7.i = phi ptr [ %25, %.thread89.loopexit123.i ], [ %53, %.thread89.loopexit.i ], [ %62, %66 ], [ null, %67 ]
-  %.sroa.10.7.i = phi i64 [ %strlen.i.i, %.thread89.loopexit123.i ], [ %strlen.i59.i, %.thread89.loopexit.i ], [ %strlen.i65.i, %66 ], [ %68, %67 ]
-  %69 = call fastcc i32 @get_faces(ptr noundef %.lcssa156.sink.i), !noalias !4
+.thread89.i:                                      ; preds = %.thread89.loopexit117.i, %.thread89.loopexit.i, %67, %66
+  %.lcssa150.sink.i = phi ptr [ %24, %.thread89.loopexit117.i ], [ %52, %.thread89.loopexit.i ], [ %61, %66 ], [ %61, %67 ]
+  %.sroa.06.7.i = phi ptr [ %25, %.thread89.loopexit117.i ], [ %53, %.thread89.loopexit.i ], [ %62, %66 ], [ null, %67 ]
+  %.sroa.10.7.i = phi i64 [ %strlen.i.i, %.thread89.loopexit117.i ], [ %strlen.i59.i, %.thread89.loopexit.i ], [ %strlen.i65.i, %66 ], [ %68, %67 ]
+  %69 = call fastcc i32 @get_faces(ptr noundef %.lcssa150.sink.i), !noalias !4
   %70 = icmp ne ptr %.sroa.06.7.i, null
   %71 = icmp ne i32 %69, 0
   %or.cond.i = select i1 %70, i1 %71, i1 false
@@ -426,15 +426,15 @@ gv_calloc.exit:                                   ; preds = %1
   unreachable
 
 strview_str.exit.i:                               ; preds = %58, %72, %.thread89.i, %.preheader100.i, %.preheader.lr.ph.i
-  %.sink168.i = phi ptr [ %73, %72 ], [ null, %.preheader.lr.ph.i ], [ null, %.preheader100.i ], [ null, %.thread89.i ], [ null, %58 ]
+  %.sink162.i = phi ptr [ %73, %72 ], [ null, %.preheader.lr.ph.i ], [ null, %.preheader100.i ], [ null, %.thread89.i ], [ null, %58 ]
   %.sink.i = phi i32 [ %69, %72 ], [ 0, %.preheader.lr.ph.i ], [ 0, %.preheader100.i ], [ 0, %.thread89.i ], [ 0, %58 ]
   %79 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %.sink168.i, ptr %79, align 8, !alias.scope !4
+  store ptr %.sink162.i, ptr %79, align 8, !alias.scope !4
   %80 = getelementptr inbounds i8, ptr %15, i64 16
   store i32 %.sink.i, ptr %80, align 8, !alias.scope !4
-  %81 = add nuw nsw i64 %.056120.i, 1
-  %exitcond149.not.i = icmp eq i64 %81, 10
-  br i1 %exitcond149.not.i, label %gv_get_ps_fontlist.exit, label %14
+  %81 = add nuw nsw i64 %.056115.i, 1
+  %exitcond143.not.i = icmp eq i64 %81, 10
+  br i1 %exitcond143.not.i, label %gv_get_ps_fontlist.exit, label %14
 
 gv_get_ps_fontlist.exit:                          ; preds = %strview_str.exit.i
   %82 = load ptr, ptr %4, align 8, !noalias !4

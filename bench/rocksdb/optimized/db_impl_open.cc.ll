@@ -14080,11 +14080,11 @@ for.body76.lr.ph:                                 ; preds = %if.end
   br label %for.body76
 
 for.body76:                                       ; preds = %for.body76.lr.ph, %for.inc406
-  %stop_replay_for_corruption.01268 = phi i8 [ 0, %for.body76.lr.ph ], [ %stop_replay_for_corruption.1, %for.inc406 ]
-  %flushed.01267 = phi i8 [ 0, %for.body76.lr.ph ], [ %flushed.1, %for.inc406 ]
-  %corrupted_wal_number.01263 = phi i64 [ 72057594037927935, %for.body76.lr.ph ], [ %corrupted_wal_number.1, %for.inc406 ]
-  %__begin168.sroa.0.01262 = phi ptr [ %32, %for.body76.lr.ph ], [ %incdec.ptr.i637, %for.inc406 ]
-  %34 = load i64, ptr %__begin168.sroa.0.01262, align 8
+  %stop_replay_for_corruption.01220 = phi i8 [ 0, %for.body76.lr.ph ], [ %stop_replay_for_corruption.1, %for.inc406 ]
+  %flushed.01219 = phi i8 [ 0, %for.body76.lr.ph ], [ %flushed.1, %for.inc406 ]
+  %corrupted_wal_number.01215 = phi i64 [ 72057594037927935, %for.body76.lr.ph ], [ %corrupted_wal_number.1, %for.inc406 ]
+  %__begin168.sroa.0.01214 = phi ptr [ %32, %for.body76.lr.ph ], [ %incdec.ptr.i637, %for.inc406 ]
+  %34 = load i64, ptr %__begin168.sroa.0.01214, align 8
   %cmp = icmp ult i64 %34, %min_wal_number.0
   br i1 %cmp, label %if.then79, label %if.end83
 
@@ -14729,8 +14729,8 @@ cleanup.cont:                                     ; preds = %_ZNSt10unique_ptrIN
   %140 = load i8, ptr %wal_recovery_mode, align 2
   %cmp149 = icmp ne i8 %140, 3
   %or.cond.not = select i1 %tobool146, i1 %cmp149, i1 false
-  %spec.select1385 = select i1 %or.cond.not, ptr %status, ptr null
-  store ptr %spec.select1385, ptr %status151, align 8
+  %spec.select1337 = select i1 %or.cond.not, ptr %status, ptr null
+  store ptr %spec.select1337, ptr %status151, align 8
   %141 = load ptr, ptr %info_log92, align 64
   store ptr %141, ptr %agg.tmp, align 8
   %142 = load ptr, ptr %_M_refcount3.i.i, align 8
@@ -14868,8 +14868,8 @@ _ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit:    ; preds = %invoke.cont158, %_Z
   br i1 %tobool1661207, label %invoke.cont323, label %land.lhs.true.preheader
 
 land.lhs.true.preheader:                          ; preds = %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit, %while.cond.outer.backedge
-  %stop_replay_for_corruption.4.ph1209 = phi i8 [ %stop_replay_for_corruption.6, %while.cond.outer.backedge ], [ %stop_replay_for_corruption.01268, %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit ]
-  %flushed.4.ph1208 = phi i8 [ %flushed.6, %while.cond.outer.backedge ], [ %flushed.01267, %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit ]
+  %stop_replay_for_corruption.4.ph1209 = phi i8 [ %stop_replay_for_corruption.6, %while.cond.outer.backedge ], [ %stop_replay_for_corruption.01220, %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit ]
+  %flushed.4.ph1208 = phi i8 [ %flushed.6, %while.cond.outer.backedge ], [ %flushed.01219, %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit ]
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.preheader, %_ZN7rocksdb6StatusD2Ev.exit
@@ -15620,8 +15620,8 @@ _ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit526: ; 
   br label %ehcleanup395
 
 invoke.cont323:                                   ; preds = %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit, %while.cond.outer.backedge, %invoke.cont169, %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit
-  %flushed.5.ph = phi i8 [ %flushed.01267, %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit ], [ %flushed.4.ph1208, %invoke.cont169 ], [ %flushed.6, %while.cond.outer.backedge ], [ %flushed.6, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
-  %stop_replay_for_corruption.5.ph = phi i8 [ %stop_replay_for_corruption.01268, %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit ], [ %stop_replay_for_corruption.4.ph1209, %invoke.cont169 ], [ %stop_replay_for_corruption.6, %while.cond.outer.backedge ], [ %stop_replay_for_corruption.6, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
+  %flushed.5.ph = phi i8 [ %flushed.01219, %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit ], [ %flushed.4.ph1208, %invoke.cont169 ], [ %flushed.6, %while.cond.outer.backedge ], [ %flushed.6, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
+  %stop_replay_for_corruption.5.ph = phi i8 [ %stop_replay_for_corruption.01220, %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit ], [ %stop_replay_for_corruption.4.ph1209, %invoke.cont169 ], [ %stop_replay_for_corruption.6, %while.cond.outer.backedge ], [ %stop_replay_for_corruption.6, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
   %.pr921 = load i8, ptr %status, align 8
   %cmp.i527 = icmp eq i8 %.pr921, 0
   br i1 %cmp.i527, label %if.end370, label %if.then325
@@ -15788,7 +15788,7 @@ if.then.i.i618:                                   ; preds = %if.else367
 
 if.end370:                                        ; preds = %invoke.cont335, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i566, %if.end361, %invoke.cont323
   %flushed.5926 = phi i8 [ %flushed.5.ph, %invoke.cont323 ], [ %flushed.5925, %if.end361 ], [ %flushed.5925, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i566 ], [ %flushed.5925, %invoke.cont335 ]
-  %corrupted_wal_number.5 = phi i64 [ %corrupted_wal_number.01263, %invoke.cont323 ], [ %34, %if.end361 ], [ %corrupted_wal_number.01263, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i566 ], [ %corrupted_wal_number.01263, %invoke.cont335 ]
+  %corrupted_wal_number.5 = phi i64 [ %corrupted_wal_number.01215, %invoke.cont323 ], [ %34, %if.end361 ], [ %corrupted_wal_number.01215, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i566 ], [ %corrupted_wal_number.01215, %invoke.cont335 ]
   %stop_replay_for_corruption.10 = phi i8 [ %stop_replay_for_corruption.5.ph, %invoke.cont323 ], [ 1, %if.end361 ], [ %stop_replay_for_corruption.5927, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i566 ], [ %stop_replay_for_corruption.5927, %invoke.cont335 ]
   invoke void @_ZN7rocksdb14FlushScheduler5ClearEv(ptr noundef nonnull align 8 dereferenceable(8) %flush_scheduler_)
           to label %invoke.cont372 unwind label %lpad160.loopexit.split-lp
@@ -15826,10 +15826,10 @@ cleanup316.unreachabledefault:                    ; preds = %_ZNSt10unique_ptrIN
   unreachable
 
 cleanup394:                                       ; preds = %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit, %if.else367, %if.then.i.i618, %invoke.cont353, %if.then.i.i575, %if.then328, %if.then.i.i531, %invoke.cont374, %land.lhs.true377, %if.then383
-  %cleanup.dest.slot.4 = phi i32 [ 0, %invoke.cont374 ], [ 0, %land.lhs.true377 ], [ 0, %if.then383 ], [ 1, %if.then.i.i531 ], [ 1, %if.then328 ], [ 1, %if.then.i.i575 ], [ 1, %invoke.cont353 ], [ 1, %if.then.i.i618 ], [ 1, %if.else367 ], [ %cleanup.dest.slot.3, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
-  %corrupted_wal_number.4 = phi i64 [ %corrupted_wal_number.5, %invoke.cont374 ], [ %corrupted_wal_number.5, %land.lhs.true377 ], [ %corrupted_wal_number.5, %if.then383 ], [ %corrupted_wal_number.01263, %if.then.i.i531 ], [ %corrupted_wal_number.01263, %if.then328 ], [ %corrupted_wal_number.01263, %if.then.i.i575 ], [ %corrupted_wal_number.01263, %invoke.cont353 ], [ %corrupted_wal_number.01263, %if.then.i.i618 ], [ %corrupted_wal_number.01263, %if.else367 ], [ %corrupted_wal_number.01263, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
-  %flushed.9 = phi i8 [ %flushed.5926, %invoke.cont374 ], [ %flushed.5926, %land.lhs.true377 ], [ %flushed.5926, %if.then383 ], [ %flushed.5925, %if.then.i.i531 ], [ %flushed.5925, %if.then328 ], [ %flushed.5925, %if.then.i.i575 ], [ %flushed.5925, %invoke.cont353 ], [ %flushed.5925, %if.then.i.i618 ], [ %flushed.5925, %if.else367 ], [ %flushed.6, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
-  %stop_replay_for_corruption.9 = phi i8 [ %stop_replay_for_corruption.10, %invoke.cont374 ], [ %stop_replay_for_corruption.10, %land.lhs.true377 ], [ %stop_replay_for_corruption.10, %if.then383 ], [ %stop_replay_for_corruption.5927, %if.then.i.i531 ], [ %stop_replay_for_corruption.5927, %if.then328 ], [ %stop_replay_for_corruption.5927, %if.then.i.i575 ], [ %stop_replay_for_corruption.5927, %invoke.cont353 ], [ %stop_replay_for_corruption.5927, %if.then.i.i618 ], [ %stop_replay_for_corruption.5927, %if.else367 ], [ %stop_replay_for_corruption.6, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
+  %cleanup.dest.slot.4 = phi i32 [ 0, %if.then383 ], [ 0, %land.lhs.true377 ], [ 0, %invoke.cont374 ], [ 1, %if.then.i.i531 ], [ 1, %if.then328 ], [ 1, %if.then.i.i575 ], [ 1, %invoke.cont353 ], [ 1, %if.then.i.i618 ], [ 1, %if.else367 ], [ %cleanup.dest.slot.3, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
+  %corrupted_wal_number.4 = phi i64 [ %corrupted_wal_number.5, %if.then383 ], [ %corrupted_wal_number.5, %land.lhs.true377 ], [ %corrupted_wal_number.5, %invoke.cont374 ], [ %corrupted_wal_number.01215, %if.then.i.i531 ], [ %corrupted_wal_number.01215, %if.then328 ], [ %corrupted_wal_number.01215, %if.then.i.i575 ], [ %corrupted_wal_number.01215, %invoke.cont353 ], [ %corrupted_wal_number.01215, %if.then.i.i618 ], [ %corrupted_wal_number.01215, %if.else367 ], [ %corrupted_wal_number.01215, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
+  %flushed.9 = phi i8 [ %flushed.5926, %if.then383 ], [ %flushed.5926, %land.lhs.true377 ], [ %flushed.5926, %invoke.cont374 ], [ %flushed.5925, %if.then.i.i531 ], [ %flushed.5925, %if.then328 ], [ %flushed.5925, %if.then.i.i575 ], [ %flushed.5925, %invoke.cont353 ], [ %flushed.5925, %if.then.i.i618 ], [ %flushed.5925, %if.else367 ], [ %flushed.6, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
+  %stop_replay_for_corruption.9 = phi i8 [ %stop_replay_for_corruption.10, %if.then383 ], [ %stop_replay_for_corruption.10, %land.lhs.true377 ], [ %stop_replay_for_corruption.10, %invoke.cont374 ], [ %stop_replay_for_corruption.5927, %if.then.i.i531 ], [ %stop_replay_for_corruption.5927, %if.then328 ], [ %stop_replay_for_corruption.5927, %if.then.i.i575 ], [ %stop_replay_for_corruption.5927, %invoke.cont353 ], [ %stop_replay_for_corruption.5927, %if.then.i.i618 ], [ %stop_replay_for_corruption.5927, %if.else367 ], [ %stop_replay_for_corruption.6, %_ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EED2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch) #23
   call void @_ZN7rocksdb3log6ReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %reader) #23
   call void @_ZN7rocksdb3log6Reader8ReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reporter) #23
@@ -15837,9 +15837,9 @@ cleanup394:                                       ; preds = %_ZNSt10unique_ptrIN
 
 cleanup400:                                       ; preds = %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit, %cleanup394
   %cleanup.dest.slot.2 = phi i32 [ %cleanup.dest.slot.4, %cleanup394 ], [ %cleanup.dest.slot.1, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ]
-  %corrupted_wal_number.3 = phi i64 [ %corrupted_wal_number.4, %cleanup394 ], [ %corrupted_wal_number.01263, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ]
-  %flushed.3 = phi i8 [ %flushed.9, %cleanup394 ], [ %flushed.01267, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ]
-  %stop_replay_for_corruption.3 = phi i8 [ %stop_replay_for_corruption.9, %cleanup394 ], [ %stop_replay_for_corruption.01268, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ]
+  %corrupted_wal_number.3 = phi i64 [ %corrupted_wal_number.4, %cleanup394 ], [ %corrupted_wal_number.01215, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ]
+  %flushed.3 = phi i8 [ %flushed.9, %cleanup394 ], [ %flushed.01219, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ]
+  %stop_replay_for_corruption.3 = phi i8 [ %stop_replay_for_corruption.9, %cleanup394 ], [ %stop_replay_for_corruption.01220, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ]
   %308 = load ptr, ptr %file_reader, align 8
   %cmp.not.i636 = icmp eq ptr %308, null
   br i1 %cmp.not.i636, label %cleanup402, label %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i
@@ -15858,10 +15858,10 @@ cleanup402:                                       ; preds = %_ZNKSt14default_del
   ]
 
 for.inc406:                                       ; preds = %cleanup402.thread, %cleanup402, %if.then79, %cleanup402
-  %corrupted_wal_number.1 = phi i64 [ %corrupted_wal_number.01263, %if.then79 ], [ %corrupted_wal_number.3, %cleanup402 ], [ %corrupted_wal_number.3, %cleanup402 ], [ %corrupted_wal_number.01263, %cleanup402.thread ]
-  %flushed.1 = phi i8 [ %flushed.01267, %if.then79 ], [ %flushed.3, %cleanup402 ], [ %flushed.3, %cleanup402 ], [ %flushed.01267, %cleanup402.thread ]
-  %stop_replay_for_corruption.1 = phi i8 [ %stop_replay_for_corruption.01268, %if.then79 ], [ %stop_replay_for_corruption.3, %cleanup402 ], [ %stop_replay_for_corruption.3, %cleanup402 ], [ %stop_replay_for_corruption.01268, %cleanup402.thread ]
-  %incdec.ptr.i637 = getelementptr inbounds i8, ptr %__begin168.sroa.0.01262, i64 8
+  %corrupted_wal_number.1 = phi i64 [ %corrupted_wal_number.01215, %if.then79 ], [ %corrupted_wal_number.3, %cleanup402 ], [ %corrupted_wal_number.3, %cleanup402 ], [ %corrupted_wal_number.01215, %cleanup402.thread ]
+  %flushed.1 = phi i8 [ %flushed.01219, %if.then79 ], [ %flushed.3, %cleanup402 ], [ %flushed.3, %cleanup402 ], [ %flushed.01219, %cleanup402.thread ]
+  %stop_replay_for_corruption.1 = phi i8 [ %stop_replay_for_corruption.01220, %if.then79 ], [ %stop_replay_for_corruption.3, %cleanup402 ], [ %stop_replay_for_corruption.3, %cleanup402 ], [ %stop_replay_for_corruption.01220, %cleanup402.thread ]
+  %incdec.ptr.i637 = getelementptr inbounds i8, ptr %__begin168.sroa.0.01214, i64 8
   %cmp.i141.not = icmp eq ptr %incdec.ptr.i637, %33
   br i1 %cmp.i141.not, label %for.end408, label %for.body76
 
@@ -15904,20 +15904,20 @@ invoke.cont431:                                   ; preds = %land.lhs.true412, %
   %312 = load ptr, ptr %column_family_set_.i638, align 8
   %dummy_cfd_.i639 = getelementptr inbounds i8, ptr %312, i64 384
   %313 = load ptr, ptr %dummy_cfd_.i639, align 8
-  %__begin2426.sroa.0.0.in1272 = getelementptr inbounds i8, ptr %313, i64 2480
-  %__begin2426.sroa.0.01273 = load ptr, ptr %__begin2426.sroa.0.0.in1272, align 8
-  %cmp.i642.not1274 = icmp eq ptr %__begin2426.sroa.0.01273, %313
-  br i1 %cmp.i642.not1274, label %if.end470, label %for.body437
+  %__begin2426.sroa.0.0.in1224 = getelementptr inbounds i8, ptr %313, i64 2480
+  %__begin2426.sroa.0.01225 = load ptr, ptr %__begin2426.sroa.0.0.in1224, align 8
+  %cmp.i642.not1226 = icmp eq ptr %__begin2426.sroa.0.01225, %313
+  br i1 %cmp.i642.not1226, label %if.end470, label %for.body437
 
 for.body437:                                      ; preds = %invoke.cont431, %for.inc466
-  %__begin2426.sroa.0.01275 = phi ptr [ %__begin2426.sroa.0.0, %for.inc466 ], [ %__begin2426.sroa.0.01273, %invoke.cont431 ]
-  %log_number_.i643 = getelementptr inbounds i8, ptr %__begin2426.sroa.0.01275, i64 2496
+  %__begin2426.sroa.0.01227 = phi ptr [ %__begin2426.sroa.0.0, %for.inc466 ], [ %__begin2426.sroa.0.01225, %invoke.cont431 ]
+  %log_number_.i643 = getelementptr inbounds i8, ptr %__begin2426.sroa.0.01227, i64 2496
   %314 = load i64, ptr %log_number_.i643, align 8
   %cmp443 = icmp ugt i64 %314, %corrupted_wal_number.1
   br i1 %cmp443, label %land.lhs.true444, label %for.inc466
 
 land.lhs.true444:                                 ; preds = %for.body437
-  %call446 = invoke noundef i64 @_ZNK7rocksdb16ColumnFamilyData19GetLiveSstFilesSizeEv(ptr noundef nonnull align 8 dereferenceable(2656) %__begin2426.sroa.0.01275)
+  %call446 = invoke noundef i64 @_ZNK7rocksdb16ColumnFamilyData19GetLiveSstFilesSizeEv(ptr noundef nonnull align 8 dereferenceable(2656) %__begin2426.sroa.0.01227)
           to label %invoke.cont445 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont445:                                   ; preds = %land.lhs.true444
@@ -15930,7 +15930,7 @@ if.then448:                                       ; preds = %invoke.cont445
           to label %invoke.cont453 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont453:                                   ; preds = %if.then448
-  %name_.i = getelementptr inbounds i8, ptr %__begin2426.sroa.0.01275, i64 8
+  %name_.i = getelementptr inbounds i8, ptr %__begin2426.sroa.0.01227, i64 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp455, ptr noundef nonnull @.str.90, ptr noundef nonnull align 8 dereferenceable(32) %name_.i)
           to label %invoke.cont458 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -15957,13 +15957,13 @@ lpad459:                                          ; preds = %invoke.cont458
   br label %ehcleanup660
 
 for.inc466:                                       ; preds = %for.body437, %invoke.cont445
-  %__begin2426.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2426.sroa.0.01275, i64 2480
+  %__begin2426.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2426.sroa.0.01227, i64 2480
   %__begin2426.sroa.0.0 = load ptr, ptr %__begin2426.sroa.0.0.in, align 8
   %cmp.i642.not = icmp eq ptr %__begin2426.sroa.0.0, %313
   br i1 %cmp.i642.not, label %if.end470, label %for.body437
 
 if.end470:                                        ; preds = %for.inc466, %if.end, %invoke.cont431, %land.lhs.true412, %for.end408
-  %flushed.0.lcssa1337 = phi i8 [ %flushed.1, %invoke.cont431 ], [ %flushed.1, %land.lhs.true412 ], [ %flushed.1, %for.end408 ], [ 0, %if.end ], [ %flushed.1, %for.inc466 ]
+  %flushed.0.lcssa1289 = phi i8 [ %flushed.1, %invoke.cont431 ], [ %flushed.1, %land.lhs.true412 ], [ %flushed.1, %for.end408 ], [ 0, %if.end ], [ %flushed.1, %for.inc466 ]
   br i1 %read_only, label %invoke.cont621, label %invoke.cont484
 
 invoke.cont484:                                   ; preds = %if.end470
@@ -15975,10 +15975,10 @@ invoke.cont484:                                   ; preds = %if.end470
   %319 = load ptr, ptr %column_family_set_.i652, align 8
   %dummy_cfd_.i653 = getelementptr inbounds i8, ptr %319, i64 384
   %320 = load ptr, ptr %dummy_cfd_.i653, align 8
-  %__begin2479.sroa.0.0.in1276 = getelementptr inbounds i8, ptr %320, i64 2480
-  %__begin2479.sroa.0.01277 = load ptr, ptr %__begin2479.sroa.0.0.in1276, align 8
-  %cmp.i656.not1278 = icmp eq ptr %__begin2479.sroa.0.01277, %320
-  br i1 %cmp.i656.not1278, label %invoke.cont553, label %for.body490.lr.ph
+  %__begin2479.sroa.0.0.in1228 = getelementptr inbounds i8, ptr %320, i64 2480
+  %__begin2479.sroa.0.01229 = load ptr, ptr %__begin2479.sroa.0.0.in1228, align 8
+  %cmp.i656.not1230 = icmp eq ptr %__begin2479.sroa.0.01229, %320
+  br i1 %cmp.i656.not1230, label %invoke.cont553, label %for.body490.lr.ph
 
 for.body490.lr.ph:                                ; preds = %invoke.cont484
   %_M_element_count.i.i.i657 = getelementptr inbounds i8, ptr %version_edits, i64 24
@@ -15998,10 +15998,10 @@ for.body490.lr.ph:                                ; preds = %invoke.cont484
   br label %for.body490
 
 for.body490:                                      ; preds = %for.body490.lr.ph, %for.inc549
-  %__begin2479.sroa.0.01281 = phi ptr [ %__begin2479.sroa.0.01277, %for.body490.lr.ph ], [ %__begin2479.sroa.0.0, %for.inc549 ]
-  %flushed.111280 = phi i8 [ %flushed.0.lcssa1337, %for.body490.lr.ph ], [ %flushed.12, %for.inc549 ]
-  %data_seen.11279 = phi i8 [ 0, %for.body490.lr.ph ], [ %data_seen.2, %for.inc549 ]
-  %321 = load i32, ptr %__begin2479.sroa.0.01281, align 8
+  %__begin2479.sroa.0.01233 = phi ptr [ %__begin2479.sroa.0.01229, %for.body490.lr.ph ], [ %__begin2479.sroa.0.0, %for.inc549 ]
+  %flushed.111232 = phi i8 [ %flushed.0.lcssa1289, %for.body490.lr.ph ], [ %flushed.12, %for.inc549 ]
+  %data_seen.11231 = phi i8 [ 0, %for.body490.lr.ph ], [ %data_seen.2, %for.inc549 ]
+  %321 = load i32, ptr %__begin2479.sroa.0.01233, align 8
   %322 = load i64, ptr %_M_element_count.i.i.i657, align 8
   %cmp.not.not.i.i658 = icmp eq i64 %322, 0
   br i1 %cmp.not.not.i.i658, label %for.cond.i.i681, label %if.end15.i.i659
@@ -16056,22 +16056,22 @@ lor.lhs.false.i.i.i.i671:                         ; preds = %if.end3.i.i.i.i668
 invoke.cont498:                                   ; preds = %lor.lhs.false.i.i.i.i671, %if.end3.i.i.i.i668, %for.cond.i.i.i.i677, %for.body.i.i685, %for.cond.i.i681, %if.end.i.i.i.i665, %if.end15.i.i659
   %retval.sroa.0.1.i.i676 = phi ptr [ null, %if.end15.i.i659 ], [ %327, %if.end.i.i.i.i665 ], [ null, %for.cond.i.i681 ], [ %retval.sroa.0.0.i.i683, %for.body.i.i685 ], [ %329, %for.cond.i.i.i.i677 ], [ null, %if.end3.i.i.i.i668 ], [ null, %lor.lhs.false.i.i.i.i671 ]
   %second504 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i676, i64 16
-  %log_number_.i690 = getelementptr inbounds i8, ptr %__begin2479.sroa.0.01281, i64 2496
+  %log_number_.i690 = getelementptr inbounds i8, ptr %__begin2479.sroa.0.01233, i64 2496
   %331 = load i64, ptr %log_number_.i690, align 8
   %cmp507 = icmp ugt i64 %331, %317
   br i1 %cmp507, label %for.inc549, label %if.end509
 
 if.end509:                                        ; preds = %invoke.cont498
-  %mem_.i691 = getelementptr inbounds i8, ptr %__begin2479.sroa.0.01281, i64 2400
+  %mem_.i691 = getelementptr inbounds i8, ptr %__begin2479.sroa.0.01233, i64 2400
   %332 = load ptr, ptr %mem_.i691, align 8
   %first_seqno_.i = getelementptr inbounds i8, ptr %332, i64 3224
   %333 = load atomic i64, ptr %first_seqno_.i monotonic, align 8
   %cmp514.not = icmp eq i64 %333, 0
-  %.pre1333 = trunc nuw i8 %flushed.111280 to i1
+  %.pre1285 = trunc nuw i8 %flushed.111232 to i1
   br i1 %cmp514.not, label %if.end538, label %if.then515
 
 if.then515:                                       ; preds = %if.end509
-  br i1 %.pre1333, label %if.then520, label %lor.lhs.false517
+  br i1 %.pre1285, label %if.then520, label %lor.lhs.false517
 
 lor.lhs.false517:                                 ; preds = %if.then515
   %334 = load i8, ptr %avoid_flush_during_recovery, align 2
@@ -16079,7 +16079,7 @@ lor.lhs.false517:                                 ; preds = %if.then515
   br i1 %tobool519, label %lor.lhs.false540, label %if.then520
 
 if.then520:                                       ; preds = %lor.lhs.false517, %if.then515
-  invoke void @_ZN7rocksdb6DBImpl27WriteLevel0TableForRecoveryEiPNS_16ColumnFamilyDataEPNS_8MemTableEPNS_11VersionEditE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp521, ptr noundef nonnull align 64 dereferenceable(6660) %this, i32 noundef %7, ptr noundef nonnull %__begin2479.sroa.0.01281, ptr noundef nonnull %332, ptr noundef nonnull %second504)
+  invoke void @_ZN7rocksdb6DBImpl27WriteLevel0TableForRecoveryEiPNS_16ColumnFamilyDataEPNS_8MemTableEPNS_11VersionEditE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp521, ptr noundef nonnull align 64 dereferenceable(6660) %this, i32 noundef %7, ptr noundef nonnull %__begin2479.sroa.0.01233, ptr noundef nonnull %332, ptr noundef nonnull %second504)
           to label %invoke.cont524 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont524:                                   ; preds = %if.then520
@@ -16127,25 +16127,25 @@ invoke.cont526:                                   ; preds = %invoke.cont524, %_Z
   br i1 %cmp.i716, label %if.end529, label %if.end645
 
 if.end529:                                        ; preds = %invoke.cont526
-  %mutable_cf_options_.i717 = getelementptr inbounds i8, ptr %__begin2479.sroa.0.01281, i64 1792
+  %mutable_cf_options_.i717 = getelementptr inbounds i8, ptr %__begin2479.sroa.0.01233, i64 1792
   %344 = load ptr, ptr %versions_, align 8
   %last_sequence_.i718 = getelementptr inbounds i8, ptr %344, i64 264
   %345 = load atomic i64, ptr %last_sequence_.i718 acquire, align 8
-  invoke void @_ZN7rocksdb16ColumnFamilyData17CreateNewMemtableERKNS_16MutableCFOptionsEm(ptr noundef nonnull align 8 dereferenceable(2656) %__begin2479.sroa.0.01281, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options_.i717, i64 noundef %345)
+  invoke void @_ZN7rocksdb16ColumnFamilyData17CreateNewMemtableERKNS_16MutableCFOptionsEm(ptr noundef nonnull align 8 dereferenceable(2656) %__begin2479.sroa.0.01233, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options_.i717, i64 noundef %345)
           to label %if.then546 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end538:                                        ; preds = %if.end509
-  br i1 %.pre1333, label %if.then546, label %lor.lhs.false540
+  br i1 %.pre1285, label %if.then546, label %lor.lhs.false540
 
 lor.lhs.false540:                                 ; preds = %lor.lhs.false517, %if.end538
-  %data_seen.31340 = phi i8 [ %data_seen.11279, %if.end538 ], [ 1, %lor.lhs.false517 ]
+  %data_seen.31292 = phi i8 [ %data_seen.11231, %if.end538 ], [ 1, %lor.lhs.false517 ]
   %346 = load atomic i64, ptr %first_seqno_.i monotonic, align 8
   %cmp545 = icmp eq i64 %346, 0
   br i1 %cmp545, label %if.then546, label %for.inc549
 
 if.then546:                                       ; preds = %if.end529, %lor.lhs.false540, %if.end538
-  %flushed.13950 = phi i8 [ %flushed.111280, %lor.lhs.false540 ], [ %flushed.111280, %if.end538 ], [ 1, %if.end529 ]
-  %data_seen.3949 = phi i8 [ %data_seen.31340, %lor.lhs.false540 ], [ %data_seen.11279, %if.end538 ], [ 1, %if.end529 ]
+  %flushed.13950 = phi i8 [ %flushed.111232, %lor.lhs.false540 ], [ %flushed.111232, %if.end538 ], [ 1, %if.end529 ]
+  %data_seen.3949 = phi i8 [ %data_seen.31292, %lor.lhs.false540 ], [ %data_seen.11231, %if.end538 ], [ 1, %if.end529 ]
   %has_log_number_.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i676, i64 138
   store i8 1, ptr %has_log_number_.i, align 2
   %log_number_.i721 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i676, i64 88
@@ -16153,16 +16153,16 @@ if.then546:                                       ; preds = %if.end529, %lor.lhs
   br label %for.inc549
 
 for.inc549:                                       ; preds = %lor.lhs.false540, %if.then546, %invoke.cont498
-  %data_seen.2 = phi i8 [ %data_seen.11279, %invoke.cont498 ], [ %data_seen.3949, %if.then546 ], [ %data_seen.31340, %lor.lhs.false540 ]
-  %flushed.12 = phi i8 [ %flushed.111280, %invoke.cont498 ], [ %flushed.13950, %if.then546 ], [ %flushed.111280, %lor.lhs.false540 ]
-  %__begin2479.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2479.sroa.0.01281, i64 2480
+  %data_seen.2 = phi i8 [ %data_seen.11231, %invoke.cont498 ], [ %data_seen.3949, %if.then546 ], [ %data_seen.31292, %lor.lhs.false540 ]
+  %flushed.12 = phi i8 [ %flushed.111232, %invoke.cont498 ], [ %flushed.13950, %if.then546 ], [ %flushed.111232, %lor.lhs.false540 ]
+  %__begin2479.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2479.sroa.0.01233, i64 2480
   %__begin2479.sroa.0.0 = load ptr, ptr %__begin2479.sroa.0.0.in, align 8
   %cmp.i656.not = icmp eq ptr %__begin2479.sroa.0.0, %320
   br i1 %cmp.i656.not, label %invoke.cont553, label %for.body490
 
 invoke.cont553:                                   ; preds = %for.inc549, %invoke.cont484
   %data_seen.1.lcssa = phi i8 [ 0, %invoke.cont484 ], [ %data_seen.2, %for.inc549 ]
-  %flushed.11.lcssa = phi i8 [ %flushed.0.lcssa1337, %invoke.cont484 ], [ %flushed.12, %for.inc549 ]
+  %flushed.11.lcssa = phi i8 [ %flushed.0.lcssa1289, %invoke.cont484 ], [ %flushed.12, %for.inc549 ]
   %.pr951 = load i8, ptr %status, align 8
   %cmp.i723 = icmp eq i8 %.pr951, 0
   br i1 %cmp.i723, label %if.then555, label %if.end645
@@ -16325,7 +16325,7 @@ invoke.cont616:                                   ; preds = %invoke.cont614
 
 invoke.cont621:                                   ; preds = %if.end470, %lor.lhs.false593, %invoke.cont616
   %data_seen.0.ph = phi i8 [ %data_seen.1.lcssa, %lor.lhs.false593 ], [ %data_seen.1.lcssa, %invoke.cont616 ], [ 0, %if.end470 ]
-  %flushed.10.ph = phi i8 [ %flushed.11.lcssa, %lor.lhs.false593 ], [ %flushed.11.lcssa, %invoke.cont616 ], [ %flushed.0.lcssa1337, %if.end470 ]
+  %flushed.10.ph = phi i8 [ %flushed.11.lcssa, %lor.lhs.false593 ], [ %flushed.11.lcssa, %invoke.cont616 ], [ %flushed.0.lcssa1289, %if.end470 ]
   %.pr953 = load i8, ptr %status, align 8
   %cmp.i785 = icmp eq i8 %.pr953, 0
   br i1 %cmp.i785, label %if.then623, label %if.end645

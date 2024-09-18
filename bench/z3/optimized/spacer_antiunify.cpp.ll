@@ -927,8 +927,8 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit: ; preds = %lor.lhs.fals
   %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %11 = load ptr, ptr %m_todo, align 8
-  %cmp.i20477 = icmp eq ptr %11, null
-  br i1 %cmp.i20477, label %while.end, label %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit.lr.ph
+  %cmp.i20475 = icmp eq ptr %11, null
+  br i1 %cmp.i20475, label %while.end, label %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit.lr.ph
 
 _ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit.lr.ph: ; preds = %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit
   %m_manager.i = getelementptr inbounds i8, ptr %v, i64 8
@@ -1139,8 +1139,8 @@ _ZNK6vectorISt4pairIP4exprS2_ELb0EjE4sizeEv.exit71: ; preds = %_ZN6vectorISt4pai
   store ptr %m_initial_buffer.i.i, ptr %kids, align 8
   store i32 0, ptr %m_pos.i.i, align 8
   store i32 16, ptr %m_capacity.i.i, align 4
-  %cmp39474.not = icmp eq i32 %18, 0
-  br i1 %cmp39474.not, label %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE4sizeEv.exit150, label %for.body.lr.ph
+  %cmp39473.not = icmp eq i32 %18, 0
+  br i1 %cmp39473.not, label %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE4sizeEv.exit150, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE4sizeEv.exit71
   %m_args.i = getelementptr inbounds i8, ptr %16, i64 32
@@ -1760,7 +1760,7 @@ _ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i.i.
   br i1 %cmp.not15.i.i.i, label %while.cond.i.i.i.preheader, label %if.then.i.i.i.i296
 
 while.cond.i.i.i.preheader:                       ; preds = %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.i.i.i, %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i.i.i
-  %.ph520 = phi ptr [ %130, %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i.i.i ], [ null, %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.i.i.i ]
+  %.ph517 = phi ptr [ %130, %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i.i.i ], [ null, %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.i.i.i ]
   %retval.0.i16.i.i.i.ph = phi i32 [ %131, %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i.i.i ], [ 0, %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.i.i.i ]
   br label %while.cond.i.i.i
 
@@ -1769,7 +1769,7 @@ if.then.i.i.i.i296:                               ; preds = %_ZNK6vectorIN14var_
   br label %_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE6resizeEj.exit.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.body.i.i.i
-  %132 = phi ptr [ %.pr.pre.i.i.i, %while.body.i.i.i ], [ %.ph520, %while.cond.i.i.i.preheader ]
+  %132 = phi ptr [ %.pr.pre.i.i.i, %while.body.i.i.i ], [ %.ph517, %while.cond.i.i.i.preheader ]
   %cmp.i10.i.i.i = icmp eq ptr %132, null
   br i1 %cmp.i10.i.i.i, label %while.body.i.i.i, label %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i
 
@@ -1981,8 +1981,8 @@ _ZN12substitution7reserveEjj.exit363:             ; preds = %if.end.i.i312, %for
 _ZNK6vectorISt4pairIP4exprS2_ELb0EjE4sizeEv.exit368: ; preds = %_ZN12substitution7reserveEjj.exit363
   %arrayidx.i366 = getelementptr inbounds i8, ptr %152, i64 -4
   %153 = load i32, ptr %arrayidx.i366, align 4
-  %cmp107479.not = icmp eq i32 %153, 0
-  br i1 %cmp107479.not, label %for.end118, label %for.body108.lr.ph
+  %cmp107476.not = icmp eq i32 %153, 0
+  br i1 %cmp107476.not, label %for.end118, label %for.body108.lr.ph
 
 for.body108.lr.ph:                                ; preds = %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE4sizeEv.exit368
   %m_vars.i = getelementptr inbounds i8, ptr %s1, i64 32
@@ -1991,13 +1991,13 @@ for.body108.lr.ph:                                ; preds = %_ZNK6vectorISt4pair
   %m_vars.i394 = getelementptr inbounds i8, ptr %s2, i64 32
   %m_nodes.i.i411 = getelementptr inbounds i8, ptr %s2, i64 48
   %m_state.i428 = getelementptr inbounds i8, ptr %s2, i64 120
-  %wide.trip.count495 = zext i32 %153 to i64
+  %wide.trip.count492 = zext i32 %153 to i64
   br label %for.body108
 
 for.body108:                                      ; preds = %for.body108.lr.ph, %_ZN12substitution6insertEjjRK11expr_offset.exit437
-  %indvars.iv492 = phi i64 [ 0, %for.body108.lr.ph ], [ %indvars.iv.next493, %_ZN12substitution6insertEjjRK11expr_offset.exit437 ]
+  %indvars.iv489 = phi i64 [ 0, %for.body108.lr.ph ], [ %indvars.iv.next490, %_ZN12substitution6insertEjjRK11expr_offset.exit437 ]
   %154 = load ptr, ptr %m_subs99, align 8
-  %arrayidx.i370 = getelementptr inbounds %"struct.std::pair", ptr %154, i64 %indvars.iv492
+  %arrayidx.i370 = getelementptr inbounds %"struct.std::pair", ptr %154, i64 %indvars.iv489
   %p109.sroa.0.0.copyload = load ptr, ptr %arrayidx.i370, align 8
   %p109.sroa.2.0.call111.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i370, i64 8
   %p109.sroa.2.0.copyload = load ptr, ptr %p109.sroa.2.0.call111.sroa_idx, align 8
@@ -2025,7 +2025,7 @@ _ZN6vectorISt4pairIjjELb0EjE9push_backEOS1_.exit.i: ; preds = %if.then.i.i389, %
   %159 = phi ptr [ %.pre.i.i390, %if.then.i.i389 ], [ %155, %lor.lhs.false.i.i372 ]
   %idx.ext.i.i376 = zext i32 %158 to i64
   %add.ptr.i.i377 = getelementptr inbounds %"struct.std::pair.63", ptr %159, i64 %idx.ext.i.i376
-  store i64 %indvars.iv492, ptr %add.ptr.i.i377, align 4
+  store i64 %indvars.iv489, ptr %add.ptr.i.i377, align 4
   %160 = load ptr, ptr %m_vars.i, align 8
   %arrayidx10.i.i378 = getelementptr inbounds i8, ptr %160, i64 -4
   %161 = load i32, ptr %arrayidx10.i.i378, align 4
@@ -2073,7 +2073,7 @@ _ZN12substitution6insertEjjRK11expr_offset.exit:  ; preds = %lor.lhs.false.i.i.i
   %inc.i.i.i384 = add i32 %169, 1
   store i32 %inc.i.i.i384, ptr %arrayidx10.i.i.i, align 4
   %170 = load ptr, ptr %m_subst.i, align 8
-  %arrayidx.i.i2.i = getelementptr inbounds %"struct.var_offset_map<expr_offset>::data", ptr %170, i64 %indvars.iv492
+  %arrayidx.i.i2.i = getelementptr inbounds %"struct.var_offset_map<expr_offset>::data", ptr %170, i64 %indvars.iv489
   store ptr %p109.sroa.0.0.copyload, ptr %arrayidx.i.i2.i, align 8
   %ref.tmp112.sroa.3.0.arrayidx.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i2.i, i64 8
   store i32 1, ptr %ref.tmp112.sroa.3.0.arrayidx.i.i2.i.sroa_idx, align 8
@@ -2105,7 +2105,7 @@ _ZN6vectorISt4pairIjjELb0EjE9push_backEOS1_.exit.i400: ; preds = %if.then.i.i433
   %176 = phi ptr [ %.pre.i.i434, %if.then.i.i433 ], [ %172, %lor.lhs.false.i.i396 ]
   %idx.ext.i.i401 = zext i32 %175 to i64
   %add.ptr.i.i402 = getelementptr inbounds %"struct.std::pair.63", ptr %176, i64 %idx.ext.i.i401
-  store i64 %indvars.iv492, ptr %add.ptr.i.i402, align 4
+  store i64 %indvars.iv489, ptr %add.ptr.i.i402, align 4
   %177 = load ptr, ptr %m_vars.i394, align 8
   %arrayidx10.i.i404 = getelementptr inbounds i8, ptr %177, i64 -4
   %178 = load i32, ptr %arrayidx10.i.i404, align 4
@@ -2153,7 +2153,7 @@ _ZN12substitution6insertEjjRK11expr_offset.exit437: ; preds = %lor.lhs.false.i.i
   %inc.i.i.i420 = add i32 %186, 1
   store i32 %inc.i.i.i420, ptr %arrayidx10.i.i.i419, align 4
   %187 = load ptr, ptr %m_subst.i306, align 8
-  %arrayidx.i.i2.i425 = getelementptr inbounds %"struct.var_offset_map<expr_offset>::data", ptr %187, i64 %indvars.iv492
+  %arrayidx.i.i2.i425 = getelementptr inbounds %"struct.var_offset_map<expr_offset>::data", ptr %187, i64 %indvars.iv489
   store ptr %p109.sroa.2.0.copyload, ptr %arrayidx.i.i2.i425, align 8
   %ref.tmp114.sroa.3.0.arrayidx.i.i2.i425.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i2.i425, i64 8
   store i32 1, ptr %ref.tmp114.sroa.3.0.arrayidx.i.i2.i425.sroa_idx, align 8
@@ -2161,9 +2161,9 @@ _ZN12substitution6insertEjjRK11expr_offset.exit437: ; preds = %lor.lhs.false.i.i
   %m_timestamp2.i.i427 = getelementptr inbounds i8, ptr %arrayidx.i.i2.i425, i64 16
   store i32 %188, ptr %m_timestamp2.i.i427, align 8
   store i32 2, ptr %m_state.i428, align 8
-  %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 1
-  %exitcond496.not = icmp eq i64 %indvars.iv.next493, %wide.trip.count495
-  br i1 %exitcond496.not, label %for.end118, label %for.body108, !llvm.loop !15
+  %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
+  %exitcond493.not = icmp eq i64 %indvars.iv.next490, %wide.trip.count492
+  br i1 %exitcond493.not, label %for.end118, label %for.body108, !llvm.loop !15
 
 for.end118:                                       ; preds = %_ZN12substitution6insertEjjRK11expr_offset.exit437, %_ZN12substitution7reserveEjj.exit363, %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE4sizeEv.exit368, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
   ret void

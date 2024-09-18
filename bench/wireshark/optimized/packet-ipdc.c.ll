@@ -613,13 +613,13 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %54 = tail call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef 12, i32 noundef %52, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.116) #3
   %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #3
   %56 = icmp eq i8 %55, 0
-  br i1 %56, label %._crit_edge18.i, label %.lr.ph17.i
+  br i1 %56, label %._crit_edge17.i, label %.lr.ph16.i
 
-.lr.ph17.i:                                       ; preds = %28
+.lr.ph16.i:                                       ; preds = %28
   %57 = getelementptr inbounds i8, ptr %1, i64 408
   br label %64
 
-._crit_edge18.i:                                  ; preds = %.loopexit.i, %28
+._crit_edge17.i:                                  ; preds = %.loopexit.i, %28
   %.lcssa4.i = phi i32 [ 12, %28 ], [ %181, %.loopexit.i ]
   %58 = add nsw i32 %9, -1
   %59 = icmp eq i32 %.lcssa4.i, %58
@@ -632,9 +632,9 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %63 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %dissect_ipdc_common.exit
 
-64:                                               ; preds = %.loopexit.i, %.lr.ph17.i
-  %.in.i = phi i8 [ %55, %.lr.ph17.i ], [ %182, %.loopexit.i ]
-  %65 = phi i32 [ 12, %.lr.ph17.i ], [ %181, %.loopexit.i ]
+64:                                               ; preds = %.loopexit.i, %.lr.ph16.i
+  %.in.i = phi i8 [ %55, %.lr.ph16.i ], [ %182, %.loopexit.i ]
+  %65 = phi i32 [ 12, %.lr.ph16.i ], [ %181, %.loopexit.i ]
   %66 = zext i8 %.in.i to i32
   %67 = add nuw nsw i32 %65, 1
   %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %67) #3
@@ -688,8 +688,8 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %88
-  %.not21.i = icmp eq i8 %68, 0
-  br i1 %.not21.i, label %._crit_edge.thread.i, label %.lr.ph13.i
+  %.not20.i = icmp eq i8 %68, 0
+  br i1 %.not20.i, label %._crit_edge.thread.i, label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %.preheader.i
   %90 = add nuw nsw i32 %65, 2
@@ -709,8 +709,8 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %98 = fptoui double %exp2.i to i32
   %99 = mul i32 %98, %94
   %100 = add i32 %99, %.021711.i
-  %exitcond24.not.i = icmp eq i32 %95, %69
-  br i1 %exitcond24.not.i, label %._crit_edge.i, label %91, !llvm.loop !6
+  %exitcond23.not.i = icmp eq i32 %95, %69
+  br i1 %exitcond23.not.i, label %._crit_edge.i, label %91, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %91
   %101 = icmp eq i8 %68, 1
@@ -730,10 +730,10 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit.i
 
 ._crit_edge.thread.i:                             ; preds = %102, %._crit_edge.i, %.preheader.i
-  %.0217.lcssa26.i = phi i32 [ %100, %._crit_edge.i ], [ %100, %102 ], [ 0, %.preheader.i ]
+  %.0217.lcssa25.i = phi i32 [ %100, %._crit_edge.i ], [ %100, %102 ], [ 0, %.preheader.i ]
   %110 = load i32, ptr @hf_ipdc_uint, align 4
   %111 = add nuw nsw i32 %69, 2
-  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %54, i32 noundef %110, ptr noundef %0, i32 noundef %65, i32 noundef %111, i32 noundef %.0217.lcssa26.i, ptr noundef nonnull @.str.118, ptr noundef %70, i32 noundef %66, i32 noundef %.0217.lcssa26.i) #3
+  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %54, i32 noundef %110, ptr noundef %0, i32 noundef %65, i32 noundef %111, i32 noundef %.0217.lcssa25.i, ptr noundef nonnull @.str.118, ptr noundef %70, i32 noundef %66, i32 noundef %.0217.lcssa25.i) #3
   br label %.loopexit.i
 
 113:                                              ; preds = %.critedge.i
@@ -777,8 +777,8 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %140 = load i32, ptr @hf_ipdc_line_status, align 4
   %141 = load i32, ptr @hf_ipdc_channel_status, align 4
   %142 = select i1 %138, i32 %140, i32 %141
-  %.not20.i = icmp eq i8 %68, 0
-  br i1 %.not20.i, label %.loopexit.i, label %.lr.ph10.i
+  %.not19.i = icmp eq i8 %68, 0
+  br i1 %.not19.i, label %.loopexit.i, label %.lr.ph10.i
 
 .lr.ph10.i:                                       ; preds = %134
   %143 = add nuw nsw i32 %65, 2
@@ -837,10 +837,10 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %181 = and i32 %180, 65535
   %182 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %181) #3
   %183 = icmp eq i8 %182, 0
-  br i1 %183, label %._crit_edge18.i, label %64
+  br i1 %183, label %._crit_edge17.i, label %64
 
-dissect_ipdc_common.exit:                         ; preds = %16, %._crit_edge18.i
-  %.0212.i = phi i32 [ 4, %16 ], [ %63, %._crit_edge18.i ]
+dissect_ipdc_common.exit:                         ; preds = %16, %._crit_edge17.i
+  %.0212.i = phi i32 [ 4, %16 ], [ %63, %._crit_edge17.i ]
   ret i32 %.0212.i
 }
 

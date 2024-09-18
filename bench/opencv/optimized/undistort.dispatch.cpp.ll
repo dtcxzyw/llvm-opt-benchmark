@@ -5645,9 +5645,9 @@ _ZN2cv4MatxIdLi3ELi3EE3eyeEv.exit325:             ; preds = %71
   %305 = add i32 %261, -1
   %306 = add i32 %305, %304
   %307 = icmp sgt i32 %306, 0
-  br i1 %307, label %.lr.ph374, label %._crit_edge
+  br i1 %307, label %.lr.ph362, label %._crit_edge
 
-.lr.ph374:                                        ; preds = %293
+.lr.ph362:                                        ; preds = %293
   %308 = icmp eq i32 %258, 13
   %309 = getelementptr inbounds i8, ptr %34, i64 8
   %310 = getelementptr inbounds i8, ptr %34, i64 16
@@ -5686,8 +5686,8 @@ _ZN2cv4MatxIdLi3ELi3EE3eyeEv.exit325:             ; preds = %71
   %wide.trip.count = zext nneg i32 %306 to i64
   br label %334
 
-334:                                              ; preds = %.lr.ph374, %496
-  %indvars.iv = phi i64 [ 0, %.lr.ph374 ], [ %indvars.iv.next, %496 ]
+334:                                              ; preds = %.lr.ph362, %496
+  %indvars.iv = phi i64 [ 0, %.lr.ph362 ], [ %indvars.iv.next, %496 ]
   %335 = mul nsw i64 %indvars.iv, %277
   br i1 %308, label %336, label %343
 
@@ -5778,12 +5778,12 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   br label %382
 
 382:                                              ; preds = %.lr.ph, %462
-  %.2252359 = phi double [ %366, %.lr.ph ], [ %411, %462 ]
-  %.2255358 = phi double [ %367, %.lr.ph ], [ %413, %462 ]
-  %.0256357 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.1257, %462 ]
-  %.0258356 = phi i32 [ 0, %.lr.ph ], [ %463, %462 ]
-  %383 = fmul double %.2255358, %.2255358
-  %384 = call double @llvm.fmuladd.f64(double %.2252359, double %.2252359, double %383)
+  %.2252356 = phi double [ %366, %.lr.ph ], [ %411, %462 ]
+  %.2255355 = phi double [ %367, %.lr.ph ], [ %413, %462 ]
+  %.0256354 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.1257, %462 ]
+  %.0258353 = phi i32 [ 0, %.lr.ph ], [ %463, %462 ]
+  %383 = fmul double %.2255355, %.2255355
+  %384 = call double @llvm.fmuladd.f64(double %.2252356, double %.2252356, double %383)
   %385 = call double @llvm.fmuladd.f64(double %368, double %384, double %369)
   %386 = call double @llvm.fmuladd.f64(double %385, double %384, double %370)
   %387 = call double @llvm.fmuladd.f64(double %386, double %384, double 1.000000e+00)
@@ -5795,18 +5795,18 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   br i1 %392, label %.loopexit, label %393
 
 393:                                              ; preds = %382
-  %394 = fmul double %.2252359, %375
-  %395 = fmul double %.2252359, 2.000000e+00
-  %396 = call double @llvm.fmuladd.f64(double %395, double %.2252359, double %384)
+  %394 = fmul double %.2252356, %375
+  %395 = fmul double %.2252356, 2.000000e+00
+  %396 = call double @llvm.fmuladd.f64(double %395, double %.2252356, double %384)
   %397 = fmul double %396, %376
-  %398 = call double @llvm.fmuladd.f64(double %394, double %.2255358, double %397)
+  %398 = call double @llvm.fmuladd.f64(double %394, double %.2255355, double %397)
   %399 = call double @llvm.fmuladd.f64(double %377, double %384, double %398)
   %400 = fmul double %384, %378
   %401 = call double @llvm.fmuladd.f64(double %400, double %384, double %399)
-  %402 = fmul double %.2255358, 2.000000e+00
-  %403 = call double @llvm.fmuladd.f64(double %402, double %.2255358, double %384)
-  %404 = fmul double %.2252359, %379
-  %405 = fmul double %.2255358, %404
+  %402 = fmul double %.2255355, 2.000000e+00
+  %403 = call double @llvm.fmuladd.f64(double %402, double %.2255355, double %384)
+  %404 = fmul double %.2252356, %379
+  %405 = fmul double %.2255355, %404
   %406 = call double @llvm.fmuladd.f64(double %374, double %403, double %405)
   %407 = call double @llvm.fmuladd.f64(double %380, double %384, double %406)
   %408 = fmul double %384, %381
@@ -5898,8 +5898,8 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   br label %462
 
 462:                                              ; preds = %393, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit335
-  %.1257 = phi double [ %.0256357, %393 ], [ %sqrt, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit335 ]
-  %463 = add nuw nsw i32 %.0258356, 1
+  %.1257 = phi double [ %sqrt, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit335 ], [ %.0256354, %393 ]
+  %463 = add nuw nsw i32 %.0258353, 1
   %.not301 = icmp sge i32 %463, %39
   %or.cond313.not347 = select i1 %.not.i, i1 %.not301, i1 false
   %464 = fcmp olt double %.1257, %44

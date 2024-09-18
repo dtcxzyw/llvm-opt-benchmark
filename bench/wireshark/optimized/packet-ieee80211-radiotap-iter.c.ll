@@ -509,8 +509,8 @@ find_ns.exit:                                     ; preds = %163
   br i1 %.not124.not, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %195, %.critedge, %.critedge131
-  %.pre.be = phi i32 [ %71, %.critedge131 ], [ %201, %.critedge ], [ %197, %195 ]
-  %.be = phi i32 [ %72, %.critedge131 ], [ %spec.select169, %.critedge ], [ %198, %195 ]
+  %.pre.be = phi i32 [ %197, %195 ], [ %201, %.critedge ], [ %71, %.critedge131 ]
+  %.be = phi i32 [ %198, %195 ], [ %spec.select169, %.critedge ], [ %72, %.critedge131 ]
   br label %.backedge
 
 199:                                              ; preds = %194

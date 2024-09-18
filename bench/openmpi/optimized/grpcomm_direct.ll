@@ -1914,9 +1914,9 @@ define internal void @allgather_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32
   call void @PMIx_Data_buffer_destruct(ptr noundef nonnull %12) #10
   %78 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %78, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph403
+  br i1 %.not, label %._crit_edge, label %.lr.ph401
 
-.lr.ph403:                                        ; preds = %77
+.lr.ph401:                                        ; preds = %77
   %79 = getelementptr inbounds i8, ptr %38, i64 376
   %80 = getelementptr inbounds i8, ptr %38, i64 504
   %81 = getelementptr inbounds i8, ptr %38, i64 520
@@ -1925,10 +1925,10 @@ define internal void @allgather_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32
   %84 = getelementptr inbounds i8, ptr %38, i64 244
   br label %85
 
-85:                                               ; preds = %.lr.ph403, %.loopexit
-  %.0301401 = phi i1 [ false, %.lr.ph403 ], [ %.1302, %.loopexit ]
-  %.0304400 = phi i64 [ 0, %.lr.ph403 ], [ %279, %.loopexit ]
-  %86 = getelementptr inbounds %struct.pmix_info, ptr %.0297, i64 %.0304400
+85:                                               ; preds = %.lr.ph401, %.loopexit
+  %.0301400 = phi i1 [ false, %.lr.ph401 ], [ %.1302, %.loopexit ]
+  %.0304399 = phi i64 [ 0, %.lr.ph401 ], [ %279, %.loopexit ]
+  %86 = getelementptr inbounds %struct.pmix_info, ptr %.0297, i64 %.0304399
   %87 = call zeroext i1 @PMIx_Check_key(ptr noundef %86, ptr noundef nonnull @.str.15) #10
   br i1 %87, label %88, label %159
 
@@ -2245,8 +2245,8 @@ define internal void @allgather_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds i8, ptr %248, i64 8
   %252 = load i64, ptr %251, align 8
-  %.not411 = icmp eq i64 %252, 0
-  br i1 %.not411, label %.loopexit, label %.lr.ph
+  %.not409 = icmp eq i64 %252, 0
+  br i1 %.not409, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %246, %pmix_obj_new_tma.exit
   %.0303398 = phi i64 [ %278, %pmix_obj_new_tma.exit ], [ 0, %246 ]
@@ -2309,8 +2309,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %258, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %pmix_obj_new_tma.exit, %246, %156, %239, %244, %230
-  %.1302 = phi i1 [ %.0301401, %156 ], [ %.0301401, %230 ], [ %237, %239 ], [ %.0301401, %244 ], [ %.0301401, %246 ], [ %.0301401, %pmix_obj_new_tma.exit ]
-  %279 = add nuw i64 %.0304400, 1
+  %.1302 = phi i1 [ %.0301400, %156 ], [ %.0301400, %230 ], [ %237, %239 ], [ %.0301400, %244 ], [ %.0301400, %246 ], [ %.0301400, %pmix_obj_new_tma.exit ]
+  %279 = add nuw i64 %.0304399, 1
   %280 = load i64, ptr %7, align 8
   %281 = icmp ult i64 %279, %280
   br i1 %281, label %85, label %._crit_edge, !llvm.loop !12
@@ -2489,23 +2489,23 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %258, %
   %363 = call ptr @PMIx_Proc_create(i64 noundef %362) #10
   %364 = getelementptr inbounds i8, ptr %38, i64 376
   %365 = getelementptr inbounds i8, ptr %38, i64 496
-  %.0300404 = load ptr, ptr %365, align 8
-  %.not361405 = icmp eq ptr %.0300404, %364
-  br i1 %.not361405, label %._crit_edge410, label %.lr.ph409
+  %.0300402 = load ptr, ptr %365, align 8
+  %.not361403 = icmp eq ptr %.0300402, %364
+  br i1 %.not361403, label %._crit_edge408, label %.lr.ph407
 
-.lr.ph409:                                        ; preds = %361, %.lr.ph409
-  %.0300407 = phi ptr [ %.0300, %.lr.ph409 ], [ %.0300404, %361 ]
-  %.1305406 = phi i64 [ %368, %.lr.ph409 ], [ 0, %361 ]
-  %366 = getelementptr inbounds %struct.pmix_proc, ptr %363, i64 %.1305406
-  %367 = getelementptr inbounds i8, ptr %.0300407, i64 144
+.lr.ph407:                                        ; preds = %361, %.lr.ph407
+  %.0300405 = phi ptr [ %.0300, %.lr.ph407 ], [ %.0300402, %361 ]
+  %.1305404 = phi i64 [ %368, %.lr.ph407 ], [ 0, %361 ]
+  %366 = getelementptr inbounds %struct.pmix_proc, ptr %363, i64 %.1305404
+  %367 = getelementptr inbounds i8, ptr %.0300405, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %366, ptr noundef nonnull align 8 dereferenceable(260) %367, i64 260, i1 false)
-  %368 = add i64 %.1305406, 1
-  %369 = getelementptr inbounds i8, ptr %.0300407, i64 120
+  %368 = add i64 %.1305404, 1
+  %369 = getelementptr inbounds i8, ptr %.0300405, i64 120
   %.0300 = load ptr, ptr %369, align 8
   %.not361 = icmp eq ptr %.0300, %364
-  br i1 %.not361, label %._crit_edge410, label %.lr.ph409, !llvm.loop !13
+  br i1 %.not361, label %._crit_edge408, label %.lr.ph407, !llvm.loop !13
 
-._crit_edge410:                                   ; preds = %.lr.ph409, %361
+._crit_edge408:                                   ; preds = %.lr.ph407, %361
   store i16 22, ptr %8, align 8
   %370 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %363, ptr %370, align 8
@@ -2520,12 +2520,12 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %258, %
     i32 -2, label %376
   ]
 
-374:                                              ; preds = %._crit_edge410
+374:                                              ; preds = %._crit_edge408
   %375 = call ptr @PMIx_Error_string(i32 noundef %373) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %375, ptr noundef nonnull @.str.1, i32 noundef 381) #10
   br label %376
 
-376:                                              ; preds = %._crit_edge410, %374
+376:                                              ; preds = %._crit_edge408, %374
   call void @PMIx_Data_buffer_release(ptr noundef %321) #10
   call void @PMIx_Data_buffer_destruct(ptr noundef nonnull %12) #10
   %377 = load ptr, ptr %31, align 8
@@ -2533,7 +2533,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %258, %
   call void @PMIx_Proc_free(ptr noundef %377, i64 noundef %378) #10
   br label %465
 
-379:                                              ; preds = %._crit_edge410, %358
+379:                                              ; preds = %._crit_edge408, %358
   %380 = getelementptr inbounds i8, ptr %11, i64 8
   call void @PMIx_Data_buffer_unload(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %380) #10
   call void @PMIx_Data_buffer_destruct(ptr noundef nonnull %12) #10

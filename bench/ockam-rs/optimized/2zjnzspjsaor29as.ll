@@ -855,7 +855,7 @@ common.resume:                                    ; preds = %113, %121, %126, %.
   br label %241
 
 241:                                              ; preds = %239, %._crit_edge.i
-  %242 = phi i8 [ %240, %239 ], [ %.pre.i33, %._crit_edge.i ]
+  %242 = phi i8 [ %.pre.i33, %._crit_edge.i ], [ %240, %239 ]
   switch i8 %242, label %default.unreachable11.i.i [
     i8 0, label %243
     i8 1, label %.invoke.i28.loopexit

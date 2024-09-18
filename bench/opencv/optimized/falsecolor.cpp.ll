@@ -283,11 +283,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
   br label %225
 
 83:                                               ; preds = %223, %.preheader.i
-  %.035188.i = phi i32 [ 1, %.preheader.i ], [ %224, %223 ]
-  %.sroa.0114.0187.i = phi i64 [ 4294967295, %.preheader.i ], [ %.sroa.0114.1.i, %223 ]
-  %84 = and i64 %.sroa.0114.0187.i, 4294967295
+  %.035187.i = phi i32 [ 1, %.preheader.i ], [ %224, %223 ]
+  %.sroa.0114.0186.i = phi i64 [ 4294967295, %.preheader.i ], [ %.sroa.0114.1.i, %223 ]
+  %84 = and i64 %.sroa.0114.0186.i, 4294967295
   %85 = mul nuw i64 %84, 4164903690
-  %86 = lshr i64 %.sroa.0114.0187.i, 32
+  %86 = lshr i64 %.sroa.0114.0186.i, 32
   %87 = add nuw i64 %85, %86
   %88 = trunc i64 %87 to i32
   %89 = urem i32 %88, 3
@@ -348,7 +348,7 @@ _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %93, %92
   store i32 50397184, ptr %6, align 8, !noalias !5
   store ptr %18, ptr %72, align 8, !noalias !5
   %.sroa.0100.0.insert.insert103.i = or disjoint i64 %.sroa.297.0.insert.ext.i, %.sroa.096.0.insert.ext.i
-  %124 = uitofp nneg i32 %.035188.i to double
+  %124 = uitofp nneg i32 %.035187.i to double
   store double %124, ptr %7, align 8, !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false), !noalias !5
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.sroa.0100.0.insert.insert103.i, i32 noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef -1, i32 noundef 8, i32 noundef 0)
@@ -431,7 +431,7 @@ _ZN2cv3RNG7uniformEii.exit49.i:                   ; preds = %128, %127
   %.sroa.098.sroa.3.0.insert.shift.i = shl nuw i64 %.sroa.098.sroa.3.0.insert.ext.i, 32
   %.sroa.098.sroa.0.0.insert.ext.i = zext i32 %167 to i64
   %.sroa.098.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.098.sroa.3.0.insert.shift.i, %.sroa.098.sroa.0.0.insert.ext.i
-  %173 = uitofp nneg i32 %.035188.i to double
+  %173 = uitofp nneg i32 %.035187.i to double
   store double %173, ptr %9, align 8, !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false), !noalias !5
   invoke void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_5Rect_IiEERKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 %.sroa.098.sroa.0.0.insert.insert.i, i64 %.sroa.499.12.insert.insert.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef -1, i32 noundef 8, i32 noundef 0)
@@ -506,7 +506,7 @@ _ZN2cv3RNG7uniformEii.exit68.i:                   ; preds = %177, %176
   %.zext182.i = lshr i32 %.lhs.trunc181.i, 1
   %.lhs.trunc183.i = add nuw nsw i32 %212, 1
   %.zext184.i = lshr i32 %.lhs.trunc183.i, 1
-  %219 = uitofp nneg i32 %.035188.i to double
+  %219 = uitofp nneg i32 %.035187.i to double
   store double %219, ptr %11, align 8, !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false), !noalias !5
   %220 = uitofp nneg i32 %218 to double
@@ -527,9 +527,9 @@ default.unreachable:                              ; preds = %83
 
 223:                                              ; preds = %200, %148, %116
   %.sroa.0114.1.i = phi i64 [ %120, %116 ], [ %159, %148 ], [ %216, %200 ]
-  %224 = add nuw nsw i32 %.035188.i, 1
-  %exitcond190.not.i = icmp eq i32 %224, 257
-  br i1 %exitcond190.not.i, label %226, label %83, !llvm.loop !13
+  %224 = add nuw nsw i32 %.035187.i, 1
+  %exitcond189.not.i = icmp eq i32 %224, 257
+  br i1 %exitcond189.not.i, label %226, label %83, !llvm.loop !13
 
 225:                                              ; preds = %221, %174, %125, %81
   %.pn.i = phi { ptr, i32 } [ %82, %81 ], [ %222, %221 ], [ %175, %174 ], [ %126, %125 ]

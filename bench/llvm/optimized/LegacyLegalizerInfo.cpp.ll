@@ -1384,14 +1384,14 @@ define dso_local void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr nounde
   %60 = getelementptr inbounds i8, ptr %18, i64 8
   br label %61
 
-61:                                               ; preds = %1, %._crit_edge884
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge884 ]
+61:                                               ; preds = %1, %._crit_edge834
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge834 ]
   %62 = getelementptr inbounds [244 x %"class.llvm::SmallVector"], ptr %0, i64 0, i64 %indvars.iv
   %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #16
-  %.not877 = icmp eq i64 %63, 0
-  br i1 %.not877, label %._crit_edge884, label %.lr.ph883
+  %.not830 = icmp eq i64 %63, 0
+  br i1 %.not830, label %._crit_edge834, label %.lr.ph833
 
-.lr.ph883:                                        ; preds = %61
+.lr.ph833:                                        ; preds = %61
   %64 = add nuw nsw i64 %indvars.iv, 52
   %65 = getelementptr inbounds [244 x %"class.llvm::SmallVector.0"], ptr %35, i64 0, i64 %indvars.iv
   %66 = getelementptr inbounds [244 x %"class.llvm::SmallVector.5"], ptr %38, i64 0, i64 %indvars.iv
@@ -1403,10 +1403,10 @@ define dso_local void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr nounde
   %72 = trunc nuw nsw i64 %64 to i32
   br label %73
 
-73:                                               ; preds = %.lr.ph883, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144
-  %74 = phi i64 [ 0, %.lr.ph883 ], [ %76, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144 ]
-  %.043881 = phi i32 [ 0, %.lr.ph883 ], [ %75, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144 ]
-  %75 = add i32 %.043881, 1
+73:                                               ; preds = %.lr.ph833, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144
+  %74 = phi i64 [ 0, %.lr.ph833 ], [ %76, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144 ]
+  %.043831 = phi i32 [ 0, %.lr.ph833 ], [ %75, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144 ]
+  %75 = add i32 %.043831, 1
   %76 = zext i32 %75 to i64
   %77 = mul nuw nsw i64 %76, 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -1451,13 +1451,13 @@ define dso_local void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr nounde
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %88
   %.pn13.i = phi ptr [ %83, %88 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
-  %.not780856 = icmp eq ptr %.pn13.i, %87
-  br i1 %.not780856, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit, label %.lr.ph
+  %.not780814 = icmp eq ptr %.pn13.i, %87
+  br i1 %.not780814, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E5beginEv.exit, %_ZN4llvm16DenseMapIteratorINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S3_EELb0EEppEv.exit
-  %.sroa.0736.0857 = phi ptr [ %.sroa.0736.2, %_ZN4llvm16DenseMapIteratorINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S3_EELb0EEppEv.exit ], [ %.pn13.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E5beginEv.exit ]
-  %.sroa.010.0.copyload = load i64, ptr %.sroa.0736.0857, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0736.0857, i64 8
+  %.sroa.0736.0815 = phi ptr [ %.sroa.0736.2, %_ZN4llvm16DenseMapIteratorINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S3_EELb0EEppEv.exit ], [ %.pn13.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E5beginEv.exit ]
+  %.sroa.010.0.copyload = load i64, ptr %.sroa.0736.0815, align 8
+  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0736.0815, i64 8
   %.sroa.212.0.copyload = load i8, ptr %.sroa.212.0..sroa_idx, align 8
   %91 = and i64 %.sroa.010.0.copyload, -7
   %spec.select.i.i.i = icmp ne i64 %91, 0
@@ -2368,7 +2368,7 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit199, %416, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit179, %381, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, %215
-  %442 = getelementptr inbounds i8, ptr %.sroa.0736.0857, i64 16
+  %442 = getelementptr inbounds i8, ptr %.sroa.0736.0815, i64 16
   %.not5.i3.i = icmp eq ptr %442, %87
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S3_EELb0EEppEv.exit, label %.lr.ph.i4.i
 
@@ -2877,8 +2877,8 @@ _ZN4llvm15SmallVectorImplISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyL
   %627 = add i64 %626, %77
   %628 = sub i64 %627, %625
   %.neg = mul i64 %620, -24
-  %.fr942 = freeze i64 %628
-  %629 = add i64 %.neg, %.fr942
+  %.fr871 = freeze i64 %628
+  %629 = add i64 %.neg, %.fr871
   %630 = urem i64 %629, 24
   %631 = sub nuw i64 %629, %630
   %632 = add i64 %631, 24
@@ -3055,16 +3055,16 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
 
 _ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit, %702
   %704 = load ptr, ptr %22, align 8
-  %.not781858 = icmp eq ptr %704, %20
-  br i1 %.not781858, label %._crit_edge, label %.lr.ph860
+  %.not781816 = icmp eq ptr %704, %20
+  br i1 %.not781816, label %._crit_edge, label %.lr.ph818
 
-.lr.ph860:                                        ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit, %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit
-  %.sroa.0669.0859 = phi ptr [ %833, %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit ], [ %704, %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit ]
-  %705 = getelementptr inbounds nuw i8, ptr %.sroa.0669.0859, i64 32
+.lr.ph818:                                        ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit, %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit
+  %.sroa.0669.0817 = phi ptr [ %833, %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit ], [ %704, %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit ]
+  %705 = getelementptr inbounds nuw i8, ptr %.sroa.0669.0817, i64 32
   %706 = load i16, ptr %705, align 8
   store i16 %706, ptr %13, align 8
-  %707 = getelementptr inbounds nuw i8, ptr %.sroa.0669.0859, i64 40
-  %708 = getelementptr inbounds nuw i8, ptr %.sroa.0669.0859, i64 48
+  %707 = getelementptr inbounds nuw i8, ptr %.sroa.0669.0817, i64 40
+  %708 = getelementptr inbounds nuw i8, ptr %.sroa.0669.0817, i64 48
   %709 = load ptr, ptr %708, align 8
   %710 = load ptr, ptr %707, align 8
   %711 = ptrtoint ptr %709 to i64
@@ -3075,7 +3075,7 @@ _ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalize
   %.not.i.i.i.i.i = icmp eq ptr %709, %710
   br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i, label %715
 
-715:                                              ; preds = %.lr.ph860
+715:                                              ; preds = %.lr.ph818
   %716 = icmp ugt i64 %714, 2305843009213693951
   br i1 %716, label %717, label %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i
 
@@ -3086,13 +3086,13 @@ _ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalize
 _ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i: ; preds = %715
   %718 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %713) #17
   %.pre = load ptr, ptr %707, align 8
-  %.pre937 = load ptr, ptr %708, align 8
+  %.pre866 = load ptr, ptr %708, align 8
   br label %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i
 
-_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i, %.lr.ph860
-  %719 = phi ptr [ %.pre937, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i ], [ %709, %.lr.ph860 ]
-  %720 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i ], [ %710, %.lr.ph860 ]
-  %721 = phi ptr [ %718, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i ], [ null, %.lr.ph860 ]
+_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i, %.lr.ph818
+  %719 = phi ptr [ %.pre866, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i ], [ %709, %.lr.ph818 ]
+  %720 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i ], [ %710, %.lr.ph818 ]
+  %721 = phi ptr [ %718, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i ], [ null, %.lr.ph818 ]
   store ptr %721, ptr %41, align 8
   %722 = getelementptr inbounds %"struct.std::pair", ptr %721, i64 %714
   store ptr %722, ptr %43, align 8
@@ -3391,7 +3391,7 @@ _ZN4llvm4sortIRSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActi
   %819 = load i16, ptr %13, align 8
   %820 = zext i16 %819 to i32
   call void @_ZN4llvm19LegacyLegalizerInfo41increaseToLargerTypesAndDecreaseToLargestERKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EES4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %41, i8 noundef zeroext 9, i8 noundef zeroext 9)
-  call void @_ZN4llvm19LegacyLegalizerInfo16setPointerActionEjjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(80040) %0, i32 noundef %71, i32 noundef %.043881, i32 noundef %820, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  call void @_ZN4llvm19LegacyLegalizerInfo16setPointerActionEjjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(80040) %0, i32 noundef %71, i32 noundef %.043831, i32 noundef %820, ptr noundef nonnull align 8 dereferenceable(24) %14)
   %821 = load ptr, ptr %14, align 8
   %.not.i.i.i99 = icmp eq ptr %821, null
   br i1 %.not.i.i.i99, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit100, label %822
@@ -3418,22 +3418,22 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
   br label %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit
 
 _ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit100, %828
-  %833 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0669.0859) #19
+  %833 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0669.0817) #19
   %.not781 = icmp eq ptr %833, %20
-  br i1 %.not781, label %._crit_edge, label %.lr.ph860
+  br i1 %.not781, label %._crit_edge, label %.lr.ph818
 
 ._crit_edge:                                      ; preds = %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit, %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %834 = load ptr, ptr %27, align 8
-  %.not782867 = icmp eq ptr %834, %25
-  br i1 %.not782867, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127, label %.lr.ph870
+  %.not782825 = icmp eq ptr %834, %25
+  br i1 %.not782825, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127, label %.lr.ph828
 
-.lr.ph870:                                        ; preds = %._crit_edge, %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit123
-  %.sroa.0665.0868 = phi ptr [ %1021, %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit123 ], [ %834, %._crit_edge ]
-  %835 = getelementptr inbounds nuw i8, ptr %.sroa.0665.0868, i64 32
+.lr.ph828:                                        ; preds = %._crit_edge, %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit123
+  %.sroa.0665.0826 = phi ptr [ %1021, %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit123 ], [ %834, %._crit_edge ]
+  %835 = getelementptr inbounds nuw i8, ptr %.sroa.0665.0826, i64 32
   %836 = load i16, ptr %835, align 8
-  %837 = getelementptr inbounds nuw i8, ptr %.sroa.0665.0868, i64 40
-  %838 = getelementptr inbounds nuw i8, ptr %.sroa.0665.0868, i64 48
+  %837 = getelementptr inbounds nuw i8, ptr %.sroa.0665.0826, i64 40
+  %838 = getelementptr inbounds nuw i8, ptr %.sroa.0665.0826, i64 48
   %839 = load ptr, ptr %838, align 8
   %840 = load ptr, ptr %837, align 8
   %841 = ptrtoint ptr %839 to i64
@@ -3442,7 +3442,7 @@ _ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEE
   %.not.i.i.i.i.i102 = icmp eq ptr %839, %840
   br i1 %.not.i.i.i.i.i102, label %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i104, label %844
 
-844:                                              ; preds = %.lr.ph870
+844:                                              ; preds = %.lr.ph828
   %845 = icmp ugt i64 %843, 9223372036854775804
   br i1 %845, label %846, label %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103
 
@@ -3452,14 +3452,14 @@ _ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEE
 
 _ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103: ; preds = %844
   %847 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %843) #17
-  %.pre938 = load ptr, ptr %837, align 8
-  %.pre939 = load ptr, ptr %838, align 8
+  %.pre867 = load ptr, ptr %837, align 8
+  %.pre868 = load ptr, ptr %838, align 8
   br label %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i104
 
-_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i104: ; preds = %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103, %.lr.ph870
-  %848 = phi ptr [ %.pre939, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103 ], [ %839, %.lr.ph870 ]
-  %849 = phi ptr [ %.pre938, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103 ], [ %840, %.lr.ph870 ]
-  %850 = phi ptr [ %847, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103 ], [ null, %.lr.ph870 ]
+_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i104: ; preds = %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103, %.lr.ph828
+  %848 = phi ptr [ %.pre868, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103 ], [ %839, %.lr.ph828 ]
+  %849 = phi ptr [ %.pre867, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103 ], [ %840, %.lr.ph828 ]
+  %850 = phi ptr [ %847, %_ZNSt16allocator_traitsISaISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEEEE8allocateERS5_m.exit.i.i.i.i.i103 ], [ null, %.lr.ph828 ]
   %.not7.i.i.i.i.i.i105 = icmp eq ptr %849, %848
   br i1 %.not7.i.i.i.i.i.i105, label %_ZN4llvm4sortIRSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEEEvOT_.exit113, label %.lr.ph.i.i.i.i.i.i106
 
@@ -3747,7 +3747,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm2
   br i1 %.not.i35.i301, label %_ZN4llvm4sortIRSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEEEvOT_.exit113, label %910, !llvm.loop !29
 
 _ZN4llvm4sortIRSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEEEvOT_.exit113: ; preds = %946, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i341, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i104, %.preheader.i19.i285
-  %.0.lcssa.i.i.i.i.i.i110.ptr953 = phi ptr [ %.0.lcssa.i.i.i.i.i.i110.ptr, %.preheader.i19.i285 ], [ %850, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i104 ], [ %.0.lcssa.i.i.i.i.i.i110.ptr, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i341 ], [ %.0.lcssa.i.i.i.i.i.i110.ptr, %946 ]
+  %.0.lcssa.i.i.i.i.i.i110.ptr882 = phi ptr [ %.0.lcssa.i.i.i.i.i.i110.ptr, %.preheader.i19.i285 ], [ %850, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEC2EmRKS5_.exit.i.i104 ], [ %.0.lcssa.i.i.i.i.i.i110.ptr, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i341 ], [ %.0.lcssa.i.i.i.i.i.i110.ptr, %946 ]
   %947 = load ptr, ptr %45, align 8
   %948 = load ptr, ptr %46, align 8
   %.not.i.i114 = icmp eq ptr %947, %948
@@ -3827,20 +3827,20 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115: ; preds = %949, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit381
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  br i1 %.not7.i.i.i.i.i.i105, label %._crit_edge866, label %.lr.ph865
+  br i1 %.not7.i.i.i.i.i.i105, label %._crit_edge824, label %.lr.ph823
 
-.lr.ph865:                                        ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117
+.lr.ph823:                                        ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117
   %975 = phi ptr [ %1004, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117 ], [ null, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115 ]
-  %.sroa.0635.0864 = phi ptr [ %1006, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117 ], [ %850, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115 ]
+  %.sroa.0635.0822 = phi ptr [ %1006, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117 ], [ %850, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115 ]
   %976 = phi ptr [ %1005, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117 ], [ null, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115 ]
-  %977 = load i32, ptr %.sroa.0635.0864, align 2
+  %977 = load i32, ptr %.sroa.0635.0822, align 2
   %.sroa.0632.0.extract.trunc = trunc i32 %977 to i16
   %978 = udiv i16 %.sroa.0632.0.extract.trunc, %836
   %979 = load ptr, ptr %48, align 8
   %.not.i.i116 = icmp eq ptr %975, %979
   br i1 %.not.i.i116, label %982, label %980
 
-980:                                              ; preds = %.lr.ph865
+980:                                              ; preds = %.lr.ph823
   %.sroa.3.0.insert.shift = and i32 %977, 16711680
   %.sroa.0.0.insert.ext = zext i16 %978 to i32
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
@@ -3849,7 +3849,7 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
   store ptr %981, ptr %47, align 8
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117
 
-982:                                              ; preds = %.lr.ph865
+982:                                              ; preds = %.lr.ph823
   %983 = ptrtoint ptr %975 to i64
   %984 = ptrtoint ptr %976 to i64
   %985 = sub i64 %983, %984
@@ -3916,21 +3916,21 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117: ; preds = %980, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit402
   %1004 = phi ptr [ %981, %980 ], [ %1001, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit402 ]
   %1005 = phi ptr [ %976, %980 ], [ %996, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit402 ]
-  %1006 = getelementptr inbounds i8, ptr %.sroa.0635.0864, i64 4
-  %.not783 = icmp eq ptr %1006, %.0.lcssa.i.i.i.i.i.i110.ptr953
-  br i1 %.not783, label %._crit_edge866, label %.lr.ph865
+  %1006 = getelementptr inbounds i8, ptr %.sroa.0635.0822, i64 4
+  %.not783 = icmp eq ptr %1006, %.0.lcssa.i.i.i.i.i.i110.ptr882
+  br i1 %.not783, label %._crit_edge824, label %.lr.ph823
 
-._crit_edge866:                                   ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115
+._crit_edge824:                                   ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115
   %1007 = phi ptr [ null, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit115 ], [ %1005, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE9push_backEOS4_.exit117 ]
   store ptr %1007, ptr %16, align 8
   %1008 = zext i16 %836 to i32
   call void @_ZN4llvm19LegacyLegalizerInfo41increaseToLargerTypesAndDecreaseToLargestERKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EES4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %16, i8 noundef zeroext 4, i8 noundef zeroext 3)
-  call void @_ZN4llvm19LegacyLegalizerInfo25setVectorNumElementActionEjjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(80040) %0, i32 noundef %72, i32 noundef %.043881, i32 noundef %1008, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  call void @_ZN4llvm19LegacyLegalizerInfo25setVectorNumElementActionEjjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(80040) %0, i32 noundef %72, i32 noundef %.043831, i32 noundef %1008, ptr noundef nonnull align 8 dereferenceable(24) %17)
   %1009 = load ptr, ptr %17, align 8
   %.not.i.i.i118 = icmp eq ptr %1009, null
   br i1 %.not.i.i.i118, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit119, label %1010
 
-1010:                                             ; preds = %._crit_edge866
+1010:                                             ; preds = %._crit_edge824
   %1011 = load ptr, ptr %49, align 8
   %1012 = ptrtoint ptr %1011 to i64
   %1013 = ptrtoint ptr %1009 to i64
@@ -3938,7 +3938,7 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
   call void @_ZdlPvm(ptr noundef nonnull %1009, i64 noundef %1014) #18
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit119
 
-_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit119: ; preds = %._crit_edge866, %1010
+_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit119: ; preds = %._crit_edge824, %1010
   %.not.i.i.i120 = icmp eq ptr %1007, null
   br i1 %.not.i.i.i120, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit121, label %1015
 
@@ -3959,716 +3959,716 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
   br label %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit123
 
 _ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit123: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit121, %1020
-  %1021 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0665.0868) #19
+  %1021 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0665.0826) #19
   %.not782 = icmp eq ptr %1021, %25
-  br i1 %.not782, label %1022, label %.lr.ph870
+  br i1 %.not782, label %._crit_edge829, label %.lr.ph828
 
-1022:                                             ; preds = %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit123
-  %.pre940 = load ptr, ptr %15, align 8
-  %.pre941 = load ptr, ptr %45, align 8
-  %.not.i.i.i.i124 = icmp eq ptr %.pre940, %.pre941
-  br i1 %.not.i.i.i.i124, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127, label %1023
+._crit_edge829:                                   ; preds = %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit123
+  %.pre869 = load ptr, ptr %15, align 8
+  %.pre870 = load ptr, ptr %45, align 8
+  %.not.i.i.i.i124 = icmp eq ptr %.pre869, %.pre870
+  br i1 %.not.i.i.i.i124, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127, label %1022
 
-1023:                                             ; preds = %1022
-  %1024 = ptrtoint ptr %.pre941 to i64
-  %1025 = ptrtoint ptr %.pre940 to i64
-  %1026 = sub i64 %1024, %1025
-  %1027 = ashr exact i64 %1026, 2
-  %1028 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1027, i1 true)
-  %1029 = shl nuw nsw i64 %1028, 1
-  %1030 = xor i64 %1029, 126
-  call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_(ptr %.pre940, ptr %.pre941, i64 noundef %1030)
-  %1031 = icmp sgt i64 %1026, 64
-  br i1 %1031, label %.lr.ph.i.i434, label %.preheader.i19.i403
+1022:                                             ; preds = %._crit_edge829
+  %1023 = ptrtoint ptr %.pre870 to i64
+  %1024 = ptrtoint ptr %.pre869 to i64
+  %1025 = sub i64 %1023, %1024
+  %1026 = ashr exact i64 %1025, 2
+  %1027 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1026, i1 true)
+  %1028 = shl nuw nsw i64 %1027, 1
+  %1029 = xor i64 %1028, 126
+  call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_(ptr %.pre869, ptr %.pre870, i64 noundef %1029)
+  %1030 = icmp sgt i64 %1025, 64
+  br i1 %1030, label %.lr.ph.i.i434, label %.preheader.i19.i403
 
-.lr.ph.i.i434:                                    ; preds = %1023
-  %1032 = getelementptr inbounds nuw i8, ptr %.pre940, i64 2
-  br label %1033
+.lr.ph.i.i434:                                    ; preds = %1022
+  %1031 = getelementptr inbounds nuw i8, ptr %.pre869, i64 2
+  br label %1032
 
-1033:                                             ; preds = %1066, %.lr.ph.i.i434
-  %.sroa.07.020.i.idx.i435 = phi i64 [ 4, %.lr.ph.i.i434 ], [ %.sroa.07.020.i.add.i447, %1066 ]
-  %.pn19.i.i436 = phi ptr [ %.pre940, %.lr.ph.i.i434 ], [ %.sroa.07.020.i.ptr.i437, %1066 ]
-  %.sroa.07.020.i.ptr.i437 = getelementptr inbounds i8, ptr %.pre940, i64 %.sroa.07.020.i.idx.i435
-  %1034 = load i16, ptr %.sroa.07.020.i.ptr.i437, align 2
-  %1035 = load i16, ptr %.pre940, align 2
-  %1036 = icmp ult i16 %1034, %1035
-  br i1 %1036, label %.lr.ph.i.i.i.i.i.preheader.i.i469, label %1037
+1032:                                             ; preds = %1065, %.lr.ph.i.i434
+  %.sroa.07.020.i.idx.i435 = phi i64 [ 4, %.lr.ph.i.i434 ], [ %.sroa.07.020.i.add.i447, %1065 ]
+  %.pn19.i.i436 = phi ptr [ %.pre869, %.lr.ph.i.i434 ], [ %.sroa.07.020.i.ptr.i437, %1065 ]
+  %.sroa.07.020.i.ptr.i437 = getelementptr inbounds i8, ptr %.pre869, i64 %.sroa.07.020.i.idx.i435
+  %1033 = load i16, ptr %.sroa.07.020.i.ptr.i437, align 2
+  %1034 = load i16, ptr %.pre869, align 2
+  %1035 = icmp ult i16 %1033, %1034
+  br i1 %1035, label %.lr.ph.i.i.i.i.i.preheader.i.i469, label %1036
 
-1037:                                             ; preds = %1033
-  %1038 = icmp ult i16 %1035, %1034
-  br i1 %1038, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i.i439, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i438
+1036:                                             ; preds = %1032
+  %1037 = icmp ult i16 %1034, %1033
+  br i1 %1037, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i.i439, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i438
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i438: ; preds = %1037
-  %1039 = getelementptr inbounds i8, ptr %.pn19.i.i436, i64 6
-  %1040 = load i8, ptr %1039, align 2
-  %1041 = load i8, ptr %1032, align 2
-  %1042 = icmp ult i8 %1040, %1041
-  br i1 %1042, label %.lr.ph.i.i.i.i.i.preheader.i.i469, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i.i439
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i438: ; preds = %1036
+  %1038 = getelementptr inbounds i8, ptr %.pn19.i.i436, i64 6
+  %1039 = load i8, ptr %1038, align 2
+  %1040 = load i8, ptr %1031, align 2
+  %1041 = icmp ult i8 %1039, %1040
+  br i1 %1041, label %.lr.ph.i.i.i.i.i.preheader.i.i469, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i.i439
 
-.lr.ph.i.i.i.i.i.preheader.i.i469:                ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i438, %1033
-  %1043 = load i32, ptr %.sroa.07.020.i.ptr.i437, align 2
-  %.sroa.2.0.extract.shift.i.i471 = lshr i32 %1043, 16
-  %1044 = lshr exact i64 %.sroa.07.020.i.idx.i435, 2
-  %1045 = getelementptr inbounds i8, ptr %.pn19.i.i436, i64 8
+.lr.ph.i.i.i.i.i.preheader.i.i469:                ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i438, %1032
+  %1042 = load i32, ptr %.sroa.07.020.i.ptr.i437, align 2
+  %.sroa.2.0.extract.shift.i.i471 = lshr i32 %1042, 16
+  %1043 = lshr exact i64 %.sroa.07.020.i.idx.i435, 2
+  %1044 = getelementptr inbounds i8, ptr %.pn19.i.i436, i64 8
   br label %.lr.ph.i.i.i.i.i.i.i473
 
 .lr.ph.i.i.i.i.i.i.i473:                          ; preds = %.lr.ph.i.i.i.i.i.i.i473, %.lr.ph.i.i.i.i.i.preheader.i.i469
-  %.010.i.i.i.i.i.i.i474 = phi i64 [ %1052, %.lr.ph.i.i.i.i.i.i.i473 ], [ %1044, %.lr.ph.i.i.i.i.i.preheader.i.i469 ]
-  %.069.i.i.i.i.i.i.i475 = phi ptr [ %1047, %.lr.ph.i.i.i.i.i.i.i473 ], [ %1045, %.lr.ph.i.i.i.i.i.preheader.i.i469 ]
-  %.078.i.i.i.i.i.i.i476 = phi ptr [ %1046, %.lr.ph.i.i.i.i.i.i.i473 ], [ %.sroa.07.020.i.ptr.i437, %.lr.ph.i.i.i.i.i.preheader.i.i469 ]
-  %1046 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i476, i64 -4
-  %1047 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i475, i64 -4
-  %1048 = load i16, ptr %1046, align 2
-  store i16 %1048, ptr %1047, align 2
-  %1049 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i476, i64 -2
-  %1050 = load i8, ptr %1049, align 1
-  %1051 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i475, i64 -2
-  store i8 %1050, ptr %1051, align 2
-  %1052 = add nsw i64 %.010.i.i.i.i.i.i.i474, -1
-  %1053 = icmp ugt i64 %.010.i.i.i.i.i.i.i474, 1
-  br i1 %1053, label %.lr.ph.i.i.i.i.i.i.i473, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i477, !llvm.loop !27
+  %.010.i.i.i.i.i.i.i474 = phi i64 [ %1051, %.lr.ph.i.i.i.i.i.i.i473 ], [ %1043, %.lr.ph.i.i.i.i.i.preheader.i.i469 ]
+  %.069.i.i.i.i.i.i.i475 = phi ptr [ %1046, %.lr.ph.i.i.i.i.i.i.i473 ], [ %1044, %.lr.ph.i.i.i.i.i.preheader.i.i469 ]
+  %.078.i.i.i.i.i.i.i476 = phi ptr [ %1045, %.lr.ph.i.i.i.i.i.i.i473 ], [ %.sroa.07.020.i.ptr.i437, %.lr.ph.i.i.i.i.i.preheader.i.i469 ]
+  %1045 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i476, i64 -4
+  %1046 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i475, i64 -4
+  %1047 = load i16, ptr %1045, align 2
+  store i16 %1047, ptr %1046, align 2
+  %1048 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i476, i64 -2
+  %1049 = load i8, ptr %1048, align 1
+  %1050 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i475, i64 -2
+  store i8 %1049, ptr %1050, align 2
+  %1051 = add nsw i64 %.010.i.i.i.i.i.i.i474, -1
+  %1052 = icmp ugt i64 %.010.i.i.i.i.i.i.i474, 1
+  br i1 %1052, label %.lr.ph.i.i.i.i.i.i.i473, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i477, !llvm.loop !27
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i477: ; preds = %.lr.ph.i.i.i.i.i.i.i473
-  %.sroa.0.0.extract.trunc.i.i470 = trunc i32 %1043 to i16
+  %.sroa.0.0.extract.trunc.i.i470 = trunc i32 %1042 to i16
   %.sroa.2.0.extract.trunc.i.i472 = trunc i32 %.sroa.2.0.extract.shift.i.i471 to i8
-  store i16 %.sroa.0.0.extract.trunc.i.i470, ptr %.pre940, align 2
-  store i8 %.sroa.2.0.extract.trunc.i.i472, ptr %1032, align 2
-  br label %1066
+  store i16 %.sroa.0.0.extract.trunc.i.i470, ptr %.pre869, align 2
+  store i8 %.sroa.2.0.extract.trunc.i.i472, ptr %1031, align 2
+  br label %1065
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i.i439: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i438, %1037
-  %1054 = load i32, ptr %.sroa.07.020.i.ptr.i437, align 2
-  %.sroa.03.0.extract.trunc.i.i.i440 = trunc i32 %1054 to i16
-  %.sroa.3.0.extract.shift.i.i.i441 = lshr i32 %1054, 16
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i.i439: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i438, %1036
+  %1053 = load i32, ptr %.sroa.07.020.i.ptr.i437, align 2
+  %.sroa.03.0.extract.trunc.i.i.i440 = trunc i32 %1053 to i16
+  %.sroa.3.0.extract.shift.i.i.i441 = lshr i32 %1053, 16
   %.sroa.3.0.extract.trunc.i.i.i442 = trunc i32 %.sroa.3.0.extract.shift.i.i.i441 to i8
-  br label %1055
+  br label %1054
 
-1055:                                             ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i.i465, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i.i439
+1054:                                             ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i.i465, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i.i439
   %.sroa.06.0.i.i.i443 = phi ptr [ %.sroa.07.020.i.ptr.i437, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i.i439 ], [ %.sroa.0.0.i.i.i444, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i.i465 ]
   %.sroa.0.0.i.i.i444 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i443, i64 -4
-  %1056 = load i16, ptr %.sroa.0.0.i.i.i444, align 2
-  %1057 = icmp ugt i16 %1056, %.sroa.03.0.extract.trunc.i.i.i440
-  br i1 %1057, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i.i466, label %1058
+  %1055 = load i16, ptr %.sroa.0.0.i.i.i444, align 2
+  %1056 = icmp ugt i16 %1055, %.sroa.03.0.extract.trunc.i.i.i440
+  br i1 %1056, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i.i466, label %1057
 
-._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i.i466: ; preds = %1055
+._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i.i466: ; preds = %1054
   %.phi.trans.insert.i.i.i467 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i443, i64 -2
   %.pre.i.i.i468 = load i8, ptr %.phi.trans.insert.i.i.i467, align 1
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i.i465
 
-1058:                                             ; preds = %1055
-  %1059 = icmp ult i16 %1056, %.sroa.03.0.extract.trunc.i.i.i440
-  br i1 %1059, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i446, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i445
+1057:                                             ; preds = %1054
+  %1058 = icmp ult i16 %1055, %.sroa.03.0.extract.trunc.i.i.i440
+  br i1 %1058, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i446, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i445
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i445: ; preds = %1058
-  %1060 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i443, i64 -2
-  %1061 = load i8, ptr %1060, align 2
-  %1062 = icmp ugt i8 %1061, %.sroa.3.0.extract.trunc.i.i.i442
-  br i1 %1062, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i.i465, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i446
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i445: ; preds = %1057
+  %1059 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i443, i64 -2
+  %1060 = load i8, ptr %1059, align 2
+  %1061 = icmp ugt i8 %1060, %.sroa.3.0.extract.trunc.i.i.i442
+  br i1 %1061, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i.i465, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i446
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i.i465: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i445, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i.i466
-  %1063 = phi i8 [ %.pre.i.i.i468, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i.i466 ], [ %1061, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i445 ]
-  store i16 %1056, ptr %.sroa.06.0.i.i.i443, align 2
-  %1064 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i443, i64 2
-  store i8 %1063, ptr %1064, align 2
-  br label %1055, !llvm.loop !28
+  %1062 = phi i8 [ %.pre.i.i.i468, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i.i466 ], [ %1060, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i445 ]
+  store i16 %1055, ptr %.sroa.06.0.i.i.i443, align 2
+  %1063 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i443, i64 2
+  store i8 %1062, ptr %1063, align 2
+  br label %1054, !llvm.loop !28
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i446: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i445, %1058
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i446: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i445, %1057
   store i16 %.sroa.03.0.extract.trunc.i.i.i440, ptr %.sroa.06.0.i.i.i443, align 2
-  %1065 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i443, i64 2
-  store i8 %.sroa.3.0.extract.trunc.i.i.i442, ptr %1065, align 2
-  br label %1066
+  %1064 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i443, i64 2
+  store i8 %.sroa.3.0.extract.trunc.i.i.i442, ptr %1064, align 2
+  br label %1065
 
-1066:                                             ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i446, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i477
+1065:                                             ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i446, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i477
   %.sroa.07.020.i.add.i447 = add nuw nsw i64 %.sroa.07.020.i.idx.i435, 4
   %.not.i.i448 = icmp eq i64 %.sroa.07.020.i.add.i447, 64
-  br i1 %.not.i.i448, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_.exit.i449, label %1033, !llvm.loop !29
+  br i1 %.not.i.i448, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_.exit.i449, label %1032, !llvm.loop !29
 
-_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_.exit.i449: ; preds = %1066
-  %1067 = getelementptr inbounds i8, ptr %.pre940, i64 64
-  %.not4.i.i450 = icmp eq ptr %1067, %.pre941
+_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_.exit.i449: ; preds = %1065
+  %1066 = getelementptr inbounds i8, ptr %.pre869, i64 64
+  %.not4.i.i450 = icmp eq ptr %1066, %.pre870
   br i1 %.not4.i.i450, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127, label %.lr.ph.i6.i451
 
 .lr.ph.i6.i451:                                   ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_.exit.i449, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459
-  %.sroa.0.05.i.i452 = phi ptr [ %1080, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459 ], [ %1067, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_.exit.i449 ]
-  %1068 = load i32, ptr %.sroa.0.05.i.i452, align 2
-  %.sroa.03.0.extract.trunc.i.i7.i453 = trunc i32 %1068 to i16
-  %.sroa.3.0.extract.shift.i.i8.i454 = lshr i32 %1068, 16
+  %.sroa.0.05.i.i452 = phi ptr [ %1079, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459 ], [ %1066, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_.exit.i449 ]
+  %1067 = load i32, ptr %.sroa.0.05.i.i452, align 2
+  %.sroa.03.0.extract.trunc.i.i7.i453 = trunc i32 %1067 to i16
+  %.sroa.3.0.extract.shift.i.i8.i454 = lshr i32 %1067, 16
   %.sroa.3.0.extract.trunc.i.i9.i455 = trunc i32 %.sroa.3.0.extract.shift.i.i8.i454 to i8
-  br label %1069
+  br label %1068
 
-1069:                                             ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i15.i461, %.lr.ph.i6.i451
+1068:                                             ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i15.i461, %.lr.ph.i6.i451
   %.sroa.06.0.i.i10.i456 = phi ptr [ %.sroa.0.05.i.i452, %.lr.ph.i6.i451 ], [ %.sroa.0.0.i.i11.i457, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i15.i461 ]
   %.sroa.0.0.i.i11.i457 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i10.i456, i64 -4
-  %1070 = load i16, ptr %.sroa.0.0.i.i11.i457, align 2
-  %1071 = icmp ugt i16 %1070, %.sroa.03.0.extract.trunc.i.i7.i453
-  br i1 %1071, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i16.i462, label %1072
+  %1069 = load i16, ptr %.sroa.0.0.i.i11.i457, align 2
+  %1070 = icmp ugt i16 %1069, %.sroa.03.0.extract.trunc.i.i7.i453
+  br i1 %1070, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i16.i462, label %1071
 
-._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i16.i462: ; preds = %1069
+._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i16.i462: ; preds = %1068
   %.phi.trans.insert.i.i17.i463 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i10.i456, i64 -2
   %.pre.i.i18.i464 = load i8, ptr %.phi.trans.insert.i.i17.i463, align 1
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i15.i461
 
-1072:                                             ; preds = %1069
-  %1073 = icmp ult i16 %1070, %.sroa.03.0.extract.trunc.i.i7.i453
-  br i1 %1073, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i12.i458
+1071:                                             ; preds = %1068
+  %1072 = icmp ult i16 %1069, %.sroa.03.0.extract.trunc.i.i7.i453
+  br i1 %1072, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i12.i458
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i12.i458: ; preds = %1072
-  %1074 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i10.i456, i64 -2
-  %1075 = load i8, ptr %1074, align 2
-  %1076 = icmp ugt i8 %1075, %.sroa.3.0.extract.trunc.i.i9.i455
-  br i1 %1076, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i15.i461, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i12.i458: ; preds = %1071
+  %1073 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i10.i456, i64 -2
+  %1074 = load i8, ptr %1073, align 2
+  %1075 = icmp ugt i8 %1074, %.sroa.3.0.extract.trunc.i.i9.i455
+  br i1 %1075, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i15.i461, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i15.i461: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i12.i458, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i16.i462
-  %1077 = phi i8 [ %.pre.i.i18.i464, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i16.i462 ], [ %1075, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i12.i458 ]
-  store i16 %1070, ptr %.sroa.06.0.i.i10.i456, align 2
-  %1078 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i10.i456, i64 2
-  store i8 %1077, ptr %1078, align 2
-  br label %1069, !llvm.loop !28
+  %1076 = phi i8 [ %.pre.i.i18.i464, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i16.i462 ], [ %1074, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i12.i458 ]
+  store i16 %1069, ptr %.sroa.06.0.i.i10.i456, align 2
+  %1077 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i10.i456, i64 2
+  store i8 %1076, ptr %1077, align 2
+  br label %1068, !llvm.loop !28
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i12.i458, %1072
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i12.i458, %1071
   store i16 %.sroa.03.0.extract.trunc.i.i7.i453, ptr %.sroa.06.0.i.i10.i456, align 2
-  %1079 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i10.i456, i64 2
-  store i8 %.sroa.3.0.extract.trunc.i.i9.i455, ptr %1079, align 2
-  %1080 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i452, i64 4
-  %.not.i14.i460 = icmp eq ptr %1080, %.pre941
+  %1078 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i10.i456, i64 2
+  store i8 %.sroa.3.0.extract.trunc.i.i9.i455, ptr %1078, align 2
+  %1079 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i452, i64 4
+  %.not.i14.i460 = icmp eq ptr %1079, %.pre870
   br i1 %.not.i14.i460, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127, label %.lr.ph.i6.i451, !llvm.loop !30
 
-.preheader.i19.i403:                              ; preds = %1023
-  %.sroa.07.017.i20.i404 = getelementptr inbounds i8, ptr %.pre940, i64 4
-  %.not18.i21.i405 = icmp eq ptr %.sroa.07.017.i20.i404, %.pre941
+.preheader.i19.i403:                              ; preds = %1022
+  %.sroa.07.017.i20.i404 = getelementptr inbounds i8, ptr %.pre869, i64 4
+  %.not18.i21.i405 = icmp eq ptr %.sroa.07.017.i20.i404, %.pre870
   br i1 %.not18.i21.i405, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127, label %.lr.ph.i22.i406
 
 .lr.ph.i22.i406:                                  ; preds = %.preheader.i19.i403
-  %1081 = getelementptr inbounds nuw i8, ptr %.pre940, i64 2
-  br label %1082
+  %1080 = getelementptr inbounds nuw i8, ptr %.pre869, i64 2
+  br label %1081
 
-1082:                                             ; preds = %1118, %.lr.ph.i22.i406
-  %.sroa.07.020.i23.i407 = phi ptr [ %.sroa.07.017.i20.i404, %.lr.ph.i22.i406 ], [ %.sroa.07.0.i34.i418, %1118 ]
-  %.pn19.i24.i408 = phi ptr [ %.pre940, %.lr.ph.i22.i406 ], [ %.sroa.07.020.i23.i407, %1118 ]
-  %1083 = load i16, ptr %.sroa.07.020.i23.i407, align 2
-  %1084 = load i16, ptr %.pre940, align 2
-  %1085 = icmp ult i16 %1083, %1084
-  br i1 %1085, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i40.i424, label %1086
+1081:                                             ; preds = %1117, %.lr.ph.i22.i406
+  %.sroa.07.020.i23.i407 = phi ptr [ %.sroa.07.017.i20.i404, %.lr.ph.i22.i406 ], [ %.sroa.07.0.i34.i418, %1117 ]
+  %.pn19.i24.i408 = phi ptr [ %.pre869, %.lr.ph.i22.i406 ], [ %.sroa.07.020.i23.i407, %1117 ]
+  %1082 = load i16, ptr %.sroa.07.020.i23.i407, align 2
+  %1083 = load i16, ptr %.pre869, align 2
+  %1084 = icmp ult i16 %1082, %1083
+  br i1 %1084, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i40.i424, label %1085
 
-1086:                                             ; preds = %1082
-  %1087 = icmp ult i16 %1084, %1083
-  br i1 %1087, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i26.i410, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i409
+1085:                                             ; preds = %1081
+  %1086 = icmp ult i16 %1083, %1082
+  br i1 %1086, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i26.i410, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i409
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i409: ; preds = %1086
-  %1088 = getelementptr inbounds i8, ptr %.pn19.i24.i408, i64 6
-  %1089 = load i8, ptr %1088, align 2
-  %1090 = load i8, ptr %1081, align 2
-  %1091 = icmp ult i8 %1089, %1090
-  br i1 %1091, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i40.i424, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i26.i410
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i409: ; preds = %1085
+  %1087 = getelementptr inbounds i8, ptr %.pn19.i24.i408, i64 6
+  %1088 = load i8, ptr %1087, align 2
+  %1089 = load i8, ptr %1080, align 2
+  %1090 = icmp ult i8 %1088, %1089
+  br i1 %1090, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i40.i424, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i26.i410
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i40.i424: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i409, %1082
-  %1092 = load i32, ptr %.sroa.07.020.i23.i407, align 2
-  %.sroa.0.0.extract.trunc.i41.i425 = trunc i32 %1092 to i16
-  %.sroa.2.0.extract.shift.i42.i426 = lshr i32 %1092, 16
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i40.i424: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i409, %1081
+  %1091 = load i32, ptr %.sroa.07.020.i23.i407, align 2
+  %.sroa.0.0.extract.trunc.i41.i425 = trunc i32 %1091 to i16
+  %.sroa.2.0.extract.shift.i42.i426 = lshr i32 %1091, 16
   %.sroa.2.0.extract.trunc.i43.i427 = trunc i32 %.sroa.2.0.extract.shift.i42.i426 to i8
-  %1093 = ptrtoint ptr %.sroa.07.020.i23.i407 to i64
-  %1094 = sub i64 %1093, %1025
-  %1095 = ashr exact i64 %1094, 2
-  %1096 = icmp sgt i64 %1095, 0
-  br i1 %1096, label %.lr.ph.i.i.i.i.i.preheader.i45.i429, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i44.i428
+  %1092 = ptrtoint ptr %.sroa.07.020.i23.i407 to i64
+  %1093 = sub i64 %1092, %1024
+  %1094 = ashr exact i64 %1093, 2
+  %1095 = icmp sgt i64 %1094, 0
+  br i1 %1095, label %.lr.ph.i.i.i.i.i.preheader.i45.i429, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i44.i428
 
 .lr.ph.i.i.i.i.i.preheader.i45.i429:              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i40.i424
-  %1097 = getelementptr inbounds i8, ptr %.pn19.i24.i408, i64 8
+  %1096 = getelementptr inbounds i8, ptr %.pn19.i24.i408, i64 8
   br label %.lr.ph.i.i.i.i.i.i46.i430
 
 .lr.ph.i.i.i.i.i.i46.i430:                        ; preds = %.lr.ph.i.i.i.i.i.i46.i430, %.lr.ph.i.i.i.i.i.preheader.i45.i429
-  %.010.i.i.i.i.i.i47.i431 = phi i64 [ %1104, %.lr.ph.i.i.i.i.i.i46.i430 ], [ %1095, %.lr.ph.i.i.i.i.i.preheader.i45.i429 ]
-  %.069.i.i.i.i.i.i48.i432 = phi ptr [ %1099, %.lr.ph.i.i.i.i.i.i46.i430 ], [ %1097, %.lr.ph.i.i.i.i.i.preheader.i45.i429 ]
-  %.078.i.i.i.i.i.i49.i433 = phi ptr [ %1098, %.lr.ph.i.i.i.i.i.i46.i430 ], [ %.sroa.07.020.i23.i407, %.lr.ph.i.i.i.i.i.preheader.i45.i429 ]
-  %1098 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i49.i433, i64 -4
-  %1099 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i48.i432, i64 -4
-  %1100 = load i16, ptr %1098, align 2
-  store i16 %1100, ptr %1099, align 2
-  %1101 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i49.i433, i64 -2
-  %1102 = load i8, ptr %1101, align 1
-  %1103 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i48.i432, i64 -2
-  store i8 %1102, ptr %1103, align 2
-  %1104 = add nsw i64 %.010.i.i.i.i.i.i47.i431, -1
-  %1105 = icmp ugt i64 %.010.i.i.i.i.i.i47.i431, 1
-  br i1 %1105, label %.lr.ph.i.i.i.i.i.i46.i430, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i44.i428, !llvm.loop !27
+  %.010.i.i.i.i.i.i47.i431 = phi i64 [ %1103, %.lr.ph.i.i.i.i.i.i46.i430 ], [ %1094, %.lr.ph.i.i.i.i.i.preheader.i45.i429 ]
+  %.069.i.i.i.i.i.i48.i432 = phi ptr [ %1098, %.lr.ph.i.i.i.i.i.i46.i430 ], [ %1096, %.lr.ph.i.i.i.i.i.preheader.i45.i429 ]
+  %.078.i.i.i.i.i.i49.i433 = phi ptr [ %1097, %.lr.ph.i.i.i.i.i.i46.i430 ], [ %.sroa.07.020.i23.i407, %.lr.ph.i.i.i.i.i.preheader.i45.i429 ]
+  %1097 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i49.i433, i64 -4
+  %1098 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i48.i432, i64 -4
+  %1099 = load i16, ptr %1097, align 2
+  store i16 %1099, ptr %1098, align 2
+  %1100 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i49.i433, i64 -2
+  %1101 = load i8, ptr %1100, align 1
+  %1102 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i48.i432, i64 -2
+  store i8 %1101, ptr %1102, align 2
+  %1103 = add nsw i64 %.010.i.i.i.i.i.i47.i431, -1
+  %1104 = icmp ugt i64 %.010.i.i.i.i.i.i47.i431, 1
+  br i1 %1104, label %.lr.ph.i.i.i.i.i.i46.i430, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i44.i428, !llvm.loop !27
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i44.i428: ; preds = %.lr.ph.i.i.i.i.i.i46.i430, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i40.i424
-  store i16 %.sroa.0.0.extract.trunc.i41.i425, ptr %.pre940, align 2
-  store i8 %.sroa.2.0.extract.trunc.i43.i427, ptr %1081, align 2
-  br label %1118
+  store i16 %.sroa.0.0.extract.trunc.i41.i425, ptr %.pre869, align 2
+  store i8 %.sroa.2.0.extract.trunc.i43.i427, ptr %1080, align 2
+  br label %1117
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i26.i410: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i409, %1086
-  %1106 = load i32, ptr %.sroa.07.020.i23.i407, align 2
-  %.sroa.03.0.extract.trunc.i.i27.i411 = trunc i32 %1106 to i16
-  %.sroa.3.0.extract.shift.i.i28.i412 = lshr i32 %1106, 16
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i26.i410: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i409, %1085
+  %1105 = load i32, ptr %.sroa.07.020.i23.i407, align 2
+  %.sroa.03.0.extract.trunc.i.i27.i411 = trunc i32 %1105 to i16
+  %.sroa.3.0.extract.shift.i.i28.i412 = lshr i32 %1105, 16
   %.sroa.3.0.extract.trunc.i.i29.i413 = trunc i32 %.sroa.3.0.extract.shift.i.i28.i412 to i8
-  br label %1107
+  br label %1106
 
-1107:                                             ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i36.i420, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i26.i410
+1106:                                             ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i36.i420, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i26.i410
   %.sroa.06.0.i.i30.i414 = phi ptr [ %.sroa.07.020.i23.i407, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread16.i26.i410 ], [ %.sroa.0.0.i.i31.i415, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i36.i420 ]
   %.sroa.0.0.i.i31.i415 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i30.i414, i64 -4
-  %1108 = load i16, ptr %.sroa.0.0.i.i31.i415, align 2
-  %1109 = icmp ugt i16 %1108, %.sroa.03.0.extract.trunc.i.i27.i411
-  br i1 %1109, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i37.i421, label %1110
+  %1107 = load i16, ptr %.sroa.0.0.i.i31.i415, align 2
+  %1108 = icmp ugt i16 %1107, %.sroa.03.0.extract.trunc.i.i27.i411
+  br i1 %1108, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i37.i421, label %1109
 
-._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i37.i421: ; preds = %1107
+._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i37.i421: ; preds = %1106
   %.phi.trans.insert.i.i38.i422 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i30.i414, i64 -2
   %.pre.i.i39.i423 = load i8, ptr %.phi.trans.insert.i.i38.i422, align 1
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i36.i420
 
-1110:                                             ; preds = %1107
-  %1111 = icmp ult i16 %1108, %.sroa.03.0.extract.trunc.i.i27.i411
-  br i1 %1111, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i33.i417, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i32.i416
+1109:                                             ; preds = %1106
+  %1110 = icmp ult i16 %1107, %.sroa.03.0.extract.trunc.i.i27.i411
+  br i1 %1110, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i33.i417, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i32.i416
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i32.i416: ; preds = %1110
-  %1112 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i30.i414, i64 -2
-  %1113 = load i8, ptr %1112, align 2
-  %1114 = icmp ugt i8 %1113, %.sroa.3.0.extract.trunc.i.i29.i413
-  br i1 %1114, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i36.i420, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i33.i417
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i32.i416: ; preds = %1109
+  %1111 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i30.i414, i64 -2
+  %1112 = load i8, ptr %1111, align 2
+  %1113 = icmp ugt i8 %1112, %.sroa.3.0.extract.trunc.i.i29.i413
+  br i1 %1113, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i36.i420, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i33.i417
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i.i36.i420: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i32.i416, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i37.i421
-  %1115 = phi i8 [ %.pre.i.i39.i423, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i37.i421 ], [ %1113, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i32.i416 ]
-  store i16 %1108, ptr %.sroa.06.0.i.i30.i414, align 2
-  %1116 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i30.i414, i64 2
-  store i8 %1115, ptr %1116, align 2
-  br label %1107, !llvm.loop !28
+  %1114 = phi i8 [ %.pre.i.i39.i423, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread_crit_edge.i.i37.i421 ], [ %1112, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i32.i416 ]
+  store i16 %1107, ptr %.sroa.06.0.i.i30.i414, align 2
+  %1115 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i30.i414, i64 2
+  store i8 %1114, ptr %1115, align 2
+  br label %1106, !llvm.loop !28
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i33.i417: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i32.i416, %1110
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i33.i417: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i32.i416, %1109
   store i16 %.sroa.03.0.extract.trunc.i.i27.i411, ptr %.sroa.06.0.i.i30.i414, align 2
-  %1117 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i30.i414, i64 2
-  store i8 %.sroa.3.0.extract.trunc.i.i29.i413, ptr %1117, align 2
-  br label %1118
+  %1116 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i30.i414, i64 2
+  store i8 %.sroa.3.0.extract.trunc.i.i29.i413, ptr %1116, align 2
+  br label %1117
 
-1118:                                             ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i33.i417, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i44.i428
+1117:                                             ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i33.i417, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i44.i428
   %.sroa.07.0.i34.i418 = getelementptr inbounds i8, ptr %.sroa.07.020.i23.i407, i64 4
-  %.not.i35.i419 = icmp eq ptr %.sroa.07.0.i34.i418, %.pre941
-  br i1 %.not.i35.i419, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127, label %1082, !llvm.loop !29
+  %.not.i35.i419 = icmp eq ptr %.sroa.07.0.i34.i418, %.pre870
+  br i1 %.not.i35.i419, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127, label %1081, !llvm.loop !29
 
-_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127: ; preds = %1118, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459, %._crit_edge, %.preheader.i19.i403, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_.exit.i449, %1022
+_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127: ; preds = %1117, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13.i459, %._crit_edge, %.preheader.i19.i403, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_.exit.i449, %._crit_edge829
   store i64 0, ptr %60, align 8
   store ptr @_ZN4llvm19LegacyLegalizerInfo28unsupportedForDifferentSizesERKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE, ptr %18, align 8
   store ptr @_ZNSt17_Function_handlerIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EPSA_E9_M_invokeERKSt9_Any_dataS9_, ptr %50, align 8
   store ptr @_ZNSt17_Function_handlerIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EPSA_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %51, align 8
-  %1119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #16
-  %1120 = icmp ugt i64 %1119, %74
-  br i1 %1120, label %1121, label %1139
+  %1118 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #16
+  %1119 = icmp ugt i64 %1118, %74
+  br i1 %1119, label %1120, label %1138
 
-1121:                                             ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127
-  %1122 = load ptr, ptr %68, align 8
-  %1123 = getelementptr inbounds %"class.std::function", ptr %1122, i64 %74
-  %1124 = getelementptr inbounds nuw i8, ptr %1123, i64 16
-  %1125 = load ptr, ptr %1124, align 8
-  %.not.i.i.i128.not = icmp eq ptr %1125, null
-  br i1 %.not.i.i.i128.not, label %1139, label %1126
+1120:                                             ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127
+  %1121 = load ptr, ptr %68, align 8
+  %1122 = getelementptr inbounds %"class.std::function", ptr %1121, i64 %74
+  %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 16
+  %1124 = load ptr, ptr %1123, align 8
+  %.not.i.i.i128.not = icmp eq ptr %1124, null
+  br i1 %.not.i.i.i128.not, label %1138, label %1125
 
-1126:                                             ; preds = %1121
+1125:                                             ; preds = %1120
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %1127 = load ptr, ptr %1124, align 8
-  %.not.i.i.not.i.i130 = icmp eq ptr %1127, null
-  br i1 %.not.i.i.not.i.i130, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2ERKSB_.exit.i131, label %1128
+  %1126 = load ptr, ptr %1123, align 8
+  %.not.i.i.not.i.i130 = icmp eq ptr %1126, null
+  br i1 %.not.i.i.not.i.i130, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2ERKSB_.exit.i131, label %1127
 
-1128:                                             ; preds = %1126
-  %1129 = call noundef zeroext i1 %1127(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1123, i32 noundef 2) #16
-  %1130 = getelementptr inbounds nuw i8, ptr %1123, i64 24
-  %1131 = load ptr, ptr %1130, align 8
-  %1132 = load ptr, ptr %1124, align 8
+1127:                                             ; preds = %1125
+  %1128 = call noundef zeroext i1 %1126(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1122, i32 noundef 2) #16
+  %1129 = getelementptr inbounds nuw i8, ptr %1122, i64 24
+  %1130 = load ptr, ptr %1129, align 8
+  %1131 = load ptr, ptr %1123, align 8
   br label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2ERKSB_.exit.i131
 
-_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2ERKSB_.exit.i131: ; preds = %1128, %1126
-  %1133 = phi ptr [ null, %1126 ], [ %1131, %1128 ]
-  %1134 = phi ptr [ null, %1126 ], [ %1132, %1128 ]
+_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2ERKSB_.exit.i131: ; preds = %1127, %1125
+  %1132 = phi ptr [ null, %1125 ], [ %1130, %1127 ]
+  %1133 = phi ptr [ null, %1125 ], [ %1131, %1127 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i129)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i129, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i129, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i129)
-  %1135 = load ptr, ptr %51, align 8
-  store ptr %1135, ptr %53, align 8
-  store ptr %1134, ptr %51, align 8
-  %1136 = load ptr, ptr %50, align 8
-  store ptr %1136, ptr %54, align 8
-  store ptr %1133, ptr %50, align 8
-  %.not.i.i.i132 = icmp eq ptr %1135, null
-  br i1 %.not.i.i.i132, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEaSERKSB_.exit133, label %1137
+  %1134 = load ptr, ptr %51, align 8
+  store ptr %1134, ptr %53, align 8
+  store ptr %1133, ptr %51, align 8
+  %1135 = load ptr, ptr %50, align 8
+  store ptr %1135, ptr %54, align 8
+  store ptr %1132, ptr %50, align 8
+  %.not.i.i.i132 = icmp eq ptr %1134, null
+  br i1 %.not.i.i.i132, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEaSERKSB_.exit133, label %1136
 
-1137:                                             ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2ERKSB_.exit.i131
-  %1138 = call noundef zeroext i1 %1135(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #16
+1136:                                             ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2ERKSB_.exit.i131
+  %1137 = call noundef zeroext i1 %1134(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #16
   br label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEaSERKSB_.exit133
 
-_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEaSERKSB_.exit133: ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2ERKSB_.exit.i131, %1137
+_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEaSERKSB_.exit133: ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2ERKSB_.exit.i131, %1136
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %1139
+  br label %1138
 
-1139:                                             ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEaSERKSB_.exit133, %1121, %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127
-  %1140 = load ptr, ptr %51, align 8, !noalias !50
-  %.not.i.i134 = icmp eq ptr %1140, null
-  br i1 %.not.i.i134, label %1141, label %_ZNKSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEclES9_.exit135
+1138:                                             ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEaSERKSB_.exit133, %1120, %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEC2IPSA_vEEOT_.exit127
+  %1139 = load ptr, ptr %51, align 8, !noalias !50
+  %.not.i.i134 = icmp eq ptr %1139, null
+  br i1 %.not.i.i134, label %1140, label %_ZNKSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEclES9_.exit135
 
-1141:                                             ; preds = %1139
+1140:                                             ; preds = %1138
   call void @_ZSt25__throw_bad_function_callv() #20, !noalias !50
   unreachable
 
-_ZNKSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEclES9_.exit135: ; preds = %1139
-  %1142 = load ptr, ptr %50, align 8, !noalias !50
-  call void %1142(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(24) %15) #16
-  %1143 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
-  %.not.i.i136 = icmp ugt i64 %1143, %74
-  br i1 %.not.i.i136, label %_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit, label %1144
+_ZNKSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEclES9_.exit135: ; preds = %1138
+  %1141 = load ptr, ptr %50, align 8, !noalias !50
+  call void %1141(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(24) %15) #16
+  %1142 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
+  %.not.i.i136 = icmp ugt i64 %1142, %74
+  br i1 %.not.i.i136, label %_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit, label %1143
 
-1144:                                             ; preds = %_ZNKSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEclES9_.exit135
-  %1145 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
-  %1146 = icmp eq i64 %1145, %76
-  br i1 %1146, label %_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit, label %1147
+1143:                                             ; preds = %_ZNKSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEclES9_.exit135
+  %1144 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
+  %1145 = icmp eq i64 %1144, %76
+  br i1 %1145, label %_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit, label %1146
 
-1147:                                             ; preds = %1144
-  %1148 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
-  %1149 = icmp ugt i64 %1148, %76
-  br i1 %1149, label %1150, label %1163
+1146:                                             ; preds = %1143
+  %1147 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
+  %1148 = icmp ugt i64 %1147, %76
+  br i1 %1148, label %1149, label %1162
 
-1150:                                             ; preds = %1147
-  %1151 = load ptr, ptr %69, align 8
-  %1152 = getelementptr inbounds %"class.std::vector", ptr %1151, i64 %76
-  %1153 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
-  %.not4.i.i.i518 = icmp eq i64 %1153, %76
+1149:                                             ; preds = %1146
+  %1150 = load ptr, ptr %69, align 8
+  %1151 = getelementptr inbounds %"class.std::vector", ptr %1150, i64 %76
+  %1152 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
+  %.not4.i.i.i518 = icmp eq i64 %1152, %76
   br i1 %.not4.i.i.i518, label %.sink.split.i517, label %.lr.ph.i.preheader.i.i519
 
-.lr.ph.i.preheader.i.i519:                        ; preds = %1150
-  %1154 = getelementptr inbounds %"class.std::vector", ptr %1151, i64 %1153
+.lr.ph.i.preheader.i.i519:                        ; preds = %1149
+  %1153 = getelementptr inbounds %"class.std::vector", ptr %1150, i64 %1152
   br label %.lr.ph.i.i.i520
 
 .lr.ph.i.i.i520:                                  ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523, %.lr.ph.i.preheader.i.i519
-  %.05.i.i.i521 = phi ptr [ %1155, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523 ], [ %1154, %.lr.ph.i.preheader.i.i519 ]
-  %1155 = getelementptr inbounds i8, ptr %.05.i.i.i521, i64 -24
-  %1156 = load ptr, ptr %1155, align 8
-  %.not.i.i.i.i.i.i522 = icmp eq ptr %1156, null
-  br i1 %.not.i.i.i.i.i.i522, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523, label %1157
+  %.05.i.i.i521 = phi ptr [ %1154, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523 ], [ %1153, %.lr.ph.i.preheader.i.i519 ]
+  %1154 = getelementptr inbounds i8, ptr %.05.i.i.i521, i64 -24
+  %1155 = load ptr, ptr %1154, align 8
+  %.not.i.i.i.i.i.i522 = icmp eq ptr %1155, null
+  br i1 %.not.i.i.i.i.i.i522, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523, label %1156
 
-1157:                                             ; preds = %.lr.ph.i.i.i520
-  %1158 = getelementptr inbounds i8, ptr %.05.i.i.i521, i64 -8
-  %1159 = load ptr, ptr %1158, align 8
-  %1160 = ptrtoint ptr %1159 to i64
-  %1161 = ptrtoint ptr %1156 to i64
-  %1162 = sub i64 %1160, %1161
-  call void @_ZdlPvm(ptr noundef nonnull %1156, i64 noundef %1162) #18
+1156:                                             ; preds = %.lr.ph.i.i.i520
+  %1157 = getelementptr inbounds i8, ptr %.05.i.i.i521, i64 -8
+  %1158 = load ptr, ptr %1157, align 8
+  %1159 = ptrtoint ptr %1158 to i64
+  %1160 = ptrtoint ptr %1155 to i64
+  %1161 = sub i64 %1159, %1160
+  call void @_ZdlPvm(ptr noundef nonnull %1155, i64 noundef %1161) #18
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523
 
-_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523: ; preds = %1157, %.lr.ph.i.i.i520
-  %.not.i.i.i524 = icmp eq ptr %1152, %1155
+_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523: ; preds = %1156, %.lr.ph.i.i.i520
+  %.not.i.i.i524 = icmp eq ptr %1151, %1154
   br i1 %.not.i.i.i524, label %.sink.split.i517, label %.lr.ph.i.i.i520, !llvm.loop !34
 
-1163:                                             ; preds = %1147
-  %1164 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
-  %1165 = icmp ult i64 %1164, %76
-  br i1 %1165, label %1166, label %_ZN4llvm15SmallVectorImplISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEE7reserveEm.exit.i512
+1162:                                             ; preds = %1146
+  %1163 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
+  %1164 = icmp ult i64 %1163, %76
+  br i1 %1164, label %1165, label %_ZN4llvm15SmallVectorImplISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEE7reserveEm.exit.i512
 
-1166:                                             ; preds = %1163
+1165:                                             ; preds = %1162
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %1167 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull %70, i64 noundef %76, i64 noundef 24, ptr noundef nonnull align 8 dereferenceable(8) %2) #16
-  %1168 = load ptr, ptr %69, align 8
-  %1169 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
-  %1170 = getelementptr inbounds %"class.std::vector", ptr %1168, i64 %1169
-  %.not7.i.i.i.i.i.i.i603 = icmp eq i64 %1169, 0
+  %1166 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull %70, i64 noundef %76, i64 noundef 24, ptr noundef nonnull align 8 dereferenceable(8) %2) #16
+  %1167 = load ptr, ptr %69, align 8
+  %1168 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
+  %1169 = getelementptr inbounds %"class.std::vector", ptr %1167, i64 %1168
+  %.not7.i.i.i.i.i.i.i603 = icmp eq i64 %1168, 0
   br i1 %.not7.i.i.i.i.i.i.i603, label %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit.i.i608, label %.lr.ph.i.i.i.i.i.i.i604
 
-.lr.ph.i.i.i.i.i.i.i604:                          ; preds = %1166, %.lr.ph.i.i.i.i.i.i.i604
-  %.09.i.i.i.i.i.i.i605 = phi ptr [ %1179, %.lr.ph.i.i.i.i.i.i.i604 ], [ %1167, %1166 ]
-  %.sroa.04.08.i.i.i.i.i.i.i606 = phi ptr [ %1178, %.lr.ph.i.i.i.i.i.i.i604 ], [ %1168, %1166 ]
-  %1171 = load ptr, ptr %.sroa.04.08.i.i.i.i.i.i.i606, align 8
-  store ptr %1171, ptr %.09.i.i.i.i.i.i.i605, align 8
-  %1172 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i605, i64 8
-  %1173 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i606, i64 8
-  %1174 = load ptr, ptr %1173, align 8
-  store ptr %1174, ptr %1172, align 8
-  %1175 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i605, i64 16
-  %1176 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i606, i64 16
-  %1177 = load ptr, ptr %1176, align 8
-  store ptr %1177, ptr %1175, align 8
+.lr.ph.i.i.i.i.i.i.i604:                          ; preds = %1165, %.lr.ph.i.i.i.i.i.i.i604
+  %.09.i.i.i.i.i.i.i605 = phi ptr [ %1178, %.lr.ph.i.i.i.i.i.i.i604 ], [ %1166, %1165 ]
+  %.sroa.04.08.i.i.i.i.i.i.i606 = phi ptr [ %1177, %.lr.ph.i.i.i.i.i.i.i604 ], [ %1167, %1165 ]
+  %1170 = load ptr, ptr %.sroa.04.08.i.i.i.i.i.i.i606, align 8
+  store ptr %1170, ptr %.09.i.i.i.i.i.i.i605, align 8
+  %1171 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i605, i64 8
+  %1172 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i606, i64 8
+  %1173 = load ptr, ptr %1172, align 8
+  store ptr %1173, ptr %1171, align 8
+  %1174 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i605, i64 16
+  %1175 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i606, i64 16
+  %1176 = load ptr, ptr %1175, align 8
+  store ptr %1176, ptr %1174, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i.i606, i8 0, i64 24, i1 false)
-  %1178 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i.i606, i64 24
-  %1179 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i605, i64 24
-  %.not.i.i.i.i.i.i.i607 = icmp eq ptr %1178, %1170
+  %1177 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i.i606, i64 24
+  %1178 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i605, i64 24
+  %.not.i.i.i.i.i.i.i607 = icmp eq ptr %1177, %1169
   br i1 %.not.i.i.i.i.i.i.i607, label %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit.i.i608, label %.lr.ph.i.i.i.i.i.i.i604, !llvm.loop !35
 
-_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit.i.i608: ; preds = %.lr.ph.i.i.i.i.i.i.i604, %1166
-  %1180 = load ptr, ptr %69, align 8
-  %1181 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
-  %.not4.i.i.i609 = icmp eq i64 %1181, 0
+_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit.i.i608: ; preds = %.lr.ph.i.i.i.i.i.i.i604, %1165
+  %1179 = load ptr, ptr %69, align 8
+  %1180 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
+  %.not4.i.i.i609 = icmp eq i64 %1180, 0
   br i1 %.not4.i.i.i609, label %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE19moveElementsForGrowEPS7_.exit.i616, label %.lr.ph.i.preheader.i.i610
 
 .lr.ph.i.preheader.i.i610:                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit.i.i608
-  %1182 = getelementptr inbounds %"class.std::vector", ptr %1180, i64 %1181
+  %1181 = getelementptr inbounds %"class.std::vector", ptr %1179, i64 %1180
   br label %.lr.ph.i.i.i611
 
 .lr.ph.i.i.i611:                                  ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i614, %.lr.ph.i.preheader.i.i610
-  %.05.i.i.i612 = phi ptr [ %1183, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i614 ], [ %1182, %.lr.ph.i.preheader.i.i610 ]
-  %1183 = getelementptr inbounds i8, ptr %.05.i.i.i612, i64 -24
-  %1184 = load ptr, ptr %1183, align 8
-  %.not.i.i.i.i.i.i613 = icmp eq ptr %1184, null
-  br i1 %.not.i.i.i.i.i.i613, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i614, label %1185
+  %.05.i.i.i612 = phi ptr [ %1182, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i614 ], [ %1181, %.lr.ph.i.preheader.i.i610 ]
+  %1182 = getelementptr inbounds i8, ptr %.05.i.i.i612, i64 -24
+  %1183 = load ptr, ptr %1182, align 8
+  %.not.i.i.i.i.i.i613 = icmp eq ptr %1183, null
+  br i1 %.not.i.i.i.i.i.i613, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i614, label %1184
 
-1185:                                             ; preds = %.lr.ph.i.i.i611
-  %1186 = getelementptr inbounds i8, ptr %.05.i.i.i612, i64 -8
-  %1187 = load ptr, ptr %1186, align 8
-  %1188 = ptrtoint ptr %1187 to i64
-  %1189 = ptrtoint ptr %1184 to i64
-  %1190 = sub i64 %1188, %1189
-  call void @_ZdlPvm(ptr noundef nonnull %1184, i64 noundef %1190) #18
+1184:                                             ; preds = %.lr.ph.i.i.i611
+  %1185 = getelementptr inbounds i8, ptr %.05.i.i.i612, i64 -8
+  %1186 = load ptr, ptr %1185, align 8
+  %1187 = ptrtoint ptr %1186 to i64
+  %1188 = ptrtoint ptr %1183 to i64
+  %1189 = sub i64 %1187, %1188
+  call void @_ZdlPvm(ptr noundef nonnull %1183, i64 noundef %1189) #18
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i614
 
-_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i614: ; preds = %1185, %.lr.ph.i.i.i611
-  %.not.i.i.i615 = icmp eq ptr %1180, %1183
+_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i614: ; preds = %1184, %.lr.ph.i.i.i611
+  %.not.i.i.i615 = icmp eq ptr %1179, %1182
   br i1 %.not.i.i.i615, label %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE19moveElementsForGrowEPS7_.exit.i616, label %.lr.ph.i.i.i611, !llvm.loop !34
 
 _ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE19moveElementsForGrowEPS7_.exit.i616: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i614, %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit.i.i608
-  %1191 = load i64, ptr %2, align 8
-  %1192 = load ptr, ptr %69, align 8
-  %1193 = icmp eq ptr %1192, %70
-  br i1 %1193, label %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE4growEm.exit617, label %1194
+  %1190 = load i64, ptr %2, align 8
+  %1191 = load ptr, ptr %69, align 8
+  %1192 = icmp eq ptr %1191, %70
+  br i1 %1192, label %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE4growEm.exit617, label %1193
 
-1194:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE19moveElementsForGrowEPS7_.exit.i616
-  call void @free(ptr noundef %1192) #16
+1193:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE19moveElementsForGrowEPS7_.exit.i616
+  call void @free(ptr noundef %1191) #16
   br label %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE4growEm.exit617
 
-_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE4growEm.exit617: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE19moveElementsForGrowEPS7_.exit.i616, %1194
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef %1167, i64 noundef %1191) #16
+_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE4growEm.exit617: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE19moveElementsForGrowEPS7_.exit.i616, %1193
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef %1166, i64 noundef %1190) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %_ZN4llvm15SmallVectorImplISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEE7reserveEm.exit.i512
 
-_ZN4llvm15SmallVectorImplISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEE7reserveEm.exit.i512: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE4growEm.exit617, %1163
-  %1195 = load ptr, ptr %69, align 8
-  %1196 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
-  %1197 = getelementptr inbounds %"class.std::vector", ptr %1195, i64 %1196
-  %1198 = load ptr, ptr %69, align 8
-  %1199 = getelementptr inbounds %"class.std::vector", ptr %1198, i64 %76
-  %.not11.i513 = icmp eq ptr %1197, %1199
+_ZN4llvm15SmallVectorImplISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEE7reserveEm.exit.i512: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE4growEm.exit617, %1162
+  %1194 = load ptr, ptr %69, align 8
+  %1195 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
+  %1196 = getelementptr inbounds %"class.std::vector", ptr %1194, i64 %1195
+  %1197 = load ptr, ptr %69, align 8
+  %1198 = getelementptr inbounds %"class.std::vector", ptr %1197, i64 %76
+  %.not11.i513 = icmp eq ptr %1196, %1198
   br i1 %.not11.i513, label %.sink.split.i517, label %.lr.ph.i514.preheader
 
 .lr.ph.i514.preheader:                            ; preds = %_ZN4llvm15SmallVectorImplISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEE7reserveEm.exit.i512
-  %1200 = ptrtoint ptr %1198 to i64
-  %1201 = ptrtoint ptr %1195 to i64
-  %1202 = add i64 %1200, -24
-  %1203 = add i64 %1202, %77
-  %1204 = sub i64 %1203, %1201
-  %.neg943 = mul i64 %1196, -24
-  %.fr944 = freeze i64 %1204
-  %1205 = add i64 %.neg943, %.fr944
-  %1206 = urem i64 %1205, 24
-  %1207 = sub nuw i64 %1205, %1206
-  %1208 = add i64 %1207, 24
-  call void @llvm.memset.p0.i64(ptr align 8 %1197, i8 0, i64 %1208, i1 false)
+  %1199 = ptrtoint ptr %1197 to i64
+  %1200 = ptrtoint ptr %1194 to i64
+  %1201 = add i64 %1199, -24
+  %1202 = add i64 %1201, %77
+  %1203 = sub i64 %1202, %1200
+  %.neg872 = mul i64 %1195, -24
+  %.fr873 = freeze i64 %1203
+  %1204 = add i64 %.neg872, %.fr873
+  %1205 = urem i64 %1204, 24
+  %1206 = sub nuw i64 %1204, %1205
+  %1207 = add i64 %1206, 24
+  call void @llvm.memset.p0.i64(ptr align 8 %1196, i8 0, i64 %1207, i1 false)
   br label %.sink.split.i517
 
-.sink.split.i517:                                 ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523, %.lr.ph.i514.preheader, %_ZN4llvm15SmallVectorImplISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEE7reserveEm.exit.i512, %1150
+.sink.split.i517:                                 ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i523, %.lr.ph.i514.preheader, %_ZN4llvm15SmallVectorImplISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEE7reserveEm.exit.i512, %1149
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %69, i64 noundef %76) #16
   br label %_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit
 
-_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit: ; preds = %.sink.split.i517, %1144, %_ZNKSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEclES9_.exit135
-  %1209 = load ptr, ptr %69, align 8
-  %1210 = getelementptr inbounds %"class.std::vector", ptr %1209, i64 %74
-  %.not.i479 = icmp eq ptr %19, %1210
-  br i1 %.not.i479, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEaSERKS6_.exit511, label %1211
+_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit: ; preds = %.sink.split.i517, %1143, %_ZNKSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EEclES9_.exit135
+  %1208 = load ptr, ptr %69, align 8
+  %1209 = getelementptr inbounds %"class.std::vector", ptr %1208, i64 %74
+  %.not.i479 = icmp eq ptr %19, %1209
+  br i1 %.not.i479, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEaSERKS6_.exit511, label %1210
 
-1211:                                             ; preds = %_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit
-  %1212 = load ptr, ptr %56, align 8
-  %1213 = load ptr, ptr %19, align 8
+1210:                                             ; preds = %_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit
+  %1211 = load ptr, ptr %56, align 8
+  %1212 = load ptr, ptr %19, align 8
+  %1213 = ptrtoint ptr %1211 to i64
   %1214 = ptrtoint ptr %1212 to i64
-  %1215 = ptrtoint ptr %1213 to i64
-  %1216 = sub i64 %1214, %1215
-  %1217 = ashr exact i64 %1216, 2
-  %1218 = getelementptr inbounds nuw i8, ptr %1210, i64 16
-  %1219 = load ptr, ptr %1218, align 8
-  %1220 = load ptr, ptr %1210, align 8
+  %1215 = sub i64 %1213, %1214
+  %1216 = ashr exact i64 %1215, 2
+  %1217 = getelementptr inbounds nuw i8, ptr %1209, i64 16
+  %1218 = load ptr, ptr %1217, align 8
+  %1219 = load ptr, ptr %1209, align 8
+  %1220 = ptrtoint ptr %1218 to i64
   %1221 = ptrtoint ptr %1219 to i64
-  %1222 = ptrtoint ptr %1220 to i64
-  %1223 = sub i64 %1221, %1222
-  %1224 = icmp ugt i64 %1216, %1223
-  br i1 %1224, label %1225, label %1235
+  %1222 = sub i64 %1220, %1221
+  %1223 = icmp ugt i64 %1215, %1222
+  br i1 %1223, label %1224, label %1234
 
-1225:                                             ; preds = %1211
-  %1226 = icmp ugt i64 %1217, 2305843009213693951
-  br i1 %1226, label %1227, label %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i.i505
+1224:                                             ; preds = %1210
+  %1225 = icmp ugt i64 %1216, 2305843009213693951
+  br i1 %1225, label %1226, label %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i.i505
 
-1227:                                             ; preds = %1225
+1226:                                             ; preds = %1224
   call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i.i505: ; preds = %1225
-  %1228 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %1216) #17
-  %.not7.i.i.i.i.i.i506 = icmp eq ptr %1213, %1212
+_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i.i505: ; preds = %1224
+  %1227 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %1215) #17
+  %.not7.i.i.i.i.i.i506 = icmp eq ptr %1212, %1211
   br i1 %.not7.i.i.i.i.i.i506, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit.i508, label %.lr.ph.i.i.i.i.preheader.i.i507
 
 .lr.ph.i.i.i.i.preheader.i.i507:                  ; preds = %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i.i505
-  %1229 = add i64 %1214, -4
-  %1230 = sub i64 %1229, %1215
-  %1231 = and i64 %1230, -4
-  %1232 = add i64 %1231, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %1228, ptr align 2 %1213, i64 %1232, i1 false)
+  %1228 = add i64 %1213, -4
+  %1229 = sub i64 %1228, %1214
+  %1230 = and i64 %1229, -4
+  %1231 = add i64 %1230, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %1227, ptr align 2 %1212, i64 %1231, i1 false)
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit.i508
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit.i508: ; preds = %.lr.ph.i.i.i.i.preheader.i.i507, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i.i505
-  %.not.i.i509 = icmp eq ptr %1220, null
-  br i1 %.not.i.i509, label %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE13_M_deallocateEPS4_m.exit.i510, label %1233
+  %.not.i.i509 = icmp eq ptr %1219, null
+  br i1 %.not.i.i509, label %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE13_M_deallocateEPS4_m.exit.i510, label %1232
 
-1233:                                             ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit.i508
-  call void @_ZdlPvm(ptr noundef nonnull %1220, i64 noundef %1223) #18
+1232:                                             ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit.i508
+  call void @_ZdlPvm(ptr noundef nonnull %1219, i64 noundef %1222) #18
   br label %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE13_M_deallocateEPS4_m.exit.i510
 
-_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE13_M_deallocateEPS4_m.exit.i510: ; preds = %1233, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit.i508
-  store ptr %1228, ptr %1210, align 8
-  %1234 = getelementptr inbounds i8, ptr %1228, i64 %1216
-  store ptr %1234, ptr %1218, align 8
+_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE13_M_deallocateEPS4_m.exit.i510: ; preds = %1232, %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit.i508
+  store ptr %1227, ptr %1209, align 8
+  %1233 = getelementptr inbounds i8, ptr %1227, i64 %1215
+  store ptr %1233, ptr %1217, align 8
   br label %_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481
 
-1235:                                             ; preds = %1211
-  %1236 = getelementptr inbounds nuw i8, ptr %1210, i64 8
-  %1237 = load ptr, ptr %1236, align 8
-  %1238 = ptrtoint ptr %1237 to i64
-  %1239 = sub i64 %1238, %1222
-  %.not24.i480 = icmp ult i64 %1239, %1216
-  br i1 %.not24.i480, label %1250, label %1240
+1234:                                             ; preds = %1210
+  %1235 = getelementptr inbounds nuw i8, ptr %1209, i64 8
+  %1236 = load ptr, ptr %1235, align 8
+  %1237 = ptrtoint ptr %1236 to i64
+  %1238 = sub i64 %1237, %1221
+  %.not24.i480 = icmp ult i64 %1238, %1215
+  br i1 %.not24.i480, label %1249, label %1239
 
-1240:                                             ; preds = %1235
-  %1241 = icmp sgt i64 %1217, 0
-  br i1 %1241, label %.lr.ph.i.i.i.i.i.i482, label %_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481
+1239:                                             ; preds = %1234
+  %1240 = icmp sgt i64 %1216, 0
+  br i1 %1240, label %.lr.ph.i.i.i.i.i.i482, label %_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481
 
-.lr.ph.i.i.i.i.i.i482:                            ; preds = %1240, %.lr.ph.i.i.i.i.i.i482
-  %.012.i.i.i.i.i.i483 = phi i64 [ %1248, %.lr.ph.i.i.i.i.i.i482 ], [ %1217, %1240 ]
-  %.0811.i.i.i.i.i.i484 = phi ptr [ %1247, %.lr.ph.i.i.i.i.i.i482 ], [ %1220, %1240 ]
-  %.0910.i.i.i.i.i.i485 = phi ptr [ %1246, %.lr.ph.i.i.i.i.i.i482 ], [ %1213, %1240 ]
-  %1242 = load i16, ptr %.0910.i.i.i.i.i.i485, align 2
-  store i16 %1242, ptr %.0811.i.i.i.i.i.i484, align 2
-  %1243 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i485, i64 2
-  %1244 = load i8, ptr %1243, align 2
-  %1245 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i484, i64 2
-  store i8 %1244, ptr %1245, align 2
-  %1246 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i485, i64 4
-  %1247 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i484, i64 4
-  %1248 = add nsw i64 %.012.i.i.i.i.i.i483, -1
-  %1249 = icmp ugt i64 %.012.i.i.i.i.i.i483, 1
-  br i1 %1249, label %.lr.ph.i.i.i.i.i.i482, label %_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481, !llvm.loop !36
+.lr.ph.i.i.i.i.i.i482:                            ; preds = %1239, %.lr.ph.i.i.i.i.i.i482
+  %.012.i.i.i.i.i.i483 = phi i64 [ %1247, %.lr.ph.i.i.i.i.i.i482 ], [ %1216, %1239 ]
+  %.0811.i.i.i.i.i.i484 = phi ptr [ %1246, %.lr.ph.i.i.i.i.i.i482 ], [ %1219, %1239 ]
+  %.0910.i.i.i.i.i.i485 = phi ptr [ %1245, %.lr.ph.i.i.i.i.i.i482 ], [ %1212, %1239 ]
+  %1241 = load i16, ptr %.0910.i.i.i.i.i.i485, align 2
+  store i16 %1241, ptr %.0811.i.i.i.i.i.i484, align 2
+  %1242 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i485, i64 2
+  %1243 = load i8, ptr %1242, align 2
+  %1244 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i484, i64 2
+  store i8 %1243, ptr %1244, align 2
+  %1245 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i485, i64 4
+  %1246 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i484, i64 4
+  %1247 = add nsw i64 %.012.i.i.i.i.i.i483, -1
+  %1248 = icmp ugt i64 %.012.i.i.i.i.i.i483, 1
+  br i1 %1248, label %.lr.ph.i.i.i.i.i.i482, label %_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481, !llvm.loop !36
 
-1250:                                             ; preds = %1235
-  %1251 = ashr exact i64 %1239, 2
-  %1252 = icmp sgt i64 %1251, 0
-  br i1 %1252, label %.lr.ph.i.i.i.i.i26.i493, label %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486
+1249:                                             ; preds = %1234
+  %1250 = ashr exact i64 %1238, 2
+  %1251 = icmp sgt i64 %1250, 0
+  br i1 %1251, label %.lr.ph.i.i.i.i.i26.i493, label %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486
 
-.lr.ph.i.i.i.i.i26.i493:                          ; preds = %1250, %.lr.ph.i.i.i.i.i26.i493
-  %.012.i.i.i.i.i27.i494 = phi i64 [ %1259, %.lr.ph.i.i.i.i.i26.i493 ], [ %1251, %1250 ]
-  %.0811.i.i.i.i.i28.i495 = phi ptr [ %1258, %.lr.ph.i.i.i.i.i26.i493 ], [ %1220, %1250 ]
-  %.0910.i.i.i.i.i29.i496 = phi ptr [ %1257, %.lr.ph.i.i.i.i.i26.i493 ], [ %1213, %1250 ]
-  %1253 = load i16, ptr %.0910.i.i.i.i.i29.i496, align 2
-  store i16 %1253, ptr %.0811.i.i.i.i.i28.i495, align 2
-  %1254 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29.i496, i64 2
-  %1255 = load i8, ptr %1254, align 2
-  %1256 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28.i495, i64 2
-  store i8 %1255, ptr %1256, align 2
-  %1257 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29.i496, i64 4
-  %1258 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28.i495, i64 4
-  %1259 = add nsw i64 %.012.i.i.i.i.i27.i494, -1
-  %1260 = icmp ugt i64 %.012.i.i.i.i.i27.i494, 1
-  br i1 %1260, label %.lr.ph.i.i.i.i.i26.i493, label %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497, !llvm.loop !37
+.lr.ph.i.i.i.i.i26.i493:                          ; preds = %1249, %.lr.ph.i.i.i.i.i26.i493
+  %.012.i.i.i.i.i27.i494 = phi i64 [ %1258, %.lr.ph.i.i.i.i.i26.i493 ], [ %1250, %1249 ]
+  %.0811.i.i.i.i.i28.i495 = phi ptr [ %1257, %.lr.ph.i.i.i.i.i26.i493 ], [ %1219, %1249 ]
+  %.0910.i.i.i.i.i29.i496 = phi ptr [ %1256, %.lr.ph.i.i.i.i.i26.i493 ], [ %1212, %1249 ]
+  %1252 = load i16, ptr %.0910.i.i.i.i.i29.i496, align 2
+  store i16 %1252, ptr %.0811.i.i.i.i.i28.i495, align 2
+  %1253 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29.i496, i64 2
+  %1254 = load i8, ptr %1253, align 2
+  %1255 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28.i495, i64 2
+  store i8 %1254, ptr %1255, align 2
+  %1256 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29.i496, i64 4
+  %1257 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28.i495, i64 4
+  %1258 = add nsw i64 %.012.i.i.i.i.i27.i494, -1
+  %1259 = icmp ugt i64 %.012.i.i.i.i.i27.i494, 1
+  br i1 %1259, label %.lr.ph.i.i.i.i.i26.i493, label %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497, !llvm.loop !37
 
 _ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497: ; preds = %.lr.ph.i.i.i.i.i26.i493
   %.pre.i498 = load ptr, ptr %19, align 8
-  %.pre32.i499 = load ptr, ptr %1236, align 8
-  %.pre33.i500 = load ptr, ptr %1210, align 8
+  %.pre32.i499 = load ptr, ptr %1235, align 8
+  %.pre33.i500 = load ptr, ptr %1209, align 8
   %.pre34.i501 = load ptr, ptr %56, align 8
   %.pre35.i502 = ptrtoint ptr %.pre32.i499 to i64
   %.pre36.i503 = ptrtoint ptr %.pre33.i500 to i64
   %.pre38.i504 = sub i64 %.pre35.i502, %.pre36.i503
   br label %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486
 
-_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486: ; preds = %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497, %1250
-  %.pre-phi39.i487 = phi i64 [ %.pre38.i504, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497 ], [ %1239, %1250 ]
-  %1261 = phi ptr [ %.pre34.i501, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497 ], [ %1212, %1250 ]
-  %1262 = phi ptr [ %.pre32.i499, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497 ], [ %1237, %1250 ]
-  %1263 = phi ptr [ %.pre.i498, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497 ], [ %1213, %1250 ]
-  %1264 = getelementptr inbounds i8, ptr %1263, i64 %.pre-phi39.i487
-  %.not9.i.i.i.i.i488 = icmp eq ptr %1264, %1261
+_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486: ; preds = %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497, %1249
+  %.pre-phi39.i487 = phi i64 [ %.pre38.i504, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497 ], [ %1238, %1249 ]
+  %1260 = phi ptr [ %.pre34.i501, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497 ], [ %1211, %1249 ]
+  %1261 = phi ptr [ %.pre32.i499, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497 ], [ %1236, %1249 ]
+  %1262 = phi ptr [ %.pre.i498, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.loopexit.i497 ], [ %1212, %1249 ]
+  %1263 = getelementptr inbounds i8, ptr %1262, i64 %.pre-phi39.i487
+  %.not9.i.i.i.i.i488 = icmp eq ptr %1263, %1260
   br i1 %.not9.i.i.i.i.i488, label %_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481, label %.lr.ph.i.i.i.i.i489
 
 .lr.ph.i.i.i.i.i489:                              ; preds = %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486, %.lr.ph.i.i.i.i.i489
-  %.011.i.i.i.i.i490 = phi ptr [ %1267, %.lr.ph.i.i.i.i.i489 ], [ %1262, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486 ]
-  %.0810.i.i.i.i.i491 = phi ptr [ %1266, %.lr.ph.i.i.i.i.i489 ], [ %1264, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486 ]
-  %1265 = load i32, ptr %.0810.i.i.i.i.i491, align 2
-  store i32 %1265, ptr %.011.i.i.i.i.i490, align 2
-  %1266 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i491, i64 4
-  %1267 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i490, i64 4
-  %.not.i.i.i.i.i492 = icmp eq ptr %1266, %1261
+  %.011.i.i.i.i.i490 = phi ptr [ %1266, %.lr.ph.i.i.i.i.i489 ], [ %1261, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486 ]
+  %.0810.i.i.i.i.i491 = phi ptr [ %1265, %.lr.ph.i.i.i.i.i489 ], [ %1263, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486 ]
+  %1264 = load i32, ptr %.0810.i.i.i.i.i491, align 2
+  store i32 %1264, ptr %.011.i.i.i.i.i490, align 2
+  %1265 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i491, i64 4
+  %1266 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i490, i64 4
+  %.not.i.i.i.i.i492 = icmp eq ptr %1265, %1260
   br i1 %.not.i.i.i.i.i492, label %_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481, label %.lr.ph.i.i.i.i.i489, !llvm.loop !38
 
-_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481: ; preds = %.lr.ph.i.i.i.i.i.i482, %.lr.ph.i.i.i.i.i489, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486, %1240, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE13_M_deallocateEPS4_m.exit.i510
-  %1268 = load ptr, ptr %1210, align 8
-  %1269 = getelementptr inbounds i8, ptr %1268, i64 %1216
-  %1270 = getelementptr inbounds nuw i8, ptr %1210, i64 8
-  store ptr %1269, ptr %1270, align 8
+_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481: ; preds = %.lr.ph.i.i.i.i.i.i482, %.lr.ph.i.i.i.i.i489, %_ZSt4copyIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_ET0_T_S7_S6_.exit.i486, %1239, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE13_M_deallocateEPS4_m.exit.i510
+  %1267 = load ptr, ptr %1209, align 8
+  %1268 = getelementptr inbounds i8, ptr %1267, i64 %1215
+  %1269 = getelementptr inbounds nuw i8, ptr %1209, i64 8
+  store ptr %1268, ptr %1269, align 8
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEaSERKS6_.exit511
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEaSERKS6_.exit511: ; preds = %_ZN4llvm19LegacyLegalizerInfo23setScalarInVectorActionEjjRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EE.exit, %_ZSt22__uninitialized_copy_aIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEES5_S4_ET0_T_S7_S6_RSaIT1_E.exit.i481
-  %1271 = load ptr, ptr %19, align 8
-  %.not.i.i.i137 = icmp eq ptr %1271, null
-  br i1 %.not.i.i.i137, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit138, label %1272
+  %1270 = load ptr, ptr %19, align 8
+  %.not.i.i.i137 = icmp eq ptr %1270, null
+  br i1 %.not.i.i.i137, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit138, label %1271
 
-1272:                                             ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEaSERKS6_.exit511
-  %1273 = load ptr, ptr %57, align 8
-  %1274 = ptrtoint ptr %1273 to i64
-  %1275 = ptrtoint ptr %1271 to i64
-  %1276 = sub i64 %1274, %1275
-  call void @_ZdlPvm(ptr noundef nonnull %1271, i64 noundef %1276) #18
+1271:                                             ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEaSERKS6_.exit511
+  %1272 = load ptr, ptr %57, align 8
+  %1273 = ptrtoint ptr %1272 to i64
+  %1274 = ptrtoint ptr %1270 to i64
+  %1275 = sub i64 %1273, %1274
+  call void @_ZdlPvm(ptr noundef nonnull %1270, i64 noundef %1275) #18
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit138
 
-_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit138: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEaSERKS6_.exit511, %1272
-  %1277 = load ptr, ptr %51, align 8
-  %.not.i.i139 = icmp eq ptr %1277, null
-  br i1 %.not.i.i139, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit140, label %1278
+_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit138: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EEaSERKS6_.exit511, %1271
+  %1276 = load ptr, ptr %51, align 8
+  %.not.i.i139 = icmp eq ptr %1276, null
+  br i1 %.not.i.i139, label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit140, label %1277
 
-1278:                                             ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit138
-  %1279 = call noundef zeroext i1 %1277(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 3) #16
+1277:                                             ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit138
+  %1278 = call noundef zeroext i1 %1276(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 3) #16
   br label %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit140
 
-_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit140: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit138, %1278
-  %1280 = load ptr, ptr %15, align 8
-  %.not.i.i.i141 = icmp eq ptr %1280, null
-  br i1 %.not.i.i.i141, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit142, label %1281
+_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit140: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit138, %1277
+  %1279 = load ptr, ptr %15, align 8
+  %.not.i.i.i141 = icmp eq ptr %1279, null
+  br i1 %.not.i.i.i141, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit142, label %1280
 
-1281:                                             ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit140
-  %1282 = load ptr, ptr %46, align 8
-  %1283 = ptrtoint ptr %1282 to i64
-  %1284 = ptrtoint ptr %1280 to i64
-  %1285 = sub i64 %1283, %1284
-  call void @_ZdlPvm(ptr noundef nonnull %1280, i64 noundef %1285) #18
+1280:                                             ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit140
+  %1281 = load ptr, ptr %46, align 8
+  %1282 = ptrtoint ptr %1281 to i64
+  %1283 = ptrtoint ptr %1279 to i64
+  %1284 = sub i64 %1282, %1283
+  call void @_ZdlPvm(ptr noundef nonnull %1279, i64 noundef %1284) #18
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit142
 
-_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit142: ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit140, %1281
-  %1286 = load ptr, ptr %26, align 8
-  call void @_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %1286)
-  %1287 = load ptr, ptr %21, align 8
-  call void @_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %1287)
-  %1288 = load ptr, ptr %6, align 8
-  %.not.i.i.i143 = icmp eq ptr %1288, null
-  br i1 %.not.i.i.i143, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144, label %1289
+_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit142: ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit140, %1280
+  %1285 = load ptr, ptr %26, align 8
+  call void @_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %1285)
+  %1286 = load ptr, ptr %21, align 8
+  call void @_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %1286)
+  %1287 = load ptr, ptr %6, align 8
+  %.not.i.i.i143 = icmp eq ptr %1287, null
+  br i1 %.not.i.i.i143, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144, label %1288
 
-1289:                                             ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit142
-  %1290 = load ptr, ptr %32, align 8
-  %1291 = ptrtoint ptr %1290 to i64
-  %1292 = ptrtoint ptr %1288 to i64
-  %1293 = sub i64 %1291, %1292
-  call void @_ZdlPvm(ptr noundef nonnull %1288, i64 noundef %1293) #18
+1288:                                             ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit142
+  %1289 = load ptr, ptr %32, align 8
+  %1290 = ptrtoint ptr %1289 to i64
+  %1291 = ptrtoint ptr %1287 to i64
+  %1292 = sub i64 %1290, %1291
+  call void @_ZdlPvm(ptr noundef nonnull %1287, i64 noundef %1292) #18
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144
 
-_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit142, %1289
-  %1294 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #16
-  %.not = icmp eq i64 %1294, %76
-  br i1 %.not, label %._crit_edge884, label %73, !llvm.loop !53
+_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit142, %1288
+  %1293 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #16
+  %.not = icmp eq i64 %1293, %76
+  br i1 %.not, label %._crit_edge834, label %73, !llvm.loop !53
 
-._crit_edge884:                                   ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144, %61
+._crit_edge834:                                   ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit144, %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 244
-  br i1 %exitcond.not, label %1295, label %61, !llvm.loop !54
+  br i1 %exitcond.not, label %1294, label %61, !llvm.loop !54
 
-1295:                                             ; preds = %._crit_edge884
-  %1296 = getelementptr inbounds nuw i8, ptr %0, i64 33184
-  store i8 1, ptr %1296, align 8
+1294:                                             ; preds = %._crit_edge834
+  %1295 = getelementptr inbounds nuw i8, ptr %0, i64 33184
+  store i8 1, ptr %1295, align 8
   ret void
 }
 

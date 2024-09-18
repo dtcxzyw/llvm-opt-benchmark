@@ -4834,43 +4834,43 @@ _ZN12_GLOBAL__N_116RegAllocFastImpl19allocateInstructionERN4llvm12MachineInstrE.
   br i1 %1595, label %1596, label %_ZN12_GLOBAL__N_116RegAllocFastImpl12handleBundleERN4llvm12MachineInstrE.exit
 
 1596:                                             ; preds = %_ZN12_GLOBAL__N_116RegAllocFastImpl19allocateInstructionERN4llvm12MachineInstrE.exit
-  %.sroa.018.0.in30.i = getelementptr inbounds nuw i8, ptr %.sroa.0149.0250, i64 8
-  %.sroa.018.031.i = load ptr, ptr %.sroa.018.0.in30.i, align 8
-  %1597 = getelementptr inbounds nuw i8, ptr %.sroa.018.031.i, i64 44
+  %.sroa.018.0.in27.i = getelementptr inbounds nuw i8, ptr %.sroa.0149.0250, i64 8
+  %.sroa.018.028.i = load ptr, ptr %.sroa.018.0.in27.i, align 8
+  %1597 = getelementptr inbounds nuw i8, ptr %.sroa.018.028.i, i64 44
   %1598 = load i32, ptr %1597, align 4
   %1599 = and i32 %1598, 4
-  %.not2332.i = icmp eq i32 %1599, 0
-  br i1 %.not2332.i, label %_ZN12_GLOBAL__N_116RegAllocFastImpl12handleBundleERN4llvm12MachineInstrE.exit, label %.lr.ph36.i
+  %.not2329.i = icmp eq i32 %1599, 0
+  br i1 %.not2329.i, label %_ZN12_GLOBAL__N_116RegAllocFastImpl12handleBundleERN4llvm12MachineInstrE.exit, label %.lr.ph31.i
 
-.loopexit.i70:                                    ; preds = %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i, %.lr.ph36.i
-  %.sroa.018.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.018.035.i, i64 8
+.loopexit.i70:                                    ; preds = %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i, %.lr.ph31.i
+  %.sroa.018.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.018.030.i, i64 8
   %.sroa.018.0.i = load ptr, ptr %.sroa.018.0.in.i, align 8
   %1600 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i, i64 44
   %1601 = load i32, ptr %1600, align 4
   %1602 = and i32 %1601, 4
   %.not23.i = icmp eq i32 %1602, 0
-  br i1 %.not23.i, label %_ZN12_GLOBAL__N_116RegAllocFastImpl12handleBundleERN4llvm12MachineInstrE.exit, label %.lr.ph36.i, !llvm.loop !109
+  br i1 %.not23.i, label %_ZN12_GLOBAL__N_116RegAllocFastImpl12handleBundleERN4llvm12MachineInstrE.exit, label %.lr.ph31.i, !llvm.loop !109
 
-.lr.ph36.i:                                       ; preds = %1596, %.loopexit.i70
-  %.sroa.018.035.i = phi ptr [ %.sroa.018.0.i, %.loopexit.i70 ], [ %.sroa.018.031.i, %1596 ]
-  %1603 = getelementptr inbounds nuw i8, ptr %.sroa.018.035.i, i64 32
+.lr.ph31.i:                                       ; preds = %1596, %.loopexit.i70
+  %.sroa.018.030.i = phi ptr [ %.sroa.018.0.i, %.loopexit.i70 ], [ %.sroa.018.028.i, %1596 ]
+  %1603 = getelementptr inbounds nuw i8, ptr %.sroa.018.030.i, i64 32
   %1604 = load ptr, ptr %1603, align 8
-  %1605 = getelementptr inbounds nuw i8, ptr %.sroa.018.035.i, i64 40
+  %1605 = getelementptr inbounds nuw i8, ptr %.sroa.018.030.i, i64 40
   %1606 = load i24, ptr %1605, align 8
   %1607 = zext i24 %1606 to i64
   %1608 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %1604, i64 %1607
   %.not24.i = icmp eq i24 %1606, 0
   br i1 %.not24.i, label %.loopexit.i70, label %.lr.ph.i68
 
-.lr.ph.i68:                                       ; preds = %.lr.ph36.i, %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i
-  %.027.i = phi ptr [ %1680, %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i ], [ %1604, %.lr.ph36.i ]
-  %1609 = load i32, ptr %.027.i, align 8
+.lr.ph.i68:                                       ; preds = %.lr.ph31.i, %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i
+  %.025.i = phi ptr [ %1680, %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i ], [ %1604, %.lr.ph31.i ]
+  %1609 = load i32, ptr %.025.i, align 8
   %1610 = and i32 %1609, 255
   %1611 = icmp eq i32 %1610, 0
   br i1 %1611, label %1612, label %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i
 
 1612:                                             ; preds = %.lr.ph.i68
-  %1613 = getelementptr inbounds nuw i8, ptr %.027.i, i64 4
+  %1613 = getelementptr inbounds nuw i8, ptr %.025.i, i64 4
   %1614 = load i32, ptr %1613, align 4
   %1615 = icmp slt i32 %1614, 0
   br i1 %1615, label %1616, label %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i
@@ -4931,7 +4931,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6de
   %.lcssa.i.i.pn.i = phi i64 [ %1641, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_tEEEES2_tS4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread.i.i ], [ %1628, %1625 ], [ %1637, %1634 ]
   %1642 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %1622, i64 %.lcssa.i.i.pn.i, i32 0, i32 1
   %1643 = load i16, ptr %1642, align 4
-  %1644 = load i32, ptr %.027.i, align 8
+  %1644 = load i32, ptr %.025.i, align 8
   %1645 = lshr i32 %1644, 8
   %1646 = and i32 %1645, 4095
   %.not.i.i76 = icmp eq i32 %1646, 0
@@ -4939,8 +4939,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6de
 
 1647:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_tEEEES2_tS4_S7_E4findERKS2_.exit.i
   %1648 = zext i16 %1643 to i32
-  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %.027.i, i32 %1648) #22
-  call void @_ZN4llvm14MachineOperand14setIsRenamableEb(ptr noundef nonnull align 8 dereferenceable(32) %.027.i, i1 noundef zeroext true) #22
+  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %.025.i, i32 %1648) #22
+  call void @_ZN4llvm14MachineOperand14setIsRenamableEb(ptr noundef nonnull align 8 dereferenceable(32) %.025.i, i1 noundef zeroext true) #22
   br label %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i
 
 1649:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_tEEEES2_tS4_S7_E4findERKS2_.exit.i
@@ -4956,16 +4956,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6de
 
 1655:                                             ; preds = %1650, %1649
   %.sroa.027.0.i.i = phi i32 [ %1654, %1650 ], [ 0, %1649 ]
-  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %.027.i, i32 %.sroa.027.0.i.i) #22
-  call void @_ZN4llvm14MachineOperand14setIsRenamableEb(ptr noundef nonnull align 8 dereferenceable(32) %.027.i, i1 noundef zeroext true) #22
-  %1656 = load i32, ptr %.027.i, align 8
+  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %.025.i, i32 %.sroa.027.0.i.i) #22
+  call void @_ZN4llvm14MachineOperand14setIsRenamableEb(ptr noundef nonnull align 8 dereferenceable(32) %.025.i, i1 noundef zeroext true) #22
+  %1656 = load i32, ptr %.025.i, align 8
   %1657 = and i32 %1656, 16777216
   %.not31.i.i77 = icmp eq i32 %1657, 0
   br i1 %.not31.i.i77, label %1658, label %1660
 
 1658:                                             ; preds = %1655
   %1659 = and i32 %1656, -17825537
-  store i32 %1659, ptr %.027.i, align 8
+  store i32 %1659, ptr %.025.i, align 8
   br label %1660
 
 1660:                                             ; preds = %1658, %1655
@@ -5005,7 +5005,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEtNS_12DenseMapInfoIS2_vEENS_6de
   br label %_ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i
 
 _ZN12_GLOBAL__N_116RegAllocFastImpl10setPhysRegERN4llvm12MachineInstrERNS1_14MachineOperandEt.exit.i: ; preds = %1679, %1677, %1670, %1666, %1647, %_ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.exit.i73, %1612, %.lr.ph.i68
-  %1680 = getelementptr inbounds i8, ptr %.027.i, i64 32
+  %1680 = getelementptr inbounds i8, ptr %.025.i, i64 32
   %.not.i69 = icmp eq ptr %1680, %1608
   br i1 %.not.i69, label %.loopexit.i70, label %.lr.ph.i68
 

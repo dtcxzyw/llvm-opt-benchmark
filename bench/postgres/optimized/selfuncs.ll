@@ -6625,44 +6625,44 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
 15:                                               ; preds = %12, %11
   %16 = getelementptr inbounds i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %.not181245 = icmp sgt i32 %17, 0
-  br i1 %.not181245, label %.lr.ph251, label %._crit_edge.thread
+  %.not181243 = icmp sgt i32 %17, 0
+  br i1 %.not181243, label %.lr.ph249, label %._crit_edge.thread
 
-.lr.ph251:                                        ; preds = %15
+.lr.ph249:                                        ; preds = %15
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = getelementptr inbounds i8, ptr %6, i64 16
   %20 = getelementptr inbounds i8, ptr %6, i64 44
   %21 = getelementptr inbounds i8, ptr %6, i64 24
   br label %22
 
-22:                                               ; preds = %.lr.ph251, %.loopexit227
-  %indvars.iv306 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next307, %.loopexit227 ]
-  %.0127250 = phi ptr [ null, %.lr.ph251 ], [ %.1, %.loopexit227 ]
-  %.0128249 = phi double [ 1.000000e+00, %.lr.ph251 ], [ %.1129, %.loopexit227 ]
-  %.0145248 = phi double [ 1.000000e+00, %.lr.ph251 ], [ %.1146, %.loopexit227 ]
-  %.0153247 = phi i32 [ 0, %.lr.ph251 ], [ %.2155, %.loopexit227 ]
+22:                                               ; preds = %.lr.ph249, %.loopexit227
+  %indvars.iv302 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next303, %.loopexit227 ]
+  %.0127248 = phi ptr [ null, %.lr.ph249 ], [ %.1, %.loopexit227 ]
+  %.0128247 = phi double [ 1.000000e+00, %.lr.ph249 ], [ %.1129, %.loopexit227 ]
+  %.0145246 = phi double [ 1.000000e+00, %.lr.ph249 ], [ %.1146, %.loopexit227 ]
+  %.0153245 = phi i32 [ 0, %.lr.ph249 ], [ %.2155, %.loopexit227 ]
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv306
+  %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv302
   %25 = load ptr, ptr %24, align 8
   br i1 %.not179, label %30, label %26
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %3, align 8
-  %28 = add i32 %.0153247, 1
-  %29 = call zeroext i1 @list_member_int(ptr noundef %27, i32 noundef %.0153247) #13
+  %28 = add i32 %.0153245, 1
+  %29 = call zeroext i1 @list_member_int(ptr noundef %27, i32 noundef %.0153245) #13
   br i1 %29, label %30, label %.loopexit227
 
 30:                                               ; preds = %26, %22
-  %.1154 = phi i32 [ %28, %26 ], [ %.0153247, %22 ]
+  %.1154 = phi i32 [ %28, %26 ], [ %.0153245, %22 ]
   %31 = call double @expression_returns_set_rows(ptr noundef %0, ptr noundef %25) #13
-  %32 = fcmp olt double %.0128249, %31
-  %.2130 = select i1 %32, double %31, double %.0128249
+  %32 = fcmp olt double %.0128247, %31
+  %.2130 = select i1 %32, double %31, double %.0128247
   %33 = call i32 @exprType(ptr noundef %25) #13
   %34 = icmp eq i32 %33, 16
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %30
-  %36 = fmul double %.0145248, 2.000000e+00
+  %36 = fmul double %.0145246, 2.000000e+00
   br label %.loopexit227
 
 37:                                               ; preds = %30
@@ -6677,7 +6677,7 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %39, %37
-  %43 = call fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %.0127250, ptr noundef %25, ptr noundef %6)
+  %43 = call fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %.0127248, ptr noundef %25, ptr noundef %6)
   %44 = load ptr, ptr %19, align 8
   %.not192 = icmp eq ptr %44, null
   br i1 %.not192, label %.loopexit227, label %45
@@ -6695,8 +6695,8 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
 .preheader226:                                    ; preds = %47
   %50 = getelementptr inbounds i8, ptr %48, i64 4
   %51 = load i32, ptr %50, align 4
-  %.not190242 = icmp sgt i32 %51, 0
-  br i1 %.not190242, label %.lr.ph, label %.loopexit227
+  %.not190240 = icmp sgt i32 %51, 0
+  br i1 %.not190240, label %.lr.ph, label %.loopexit227
 
 .lr.ph:                                           ; preds = %.preheader226
   %52 = getelementptr inbounds i8, ptr %48, i64 16
@@ -6708,12 +6708,12 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
 
 55:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %.2244 = phi ptr [ %.0127250, %.lr.ph ], [ %59, %63 ]
+  %.2242 = phi ptr [ %.0127248, %.lr.ph ], [ %59, %63 ]
   %56 = load ptr, ptr %52, align 8
   %57 = getelementptr %union.ListCell, ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   call void @examine_variable(ptr noundef %0, ptr noundef %58, i32 noundef 0, ptr noundef nonnull %6)
-  %59 = call fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %.2244, ptr noundef %58, ptr noundef %6)
+  %59 = call fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %.2242, ptr noundef %58, ptr noundef %6)
   %60 = load ptr, ptr %19, align 8
   %.not191 = icmp eq ptr %60, null
   br i1 %.not191, label %63, label %61
@@ -6732,13 +6732,13 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
 
 .loopexit227:                                     ; preds = %63, %.preheader226, %53, %45, %42, %26, %35
   %.2155 = phi i32 [ %.1154, %35 ], [ %.1154, %45 ], [ %.1154, %42 ], [ %.1154, %53 ], [ %28, %26 ], [ %.1154, %.preheader226 ], [ %.1154, %63 ]
-  %.1146 = phi double [ %36, %35 ], [ %.0145248, %45 ], [ %.0145248, %42 ], [ %.0145248, %53 ], [ %.0145248, %26 ], [ %.0145248, %.preheader226 ], [ %.0145248, %63 ]
-  %.1129 = phi double [ %.2130, %35 ], [ %.2130, %45 ], [ %.2130, %42 ], [ %.2130, %53 ], [ %.0128249, %26 ], [ %.2130, %.preheader226 ], [ %.2130, %63 ]
-  %.1 = phi ptr [ %.0127250, %35 ], [ %43, %45 ], [ %43, %42 ], [ %.0127250, %53 ], [ %.0127250, %26 ], [ %.0127250, %.preheader226 ], [ %59, %63 ]
-  %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
+  %.1146 = phi double [ %36, %35 ], [ %.0145246, %45 ], [ %.0145246, %42 ], [ %.0145246, %53 ], [ %.0145246, %26 ], [ %.0145246, %.preheader226 ], [ %.0145246, %63 ]
+  %.1129 = phi double [ %.2130, %35 ], [ %.2130, %45 ], [ %.2130, %42 ], [ %.2130, %53 ], [ %.0128247, %26 ], [ %.2130, %.preheader226 ], [ %.2130, %63 ]
+  %.1 = phi ptr [ %.0127248, %35 ], [ %43, %45 ], [ %43, %42 ], [ %.0127248, %53 ], [ %.0127248, %26 ], [ %.0127248, %.preheader226 ], [ %59, %63 ]
+  %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %66 = load i32, ptr %16, align 4
   %67 = sext i32 %66 to i64
-  %.not181 = icmp slt i64 %indvars.iv.next307, %67
+  %.not181 = icmp slt i64 %indvars.iv.next303, %67
   br i1 %.not181, label %22, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.loopexit227
@@ -6751,9 +6751,9 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   br label %75
 
 ._crit_edge.thread:                               ; preds = %15, %._crit_edge
-  %.0128.lcssa319 = phi double [ %.1129, %._crit_edge ], [ 1.000000e+00, %15 ]
-  %.0145.lcssa318 = phi double [ %.1146, %._crit_edge ], [ 1.000000e+00, %15 ]
-  %71 = fmul double %.0145.lcssa318, %.0128.lcssa319
+  %.0128.lcssa315 = phi double [ %.1129, %._crit_edge ], [ 1.000000e+00, %15 ]
+  %.0145.lcssa314 = phi double [ %.1146, %._crit_edge ], [ 1.000000e+00, %15 ]
+  %71 = fmul double %.0145.lcssa314, %.0128.lcssa315
   %72 = call double @llvm.ceil.f64(double %71)
   %73 = fcmp ogt double %72, %9
   %.2147 = select i1 %73, double %9, double %72
@@ -6772,26 +6772,26 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   %80 = call ptr @lappend(ptr noundef null, ptr noundef %77) #13
   %81 = getelementptr inbounds i8, ptr %.3, i64 4
   %82 = load i32, ptr %81, align 4
-  %.not183255 = icmp sgt i32 %82, 1
-  br i1 %.not183255, label %.lr.ph260, label %.preheader
+  %.not183253 = icmp sgt i32 %82, 1
+  br i1 %.not183253, label %.lr.ph258, label %.preheader
 
 .preheader:                                       ; preds = %96, %75
   %.0202.lcssa = phi ptr [ %80, %75 ], [ %.1203, %96 ]
   %.0131.lcssa = phi ptr [ null, %75 ], [ %.1132, %96 ]
-  %.not184287 = icmp eq ptr %.0202.lcssa, null
-  br i1 %.not184287, label %._crit_edge294.thread, label %.lr.ph293
+  %.not184285 = icmp eq ptr %.0202.lcssa, null
+  br i1 %.not184285, label %._crit_edge291.thread, label %.lr.ph290
 
-.lr.ph293:                                        ; preds = %.preheader
+.lr.ph290:                                        ; preds = %.preheader
   %83 = getelementptr inbounds i8, ptr %79, i64 112
   %84 = getelementptr inbounds i8, ptr %79, i64 184
   br label %99
 
-.lr.ph260:                                        ; preds = %75, %96
-  %indvars.iv309 = phi i64 [ %indvars.iv.next310, %96 ], [ 1, %75 ]
-  %.0131257 = phi ptr [ %.1132, %96 ], [ null, %75 ]
-  %.0202256 = phi ptr [ %.1203, %96 ], [ %80, %75 ]
+.lr.ph258:                                        ; preds = %75, %96
+  %indvars.iv305 = phi i64 [ %indvars.iv.next306, %96 ], [ 1, %75 ]
+  %.0131255 = phi ptr [ %.1132, %96 ], [ null, %75 ]
+  %.0202254 = phi ptr [ %.1203, %96 ], [ %80, %75 ]
   %85 = load ptr, ptr %76, align 8
-  %86 = getelementptr %union.ListCell, ptr %85, i64 %indvars.iv309
+  %86 = getelementptr %union.ListCell, ptr %85, i64 %indvars.iv305
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
@@ -6799,28 +6799,28 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   %91 = icmp eq ptr %89, %90
   br i1 %91, label %92, label %94
 
-92:                                               ; preds = %.lr.ph260
-  %93 = call ptr @lappend(ptr noundef %.0202256, ptr noundef nonnull %87) #13
+92:                                               ; preds = %.lr.ph258
+  %93 = call ptr @lappend(ptr noundef %.0202254, ptr noundef nonnull %87) #13
   br label %96
 
-94:                                               ; preds = %.lr.ph260
-  %95 = call ptr @lappend(ptr noundef %.0131257, ptr noundef nonnull %87) #13
+94:                                               ; preds = %.lr.ph258
+  %95 = call ptr @lappend(ptr noundef %.0131255, ptr noundef nonnull %87) #13
   br label %96
 
 96:                                               ; preds = %92, %94
-  %.1203 = phi ptr [ %93, %92 ], [ %.0202256, %94 ]
-  %.1132 = phi ptr [ %.0131257, %92 ], [ %95, %94 ]
-  %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
+  %.1203 = phi ptr [ %93, %92 ], [ %.0202254, %94 ]
+  %.1132 = phi ptr [ %.0131255, %92 ], [ %95, %94 ]
+  %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %97 = load i32, ptr %81, align 4
   %98 = sext i32 %97 to i64
-  %.not183 = icmp slt i64 %indvars.iv.next310, %98
-  br i1 %.not183, label %.lr.ph260, label %.preheader, !llvm.loop !36
+  %.not183 = icmp slt i64 %indvars.iv.next306, %98
+  br i1 %.not183, label %.lr.ph258, label %.preheader, !llvm.loop !36
 
-99:                                               ; preds = %.lr.ph293, %.loopexit
-  %.0133292 = phi i32 [ 0, %.lr.ph293 ], [ %335, %.loopexit ]
-  %.0136291 = phi double [ 1.000000e+00, %.lr.ph293 ], [ %.1137, %.loopexit ]
-  %.0140290 = phi double [ 1.000000e+00, %.lr.ph293 ], [ %333, %.loopexit ]
-  %.2204288 = phi ptr [ %.0202.lcssa, %.lr.ph293 ], [ %.1175.i, %.loopexit ]
+99:                                               ; preds = %.lr.ph290, %.loopexit
+  %.0133289 = phi i32 [ 0, %.lr.ph290 ], [ %335, %.loopexit ]
+  %.0136288 = phi double [ 1.000000e+00, %.lr.ph290 ], [ %.1137, %.loopexit ]
+  %.0140287 = phi double [ 1.000000e+00, %.lr.ph290 ], [ %333, %.loopexit ]
+  %.2204286 = phi ptr [ %.0202.lcssa, %.lr.ph290 ], [ %.1175.i, %.loopexit ]
   %100 = load ptr, ptr %69, align 8
   %.not.i = icmp eq ptr %100, null
   br i1 %.not.i, label %105, label %101
@@ -6859,8 +6859,8 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
 .lr.ph268.i:                                      ; preds = %.preheader248.i
   %119 = getelementptr inbounds i8, ptr %116, i64 16
   %120 = getelementptr inbounds i8, ptr %115, i64 201
-  %121 = getelementptr inbounds i8, ptr %.2204288, i64 4
-  %122 = getelementptr inbounds i8, ptr %.2204288, i64 16
+  %121 = getelementptr inbounds i8, ptr %.2204286, i64 4
+  %122 = getelementptr inbounds i8, ptr %.2204286, i64 16
   br label %123
 
 123:                                              ; preds = %183, %.lr.ph268.i
@@ -6891,21 +6891,21 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   %136 = getelementptr inbounds i8, ptr %126, i64 32
   %137 = load i32, ptr %121, align 4
   %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph266, label %._crit_edge.i
+  br i1 %138, label %.lr.ph264, label %._crit_edge.i
 
-.lr.ph266:                                        ; preds = %.lr.ph257.i, %.thread221.i
-  %.0162255.i265 = phi i32 [ %.1163.i, %.thread221.i ], [ 0, %.lr.ph257.i ]
-  %.0160256.i264 = phi i32 [ %.1161.i, %.thread221.i ], [ 0, %.lr.ph257.i ]
-  %indvars.iv317.i263 = phi i64 [ %indvars.iv.next318.i, %.thread221.i ], [ 0, %.lr.ph257.i ]
+.lr.ph264:                                        ; preds = %.lr.ph257.i, %.thread221.i
+  %.0162255.i263 = phi i32 [ %.1163.i, %.thread221.i ], [ 0, %.lr.ph257.i ]
+  %.0160256.i262 = phi i32 [ %.1161.i, %.thread221.i ], [ 0, %.lr.ph257.i ]
+  %indvars.iv317.i261 = phi i64 [ %indvars.iv.next318.i, %.thread221.i ], [ 0, %.lr.ph257.i ]
   %139 = load ptr, ptr %122, align 8
-  %140 = getelementptr %union.ListCell, ptr %139, i64 %indvars.iv317.i263
+  %140 = getelementptr %union.ListCell, ptr %139, i64 %indvars.iv317.i261
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %143, 6
   br i1 %144, label %145, label %154
 
-145:                                              ; preds = %.lr.ph266
+145:                                              ; preds = %.lr.ph264
   %146 = getelementptr inbounds i8, ptr %142, i64 8
   %147 = load i16, ptr %146, align 8
   %148 = icmp sgt i16 %147, 0
@@ -6916,10 +6916,10 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   %151 = load ptr, ptr %136, align 8
   %152 = call zeroext i1 @bms_is_member(i32 noundef %150, ptr noundef %151) #13
   %153 = zext i1 %152 to i32
-  %spec.select.i = add i32 %.0160256.i264, %153
+  %spec.select.i = add i32 %.0160256.i262, %153
   br label %.thread221.i
 
-154:                                              ; preds = %.lr.ph266
+154:                                              ; preds = %.lr.ph264
   %155 = load ptr, ptr %135, align 8
   %.not213.i = icmp eq ptr %155, null
   br i1 %.not213.i, label %.thread221.i, label %.lr.ph.i
@@ -6948,17 +6948,17 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   br i1 %168, label %.split.i, label %160
 
 .split.i:                                         ; preds = %.lr.ph253.i
-  %169 = add i32 %.0162255.i265, 1
+  %169 = add i32 %.0162255.i263, 1
   br label %.thread221.i
 
 .thread221.i:                                     ; preds = %160, %.split.i, %.lr.ph.i, %154, %149, %145
-  %.1163.i = phi i32 [ %.0162255.i265, %145 ], [ %169, %.split.i ], [ %.0162255.i265, %149 ], [ %.0162255.i265, %.lr.ph.i ], [ %.0162255.i265, %154 ], [ %.0162255.i265, %160 ]
-  %.1161.i = phi i32 [ %.0160256.i264, %145 ], [ %.0160256.i264, %.split.i ], [ %spec.select.i, %149 ], [ %.0160256.i264, %.lr.ph.i ], [ %.0160256.i264, %154 ], [ %.0160256.i264, %160 ]
-  %indvars.iv.next318.i = add nuw nsw i64 %indvars.iv317.i263, 1
+  %.1163.i = phi i32 [ %.0162255.i263, %145 ], [ %169, %.split.i ], [ %.0162255.i263, %149 ], [ %.0162255.i263, %.lr.ph.i ], [ %.0162255.i263, %154 ], [ %.0162255.i263, %160 ]
+  %.1161.i = phi i32 [ %.0160256.i262, %145 ], [ %.0160256.i262, %.split.i ], [ %spec.select.i, %149 ], [ %.0160256.i262, %.lr.ph.i ], [ %.0160256.i262, %154 ], [ %.0160256.i262, %160 ]
+  %indvars.iv.next318.i = add nuw nsw i64 %indvars.iv317.i261, 1
   %170 = load i32, ptr %121, align 4
   %171 = sext i32 %170 to i64
   %172 = icmp slt i64 %indvars.iv.next318.i, %171
-  br i1 %172, label %.lr.ph266, label %._crit_edge.i
+  br i1 %172, label %.lr.ph264, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.thread221.i, %.lr.ph257.i
   %.0160256.i.lcssa = phi i32 [ 0, %.lr.ph257.i ], [ %.1161.i, %.thread221.i ]
@@ -7024,7 +7024,7 @@ list_length.exit.i:                               ; preds = %191
   %199 = trunc nsw i32 %.0167.i to i16
   %200 = load i32, ptr %121, align 4
   %201 = icmp sgt i32 %200, 0
-  br i1 %201, label %.lr.ph271, label %._crit_edge286.i
+  br i1 %201, label %.lr.ph269, label %._crit_edge286.i
 
 ._crit_edge286.i:                                 ; preds = %.thread231.i, %.lr.ph285.i
   %.0168282.i.lcssa = phi ptr [ null, %.lr.ph285.i ], [ %.2.i, %.thread231.i ]
@@ -7037,18 +7037,18 @@ list_length.exit.i:                               ; preds = %191
   %204 = getelementptr inbounds i8, ptr %190, i64 16
   br label %242
 
-.lr.ph271:                                        ; preds = %.lr.ph285.i, %.thread231.i
-  %.0168282.i270 = phi ptr [ %.2.i, %.thread231.i ], [ null, %.lr.ph285.i ]
-  %indvars.iv328.i269 = phi i64 [ %indvars.iv.next329.i, %.thread231.i ], [ 0, %.lr.ph285.i ]
+.lr.ph269:                                        ; preds = %.lr.ph285.i, %.thread231.i
+  %.0168282.i268 = phi ptr [ %.2.i, %.thread231.i ], [ null, %.lr.ph285.i ]
+  %indvars.iv328.i267 = phi i64 [ %indvars.iv.next329.i, %.thread231.i ], [ 0, %.lr.ph285.i ]
   %205 = load ptr, ptr %122, align 8
-  %206 = getelementptr %union.ListCell, ptr %205, i64 %indvars.iv328.i269
+  %206 = getelementptr %union.ListCell, ptr %205, i64 %indvars.iv328.i267
   %207 = load ptr, ptr %206, align 8
   %208 = load ptr, ptr %207, align 8
   %209 = load i32, ptr %208, align 4
   %210 = icmp eq i32 %209, 6
   br i1 %210, label %211, label %221
 
-211:                                              ; preds = %.lr.ph271
+211:                                              ; preds = %.lr.ph269
   %212 = getelementptr inbounds i8, ptr %208, i64 8
   %213 = load i16, ptr %212, align 8
   %214 = icmp sgt i16 %213, 0
@@ -7065,7 +7065,7 @@ list_length.exit.i:                               ; preds = %191
   %220 = sext i16 %219 to i32
   br label %.thread231.sink.split.i
 
-221:                                              ; preds = %.lr.ph271
+221:                                              ; preds = %.lr.ph269
   %222 = load ptr, ptr %192, align 8
   %.not205.i = icmp eq ptr %222, null
   br i1 %.not205.i, label %.thread231.i, label %.lr.ph275.i
@@ -7103,16 +7103,16 @@ list_length.exit.i:                               ; preds = %191
 
 .thread231.sink.split.i:                          ; preds = %.split278.i, %.thread228.i
   %.sink.i = phi i32 [ %220, %.thread228.i ], [ %233, %.split278.i ]
-  %238 = call ptr @bms_add_member(ptr noundef %.0168282.i270, i32 noundef %.sink.i) #13
+  %238 = call ptr @bms_add_member(ptr noundef %.0168282.i268, i32 noundef %.sink.i) #13
   br label %.thread231.i
 
 .thread231.i:                                     ; preds = %234, %.thread231.sink.split.i, %.lr.ph275.i, %221, %215, %211
-  %.2.i = phi ptr [ %.0168282.i270, %215 ], [ %.0168282.i270, %211 ], [ %.0168282.i270, %.lr.ph275.i ], [ %.0168282.i270, %221 ], [ %238, %.thread231.sink.split.i ], [ %.0168282.i270, %234 ]
-  %indvars.iv.next329.i = add nuw nsw i64 %indvars.iv328.i269, 1
+  %.2.i = phi ptr [ %.0168282.i268, %215 ], [ %.0168282.i268, %211 ], [ %.0168282.i268, %.lr.ph275.i ], [ %.0168282.i268, %221 ], [ %238, %.thread231.sink.split.i ], [ %.0168282.i268, %234 ]
+  %indvars.iv.next329.i = add nuw nsw i64 %indvars.iv328.i267, 1
   %239 = load i32, ptr %121, align 4
   %240 = sext i32 %239 to i64
   %241 = icmp slt i64 %indvars.iv.next329.i, %240
-  br i1 %241, label %.lr.ph271, label %._crit_edge286.i
+  br i1 %241, label %.lr.ph269, label %._crit_edge286.i
 
 242:                                              ; preds = %.thread234.i, %.lr.ph295.i
   %.0176293.i = phi i32 [ 0, %.lr.ph295.i ], [ %262, %.thread234.i ]
@@ -7170,28 +7170,28 @@ list_length.exit.i:                               ; preds = %191
 .lr.ph308.i:                                      ; preds = %._crit_edge292.i
   %267 = load i32, ptr %121, align 4
   %268 = icmp sgt i32 %267, 0
-  br i1 %268, label %.lr.ph275, label %.loopexit.thread328
+  br i1 %268, label %.lr.ph273, label %.loopexit.thread324
 
-.loopexit.thread328:                              ; preds = %.lr.ph308.i
+.loopexit.thread324:                              ; preds = %.lr.ph308.i
   %269 = load double, ptr %244, align 8
-  %270 = fmul double %.0140290, %269
-  %271 = fcmp olt double %.0136291, %269
-  %.1137330 = select i1 %271, double %269, double %.0136291
-  %272 = add i32 %.0133292, 1
-  br label %._crit_edge294
+  %270 = fmul double %.0140287, %269
+  %271 = fcmp olt double %.0136288, %269
+  %.1137326 = select i1 %271, double %269, double %.0136288
+  %272 = add i32 %.0133289, 1
+  br label %._crit_edge291
 
-.lr.ph275:                                        ; preds = %.lr.ph308.i, %.loopexit.i
-  %.0174303.i274 = phi ptr [ %.1175.i, %.loopexit.i ], [ null, %.lr.ph308.i ]
-  %indvars.iv337.i273 = phi i64 [ %indvars.iv.next338.i, %.loopexit.i ], [ 0, %.lr.ph308.i ]
+.lr.ph273:                                        ; preds = %.lr.ph308.i, %.loopexit.i
+  %.0174303.i272 = phi ptr [ %.1175.i, %.loopexit.i ], [ null, %.lr.ph308.i ]
+  %indvars.iv337.i271 = phi i64 [ %indvars.iv.next338.i, %.loopexit.i ], [ 0, %.lr.ph308.i ]
   %273 = load ptr, ptr %122, align 8
-  %274 = getelementptr %union.ListCell, ptr %273, i64 %indvars.iv337.i273
+  %274 = getelementptr %union.ListCell, ptr %273, i64 %indvars.iv337.i271
   %275 = load ptr, ptr %274, align 8
   %276 = load ptr, ptr %275, align 8
   %277 = load i32, ptr %276, align 4
   %278 = icmp eq i32 %277, 6
   br i1 %278, label %279, label %287
 
-279:                                              ; preds = %.lr.ph275
+279:                                              ; preds = %.lr.ph273
   %280 = getelementptr inbounds i8, ptr %276, i64 8
   %281 = load i16, ptr %280, align 8
   %282 = icmp sgt i16 %281, 0
@@ -7203,7 +7203,7 @@ list_length.exit.i:                               ; preds = %191
   %286 = call zeroext i1 @bms_is_member(i32 noundef %285, ptr noundef %.0168282.i.lcssa) #13
   br i1 %286, label %.loopexit.i, label %.loopexit.sink.split.i
 
-287:                                              ; preds = %.lr.ph275
+287:                                              ; preds = %.lr.ph273
   %288 = load ptr, ptr %192, align 8
   %.not203.i = icmp eq ptr %288, null
   br i1 %.not203.i, label %.loopexit.sink.split.i, label %.lr.ph299.i
@@ -7232,42 +7232,42 @@ list_length.exit.i:                               ; preds = %191
   br i1 %301, label %.loopexit.i, label %293
 
 .loopexit.sink.split.i:                           ; preds = %293, %.lr.ph299.i, %287, %283, %279
-  %302 = call ptr @lappend(ptr noundef %.0174303.i274, ptr noundef nonnull %275) #13
+  %302 = call ptr @lappend(ptr noundef %.0174303.i272, ptr noundef nonnull %275) #13
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph302.i, %.loopexit.sink.split.i, %283
-  %.1175.i = phi ptr [ %.0174303.i274, %283 ], [ %302, %.loopexit.sink.split.i ], [ %.0174303.i274, %.lr.ph302.i ]
-  %indvars.iv.next338.i = add nuw nsw i64 %indvars.iv337.i273, 1
+  %.1175.i = phi ptr [ %.0174303.i272, %283 ], [ %302, %.loopexit.sink.split.i ], [ %.0174303.i272, %.lr.ph302.i ]
+  %indvars.iv.next338.i = add nuw nsw i64 %indvars.iv337.i271, 1
   %303 = load i32, ptr %121, align 4
   %304 = sext i32 %303 to i64
   %305 = icmp slt i64 %indvars.iv.next338.i, %304
-  br i1 %305, label %.lr.ph275, label %.loopexit
+  br i1 %305, label %.lr.ph273, label %.loopexit
 
 306:                                              ; preds = %114, %._crit_edge269.i, %187, %.preheader248.i
-  %307 = getelementptr inbounds i8, ptr %.2204288, i64 4
+  %307 = getelementptr inbounds i8, ptr %.2204286, i64 4
   %308 = load i32, ptr %307, align 4
   %309 = icmp sgt i32 %308, 0
-  br i1 %309, label %.lr.ph283, label %._crit_edge294
+  br i1 %309, label %.lr.ph281, label %._crit_edge291
 
-.lr.ph283:                                        ; preds = %306
-  %310 = getelementptr inbounds i8, ptr %.2204288, i64 16
+.lr.ph281:                                        ; preds = %306
+  %310 = getelementptr inbounds i8, ptr %.2204286, i64 16
   br label %311
 
-311:                                              ; preds = %.lr.ph283, %328
-  %312 = phi i32 [ %308, %.lr.ph283 ], [ %329, %328 ]
-  %indvars.iv312 = phi i64 [ 0, %.lr.ph283 ], [ %indvars.iv.next313, %328 ]
-  %.2135280 = phi i32 [ %.0133292, %.lr.ph283 ], [ %320, %328 ]
-  %.3139279 = phi double [ %.0136291, %.lr.ph283 ], [ %.4, %328 ]
-  %.2142278 = phi double [ %.0140290, %.lr.ph283 ], [ %318, %328 ]
+311:                                              ; preds = %.lr.ph281, %328
+  %312 = phi i32 [ %308, %.lr.ph281 ], [ %329, %328 ]
+  %indvars.iv308 = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next309, %328 ]
+  %.2135278 = phi i32 [ %.0133289, %.lr.ph281 ], [ %320, %328 ]
+  %.3139277 = phi double [ %.0136288, %.lr.ph281 ], [ %.4, %328 ]
+  %.2142276 = phi double [ %.0140287, %.lr.ph281 ], [ %318, %328 ]
   %313 = load ptr, ptr %310, align 8
-  %314 = getelementptr %union.ListCell, ptr %313, i64 %indvars.iv312
+  %314 = getelementptr %union.ListCell, ptr %313, i64 %indvars.iv308
   %315 = load ptr, ptr %314, align 8
   %316 = getelementptr inbounds i8, ptr %315, i64 16
   %317 = load double, ptr %316, align 8
-  %318 = fmul double %.2142278, %317
-  %319 = fcmp olt double %.3139279, %317
-  %.4 = select i1 %319, double %317, double %.3139279
-  %320 = add i32 %.2135280, 1
+  %318 = fmul double %.2142276, %317
+  %319 = fcmp olt double %.3139277, %317
+  %.4 = select i1 %319, double %317, double %.3139277
+  %320 = add i32 %.2135278, 1
   br i1 %.not, label %328, label %321
 
 321:                                              ; preds = %311
@@ -7285,57 +7285,57 @@ list_length.exit.i:                               ; preds = %191
 
 328:                                              ; preds = %311, %321, %325
   %329 = phi i32 [ %312, %311 ], [ %312, %321 ], [ %.pre, %325 ]
-  %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
+  %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %330 = sext i32 %329 to i64
-  %331 = icmp slt i64 %indvars.iv.next313, %330
-  br i1 %331, label %311, label %._crit_edge294, !llvm.loop !40
+  %331 = icmp slt i64 %indvars.iv.next309, %330
+  br i1 %331, label %311, label %._crit_edge291, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.loopexit.i
   %332 = load double, ptr %244, align 8
-  %333 = fmul double %.0140290, %332
-  %334 = fcmp olt double %.0136291, %332
-  %.1137 = select i1 %334, double %332, double %.0136291
-  %335 = add i32 %.0133292, 1
+  %333 = fmul double %.0140287, %332
+  %334 = fcmp olt double %.0136288, %332
+  %.1137 = select i1 %334, double %332, double %.0136288
+  %335 = add i32 %.0133289, 1
   %.not184 = icmp eq ptr %.1175.i, null
-  br i1 %.not184, label %._crit_edge294, label %99, !llvm.loop !41
+  br i1 %.not184, label %._crit_edge291, label %99, !llvm.loop !41
 
-._crit_edge294:                                   ; preds = %.loopexit, %328, %.loopexit.thread328, %306
-  %.1134327 = phi i32 [ %272, %.loopexit.thread328 ], [ %.0133292, %306 ], [ %320, %328 ], [ %335, %.loopexit ]
-  %.2138326 = phi double [ %.1137330, %.loopexit.thread328 ], [ %.0136291, %306 ], [ %.4, %328 ], [ %.1137, %.loopexit ]
-  %.1141325 = phi double [ %270, %.loopexit.thread328 ], [ %.0140290, %306 ], [ %318, %328 ], [ %333, %.loopexit ]
+._crit_edge291:                                   ; preds = %.loopexit, %328, %.loopexit.thread324, %306
+  %.1134323 = phi i32 [ %272, %.loopexit.thread324 ], [ %.0133289, %306 ], [ %320, %328 ], [ %335, %.loopexit ]
+  %.2138322 = phi double [ %.1137326, %.loopexit.thread324 ], [ %.0136288, %306 ], [ %.4, %328 ], [ %.1137, %.loopexit ]
+  %.1141321 = phi double [ %270, %.loopexit.thread324 ], [ %.0140287, %306 ], [ %318, %328 ], [ %333, %.loopexit ]
   %336 = getelementptr inbounds i8, ptr %79, i64 200
   %337 = load double, ptr %336, align 8
   %338 = fcmp ogt double %337, 0.000000e+00
   br i1 %338, label %342, label %367
 
-._crit_edge294.thread:                            ; preds = %.preheader
+._crit_edge291.thread:                            ; preds = %.preheader
   %339 = getelementptr inbounds i8, ptr %79, i64 200
   %340 = load double, ptr %339, align 8
   %341 = fcmp ogt double %340, 0.000000e+00
   br i1 %341, label %.thread, label %367
 
-342:                                              ; preds = %._crit_edge294
-  %343 = icmp sgt i32 %.1134327, 1
+342:                                              ; preds = %._crit_edge291
+  %343 = icmp sgt i32 %.1134323, 1
   br i1 %343, label %344, label %.thread
 
 344:                                              ; preds = %342
   %345 = fmul double %337, 1.000000e-01
-  %346 = fcmp olt double %345, %.2138326
+  %346 = fcmp olt double %345, %.2138322
   br i1 %346, label %347, label %.thread
 
 347:                                              ; preds = %344
-  %348 = fcmp ogt double %.2138326, %337
+  %348 = fcmp ogt double %.2138322, %337
   br i1 %348, label %349, label %.thread
 
 349:                                              ; preds = %347
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge294.thread, %344, %349, %347, %342
-  %.0140.lcssa335341 = phi double [ %.1141325, %349 ], [ %.1141325, %347 ], [ %.1141325, %344 ], [ %.1141325, %342 ], [ 1.000000e+00, %._crit_edge294.thread ]
-  %350 = phi double [ %337, %349 ], [ %337, %347 ], [ %337, %344 ], [ %337, %342 ], [ %340, %._crit_edge294.thread ]
-  %.0 = phi double [ %337, %349 ], [ %.2138326, %347 ], [ %345, %344 ], [ %337, %342 ], [ %340, %._crit_edge294.thread ]
-  %351 = fcmp ogt double %.0140.lcssa335341, %.0
-  %.3143 = select i1 %351, double %.0, double %.0140.lcssa335341
+.thread:                                          ; preds = %._crit_edge291.thread, %344, %349, %347, %342
+  %.0140.lcssa331337 = phi double [ %.1141321, %349 ], [ %.1141321, %347 ], [ %.1141321, %344 ], [ %.1141321, %342 ], [ 1.000000e+00, %._crit_edge291.thread ]
+  %350 = phi double [ %337, %349 ], [ %337, %347 ], [ %337, %344 ], [ %337, %342 ], [ %340, %._crit_edge291.thread ]
+  %.0 = phi double [ %337, %349 ], [ %.2138322, %347 ], [ %345, %344 ], [ %337, %342 ], [ %340, %._crit_edge291.thread ]
+  %351 = fcmp ogt double %.0140.lcssa331337, %.0
+  %.3143 = select i1 %351, double %.0, double %.0140.lcssa331337
   %352 = fcmp ogt double %.3143, 0.000000e+00
   br i1 %352, label %353, label %364
 
@@ -7360,8 +7360,8 @@ list_length.exit.i:                               ; preds = %191
   %366 = fmul double %.4149, %365
   br label %367
 
-367:                                              ; preds = %._crit_edge294.thread, %364, %._crit_edge294
-  %.5 = phi double [ %366, %364 ], [ %.4149, %._crit_edge294 ], [ %.4149, %._crit_edge294.thread ]
+367:                                              ; preds = %._crit_edge291.thread, %364, %._crit_edge291
+  %.5 = phi double [ %366, %364 ], [ %.4149, %._crit_edge291 ], [ %.4149, %._crit_edge291.thread ]
   %.not185 = icmp eq ptr %.0131.lcssa, null
   br i1 %.not185, label %368, label %75, !llvm.loop !42
 

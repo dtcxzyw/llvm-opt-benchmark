@@ -894,22 +894,22 @@ sub_0.lr.ph:                                      ; preds = %find_option.exit
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.loopexit290
   %42 = phi i32 [ %33, %sub_0.lr.ph ], [ %361, %.loopexit290 ]
-  %.0334 = phi i1 [ false, %sub_0.lr.ph ], [ %.5, %.loopexit290 ]
-  %.0137332 = phi i1 [ false, %sub_0.lr.ph ], [ %.2139, %.loopexit290 ]
+  %.0333 = phi i1 [ false, %sub_0.lr.ph ], [ %.5, %.loopexit290 ]
+  %.0137331 = phi i1 [ false, %sub_0.lr.ph ], [ %.2139, %.loopexit290 ]
   %.0152329 = phi i32 [ 1, %sub_0.lr.ph ], [ %.5157, %.loopexit290 ]
   %43 = load ptr, ptr %16, align 8
   %44 = sext i32 %.0152329 to i64
   %45 = getelementptr inbounds ptr, ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = load i8, ptr %46, align 1
-  %.not339 = icmp ne i8 %47, 45
-  br i1 %.not339, label %.thread268, label %sub_1
+  %.not338 = icmp ne i8 %47, 45
+  br i1 %.not338, label %.thread268, label %sub_1
 
 sub_1:                                            ; preds = %sub_0
   %48 = getelementptr inbounds i8, ptr %46, i64 1
   %49 = load i8, ptr %48, align 1
-  %.not340 = icmp eq i8 %49, 45
-  br i1 %.not340, label %.tail, label %.tail282
+  %.not339 = icmp eq i8 %49, 45
+  br i1 %.not339, label %.tail, label %.tail282
 
 .tail:                                            ; preds = %sub_1
   %50 = getelementptr inbounds i8, ptr %46, i64 2
@@ -918,24 +918,24 @@ sub_1:                                            ; preds = %sub_0
   br i1 %52, label %.preheader, label %.tail282
 
 .preheader:                                       ; preds = %.tail
-  %.1153336 = add nsw i32 %.0152329, 1
-  %53 = icmp slt i32 %.1153336, %42
-  br i1 %53, label %.lr.ph338, label %.loopexit
+  %.1153335 = add nsw i32 %.0152329, 1
+  %53 = icmp slt i32 %.1153335, %42
+  br i1 %53, label %.lr.ph337, label %.loopexit
 
-.lr.ph338:                                        ; preds = %.preheader
-  %54 = sext i32 %.1153336 to i64
+.lr.ph337:                                        ; preds = %.preheader
+  %54 = sext i32 %.1153335 to i64
   br label %55
 
-55:                                               ; preds = %.lr.ph338, %55
-  %indvars.iv377 = phi i64 [ %54, %.lr.ph338 ], [ %indvars.iv.next378, %55 ]
+55:                                               ; preds = %.lr.ph337, %55
+  %indvars.iv376 = phi i64 [ %54, %.lr.ph337 ], [ %indvars.iv.next377, %55 ]
   %56 = load ptr, ptr %16, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv377
+  %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv376
   %58 = load ptr, ptr %57, align 8
   %59 = call i32 @opal_argv_append(ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef %58) #21
-  %indvars.iv.next378 = add nsw i64 %indvars.iv377, 1
+  %indvars.iv.next377 = add nsw i64 %indvars.iv376, 1
   %60 = load i32, ptr %14, align 8
   %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv.next378, %61
+  %62 = icmp slt i64 %indvars.iv.next377, %61
   br i1 %62, label %55, label %.loopexit, !llvm.loop !9
 
 .tail282:                                         ; preds = %.tail, %sub_1
@@ -1170,7 +1170,7 @@ find_option.exit193.thread260:                    ; preds = %find_option.exit.i,
   %167 = getelementptr inbounds i8, ptr %166, i64 1
   %.020.i206 = load volatile ptr, ptr %18, align 8
   %.not21.i207 = icmp eq ptr %.020.i206, %17
-  br i1 %.not21.i207, label %.thread390, label %.lr.ph.i208
+  br i1 %.not21.i207, label %.thread389, label %.lr.ph.i208
 
 .lr.ph.i208:                                      ; preds = %.loopexit291, %187
   %.022.i209 = phi ptr [ %.0.i212, %187 ], [ %.020.i206, %.loopexit291 ]
@@ -1211,9 +1211,9 @@ find_option.exit193.thread260:                    ; preds = %find_option.exit.i,
   %188 = getelementptr inbounds i8, ptr %.022.i209, i64 16
   %.0.i212 = load volatile ptr, ptr %188, align 8
   %.not.i213 = icmp eq ptr %.0.i212, %17
-  br i1 %.not.i213, label %.thread390, label %.lr.ph.i208, !llvm.loop !8
+  br i1 %.not.i213, label %.thread389, label %.lr.ph.i208, !llvm.loop !8
 
-.thread390:                                       ; preds = %187, %.loopexit291
+.thread389:                                       ; preds = %187, %.loopexit291
   call void @opal_argv_free(ptr noundef nonnull %165) #21
   br label %.thread268
 
@@ -1290,7 +1290,7 @@ opal_obj_new.exit.thread267:                      ; preds = %.lr.ph.i.i217, %200
 223:                                              ; preds = %.lr.ph, %321
   %indvars.iv = phi i64 [ %209, %.lr.ph ], [ %indvars.iv.next, %321 ]
   %224 = phi i32 [ %215, %.lr.ph ], [ %323, %321 ]
-  %.2322 = phi i1 [ %.0334, %.lr.ph ], [ %.3, %321 ]
+  %.2322 = phi i1 [ %.0333, %.lr.ph ], [ %.3, %321 ]
   %.0151321 = phi i32 [ 0, %.lr.ph ], [ %322, %321 ]
   %225 = load i32, ptr %14, align 8
   %226 = sext i32 %225 to i64
@@ -1304,8 +1304,8 @@ opal_obj_new.exit.thread267:                      ; preds = %.lr.ph.i.i217, %200
 
 sub_0287:                                         ; preds = %227
   %229 = load i8, ptr %228, align 1
-  %.not342 = icmp eq i8 %229, 104
-  br i1 %.not342, label %.tail286, label %.tail286.thread
+  %.not341 = icmp eq i8 %229, 104
+  br i1 %.not341, label %.tail286, label %.tail286.thread
 
 .tail286:                                         ; preds = %sub_0287
   %230 = getelementptr inbounds i8, ptr %228, i64 1
@@ -1496,7 +1496,7 @@ opal_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %301
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %opal_obj_new.exit.thread267
   %.3155.lcssa = phi i32 [ %207, %opal_obj_new.exit.thread267 ], [ %325, %._crit_edge.loopexit ]
-  %.2.lcssa = phi i1 [ %.0334, %opal_obj_new.exit.thread267 ], [ %.3, %._crit_edge.loopexit ]
+  %.2.lcssa = phi i1 [ %.0333, %opal_obj_new.exit.thread267 ], [ %.3, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %215, %opal_obj_new.exit.thread267 ], [ %323, %._crit_edge.loopexit ]
   %326 = icmp eq i32 %.lcssa, 0
   %brmerge = select i1 %326, i1 true, i1 %.2.lcssa
@@ -1520,11 +1520,11 @@ opal_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %301
   %334 = load volatile i64, ptr %39, align 8
   %335 = add i64 %334, 1
   store volatile i64 %335, ptr %39, align 8
-  %.pre380 = load i32, ptr %14, align 8
+  %.pre379 = load i32, ptr %14, align 8
   br label %.loopexit290
 
-.thread268:                                       ; preds = %87, %sub_0, %.thread390, %find_option.exit193.thread260, %66
-  %brmerge182 = or i1 %2, %.not339
+.thread268:                                       ; preds = %87, %sub_0, %.thread389, %find_option.exit193.thread260, %66
+  %brmerge182 = or i1 %2, %.not338
   %or.cond183 = and i1 %1, %brmerge182
   br i1 %or.cond183, label %349, label %336
 
@@ -1547,8 +1547,8 @@ opal_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %301
 
 349:                                              ; preds = %.thread268, %opal_obj_run_destructors.exit228, %opal_thread_add_fetch_32.exit223, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %344, %336
   %.4156 = phi i32 [ %.0152329, %344 ], [ %.0152329, %336 ], [ %238, %opal_thread_add_fetch_32.exit ], [ %238, %opal_obj_run_destructors.exit ], [ %276, %opal_thread_add_fetch_32.exit223 ], [ %276, %opal_obj_run_destructors.exit228 ], [ %.0152329, %.thread268 ]
-  %.1138 = phi i1 [ true, %344 ], [ true, %336 ], [ true, %opal_thread_add_fetch_32.exit ], [ true, %opal_obj_run_destructors.exit ], [ true, %opal_thread_add_fetch_32.exit223 ], [ true, %opal_obj_run_destructors.exit228 ], [ %.0137332, %.thread268 ]
-  %.4 = phi i1 [ %.0334, %344 ], [ %.0334, %336 ], [ %.2322, %opal_thread_add_fetch_32.exit ], [ %.2322, %opal_obj_run_destructors.exit ], [ %.2322, %opal_thread_add_fetch_32.exit223 ], [ %.2322, %opal_obj_run_destructors.exit228 ], [ %.0334, %.thread268 ]
+  %.1138 = phi i1 [ true, %344 ], [ true, %336 ], [ true, %opal_thread_add_fetch_32.exit ], [ true, %opal_obj_run_destructors.exit ], [ true, %opal_thread_add_fetch_32.exit223 ], [ true, %opal_obj_run_destructors.exit228 ], [ %.0137331, %.thread268 ]
+  %.4 = phi i1 [ %.0333, %344 ], [ %.0333, %336 ], [ %.2322, %opal_thread_add_fetch_32.exit ], [ %.2322, %opal_obj_run_destructors.exit ], [ %.2322, %opal_thread_add_fetch_32.exit223 ], [ %.2322, %opal_obj_run_destructors.exit228 ], [ %.0333, %.thread268 ]
   %350 = load i32, ptr %14, align 8
   %351 = icmp slt i32 %.4156, %350
   br i1 %351, label %.lr.ph327.preheader, label %.loopexit290
@@ -1558,31 +1558,31 @@ opal_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %301
   br label %.lr.ph327
 
 .lr.ph327:                                        ; preds = %.lr.ph327.preheader, %.lr.ph327
-  %indvars.iv374 = phi i64 [ %352, %.lr.ph327.preheader ], [ %indvars.iv.next375, %.lr.ph327 ]
+  %indvars.iv373 = phi i64 [ %352, %.lr.ph327.preheader ], [ %indvars.iv.next374, %.lr.ph327 ]
   %353 = load ptr, ptr %16, align 8
-  %354 = getelementptr inbounds ptr, ptr %353, i64 %indvars.iv374
+  %354 = getelementptr inbounds ptr, ptr %353, i64 %indvars.iv373
   %355 = load ptr, ptr %354, align 8
   %356 = call i32 @opal_argv_append(ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef %355) #21
-  %indvars.iv.next375 = add nsw i64 %indvars.iv374, 1
+  %indvars.iv.next374 = add nsw i64 %indvars.iv373, 1
   %357 = load i32, ptr %14, align 8
   %358 = sext i32 %357 to i64
-  %359 = icmp slt i64 %indvars.iv.next375, %358
+  %359 = icmp slt i64 %indvars.iv.next374, %358
   br i1 %359, label %.lr.ph327, label %.loopexit290.loopexit, !llvm.loop !13
 
 .loopexit290.loopexit:                            ; preds = %.lr.ph327
-  %360 = trunc nsw i64 %indvars.iv.next375 to i32
+  %360 = trunc nsw i64 %indvars.iv.next374 to i32
   br label %.loopexit290
 
 .loopexit290:                                     ; preds = %..loopexit290_crit_edge, %.loopexit290.loopexit, %349
-  %361 = phi i32 [ %.pre380, %..loopexit290_crit_edge ], [ %350, %349 ], [ %357, %.loopexit290.loopexit ]
+  %361 = phi i32 [ %.pre379, %..loopexit290_crit_edge ], [ %350, %349 ], [ %357, %.loopexit290.loopexit ]
   %.5157 = phi i32 [ %.3155.lcssa, %..loopexit290_crit_edge ], [ %.4156, %349 ], [ %360, %.loopexit290.loopexit ]
-  %.2139 = phi i1 [ %.0137332, %..loopexit290_crit_edge ], [ %.1138, %349 ], [ %.1138, %.loopexit290.loopexit ]
+  %.2139 = phi i1 [ %.0137331, %..loopexit290_crit_edge ], [ %.1138, %349 ], [ %.1138, %.loopexit290.loopexit ]
   %.5 = phi i1 [ %.2.lcssa, %..loopexit290_crit_edge ], [ %.4, %349 ], [ %.4, %.loopexit290.loopexit ]
   %362 = icmp slt i32 %.5157, %361
   br i1 %362, label %sub_0, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.loopexit290, %55, %.preheader
-  %.0137315 = phi i1 [ %.0137332, %.preheader ], [ %.0137332, %55 ], [ %.2139, %.loopexit290 ]
+  %.0137315 = phi i1 [ %.0137331, %.preheader ], [ %.0137331, %55 ], [ %.2139, %.loopexit290 ]
   %363 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #21
   %cond.fr = freeze i1 %.0137315
   %spec.select = select i1 %cond.fr, i32 -43, i32 0

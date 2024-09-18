@@ -270,16 +270,16 @@ if.else:                                          ; preds = %if.end
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then11
-  %.sink258 = phi ptr [ %3, %if.else ], [ %arrayidx12, %if.then11 ]
-  %4 = load ptr, ptr %.sink258, align 8
+  %.sink255 = phi ptr [ %3, %if.else ], [ %arrayidx12, %if.then11 ]
+  %4 = load ptr, ptr %.sink255, align 8
   call void @end_url_with_slash(ptr noundef nonnull @url, ptr noundef %4) #16
   %5 = load ptr, ptr @remote, align 8
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
   call void @http_init(ptr noundef %5, ptr noundef %6, i32 noundef 0) #16
   %7 = load ptr, ptr @stdin, align 8
-  %call15221 = call i32 @strbuf_getline_lf(ptr noundef nonnull %buf, ptr noundef %7) #16
-  %cmp16222 = icmp eq i32 %call15221, -1
-  br i1 %cmp16222, label %if.then17, label %if.end25.lr.ph
+  %call15220 = call i32 @strbuf_getline_lf(ptr noundef nonnull %buf, ptr noundef %7) #16
+  %cmp16221 = icmp eq i32 %call15220, -1
+  br i1 %cmp16221, label %if.then17, label %if.end25.lr.ph
 
 if.end25.lr.ph:                                   ; preds = %if.end14
   %len = getelementptr inbounds i8, ptr %buf, i64 8
@@ -808,11 +808,11 @@ if.else41:                                        ; preds = %if.end28
 lor.lhs.false:                                    ; preds = %if.else41
   %call46 = call i32 @starts_with(ptr noundef %65, ptr noundef nonnull @.str.7) #16
   %tobool47.not = icmp eq i32 %call46, 0
-  %.pre241 = load ptr, ptr %buf29, align 8
+  %.pre238 = load ptr, ptr %buf29, align 8
   br i1 %tobool47.not, label %if.else57, label %if.then48
 
 if.then48:                                        ; preds = %lor.lhs.false, %if.else41
-  %66 = phi ptr [ %.pre241, %lor.lhs.false ], [ %65, %if.else41 ]
+  %66 = phi ptr [ %.pre238, %lor.lhs.false ], [ %65, %if.else41 ]
   %add.ptr = getelementptr inbounds i8, ptr %66, i64 4
   %call50 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) @.str.8) #18
   %tobool51.not = icmp eq ptr %call50, null
@@ -886,7 +886,7 @@ output_refs.exit:                                 ; preds = %for.inc.i, %if.end.
   br label %if.end122
 
 if.else57:                                        ; preds = %lor.lhs.false
-  %call59 = call i32 @starts_with(ptr noundef %.pre241, ptr noundef nonnull @.str.9) #16
+  %call59 = call i32 @starts_with(ptr noundef %.pre238, ptr noundef nonnull @.str.9) #16
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %if.else62, label %if.then61
 
@@ -1246,7 +1246,7 @@ do.cond.i:                                        ; preds = %do.body.i101
   br i1 %cmp.i103, label %do.body.i101, label %do.body.i119.preheader, !llvm.loop !5
 
 do.body.i119.preheader:                           ; preds = %do.cond.i
-  %scevgep237 = getelementptr i8, ptr %117, i64 4
+  %scevgep234 = getelementptr i8, ptr %117, i64 4
   br label %do.body.i119
 
 if.then65:                                        ; preds = %do.body.i101
@@ -1798,8 +1798,8 @@ if.end82:                                         ; preds = %if.else306.i, %if.e
 do.body.i119:                                     ; preds = %do.body.i119.preheader, %do.cond.i123
   %str.addr.0.i120 = phi ptr [ %incdec.ptr.i124, %do.cond.i123 ], [ %117, %do.body.i119.preheader ]
   %prefix.addr.0.i121.idx = phi i64 [ %prefix.addr.0.i121.add, %do.cond.i123 ], [ 0, %do.body.i119.preheader ]
-  %exitcond238 = icmp eq i64 %prefix.addr.0.i121.idx, 4
-  br i1 %exitcond238, label %if.then87, label %do.cond.i123
+  %exitcond235 = icmp eq i64 %prefix.addr.0.i121.idx, 4
+  br i1 %exitcond235, label %if.then87, label %do.cond.i123
 
 do.cond.i123:                                     ; preds = %do.body.i119
   %prefix.addr.0.i121.ptr = getelementptr inbounds i8, ptr @.str.15, i64 %prefix.addr.0.i121.idx
@@ -1815,7 +1815,7 @@ if.then87:                                        ; preds = %do.body.i119
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %url.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.stateless_connect.buf, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.stateless_connect.buf, i64 24, i1 false)
-  %call.i129 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %scevgep237, i32 noundef 32) #18
+  %call.i129 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %scevgep234, i32 noundef 32) #18
   %tobool.not.i130 = icmp eq ptr %call.i129, null
   br i1 %tobool.not.i130, label %if.then.i141, label %if.end.i131
 
@@ -1826,9 +1826,9 @@ if.then.i141:                                     ; preds = %if.then87
 
 if.end.i131:                                      ; preds = %if.then87
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i129 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %scevgep237 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %scevgep234 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @strbuf_add(ptr noundef nonnull %url.i, ptr noundef %scevgep237, i64 noundef %sub.ptr.sub.i) #16
+  call void @strbuf_add(ptr noundef nonnull %url.i, ptr noundef %scevgep234, i64 noundef %sub.ptr.sub.i) #16
   %add.ptr.i132 = getelementptr inbounds i8, ptr %call.i129, i64 1
   %call.i.i133 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i132) #18
   call void @strbuf_add(ptr noundef nonnull %path.i, ptr noundef nonnull %add.ptr.i132, i64 noundef %call.i.i133) #16
@@ -1862,7 +1862,7 @@ if.else89:                                        ; preds = %do.cond.i123
   br i1 %tobool92.not, label %if.then93, label %do.body.i143.preheader
 
 do.body.i143.preheader:                           ; preds = %if.else89
-  %scevgep239 = getelementptr i8, ptr %117, i64 18
+  %scevgep236 = getelementptr i8, ptr %117, i64 18
   br label %do.body.i143
 
 if.then93:                                        ; preds = %if.else89
@@ -1881,8 +1881,8 @@ if.then93:                                        ; preds = %if.else89
 do.body.i143:                                     ; preds = %do.body.i143.preheader, %do.cond.i147
   %str.addr.0.i144 = phi ptr [ %incdec.ptr.i148, %do.cond.i147 ], [ %117, %do.body.i143.preheader ]
   %prefix.addr.0.i145.idx = phi i64 [ %prefix.addr.0.i145.add, %do.cond.i147 ], [ 0, %do.body.i143.preheader ]
-  %exitcond240 = icmp eq i64 %prefix.addr.0.i145.idx, 18
-  br i1 %exitcond240, label %if.then106, label %do.cond.i147
+  %exitcond237 = icmp eq i64 %prefix.addr.0.i145.idx, 18
+  br i1 %exitcond237, label %if.then106, label %do.cond.i147
 
 do.cond.i147:                                     ; preds = %do.body.i143
   %prefix.addr.0.i145.ptr = getelementptr inbounds i8, ptr @.str.25, i64 %prefix.addr.0.i145.idx
@@ -1900,7 +1900,7 @@ if.then106:                                       ; preds = %do.body.i143
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i153, ptr noundef nonnull align 8 dereferenceable(24) @__const.stateless_connect.buf, i64 24, i1 false)
-  %call.i154 = call fastcc ptr @discover_refs(ptr noundef %scevgep239, i32 noundef 0)
+  %call.i154 = call fastcc ptr @discover_refs(ptr noundef %scevgep236, i32 noundef 0)
   %version.i = getelementptr inbounds i8, ptr %call.i154, i64 72
   %138 = load i32, ptr %version.i, align 8
   %cmp.not.i = icmp eq i32 %138, 2
@@ -1921,15 +1921,15 @@ if.then6.i163:                                    ; preds = %if.else.i158
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then6.i163, %if.else.i158
-  store ptr %scevgep239, ptr %rpc.i, align 8
+  store ptr %scevgep236, ptr %rpc.i, align 8
   %140 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
-  %call11.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.75, ptr noundef %140, ptr noundef %scevgep239) #16
+  %call11.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.75, ptr noundef %140, ptr noundef %scevgep236) #16
   %service_url.i = getelementptr inbounds i8, ptr %rpc.i, i64 8
   store ptr %call11.i, ptr %service_url.i, align 8
-  %call13.i164 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.76, ptr noundef %scevgep239) #16
+  %call13.i164 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.76, ptr noundef %scevgep236) #16
   %hdr_content_type.i = getelementptr inbounds i8, ptr %rpc.i, i64 16
   store ptr %call13.i164, ptr %hdr_content_type.i, align 8
-  %call15.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.77, ptr noundef %scevgep239) #16
+  %call15.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.77, ptr noundef %scevgep236) #16
   %hdr_accept.i = getelementptr inbounds i8, ptr %rpc.i, i64 24
   store ptr %call15.i, ptr %hdr_accept.i, align 8
   %141 = load i32, ptr %version.i.le, align 8

@@ -533,7 +533,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %77
 _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %91, %89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %.pre = load ptr, ptr %12, align 8
-  %.pre142 = load i8, ptr %.pre, align 1
+  %.pre136 = load i8, ptr %.pre, align 1
   br label %110
 
 93:                                               ; preds = %91
@@ -585,7 +585,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %91, %89
   br label %thread-pre-split
 
 110:                                              ; preds = %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread, %75, %77, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %73
-  %111 = phi i8 [ %.pre142, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread ], [ 103, %75 ], [ 103, %77 ], [ 103, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %74, %73 ]
+  %111 = phi i8 [ %.pre136, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread ], [ 103, %75 ], [ 103, %77 ], [ 103, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %74, %73 ]
   %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %111) #16
   %113 = load i64, ptr %25, align 8
   %114 = icmp ne i64 %113, 0

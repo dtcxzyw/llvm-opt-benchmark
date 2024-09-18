@@ -2490,10 +2490,10 @@ _ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit: ; preds = %_ZN4llvm15CodeVi
   br label %50
 
 50:                                               ; preds = %.lr.ph, %168
-  %.0164 = phi i8 [ 0, %.lr.ph ], [ %.1, %168 ]
-  %.078163 = phi ptr [ %26, %.lr.ph ], [ %.2, %168 ]
-  %.sroa.4.0162 = phi i32 [ %28, %.lr.ph ], [ %.sroa.4.1, %168 ]
-  %.sroa.052.0161 = phi i32 [ %27, %.lr.ph ], [ %.sroa.052.1, %168 ]
+  %.0163 = phi i8 [ 0, %.lr.ph ], [ %.1, %168 ]
+  %.078162 = phi ptr [ %26, %.lr.ph ], [ %.2, %168 ]
+  %.sroa.4.0161 = phi i32 [ %28, %.lr.ph ], [ %.sroa.4.1, %168 ]
+  %.sroa.052.0160 = phi i32 [ %27, %.lr.ph ], [ %.sroa.052.1, %168 ]
   %.080159 = phi ptr [ %22, %.lr.ph ], [ %169, %168 ]
   %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #16
   %52 = icmp ugt i64 %51, 65259
@@ -2562,14 +2562,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_16MCCVFunctionInfo8LineInfoENS_12DenseMa
   br label %101
 
 87:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_16MCCVFunctionInfo8LineInfoENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit
-  %88 = trunc nuw i8 %.0164 to i1
+  %88 = trunc nuw i8 %.0163 to i1
   br i1 %88, label %89, label %168
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %.080159, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %91 = load ptr, ptr %1, align 8
-  %92 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %.078163, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %91, ptr null) #16
+  %92 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %.078162, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %91, ptr null) #16
   %93 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %90, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %91, ptr null) #16
   %94 = call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 18, ptr noundef %93, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(2432) %91, ptr null) #16
   %95 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateKnownAbsoluteERlRKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(372) %1) #16
@@ -2587,10 +2587,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_16MCCVFunctionInfo8LineInfoENS_12DenseMa
   %.sroa.6.0.in = phi ptr [ %60, %58 ], [ %.sroa.6.0..sroa_idx, %85 ]
   %.sroa.6.0 = load i32, ptr %.sroa.6.0.in, align 4
   %.sroa.0.0 = load i32, ptr %.sroa.0.0.in, align 4
-  %102 = trunc nuw i8 %.0164 to i1
-  %103 = icmp eq i32 %.sroa.0.0, %.sroa.052.0161
+  %102 = trunc nuw i8 %.0163 to i1
+  %103 = icmp eq i32 %.sroa.0.0, %.sroa.052.0160
   %or.cond88 = select i1 %102, i1 %103, i1 false
-  %104 = icmp eq i32 %.sroa.6.0, %.sroa.4.0162
+  %104 = icmp eq i32 %.sroa.6.0, %.sroa.4.0161
   %or.cond89 = select i1 %or.cond88, i1 %104, i1 false
   br i1 %or.cond89, label %168, label %105
 
@@ -2634,7 +2634,7 @@ _ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit108: ; preds = %106, %.
   br label %128
 
 128:                                              ; preds = %_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit108, %105
-  %129 = sub i32 %.sroa.6.0, %.sroa.4.0162
+  %129 = sub i32 %.sroa.6.0, %.sroa.4.0161
   %.neg.i = mul i32 %129, -2
   %130 = or disjoint i32 %.neg.i, 1
   %131 = shl nuw i32 %129, 1
@@ -2643,7 +2643,7 @@ _ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit108: ; preds = %106, %.
   %132 = load ptr, ptr %.080159, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %133 = load ptr, ptr %1, align 8
-  %134 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %.078163, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %133, ptr null) #16
+  %134 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %.078162, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %133, ptr null) #16
   %135 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %132, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %133, ptr null) #16
   %136 = call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 18, ptr noundef %135, ptr noundef %134, ptr noundef nonnull align 8 dereferenceable(2432) %133, ptr null) #16
   %137 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateKnownAbsoluteERlRKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(372) %1) #16
@@ -2697,43 +2697,43 @@ _ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit116: ; preds = %149, %.
   br i1 %.not.i.i.i.i117, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %142, %158, %89
-  %.sink180.sink = phi i64 [ %99, %89 ], [ %146, %142 ], [ %160, %158 ]
-  %.sink176.ph = phi i8 [ 4, %89 ], [ 11, %142 ], [ 3, %158 ]
-  %.sink173.ph = phi i32 [ %97, %89 ], [ %144, %142 ], [ %139, %158 ]
-  %.sroa.052.1.ph.ph = phi i32 [ %.sroa.052.0161, %89 ], [ %.sroa.0.0, %142 ], [ %.sroa.0.0, %158 ]
-  %.sroa.4.1.ph.ph = phi i32 [ %.sroa.4.0162, %89 ], [ %.sroa.6.0, %142 ], [ %.sroa.6.0, %158 ]
+  %.sink179.sink = phi i64 [ %99, %89 ], [ %146, %142 ], [ %160, %158 ]
+  %.sink175.ph = phi i8 [ 4, %89 ], [ 11, %142 ], [ 3, %158 ]
+  %.sink172.ph = phi i32 [ %97, %89 ], [ %144, %142 ], [ %139, %158 ]
+  %.sroa.052.1.ph.ph = phi i32 [ %.sroa.052.0160, %89 ], [ %.sroa.0.0, %142 ], [ %.sroa.0.0, %158 ]
+  %.sroa.4.1.ph.ph = phi i32 [ %.sroa.4.0161, %89 ], [ %.sroa.6.0, %142 ], [ %.sroa.6.0, %158 ]
   %.1.ph.ph = phi i8 [ 0, %89 ], [ 1, %142 ], [ 1, %158 ]
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull %48, i64 noundef %.sink180.sink, i64 noundef 1) #16
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull %48, i64 noundef %.sink179.sink, i64 noundef 1) #16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %142, %158, %89
-  %.sink176 = phi i8 [ 4, %89 ], [ 11, %142 ], [ 3, %158 ], [ %.sink176.ph, %.sink.split.sink.split ]
-  %.sink173 = phi i32 [ %97, %89 ], [ %144, %142 ], [ %139, %158 ], [ %.sink173.ph, %.sink.split.sink.split ]
-  %.sroa.052.1.ph = phi i32 [ %.sroa.052.0161, %89 ], [ %.sroa.0.0, %142 ], [ %.sroa.0.0, %158 ], [ %.sroa.052.1.ph.ph, %.sink.split.sink.split ]
-  %.sroa.4.1.ph = phi i32 [ %.sroa.4.0162, %89 ], [ %.sroa.6.0, %142 ], [ %.sroa.6.0, %158 ], [ %.sroa.4.1.ph.ph, %.sink.split.sink.split ]
+  %.sink175 = phi i8 [ 4, %89 ], [ 11, %142 ], [ 3, %158 ], [ %.sink175.ph, %.sink.split.sink.split ]
+  %.sink172 = phi i32 [ %97, %89 ], [ %144, %142 ], [ %139, %158 ], [ %.sink172.ph, %.sink.split.sink.split ]
+  %.sroa.052.1.ph = phi i32 [ %.sroa.052.0160, %89 ], [ %.sroa.0.0, %142 ], [ %.sroa.0.0, %158 ], [ %.sroa.052.1.ph.ph, %.sink.split.sink.split ]
+  %.sroa.4.1.ph = phi i32 [ %.sroa.4.0161, %89 ], [ %.sroa.6.0, %142 ], [ %.sroa.6.0, %158 ], [ %.sroa.4.1.ph.ph, %.sink.split.sink.split ]
   %.1.ph = phi i8 [ 0, %89 ], [ 1, %142 ], [ 1, %158 ], [ %.1.ph.ph, %.sink.split.sink.split ]
   %162 = load ptr, ptr %42, align 8
   %163 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #16
   %164 = getelementptr inbounds i8, ptr %162, i64 %163
-  store i8 %.sink176, ptr %164, align 1
+  store i8 %.sink175, ptr %164, align 1
   %165 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #16
   %166 = add i64 %165, 1
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %166) #16
-  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE(i32 noundef %.sink173, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE(i32 noundef %.sink172, ptr noundef nonnull align 8 dereferenceable(24) %42)
   %167 = load ptr, ptr %.080159, align 8
   br label %168
 
 168:                                              ; preds = %.sink.split, %101, %87
-  %.sroa.052.1 = phi i32 [ %.sroa.052.0161, %87 ], [ %.sroa.052.0161, %101 ], [ %.sroa.052.1.ph, %.sink.split ]
-  %.sroa.4.1 = phi i32 [ %.sroa.4.0162, %87 ], [ %.sroa.4.0162, %101 ], [ %.sroa.4.1.ph, %.sink.split ]
-  %.2 = phi ptr [ %.078163, %87 ], [ %.078163, %101 ], [ %167, %.sink.split ]
-  %.1 = phi i8 [ 0, %87 ], [ %.0164, %101 ], [ %.1.ph, %.sink.split ]
+  %.sroa.052.1 = phi i32 [ %.sroa.052.0160, %87 ], [ %.sroa.052.0160, %101 ], [ %.sroa.052.1.ph, %.sink.split ]
+  %.sroa.4.1 = phi i32 [ %.sroa.4.0161, %87 ], [ %.sroa.4.0161, %101 ], [ %.sroa.4.1.ph, %.sink.split ]
+  %.2 = phi ptr [ %.078162, %87 ], [ %.078162, %101 ], [ %167, %.sink.split ]
+  %.1 = phi i8 [ 0, %87 ], [ %.0163, %101 ], [ %.1.ph, %.sink.split ]
   %169 = getelementptr inbounds i8, ptr %.080159, i64 24
   %.not85 = icmp eq ptr %169, %45
   br i1 %.not85, label %._crit_edge, label %50
 
 ._crit_edge:                                      ; preds = %168, %50, %_ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit
-  %.078.lcssa = phi ptr [ %26, %_ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit ], [ %.078163, %50 ], [ %.2, %168 ]
+  %.078.lcssa = phi ptr [ %26, %_ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit ], [ %.078162, %50 ], [ %.2, %168 ]
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %171 = load ptr, ptr %170, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)

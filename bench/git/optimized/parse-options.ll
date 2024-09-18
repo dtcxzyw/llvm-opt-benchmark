@@ -3893,20 +3893,20 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %1 = phi i32 [ %8, %for.inc.us ], [ %0, %for.body.lr.ph ]
-  %printed_dashdash.018.us = phi i32 [ %printed_dashdash.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %nr_noopts.addr.017.us = phi i32 [ %nr_noopts.addr.1.us, %for.inc.us ], [ %nr_noopts, %for.body.lr.ph ]
-  %opts.addr.016.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %opts, %for.body.lr.ph ]
-  %long_name.us = getelementptr inbounds i8, ptr %opts.addr.016.us, i64 8
+  %printed_dashdash.017.us = phi i32 [ %printed_dashdash.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %nr_noopts.addr.016.us = phi i32 [ %nr_noopts.addr.1.us, %for.inc.us ], [ %nr_noopts, %for.body.lr.ph ]
+  %opts.addr.015.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %opts, %for.body.lr.ph ]
+  %long_name.us = getelementptr inbounds i8, ptr %opts.addr.015.us, i64 8
   %2 = load ptr, ptr %long_name.us, align 8
   %tobool.not.us = icmp eq ptr %2, null
   br i1 %tobool.not.us, label %for.inc.us, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
-  %flags.us = getelementptr inbounds i8, ptr %opts.addr.016.us, i64 40
+  %flags.us = getelementptr inbounds i8, ptr %opts.addr.015.us, i64 40
   %3 = load i32, ptr %flags.us, align 8
   %4 = and i32 %3, 524
-  %or.cond26 = icmp eq i32 %4, 0
-  br i1 %or.cond26, label %if.end9.us, label %for.inc.us
+  %or.cond25 = icmp eq i32 %4, 0
+  br i1 %or.cond25, label %if.end9.us, label %for.inc.us
 
 if.end9.us:                                       ; preds = %if.end.us
   switch i32 %1, label %for.inc.us [
@@ -3922,14 +3922,14 @@ if.end9.us:                                       ; preds = %if.end.us
   ]
 
 sw.bb.us:                                         ; preds = %if.end9.us, %if.end9.us, %if.end9.us, %if.end9.us, %if.end9.us, %if.end9.us, %if.end9.us, %if.end9.us, %if.end9.us
-  %scevgep22 = getelementptr i8, ptr %2, i64 3
+  %scevgep21 = getelementptr i8, ptr %2, i64 3
   br label %do.body.i.us
 
 do.body.i.us:                                     ; preds = %do.cond.i.us, %sw.bb.us
   %str.addr.0.i.us = phi ptr [ %2, %sw.bb.us ], [ %incdec.ptr.i.us, %do.cond.i.us ]
   %prefix.addr.0.i.us.idx = phi i64 [ 0, %sw.bb.us ], [ %prefix.addr.0.i.us.add, %do.cond.i.us ]
-  %exitcond23 = icmp eq i64 %prefix.addr.0.i.us.idx, 3
-  br i1 %exitcond23, label %if.then15.us, label %do.cond.i.us
+  %exitcond22 = icmp eq i64 %prefix.addr.0.i.us.idx, 3
+  br i1 %exitcond22, label %if.then15.us, label %do.cond.i.us
 
 do.cond.i.us:                                     ; preds = %do.body.i.us
   %prefix.addr.0.i.us.ptr = getelementptr inbounds i8, ptr @.str.61, i64 %prefix.addr.0.i.us.idx
@@ -3941,55 +3941,55 @@ do.cond.i.us:                                     ; preds = %do.body.i.us
   br i1 %cmp.i.us, label %do.body.i.us, label %if.else.us, !llvm.loop !13
 
 if.else.us:                                       ; preds = %do.cond.i.us
-  %cmp20.us = icmp sgt i32 %nr_noopts.addr.017.us, -1
+  %cmp20.us = icmp sgt i32 %nr_noopts.addr.016.us, -1
   br i1 %cmp20.us, label %if.then21.us, label %for.inc.us
 
 if.then21.us:                                     ; preds = %if.else.us
-  %tobool22.us = icmp eq i32 %nr_noopts.addr.017.us, 0
-  %tobool24.us = icmp ne i32 %printed_dashdash.018.us, 0
+  %tobool22.us = icmp eq i32 %nr_noopts.addr.016.us, 0
+  %tobool24.us = icmp ne i32 %printed_dashdash.017.us, 0
   %or.cond.us = select i1 %tobool22.us, i1 true, i1 %tobool24.us
   br i1 %or.cond.us, label %if.end27.us, label %if.then25.us
 
 if.then25.us:                                     ; preds = %if.then21.us
   %call26.us = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67)
-  %.pre24 = load ptr, ptr %long_name.us, align 8
+  %.pre23 = load ptr, ptr %long_name.us, align 8
   br label %if.end27.us
 
 if.end27.us:                                      ; preds = %if.then25.us, %if.then21.us
-  %7 = phi ptr [ %2, %if.then21.us ], [ %.pre24, %if.then25.us ]
-  %printed_dashdash.2.us = phi i32 [ %printed_dashdash.018.us, %if.then21.us ], [ 1, %if.then25.us ]
+  %7 = phi ptr [ %2, %if.then21.us ], [ %.pre23, %if.then25.us ]
+  %printed_dashdash.2.us = phi i32 [ %printed_dashdash.017.us, %if.then21.us ], [ 1, %if.then25.us ]
   %call29.us = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, ptr noundef %7)
-  %inc.us = add nuw nsw i32 %nr_noopts.addr.017.us, 1
+  %inc.us = add nuw nsw i32 %nr_noopts.addr.016.us, 1
   br label %for.inc.us
 
 if.then15.us:                                     ; preds = %do.body.i.us
-  %cmp16.us = icmp slt i32 %nr_noopts.addr.017.us, 0
+  %cmp16.us = icmp slt i32 %nr_noopts.addr.016.us, 0
   br i1 %cmp16.us, label %if.then17.us, label %for.inc.us
 
 if.then17.us:                                     ; preds = %if.then15.us
-  %call18.us = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, ptr noundef nonnull %scevgep22)
+  %call18.us = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, ptr noundef nonnull %scevgep21)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then17.us, %if.then15.us, %if.end27.us, %if.else.us, %if.end9.us, %if.end.us, %for.body.us
-  %nr_noopts.addr.1.us = phi i32 [ %nr_noopts.addr.017.us, %for.body.us ], [ %nr_noopts.addr.017.us, %if.end9.us ], [ %nr_noopts.addr.017.us, %if.then17.us ], [ %nr_noopts.addr.017.us, %if.then15.us ], [ %inc.us, %if.end27.us ], [ %nr_noopts.addr.017.us, %if.else.us ], [ %nr_noopts.addr.017.us, %if.end.us ]
-  %printed_dashdash.1.us = phi i32 [ %printed_dashdash.018.us, %for.body.us ], [ %printed_dashdash.018.us, %if.end9.us ], [ %printed_dashdash.018.us, %if.then17.us ], [ %printed_dashdash.018.us, %if.then15.us ], [ %printed_dashdash.2.us, %if.end27.us ], [ %printed_dashdash.018.us, %if.else.us ], [ %printed_dashdash.018.us, %if.end.us ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %opts.addr.016.us, i64 88
+  %nr_noopts.addr.1.us = phi i32 [ %nr_noopts.addr.016.us, %if.then17.us ], [ %nr_noopts.addr.016.us, %if.then15.us ], [ %inc.us, %if.end27.us ], [ %nr_noopts.addr.016.us, %if.else.us ], [ %nr_noopts.addr.016.us, %if.end.us ], [ %nr_noopts.addr.016.us, %for.body.us ], [ %nr_noopts.addr.016.us, %if.end9.us ]
+  %printed_dashdash.1.us = phi i32 [ %printed_dashdash.017.us, %if.then17.us ], [ %printed_dashdash.017.us, %if.then15.us ], [ %printed_dashdash.2.us, %if.end27.us ], [ %printed_dashdash.017.us, %if.else.us ], [ %printed_dashdash.017.us, %if.end.us ], [ %printed_dashdash.017.us, %for.body.us ], [ %printed_dashdash.017.us, %if.end9.us ]
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %opts.addr.015.us, i64 88
   %8 = load i32, ptr %incdec.ptr.us, align 8
   %cmp.not.us = icmp eq i32 %8, 0
   br i1 %cmp.not.us, label %for.end, label %for.body.us, !llvm.loop !33
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %9 = phi i32 [ %15, %for.inc ], [ %0, %for.body.lr.ph ]
-  %printed_dashdash.018 = phi i32 [ %printed_dashdash.1, %for.inc ], [ 0, %for.body.lr.ph ]
-  %nr_noopts.addr.017 = phi i32 [ %nr_noopts.addr.1, %for.inc ], [ %nr_noopts, %for.body.lr.ph ]
-  %opts.addr.016 = phi ptr [ %incdec.ptr, %for.inc ], [ %opts, %for.body.lr.ph ]
-  %long_name = getelementptr inbounds i8, ptr %opts.addr.016, i64 8
+  %printed_dashdash.017 = phi i32 [ %printed_dashdash.1, %for.inc ], [ 0, %for.body.lr.ph ]
+  %nr_noopts.addr.016 = phi i32 [ %nr_noopts.addr.1, %for.inc ], [ %nr_noopts, %for.body.lr.ph ]
+  %opts.addr.015 = phi ptr [ %incdec.ptr, %for.inc ], [ %opts, %for.body.lr.ph ]
+  %long_name = getelementptr inbounds i8, ptr %opts.addr.015, i64 8
   %10 = load ptr, ptr %long_name, align 8
   %tobool.not = icmp eq ptr %10, null
   br i1 %tobool.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %flags5 = getelementptr inbounds i8, ptr %opts.addr.016, i64 40
+  %flags5 = getelementptr inbounds i8, ptr %opts.addr.015, i64 40
   %11 = load i32, ptr %flags5, align 8
   %and6 = and i32 %11, 4
   %tobool7.not = icmp eq i32 %and6, 0
@@ -4028,7 +4028,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %if.else, !llvm.loop !13
 
 if.then15:                                        ; preds = %do.body.i
-  %cmp16 = icmp slt i32 %nr_noopts.addr.017, 0
+  %cmp16 = icmp slt i32 %nr_noopts.addr.016, 0
   br i1 %cmp16, label %if.then17, label %for.inc
 
 if.then17:                                        ; preds = %if.then15
@@ -4036,12 +4036,12 @@ if.then17:                                        ; preds = %if.then15
   br label %for.inc
 
 if.else:                                          ; preds = %do.cond.i
-  %cmp20 = icmp sgt i32 %nr_noopts.addr.017, -1
+  %cmp20 = icmp sgt i32 %nr_noopts.addr.016, -1
   br i1 %cmp20, label %if.then21, label %for.inc
 
 if.then21:                                        ; preds = %if.else
-  %tobool22 = icmp eq i32 %nr_noopts.addr.017, 0
-  %tobool24 = icmp ne i32 %printed_dashdash.018, 0
+  %tobool22 = icmp eq i32 %nr_noopts.addr.016, 0
+  %tobool24 = icmp ne i32 %printed_dashdash.017, 0
   %or.cond = select i1 %tobool22, i1 true, i1 %tobool24
   br i1 %or.cond, label %if.end27, label %if.then25
 
@@ -4052,15 +4052,15 @@ if.then25:                                        ; preds = %if.then21
 
 if.end27:                                         ; preds = %if.then25, %if.then21
   %14 = phi ptr [ %10, %if.then21 ], [ %.pre, %if.then25 ]
-  %printed_dashdash.2 = phi i32 [ %printed_dashdash.018, %if.then21 ], [ 1, %if.then25 ]
+  %printed_dashdash.2 = phi i32 [ %printed_dashdash.017, %if.then21 ], [ 1, %if.then25 ]
   %call29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, ptr noundef %14)
-  %inc = add nuw nsw i32 %nr_noopts.addr.017, 1
+  %inc = add nuw nsw i32 %nr_noopts.addr.016, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end9, %if.then17, %if.then15, %if.end27, %if.else, %if.end, %for.body
-  %nr_noopts.addr.1 = phi i32 [ %nr_noopts.addr.017, %for.body ], [ %nr_noopts.addr.017, %if.end9 ], [ %nr_noopts.addr.017, %if.then17 ], [ %nr_noopts.addr.017, %if.then15 ], [ %inc, %if.end27 ], [ %nr_noopts.addr.017, %if.else ], [ %nr_noopts.addr.017, %if.end ]
-  %printed_dashdash.1 = phi i32 [ %printed_dashdash.018, %for.body ], [ %printed_dashdash.018, %if.end9 ], [ %printed_dashdash.018, %if.then17 ], [ %printed_dashdash.018, %if.then15 ], [ %printed_dashdash.2, %if.end27 ], [ %printed_dashdash.018, %if.else ], [ %printed_dashdash.018, %if.end ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %opts.addr.016, i64 88
+  %nr_noopts.addr.1 = phi i32 [ %nr_noopts.addr.016, %if.end ], [ %nr_noopts.addr.016, %if.then17 ], [ %nr_noopts.addr.016, %if.then15 ], [ %inc, %if.end27 ], [ %nr_noopts.addr.016, %if.else ], [ %nr_noopts.addr.016, %for.body ], [ %nr_noopts.addr.016, %if.end9 ]
+  %printed_dashdash.1 = phi i32 [ %printed_dashdash.017, %if.end ], [ %printed_dashdash.017, %if.then17 ], [ %printed_dashdash.017, %if.then15 ], [ %printed_dashdash.2, %if.end27 ], [ %printed_dashdash.017, %if.else ], [ %printed_dashdash.017, %for.body ], [ %printed_dashdash.017, %if.end9 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %opts.addr.015, i64 88
   %15 = load i32, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq i32 %15, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !33

@@ -4839,8 +4839,8 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end10.i
   %bcmp.i.i.i = call i32 @bcmp(ptr readonly %add.ptr.i.i.i, ptr nonnull readonly %indvars.iv.i, i64 %call.i.i.i)
   %tobool.not.i.i.i = icmp ne i32 %bcmp.i.i.i, 0
   %tobool.not = icmp eq ptr %refname.addr.0.i, null
-  %or.cond222 = select i1 %tobool.not.i.i.i, i1 true, i1 %tobool.not
-  br i1 %or.cond222, label %for.inc21, label %for.body6.lr.ph
+  %or.cond = select i1 %tobool.not.i.i.i, i1 true, i1 %tobool.not
+  br i1 %or.cond, label %for.inc21, label %for.body6.lr.ph
 
 for.body6.lr.ph:                                  ; preds = %lor.lhs.false.i.i.i
   %spec.select = select i1 %tobool1.not, i32 %i.0165, i32 6
@@ -4859,8 +4859,8 @@ for.body6.us.preheader:                           ; preds = %for.body6.lr.ph
   br label %for.body6.us
 
 for.body6.us:                                     ; preds = %for.body6.us.preheader, %for.inc.us
-  %j.0158.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body6.us.preheader ]
-  %cmp9.us = icmp eq i32 %i.0165, %j.0158.us
+  %j.0159.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body6.us.preheader ]
+  %cmp9.us = icmp eq i32 %i.0165, %j.0159.us
   br i1 %cmp9.us, label %for.inc.us, label %if.end11.us
 
 if.end11.us:                                      ; preds = %for.body6.us
@@ -4969,8 +4969,8 @@ land.lhs.true72.i.i97:                            ; preds = %if.end69.i.i90
   %tobool73.not.i.i100 = icmp eq i32 %bcmp.i.i99, 0
   %conv84.i.i96 = trunc i64 %sub.ptr.sub.i.i93 to i32
   %cmp13.i57 = icmp slt i32 %conv84.i.i96, 1
-  %or.cond = or i1 %cmp13.i57, %tobool73.not.i.i100
-  br i1 %or.cond, label %refs_ref_exists.exit.thread, label %if.end16.i58
+  %or.cond126 = or i1 %cmp13.i57, %tobool73.not.i.i100
+  br i1 %or.cond126, label %refs_ref_exists.exit.thread, label %if.end16.i58
 
 check_refname_component.exit.i54:                 ; preds = %if.end69.i.i90
   %conv84.i.i96.old = trunc i64 %sub.ptr.sub.i.i93 to i32
@@ -5134,8 +5134,8 @@ land.lhs.true72.i.i:                              ; preds = %if.end69.i.i
   %tobool73.not.i.i = icmp eq i32 %bcmp.i.i, 0
   %conv84.i.i = trunc i64 %sub.ptr.sub.i.i to i32
   %cmp13.i = icmp slt i32 %conv84.i.i, 1
-  %or.cond126 = or i1 %cmp13.i, %tobool73.not.i.i
-  br i1 %or.cond126, label %refs_ref_exists.exit.thread, label %if.end16.i
+  %or.cond127 = or i1 %cmp13.i, %tobool73.not.i.i
+  br i1 %or.cond127, label %refs_ref_exists.exit.thread, label %if.end16.i
 
 check_refname_component.exit.i:                   ; preds = %if.end69.i.i
   %conv84.i.i.old = trunc i64 %sub.ptr.sub.i.i to i32
@@ -5163,8 +5163,8 @@ while.end.i:                                      ; preds = %if.end16.i
   %cmp24.i.not = icmp ne i8 %35, 46
   %inc.us.us.us.i.i = add nuw nsw i32 %symref_count.090.us.us.us.i.i, 1
   %cmp.us.us.us.i.i = icmp ult i32 %symref_count.090.us.us.us.i.i, 4
-  %or.cond223 = select i1 %cmp24.i.not, i1 %cmp.us.us.us.i.i, i1 false
-  br i1 %or.cond223, label %for.body.us.us.us.i.i, label %refs_ref_exists.exit.thread, !llvm.loop !9
+  %or.cond222 = select i1 %cmp24.i.not, i1 %cmp.us.us.us.i.i, i1 false
+  br i1 %or.cond222, label %for.body.us.us.us.i.i, label %refs_ref_exists.exit.thread, !llvm.loop !9
 
 refs_ref_exists.exit.thread:                      ; preds = %check_refname_component.exit.i54, %out.i.i86, %if.end57.i.i88, %land.lhs.true72.i.i97, %refs_read_raw_ref.exit, %while.end.i, %entry.tail.i, %sw.bb7.i.i83, %sw.bb17.i.i80, %for.cond.i.i38, %for.cond.i.i38, %check_refname_component.exit.i, %out.i.i, %if.end57.i.i, %land.lhs.true72.i.i, %sw.bb7.i.i, %sw.bb17.i.i, %for.cond.i.i, %for.cond.i.i, %while.end.i67, %entry.tail.i103
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %unused_oid.i.i)
@@ -5185,8 +5185,8 @@ for.inc:                                          ; preds = %refs_ref_exists.exi
   br i1 %exitcond.not, label %for.end, label %for.body6, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %refs_ref_exists.exit
-  %j.0155 = phi i32 [ %36, %refs_ref_exists.exit ], [ %umax199, %for.inc.us ], [ %umax199, %for.inc ]
-  %cmp17 = icmp eq i32 %j.0155, %spec.select
+  %j.0156 = phi i32 [ %36, %refs_ref_exists.exit ], [ %umax199, %for.inc.us ], [ %umax199, %for.inc ]
+  %cmp17 = icmp eq i32 %j.0156, %spec.select
   br i1 %cmp17, label %if.then18, label %for.inc21
 
 if.then18:                                        ; preds = %for.end

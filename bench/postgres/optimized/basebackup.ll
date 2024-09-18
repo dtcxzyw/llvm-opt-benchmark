@@ -3216,20 +3216,20 @@ basebackup_read_file.exit:                        ; preds = %8
 
 .preheader:                                       ; preds = %basebackup_read_file.exit
   %22 = lshr exact i64 %14, 13
-  %.not59 = icmp eq i64 %14, 0
-  br i1 %.not59, label %.loopexit, label %.lr.ph
+  %.not58 = icmp eq i64 %14, 0
+  br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   br label %24
 
 24:                                               ; preds = %.lr.ph, %verify_page_checksum.exit.thread
-  %.04257 = phi i32 [ 0, %.lr.ph ], [ %75, %verify_page_checksum.exit.thread ]
+  %.04256 = phi i32 [ 0, %.lr.ph ], [ %75, %verify_page_checksum.exit.thread ]
   %25 = load ptr, ptr %9, align 8
-  %26 = shl i32 %.04257, 13
+  %26 = shl i32 %.04256, 13
   %27 = sext i32 %26 to i64
   %28 = getelementptr i8, ptr %25, i64 %27
-  %29 = add i32 %.04257, %5
+  %29 = add i32 %.04256, %5
   %30 = getelementptr i8, ptr %28, i64 14
   %.val.i = load i16, ptr %30, align 2
   %31 = icmp eq i16 %.val.i, 0
@@ -3314,7 +3314,7 @@ verify_page_checksum.exit50:                      ; preds = %55
   br label %verify_page_checksum.exit.thread
 
 verify_page_checksum.exit.thread:                 ; preds = %verify_page_checksum.exit50, %55, %48, %50, %37, %24, %32, %69, %71, %73
-  %75 = add i32 %.04257, 1
+  %75 = add i32 %.04256, 1
   %76 = sext i32 %75 to i64
   %77 = icmp sgt i64 %22, %76
   br i1 %77, label %24, label %.loopexit, !llvm.loop !16

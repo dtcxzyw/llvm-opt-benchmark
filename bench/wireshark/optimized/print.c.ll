@@ -2458,8 +2458,8 @@ ek_write_name.exit:                               ; preds = %85, %93
   br label %105
 
 105:                                              ; preds = %103, %223
-  %.04797 = phi ptr [ %0, %103 ], [ %225, %223 ]
-  %106 = load ptr, ptr %.04797, align 8
+  %.04796 = phi ptr [ %0, %103 ], [ %225, %223 ]
+  %106 = load ptr, ptr %.04796, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 32
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
@@ -2768,7 +2768,7 @@ ek_check_protocolfilter.exit73:                   ; preds = %207
   br label %223
 
 223:                                              ; preds = %132, %ek_write_field_value.exit, %221
-  %224 = getelementptr inbounds i8, ptr %.04797, i64 8
+  %224 = getelementptr inbounds i8, ptr %.04796, i64 8
   %225 = load ptr, ptr %224, align 8
   %.not51 = icmp eq ptr %225, null
   br i1 %.not51, label %226, label %105, !llvm.loop !24

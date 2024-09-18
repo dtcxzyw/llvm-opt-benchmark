@@ -8242,11 +8242,11 @@ define hidden noundef i32 @_ZN9Arguments28match_special_option_and_actEPK14JavaV
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZL12match_optionPK12JavaVMOptionPKc.exit60
-  %.02485 = phi ptr [ %0, %.lr.ph ], [ %.1, %_ZL12match_optionPK12JavaVMOptionPKc.exit60 ]
-  %.02584 = phi i32 [ 0, %.lr.ph ], [ %105, %_ZL12match_optionPK12JavaVMOptionPKc.exit60 ]
-  %18 = getelementptr inbounds i8, ptr %.02485, i64 8
+  %.02484 = phi ptr [ %0, %.lr.ph ], [ %.1, %_ZL12match_optionPK12JavaVMOptionPKc.exit60 ]
+  %.02583 = phi i32 [ 0, %.lr.ph ], [ %105, %_ZL12match_optionPK12JavaVMOptionPKc.exit60 ]
+  %18 = getelementptr inbounds i8, ptr %.02484, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = sext i32 %.02584 to i64
+  %20 = sext i32 %.02583 to i64
   %21 = getelementptr inbounds %struct.JavaVMOption, ptr %19, i64 %20
   %.val28 = load ptr, ptr %21, align 8
   %22 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val28, ptr noundef nonnull readonly dereferenceable(11) @.str.266, i64 noundef 10) #30
@@ -8331,7 +8331,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i.i: ; preds = %48, %_ZL12match_op
   br label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread
 
 _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit: ; preds = %48
-  %61 = call noundef i32 @_ZN16ScopedVMInitArgs6insertEPK14JavaVMInitArgsS2_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %.02485, ptr noundef nonnull %3, i32 noundef %.02584)
+  %61 = call noundef i32 @_ZN16ScopedVMInitArgs6insertEPK14JavaVMInitArgsS2_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %.02484, ptr noundef nonnull %3, i32 noundef %.02583)
   %.not = icmp eq i32 %61, 0
   br i1 %.not, label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread71, label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread
 
@@ -8351,8 +8351,8 @@ _ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38: ; preds = %_ZN9Argume
   %66 = load i8, ptr %16, align 8
   %67 = trunc i8 %66 to i1
   %68 = sext i1 %67 to i32
-  %spec.select = add nsw i32 %.02584, %68
-  %spec.select79 = select i1 %67, ptr %1, ptr %.02485
+  %spec.select = add nsw i32 %.02583, %68
+  %spec.select79 = select i1 %67, ptr %1, ptr %.02484
   br label %_ZL12match_optionPK12JavaVMOptionPKc.exit60
 
 _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit34:  ; preds = %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit
@@ -8439,8 +8439,8 @@ _ZL12match_optionPK12JavaVMOptionPKc.exit55:      ; preds = %92, %_ZL12match_opt
   br label %_ZL12match_optionPK12JavaVMOptionPKc.exit60
 
 _ZL12match_optionPK12JavaVMOptionPKc.exit60:      ; preds = %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38, %99, %_ZL12match_optionPK12JavaVMOptionPKc.exit55, %103, %96, %89, %82, %75, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit
-  %.126 = phi i32 [ %.02584, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit ], [ %.02584, %75 ], [ %.02584, %82 ], [ %.02584, %89 ], [ %.02584, %96 ], [ %.02584, %103 ], [ %.02584, %_ZL12match_optionPK12JavaVMOptionPKc.exit55 ], [ %.02584, %99 ], [ %spec.select, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38 ]
-  %.1 = phi ptr [ %.02485, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit ], [ %.02485, %75 ], [ %.02485, %82 ], [ %.02485, %89 ], [ %.02485, %96 ], [ %.02485, %103 ], [ %.02485, %_ZL12match_optionPK12JavaVMOptionPKc.exit55 ], [ %.02485, %99 ], [ %spec.select79, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38 ]
+  %.126 = phi i32 [ %.02583, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit ], [ %.02583, %75 ], [ %.02583, %82 ], [ %.02583, %89 ], [ %.02583, %96 ], [ %.02583, %103 ], [ %.02583, %_ZL12match_optionPK12JavaVMOptionPKc.exit55 ], [ %.02583, %99 ], [ %spec.select, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38 ]
+  %.1 = phi ptr [ %.02484, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit ], [ %.02484, %75 ], [ %.02484, %82 ], [ %.02484, %89 ], [ %.02484, %96 ], [ %.02484, %103 ], [ %.02484, %_ZL12match_optionPK12JavaVMOptionPKc.exit55 ], [ %.02484, %99 ], [ %spec.select79, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38 ]
   %105 = add nsw i32 %.126, 1
   %106 = getelementptr inbounds i8, ptr %.1, i64 4
   %107 = load i32, ptr %106, align 4
@@ -8458,7 +8458,7 @@ _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS
   br label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread.thread
 
 _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread.thread: ; preds = %2, %109, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread
-  %.093 = phi i32 [ %.0.ph, %109 ], [ %.0.ph, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread ], [ 0, %2 ]
+  %.092 = phi i32 [ %.0.ph, %109 ], [ %.0.ph, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread ], [ 0, %2 ]
   %110 = load ptr, ptr %7, align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %_ZN16ScopedVMInitArgsD2Ev.exit, label %.preheader.i
@@ -8490,7 +8490,7 @@ _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS
   br label %_ZN16ScopedVMInitArgsD2Ev.exit
 
 _ZN16ScopedVMInitArgsD2Ev.exit:                   ; preds = %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread.thread, %._crit_edge.i
-  ret i32 %.093
+  ret i32 %.092
 }
 
 declare void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1

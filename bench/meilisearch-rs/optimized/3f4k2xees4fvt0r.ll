@@ -70281,9 +70281,9 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   %.sroa.0.i.1.i.1.i.1..sroa_idx34 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
   %.sroa.0.i.2.i.2.i.2..sroa_idx36 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 2
   %.sroa.0.i.1.i.1.i.1..sroa_idx35 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
-  br label %.outer.i
+  br label %.backedge.i
 
-.outer.i:                                         ; preds = %.outer.i.backedge, %3
+.backedge.i:                                      ; preds = %.backedge.i.backedge, %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12918)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12921)
   %36 = load i8, ptr %23, align 8, !range !53, !alias.scope !12924, !noalias !12925, !noundef !8
@@ -70292,7 +70292,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   %trunc.i.i.i = trunc nuw i8 %36 to i1
   br i1 %trunc.i.i.i, label %59, label %38
 
-38:                                               ; preds = %.outer.i
+38:                                               ; preds = %.backedge.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12929)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !12932
   call void @_ZN3std2io22inlined_slow_read_byte17h1050251f22297451E.llvm.3021571406010367114(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !noalias !12934
@@ -70343,8 +70343,8 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !12940
   br label %"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17ha54c19fe96f6020aE.exit.thread"
 
-59:                                               ; preds = %52, %.outer.i
-  %.sroa.7.1.ph.i = phi i8 [ %37, %.outer.i ], [ %43, %52 ]
+59:                                               ; preds = %52, %.backedge.i
+  %.sroa.7.1.ph.i = phi i8 [ %37, %.backedge.i ], [ %43, %52 ]
   %60 = zext i8 %.sroa.7.1.ph.i to i64
   %61 = getelementptr inbounds [256 x i8], ptr @_ZN10serde_json4read6ESCAPE17he8e1e6f19d531c58E, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1, !range !53, !noalias !12946, !noundef !8
@@ -70367,10 +70367,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   store i8 %.sroa.7.1.ph.i, ptr %70, align 1, !noalias !12951
   %71 = add i64 %65, 1
   store i64 %71, ptr %29, align 8, !alias.scope !12947, !noalias !12950
-  br label %.outer.i.backedge
-
-.outer.i.backedge:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3210038351630652E.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit37.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit36.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit35.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit34.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit33.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit32.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit31.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit.i.i"
-  br label %.outer.i
+  br label %.backedge.i.backedge
 
 72:                                               ; preds = %59
   switch i8 %.sroa.7.1.ph.i, label %309 [
@@ -70498,7 +70495,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   store i8 34, ptr %111, align 1, !noalias !12951
   %112 = add i64 %106, 1
   store i64 %112, ptr %29, align 8, !alias.scope !13006, !noalias !13009
-  br label %.outer.i.backedge
+  br label %.backedge.i.backedge
 
 113:                                              ; preds = %102
   %114 = load i64, ptr %29, align 8, !alias.scope !13010, !noalias !13009, !noundef !8
@@ -70516,7 +70513,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   store i8 92, ptr %119, align 1, !noalias !12951
   %120 = add i64 %114, 1
   store i64 %120, ptr %29, align 8, !alias.scope !13010, !noalias !13009
-  br label %.outer.i.backedge
+  br label %.backedge.i.backedge
 
 121:                                              ; preds = %102
   %122 = load i64, ptr %29, align 8, !alias.scope !13013, !noalias !13009, !noundef !8
@@ -70534,7 +70531,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   store i8 47, ptr %127, align 1, !noalias !12951
   %128 = add i64 %122, 1
   store i64 %128, ptr %29, align 8, !alias.scope !13013, !noalias !13009
-  br label %.outer.i.backedge
+  br label %.backedge.i.backedge
 
 129:                                              ; preds = %102
   %130 = load i64, ptr %29, align 8, !alias.scope !13016, !noalias !13009, !noundef !8
@@ -70552,7 +70549,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   store i8 8, ptr %135, align 1, !noalias !12951
   %136 = add i64 %130, 1
   store i64 %136, ptr %29, align 8, !alias.scope !13016, !noalias !13009
-  br label %.outer.i.backedge
+  br label %.backedge.i.backedge
 
 137:                                              ; preds = %102
   %138 = load i64, ptr %29, align 8, !alias.scope !13019, !noalias !13009, !noundef !8
@@ -70570,7 +70567,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   store i8 12, ptr %143, align 1, !noalias !12951
   %144 = add i64 %138, 1
   store i64 %144, ptr %29, align 8, !alias.scope !13019, !noalias !13009
-  br label %.outer.i.backedge
+  br label %.backedge.i.backedge
 
 145:                                              ; preds = %102
   %146 = load i64, ptr %29, align 8, !alias.scope !13022, !noalias !13009, !noundef !8
@@ -70588,7 +70585,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   store i8 10, ptr %151, align 1, !noalias !12951
   %152 = add i64 %146, 1
   store i64 %152, ptr %29, align 8, !alias.scope !13022, !noalias !13009
-  br label %.outer.i.backedge
+  br label %.backedge.i.backedge
 
 153:                                              ; preds = %102
   %154 = load i64, ptr %29, align 8, !alias.scope !13025, !noalias !13009, !noundef !8
@@ -70606,7 +70603,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   store i8 13, ptr %159, align 1, !noalias !12951
   %160 = add i64 %154, 1
   store i64 %160, ptr %29, align 8, !alias.scope !13025, !noalias !13009
-  br label %.outer.i.backedge
+  br label %.backedge.i.backedge
 
 161:                                              ; preds = %102
   %162 = load i64, ptr %29, align 8, !alias.scope !13028, !noalias !13009, !noundef !8
@@ -70624,7 +70621,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   store i8 9, ptr %167, align 1, !noalias !12951
   %168 = add i64 %162, 1
   store i64 %168, ptr %29, align 8, !alias.scope !13028, !noalias !13009
-  br label %.outer.i.backedge
+  br label %.backedge.i.backedge
 
 169:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !13004
@@ -70808,7 +70805,10 @@ _ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i: ; preds = %23
   %257 = add i64 %256, %247
   store i64 %257, ptr %29, align 8, !alias.scope !13062, !noalias !13069
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
-  br label %.outer.i.backedge
+  br label %.backedge.i.backedge
+
+.backedge.i.backedge:                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3210038351630652E.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit37.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit36.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit35.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit34.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit33.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit32.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit31.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08c5314f7a13fbaaE.exit.i"
+  br label %.backedge.i
 
 _ZN10serde_json4read11peek_or_eof17h59602e756b0ddab0E.exit25.i: ; preds = %199, %197
   %.sroa.729.4.i = phi i8 [ %198, %197 ], [ %188, %199 ]

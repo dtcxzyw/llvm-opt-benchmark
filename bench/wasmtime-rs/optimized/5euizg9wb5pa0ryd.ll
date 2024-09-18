@@ -3649,8 +3649,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %185 = getelementptr inbounds i8, ptr %10, i64 8
   %186 = getelementptr inbounds i8, ptr %10, i64 16
   %187 = getelementptr inbounds i8, ptr %12, i64 8
-  %brmerge691 = select i1 %148, i1 true, i1 %151
-  %brmerge692 = select i1 %165, i1 true, i1 %151
+  %brmerge688 = select i1 %148, i1 true, i1 %151
+  %brmerge689 = select i1 %165, i1 true, i1 %151
   br label %188
 
 188:                                              ; preds = %.backedge, %135
@@ -3878,11 +3878,11 @@ thread-pre-split:                                 ; preds = %536, %660
   br i1 %317, label %.thread573.loopexit, label %321
 
 .thread573.loopexit:                              ; preds = %thread-pre-split, %314
-  %.pre688 = load i64, ptr %203, align 8, !alias.scope !753, !noalias !764
+  %.pre685 = load i64, ptr %203, align 8, !alias.scope !753, !noalias !764
   br label %.thread573
 
 .thread573:                                       ; preds = %.thread573.loopexit, %201
-  %319 = phi i64 [ %.pre688, %.thread573.loopexit ], [ %204, %201 ]
+  %319 = phi i64 [ %.pre685, %.thread573.loopexit ], [ %204, %201 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %93)
   %320 = icmp eq i64 %319, 0
   br i1 %320, label %"_ZN4core3ptr103drop_in_place$LT$std..collections..hash..map..HashMap$LT$std..path..PathBuf$C$std..fs..DirEntry$GT$$GT$17hb87e03c53814feefE.exit", label %.noexc326
@@ -4368,7 +4368,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit330: ; preds = %333
 460:                                              ; preds = %459
   %461 = load i64, ptr %75, align 8, !range !102, !noundef !5
   %462 = icmp eq i64 %461, 2
-  br i1 %462, label %.thread690, label %463
+  br i1 %462, label %.thread687, label %463
 
 463:                                              ; preds = %460
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %34)
@@ -4376,7 +4376,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit330: ; preds = %333
   invoke void @_ZN3std2fs8Metadata8modified17h278030b839ac0a6fE(ptr noalias nocapture noundef nonnull sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %34)
           to label %465 unwind label %.thread595
 
-.thread690:                                       ; preds = %460
+.thread687:                                       ; preds = %460
   %464 = load ptr, ptr %225, align 8, !nonnull !5, !noundef !5
   store ptr %464, ptr %76, align 8
   store i32 1000000000, ptr %226, align 8
@@ -4423,7 +4423,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit330: ; preds = %333
           cleanup
   br label %.body364
 
-477:                                              ; preds = %.thread690, %465
+477:                                              ; preds = %.thread687, %465
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
   %478 = load ptr, ptr %76, align 8, !nonnull !5, !noundef !5
   store ptr %478, ptr %74, align 8
@@ -5191,7 +5191,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit330: ; preds = %333
   br i1 %692, label %693, label %.critedge
 
 693:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6f5bf5b6a128d36aE.exit"
-  br i1 %brmerge691, label %.invoke.split.loop.exit693, label %694
+  br i1 %brmerge688, label %.invoke.split.loop.exit690, label %694
 
 694:                                              ; preds = %693
   %695 = invoke fastcc noundef zeroext i1 @_ZN14wasmtime_cache6worker18is_fs_lock_expired17hfe253cc6df7ce4d5E(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %111, ptr noalias noundef readonly align 8 dereferenceable(24) %103, i64 noundef %153, i32 noundef %147, i64 noundef %155, i32 noundef %150)
@@ -5390,18 +5390,18 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit330: ; preds = %333
   br i1 %.not, label %.critedge318, label %768
 
 768:                                              ; preds = %766
-  br i1 %brmerge692, label %.invoke.split.loop.exit, label %770
+  br i1 %brmerge689, label %.invoke.split.loop.exit, label %770
 
 .invoke.split.loop.exit:                          ; preds = %768
   %anon.20743d27dff1ab677f85e911d9ad6f4c.117.llvm.12646480017171244602.mux.le = select i1 %165, ptr @anon.20743d27dff1ab677f85e911d9ad6f4c.117.llvm.12646480017171244602, ptr @anon.20743d27dff1ab677f85e911d9ad6f4c.119.llvm.12646480017171244602
   br label %.invoke
 
-.invoke.split.loop.exit693:                       ; preds = %693
+.invoke.split.loop.exit690:                       ; preds = %693
   %anon.20743d27dff1ab677f85e911d9ad6f4c.118.llvm.12646480017171244602.mux.le = select i1 %148, ptr @anon.20743d27dff1ab677f85e911d9ad6f4c.118.llvm.12646480017171244602, ptr @anon.20743d27dff1ab677f85e911d9ad6f4c.119.llvm.12646480017171244602
   br label %.invoke
 
-.invoke:                                          ; preds = %.invoke.split.loop.exit693, %.invoke.split.loop.exit
-  %769 = phi ptr [ %anon.20743d27dff1ab677f85e911d9ad6f4c.117.llvm.12646480017171244602.mux.le, %.invoke.split.loop.exit ], [ %anon.20743d27dff1ab677f85e911d9ad6f4c.118.llvm.12646480017171244602.mux.le, %.invoke.split.loop.exit693 ]
+.invoke:                                          ; preds = %.invoke.split.loop.exit690, %.invoke.split.loop.exit
+  %769 = phi ptr [ %anon.20743d27dff1ab677f85e911d9ad6f4c.117.llvm.12646480017171244602.mux.le, %.invoke.split.loop.exit ], [ %anon.20743d27dff1ab677f85e911d9ad6f4c.118.llvm.12646480017171244602.mux.le, %.invoke.split.loop.exit690 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.20743d27dff1ab677f85e911d9ad6f4c.48.llvm.12646480017171244602, i64 noundef 78, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %769) #17
           to label %.cont unwind label %.body436.thread647.loopexit.split-lp
 
@@ -5595,7 +5595,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit330: ; preds = %333
           to label %.body459 unwind label %453
 
 824:                                              ; preds = %831, %847
-  %825 = phi ptr [ %.sroa.6.0.copyload, %831 ], [ %.pre689, %847 ]
+  %825 = phi ptr [ %.sroa.6.0.copyload, %831 ], [ %.pre686, %847 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1158)
   call void @llvm.experimental.noalias.scope.decl(metadata !1161)
   call void @llvm.experimental.noalias.scope.decl(metadata !1164)
@@ -5704,7 +5704,7 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit330: ; preds = %333
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1189
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %107)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %108)
-  %.pre689 = load ptr, ptr %110, align 8, !alias.scope !1167
+  %.pre686 = load ptr, ptr %110, align 8, !alias.scope !1167
   br label %824
 
 848:                                              ; preds = %.noexc479, %827

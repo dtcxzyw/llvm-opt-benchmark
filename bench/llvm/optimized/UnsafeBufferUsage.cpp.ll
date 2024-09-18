@@ -28617,8 +28617,8 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit23.i75.i.i:  ; preds = %1571, %1570
   %1573 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1360, ptr noundef nonnull align 8 dereferenceable(32) %50) #24, !noalias !1981
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #24, !noalias !1981
   %1574 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.0108.0167.i.i) #24, !noalias !1981
-  %.not58.i.i.i = icmp eq i32 %1574, 0
-  br i1 %.not58.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i76.i.i
+  %.not56.i.i.i = icmp eq i32 %1574, 0
+  br i1 %.not56.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i76.i.i
 
 .lr.ph.i76.i.i:                                   ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit23.i75.i.i
   %1575 = add i32 %1574, -1

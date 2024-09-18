@@ -954,8 +954,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc41
   %6 = phi ptr [ %3, %for.body.lr.ph ], [ %36, %for.inc41 ]
-  %storemerge150 = phi i64 [ 0, %for.body.lr.ph ], [ %inc42, %for.inc41 ]
-  %add.ptr.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %6, i64 %storemerge150
+  %storemerge148 = phi i64 [ 0, %for.body.lr.ph ], [ %inc42, %for.inc41 ]
+  %add.ptr.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %6, i64 %storemerge148
   %7 = load i32, ptr %add.ptr.i, align 8
   %cmp4 = icmp eq i32 %7, 0
   br i1 %cmp4, label %for.inc41, label %lor.lhs.false
@@ -1030,7 +1030,7 @@ _ZNSt12_Vector_baseIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE13_M_dealloc
 
 _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit: ; preds = %if.end.i, %_ZNSt12_Vector_baseIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE13_M_deallocateEPS1_m.exit.i
   %13 = phi ptr [ %6, %if.end.i ], [ %.pre, %_ZNSt12_Vector_baseIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE13_M_deallocateEPS1_m.exit.i ]
-  %files13128 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %13, i64 %storemerge150, i32 1
+  %files13128 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %13, i64 %storemerge148, i32 1
   %_M_finish.i21129 = getelementptr inbounds i8, ptr %files13128, i64 8
   %14 = load ptr, ptr %_M_finish.i21129, align 8
   %15 = load ptr, ptr %files13128, align 8
@@ -1107,7 +1107,7 @@ if.else31:                                        ; preds = %if.else, %if.then7.
 for.body.i:                                       ; preds = %if.else31, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i
   %k.05.i = phi i64 [ %inc.i, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i ], [ %first_atomic_idx.0135, %if.else31 ]
   %20 = load ptr, ptr %inputs, align 8
-  %atomic_compaction_unit_boundaries.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %20, i64 %storemerge150, i32 2
+  %atomic_compaction_unit_boundaries.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %20, i64 %storemerge148, i32 2
   %_M_finish.i.i29 = getelementptr inbounds i8, ptr %atomic_compaction_unit_boundaries.i, i64 8
   %21 = load ptr, ptr %_M_finish.i.i29, align 8
   %_M_end_of_storage.i.i30 = getelementptr inbounds i8, ptr %atomic_compaction_unit_boundaries.i, i64 16
@@ -1197,7 +1197,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN7rock
   %cur_boundary.sroa.7.3 = getelementptr inbounds i8, ptr %17, i64 72
   %inc = add nuw i64 %j.0138, 1
   %26 = load ptr, ptr %inputs, align 8
-  %files13 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %26, i64 %storemerge150, i32 1
+  %files13 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %26, i64 %storemerge148, i32 1
   %_M_finish.i21 = getelementptr inbounds i8, ptr %files13, i64 8
   %27 = load ptr, ptr %_M_finish.i21, align 8
   %28 = load ptr, ptr %files13, align 8
@@ -1220,7 +1220,7 @@ for.end:                                          ; preds = %for.inc, %_ZNSt6vec
 for.body.i47:                                     ; preds = %for.end, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i55
   %k.05.i48 = phi i64 [ %inc.i56, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i55 ], [ %first_atomic_idx.0.lcssa, %for.end ]
   %30 = load ptr, ptr %inputs, align 8
-  %atomic_compaction_unit_boundaries.i49 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %30, i64 %storemerge150, i32 2
+  %atomic_compaction_unit_boundaries.i49 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %30, i64 %storemerge148, i32 2
   %_M_finish.i.i50 = getelementptr inbounds i8, ptr %atomic_compaction_unit_boundaries.i49, i64 8
   %31 = load ptr, ptr %_M_finish.i.i50, align 8
   %_M_end_of_storage.i.i51 = getelementptr inbounds i8, ptr %atomic_compaction_unit_boundaries.i49, i64 16
@@ -1305,12 +1305,12 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.ex
   br i1 %exitcond.not.i57, label %for.inc41.loopexit, label %for.body.i47, !llvm.loop !17
 
 for.inc41.loopexit:                               ; preds = %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i55
-  %.pre157 = load ptr, ptr %inputs, align 8
+  %.pre155 = load ptr, ptr %inputs, align 8
   br label %for.inc41
 
 for.inc41:                                        ; preds = %for.inc41.loopexit, %for.end, %for.body, %lor.lhs.false
-  %36 = phi ptr [ %.pre157, %for.inc41.loopexit ], [ %29, %for.end ], [ %6, %for.body ], [ %6, %lor.lhs.false ]
-  %inc42 = add nuw i64 %storemerge150, 1
+  %36 = phi ptr [ %.pre155, %for.inc41.loopexit ], [ %29, %for.end ], [ %6, %for.body ], [ %6, %lor.lhs.false ]
+  %inc42 = add nuw i64 %storemerge148, 1
   %37 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %36 to i64

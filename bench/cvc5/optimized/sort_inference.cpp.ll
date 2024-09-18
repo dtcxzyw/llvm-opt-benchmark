@@ -11841,10 +11841,10 @@ _ZN4cvc58internal8TypeNodeC2Ev.exit:              ; preds = %if.end158, %init.ch
   br label %for.cond161
 
 for.cond161:                                      ; preds = %_ZN4cvc58internal8TypeNodeC2Ev.exit, %for.inc329
-  %185 = phi ptr [ %184, %_ZN4cvc58internal8TypeNodeC2Ev.exit ], [ %295, %for.inc329 ]
-  %186 = phi ptr [ %184, %_ZN4cvc58internal8TypeNodeC2Ev.exit ], [ %296, %for.inc329 ]
-  %storemerge = phi i64 [ 0, %_ZN4cvc58internal8TypeNodeC2Ev.exit ], [ %inc330, %for.inc329 ]
-  %childChanged.0 = phi i8 [ 0, %_ZN4cvc58internal8TypeNodeC2Ev.exit ], [ %childChanged.1, %for.inc329 ]
+  %185 = phi ptr [ %295, %for.inc329 ], [ %184, %_ZN4cvc58internal8TypeNodeC2Ev.exit ]
+  %186 = phi ptr [ %296, %for.inc329 ], [ %184, %_ZN4cvc58internal8TypeNodeC2Ev.exit ]
+  %storemerge = phi i64 [ %inc330, %for.inc329 ], [ 0, %_ZN4cvc58internal8TypeNodeC2Ev.exit ]
+  %childChanged.0 = phi i8 [ %childChanged.1, %for.inc329 ], [ 0, %_ZN4cvc58internal8TypeNodeC2Ev.exit ]
   %187 = load ptr, ptr %n, align 8
   %d_kind.i.i.i.i1123 = getelementptr inbounds i8, ptr %187, i64 8
   %bf.load.i.i.i.i1124 = load i16, ptr %d_kind.i.i.i.i1123, align 8

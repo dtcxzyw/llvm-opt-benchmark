@@ -36960,13 +36960,13 @@ for.body.lr.ph:                                   ; preds = %invoke.cont3
   %scratch_v = getelementptr inbounds i8, ptr %jacobianData, i64 128
   %scratch_m = getelementptr inbounds i8, ptr %jacobianData, i64 160
   %4 = getelementptr inbounds i8, ptr %impulse, i64 8
-  %wide.trip.count303 = zext nneg i32 %3 to i64
+  %wide.trip.count301 = zext nneg i32 %3 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc177
-  %indvars.iv300 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next301, %for.inc177 ]
+  %indvars.iv298 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next299, %for.inc177 ]
   %5 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %5, i64 %indvars.iv300
+  %arrayidx.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %5, i64 %indvars.iv298
   %6 = load ptr, ptr %arrayidx.i, align 8
   %m_collisionFlags.i = getelementptr inbounds i8, ptr %6, i64 224
   %7 = load i32, ptr %m_collisionFlags.i, align 8
@@ -37460,9 +37460,9 @@ _Z7btClampIfEvRT_RKS0_S3_.exit.i:                 ; preds = %if.end3.sink.split.
   br i1 %cmp.i272, label %for.body.i, label %for.inc177, !llvm.loop !466
 
 for.inc177:                                       ; preds = %_Z7btClampIfEvRT_RKS0_S3_.exit.i, %invoke.cont167, %for.body, %if.then154, %if.then152, %if.else158, %invoke.cont94
-  %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
-  %exitcond304.not = icmp eq i64 %indvars.iv.next301, %wide.trip.count303
-  br i1 %exitcond304.not, label %for.end179, label %for.body, !llvm.loop !467
+  %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
+  %exitcond302.not = icmp eq i64 %indvars.iv.next299, %wide.trip.count301
+  br i1 %exitcond302.not, label %for.end179, label %for.body, !llvm.loop !467
 
 for.end179:                                       ; preds = %for.inc177, %invoke.cont3
   call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData) #40

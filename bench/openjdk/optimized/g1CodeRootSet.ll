@@ -1844,18 +1844,18 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit: ; preds = %7, %15
   %.0.i = phi i64 [ %17, %15 ], [ %12, %7 ]
   %18 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i, ptr nonnull %11) #13, !srcloc !8
   %19 = icmp ult i64 %2, %3
-  br i1 %19, label %.lr.ph73, label %._crit_edge74
+  br i1 %19, label %.lr.ph70, label %._crit_edge71
 
-.lr.ph73:                                         ; preds = %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
+.lr.ph70:                                         ; preds = %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
   %20 = getelementptr inbounds i8, ptr %0, i64 80
   br label %21
 
-21:                                               ; preds = %.lr.ph73, %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit
-  %.072 = phi i64 [ %12, %.lr.ph73 ], [ %.1, %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit ]
-  %.03571 = phi i64 [ %2, %.lr.ph73 ], [ %24, %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit ]
+21:                                               ; preds = %.lr.ph70, %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit
+  %.069 = phi i64 [ %12, %.lr.ph70 ], [ %.1, %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit ]
+  %.03568 = phi i64 [ %2, %.lr.ph70 ], [ %24, %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit ]
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds %"class.ConcurrentHashTable<G1CodeRootSetHashTableConfig, MEMFLAGS::mtGC>::Bucket", ptr %22, i64 %.03571
-  %24 = add nuw i64 %.03571, 1
+  %23 = getelementptr inbounds %"class.ConcurrentHashTable<G1CodeRootSetHashTableConfig, MEMFLAGS::mtGC>::Bucket", ptr %22, i64 %.03568
+  %24 = add nuw i64 %.03568, 1
   %25 = icmp ult i64 %24, %3
   br i1 %25, label %26, label %.thread
 
@@ -1925,7 +1925,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit: ; preds = %7, %15
 
 _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1EZN22G1CodeRootSetHashTable11bulk_removeEvEUlPP7nmethodE_E14have_deletableEPNS2_6BucketERS8_SB_.exit: ; preds = %46
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
-  store volatile i64 %.072, ptr %11, align 8
+  store volatile i64 %.069, ptr %11, align 8
   br label %54
 
 54:                                               ; preds = %.backedge, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1EZN22G1CodeRootSetHashTable11bulk_removeEvEUlPP7nmethodE_E14have_deletableEPNS2_6BucketERS8_SB_.exit
@@ -2173,8 +2173,8 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_sync
 
 _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit: ; preds = %.lr.ph, %148
   %149 = add nuw i64 %.03467, 1
-  %exitcond75.not = icmp eq i64 %149, %.0.lcssa.i
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  %exitcond72.not = icmp eq i64 %149, %.0.lcssa.i
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_synchonize_on_visible_epochEP6Thread.exit
   %150 = load volatile i64, ptr %11, align 8
@@ -2199,11 +2199,11 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit46: ; preds = %._crit_ed
   br label %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit
 
 _ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit: ; preds = %52, %.thread, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46, %.loopexit.thread.i.i.i
-  %.1 = phi i64 [ %150, %.loopexit.thread.i.i.i ], [ %150, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46 ], [ %.072, %.thread ], [ %.072, %52 ]
-  %exitcond76.not = icmp eq i64 %24, %3
-  br i1 %exitcond76.not, label %._crit_edge74, label %21, !llvm.loop !27
+  %.1 = phi i64 [ %150, %.loopexit.thread.i.i.i ], [ %150, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46 ], [ %.069, %.thread ], [ %.069, %52 ]
+  %exitcond73.not = icmp eq i64 %24, %3
+  br i1 %exitcond73.not, label %._crit_edge71, label %21, !llvm.loop !27
 
-._crit_edge74:                                    ; preds = %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
+._crit_edge71:                                    ; preds = %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
   %.0.lcssa = phi i64 [ %12, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit ], [ %.1, %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   store volatile i64 %.0.lcssa, ptr %11, align 8
@@ -3183,20 +3183,20 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit: ; preds = %7, %15
   %.0.i = phi i64 [ %17, %15 ], [ %12, %7 ]
   %18 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i, ptr nonnull %11) #13, !srcloc !8
   %19 = icmp ult i64 %2, %3
-  br i1 %19, label %.lr.ph77, label %._crit_edge78
+  br i1 %19, label %.lr.ph74, label %._crit_edge75
 
-.lr.ph77:                                         ; preds = %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
+.lr.ph74:                                         ; preds = %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
   %20 = getelementptr inbounds i8, ptr %4, i64 24
   %21 = getelementptr inbounds i8, ptr %4, i64 32
   %22 = getelementptr inbounds i8, ptr %0, i64 80
   br label %23
 
-23:                                               ; preds = %.lr.ph77, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit
-  %.076 = phi i64 [ %12, %.lr.ph77 ], [ %.1, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit ]
-  %.03575 = phi i64 [ %2, %.lr.ph77 ], [ %26, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit ]
+23:                                               ; preds = %.lr.ph74, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit
+  %.073 = phi i64 [ %12, %.lr.ph74 ], [ %.1, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit ]
+  %.03572 = phi i64 [ %2, %.lr.ph74 ], [ %26, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit ]
   %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds %"class.ConcurrentHashTable<G1CodeRootSetHashTableConfig, MEMFLAGS::mtGC>::Bucket", ptr %24, i64 %.03575
-  %26 = add nuw i64 %.03575, 1
+  %25 = getelementptr inbounds %"class.ConcurrentHashTable<G1CodeRootSetHashTableConfig, MEMFLAGS::mtGC>::Bucket", ptr %24, i64 %.03572
+  %26 = add nuw i64 %.03572, 1
   %27 = icmp ult i64 %26, %3
   br i1 %27, label %28, label %.thread
 
@@ -3266,7 +3266,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit: ; preds = %7, %15
 
 56:                                               ; preds = %49
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
-  store volatile i64 %.076, ptr %11, align 8
+  store volatile i64 %.073, ptr %11, align 8
   br label %57
 
 57:                                               ; preds = %.backedge, %56
@@ -3514,8 +3514,8 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_sync
 
 _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit: ; preds = %.lr.ph, %151
   %152 = add nuw i64 %.03471, 1
-  %exitcond79.not = icmp eq i64 %152, %.0.lcssa.i
-  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  %exitcond76.not = icmp eq i64 %152, %.0.lcssa.i
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_synchonize_on_visible_epochEP6Thread.exit
   %153 = load volatile i64, ptr %11, align 8
@@ -3540,11 +3540,11 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit46: ; preds = %._crit_ed
   br label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit
 
 _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit: ; preds = %54, %.thread, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46, %.loopexit.thread.i.i.i
-  %.1 = phi i64 [ %153, %.loopexit.thread.i.i.i ], [ %153, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46 ], [ %.076, %.thread ], [ %.076, %54 ]
-  %exitcond80.not = icmp eq i64 %26, %3
-  br i1 %exitcond80.not, label %._crit_edge78, label %23, !llvm.loop !39
+  %.1 = phi i64 [ %153, %.loopexit.thread.i.i.i ], [ %153, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46 ], [ %.073, %.thread ], [ %.073, %54 ]
+  %exitcond77.not = icmp eq i64 %26, %3
+  br i1 %exitcond77.not, label %._crit_edge75, label %23, !llvm.loop !39
 
-._crit_edge78:                                    ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
+._crit_edge75:                                    ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
   %.0.lcssa = phi i64 [ %12, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit ], [ %.1, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   store volatile i64 %.0.lcssa, ptr %11, align 8

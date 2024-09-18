@@ -9401,35 +9401,35 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   %invariant.op = add i32 %2, 1
   %13 = load i32, ptr %5, align 4
   %14 = icmp ugt i32 %13, 2
-  br i1 %14, label %.lr.ph11, label %._crit_edge12
+  br i1 %14, label %.lr.ph8, label %._crit_edge9
 
-.lr.ph11:                                         ; preds = %4, %._crit_edge
-  %.0388 = phi i32 [ %59, %._crit_edge ], [ 2, %4 ]
+.lr.ph8:                                          ; preds = %4, %._crit_edge
+  %.0386 = phi i32 [ %59, %._crit_edge ], [ 2, %4 ]
   %15 = load i32, ptr @hf_tds_capability_captype, align 4
-  %16 = add i32 %.0388, %2
+  %16 = add i32 %.0386, %2
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %15, ptr noundef nonnull %0, i32 noundef %16, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #11
   %18 = load i32, ptr @hf_tds_capability_caplen, align 4
-  %.reass = add i32 %.0388, %invariant.op
+  %.reass = add i32 %.0386, %invariant.op
   %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %18, ptr noundef nonnull %0, i32 noundef %.reass, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #11
-  %20 = add i32 %.0388, 2
+  %20 = add i32 %.0386, 2
   %21 = load i32, ptr %7, align 4
   %22 = load i32, ptr %5, align 4
   %23 = sub i32 %20, %22
   %24 = icmp ugt i32 %21, %23
   br i1 %24, label %25, label %29
 
-25:                                               ; preds = %.lr.ph11
+25:                                               ; preds = %.lr.ph8
   %26 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %19, ptr noundef nonnull @ei_tds_token_length_invalid, ptr noundef nonnull @.str.1337, i32 noundef %21) #11
   %27 = load i32, ptr %5, align 4
   %28 = sub i32 %20, %27
   store i32 %28, ptr %7, align 4
   br label %29
 
-29:                                               ; preds = %25, %.lr.ph11
-  %30 = phi i32 [ %27, %25 ], [ %22, %.lr.ph11 ]
-  %31 = phi i32 [ %28, %25 ], [ %21, %.lr.ph11 ]
-  %.not14 = icmp eq i32 %31, 0
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+29:                                               ; preds = %25, %.lr.ph8
+  %30 = phi i32 [ %27, %25 ], [ %22, %.lr.ph8 ]
+  %31 = phi i32 [ %28, %25 ], [ %21, %.lr.ph8 ]
+  %.not11 = icmp eq i32 %31, 0
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %32 = add i32 %20, %2
@@ -9438,7 +9438,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
 33:                                               ; preds = %.lr.ph, %.thread
   %34 = phi i32 [ %31, %.lr.ph ], [ %55, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %indvars17 = trunc i64 %indvars.iv to i32
+  %indvars14 = trunc i64 %indvars.iv to i32
   %35 = load i32, ptr %6, align 4
   switch i32 %35, label %.thread [
     i32 1, label %36
@@ -9466,43 +9466,43 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   %.str.1339.sink = phi ptr [ @.str.1339, %42 ], [ @.str.1338, %38 ]
   %.2.in = phi ptr [ @ett_tds_capability_resp, %42 ], [ @ett_tds_capability_req, %38 ]
   %45 = load ptr, ptr %.sink, align 8
-  %46 = shl nuw nsw i32 %indvars17, 3
+  %46 = shl nuw nsw i32 %indvars14, 3
   %47 = or disjoint i32 %46, 7
   %indvars.iv.tr = trunc nuw i64 %indvars.iv to i32
   %48 = shl nuw nsw i32 %indvars.iv.tr, 3
   %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 240, ptr noundef nonnull %.str.1339.sink, i32 noundef %48, i32 noundef %47) #11
   %.not = icmp eq ptr %45, null
-  %.pre18 = load i32, ptr %7, align 4
+  %.pre15 = load i32, ptr %7, align 4
   br i1 %.not, label %.thread, label %50
 
 50:                                               ; preds = %44
   %.2 = load i32, ptr %.2.in, align 4
-  %51 = xor i32 %indvars17, -1
+  %51 = xor i32 %indvars14, -1
   %52 = add i32 %32, %51
-  %53 = add i32 %52, %.pre18
+  %53 = add i32 %52, %.pre15
   %54 = call ptr @proto_tree_add_bitmask_text(ptr noundef %3, ptr noundef nonnull %0, i32 noundef %53, i32 noundef 1, ptr noundef nonnull %8, ptr noundef null, i32 noundef %.2, ptr noundef nonnull %45, i32 noundef 0, i32 noundef 10) #11
   %.pre = load i32, ptr %7, align 4
   br label %.thread
 
 .thread:                                          ; preds = %36, %40, %33, %44, %50
-  %55 = phi i32 [ %.pre18, %44 ], [ %.pre, %50 ], [ %34, %33 ], [ %34, %40 ], [ %34, %36 ]
+  %55 = phi i32 [ %34, %36 ], [ %34, %40 ], [ %34, %33 ], [ %.pre15, %44 ], [ %.pre, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = zext i32 %55 to i64
   %57 = icmp ult i64 %indvars.iv.next, %56
   br i1 %57, label %33, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.thread
-  %.pre19 = load i32, ptr %5, align 4
+  %.pre16 = load i32, ptr %5, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
-  %58 = phi i32 [ %30, %29 ], [ %.pre19, %._crit_edge.loopexit ]
+  %58 = phi i32 [ %30, %29 ], [ %.pre16, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ 0, %29 ], [ %55, %._crit_edge.loopexit ]
   %59 = add i32 %.lcssa, %20
   %60 = icmp ult i32 %59, %58
-  br i1 %60, label %.lr.ph11, label %._crit_edge12, !llvm.loop !37
+  br i1 %60, label %.lr.ph8, label %._crit_edge9, !llvm.loop !37
 
-._crit_edge12:                                    ; preds = %._crit_edge, %4
+._crit_edge9:                                     ; preds = %._crit_edge, %4
   %.038.lcssa = phi i32 [ 2, %4 ], [ %59, %._crit_edge ]
   ret i32 %.038.lcssa
 }

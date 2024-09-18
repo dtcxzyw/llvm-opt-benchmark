@@ -9860,8 +9860,8 @@ entry:
   %discovery_mechanisms_.val = load ptr, ptr %discovery_mechanisms_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 96
   %discovery_mechanisms_.val84 = load ptr, ptr %1, align 8
-  %cmp.i.not10426 = icmp eq ptr %discovery_mechanisms_.val, %discovery_mechanisms_.val84
-  br i1 %cmp.i.not10426, label %for.end609, label %for.body.lr.ph
+  %cmp.i.not9640 = icmp eq ptr %discovery_mechanisms_.val, %discovery_mechanisms_.val84
+  br i1 %cmp.i.not9640, label %for.end609, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %child_policy, i64 48
@@ -10140,11 +10140,11 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc607
-  %priority_priorities.sroa.0.010433 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.0.1.lcssa, %for.inc607 ]
-  %priority_priorities.sroa.11.010429 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.11.1.lcssa, %for.inc607 ]
-  %__begin2.sroa.0.010428 = phi ptr [ %discovery_mechanisms_.val, %for.body.lr.ph ], [ %incdec.ptr.i1377, %for.inc607 ]
-  %priority_priorities.sroa.21.010427 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.21.1.lcssa, %for.inc607 ]
-  %latest_update = getelementptr inbounds i8, ptr %__begin2.sroa.0.010428, i64 8
+  %priority_priorities.sroa.0.09644 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.0.1.lcssa, %for.inc607 ]
+  %priority_priorities.sroa.11.09643 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.11.1.lcssa, %for.inc607 ]
+  %__begin2.sroa.0.09642 = phi ptr [ %discovery_mechanisms_.val, %for.body.lr.ph ], [ %incdec.ptr.i1377, %for.inc607 ]
+  %priority_priorities.sroa.21.09641 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.21.1.lcssa, %for.inc607 ]
+  %latest_update = getelementptr inbounds i8, ptr %__begin2.sroa.0.09642, i64 8
   %23 = load ptr, ptr %latest_update, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %24 = load atomic i8, ptr @_ZGVZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListERKNS_19XdsEndpointResourceEE30kPriorityListWithEmptyPriority acquire, align 8
@@ -10179,7 +10179,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ini
   %cmp.i.i.i = icmp eq ptr %27, %28
   %spec.select.i = select i1 %cmp.i.i.i, ptr @_ZZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListERKNS_19XdsEndpointResourceEE30kPriorityListWithEmptyPriority, ptr %priorities.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %call5.val88 = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val88 = load ptr, ptr %__begin2.sroa.0.09642, align 8
   %29 = getelementptr i8, ptr %call5.val88, i64 16
   %call5.val88.val = load ptr, ptr %29, align 8
   %30 = getelementptr i8, ptr %call5.val88, i64 24
@@ -10192,8 +10192,8 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ini
   %_M_finish.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
   %33 = load ptr, ptr %_M_finish.i, align 8
   %34 = load ptr, ptr %spec.select.i, align 8
-  %cmp10412.not = icmp eq ptr %33, %34
-  br i1 %cmp10412.not, label %for.inc607, label %for.body12.lr.ph
+  %cmp9632.not = icmp eq ptr %33, %34
+  br i1 %cmp9632.not, label %for.inc607, label %for.body12.lr.ph
 
 for.body12.lr.ph:                                 ; preds = %invoke.cont
   %override_host_statuses = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 208
@@ -10202,16 +10202,16 @@ for.body12.lr.ph:                                 ; preds = %invoke.cont
   %eds_service_name = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 144
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 128
   %lrs_load_reporting_server = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
-  %priority_child_numbers.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010428, i64 56
+  %priority_child_numbers.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.09642, i64 56
   br label %for.body12
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350
-  %priority.010419 = phi i64 [ 0, %for.body12.lr.ph ], [ %inc, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.0.110418 = phi ptr [ %priority_priorities.sroa.0.010433, %for.body12.lr.ph ], [ %priority_priorities.sroa.0.1112883, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.11.110414 = phi ptr [ %priority_priorities.sroa.11.010429, %for.body12.lr.ph ], [ %priority_priorities.sroa.11.1112888, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.21.110413 = phi ptr [ %priority_priorities.sroa.21.010427, %for.body12.lr.ph ], [ %priority_priorities.sroa.21.212881, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority.09636 = phi i64 [ 0, %for.body12.lr.ph ], [ %inc, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.0.19635 = phi ptr [ %priority_priorities.sroa.0.09644, %for.body12.lr.ph ], [ %priority_priorities.sroa.0.1111704, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.11.19634 = phi ptr [ %priority_priorities.sroa.11.09643, %for.body12.lr.ph ], [ %priority_priorities.sroa.11.1111709, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.21.19633 = phi ptr [ %priority_priorities.sroa.21.09641, %for.body12.lr.ph ], [ %priority_priorities.sroa.21.211702, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %call5.val87 = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val87 = load ptr, ptr %__begin2.sroa.0.09642, align 8
   %vtable = load ptr, ptr %call5.val87, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %35 = load ptr, ptr %vfn, align 8
@@ -10248,7 +10248,7 @@ _ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit: ; preds = %invoke
   br i1 %cmp.i.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit
-  %call5.val86 = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val86 = load ptr, ptr %__begin2.sroa.0.09642, align 8
   %vtable21 = load ptr, ptr %call5.val86, align 8
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 32
   %39 = load ptr, ptr %vfn22, align 8
@@ -10615,12 +10615,12 @@ _ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE8allocateERS3_m.exit
 
 invoke.cont.i1610:                                ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE8allocateERS3_m.exit.i.i.i.i
   %.pre = load ptr, ptr %override_host_statuses, align 8, !noalias !119
-  %.pre12843 = load ptr, ptr %_M_finish.i.i126, align 8, !noalias !119
+  %.pre11664 = load ptr, ptr %_M_finish.i.i126, align 8, !noalias !119
   store ptr %call5.i.i.i.i2.i6.i1621, ptr %ref.tmp.i.i130, align 8, !noalias !119
   store ptr %call5.i.i.i.i2.i6.i1621, ptr %_M_finish.i.i.i1611, align 8, !noalias !119
   %add.ptr.i.i.i1612 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i1621, i64 %sub.ptr.sub.i.i1607
   store ptr %add.ptr.i.i.i1612, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !119
-  %cmp.i.not8.i.i = icmp eq ptr %.pre, %.pre12843
+  %cmp.i.not8.i.i = icmp eq ptr %.pre, %.pre11664
   br i1 %cmp.i.not8.i.i, label %if.end.i.i.i.i.i135, label %for.body.i.i1613
 
 for.body.i.i1613:                                 ; preds = %invoke.cont.i1610, %for.inc.i.i
@@ -10632,7 +10632,7 @@ for.body.i.i1613:                                 ; preds = %invoke.cont.i1610, 
 for.inc.i.i:                                      ; preds = %for.body.i.i1613
   %incdec.ptr.i.i.i1618 = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i, i64 56
   %incdec.ptr.i.i1619 = getelementptr inbounds i8, ptr %__cur.010.i.i, i64 56
-  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i1618, %.pre12843
+  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i1618, %.pre11664
   br i1 %cmp.i.not.i.i, label %if.end.i.i.i.i.i135, label %for.body.i.i1613, !llvm.loop !25
 
 lpad.i.i1614:                                     ; preds = %for.body.i.i1613
@@ -11430,7 +11430,7 @@ lpad96.body.thread:                               ; preds = %_ZNSt7variantIJSt9m
   %171 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i535)
-  %_M_index.i.i.i.i53612860 = getelementptr inbounds i8, ptr %ref.tmp69, i64 48
+  %_M_index.i.i.i.i53611681 = getelementptr inbounds i8, ptr %ref.tmp69, i64 48
   br label %if.end.i.i.i538
 
 if.end.i.i.i230:                                  ; preds = %for.inc.i.i.i.i.i
@@ -12366,17 +12366,17 @@ if.then203:                                       ; preds = %_ZN9grpc_core12expe
   %274 = load ptr, ptr %drop_category_list_.i, align 8
   %_M_finish.i397 = getelementptr inbounds i8, ptr %273, i64 24
   %275 = load ptr, ptr %_M_finish.i397, align 8
-  %cmp.i398.not10401 = icmp eq ptr %274, %275
-  br i1 %cmp.i398.not10401, label %if.end294, label %if.else.i2004
+  %cmp.i398.not9621 = icmp eq ptr %274, %275
+  br i1 %cmp.i398.not9621, label %if.end294, label %if.else.i2004
 
 if.else.i2004:                                    ; preds = %if.then203, %_ZN9grpc_core12experimental4JsonD2Ev.exit534
-  %__begin5.sroa.0.010405 = phi ptr [ %incdec.ptr.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit534 ], [ %274, %if.then203 ]
-  %drop_categories.sroa.23.310404 = phi ptr [ %drop_categories.sroa.23.512855, %_ZN9grpc_core12experimental4JsonD2Ev.exit534 ], [ null, %if.then203 ]
-  %drop_categories.sroa.12.310403 = phi ptr [ %drop_categories.sroa.12.612857, %_ZN9grpc_core12experimental4JsonD2Ev.exit534 ], [ null, %if.then203 ]
-  %drop_categories.sroa.0.310402 = phi ptr [ %drop_categories.sroa.0.612853, %_ZN9grpc_core12experimental4JsonD2Ev.exit534 ], [ null, %if.then203 ]
+  %__begin5.sroa.0.09625 = phi ptr [ %incdec.ptr.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit534 ], [ %274, %if.then203 ]
+  %drop_categories.sroa.23.39624 = phi ptr [ %drop_categories.sroa.23.511676, %_ZN9grpc_core12experimental4JsonD2Ev.exit534 ], [ null, %if.then203 ]
+  %drop_categories.sroa.12.39623 = phi ptr [ %drop_categories.sroa.12.611678, %_ZN9grpc_core12experimental4JsonD2Ev.exit534 ], [ null, %if.then203 ]
+  %drop_categories.sroa.0.39622 = phi ptr [ %drop_categories.sroa.0.611674, %_ZN9grpc_core12experimental4JsonD2Ev.exit534 ], [ null, %if.then203 ]
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i399, align 8, !alias.scope !143
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i2001)
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2001, ptr noundef nonnull align 8 dereferenceable(32) %__begin5.sroa.0.010405)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2001, ptr noundef nonnull align 8 dereferenceable(32) %__begin5.sroa.0.09625)
           to label %.noexc2014 unwind label %lpad.i401
 
 .noexc2014:                                       ; preds = %if.else.i2004
@@ -12587,7 +12587,7 @@ lpad.body.i409:                                   ; preds = %lpad.i408, %lpad.i.
 
 invoke.cont230:                                   ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_bS4_SA_SI_SL_EE4typeEDpT0_EERSR_E4typeEDpOSS_.exit.i.i.i427, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i420
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i406)
-  %parts_per_million = getelementptr inbounds i8, ptr %__begin5.sroa.0.010405, i64 32
+  %parts_per_million = getelementptr inbounds i8, ptr %__begin5.sroa.0.09625, i64 32
   %299 = load i32, ptr %parts_per_million, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i431)
@@ -13048,13 +13048,13 @@ _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cx
   %_M_node_count.i5.sink.i.i.i.i.i.i.i.i2173 = phi ptr [ %_M_node_count17.i.i.i.i.i.i.i.i.i2171, %if.else.i.i.i.i.i.i.i.i2175 ], [ %_M_node_count.i.i.i.i.i488, %if.then.i.i.i.i.i.i.i.i2162 ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i2173, align 8
   store i8 4, ptr %_M_index.i.i.i.i.i.i.i.i.i.i499, align 8
-  %cmp.not.i2201 = icmp eq ptr %drop_categories.sroa.12.310403, %drop_categories.sroa.23.310404
+  %cmp.not.i2201 = icmp eq ptr %drop_categories.sroa.12.39623, %drop_categories.sroa.23.39624
   br i1 %cmp.not.i2201, label %if.else.i2217, label %sw.bb5.i3498
 
 sw.bb5.i3498:                                     ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_.exit2196
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i2203 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 48
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i2203 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 48
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i2203, align 8
-  %353 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 8
+  %353 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 8
   %354 = load ptr, ptr %_M_parent6.i.i.i.i.i.i.i.i.i2164, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3500 = icmp eq ptr %354, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3500, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3513, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3501
@@ -13063,18 +13063,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3501:      ; preds = %sw.bb5.i3498
   %355 = load i32, ptr %8, align 8
   store i32 %355, ptr %353, align 8
   %356 = load ptr, ptr %_M_parent6.i.i.i.i.i.i.i.i.i2164, align 8
-  %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3503 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 16
+  %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3503 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 16
   store ptr %356, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3503, align 8
   %357 = load ptr, ptr %_M_left9.i.i.i.i.i.i.i.i.i2166, align 8
-  %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3505 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 24
+  %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3505 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 24
   store ptr %357, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3505, align 8
   %358 = load ptr, ptr %_M_right12.i.i.i.i.i.i.i.i.i2168, align 8
-  %_M_right12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3507 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 32
+  %_M_right12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3507 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 32
   store ptr %358, ptr %_M_right12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3507, align 8
   %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3508 = getelementptr inbounds i8, ptr %356, i64 8
   store ptr %353, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3508, align 8
   %359 = load i64, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i2171, align 8
-  %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3510 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 40
+  %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3510 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 40
   store i64 %359, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3510, align 8
   store ptr null, ptr %_M_parent6.i.i.i.i.i.i.i.i.i2164, align 8
   store ptr %8, ptr %_M_left9.i.i.i.i.i.i.i.i.i2166, align 8
@@ -13083,13 +13083,13 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3501:      ; preds = %sw.bb5.i3498
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3513:      ; preds = %sw.bb5.i3498
   store i32 0, ptr %353, align 8
-  %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3514 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 16
+  %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3514 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 16
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3514, align 8
-  %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3515 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 24
+  %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3515 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 24
   store ptr %353, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3515, align 8
-  %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3516 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 32
+  %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3516 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 32
   store ptr %353, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3516, align 8
-  %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3517 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 40
+  %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3517 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 40
   br label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i2205
 
 _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i2205: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3513, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3501
@@ -13122,8 +13122,8 @@ terminate.lpad.i.i.i.i.i2211:                     ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 if.else.i2217:                                    ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_.exit2196
-  %sub.ptr.lhs.cast.i.i.i3434 = ptrtoint ptr %drop_categories.sroa.23.310404 to i64
-  %sub.ptr.rhs.cast.i.i.i3435 = ptrtoint ptr %drop_categories.sroa.0.310402 to i64
+  %sub.ptr.lhs.cast.i.i.i3434 = ptrtoint ptr %drop_categories.sroa.23.39624 to i64
+  %sub.ptr.rhs.cast.i.i.i3435 = ptrtoint ptr %drop_categories.sroa.0.39622 to i64
   %sub.ptr.sub.i.i.i3436 = sub i64 %sub.ptr.lhs.cast.i.i.i3434, %sub.ptr.rhs.cast.i.i.i3435
   %cmp.i.i3437 = icmp eq i64 %sub.ptr.sub.i.i.i3436, 9223372036854775800
   br i1 %cmp.i.i3437, label %if.then.i.i3487, label %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit.i3438
@@ -13222,12 +13222,12 @@ terminate.lpad.i.i.i.i.i3461:                     ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 _ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i3463: ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_bS4_SA_SI_SL_EE4typeEDpT0_EERSR_E4typeEDpOSS_.exit.i.i.i.i.i3462, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i3455
-  %cmp.not5.i.i.i.i3464 = icmp eq ptr %drop_categories.sroa.0.310402, %drop_categories.sroa.23.310404
+  %cmp.not5.i.i.i.i3464 = icmp eq ptr %drop_categories.sroa.0.39622, %drop_categories.sroa.23.39624
   br i1 %cmp.not5.i.i.i.i3464, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i3481, label %for.body.i.i.i.i3465
 
 for.body.i.i.i.i3465:                             ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i3463, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3887
   %__cur.07.i.i.i.i3466 = phi ptr [ %incdec.ptr1.i.i.i.i3469, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3887 ], [ %cond.i10.i3451, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i3463 ]
-  %__first.addr.06.i.i.i.i3467 = phi ptr [ %incdec.ptr.i.i.i.i3468, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3887 ], [ %drop_categories.sroa.0.310402, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i3463 ]
+  %__first.addr.06.i.i.i.i3467 = phi ptr [ %incdec.ptr.i.i.i.i3468, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3887 ], [ %drop_categories.sroa.0.39622, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i3463 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i3875 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i3466, i64 48
@@ -13372,35 +13372,35 @@ _ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i3872), !noalias !160
   %incdec.ptr.i.i.i.i3468 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i3467, i64 56
   %incdec.ptr1.i.i.i.i3469 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i3466, i64 56
-  %cmp.not.i.i.i.i3470 = icmp eq ptr %incdec.ptr.i.i.i.i3468, %drop_categories.sroa.23.310404
+  %cmp.not.i.i.i.i3470 = icmp eq ptr %incdec.ptr.i.i.i.i3468, %drop_categories.sroa.23.39624
   br i1 %cmp.not.i.i.i.i3470, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i3481, label %for.body.i.i.i.i3465, !llvm.loop !161
 
 _ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i3481: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3887, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i3463
   %__cur.0.lcssa.i.i.i.i3472 = phi ptr [ %cond.i10.i3451, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i3463 ], [ %incdec.ptr1.i.i.i.i3469, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3887 ]
-  %tobool.not.i.i3483 = icmp eq ptr %drop_categories.sroa.0.310402, null
+  %tobool.not.i.i3483 = icmp eq ptr %drop_categories.sroa.0.39622, null
   br i1 %tobool.not.i.i3483, label %invoke.cont247, label %if.then.i20.i3484
 
 if.then.i20.i3484:                                ; preds = %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i3481
-  call void @_ZdlPv(ptr noundef nonnull %drop_categories.sroa.0.310402) #31
+  call void @_ZdlPv(ptr noundef nonnull %drop_categories.sroa.0.39622) #31
   br label %invoke.cont247
 
 invoke.cont247.thread:                            ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_bS4_SA_SI_SL_EE4typeEDpT0_EERSR_E4typeEDpOSS_.exit.i.i.i.i.i2212, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i2205
-  %drop_categories.sroa.12.612851 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.310403, i64 56
+  %drop_categories.sroa.12.611672 = getelementptr inbounds i8, ptr %drop_categories.sroa.12.39623, i64 56
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i503)
   br label %if.end.i.i.i506
 
 invoke.cont247:                                   ; preds = %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i3481, %if.then.i20.i3484
   %add.ptr19.i3486 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %cond.i10.i3451, i64 %cond.i.i3443
-  %.pre12845 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i499, align 8
-  %388 = icmp eq i8 %.pre12845, -1
+  %.pre11666 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i499, align 8
+  %388 = icmp eq i8 %.pre11666, -1
   %drop_categories.sroa.12.6 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i3472, i64 56
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i503)
   br i1 %388, label %_ZN9grpc_core12experimental4JsonD2Ev.exit509, label %if.end.i.i.i506
 
 if.end.i.i.i506:                                  ; preds = %invoke.cont247.thread, %invoke.cont247
-  %drop_categories.sroa.12.612856 = phi ptr [ %drop_categories.sroa.12.612851, %invoke.cont247.thread ], [ %drop_categories.sroa.12.6, %invoke.cont247 ]
-  %drop_categories.sroa.23.512854 = phi ptr [ %drop_categories.sroa.23.310404, %invoke.cont247.thread ], [ %add.ptr19.i3486, %invoke.cont247 ]
-  %drop_categories.sroa.0.612852 = phi ptr [ %drop_categories.sroa.0.310402, %invoke.cont247.thread ], [ %cond.i10.i3451, %invoke.cont247 ]
+  %drop_categories.sroa.12.611677 = phi ptr [ %drop_categories.sroa.12.611672, %invoke.cont247.thread ], [ %drop_categories.sroa.12.6, %invoke.cont247 ]
+  %drop_categories.sroa.23.511675 = phi ptr [ %drop_categories.sroa.23.39624, %invoke.cont247.thread ], [ %add.ptr19.i3486, %invoke.cont247 ]
+  %drop_categories.sroa.0.611673 = phi ptr [ %drop_categories.sroa.0.39622, %invoke.cont247.thread ], [ %cond.i10.i3451, %invoke.cont247 ]
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i503, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp220)
           to label %.noexc.i.i508 unwind label %terminate.lpad.i.i.i.i507
 
@@ -13416,9 +13416,9 @@ terminate.lpad.i.i.i.i507:                        ; preds = %if.end.i.i.i506
   unreachable
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit509:     ; preds = %invoke.cont247, %.noexc.i.i508
-  %drop_categories.sroa.12.612857 = phi ptr [ %drop_categories.sroa.12.6, %invoke.cont247 ], [ %drop_categories.sroa.12.612856, %.noexc.i.i508 ]
-  %drop_categories.sroa.23.512855 = phi ptr [ %add.ptr19.i3486, %invoke.cont247 ], [ %drop_categories.sroa.23.512854, %.noexc.i.i508 ]
-  %drop_categories.sroa.0.612853 = phi ptr [ %cond.i10.i3451, %invoke.cont247 ], [ %drop_categories.sroa.0.612852, %.noexc.i.i508 ]
+  %drop_categories.sroa.12.611678 = phi ptr [ %drop_categories.sroa.12.6, %invoke.cont247 ], [ %drop_categories.sroa.12.611677, %.noexc.i.i508 ]
+  %drop_categories.sroa.23.511676 = phi ptr [ %add.ptr19.i3486, %invoke.cont247 ], [ %drop_categories.sroa.23.511675, %.noexc.i.i508 ]
+  %drop_categories.sroa.0.611674 = phi ptr [ %cond.i10.i3451, %invoke.cont247 ], [ %drop_categories.sroa.0.611673, %.noexc.i.i508 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i503)
   %391 = load ptr, ptr %_M_parent.i.i.i.i.i485, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp221, ptr noundef %391)
@@ -13507,27 +13507,27 @@ terminate.lpad.i.i.i.i532:                        ; preds = %if.end.i.i.i531
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit534:     ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit527, %.noexc.i.i533
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i528)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.010405, i64 40
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.09625, i64 40
   %cmp.i398.not = icmp eq ptr %incdec.ptr.i, %275
   br i1 %cmp.i398.not, label %for.end, label %if.else.i2004
 
 lpad96.body:                                      ; preds = %lpad2.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1780) #31
   %_M_index.i.i.i.i536.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp69, i64 48
-  %.pre12844 = load i8, ptr %_M_index.i.i.i.i536.phi.trans.insert, align 8
-  %403 = icmp eq i8 %.pre12844, -1
+  %.pre11665 = load i8, ptr %_M_index.i.i.i.i536.phi.trans.insert, align 8
+  %403 = icmp eq i8 %.pre11665, -1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i535)
   %_M_index.i.i.i.i536 = getelementptr inbounds i8, ptr %ref.tmp69, i64 48
   br i1 %403, label %_ZN9grpc_core12experimental4JsonD2Ev.exit541, label %if.end.i.i.i538
 
 if.end.i.i.i538:                                  ; preds = %lpad96.body.thread, %lpad96.body
-  %_M_index.i.i.i.i53612863 = phi ptr [ %_M_index.i.i.i.i53612860, %lpad96.body.thread ], [ %_M_index.i.i.i.i536, %lpad96.body ]
-  %eh.lpad-body22612861 = phi { ptr, i32 } [ %171, %lpad96.body.thread ], [ %168, %lpad96.body ]
+  %_M_index.i.i.i.i53611684 = phi ptr [ %_M_index.i.i.i.i53611681, %lpad96.body.thread ], [ %_M_index.i.i.i.i536, %lpad96.body ]
+  %eh.lpad-body22611682 = phi { ptr, i32 } [ %171, %lpad96.body.thread ], [ %168, %lpad96.body ]
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i535, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp69)
           to label %.noexc.i.i540 unwind label %terminate.lpad.i.i.i.i539
 
 .noexc.i.i540:                                    ; preds = %if.end.i.i.i538
-  store i8 -1, ptr %_M_index.i.i.i.i53612863, align 8
+  store i8 -1, ptr %_M_index.i.i.i.i53611684, align 8
   br label %_ZN9grpc_core12experimental4JsonD2Ev.exit541
 
 terminate.lpad.i.i.i.i539:                        ; preds = %if.end.i.i.i538
@@ -13538,13 +13538,13 @@ terminate.lpad.i.i.i.i539:                        ; preds = %if.end.i.i.i538
   unreachable
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit541:     ; preds = %lpad96.body, %.noexc.i.i540
-  %eh.lpad-body22612862 = phi { ptr, i32 } [ %168, %lpad96.body ], [ %eh.lpad-body22612861, %.noexc.i.i540 ]
+  %eh.lpad-body22611683 = phi { ptr, i32 } [ %168, %lpad96.body ], [ %eh.lpad-body22611682, %.noexc.i.i540 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i535)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp72) #29
   br label %ehcleanup113
 
 ehcleanup113:                                     ; preds = %lpad4.i213, %_ZN9grpc_core12experimental4JsonD2Ev.exit541
-  %.pn44 = phi { ptr, i32 } [ %eh.lpad-body22612862, %_ZN9grpc_core12experimental4JsonD2Ev.exit541 ], [ %150, %lpad4.i213 ]
+  %.pn44 = phi { ptr, i32 } [ %eh.lpad-body22611683, %_ZN9grpc_core12experimental4JsonD2Ev.exit541 ], [ %150, %lpad4.i213 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i542)
   %_M_index.i.i.i.i.i543 = getelementptr inbounds i8, ptr %ref.tmp74, i64 80
   %406 = load i8, ptr %_M_index.i.i.i.i.i543, align 8
@@ -13675,7 +13675,7 @@ lpad246:                                          ; preds = %lpad246.loopexit.sp
   br label %ehcleanup250
 
 ehcleanup250:                                     ; preds = %lpad4.i493, %lpad246
-  %drop_categories.sroa.12.31040310757 = phi ptr [ %drop_categories.sroa.23.310404, %lpad246 ], [ %drop_categories.sroa.12.310403, %lpad4.i493 ]
+  %drop_categories.sroa.12.396239968 = phi ptr [ %drop_categories.sroa.23.39624, %lpad246 ], [ %drop_categories.sroa.12.39623, %lpad4.i493 ]
   %.pn73 = phi { ptr, i32 } [ %lpad.phi, %lpad246 ], [ %342, %lpad4.i493 ]
   br label %arraydestroy.body259
 
@@ -13711,7 +13711,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exp
   br i1 %arraydestroy.done262, label %ehcleanup264, label %arraydestroy.body259
 
 ehcleanup264:                                     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit573, %lpad.body.i463
-  %drop_categories.sroa.12.31040310756 = phi ptr [ %drop_categories.sroa.12.310403, %lpad.body.i463 ], [ %drop_categories.sroa.12.31040310757, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit573 ]
+  %drop_categories.sroa.12.396239967 = phi ptr [ %drop_categories.sroa.12.39623, %lpad.body.i463 ], [ %drop_categories.sroa.12.396239968, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit573 ]
   %420 = phi i1 [ false, %lpad.body.i463 ], [ true, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit573 ]
   %.pn73.pn = phi { ptr, i32 } [ %eh.lpad-body.i464, %lpad.body.i463 ], [ %.pn73, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit573 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i574)
@@ -13739,7 +13739,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit580:     ; preds = %ehcleanup264, %.noe
   br label %ehcleanup265
 
 ehcleanup265:                                     ; preds = %lpad.body.i409, %_ZN9grpc_core12experimental4JsonD2Ev.exit2074, %_ZN9grpc_core12experimental4JsonD2Ev.exit580
-  %drop_categories.sroa.12.31040310752 = phi ptr [ %drop_categories.sroa.12.31040310756, %_ZN9grpc_core12experimental4JsonD2Ev.exit580 ], [ %drop_categories.sroa.12.310403, %_ZN9grpc_core12experimental4JsonD2Ev.exit2074 ], [ %drop_categories.sroa.12.310403, %lpad.body.i409 ]
+  %drop_categories.sroa.12.396239963 = phi ptr [ %drop_categories.sroa.12.396239967, %_ZN9grpc_core12experimental4JsonD2Ev.exit580 ], [ %drop_categories.sroa.12.39623, %_ZN9grpc_core12experimental4JsonD2Ev.exit2074 ], [ %drop_categories.sroa.12.39623, %lpad.body.i409 ]
   %cleanup.isactive236.1 = phi i1 [ %420, %_ZN9grpc_core12experimental4JsonD2Ev.exit580 ], [ false, %_ZN9grpc_core12experimental4JsonD2Ev.exit2074 ], [ false, %lpad.body.i409 ]
   %arrayinit.endOfInit225.2 = phi ptr [ %arrayinit.element231, %_ZN9grpc_core12experimental4JsonD2Ev.exit580 ], [ %arrayinit.element231, %_ZN9grpc_core12experimental4JsonD2Ev.exit2074 ], [ %ref.tmp223, %lpad.body.i409 ]
   %.pn73.pn.pn = phi { ptr, i32 } [ %.pn73.pn, %_ZN9grpc_core12experimental4JsonD2Ev.exit580 ], [ %eh.lpad-body.i438, %_ZN9grpc_core12experimental4JsonD2Ev.exit2074 ], [ %eh.lpad-body.i410, %lpad.body.i409 ]
@@ -13801,7 +13801,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exp
   br i1 %arraydestroy.done273, label %ehcleanup293, label %arraydestroy.body270
 
 for.end:                                          ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit534
-  %cmp.i.i597 = icmp eq ptr %drop_categories.sroa.0.612853, %drop_categories.sroa.12.612857
+  %cmp.i.i597 = icmp eq ptr %drop_categories.sroa.0.611674, %drop_categories.sroa.12.611678
   br i1 %cmp.i.i597, label %invoke.cont.i669, label %if.end.i.i.i.i2226
 
 if.end.i.i.i.i2226:                               ; preds = %for.end
@@ -13819,9 +13819,9 @@ terminate.lpad.i2227:                             ; preds = %if.end.i.i.i.i2226
 
 _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISL_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_.exit2248: ; preds = %if.end.i.i.i.i2226
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i2221)
-  store ptr %drop_categories.sroa.0.612853, ptr %ref.tmp279, align 8
-  store ptr %drop_categories.sroa.12.612857, ptr %_M_finish.i.i.i.i.i.i.i.i2230, align 8
-  store ptr %drop_categories.sroa.23.512855, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i2232, align 8
+  store ptr %drop_categories.sroa.0.611674, ptr %ref.tmp279, align 8
+  store ptr %drop_categories.sroa.12.611678, ptr %_M_finish.i.i.i.i.i.i.i.i2230, align 8
+  store ptr %drop_categories.sroa.23.511676, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i2232, align 8
   store i8 5, ptr %_M_index.i.i.i.i.i.i.i.i.i.i598, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp282) #29
   %call.i600605 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp281)
@@ -14072,32 +14072,32 @@ invoke.cont.i682.thread:                          ; preds = %lpad283, %lpad.i603
   br label %ehcleanup601
 
 invoke.cont.i669:                                 ; preds = %for.end
-  %tobool.not.i.i.i670 = icmp eq ptr %drop_categories.sroa.0.612853, null
+  %tobool.not.i.i.i670 = icmp eq ptr %drop_categories.sroa.0.611674, null
   br i1 %tobool.not.i.i.i670, label %if.end294, label %if.then.i.i.i671
 
 if.then.i.i.i671:                                 ; preds = %invoke.cont.i669
-  call void @_ZdlPv(ptr noundef nonnull %drop_categories.sroa.0.612853) #31
+  call void @_ZdlPv(ptr noundef nonnull %drop_categories.sroa.0.611674) #31
   br label %if.end294
 
 ehcleanup293:                                     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit595, %lpad.i401.body, %ehcleanup266
-  %drop_categories.sroa.12.31040310750 = phi ptr [ %drop_categories.sroa.12.31040310752, %ehcleanup266 ], [ %drop_categories.sroa.12.310403, %lpad.i401.body ], [ %drop_categories.sroa.12.31040310752, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit595 ]
+  %drop_categories.sroa.12.396239961 = phi ptr [ %drop_categories.sroa.12.396239963, %ehcleanup266 ], [ %drop_categories.sroa.12.39623, %lpad.i401.body ], [ %drop_categories.sroa.12.396239963, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit595 ]
   %.pn73.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn73.pn.pn, %ehcleanup266 ], [ %eh.lpad-body2015, %lpad.i401.body ], [ %.pn73.pn.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit595 ]
-  %cmp.not.i.i1.i675 = icmp eq ptr %drop_categories.sroa.0.310402, %drop_categories.sroa.12.31040310750
+  %cmp.not.i.i1.i675 = icmp eq ptr %drop_categories.sroa.0.39622, %drop_categories.sroa.12.396239961
   br i1 %cmp.not.i.i1.i675, label %invoke.cont.i682, label %for.body.i.i.i676
 
 for.body.i.i.i676:                                ; preds = %ehcleanup293, %for.body.i.i.i676
-  %__first.addr.0.i.i2.i677 = phi ptr [ %incdec.ptr.i.i.i678, %for.body.i.i.i676 ], [ %drop_categories.sroa.0.310402, %ehcleanup293 ]
+  %__first.addr.0.i.i2.i677 = phi ptr [ %incdec.ptr.i.i.i678, %for.body.i.i.i676 ], [ %drop_categories.sroa.0.39622, %ehcleanup293 ]
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i2.i677) #29
   %incdec.ptr.i.i.i678 = getelementptr inbounds i8, ptr %__first.addr.0.i.i2.i677, i64 56
-  %cmp.not.i.i.i679 = icmp eq ptr %incdec.ptr.i.i.i678, %drop_categories.sroa.12.31040310750
+  %cmp.not.i.i.i679 = icmp eq ptr %incdec.ptr.i.i.i678, %drop_categories.sroa.12.396239961
   br i1 %cmp.not.i.i.i679, label %invoke.cont.i682, label %for.body.i.i.i676, !llvm.loop !10
 
 invoke.cont.i682:                                 ; preds = %for.body.i.i.i676, %ehcleanup293
-  %tobool.not.i.i.i683 = icmp eq ptr %drop_categories.sroa.0.310402, null
+  %tobool.not.i.i.i683 = icmp eq ptr %drop_categories.sroa.0.39622, null
   br i1 %tobool.not.i.i.i683, label %ehcleanup601, label %if.then.i.i.i684
 
 if.then.i.i.i684:                                 ; preds = %invoke.cont.i682
-  call void @_ZdlPv(ptr noundef nonnull %drop_categories.sroa.0.310402) #31
+  call void @_ZdlPv(ptr noundef nonnull %drop_categories.sroa.0.39622) #31
   br label %ehcleanup601
 
 if.end294:                                        ; preds = %if.then203, %if.then.i.i.i671, %invoke.cont.i669, %invoke.cont.i669.thread, %_ZN9grpc_core12experimental4JsonD2Ev.exit395
@@ -14658,7 +14658,7 @@ invoke.cont331:                                   ; preds = %if.end311, %_ZN9grp
   store ptr %9, ptr %_M_left.i.i.i.i.i815, align 8
   store ptr %9, ptr %_M_right.i.i.i.i.i816, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i817, align 8
-  %call5.val89 = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val89 = load ptr, ptr %__begin2.sroa.0.09642, align 8
   %514 = getelementptr i8, ptr %call5.val89, i64 16
   %call5.val89.val = load ptr, ptr %514, align 8
   %515 = getelementptr i8, ptr %call5.val89, i64 24
@@ -15860,7 +15860,7 @@ lpad470.body.thread:                              ; preds = %_ZNSt7variantIJSt9m
   %661 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1235)
-  %_M_index.i.i.i.i123612894 = getelementptr inbounds i8, ptr %ref.tmp442, i64 48
+  %_M_index.i.i.i.i123611715 = getelementptr inbounds i8, ptr %ref.tmp442, i64 48
   br label %if.end.i.i.i1238
 
 terminate.lpad.i2849:                             ; preds = %for.inc.i.i.i.i.i2833
@@ -15955,7 +15955,7 @@ terminate.lpad.i.i.i.i1075:                       ; preds = %if.end.i.i.i1074
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit1077:    ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1070, %.noexc.i.i1076
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1071)
-  %this.val.i = load ptr, ptr %__begin2.sroa.0.010428, align 8, !noalias !186
+  %this.val.i = load ptr, ptr %__begin2.sroa.0.09642, align 8, !noalias !186
   %676 = getelementptr i8, ptr %this.val.i, i64 16
   %this.val.val.i = load ptr, ptr %676, align 8, !noalias !186
   %677 = getelementptr i8, ptr %this.val.i, i64 24
@@ -15967,7 +15967,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit1077:    ; preds = %_ZNSt4pairIKNSt7__c
   %add.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::XdsClusterResolverLbConfig::DiscoveryMechanism", ptr %this.val.val.val.val.i, i64 %this.val.val1.i
   %call2.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #29, !noalias !186
   %680 = load ptr, ptr %priority_child_numbers.i, align 8, !noalias !186
-  %add.ptr.i.i1079 = getelementptr inbounds i64, ptr %680, i64 %priority.010419
+  %add.ptr.i.i1079 = getelementptr inbounds i64, ptr %680, i64 %priority.09636
   %681 = load i64, ptr %add.ptr.i.i1079, align 8, !noalias !186
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i.i), !noalias !186
   %call.i.i.i10801081 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %681, ptr noundef nonnull %digits_.i.i.i)
@@ -16038,11 +16038,11 @@ invoke.cont529:                                   ; preds = %.noexc2885, %.noexc
   store i8 3, ptr %_M_index.i.i.i.i.i.i.i.i.i.i1083, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2872) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2872)
-  %cmp.not.i = icmp eq ptr %priority_priorities.sroa.11.110414, %priority_priorities.sroa.21.110413
+  %cmp.not.i = icmp eq ptr %priority_priorities.sroa.11.19634, %priority_priorities.sroa.21.19633
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i1089
 
 if.then.i1089:                                    ; preds = %invoke.cont529
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 48
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 48
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
   %687 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i1083, align 8
   switch i8 %687, label %sw.default.i2951 [
@@ -16058,19 +16058,19 @@ if.then.i1089:                                    ; preds = %invoke.cont529
 sw.bb2.i2949:                                     ; preds = %if.then.i1089
   %688 = load i8, ptr %ref.tmp527, align 8
   %frombool.i.i.i.i.i.i.i.i.i2950 = and i8 %688, 1
-  store i8 %frombool.i.i.i.i.i.i.i.i.i2950, ptr %priority_priorities.sroa.11.110414, align 1
+  store i8 %frombool.i.i.i.i.i.i.i.i.i2950, ptr %priority_priorities.sroa.11.19634, align 1
   br label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.ithread-pre-split
 
 sw.bb3.i2948:                                     ; preds = %if.then.i1089
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %priority_priorities.sroa.11.110414, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp527) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %priority_priorities.sroa.11.19634, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp527) #29
   br label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.ithread-pre-split
 
 sw.bb4.i2947:                                     ; preds = %if.then.i1089
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %priority_priorities.sroa.11.110414, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp527) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %priority_priorities.sroa.11.19634, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp527) #29
   br label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.ithread-pre-split
 
 sw.bb5.i2927:                                     ; preds = %if.then.i1089
-  %689 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 8
+  %689 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 8
   %690 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2926, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2929 = icmp eq ptr %690, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2929, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2942, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2930
@@ -16079,18 +16079,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2930:      ; preds = %sw.bb5.i2927
   %691 = load i32, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2924, align 8
   store i32 %691, ptr %689, align 8
   %692 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2926, align 8
-  %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2932 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 16
+  %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2932 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 16
   store ptr %692, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2932, align 8
   %693 = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2933, align 8
-  %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2934 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 24
+  %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2934 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 24
   store ptr %693, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2934, align 8
   %694 = load ptr, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2935, align 8
-  %_M_right12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2936 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 32
+  %_M_right12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2936 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 32
   store ptr %694, ptr %_M_right12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2936, align 8
   %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2937 = getelementptr inbounds i8, ptr %692, i64 8
   store ptr %689, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2937, align 8
   %695 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2938, align 8
-  %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2939 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 40
+  %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2939 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 40
   store i64 %695, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2939, align 8
   store ptr null, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2926, align 8
   store ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2924, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2933, align 8
@@ -16099,13 +16099,13 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2930:      ; preds = %sw.bb5.i2927
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2942:      ; preds = %sw.bb5.i2927
   store i32 0, ptr %689, align 8
-  %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2943 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 16
+  %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2943 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 16
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2943, align 8
-  %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2944 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 24
+  %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2944 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 24
   store ptr %689, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2944, align 8
-  %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2945 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 32
+  %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2945 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 32
   store ptr %689, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2945, align 8
-  %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2946 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 40
+  %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2946 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 40
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISF_S8_St4lessISF_ESaISt4pairIKSF_S8_EEESt6vectorIS8_SaIS8_EEEEC1EOSR_EUlOT_T0_E_OSt7variantIJS5_bS9_SF_SN_SQ_EEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESX_S10_.exit.i2940
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISF_S8_St4lessISF_ESaISt4pairIKSF_S8_EEESt6vectorIS8_SaIS8_EEEEC1EOSR_EUlOT_T0_E_OSt7variantIJS5_bS9_SF_SN_SQ_EEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESX_S10_.exit.i2940: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2942, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2930
@@ -16115,11 +16115,11 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
 
 sw.bb6.i2922:                                     ; preds = %if.then.i1089
   %696 = load ptr, ptr %ref.tmp527, align 8
-  store ptr %696, ptr %priority_priorities.sroa.11.110414, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2923 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 8
+  store ptr %696, ptr %priority_priorities.sroa.11.19634, align 8
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2923 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 8
   %697 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2924, align 8
   store ptr %697, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2923, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2925 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 16
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2925 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 16
   %698 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2926, align 8
   store ptr %698, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2925, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp527, i8 0, i64 24, i1 false)
@@ -16150,7 +16150,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i
 invoke.cont531.thread:                            ; preds = %if.else.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i1083, align 8
-  %priority_priorities.sroa.11.1112878 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.110414, i64 56
+  %priority_priorities.sroa.11.1111699 = getelementptr inbounds i8, ptr %priority_priorities.sroa.11.19634, i64 56
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1097)
   br label %if.end.i.i.i1100
 
@@ -16162,8 +16162,8 @@ terminate.lpad.i.i.i.i.i1091:                     ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 if.else.i:                                        ; preds = %invoke.cont529
-  %sub.ptr.lhs.cast.i.i.i2891 = ptrtoint ptr %priority_priorities.sroa.11.110414 to i64
-  %sub.ptr.rhs.cast.i.i.i2892 = ptrtoint ptr %priority_priorities.sroa.0.110418 to i64
+  %sub.ptr.lhs.cast.i.i.i2891 = ptrtoint ptr %priority_priorities.sroa.11.19634 to i64
+  %sub.ptr.rhs.cast.i.i.i2892 = ptrtoint ptr %priority_priorities.sroa.0.19635 to i64
   %sub.ptr.sub.i.i.i2893 = sub i64 %sub.ptr.lhs.cast.i.i.i2891, %sub.ptr.rhs.cast.i.i.i2892
   %cmp.i.i2894 = icmp eq i64 %sub.ptr.sub.i.i.i2893, 9223372036854775800
   br i1 %cmp.i.i2894, label %if.then.i.i2917, label %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit.i
@@ -16312,12 +16312,12 @@ terminate.lpad.i.i.i.i.i2908:                     ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 _ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910: ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_bS4_SA_SI_SL_EE4typeEDpT0_EERSR_E4typeEDpOSS_.exit.i.i.i.i.i2909, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i2902
-  %cmp.not5.i.i.i.i = icmp eq ptr %priority_priorities.sroa.0.110418, %priority_priorities.sroa.11.110414
+  %cmp.not5.i.i.i.i = icmp eq ptr %priority_priorities.sroa.0.19635, %priority_priorities.sroa.11.19634
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i2911
 
 for.body.i.i.i.i2911:                             ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770 ], [ %cond.i10.i, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910 ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2912, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770 ], [ %priority_priorities.sroa.0.110418, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910 ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2912, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770 ], [ %priority_priorities.sroa.0.19635, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i3758 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
@@ -16462,16 +16462,16 @@ _ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i3755), !noalias !203
   %incdec.ptr.i.i.i.i2912 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 56
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 56
-  %cmp.not.i.i.i.i2913 = icmp eq ptr %incdec.ptr.i.i.i.i2912, %priority_priorities.sroa.11.110414
+  %cmp.not.i.i.i.i2913 = icmp eq ptr %incdec.ptr.i.i.i.i2912, %priority_priorities.sroa.11.19634
   br i1 %cmp.not.i.i.i.i2913, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i2911, !llvm.loop !161
 
 _ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910 ], [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770 ]
-  %tobool.not.i.i2915 = icmp eq ptr %priority_priorities.sroa.0.110418, null
+  %tobool.not.i.i2915 = icmp eq ptr %priority_priorities.sroa.0.19635, null
   br i1 %tobool.not.i.i2915, label %.noexc1096, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i
-  call void @_ZdlPv(ptr noundef nonnull %priority_priorities.sroa.0.110418) #31
+  call void @_ZdlPv(ptr noundef nonnull %priority_priorities.sroa.0.19635) #31
   br label %.noexc1096
 
 .noexc1096:                                       ; preds = %if.then.i20.i, %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i
@@ -16479,19 +16479,19 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorIN9grpc
   br label %invoke.cont531
 
 invoke.cont531:                                   ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i, %.noexc1096
-  %priority_priorities.sroa.21.2.ph = phi ptr [ %priority_priorities.sroa.21.110413, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %add.ptr19.i, %.noexc1096 ]
-  %__cur.0.lcssa.i.i.i.i.pn.ph = phi ptr [ %priority_priorities.sroa.11.110414, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %__cur.0.lcssa.i.i.i.i, %.noexc1096 ]
-  %priority_priorities.sroa.0.11.ph = phi ptr [ %priority_priorities.sroa.0.110418, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %cond.i10.i, %.noexc1096 ]
-  %.pr12874 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i1083, align 8
+  %priority_priorities.sroa.21.2.ph = phi ptr [ %priority_priorities.sroa.21.19633, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %add.ptr19.i, %.noexc1096 ]
+  %__cur.0.lcssa.i.i.i.i.pn.ph = phi ptr [ %priority_priorities.sroa.11.19634, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %__cur.0.lcssa.i.i.i.i, %.noexc1096 ]
+  %priority_priorities.sroa.0.11.ph = phi ptr [ %priority_priorities.sroa.0.19635, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %cond.i10.i, %.noexc1096 ]
+  %.pr11695 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i1083, align 8
   %priority_priorities.sroa.11.11 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.pn.ph, i64 56
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1097)
-  %cmp.i.i.not.i.i1099 = icmp eq i8 %.pr12874, -1
+  %cmp.i.i.not.i.i1099 = icmp eq i8 %.pr11695, -1
   br i1 %cmp.i.i.not.i.i1099, label %_ZN9grpc_core12experimental4JsonD2Ev.exit1103, label %if.end.i.i.i1100
 
 if.end.i.i.i1100:                                 ; preds = %invoke.cont531.thread, %invoke.cont531
-  %priority_priorities.sroa.11.1112887 = phi ptr [ %priority_priorities.sroa.11.1112878, %invoke.cont531.thread ], [ %priority_priorities.sroa.11.11, %invoke.cont531 ]
-  %priority_priorities.sroa.0.1112882 = phi ptr [ %priority_priorities.sroa.0.110418, %invoke.cont531.thread ], [ %priority_priorities.sroa.0.11.ph, %invoke.cont531 ]
-  %priority_priorities.sroa.21.212880 = phi ptr [ %priority_priorities.sroa.21.110413, %invoke.cont531.thread ], [ %priority_priorities.sroa.21.2.ph, %invoke.cont531 ]
+  %priority_priorities.sroa.11.1111708 = phi ptr [ %priority_priorities.sroa.11.1111699, %invoke.cont531.thread ], [ %priority_priorities.sroa.11.11, %invoke.cont531 ]
+  %priority_priorities.sroa.0.1111703 = phi ptr [ %priority_priorities.sroa.0.19635, %invoke.cont531.thread ], [ %priority_priorities.sroa.0.11.ph, %invoke.cont531 ]
+  %priority_priorities.sroa.21.211701 = phi ptr [ %priority_priorities.sroa.21.19633, %invoke.cont531.thread ], [ %priority_priorities.sroa.21.2.ph, %invoke.cont531 ]
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i1097, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp527)
           to label %.noexc.i.i1102 unwind label %terminate.lpad.i.i.i.i1101
 
@@ -16507,9 +16507,9 @@ terminate.lpad.i.i.i.i1101:                       ; preds = %if.end.i.i.i1100
   unreachable
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit1103:    ; preds = %invoke.cont531, %.noexc.i.i1102
-  %priority_priorities.sroa.11.1112888 = phi ptr [ %priority_priorities.sroa.11.11, %invoke.cont531 ], [ %priority_priorities.sroa.11.1112887, %.noexc.i.i1102 ]
-  %priority_priorities.sroa.0.1112883 = phi ptr [ %priority_priorities.sroa.0.11.ph, %invoke.cont531 ], [ %priority_priorities.sroa.0.1112882, %.noexc.i.i1102 ]
-  %priority_priorities.sroa.21.212881 = phi ptr [ %priority_priorities.sroa.21.2.ph, %invoke.cont531 ], [ %priority_priorities.sroa.21.212880, %.noexc.i.i1102 ]
+  %priority_priorities.sroa.11.1111709 = phi ptr [ %priority_priorities.sroa.11.11, %invoke.cont531 ], [ %priority_priorities.sroa.11.1111708, %.noexc.i.i1102 ]
+  %priority_priorities.sroa.0.1111704 = phi ptr [ %priority_priorities.sroa.0.11.ph, %invoke.cont531 ], [ %priority_priorities.sroa.0.1111703, %.noexc.i.i1102 ]
+  %priority_priorities.sroa.21.211702 = phi ptr [ %priority_priorities.sroa.21.2.ph, %invoke.cont531 ], [ %priority_priorities.sroa.21.211701, %.noexc.i.i1102 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1097)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1106)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1106) #29
@@ -16721,7 +16721,7 @@ terminate.lpad.i.i.i.i.i1150:                     ; preds = %if.end.i.i.i.i1148
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1152: ; preds = %arraydestroy.body556.preheader, %.noexc.i.i.i1151
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1145)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp535) #29
-  %call5.val = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val = load ptr, ptr %__begin2.sroa.0.09642, align 8
   %vtable570 = load ptr, ptr %call5.val, align 8
   %vfn571 = getelementptr inbounds i8, ptr %vtable570, i64 40
   %759 = load ptr, ptr %vfn571, align 8
@@ -17063,20 +17063,20 @@ ehcleanup419:                                     ; preds = %_ZNSt4pairIKNSt7__c
 lpad470.body:                                     ; preds = %lpad2.i.i.i.i.i2829
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2840) #31
   %_M_index.i.i.i.i1236.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp442, i64 48
-  %.pre12846 = load i8, ptr %_M_index.i.i.i.i1236.phi.trans.insert, align 8
-  %794 = icmp eq i8 %.pre12846, -1
+  %.pre11667 = load i8, ptr %_M_index.i.i.i.i1236.phi.trans.insert, align 8
+  %794 = icmp eq i8 %.pre11667, -1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1235)
   %_M_index.i.i.i.i1236 = getelementptr inbounds i8, ptr %ref.tmp442, i64 48
   br i1 %794, label %_ZN9grpc_core12experimental4JsonD2Ev.exit1241, label %if.end.i.i.i1238
 
 if.end.i.i.i1238:                                 ; preds = %lpad470.body.thread, %lpad470.body
-  %_M_index.i.i.i.i123612897 = phi ptr [ %_M_index.i.i.i.i123612894, %lpad470.body.thread ], [ %_M_index.i.i.i.i1236, %lpad470.body ]
-  %eh.lpad-body103612895 = phi { ptr, i32 } [ %661, %lpad470.body.thread ], [ %658, %lpad470.body ]
+  %_M_index.i.i.i.i123611718 = phi ptr [ %_M_index.i.i.i.i123611715, %lpad470.body.thread ], [ %_M_index.i.i.i.i1236, %lpad470.body ]
+  %eh.lpad-body103611716 = phi { ptr, i32 } [ %661, %lpad470.body.thread ], [ %658, %lpad470.body ]
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i1235, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp442)
           to label %.noexc.i.i1240 unwind label %terminate.lpad.i.i.i.i1239
 
 .noexc.i.i1240:                                   ; preds = %if.end.i.i.i1238
-  store i8 -1, ptr %_M_index.i.i.i.i123612897, align 8
+  store i8 -1, ptr %_M_index.i.i.i.i123611718, align 8
   br label %_ZN9grpc_core12experimental4JsonD2Ev.exit1241
 
 terminate.lpad.i.i.i.i1239:                       ; preds = %if.end.i.i.i1238
@@ -17087,13 +17087,13 @@ terminate.lpad.i.i.i.i1239:                       ; preds = %if.end.i.i.i1238
   unreachable
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit1241:    ; preds = %lpad470.body, %.noexc.i.i1240
-  %eh.lpad-body103612896 = phi { ptr, i32 } [ %658, %lpad470.body ], [ %eh.lpad-body103612895, %.noexc.i.i1240 ]
+  %eh.lpad-body103611717 = phi { ptr, i32 } [ %658, %lpad470.body ], [ %eh.lpad-body103611716, %.noexc.i.i1240 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1235)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp445) #29
   br label %ehcleanup490
 
 ehcleanup490:                                     ; preds = %lpad4.i1022, %_ZN9grpc_core12experimental4JsonD2Ev.exit1241
-  %.pn63 = phi { ptr, i32 } [ %eh.lpad-body103612896, %_ZN9grpc_core12experimental4JsonD2Ev.exit1241 ], [ %640, %lpad4.i1022 ]
+  %.pn63 = phi { ptr, i32 } [ %eh.lpad-body103611717, %_ZN9grpc_core12experimental4JsonD2Ev.exit1241 ], [ %640, %lpad4.i1022 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1242)
   %_M_index.i.i.i.i.i1243 = getelementptr inbounds i8, ptr %ref.tmp447, i64 80
   %797 = load i8, ptr %_M_index.i.i.i.i.i1243, align 8
@@ -17448,7 +17448,7 @@ terminate.lpad.i.i.i.i1348:                       ; preds = %if.end.i.i.i1347
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit1350:    ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit1343, %.noexc.i.i1349
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1344)
-  %inc = add nuw i64 %priority.010419, 1
+  %inc = add nuw i64 %priority.09636, 1
   %843 = load ptr, ptr %_M_finish.i, align 8
   %844 = load ptr, ptr %spec.select.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %843 to i64
@@ -17470,29 +17470,29 @@ ehcleanup597:                                     ; preds = %lpad592, %ehcleanup
   br label %ehcleanup598
 
 ehcleanup598:                                     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257, %lpad.body.i1109, %lpad.i1085.body, %ehcleanup597, %lpad530
-  %priority_priorities.sroa.11.9 = phi ptr [ %priority_priorities.sroa.11.110414, %lpad530 ], [ %priority_priorities.sroa.11.1112888, %ehcleanup597 ], [ %priority_priorities.sroa.11.110414, %lpad.i1085.body ], [ %priority_priorities.sroa.11.1112888, %lpad.body.i1109 ], [ %priority_priorities.sroa.11.1112888, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
-  %priority_priorities.sroa.0.9 = phi ptr [ %priority_priorities.sroa.0.110418, %lpad530 ], [ %priority_priorities.sroa.0.1112883, %ehcleanup597 ], [ %priority_priorities.sroa.0.110418, %lpad.i1085.body ], [ %priority_priorities.sroa.0.1112883, %lpad.body.i1109 ], [ %priority_priorities.sroa.0.1112883, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
+  %priority_priorities.sroa.11.9 = phi ptr [ %priority_priorities.sroa.11.19634, %lpad530 ], [ %priority_priorities.sroa.11.1111709, %ehcleanup597 ], [ %priority_priorities.sroa.11.19634, %lpad.i1085.body ], [ %priority_priorities.sroa.11.1111709, %lpad.body.i1109 ], [ %priority_priorities.sroa.11.1111709, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
+  %priority_priorities.sroa.0.9 = phi ptr [ %priority_priorities.sroa.0.19635, %lpad530 ], [ %priority_priorities.sroa.0.1111704, %ehcleanup597 ], [ %priority_priorities.sroa.0.19635, %lpad.i1085.body ], [ %priority_priorities.sroa.0.1111704, %lpad.body.i1109 ], [ %priority_priorities.sroa.0.1111704, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
   %.pn68.pn = phi { ptr, i32 } [ %lpad.phi4449, %lpad530 ], [ %.pn68, %ehcleanup597 ], [ %eh.lpad-body2886, %lpad.i1085.body ], [ %eh.lpad-body.i1110, %lpad.body.i1109 ], [ %755, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %child_name) #29
   br label %ehcleanup599
 
 ehcleanup599:                                     ; preds = %ehcleanup598, %lpad525
-  %priority_priorities.sroa.11.8 = phi ptr [ %priority_priorities.sroa.11.9, %ehcleanup598 ], [ %priority_priorities.sroa.11.110414, %lpad525 ]
-  %priority_priorities.sroa.0.8 = phi ptr [ %priority_priorities.sroa.0.9, %ehcleanup598 ], [ %priority_priorities.sroa.0.110418, %lpad525 ]
+  %priority_priorities.sroa.11.8 = phi ptr [ %priority_priorities.sroa.11.9, %ehcleanup598 ], [ %priority_priorities.sroa.11.19634, %lpad525 ]
+  %priority_priorities.sroa.0.8 = phi ptr [ %priority_priorities.sroa.0.9, %ehcleanup598 ], [ %priority_priorities.sroa.0.19635, %lpad525 ]
   %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %ehcleanup598 ], [ %800, %lpad525 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %locality_picking_policy) #29
   br label %ehcleanup600
 
 ehcleanup600:                                     ; preds = %ehcleanup504, %ehcleanup419, %ehcleanup599, %lpad330.body
-  %priority_priorities.sroa.11.7 = phi ptr [ %priority_priorities.sroa.11.8, %ehcleanup599 ], [ %priority_priorities.sroa.11.110414, %ehcleanup504 ], [ %priority_priorities.sroa.11.110414, %ehcleanup419 ], [ %priority_priorities.sroa.11.110414, %lpad330.body ]
-  %priority_priorities.sroa.0.7 = phi ptr [ %priority_priorities.sroa.0.8, %ehcleanup599 ], [ %priority_priorities.sroa.0.110418, %ehcleanup504 ], [ %priority_priorities.sroa.0.110418, %ehcleanup419 ], [ %priority_priorities.sroa.0.110418, %lpad330.body ]
+  %priority_priorities.sroa.11.7 = phi ptr [ %priority_priorities.sroa.11.8, %ehcleanup599 ], [ %priority_priorities.sroa.11.19634, %ehcleanup504 ], [ %priority_priorities.sroa.11.19634, %ehcleanup419 ], [ %priority_priorities.sroa.11.19634, %lpad330.body ]
+  %priority_priorities.sroa.0.7 = phi ptr [ %priority_priorities.sroa.0.8, %ehcleanup599 ], [ %priority_priorities.sroa.0.19635, %ehcleanup504 ], [ %priority_priorities.sroa.0.19635, %ehcleanup419 ], [ %priority_priorities.sroa.0.19635, %lpad330.body ]
   %.pn68.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn, %ehcleanup599 ], [ %.pn63.pn, %ehcleanup504 ], [ %.pn58.pn.pn.pn, %ehcleanup419 ], [ %527, %lpad330.body ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %outlier_detection_config) #29
   br label %ehcleanup601
 
 ehcleanup601:                                     ; preds = %if.then.i.i.i684, %invoke.cont.i682, %invoke.cont.i682.thread, %lpad200, %lpad.i689.body, %ehcleanup600, %ehcleanup327, %ehcleanup309
-  %priority_priorities.sroa.11.6 = phi ptr [ %priority_priorities.sroa.11.7, %ehcleanup600 ], [ %priority_priorities.sroa.11.110414, %ehcleanup327 ], [ %priority_priorities.sroa.11.110414, %ehcleanup309 ], [ %priority_priorities.sroa.11.110414, %lpad.i689.body ], [ %priority_priorities.sroa.11.110414, %lpad200 ], [ %priority_priorities.sroa.11.110414, %invoke.cont.i682.thread ], [ %priority_priorities.sroa.11.110414, %invoke.cont.i682 ], [ %priority_priorities.sroa.11.110414, %if.then.i.i.i684 ]
-  %priority_priorities.sroa.0.6 = phi ptr [ %priority_priorities.sroa.0.7, %ehcleanup600 ], [ %priority_priorities.sroa.0.110418, %ehcleanup327 ], [ %priority_priorities.sroa.0.110418, %ehcleanup309 ], [ %priority_priorities.sroa.0.110418, %lpad.i689.body ], [ %priority_priorities.sroa.0.110418, %lpad200 ], [ %priority_priorities.sroa.0.110418, %invoke.cont.i682.thread ], [ %priority_priorities.sroa.0.110418, %invoke.cont.i682 ], [ %priority_priorities.sroa.0.110418, %if.then.i.i.i684 ]
+  %priority_priorities.sroa.11.6 = phi ptr [ %priority_priorities.sroa.11.7, %ehcleanup600 ], [ %priority_priorities.sroa.11.19634, %ehcleanup327 ], [ %priority_priorities.sroa.11.19634, %ehcleanup309 ], [ %priority_priorities.sroa.11.19634, %lpad.i689.body ], [ %priority_priorities.sroa.11.19634, %lpad200 ], [ %priority_priorities.sroa.11.19634, %invoke.cont.i682.thread ], [ %priority_priorities.sroa.11.19634, %invoke.cont.i682 ], [ %priority_priorities.sroa.11.19634, %if.then.i.i.i684 ]
+  %priority_priorities.sroa.0.6 = phi ptr [ %priority_priorities.sroa.0.7, %ehcleanup600 ], [ %priority_priorities.sroa.0.19635, %ehcleanup327 ], [ %priority_priorities.sroa.0.19635, %ehcleanup309 ], [ %priority_priorities.sroa.0.19635, %lpad.i689.body ], [ %priority_priorities.sroa.0.19635, %lpad200 ], [ %priority_priorities.sroa.0.19635, %invoke.cont.i682.thread ], [ %priority_priorities.sroa.0.19635, %invoke.cont.i682 ], [ %priority_priorities.sroa.0.19635, %if.then.i.i.i684 ]
   %.pn73.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn.pn, %ehcleanup600 ], [ %.pn56, %ehcleanup327 ], [ %.pn54, %ehcleanup309 ], [ %eh.lpad-body2300, %lpad.i689.body ], [ %416, %lpad200 ], [ %.pn52, %invoke.cont.i682.thread ], [ %.pn73.pn.pn.pn.pn, %invoke.cont.i682 ], [ %.pn73.pn.pn.pn.pn, %if.then.i.i.i684 ]
   %846 = load ptr, ptr %_M_parent.i.i.i.i.i353, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %xds_cluster_impl_config, ptr noundef %846)
@@ -17513,8 +17513,8 @@ ehcleanup602:                                     ; preds = %lpad.i252, %lpad.i1
   br label %ehcleanup603
 
 ehcleanup603:                                     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565, %ehcleanup188, %ehcleanup601, %ehcleanup602, %lpad.body.i133, %ehcleanup127, %ehcleanup
-  %priority_priorities.sroa.11.4 = phi ptr [ %priority_priorities.sroa.11.110414, %ehcleanup127 ], [ %priority_priorities.sroa.11.110414, %ehcleanup ], [ %priority_priorities.sroa.11.110414, %lpad.body.i133 ], [ %priority_priorities.sroa.11.110414, %ehcleanup602 ], [ %priority_priorities.sroa.11.6, %ehcleanup601 ], [ %priority_priorities.sroa.11.110414, %ehcleanup188 ], [ %priority_priorities.sroa.11.110414, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565 ]
-  %priority_priorities.sroa.0.4 = phi ptr [ %priority_priorities.sroa.0.110418, %ehcleanup127 ], [ %priority_priorities.sroa.0.110418, %ehcleanup ], [ %priority_priorities.sroa.0.110418, %lpad.body.i133 ], [ %priority_priorities.sroa.0.110418, %ehcleanup602 ], [ %priority_priorities.sroa.0.6, %ehcleanup601 ], [ %priority_priorities.sroa.0.110418, %ehcleanup188 ], [ %priority_priorities.sroa.0.110418, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565 ]
+  %priority_priorities.sroa.11.4 = phi ptr [ %priority_priorities.sroa.11.19634, %ehcleanup127 ], [ %priority_priorities.sroa.11.19634, %ehcleanup ], [ %priority_priorities.sroa.11.19634, %lpad.body.i133 ], [ %priority_priorities.sroa.11.19634, %ehcleanup602 ], [ %priority_priorities.sroa.11.6, %ehcleanup601 ], [ %priority_priorities.sroa.11.19634, %ehcleanup188 ], [ %priority_priorities.sroa.11.19634, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565 ]
+  %priority_priorities.sroa.0.4 = phi ptr [ %priority_priorities.sroa.0.19635, %ehcleanup127 ], [ %priority_priorities.sroa.0.19635, %ehcleanup ], [ %priority_priorities.sroa.0.19635, %lpad.body.i133 ], [ %priority_priorities.sroa.0.19635, %ehcleanup602 ], [ %priority_priorities.sroa.0.6, %ehcleanup601 ], [ %priority_priorities.sroa.0.19635, %ehcleanup188 ], [ %priority_priorities.sroa.0.19635, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565 ]
   %.pn73.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn, %ehcleanup127 ], [ %.pn42, %ehcleanup ], [ %eh.lpad-body.i134, %lpad.body.i133 ], [ %.pn73.pn.pn.pn.pn.pn.pn, %ehcleanup602 ], [ %.pn73.pn.pn.pn.pn.pn, %ehcleanup601 ], [ %.pn47.pn, %ehcleanup188 ], [ %.pn47.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565 ]
   %849 = load ptr, ptr %_M_parent.i.i.i.i.i118, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %xds_override_host_lb_config, ptr noundef %849)
@@ -17528,8 +17528,8 @@ terminate.lpad.i.i1368:                           ; preds = %ehcleanup603
   unreachable
 
 ehcleanup604:                                     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175, %ehcleanup603, %lpad.body.i, %lpad14
-  %priority_priorities.sroa.11.3 = phi ptr [ %priority_priorities.sroa.11.110414, %lpad14 ], [ %priority_priorities.sroa.11.110414, %lpad.body.i ], [ %priority_priorities.sroa.11.4, %ehcleanup603 ], [ %priority_priorities.sroa.11.110414, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175 ]
-  %priority_priorities.sroa.0.3 = phi ptr [ %priority_priorities.sroa.0.110418, %lpad14 ], [ %priority_priorities.sroa.0.110418, %lpad.body.i ], [ %priority_priorities.sroa.0.4, %ehcleanup603 ], [ %priority_priorities.sroa.0.110418, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175 ]
+  %priority_priorities.sroa.11.3 = phi ptr [ %priority_priorities.sroa.11.19634, %lpad14 ], [ %priority_priorities.sroa.11.19634, %lpad.body.i ], [ %priority_priorities.sroa.11.4, %ehcleanup603 ], [ %priority_priorities.sroa.11.19634, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175 ]
+  %priority_priorities.sroa.0.3 = phi ptr [ %priority_priorities.sroa.0.19635, %lpad14 ], [ %priority_priorities.sroa.0.19635, %lpad.body.i ], [ %priority_priorities.sroa.0.4, %ehcleanup603 ], [ %priority_priorities.sroa.0.19635, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175 ]
   %.pn73.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %55, %lpad14 ], [ %eh.lpad-body.i, %lpad.body.i ], [ %.pn73.pn.pn.pn.pn.pn.pn.pn, %ehcleanup603 ], [ %75, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1370)
   %852 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
@@ -17556,10 +17556,10 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit1376:    ; preds = %ehcleanup604, %.noe
   br label %ehcleanup793
 
 for.inc607:                                       ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit1350, %invoke.cont
-  %priority_priorities.sroa.21.1.lcssa = phi ptr [ %priority_priorities.sroa.21.010427, %invoke.cont ], [ %priority_priorities.sroa.21.212881, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.11.1.lcssa = phi ptr [ %priority_priorities.sroa.11.010429, %invoke.cont ], [ %priority_priorities.sroa.11.1112888, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.0.1.lcssa = phi ptr [ %priority_priorities.sroa.0.010433, %invoke.cont ], [ %priority_priorities.sroa.0.1112883, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %incdec.ptr.i1377 = getelementptr inbounds i8, ptr %__begin2.sroa.0.010428, i64 88
+  %priority_priorities.sroa.21.1.lcssa = phi ptr [ %priority_priorities.sroa.21.09641, %invoke.cont ], [ %priority_priorities.sroa.21.211702, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.11.1.lcssa = phi ptr [ %priority_priorities.sroa.11.09643, %invoke.cont ], [ %priority_priorities.sroa.11.1111709, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.0.1.lcssa = phi ptr [ %priority_priorities.sroa.0.09644, %invoke.cont ], [ %priority_priorities.sroa.0.1111704, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %incdec.ptr.i1377 = getelementptr inbounds i8, ptr %__begin2.sroa.0.09642, i64 88
   %cmp.i.not = icmp eq ptr %incdec.ptr.i1377, %discovery_mechanisms_.val84
   br i1 %cmp.i.not, label %for.end609, label %for.body
 
@@ -18295,8 +18295,8 @@ ehcleanup791:                                     ; preds = %ehcleanup789, %lpad
   br label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit1568
 
 ehcleanup793:                                     ; preds = %ehcleanup714.thread, %lpad.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376
-  %priority_priorities.sroa.11.2 = phi ptr [ %priority_priorities.sroa.11.3, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %priority_priorities.sroa.11.010429, %lpad.i ], [ %priority_priorities.sroa.11.0.lcssa, %ehcleanup714.thread ]
-  %priority_priorities.sroa.0.2 = phi ptr [ %priority_priorities.sroa.0.3, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %priority_priorities.sroa.0.010433, %lpad.i ], [ %priority_priorities.sroa.0.0.lcssa, %ehcleanup714.thread ]
+  %priority_priorities.sroa.11.2 = phi ptr [ %priority_priorities.sroa.11.3, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %priority_priorities.sroa.11.09643, %lpad.i ], [ %priority_priorities.sroa.11.0.lcssa, %ehcleanup714.thread ]
+  %priority_priorities.sroa.0.2 = phi ptr [ %priority_priorities.sroa.0.3, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %priority_priorities.sroa.0.09644, %lpad.i ], [ %priority_priorities.sroa.0.0.lcssa, %ehcleanup714.thread ]
   %.pn73.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn73.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %26, %lpad.i ], [ %895, %ehcleanup714.thread ]
   %cmp.not.i.i1.i1557 = icmp eq ptr %priority_priorities.sroa.0.2, %priority_priorities.sroa.11.2
   br i1 %cmp.not.i.i1.i1557, label %invoke.cont.i1564, label %for.body.i.i.i1558
@@ -20724,8 +20724,8 @@ entry:
   %results_.val = load ptr, ptr %results_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %results_.val25 = load ptr, ptr %0, align 8
-  %cmp.i.not426 = icmp eq ptr %results_.val, %results_.val25
-  br i1 %cmp.i.not426, label %for.end114, label %for.body.lr.ph
+  %cmp.i.not311 = icmp eq ptr %results_.val, %results_.val25
+  br i1 %cmp.i.not311, label %for.end114, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %digits_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 16
@@ -20755,8 +20755,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc112
-  %__begin2.sroa.0.0430 = phi ptr [ %results_.val, %for.body.lr.ph ], [ %incdec.ptr.i163, %for.inc112 ]
-  %6 = load ptr, ptr %__begin2.sroa.0.0430, align 8
+  %__begin2.sroa.0.0312 = phi ptr [ %results_.val, %for.body.lr.ph ], [ %incdec.ptr.i163, %for.inc112 ]
+  %6 = load ptr, ptr %__begin2.sroa.0.0312, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %7 = load atomic i8, ptr @_ZGVZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListERKNS_19XdsEndpointResourceEE30kPriorityListWithEmptyPriority acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %7, 0
@@ -20797,23 +20797,23 @@ _ZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListERKNS_19XdsEndpointResourceE.e
   %_M_finish.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
   %12 = load ptr, ptr %_M_finish.i, align 8
   %13 = load ptr, ptr %spec.select.i, align 8
-  %cmp419.not = icmp eq ptr %12, %13
-  br i1 %cmp419.not, label %for.inc112, label %for.body11.lr.ph
+  %cmp309.not = icmp eq ptr %12, %13
+  br i1 %cmp309.not, label %for.inc112, label %for.body11.lr.ph
 
 for.body11.lr.ph:                                 ; preds = %_ZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListERKNS_19XdsEndpointResourceE.exit
-  %cluster_name.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0430, i64 16
-  %priority_child_numbers.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0430, i64 48
+  %cluster_name.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0312, i64 16
+  %priority_child_numbers.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0312, i64 48
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.end108
   %14 = phi ptr [ %13, %for.body11.lr.ph ], [ %102, %for.end108 ]
-  %priority.0423 = phi i64 [ 0, %for.body11.lr.ph ], [ %inc, %for.end108 ]
-  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::XdsEndpointResource::Priority", ptr %14, i64 %priority.0423
+  %priority.0310 = phi i64 [ 0, %for.body11.lr.ph ], [ %inc, %for.end108 ]
+  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::XdsEndpointResource::Priority", ptr %14, i64 %priority.0310
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %cluster_name.i) #29, !noalias !241
   %15 = extractvalue { i64, ptr } %call.i, 0
   %16 = extractvalue { i64, ptr } %call.i, 1
   %17 = load ptr, ptr %priority_child_numbers.i, align 8, !noalias !241
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %17, i64 %priority.0423
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %17, i64 %priority.0310
   %18 = load i64, ptr %add.ptr.i.i, align 8, !noalias !241
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i.i), !noalias !241
   %call.i.i.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %18, ptr noundef nonnull %digits_.i.i.i), !noalias !244
@@ -20838,12 +20838,12 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   %_M_left.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %19 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i27 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  %cmp.i28.not411 = icmp eq ptr %19, %add.ptr.i.i27
-  br i1 %cmp.i28.not411, label %for.end108, label %for.body19
+  %cmp.i28.not303 = icmp eq ptr %19, %add.ptr.i.i27
+  br i1 %cmp.i28.not303, label %for.end108, label %for.body19
 
 for.body19:                                       ; preds = %for.body11, %_ZNSt6vectorIN9grpc_core21RefCountedStringValueESaIS1_EED2Ev.exit
-  %__begin4.sroa.0.0412 = phi ptr [ %call.i135, %_ZNSt6vectorIN9grpc_core21RefCountedStringValueESaIS1_EED2Ev.exit ], [ %19, %for.body11 ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0412, i64 32
+  %__begin4.sroa.0.0304 = phi ptr [ %call.i135, %_ZNSt6vectorIN9grpc_core21RefCountedStringValueESaIS1_EED2Ev.exit ], [ %19, %for.body11 ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0304, i64 32
   %call22 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %priority_child_name) #29
   %20 = extractvalue { i64, ptr } %call22, 0
   %21 = extractvalue { i64, ptr } %call22, 1
@@ -20966,21 +20966,21 @@ invoke.cont44:                                    ; preds = %arraydestroy.done36
   store ptr %incdec.ptr1.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !254
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i3637, i64 32
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !noalias !254
-  %endpoints = getelementptr inbounds i8, ptr %__begin4.sroa.0.0412, i64 56
+  %endpoints = getelementptr inbounds i8, ptr %__begin4.sroa.0.0304, i64 56
   %34 = load ptr, ptr %endpoints, align 8
-  %_M_finish.i38 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0412, i64 64
+  %_M_finish.i38 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0304, i64 64
   %35 = load ptr, ptr %_M_finish.i38, align 8
-  %cmp.i39.not409 = icmp eq ptr %34, %35
-  br i1 %cmp.i39.not409, label %if.then.i122, label %for.body51.lr.ph
+  %cmp.i39.not301 = icmp eq ptr %34, %35
+  br i1 %cmp.i39.not301, label %if.then.i122, label %for.body51.lr.ph
 
 for.body51.lr.ph:                                 ; preds = %invoke.cont44
-  %lb_weight = getelementptr inbounds i8, ptr %__begin4.sroa.0.0412, i64 48
+  %lb_weight = getelementptr inbounds i8, ptr %__begin4.sroa.0.0304, i64 48
   br label %for.body51
 
 for.body51:                                       ; preds = %for.body51.lr.ph, %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit
-  %__begin5.sroa.0.0410 = phi ptr [ %34, %for.body51.lr.ph ], [ %incdec.ptr.i, %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit ]
+  %__begin5.sroa.0.0302 = phi ptr [ %34, %for.body51.lr.ph ], [ %incdec.ptr.i, %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit ]
   %36 = load i32, ptr %lb_weight, align 8
-  %args_.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.0410, i64 24
+  %args_.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.0302, i64 24
   %call59 = invoke i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args_.i, i64 42, ptr nonnull @.str.80)
           to label %invoke.cont58 unwind label %lpad54.loopexit
 
@@ -20990,9 +20990,9 @@ invoke.cont58:                                    ; preds = %for.body51
   %tobool.i.i.not = icmp eq i64 %37, 0
   %retval.0.i = select i1 %tobool.i.i.not, i32 1, i32 %ref.tmp53.sroa.0.0.extract.trunc
   %mul = mul i32 %retval.0.i, %36
-  %_M_finish.i.i40 = getelementptr inbounds i8, ptr %__begin5.sroa.0.0410, i64 8
+  %_M_finish.i.i40 = getelementptr inbounds i8, ptr %__begin5.sroa.0.0302, i64 8
   %38 = load ptr, ptr %_M_finish.i.i40, align 8
-  %39 = load ptr, ptr %__begin5.sroa.0.0410, align 8
+  %39 = load ptr, ptr %__begin5.sroa.0.0302, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -21022,7 +21022,7 @@ invoke.cont.i41:                                  ; preds = %_ZNSt16allocator_tr
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i42, align 8
   %add.ptr.i.i.i = getelementptr inbounds %struct.grpc_resolved_address, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %40 = load ptr, ptr %__begin5.sroa.0.0410, align 8
+  %40 = load ptr, ptr %__begin5.sroa.0.0302, align 8
   %41 = load ptr, ptr %_M_finish.i.i40, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %40 to i64
@@ -21176,7 +21176,7 @@ if.then.i.i.i84:                                  ; preds = %_ZN9grpc_core13RefC
   br label %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_19HierarchicalPathArgEED2Ev.exit, %if.then.i.i.i84
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.0410, i64 32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.0302, i64 32
   %cmp.i39.not = icmp eq ptr %incdec.ptr.i, %35
   br i1 %cmp.i39.not, label %if.then.i122, label %for.body51
 
@@ -21329,7 +21329,7 @@ if.then.i.i125:                                   ; preds = %if.then.i122
   br label %_ZNSt6vectorIN9grpc_core21RefCountedStringValueESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9grpc_core21RefCountedStringValueESaIS1_EED2Ev.exit: ; preds = %if.then.i122, %if.then.i.i125
-  %call.i135 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.0412) #34
+  %call.i135 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.0304) #34
   %cmp.i28.not = icmp eq ptr %call.i135, %add.ptr.i.i27
   br i1 %cmp.i28.not, label %for.end108, label %for.body19
 
@@ -21384,7 +21384,7 @@ if.then.i.i.i158:                                 ; preds = %_ZSt8_DestroyIN9grp
 
 for.end108:                                       ; preds = %_ZNSt6vectorIN9grpc_core21RefCountedStringValueESaIS1_EED2Ev.exit, %for.body11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %priority_child_name) #29
-  %inc = add nuw i64 %priority.0423, 1
+  %inc = add nuw i64 %priority.0310, 1
   %101 = load ptr, ptr %_M_finish.i, align 8
   %102 = load ptr, ptr %spec.select.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %101 to i64
@@ -21400,7 +21400,7 @@ ehcleanup109:                                     ; preds = %_ZN9grpc_core21RefC
   br label %common.resume
 
 for.inc112:                                       ; preds = %for.end108, %_ZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListERKNS_19XdsEndpointResourceE.exit
-  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0430, i64 72
+  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0312, i64 72
   %cmp.i.not = icmp eq ptr %incdec.ptr.i163, %results_.val25
   br i1 %cmp.i.not, label %for.end114, label %for.body
 

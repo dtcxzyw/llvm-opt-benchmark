@@ -3590,7 +3590,7 @@ for.cond:                                         ; preds = %for.condthread-pre-
   %0 = phi i8 [ %.pr, %for.condthread-pre-split ], [ %31, %if.end395 ]
   %l.0 = phi ptr [ %l.0.ph, %for.condthread-pre-split ], [ %l.7, %if.end395 ]
   %retval1.0 = phi i32 [ %retval1.0.ph, %for.condthread-pre-split ], [ %retval1.3, %if.end395 ]
-  switch i8 %0, label %for.cond46.preheader254 [
+  switch i8 %0, label %for.cond46.preheader247 [
     i8 0, label %return
     i8 45, label %if.then6
     i8 43, label %if.then10
@@ -3604,19 +3604,19 @@ for.cond:                                         ; preds = %for.condthread-pre-
 
 if.then6:                                         ; preds = %for.cond
   %incdec.ptr = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader254
+  br label %for.cond46.preheader247
 
 if.then10:                                        ; preds = %for.cond
   %incdec.ptr11 = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader254
+  br label %for.cond46.preheader247
 
 if.then16:                                        ; preds = %for.cond
   %incdec.ptr17 = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader254
+  br label %for.cond46.preheader247
 
-for.cond46.preheader254:                          ; preds = %for.cond, %if.then6, %if.then10, %if.then16
-  %l.1281288 = phi ptr [ %incdec.ptr, %if.then6 ], [ %incdec.ptr11, %if.then10 ], [ %incdec.ptr17, %if.then16 ], [ %l.0, %for.cond ]
-  %rule.0283287 = phi i32 [ 3, %if.then6 ], [ 4, %if.then10 ], [ 2, %if.then16 ], [ 1, %for.cond ]
+for.cond46.preheader247:                          ; preds = %for.cond, %if.then6, %if.then10, %if.then16
+  %l.1271278 = phi ptr [ %incdec.ptr, %if.then6 ], [ %incdec.ptr11, %if.then10 ], [ %incdec.ptr17, %if.then16 ], [ %l.0, %for.cond ]
+  %rule.0273277 = phi i32 [ 3, %if.then6 ], [ 4, %if.then10 ], [ 2, %if.then16 ], [ 1, %for.cond ]
   br label %for.cond46
 
 while.cond.us.preheader:                          ; preds = %for.cond
@@ -3660,14 +3660,14 @@ if.then43:                                        ; preds = %for.cond, %for.cond
   %incdec.ptr44 = getelementptr inbounds i8, ptr %l.0, i64 1
   br label %for.condthread-pre-split
 
-for.cond46:                                       ; preds = %for.cond46.preheader254, %if.end302
-  %alg_mkey.0 = phi i32 [ %alg_mkey.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
-  %alg_auth.0 = phi i32 [ %alg_auth.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
-  %alg_enc.0 = phi i32 [ %alg_enc.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
-  %alg_mac.0 = phi i32 [ %alg_mac.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
-  %algo_strength.0 = phi i32 [ %algo_strength.3, %if.end302 ], [ 0, %for.cond46.preheader254 ]
-  %min_tls.0 = phi i32 [ %min_tls.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
-  %l.2 = phi ptr [ %incdec.ptr97, %if.end302 ], [ %l.1281288, %for.cond46.preheader254 ]
+for.cond46:                                       ; preds = %for.cond46.preheader247, %if.end302
+  %alg_mkey.0 = phi i32 [ %alg_mkey.2, %if.end302 ], [ 0, %for.cond46.preheader247 ]
+  %alg_auth.0 = phi i32 [ %alg_auth.2, %if.end302 ], [ 0, %for.cond46.preheader247 ]
+  %alg_enc.0 = phi i32 [ %alg_enc.2, %if.end302 ], [ 0, %for.cond46.preheader247 ]
+  %alg_mac.0 = phi i32 [ %alg_mac.2, %if.end302 ], [ 0, %for.cond46.preheader247 ]
+  %algo_strength.0 = phi i32 [ %algo_strength.3, %if.end302 ], [ 0, %for.cond46.preheader247 ]
+  %min_tls.0 = phi i32 [ %min_tls.2, %if.end302 ], [ 0, %for.cond46.preheader247 ]
+  %l.2 = phi ptr [ %incdec.ptr97, %if.end302 ], [ %l.1271278, %for.cond46.preheader247 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %for.cond46
@@ -3710,8 +3710,8 @@ if.end88:                                         ; preds = %while.end
   %cmp94.not = icmp eq i8 %ch.0.fr, 43
   %incdec.ptr97 = getelementptr inbounds i8, ptr %l.3, i64 1
   %9 = load ptr, ptr %ca_list, align 8
-  %tobool.not239 = icmp eq ptr %9, null
-  br i1 %tobool.not239, label %for.end, label %while.body101.lr.ph
+  %tobool.not233 = icmp eq ptr %9, null
+  br i1 %tobool.not233, label %for.end, label %while.body101.lr.ph
 
 while.body101.lr.ph:                              ; preds = %if.end88
   %conv104 = zext nneg i32 %buflen.0 to i64
@@ -3875,7 +3875,7 @@ if.end302:                                        ; preds = %if.then286, %if.els
   br i1 %cmp94.not, label %for.cond46, label %if.then366
 
 for.end:                                          ; preds = %if.then286, %if.then231, %if.then209, %if.then190, %if.then171, %if.then153, %if.end88, %if.else140
-  %l.5.le242 = select i1 %cmp94.not, ptr %incdec.ptr97, ptr %l.3
+  %l.5.le236 = select i1 %cmp94.not, ptr %incdec.ptr97, ptr %l.3
   br label %while.cond368
 
 land.lhs.true311:                                 ; preds = %while.end.us
@@ -3937,12 +3937,12 @@ lor.rhs356:                                       ; preds = %while.cond341
   br label %while.cond341, !llvm.loop !21
 
 if.then366:                                       ; preds = %if.end302
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3, i32 noundef %alg_mkey.2, i32 noundef %alg_auth.2, i32 noundef %alg_enc.2, i32 noundef %alg_mac.2, i32 noundef %min_tls.2, i32 noundef %algo_strength.3, i32 noundef %rule.0283287, i32 noundef -1, ptr noundef %head_p, ptr noundef %tail_p)
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3, i32 noundef %alg_mkey.2, i32 noundef %alg_auth.2, i32 noundef %alg_enc.2, i32 noundef %alg_mac.2, i32 noundef %min_tls.2, i32 noundef %algo_strength.3, i32 noundef %rule.0273277, i32 noundef -1, ptr noundef %head_p, ptr noundef %tail_p)
   %.pr209 = load i8, ptr %l.3, align 1
   br label %if.end395
 
 while.cond368:                                    ; preds = %for.end, %lor.rhs384
-  %l.8 = phi ptr [ %incdec.ptr392, %lor.rhs384 ], [ %l.5.le242, %for.end ]
+  %l.8 = phi ptr [ %incdec.ptr392, %lor.rhs384 ], [ %l.5.le236, %for.end ]
   %30 = load i8, ptr %l.8, align 1
   switch i8 %30, label %lor.rhs384 [
     i8 0, label %if.end395
