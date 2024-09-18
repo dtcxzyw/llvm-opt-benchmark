@@ -26,13 +26,13 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8
   %.not186 = icmp eq i32 %11, 1431655765
-  br i1 %.not186, label %.._crit_edge_crit_edge, label %.lr.ph188
+  br i1 %.not186, label %.._crit_edge_crit_edge, label %.lr.ph187
 
 .._crit_edge_crit_edge:                           ; preds = %3
-  %.pre207 = ptrtoint ptr %8 to i64
+  %.pre206 = ptrtoint ptr %8 to i64
   br label %._crit_edge
 
-.lr.ph188:                                        ; preds = %3
+.lr.ph187:                                        ; preds = %3
   %12 = getelementptr inbounds i8, ptr %5, i64 32
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   %14 = getelementptr inbounds i8, ptr %5, i64 24
@@ -44,7 +44,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %19 = getelementptr inbounds i8, ptr %2, i64 4
   br label %20
 
-20:                                               ; preds = %.lr.ph188, %454
+20:                                               ; preds = %.lr.ph187, %454
   %21 = load i64, ptr %12, align 16
   %.not111 = icmp eq i64 %21, 0
   br i1 %.not111, label %29, label %22
@@ -117,11 +117,11 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 58:                                               ; preds = %55
   call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
-  %.pre204 = load ptr, ptr %9, align 8
+  %.pre203 = load ptr, ptr %9, align 8
   br label %59
 
 59:                                               ; preds = %55, %58
-  %60 = phi ptr [ %56, %55 ], [ %.pre204, %58 ]
+  %60 = phi ptr [ %56, %55 ], [ %.pre203, %58 ]
   %61 = getelementptr inbounds i8, ptr %60, i64 1
   store ptr %61, ptr %9, align 8
   store i8 37, ptr %60, align 1
@@ -438,18 +438,18 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 197:                                              ; preds = %113
   %198 = icmp eq i32 %.3153, -2
-  %.pre201.pre = load i32, ptr %2, align 8
+  %.pre200.pre = load i32, ptr %2, align 8
   br i1 %198, label %199, label %212
 
 199:                                              ; preds = %197
-  %200 = icmp ult i32 %.pre201.pre, 41
+  %200 = icmp ult i32 %.pre200.pre, 41
   br i1 %200, label %201, label %206
 
 201:                                              ; preds = %199
   %202 = load ptr, ptr %17, align 8
-  %203 = zext nneg i32 %.pre201.pre to i64
+  %203 = zext nneg i32 %.pre200.pre to i64
   %204 = getelementptr i8, ptr %202, i64 %203
-  %205 = add nuw nsw i32 %.pre201.pre, 8
+  %205 = add nuw nsw i32 %.pre200.pre, 8
   store i32 %205, ptr %2, align 8
   br label %209
 
@@ -460,26 +460,26 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %209
 
 209:                                              ; preds = %206, %201
-  %.pre201206 = phi i32 [ %205, %201 ], [ %.pre201.pre, %206 ]
+  %.pre200205 = phi i32 [ %205, %201 ], [ %.pre200.pre, %206 ]
   %210 = phi ptr [ %204, %201 ], [ %207, %206 ]
   %211 = load i32, ptr %210, align 4
   br label %212
 
 212:                                              ; preds = %209, %197
-  %.pre201 = phi i32 [ %.pre201206, %209 ], [ %.pre201.pre, %197 ]
+  %.pre200 = phi i32 [ %.pre200205, %209 ], [ %.pre200.pre, %197 ]
   %.0150 = phi i32 [ %211, %209 ], [ %.3153, %197 ]
   %213 = icmp eq i32 %.4, -2
   br i1 %213, label %214, label %228
 
 214:                                              ; preds = %212
-  %215 = icmp ult i32 %.pre201, 41
+  %215 = icmp ult i32 %.pre200, 41
   br i1 %215, label %216, label %221
 
 216:                                              ; preds = %214
   %217 = load ptr, ptr %17, align 8
-  %218 = zext nneg i32 %.pre201 to i64
+  %218 = zext nneg i32 %.pre200 to i64
   %219 = getelementptr i8, ptr %217, i64 %218
-  %220 = add nuw nsw i32 %.pre201, 8
+  %220 = add nuw nsw i32 %.pre200, 8
   store i32 %220, ptr %2, align 8
   br label %224
 
@@ -490,13 +490,13 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %224
 
 224:                                              ; preds = %221, %216
-  %225 = phi i32 [ %220, %216 ], [ %.pre201, %221 ]
+  %225 = phi i32 [ %220, %216 ], [ %.pre200, %221 ]
   %226 = phi ptr [ %219, %216 ], [ %222, %221 ]
   %227 = load i32, ptr %226, align 4
   br label %228
 
 228:                                              ; preds = %224, %212
-  %229 = phi i32 [ %225, %224 ], [ %.pre201, %212 ]
+  %229 = phi i32 [ %225, %224 ], [ %.pre200, %212 ]
   %.1148 = phi i32 [ %227, %224 ], [ %.4, %212 ]
   %230 = icmp ult i32 %229, 41
   br i1 %230, label %231, label %236
@@ -615,11 +615,11 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 289:                                              ; preds = %283
   call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
-  %.pre200 = load ptr, ptr %9, align 8
+  %.pre199 = load ptr, ptr %9, align 8
   br label %290
 
 290:                                              ; preds = %283, %289
-  %291 = phi ptr [ %287, %283 ], [ %.pre200, %289 ]
+  %291 = phi ptr [ %287, %283 ], [ %.pre199, %289 ]
   %292 = getelementptr inbounds i8, ptr %291, i64 1
   store ptr %292, ptr %9, align 8
   store i8 %286, ptr %291, align 1
@@ -667,11 +667,11 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 315:                                              ; preds = %.lr.ph
   call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
-  %.pre199 = load ptr, ptr %9, align 8
+  %.pre198 = load ptr, ptr %9, align 8
   br label %316
 
 316:                                              ; preds = %.lr.ph, %315
-  %317 = phi ptr [ %313, %.lr.ph ], [ %.pre199, %315 ]
+  %317 = phi ptr [ %313, %.lr.ph ], [ %.pre198, %315 ]
   %318 = getelementptr inbounds i8, ptr %317, i64 1
   store ptr %318, ptr %9, align 8
   store i8 %311, ptr %317, align 1
@@ -772,11 +772,11 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 370:                                              ; preds = %363
   call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
-  %.pre202 = load ptr, ptr %9, align 8
+  %.pre201 = load ptr, ptr %9, align 8
   br label %371
 
 371:                                              ; preds = %363, %370, %355
-  %.073 = phi ptr [ %358, %355 ], [ %.pre202, %370 ], [ %365, %363 ]
+  %.073 = phi ptr [ %358, %355 ], [ %.pre201, %370 ], [ %365, %363 ]
   switch i8 %.in116, label %.thread [
     i8 100, label %372
     i8 105, label %372
@@ -917,19 +917,19 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 .lr.ph185:                                        ; preds = %.preheader, %435
   %430 = phi i8 [ %438, %435 ], [ %429, %.preheader ]
-  %.pn189 = phi ptr [ %431, %435 ], [ %.073, %.preheader ]
-  %431 = getelementptr inbounds i8, ptr %.pn189, i64 1
+  %.pn188 = phi ptr [ %431, %435 ], [ %.073, %.preheader ]
+  %431 = getelementptr inbounds i8, ptr %.pn188, i64 1
   %432 = load ptr, ptr %9, align 8
   %433 = icmp eq ptr %432, %15
   br i1 %433, label %434, label %435
 
 434:                                              ; preds = %.lr.ph185
   call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
-  %.pre203 = load ptr, ptr %9, align 8
+  %.pre202 = load ptr, ptr %9, align 8
   br label %435
 
 435:                                              ; preds = %.lr.ph185, %434
-  %436 = phi ptr [ %432, %.lr.ph185 ], [ %.pre203, %434 ]
+  %436 = phi ptr [ %432, %.lr.ph185 ], [ %.pre202, %434 ]
   %437 = getelementptr inbounds i8, ptr %436, i64 1
   store ptr %437, ptr %9, align 8
   store i8 %430, ptr %436, align 1
@@ -980,7 +980,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %454, %.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre207, %.._crit_edge_crit_edge ], [ %18, %454 ]
+  %.pre-phi = phi i64 [ %.pre206, %.._crit_edge_crit_edge ], [ %18, %454 ]
   %456 = load ptr, ptr %4, align 16
   %457 = call i64 @CORD_len(ptr noundef %456) #10
   %458 = load ptr, ptr %9, align 8

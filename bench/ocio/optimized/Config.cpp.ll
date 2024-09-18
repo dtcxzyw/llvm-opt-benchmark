@@ -9434,11 +9434,11 @@ for.inc367:                                       ; preds = %invoke.cont323
   br i1 %cmp.i254.not, label %for.end369.loopexit, label %for.body278, !llvm.loop !64
 
 for.end369.loopexit:                              ; preds = %for.inc367
-  %.pre1263 = load ptr, ptr %this, align 8
+  %.pre1261 = load ptr, ptr %this, align 8
   br label %for.end369
 
 for.end369:                                       ; preds = %for.end369.loopexit, %for.end266
-  %85 = phi ptr [ %.pre1263, %for.end369.loopexit ], [ %34, %for.end266 ]
+  %85 = phi ptr [ %.pre1261, %for.end369.loopexit ], [ %34, %for.end266 ]
   %86 = load i32, ptr %85, align 8
   %cmp371 = icmp ugt i32 %86, 1
   br i1 %cmp371, label %land.lhs.true372, label %if.end557
@@ -9469,7 +9469,7 @@ for.body385.outer:                                ; preds = %for.inc442.thread, 
   %acesInterHasSceneRefColorspace.01105.ph = phi i1 [ %acesInterHasSceneRefColorspace.01105, %for.inc442.thread ], [ false, %for.body385.lr.ph ]
   %hasRoleCieXyzD65Interchange.01104.ph = phi i8 [ %hasRoleCieXyzD65Interchange.01104, %for.inc442.thread ], [ 0, %for.body385.lr.ph ]
   %cieInterHasDisplayRefColorspace.01103.ph = phi i1 [ %cieInterHasDisplayRefColorspace.01103, %for.inc442.thread ], [ false, %for.body385.lr.ph ]
-  %__begin3.sroa.0.01102.ph = phi ptr [ %call.i3321304, %for.inc442.thread ], [ %88, %for.body385.lr.ph ]
+  %__begin3.sroa.0.01102.ph = phi ptr [ %call.i3321302, %for.inc442.thread ], [ %88, %for.body385.lr.ph ]
   br label %for.body385
 
 for.body385:                                      ; preds = %for.body385.outer, %for.inc442
@@ -9664,30 +9664,30 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319: ; preds = %i
 
 for.inc442.sink.split.sink.split:                 ; preds = %if.then.i.i.i302, %if.then.i.i.i269
   %_M_use_count.i.i.i.i303.sink = phi ptr [ %_M_use_count.i.i.i.i270, %if.then.i.i.i269 ], [ %_M_use_count.i.i.i.i303, %if.then.i.i.i302 ]
-  %.sink1465 = phi ptr [ %95, %if.then.i.i.i269 ], [ %107, %if.then.i.i.i302 ]
+  %.sink1463 = phi ptr [ %95, %if.then.i.i.i269 ], [ %107, %if.then.i.i.i302 ]
   %cieInterHasDisplayRefColorspace.1.ph.ph = phi i1 [ %cieInterHasDisplayRefColorspace.01103, %if.then.i.i.i269 ], [ %cmp435, %if.then.i.i.i302 ]
   %hasRoleCieXyzD65Interchange.1.ph.ph = phi i8 [ %hasRoleCieXyzD65Interchange.01104, %if.then.i.i.i269 ], [ 1, %if.then.i.i.i302 ]
   %acesInterHasSceneRefColorspace.1.ph.ph = phi i1 [ %cmp420, %if.then.i.i.i269 ], [ %acesInterHasSceneRefColorspace.01105, %if.then.i.i.i302 ]
   %hasRoleAcesInterchange.1.ph.ph = phi i8 [ 1, %if.then.i.i.i269 ], [ %hasRoleAcesInterchange.01106, %if.then.i.i.i302 ]
   store i32 0, ptr %_M_use_count.i.i.i.i303.sink, align 8
-  %_M_weak_count.i.i.i.i328 = getelementptr inbounds i8, ptr %.sink1465, i64 12
+  %_M_weak_count.i.i.i.i328 = getelementptr inbounds i8, ptr %.sink1463, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i328, align 4
-  %vtable.i.i.i.i329 = load ptr, ptr %.sink1465, align 8
+  %vtable.i.i.i.i329 = load ptr, ptr %.sink1463, align 8
   %vfn.i.i.i.i330 = getelementptr inbounds i8, ptr %vtable.i.i.i.i329, i64 16
   %116 = load ptr, ptr %vfn.i.i.i.i330, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(16) %.sink1465) #29
+  call void %116(ptr noundef nonnull align 8 dereferenceable(16) %.sink1463) #29
   br label %for.inc442.sink.split
 
 for.inc442.sink.split:                            ; preds = %for.inc442.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286
-  %.sink1462 = phi ptr [ %95, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ %107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319 ], [ %.sink1465, %for.inc442.sink.split.sink.split ]
+  %.sink1460 = phi ptr [ %95, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ %107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319 ], [ %.sink1463, %for.inc442.sink.split.sink.split ]
   %cieInterHasDisplayRefColorspace.1.ph = phi i1 [ %cieInterHasDisplayRefColorspace.01103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ %cmp435, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319 ], [ %cieInterHasDisplayRefColorspace.1.ph.ph, %for.inc442.sink.split.sink.split ]
   %hasRoleCieXyzD65Interchange.1.ph = phi i8 [ %hasRoleCieXyzD65Interchange.01104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319 ], [ %hasRoleCieXyzD65Interchange.1.ph.ph, %for.inc442.sink.split.sink.split ]
   %acesInterHasSceneRefColorspace.1.ph = phi i1 [ %cmp420, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ %acesInterHasSceneRefColorspace.01105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319 ], [ %acesInterHasSceneRefColorspace.1.ph.ph, %for.inc442.sink.split.sink.split ]
   %hasRoleAcesInterchange.1.ph = phi i8 [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ %hasRoleAcesInterchange.01106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319 ], [ %hasRoleAcesInterchange.1.ph.ph, %for.inc442.sink.split.sink.split ]
-  %vtable2.i.i.i.i.i.i323 = load ptr, ptr %.sink1462, align 8
+  %vtable2.i.i.i.i.i.i323 = load ptr, ptr %.sink1460, align 8
   %vfn3.i.i.i.i.i.i324 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i323, i64 24
   %117 = load ptr, ptr %vfn3.i.i.i.i.i.i324, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(16) %.sink1462) #29
+  call void %117(ptr noundef nonnull align 8 dereferenceable(16) %.sink1460) #29
   br label %for.inc442
 
 for.inc442:                                       ; preds = %for.inc442.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i309, %invoke.cont432, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i276, %invoke.cont417, %invoke.cont403, %invoke.cont396, %invoke.cont425
@@ -9702,11 +9702,11 @@ for.inc442:                                       ; preds = %for.inc442.sink.spl
   br i1 %cmp.i265.not, label %for.end444, label %for.body385
 
 for.inc442.thread:                                ; preds = %invoke.cont389
-  %call.i3321304 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.01102) #34
-  %cmp.i265.not1305 = icmp eq ptr %call.i3321304, %add.ptr.i.i264
-  br i1 %cmp.i265.not1305, label %for.end444.thread1313, label %for.body385.outer
+  %call.i3321302 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.01102) #34
+  %cmp.i265.not1303 = icmp eq ptr %call.i3321302, %add.ptr.i.i264
+  br i1 %cmp.i265.not1303, label %for.end444.thread1311, label %for.body385.outer
 
-for.end444.thread1313:                            ; preds = %for.inc442.thread
+for.end444.thread1311:                            ; preds = %for.inc442.thread
   %118 = trunc nuw i8 %hasRoleAcesInterchange.01106 to i1
   %119 = trunc nuw i8 %hasRoleCieXyzD65Interchange.01104 to i1
   br i1 %hasRoleCompositingLog.01108, label %if.end472, label %if.then460
@@ -9717,12 +9717,12 @@ for.end444:                                       ; preds = %for.inc442
   br i1 %hasRoleSceneLinear.01109.ph, label %if.end458, label %if.then446
 
 if.then446:                                       ; preds = %if.then375, %for.end444
-  %hasRoleCompositingLog.0.lcssa1295 = phi i1 [ %hasRoleCompositingLog.1, %for.end444 ], [ false, %if.then375 ]
-  %hasRoleColorTiming.0.lcssa1293 = phi i1 [ %hasRoleColorTiming.1, %for.end444 ], [ false, %if.then375 ]
-  %hasRoleAcesInterchange.0.lcssa1291 = phi i1 [ %120, %for.end444 ], [ false, %if.then375 ]
-  %acesInterHasSceneRefColorspace.0.lcssa1289 = phi i1 [ %acesInterHasSceneRefColorspace.1, %for.end444 ], [ false, %if.then375 ]
-  %hasRoleCieXyzD65Interchange.0.lcssa1287 = phi i1 [ %121, %for.end444 ], [ false, %if.then375 ]
-  %cieInterHasDisplayRefColorspace.0.lcssa1285 = phi i1 [ %cieInterHasDisplayRefColorspace.1, %for.end444 ], [ false, %if.then375 ]
+  %hasRoleCompositingLog.0.lcssa1293 = phi i1 [ %hasRoleCompositingLog.1, %for.end444 ], [ false, %if.then375 ]
+  %hasRoleColorTiming.0.lcssa1291 = phi i1 [ %hasRoleColorTiming.1, %for.end444 ], [ false, %if.then375 ]
+  %hasRoleAcesInterchange.0.lcssa1289 = phi i1 [ %120, %for.end444 ], [ false, %if.then375 ]
+  %acesInterHasSceneRefColorspace.0.lcssa1287 = phi i1 [ %acesInterHasSceneRefColorspace.1, %for.end444 ], [ false, %if.then375 ]
+  %hasRoleCieXyzD65Interchange.0.lcssa1285 = phi i1 [ %121, %for.end444 ], [ false, %if.then375 ]
+  %cieInterHasDisplayRefColorspace.0.lcssa1283 = phi i1 [ %cieInterHasDisplayRefColorspace.1, %for.end444 ], [ false, %if.then375 ]
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os447)
           to label %invoke.cont448 unwind label %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9741,7 +9741,7 @@ invoke.cont453:                                   ; preds = %invoke.cont450
 invoke.cont455:                                   ; preds = %invoke.cont453
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp452) #29
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os447) #29
-  br i1 %hasRoleCompositingLog.0.lcssa1295, label %if.end472, label %if.then460
+  br i1 %hasRoleCompositingLog.0.lcssa1293, label %if.end472, label %if.then460
 
 lpad449:                                          ; preds = %invoke.cont450, %invoke.cont448
   %122 = landingpad { ptr, i32 }
@@ -9764,12 +9764,12 @@ ehcleanup457:                                     ; preds = %lpad454, %lpad449
 if.end458:                                        ; preds = %for.end444
   br i1 %hasRoleCompositingLog.1, label %if.end472, label %if.then460
 
-if.then460:                                       ; preds = %for.end444.thread1313, %invoke.cont455, %if.end458
-  %cieInterHasDisplayRefColorspace.0.lcssa12861329 = phi i1 [ %cieInterHasDisplayRefColorspace.0.lcssa1285, %invoke.cont455 ], [ %cieInterHasDisplayRefColorspace.1, %if.end458 ], [ %cieInterHasDisplayRefColorspace.01103, %for.end444.thread1313 ]
-  %hasRoleCieXyzD65Interchange.0.lcssa12881327 = phi i1 [ %hasRoleCieXyzD65Interchange.0.lcssa1287, %invoke.cont455 ], [ %121, %if.end458 ], [ %119, %for.end444.thread1313 ]
-  %acesInterHasSceneRefColorspace.0.lcssa12901325 = phi i1 [ %acesInterHasSceneRefColorspace.0.lcssa1289, %invoke.cont455 ], [ %acesInterHasSceneRefColorspace.1, %if.end458 ], [ %acesInterHasSceneRefColorspace.01105, %for.end444.thread1313 ]
-  %hasRoleAcesInterchange.0.lcssa12921323 = phi i1 [ %hasRoleAcesInterchange.0.lcssa1291, %invoke.cont455 ], [ %120, %if.end458 ], [ %118, %for.end444.thread1313 ]
-  %hasRoleColorTiming.0.lcssa12941321 = phi i1 [ %hasRoleColorTiming.0.lcssa1293, %invoke.cont455 ], [ %hasRoleColorTiming.1, %if.end458 ], [ %hasRoleColorTiming.01107, %for.end444.thread1313 ]
+if.then460:                                       ; preds = %for.end444.thread1311, %invoke.cont455, %if.end458
+  %cieInterHasDisplayRefColorspace.0.lcssa12841327 = phi i1 [ %cieInterHasDisplayRefColorspace.0.lcssa1283, %invoke.cont455 ], [ %cieInterHasDisplayRefColorspace.1, %if.end458 ], [ %cieInterHasDisplayRefColorspace.01103, %for.end444.thread1311 ]
+  %hasRoleCieXyzD65Interchange.0.lcssa12861325 = phi i1 [ %hasRoleCieXyzD65Interchange.0.lcssa1285, %invoke.cont455 ], [ %121, %if.end458 ], [ %119, %for.end444.thread1311 ]
+  %acesInterHasSceneRefColorspace.0.lcssa12881323 = phi i1 [ %acesInterHasSceneRefColorspace.0.lcssa1287, %invoke.cont455 ], [ %acesInterHasSceneRefColorspace.1, %if.end458 ], [ %acesInterHasSceneRefColorspace.01105, %for.end444.thread1311 ]
+  %hasRoleAcesInterchange.0.lcssa12901321 = phi i1 [ %hasRoleAcesInterchange.0.lcssa1289, %invoke.cont455 ], [ %120, %if.end458 ], [ %118, %for.end444.thread1311 ]
+  %hasRoleColorTiming.0.lcssa12921319 = phi i1 [ %hasRoleColorTiming.0.lcssa1291, %invoke.cont455 ], [ %hasRoleColorTiming.1, %if.end458 ], [ %hasRoleColorTiming.01107, %for.end444.thread1311 ]
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os461)
           to label %invoke.cont462 unwind label %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9788,7 +9788,7 @@ invoke.cont467:                                   ; preds = %invoke.cont464
 invoke.cont469:                                   ; preds = %invoke.cont467
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp466) #29
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os461) #29
-  br i1 %hasRoleColorTiming.0.lcssa12941321, label %if.end486, label %if.then474
+  br i1 %hasRoleColorTiming.0.lcssa12921319, label %if.end486, label %if.then474
 
 lpad463:                                          ; preds = %invoke.cont464, %invoke.cont462
   %124 = landingpad { ptr, i32 }
@@ -9808,19 +9808,19 @@ ehcleanup471:                                     ; preds = %lpad468, %lpad463
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os461) #29
   br label %ehcleanup1916
 
-if.end472:                                        ; preds = %for.end444.thread1313, %invoke.cont455, %if.end458
-  %cieInterHasDisplayRefColorspace.0.lcssa12861330 = phi i1 [ %cieInterHasDisplayRefColorspace.0.lcssa1285, %invoke.cont455 ], [ %cieInterHasDisplayRefColorspace.1, %if.end458 ], [ %cieInterHasDisplayRefColorspace.01103, %for.end444.thread1313 ]
-  %hasRoleCieXyzD65Interchange.0.lcssa12881328 = phi i1 [ %hasRoleCieXyzD65Interchange.0.lcssa1287, %invoke.cont455 ], [ %121, %if.end458 ], [ %119, %for.end444.thread1313 ]
-  %acesInterHasSceneRefColorspace.0.lcssa12901326 = phi i1 [ %acesInterHasSceneRefColorspace.0.lcssa1289, %invoke.cont455 ], [ %acesInterHasSceneRefColorspace.1, %if.end458 ], [ %acesInterHasSceneRefColorspace.01105, %for.end444.thread1313 ]
-  %hasRoleAcesInterchange.0.lcssa12921324 = phi i1 [ %hasRoleAcesInterchange.0.lcssa1291, %invoke.cont455 ], [ %120, %if.end458 ], [ %118, %for.end444.thread1313 ]
-  %hasRoleColorTiming.0.lcssa12941322 = phi i1 [ %hasRoleColorTiming.0.lcssa1293, %invoke.cont455 ], [ %hasRoleColorTiming.1, %if.end458 ], [ %hasRoleColorTiming.01107, %for.end444.thread1313 ]
-  br i1 %hasRoleColorTiming.0.lcssa12941322, label %if.end486, label %if.then474
+if.end472:                                        ; preds = %for.end444.thread1311, %invoke.cont455, %if.end458
+  %cieInterHasDisplayRefColorspace.0.lcssa12841328 = phi i1 [ %cieInterHasDisplayRefColorspace.0.lcssa1283, %invoke.cont455 ], [ %cieInterHasDisplayRefColorspace.1, %if.end458 ], [ %cieInterHasDisplayRefColorspace.01103, %for.end444.thread1311 ]
+  %hasRoleCieXyzD65Interchange.0.lcssa12861326 = phi i1 [ %hasRoleCieXyzD65Interchange.0.lcssa1285, %invoke.cont455 ], [ %121, %if.end458 ], [ %119, %for.end444.thread1311 ]
+  %acesInterHasSceneRefColorspace.0.lcssa12881324 = phi i1 [ %acesInterHasSceneRefColorspace.0.lcssa1287, %invoke.cont455 ], [ %acesInterHasSceneRefColorspace.1, %if.end458 ], [ %acesInterHasSceneRefColorspace.01105, %for.end444.thread1311 ]
+  %hasRoleAcesInterchange.0.lcssa12901322 = phi i1 [ %hasRoleAcesInterchange.0.lcssa1289, %invoke.cont455 ], [ %120, %if.end458 ], [ %118, %for.end444.thread1311 ]
+  %hasRoleColorTiming.0.lcssa12921320 = phi i1 [ %hasRoleColorTiming.0.lcssa1291, %invoke.cont455 ], [ %hasRoleColorTiming.1, %if.end458 ], [ %hasRoleColorTiming.01107, %for.end444.thread1311 ]
+  br i1 %hasRoleColorTiming.0.lcssa12921320, label %if.end486, label %if.then474
 
 if.then474:                                       ; preds = %invoke.cont469, %if.end472
-  %hasRoleAcesInterchange.0.lcssa129213241337 = phi i1 [ %hasRoleAcesInterchange.0.lcssa12921323, %invoke.cont469 ], [ %hasRoleAcesInterchange.0.lcssa12921324, %if.end472 ]
-  %acesInterHasSceneRefColorspace.0.lcssa129013261335 = phi i1 [ %acesInterHasSceneRefColorspace.0.lcssa12901325, %invoke.cont469 ], [ %acesInterHasSceneRefColorspace.0.lcssa12901326, %if.end472 ]
-  %hasRoleCieXyzD65Interchange.0.lcssa128813281333 = phi i1 [ %hasRoleCieXyzD65Interchange.0.lcssa12881327, %invoke.cont469 ], [ %hasRoleCieXyzD65Interchange.0.lcssa12881328, %if.end472 ]
-  %cieInterHasDisplayRefColorspace.0.lcssa128613301331 = phi i1 [ %cieInterHasDisplayRefColorspace.0.lcssa12861329, %invoke.cont469 ], [ %cieInterHasDisplayRefColorspace.0.lcssa12861330, %if.end472 ]
+  %hasRoleAcesInterchange.0.lcssa129013221335 = phi i1 [ %hasRoleAcesInterchange.0.lcssa12901321, %invoke.cont469 ], [ %hasRoleAcesInterchange.0.lcssa12901322, %if.end472 ]
+  %acesInterHasSceneRefColorspace.0.lcssa128813241333 = phi i1 [ %acesInterHasSceneRefColorspace.0.lcssa12881323, %invoke.cont469 ], [ %acesInterHasSceneRefColorspace.0.lcssa12881324, %if.end472 ]
+  %hasRoleCieXyzD65Interchange.0.lcssa128613261331 = phi i1 [ %hasRoleCieXyzD65Interchange.0.lcssa12861325, %invoke.cont469 ], [ %hasRoleCieXyzD65Interchange.0.lcssa12861326, %if.end472 ]
+  %cieInterHasDisplayRefColorspace.0.lcssa128413281329 = phi i1 [ %cieInterHasDisplayRefColorspace.0.lcssa12841327, %invoke.cont469 ], [ %cieInterHasDisplayRefColorspace.0.lcssa12841328, %if.end472 ]
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os475)
           to label %invoke.cont476 unwind label %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9860,19 +9860,19 @@ ehcleanup485:                                     ; preds = %lpad482, %lpad477
   br label %ehcleanup1916
 
 if.end486:                                        ; preds = %invoke.cont469, %invoke.cont483, %if.end472
-  %hasRoleAcesInterchange.0.lcssa129213241338 = phi i1 [ %hasRoleAcesInterchange.0.lcssa12921323, %invoke.cont469 ], [ %hasRoleAcesInterchange.0.lcssa129213241337, %invoke.cont483 ], [ %hasRoleAcesInterchange.0.lcssa12921324, %if.end472 ]
-  %acesInterHasSceneRefColorspace.0.lcssa129013261336 = phi i1 [ %acesInterHasSceneRefColorspace.0.lcssa12901325, %invoke.cont469 ], [ %acesInterHasSceneRefColorspace.0.lcssa129013261335, %invoke.cont483 ], [ %acesInterHasSceneRefColorspace.0.lcssa12901326, %if.end472 ]
-  %hasRoleCieXyzD65Interchange.0.lcssa128813281334 = phi i1 [ %hasRoleCieXyzD65Interchange.0.lcssa12881327, %invoke.cont469 ], [ %hasRoleCieXyzD65Interchange.0.lcssa128813281333, %invoke.cont483 ], [ %hasRoleCieXyzD65Interchange.0.lcssa12881328, %if.end472 ]
-  %cieInterHasDisplayRefColorspace.0.lcssa128613301332 = phi i1 [ %cieInterHasDisplayRefColorspace.0.lcssa12861329, %invoke.cont469 ], [ %cieInterHasDisplayRefColorspace.0.lcssa128613301331, %invoke.cont483 ], [ %cieInterHasDisplayRefColorspace.0.lcssa12861330, %if.end472 ]
+  %hasRoleAcesInterchange.0.lcssa129013221336 = phi i1 [ %hasRoleAcesInterchange.0.lcssa12901321, %invoke.cont469 ], [ %hasRoleAcesInterchange.0.lcssa129013221335, %invoke.cont483 ], [ %hasRoleAcesInterchange.0.lcssa12901322, %if.end472 ]
+  %acesInterHasSceneRefColorspace.0.lcssa128813241334 = phi i1 [ %acesInterHasSceneRefColorspace.0.lcssa12881323, %invoke.cont469 ], [ %acesInterHasSceneRefColorspace.0.lcssa128813241333, %invoke.cont483 ], [ %acesInterHasSceneRefColorspace.0.lcssa12881324, %if.end472 ]
+  %hasRoleCieXyzD65Interchange.0.lcssa128613261332 = phi i1 [ %hasRoleCieXyzD65Interchange.0.lcssa12861325, %invoke.cont469 ], [ %hasRoleCieXyzD65Interchange.0.lcssa128613261331, %invoke.cont483 ], [ %hasRoleCieXyzD65Interchange.0.lcssa12861326, %if.end472 ]
+  %cieInterHasDisplayRefColorspace.0.lcssa128413281330 = phi i1 [ %cieInterHasDisplayRefColorspace.0.lcssa12841327, %invoke.cont469 ], [ %cieInterHasDisplayRefColorspace.0.lcssa128413281329, %invoke.cont483 ], [ %cieInterHasDisplayRefColorspace.0.lcssa12841328, %if.end472 ]
   br i1 %hasSceneReferredColorspace.0, label %land.lhs.true488, label %if.end486.if.else504_crit_edge
 
 if.end486.if.else504_crit_edge:                   ; preds = %if.end486
-  %128 = xor i1 %hasRoleAcesInterchange.0.lcssa129213241338, true
-  %129 = select i1 %128, i1 true, i1 %acesInterHasSceneRefColorspace.0.lcssa129013261336
+  %128 = xor i1 %hasRoleAcesInterchange.0.lcssa129013221336, true
+  %129 = select i1 %128, i1 true, i1 %acesInterHasSceneRefColorspace.0.lcssa128813241334
   br i1 %129, label %if.end521, label %if.then508
 
 land.lhs.true488:                                 ; preds = %if.end486
-  br i1 %hasRoleAcesInterchange.0.lcssa129213241338, label %if.else504, label %if.then490
+  br i1 %hasRoleAcesInterchange.0.lcssa129013221336, label %if.else504, label %if.then490
 
 if.then490:                                       ; preds = %land.lhs.true488
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os491)
@@ -9913,7 +9913,7 @@ ehcleanup503:                                     ; preds = %lpad500, %lpad493
   br label %ehcleanup1916
 
 if.else504:                                       ; preds = %land.lhs.true488
-  br i1 %acesInterHasSceneRefColorspace.0.lcssa129013261336, label %if.end521, label %if.then508
+  br i1 %acesInterHasSceneRefColorspace.0.lcssa128813241334, label %if.end521, label %if.then508
 
 if.then508:                                       ; preds = %if.end486.if.else504_crit_edge, %if.else504
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os509)
@@ -9961,12 +9961,12 @@ if.end521:                                        ; preds = %if.end521.sink.spli
   br i1 %tobool522, label %land.lhs.true523, label %if.end521.if.else539_crit_edge
 
 if.end521.if.else539_crit_edge:                   ; preds = %if.end521
-  %134 = xor i1 %hasRoleCieXyzD65Interchange.0.lcssa128813281334, true
-  %135 = select i1 %134, i1 true, i1 %cieInterHasDisplayRefColorspace.0.lcssa128613301332
+  %134 = xor i1 %hasRoleCieXyzD65Interchange.0.lcssa128613261332, true
+  %135 = select i1 %134, i1 true, i1 %cieInterHasDisplayRefColorspace.0.lcssa128413281330
   br i1 %135, label %if.end557, label %if.then543
 
 land.lhs.true523:                                 ; preds = %if.end521
-  br i1 %hasRoleCieXyzD65Interchange.0.lcssa128813281334, label %if.else539, label %if.then525
+  br i1 %hasRoleCieXyzD65Interchange.0.lcssa128613261332, label %if.else539, label %if.then525
 
 if.then525:                                       ; preds = %land.lhs.true523
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os526)
@@ -10007,7 +10007,7 @@ ehcleanup538:                                     ; preds = %lpad535, %lpad528
   br label %ehcleanup1916
 
 if.else539:                                       ; preds = %land.lhs.true523
-  br i1 %cieInterHasDisplayRefColorspace.0.lcssa128613301332, label %if.end557, label %if.then543
+  br i1 %cieInterHasDisplayRefColorspace.0.lcssa128413281330, label %if.end557, label %if.then543
 
 if.then543:                                       ; preds = %if.end521.if.else539_crit_edge, %if.else539
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os544)
@@ -10523,11 +10523,11 @@ ehcleanup671:                                     ; preds = %lpad668, %lpad666
   br label %ehcleanup1915
 
 for.end674.loopexit:                              ; preds = %invoke.cont669
-  %.pre1264 = load ptr, ptr %this, align 8
+  %.pre1262 = load ptr, ptr %this, align 8
   br label %for.end674
 
 for.end674:                                       ; preds = %for.end674.loopexit, %_ZNSt8functionIFSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEPKcEED2Ev.exit
-  %203 = phi ptr [ %.pre1264, %for.end674.loopexit ], [ %184, %_ZNSt8functionIFSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEPKcEED2Ev.exit ]
+  %203 = phi ptr [ %.pre1262, %for.end674.loopexit ], [ %184, %_ZNSt8functionIFSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEPKcEED2Ev.exit ]
   %m_displays = getelementptr inbounds i8, ptr %203, i64 376
   %204 = load ptr, ptr %m_displays, align 8
   %_M_finish.i4141124 = getelementptr inbounds i8, ptr %203, i64 384
@@ -10547,10 +10547,10 @@ invoke.cont691:                                   ; preds = %for.body688
   %_M_finish.i.i416 = getelementptr inbounds i8, ptr %iter675.sroa.0.01126, i64 48
   %207 = load ptr, ptr %_M_finish.i.i416, align 8
   %cmp.i.i417 = icmp eq ptr %206, %207
-  %.pre1265 = load ptr, ptr %m_sharedViews696, align 8
+  %.pre1263 = load ptr, ptr %m_sharedViews696, align 8
   %_M_finish.i.i418 = getelementptr inbounds i8, ptr %iter675.sroa.0.01126, i64 72
   %208 = load ptr, ptr %_M_finish.i.i418, align 8
-  %cmp.i.i419 = icmp eq ptr %.pre1265, %208
+  %cmp.i.i419 = icmp eq ptr %.pre1263, %208
   %or.cond = select i1 %cmp.i.i417, i1 %cmp.i.i419, i1 false
   br i1 %or.cond, label %if.then700, label %if.end732
 
@@ -10630,11 +10630,11 @@ ehcleanup731:                                     ; preds = %lpad724, %lpad704
   br label %ehcleanup769
 
 if.end732:                                        ; preds = %invoke.cont691
-  %cmp.i421.not1120 = icmp eq ptr %.pre1265, %208
+  %cmp.i421.not1120 = icmp eq ptr %.pre1263, %208
   br i1 %cmp.i421.not1120, label %for.end750, label %for.body743
 
 for.body743:                                      ; preds = %if.end732, %for.inc748
-  %__begin2735.sroa.0.01121 = phi ptr [ %incdec.ptr.i422, %for.inc748 ], [ %.pre1265, %if.end732 ]
+  %__begin2735.sroa.0.01121 = phi ptr [ %incdec.ptr.i422, %for.inc748 ], [ %.pre1263, %if.end732 ]
   %213 = load ptr, ptr %this, align 8
   invoke void @_ZNK19OpenColorIO_v2_4dev6Config4Impl18validateSharedViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4ViewESaISB_EES9_b(ptr noundef nonnull align 8 dereferenceable(1120) %213, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(24) %m_views, ptr noundef nonnull align 8 dereferenceable(32) %__begin2735.sroa.0.01121, i1 noundef zeroext true)
           to label %for.inc748 unwind label %lpad702.loopexit.split-lp.loopexit
@@ -10645,13 +10645,13 @@ for.inc748:                                       ; preds = %for.body743
   br i1 %cmp.i421.not, label %for.end750.loopexit, label %for.body743
 
 for.end750.loopexit:                              ; preds = %for.inc748
-  %.pre1267 = load ptr, ptr %m_views, align 8
-  %.pre1268 = load ptr, ptr %_M_finish.i.i416, align 8
+  %.pre1265 = load ptr, ptr %m_views, align 8
+  %.pre1266 = load ptr, ptr %_M_finish.i.i416, align 8
   br label %for.end750
 
 for.end750:                                       ; preds = %for.end750.loopexit, %if.end732
-  %214 = phi ptr [ %.pre1268, %for.end750.loopexit ], [ %207, %if.end732 ]
-  %215 = phi ptr [ %.pre1267, %for.end750.loopexit ], [ %206, %if.end732 ]
+  %214 = phi ptr [ %.pre1266, %for.end750.loopexit ], [ %207, %if.end732 ]
+  %215 = phi ptr [ %.pre1265, %for.end750.loopexit ], [ %206, %if.end732 ]
   %cmp.i424.not1122 = icmp eq ptr %215, %214
   br i1 %cmp.i424.not1122, label %for.end768, label %for.body760
 
@@ -10784,11 +10784,11 @@ ehcleanup831:                                     ; preds = %lpad824, %lpad822
   br label %ehcleanup1915
 
 for.end834.loopexit:                              ; preds = %invoke.cont829
-  %.pre1269 = load ptr, ptr %this, align 8
+  %.pre1267 = load ptr, ptr %this, align 8
   br label %for.end834
 
 for.end834:                                       ; preds = %for.end834.loopexit, %if.then802
-  %230 = phi ptr [ %.pre1269, %for.end834.loopexit ], [ %217, %if.then802 ]
+  %230 = phi ptr [ %.pre1267, %for.end834.loopexit ], [ %217, %if.then802 ]
   %m_views839 = getelementptr inbounds i8, ptr %230, i64 544
   %231 = load ptr, ptr %m_views839, align 8
   %_M_finish.i430 = getelementptr inbounds i8, ptr %230, i64 552
@@ -10833,11 +10833,11 @@ ehcleanup860:                                     ; preds = %lpad857, %lpad855
   br label %ehcleanup1915
 
 if.end864.loopexit:                               ; preds = %invoke.cont858
-  %.pre1270 = load ptr, ptr %this, align 8
+  %.pre1268 = load ptr, ptr %this, align 8
   br label %if.end864
 
 if.end864:                                        ; preds = %if.end864.loopexit, %for.end834, %if.end799
-  %236 = phi ptr [ %.pre1270, %if.end864.loopexit ], [ %230, %for.end834 ], [ %217, %if.end799 ]
+  %236 = phi ptr [ %.pre1268, %if.end864.loopexit ], [ %230, %for.end834 ], [ %217, %if.end799 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %displays, i8 0, i64 24, i1 false)
   %m_displays869 = getelementptr inbounds i8, ptr %236, i64 376
   %237 = load ptr, ptr %m_displays869, align 8
@@ -10928,11 +10928,11 @@ land.rhs896:                                      ; preds = %if.then890
   br i1 %cmp.i446, label %if.end1099, label %land.rhs896.if.then906_crit_edge
 
 land.rhs896.if.then906_crit_edge:                 ; preds = %land.rhs896
-  %.pre1271 = load ptr, ptr %this, align 8
+  %.pre1269 = load ptr, ptr %this, align 8
   br label %if.then906
 
 if.then906:                                       ; preds = %land.rhs896.if.then906_crit_edge, %if.then890
-  %248 = phi ptr [ %.pre1271, %land.rhs896.if.then906_crit_edge ], [ %.lcssa1028, %if.then890 ]
+  %248 = phi ptr [ %.pre1269, %land.rhs896.if.then906_crit_edge ], [ %.lcssa1028, %if.then890 ]
   %m_activeDisplaysEnvOverride909 = getelementptr inbounds i8, ptr %248, i64 424
   invoke void @_ZN19OpenColorIO_v2_4dev29IntersectStringVecsCaseIgnoreERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESA_(ptr nonnull sret(%"class.std::vector.26") align 8 %orderedDisplays, ptr noundef nonnull align 8 dereferenceable(24) %m_activeDisplaysEnvOverride909, ptr noundef nonnull align 8 dereferenceable(24) %displays)
           to label %invoke.cont910 unwind label %lpad866.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -11134,11 +11134,11 @@ land.rhs1002:                                     ; preds = %if.then995
   br i1 %cmp.i470, label %if.end1099, label %land.rhs1002.if.then1012_crit_edge
 
 land.rhs1002.if.then1012_crit_edge:               ; preds = %land.rhs1002
-  %.pre1272 = load ptr, ptr %this, align 8
+  %.pre1270 = load ptr, ptr %this, align 8
   br label %if.then1012
 
 if.then1012:                                      ; preds = %land.rhs1002.if.then1012_crit_edge, %if.then995
-  %269 = phi ptr [ %.pre1272, %land.rhs1002.if.then1012_crit_edge ], [ %.lcssa1028, %if.then995 ]
+  %269 = phi ptr [ %.pre1270, %land.rhs1002.if.then1012_crit_edge ], [ %.lcssa1028, %if.then995 ]
   %m_activeDisplays1016 = getelementptr inbounds i8, ptr %269, i64 400
   invoke void @_ZN19OpenColorIO_v2_4dev29IntersectStringVecsCaseIgnoreERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESA_(ptr nonnull sret(%"class.std::vector.26") align 8 %orderedDisplays1013, ptr noundef nonnull align 8 dereferenceable(24) %m_activeDisplays1016, ptr noundef nonnull align 8 dereferenceable(24) %displays)
           to label %invoke.cont1017 unwind label %lpad866.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -11415,12 +11415,12 @@ lpad1119.loopexit.split-lp.loopexit.split-lp:     ; preds = %if.then1153
   br label %ehcleanup1264
 
 for.end1124:                                      ; preds = %for.inc1122
-  %.pre1273 = load ptr, ptr %_M_left.i.i.i.i.i505, align 8
-  %cmp.i513.not1140 = icmp eq ptr %.pre1273, %295
+  %.pre1271 = load ptr, ptr %_M_left.i.i.i.i.i505, align 8
+  %cmp.i513.not1140 = icmp eq ptr %.pre1271, %295
   br i1 %cmp.i513.not1140, label %for.end1263, label %for.body1134
 
 for.body1134:                                     ; preds = %for.end1124, %for.inc1261
-  %__begin21126.sroa.0.01141 = phi ptr [ %call.i577, %for.inc1261 ], [ %.pre1273, %for.end1124 ]
+  %__begin21126.sroa.0.01141 = phi ptr [ %call.i577, %for.inc1261 ], [ %.pre1271, %for.end1124 ]
   %_M_storage.i.i514 = getelementptr inbounds i8, ptr %__begin21126.sroa.0.01141, i64 32
   %301 = load ptr, ptr %this, align 8
   %call1139 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i514) #29
@@ -11956,18 +11956,18 @@ if.then.i.i.i620:                                 ; preds = %invoke.cont.i618
 
 _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit: ; preds = %invoke.cont.i618, %if.then.i.i.i620
   %366 = load ptr, ptr %this, align 8
-  %m_looksList1144 = getelementptr inbounds i8, ptr %366, i64 352
-  %_M_finish.i6211145 = getelementptr inbounds i8, ptr %366, i64 360
-  %367 = load ptr, ptr %_M_finish.i6211145, align 8
-  %368 = load ptr, ptr %m_looksList1144, align 8
-  %cmp12721150.not = icmp eq ptr %367, %368
-  br i1 %cmp12721150.not, label %for.end1451, label %for.body1273
+  %m_looksList1142 = getelementptr inbounds i8, ptr %366, i64 352
+  %_M_finish.i6211143 = getelementptr inbounds i8, ptr %366, i64 360
+  %367 = load ptr, ptr %_M_finish.i6211143, align 8
+  %368 = load ptr, ptr %m_looksList1142, align 8
+  %cmp12721148.not = icmp eq ptr %367, %368
+  br i1 %cmp12721148.not, label %for.end1451, label %for.body1273
 
 for.body1273:                                     ; preds = %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit, %for.inc1449
   %369 = phi ptr [ %401, %for.inc1449 ], [ %368, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit ]
-  %conv1152 = phi i64 [ %conv, %for.inc1449 ], [ 0, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit ]
-  %i1267.01151 = phi i32 [ %inc1450, %for.inc1449 ], [ 0, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit ]
-  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.112", ptr %369, i64 %conv1152
+  %conv1150 = phi i64 [ %conv, %for.inc1449 ], [ 0, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit ]
+  %i1267.01149 = phi i32 [ %inc1450, %for.inc1449 ], [ 0, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit ]
+  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.112", ptr %369, i64 %conv1150
   %370 = load ptr, ptr %add.ptr.i, align 8
   %call1281 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev4Look7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %370)
           to label %invoke.cont1280 unwind label %lpad866.loopexit.split-lp.loopexit
@@ -11994,7 +11994,7 @@ invoke.cont1289:                                  ; preds = %invoke.cont1287
           to label %invoke.cont1291 unwind label %lpad1288
 
 invoke.cont1291:                                  ; preds = %invoke.cont1289
-  %call1294 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call1292, i32 noundef %i1267.01151)
+  %call1294 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call1292, i32 noundef %i1267.01149)
           to label %invoke.cont1293 unwind label %lpad1288
 
 invoke.cont1293:                                  ; preds = %invoke.cont1291
@@ -12060,7 +12060,7 @@ if.end1316:                                       ; preds = %lor.lhs.false1283
   %376 = load ptr, ptr %this, align 8
   %m_looksList1319 = getelementptr inbounds i8, ptr %376, i64 352
   %377 = load ptr, ptr %m_looksList1319, align 8
-  %add.ptr.i626 = getelementptr inbounds %"class.std::shared_ptr.112", ptr %377, i64 %conv1152
+  %add.ptr.i626 = getelementptr inbounds %"class.std::shared_ptr.112", ptr %377, i64 %conv1150
   %378 = load ptr, ptr %add.ptr.i626, align 8
   %call1324 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev4Look15getProcessSpaceEv(ptr noundef nonnull align 8 dereferenceable(8) %378)
           to label %invoke.cont1323 unwind label %lpad866.loopexit.split-lp.loopexit
@@ -12318,7 +12318,7 @@ ehcleanup1447:                                    ; preds = %lpad1380.loopexit, 
   br label %ehcleanup1914
 
 for.inc1449:                                      ; preds = %invoke.cont1362, %if.end1446
-  %inc1450 = add i32 %i1267.01151, 1
+  %inc1450 = add i32 %i1267.01149, 1
   %conv = zext i32 %inc1450 to i64
   %399 = load ptr, ptr %this, align 8
   %m_looksList = getelementptr inbounds i8, ptr %399, i64 352
@@ -12785,16 +12785,16 @@ invoke.cont1614:                                  ; preds = %try.cont1609
   %462 = load ptr, ptr %allTransforms1610, align 8
   %_M_finish.i707 = getelementptr inbounds i8, ptr %allTransforms1610, i64 8
   %463 = load ptr, ptr %_M_finish.i707, align 8
-  %cmp.i708.not1154 = icmp eq ptr %462, %463
-  br i1 %cmp.i708.not1154, label %if.end1732, label %for.body1624
+  %cmp.i708.not1152 = icmp eq ptr %462, %463
+  br i1 %cmp.i708.not1152, label %if.end1732, label %for.body1624
 
 for.body1624:                                     ; preds = %invoke.cont1614, %for.inc1629
-  %__begin21616.sroa.0.01155 = phi ptr [ %incdec.ptr.i709, %for.inc1629 ], [ %462, %invoke.cont1614 ]
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GetFileReferencesERSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKSt10shared_ptrIKNS_9TransformEE(ptr noundef nonnull align 8 dereferenceable(48) %files, ptr noundef nonnull align 8 dereferenceable(16) %__begin21616.sroa.0.01155)
+  %__begin21616.sroa.0.01153 = phi ptr [ %incdec.ptr.i709, %for.inc1629 ], [ %462, %invoke.cont1614 ]
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GetFileReferencesERSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EERKSt10shared_ptrIKNS_9TransformEE(ptr noundef nonnull align 8 dereferenceable(48) %files, ptr noundef nonnull align 8 dereferenceable(16) %__begin21616.sroa.0.01153)
           to label %for.inc1629 unwind label %lpad1627
 
 for.inc1629:                                      ; preds = %for.body1624
-  %incdec.ptr.i709 = getelementptr inbounds i8, ptr %__begin21616.sroa.0.01155, i64 16
+  %incdec.ptr.i709 = getelementptr inbounds i8, ptr %__begin21616.sroa.0.01153, i64 16
   %cmp.i708.not = icmp eq ptr %incdec.ptr.i709, %463
   br i1 %cmp.i708.not, label %for.end1631, label %for.body1624
 
@@ -12809,8 +12809,8 @@ lpad1627:                                         ; preds = %for.body1624
   br label %ehcleanup1810
 
 for.end1631:                                      ; preds = %for.inc1629
-  %.pre1274 = load i64, ptr %_M_node_count.i.i.i.i.i706, align 8
-  %466 = icmp eq i64 %.pre1274, 0
+  %.pre1272 = load i64, ptr %_M_node_count.i.i.i.i.i706, align 8
+  %466 = icmp eq i64 %.pre1272, 0
   br i1 %466, label %if.end1732, label %if.then1633
 
 if.then1633:                                      ; preds = %for.end1631
@@ -13031,12 +13031,12 @@ ehcleanup1731:                                    ; preds = %lpad1639.loopexit, 
 
 if.end1732:                                       ; preds = %invoke.cont1614, %if.end1730, %for.end1631
   %483 = load ptr, ptr %_M_left.i.i.i.i.i704, align 8
-  %cmp.i715.not1156 = icmp eq ptr %483, %461
-  br i1 %cmp.i715.not1156, label %for.end1809, label %for.body1742
+  %cmp.i715.not1154 = icmp eq ptr %483, %461
+  br i1 %cmp.i715.not1154, label %for.end1809, label %for.body1742
 
 for.body1742:                                     ; preds = %if.end1732, %if.end1805
-  %__begin21734.sroa.0.01157 = phi ptr [ %call.i717, %if.end1805 ], [ %483, %if.end1732 ]
-  %_M_storage.i.i716 = getelementptr inbounds i8, ptr %__begin21734.sroa.0.01157, i64 32
+  %__begin21734.sroa.0.01155 = phi ptr [ %call.i717, %if.end1805 ], [ %483, %if.end1732 ]
+  %_M_storage.i.i716 = getelementptr inbounds i8, ptr %__begin21734.sroa.0.01155, i64 32
   %484 = load ptr, ptr %this, align 8
   %m_context1746 = getelementptr inbounds i8, ptr %484, i64 56
   %485 = load ptr, ptr %m_context1746, align 8
@@ -13164,7 +13164,7 @@ ehcleanup1804:                                    ; preds = %ehcleanup1800, %cle
 
 if.end1805:                                       ; preds = %invoke.cont1757
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %resolvedFile) #29
-  %call.i717 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21734.sroa.0.01157) #34
+  %call.i717 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21734.sroa.0.01155) #34
   %cmp.i715.not = icmp eq ptr %call.i717, %461
   br i1 %cmp.i715.not, label %for.end1809, label %for.body1742
 
@@ -13290,8 +13290,8 @@ _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit
   %514 = load ptr, ptr %m_allNamedTransforms, align 8
   %_M_finish.i765 = getelementptr inbounds i8, ptr %513, i64 744
   %515 = load ptr, ptr %_M_finish.i765, align 8
-  %cmp.i766.not1158 = icmp eq ptr %514, %515
-  br i1 %cmp.i766.not1158, label %for.end1907, label %for.body1823.lr.ph
+  %cmp.i766.not1156 = icmp eq ptr %514, %515
+  br i1 %cmp.i766.not1156, label %for.end1907, label %for.body1823.lr.ph
 
 for.body1823.lr.ph:                               ; preds = %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit764
   %_M_refcount.i.i769 = getelementptr inbounds i8, ptr %ref.tmp1830, i64 8
@@ -13299,13 +13299,13 @@ for.body1823.lr.ph:                               ; preds = %_ZNSt6vectorISt10sh
   br label %for.body1823
 
 for.cond1821:                                     ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev13ViewTransformEED2Ev.exit832
-  %incdec.ptr.i833 = getelementptr inbounds i8, ptr %__begin11815.sroa.0.01159, i64 16
+  %incdec.ptr.i833 = getelementptr inbounds i8, ptr %__begin11815.sroa.0.01157, i64 16
   %cmp.i766.not = icmp eq ptr %incdec.ptr.i833, %515
   br i1 %cmp.i766.not, label %for.end1907.loopexit, label %for.body1823
 
 for.body1823:                                     ; preds = %for.body1823.lr.ph, %for.cond1821
-  %__begin11815.sroa.0.01159 = phi ptr [ %514, %for.body1823.lr.ph ], [ %incdec.ptr.i833, %for.cond1821 ]
-  %516 = load ptr, ptr %__begin11815.sroa.0.01159, align 8
+  %__begin11815.sroa.0.01157 = phi ptr [ %514, %for.body1823.lr.ph ], [ %incdec.ptr.i833, %for.cond1821 ]
+  %516 = load ptr, ptr %__begin11815.sroa.0.01157, align 8
   %vtable1827 = load ptr, ptr %516, align 8
   %vfn1828 = getelementptr inbounds i8, ptr %vtable1827, i64 8
   %517 = load ptr, ptr %vfn1828, align 8
@@ -13639,11 +13639,11 @@ ehcleanup1903:                                    ; preds = %lpad1896, %ehcleanu
   br label %ehcleanup1914
 
 for.end1907.loopexit:                             ; preds = %for.cond1821
-  %.pre1275 = load ptr, ptr %this, align 8
+  %.pre1273 = load ptr, ptr %this, align 8
   br label %for.end1907
 
 for.end1907:                                      ; preds = %for.end1907.loopexit, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit764
-  %556 = phi ptr [ %.pre1275, %for.end1907.loopexit ], [ %513, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit764 ]
+  %556 = phi ptr [ %.pre1273, %for.end1907.loopexit ], [ %513, %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEESaIS4_EED2Ev.exit764 ]
   invoke void @_ZNK19OpenColorIO_v2_4dev6Config4Impl23checkVersionConsistencyEv(ptr noundef nonnull align 8 dereferenceable(1120) %556)
           to label %invoke.cont1910 unwind label %lpad866.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

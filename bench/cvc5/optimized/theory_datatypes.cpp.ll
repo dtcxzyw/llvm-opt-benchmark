@@ -16240,12 +16240,12 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.cond:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit280
-  %inc = add nuw i64 %j.0491, 1
+  %inc = add nuw i64 %j.0490, 1
   %exitcond.not = icmp eq i64 %inc, %16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !125
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %j.0491 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  %j.0490 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %17 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -16297,7 +16297,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %21 = load ptr, ptr %second.i142, align 8
-  %add.ptr.i144 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %21, i64 %j.0491
+  %add.ptr.i144 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %21, i64 %j.0490
   %22 = load ptr, ptr %add.ptr.i144, align 8
   store ptr %22, ptr %ss, align 8
   %bf.load.i.i = load i64, ptr %22, align 8

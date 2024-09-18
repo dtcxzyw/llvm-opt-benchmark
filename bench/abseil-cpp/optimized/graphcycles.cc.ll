@@ -1898,14 +1898,14 @@ while.condthread-pre-split.loopexit.i:            ; preds = %while.cond.i.i
   br label %while.condthread-pre-split.i
 
 while.condthread-pre-split.i:                     ; preds = %while.body.i, %while.condthread-pre-split.loopexit.i
-  %stack_.val.pr.i = phi i32 [ %sub.i.i, %while.body.i ], [ %stack_.val.pr.pre.i, %while.condthread-pre-split.loopexit.i ]
+  %stack_.val.pr.i = phi i32 [ %stack_.val.pr.pre.i, %while.condthread-pre-split.loopexit.i ], [ %sub.i.i, %while.body.i ]
   %cmp.i24.i = icmp eq i32 %stack_.val.pr.i, 0
   br i1 %cmp.i24.i, label %if.end34, label %while.body.i
 
 while.body.i:                                     ; preds = %while.condthread-pre-split.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i
-  %stack_.val105.i = phi i32 [ 1, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i ], [ %stack_.val.pr.i, %while.condthread-pre-split.i ]
+  %stack_.val104.i = phi i32 [ 1, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i ], [ %stack_.val.pr.i, %while.condthread-pre-split.i ]
   %stack_.val16.i = load ptr, ptr %stack_.i, align 8
-  %sub.i.i = add i32 %stack_.val105.i, -1
+  %sub.i.i = add i32 %stack_.val104.i, -1
   %idxprom.i25.i = zext i32 %sub.i.i to i64
   %arrayidx.i26.i = getelementptr inbounds i32, ptr %stack_.val16.i, i64 %idxprom.i25.i
   %9 = load i32, ptr %arrayidx.i26.i, align 4
@@ -2265,7 +2265,7 @@ while.condthread-pre-split.loopexit.i108:         ; preds = %while.cond.i.i97
   br label %while.condthread-pre-split.i110
 
 while.condthread-pre-split.i110:                  ; preds = %while.body.i87, %while.condthread-pre-split.loopexit.i108
-  %stack_.val.pr.i111 = phi i32 [ %sub.i.i88, %while.body.i87 ], [ %stack_.val.pr.pre.i109, %while.condthread-pre-split.loopexit.i108 ]
+  %stack_.val.pr.i111 = phi i32 [ %stack_.val.pr.pre.i109, %while.condthread-pre-split.loopexit.i108 ], [ %sub.i.i88, %while.body.i87 ]
   %cmp.i22.i = icmp eq i32 %stack_.val.pr.i111, 0
   br i1 %cmp.i22.i, label %_ZN4absl24synchronization_internalL11BackwardDFSEPNS0_11GraphCycles3RepEii.exit, label %while.body.i87
 
@@ -2887,33 +2887,32 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit: ; pr
   store i32 8, ptr %capacity_.i.i, align 4
   store i32 %conv.i, ptr %space_.i.i, align 4
   store i32 1, ptr %size_.i.i, align 8
-  br label %while.body.lr.ph
+  br label %while.body
 
 while.condthread-pre-split:                       ; preds = %while.cond.i
   %stack_.val.pr = load i32, ptr %size_.i.i, align 8
-  %cmp.i37135 = icmp eq i32 %stack_.val.pr, 0
-  br i1 %cmp.i37135, label %cleanup, label %while.body.lr.ph
+  br label %while.cond.backedge
 
-while.body.lr.ph:                                 ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit, %while.condthread-pre-split
-  %path_len.0.ph140 = phi i32 [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit ], [ %inc, %while.condthread-pre-split ]
-  %stack_.val.ph138 = phi i32 [ 1, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit ], [ %stack_.val.pr, %while.condthread-pre-split ]
-  %stack_.val21.pre = load ptr, ptr %stack_, align 8
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.lr.ph, %if.then25
-  %path_len.0137 = phi i32 [ %path_len.0.ph140, %while.body.lr.ph ], [ %dec, %if.then25 ]
-  %stack_.val136 = phi i32 [ %stack_.val.ph138, %while.body.lr.ph ], [ %sub.i, %if.then25 ]
-  %sub.i = add i32 %stack_.val136, -1
+while.body:                                       ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit, %while.cond.backedge
+  %path_len.0130 = phi i32 [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit ], [ %path_len.0.be, %while.cond.backedge ]
+  %stack_.val129 = phi i32 [ 1, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit ], [ %stack_.val.be, %while.cond.backedge ]
+  %stack_.val21 = load ptr, ptr %stack_, align 8
+  %sub.i = add i32 %stack_.val129, -1
   %idxprom.i38 = zext i32 %sub.i to i64
-  %arrayidx.i39 = getelementptr inbounds i32, ptr %stack_.val21.pre, i64 %idxprom.i38
+  %arrayidx.i39 = getelementptr inbounds i32, ptr %stack_.val21, i64 %idxprom.i38
   %8 = load i32, ptr %arrayidx.i39, align 4
   store i32 %sub.i, ptr %size_.i.i, align 8
   %cmp24 = icmp slt i32 %8, 0
   br i1 %cmp24, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %while.body
-  %dec = add nsw i32 %path_len.0137, -1
-  %cmp.i37 = icmp eq i32 %sub.i, 0
+  %dec = add nsw i32 %path_len.0130, -1
+  br label %while.cond.backedge
+
+while.cond.backedge:                              ; preds = %if.then25, %while.condthread-pre-split
+  %stack_.val.be = phi i32 [ %stack_.val.pr, %while.condthread-pre-split ], [ %sub.i, %if.then25 ]
+  %path_len.0.be = phi i32 [ %inc, %while.condthread-pre-split ], [ %dec, %if.then25 ]
+  %cmp.i37 = icmp eq i32 %stack_.val.be, 0
   br i1 %cmp.i37, label %cleanup, label %while.body, !llvm.loop !23
 
 lpad.loopexit:                                    ; preds = %for.body, %while.end.i.i98, %if.then.i.i.i107
@@ -2937,7 +2936,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end26:                                         ; preds = %while.body
-  %cmp27 = icmp slt i32 %path_len.0137, %max_path_len
+  %cmp27 = icmp slt i32 %path_len.0130, %max_path_len
   br i1 %cmp27, label %if.then28, label %if.end35
 
 if.then28:                                        ; preds = %if.end26
@@ -2951,7 +2950,7 @@ if.then28:                                        ; preds = %if.end26
   %conv.i43 = zext i32 %11 to i64
   %shl.i = shl nuw i64 %conv.i43, 32
   %or.i = or disjoint i64 %shl.i, %idxprom.i41
-  %idxprom = sext i32 %path_len.0137 to i64
+  %idxprom = sext i32 %path_len.0130 to i64
   %arrayidx = getelementptr inbounds %"struct.absl::synchronization_internal::GraphId", ptr %path, i64 %idxprom
   store i64 %or.i, ptr %arrayidx, align 8
   %.pr = load i32, ptr %size_.i.i, align 8
@@ -2959,7 +2958,7 @@ if.then28:                                        ; preds = %if.end26
 
 if.end35:                                         ; preds = %if.then28, %if.end26
   %12 = phi i32 [ %.pr, %if.then28 ], [ %sub.i, %if.end26 ]
-  %inc = add nsw i32 %path_len.0137, 1
+  %inc = add nsw i32 %path_len.0130, 1
   %13 = load i32, ptr %capacity_.i.i, align 4
   %cmp.i46 = icmp eq i32 %12, %13
   br i1 %cmp.i46, label %if.then.i52, label %entry.if.end_crit_edge.i47
@@ -3140,8 +3139,8 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit113: ;
 for.cond.backedge:                                ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit113, %invoke.cont47
   br label %for.cond, !llvm.loop !24
 
-cleanup:                                          ; preds = %invoke.cont38, %while.condthread-pre-split, %if.then25
-  %retval.1 = phi i32 [ 0, %if.then25 ], [ 0, %while.condthread-pre-split ], [ %inc, %invoke.cont38 ]
+cleanup:                                          ; preds = %while.cond.backedge, %invoke.cont38
+  %retval.1 = phi i32 [ %inc, %invoke.cont38 ], [ 0, %while.cond.backedge ]
   %41 = load ptr, ptr %seen, align 8
   %cmp.not.i.i.i115 = icmp eq ptr %41, %space_.i.i.i
   br i1 %cmp.not.i.i.i115, label %return, label %if.then.i.i.i116

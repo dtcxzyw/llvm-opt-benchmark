@@ -4199,7 +4199,6 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %15 = phi ptr [ %13, %for.body17.lr.ph ], [ %115, %for.inc73 ]
   %16 = phi ptr [ %12, %for.body17.lr.ph ], [ %116, %for.inc73 ]
   %indvars.iv135 = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next136, %for.inc73 ]
-  %spec.select.i123131 = phi i32 [ undef, %for.body17.lr.ph ], [ %spec.select.i122, %for.inc73 ]
   %cmp18.not = icmp eq i64 %indvars.iv135, %14
   br i1 %cmp18.not, label %for.inc73, label %land.lhs.true19
 
@@ -4504,7 +4503,6 @@ if.end71:                                         ; preds = %if.then64, %_ZN6Ass
 for.inc73:                                        ; preds = %for.body17, %land.lhs.true19, %if.end71
   %115 = phi ptr [ %15, %for.body17 ], [ %15, %land.lhs.true19 ], [ %.pre141, %if.end71 ]
   %116 = phi ptr [ %16, %for.body17 ], [ %16, %land.lhs.true19 ], [ %.pre140, %if.end71 ]
-  %spec.select.i122 = phi i32 [ %spec.select.i123131, %for.body17 ], [ %spec.select.i123131, %land.lhs.true19 ], [ %spec.select.i, %if.end71 ]
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %sub.ptr.lhs.cast.i55 = ptrtoint ptr %116 to i64
   %sub.ptr.rhs.cast.i56 = ptrtoint ptr %115 to i64
@@ -4887,7 +4885,6 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %15 = phi ptr [ %13, %for.body17.lr.ph ], [ %83, %for.inc43 ]
   %16 = phi ptr [ %12, %for.body17.lr.ph ], [ %84, %for.inc43 ]
   %indvars.iv116 = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next117, %for.inc43 ]
-  %spec.select.i104112 = phi i32 [ undef, %for.body17.lr.ph ], [ %spec.select.i103, %for.inc43 ]
   %cmp18.not = icmp eq i64 %indvars.iv116, %14
   br i1 %cmp18.not, label %for.inc43, label %land.lhs.true19
 
@@ -5084,7 +5081,6 @@ while.end:                                        ; preds = %_ZNK8aiStringneERKS
 for.inc43:                                        ; preds = %for.body17, %land.lhs.true19, %while.end
   %83 = phi ptr [ %15, %for.body17 ], [ %15, %land.lhs.true19 ], [ %.pre121, %while.end ]
   %84 = phi ptr [ %16, %for.body17 ], [ %16, %land.lhs.true19 ], [ %.pre120, %while.end ]
-  %spec.select.i103 = phi i32 [ %spec.select.i104112, %for.body17 ], [ %spec.select.i104112, %land.lhs.true19 ], [ %spec.select.i, %while.end ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %sub.ptr.lhs.cast.i35 = ptrtoint ptr %84 to i64
   %sub.ptr.rhs.cast.i36 = ptrtoint ptr %83 to i64

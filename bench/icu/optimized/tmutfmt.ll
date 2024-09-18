@@ -3023,9 +3023,9 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %for.cond.preheader, label %for.end161
 
 for.cond.preheader:                               ; preds = %if.else
-  %call6135 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %units, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
-  %tobool7.not136 = icmp eq i8 %call6135, 0
-  br i1 %tobool7.not136, label %for.end161, label %for.body.lr.ph
+  %call6120 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %units, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %tobool7.not121 = icmp eq i8 %call6120, 0
+  br i1 %tobool7.not121, label %for.end161, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %timeUnitFormatObj = getelementptr inbounds i8, ptr %this, i64 8
@@ -3034,7 +3034,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc159
-  %i.0137 = phi i32 [ 0, %for.body.lr.ph ], [ %inc160, %for.inc159 ]
+  %i.0122 = phi i32 [ 0, %for.body.lr.ph ], [ %inc160, %for.inc159 ]
   %4 = load ptr, ptr %key.addr, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %for.inc159, label %if.end9
@@ -3414,7 +3414,7 @@ _ZN6icu_7512LocalPointerINS_9HashtableEED2Ev.exit: ; preds = %cleanup155, %_ZN6i
   br i1 %cleanup.dest.slot.0, label %for.end161, label %for.inc159
 
 for.inc159:                                       ; preds = %_ZN6icu_7512LocalPointerINS_9HashtableEED2Ev.exit, %if.else33, %for.body
-  %inc160 = add nuw nsw i32 %i.0137, 1
+  %inc160 = add nuw nsw i32 %i.0122, 1
   %call6 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %units, i32 noundef %inc160, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool7.not = icmp eq i8 %call6, 0
   br i1 %tobool7.not, label %for.end161, label %for.body, !llvm.loop !24

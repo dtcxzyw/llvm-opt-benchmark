@@ -1691,8 +1691,8 @@ if.end5.i:                                        ; preds = %if.end.i17
 
 for.cond.preheader.i18:                           ; preds = %if.end5.i
   %26 = load i32, ptr %levelsy.i, align 4
-  %cmp10197.i = icmp sgt i32 %26, 0
-  br i1 %cmp10197.i, label %for.cond11.preheader.i, label %_ZN7Imf_3_212_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb.exit.thread89
+  %cmp10170.i = icmp sgt i32 %26, 0
+  br i1 %cmp10170.i, label %for.cond11.preheader.i, label %_ZN7Imf_3_212_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb.exit.thread89
 
 _ZN7Imf_3_212_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb.exit.thread89: ; preds = %for.cond.preheader.i18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %datawin.i11)
@@ -1712,19 +1712,19 @@ _ZN7Imf_3_212_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb.exit.thre
 
 for.cond11.preheader.i:                           ; preds = %for.cond.preheader.i18, %for.inc146.i
   %27 = phi i32 [ %63, %for.inc146.i ], [ %26, %for.cond.preheader.i18 ]
-  %rv.0203.i = phi i32 [ %rv.8.i, %for.inc146.i ], [ 0, %for.cond.preheader.i18 ]
-  %keepgoing.0202.i = phi i8 [ %keepgoing.5.i, %for.inc146.i ], [ 1, %for.cond.preheader.i18 ]
-  %ylevel.0201.i = phi i32 [ %inc147.i, %for.inc146.i ], [ 0, %for.cond.preheader.i18 ]
-  %tobool12175.i = trunc nuw i8 %keepgoing.0202.i to i1
+  %rv.0173.i = phi i32 [ %rv.8.i, %for.inc146.i ], [ 0, %for.cond.preheader.i18 ]
+  %keepgoing.0172.i = phi i8 [ %keepgoing.5.i, %for.inc146.i ], [ 1, %for.cond.preheader.i18 ]
+  %ylevel.0171.i = phi i32 [ %inc147.i, %for.inc146.i ], [ 0, %for.cond.preheader.i18 ]
+  %tobool12160.i = trunc nuw i8 %keepgoing.0172.i to i1
   %28 = load i32, ptr %levelsx.i, align 4
-  %cmp14176.i = icmp sgt i32 %28, 0
-  %29 = select i1 %tobool12175.i, i1 %cmp14176.i, i1 false
+  %cmp14161.i = icmp sgt i32 %28, 0
+  %29 = select i1 %tobool12160.i, i1 %cmp14161.i, i1 false
   br i1 %29, label %for.body16.i, label %for.inc146.i
 
 for.body16.i:                                     ; preds = %for.cond11.preheader.i, %for.inc143.i
-  %keepgoing.1181.i = phi i8 [ %keepgoing.2.i, %for.inc143.i ], [ %keepgoing.0202.i, %for.cond11.preheader.i ]
-  %xlevel.0180.i = phi i32 [ %inc144.i, %for.inc143.i ], [ 0, %for.cond11.preheader.i ]
-  %call17.i = call i32 @exr_get_level_sizes(ptr noundef %f, i32 noundef %p.098, i32 noundef %xlevel.0180.i, i32 noundef %ylevel.0201.i, ptr noundef nonnull %levw.i, ptr noundef nonnull %levh.i)
+  %keepgoing.1163.i = phi i8 [ %keepgoing.2.i, %for.inc143.i ], [ %keepgoing.0172.i, %for.cond11.preheader.i ]
+  %xlevel.0162.i = phi i32 [ %inc144.i, %for.inc143.i ], [ 0, %for.cond11.preheader.i ]
+  %call17.i = call i32 @exr_get_level_sizes(ptr noundef %f, i32 noundef %p.098, i32 noundef %xlevel.0162.i, i32 noundef %ylevel.0171.i, ptr noundef nonnull %levw.i, ptr noundef nonnull %levh.i)
   %cmp18.not.i = icmp eq i32 %call17.i, 0
   br i1 %cmp18.not.i, label %if.end23.i, label %if.then19.i
 
@@ -1732,7 +1732,7 @@ if.then19.i:                                      ; preds = %for.body16.i
   br i1 %reduceTime, label %for.inc146.loopexit.i, label %for.inc143.i
 
 if.end23.i:                                       ; preds = %for.body16.i
-  %call24.i = call i32 @exr_get_tile_sizes(ptr noundef %f, i32 noundef %p.098, i32 noundef %xlevel.0180.i, i32 noundef %ylevel.0201.i, ptr noundef nonnull %curtw.i, ptr noundef nonnull %curth.i)
+  %call24.i = call i32 @exr_get_tile_sizes(ptr noundef %f, i32 noundef %p.098, i32 noundef %xlevel.0162.i, i32 noundef %ylevel.0171.i, ptr noundef nonnull %curtw.i, ptr noundef nonnull %curth.i)
   %cmp25.not.i = icmp eq i32 %call24.i, 0
   br i1 %cmp25.not.i, label %if.end30.i, label %if.then26.i
 
@@ -1741,10 +1741,10 @@ if.then26.i:                                      ; preds = %if.end23.i
 
 if.end30.i:                                       ; preds = %if.end23.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %decoder.i13, i8 0, i64 480, i1 false)
-  %tobool32159.i = trunc nuw i8 %keepgoing.1181.i to i1
+  %tobool32146.i = trunc nuw i8 %keepgoing.1163.i to i1
   %30 = load i32, ptr %levh.i, align 4
-  %cmp34161.i = icmp sgt i32 %30, 0
-  %31 = select i1 %tobool32159.i, i1 %cmp34161.i, i1 false
+  %cmp34148.i = icmp sgt i32 %30, 0
+  %31 = select i1 %tobool32146.i, i1 %cmp34148.i, i1 false
   %32 = load i32, ptr %levw.i, align 4
   %33 = icmp sgt i32 %32, 0
   %or.cond116 = select i1 %31, i1 %33, i1 false
@@ -1752,26 +1752,26 @@ if.end30.i:                                       ; preds = %if.end23.i
 
 for.cond37.preheader.i:                           ; preds = %if.end30.i, %for.inc136.i
   %34 = phi i32 [ %58, %for.inc136.i ], [ %30, %if.end30.i ]
-  %rv.3169.i = phi i32 [ %rv.7.i, %for.inc136.i ], [ 0, %if.end30.i ]
-  %keepgoing.3168.i = phi i8 [ %keepgoing.4.i, %for.inc136.i ], [ %keepgoing.1181.i, %if.end30.i ]
-  %cury.0167.i = phi i64 [ %add138.i, %for.inc136.i ], [ 0, %if.end30.i ]
-  %ty.0166.i = phi i32 [ %inc139.i, %for.inc136.i ], [ 0, %if.end30.i ]
-  %doread.0165.i = phi i1 [ %doread.4.i, %for.inc136.i ], [ false, %if.end30.i ]
-  %tiledata.sroa.10.3164.i = phi ptr [ %tiledata.sroa.10.8.i, %for.inc136.i ], [ null, %if.end30.i ]
-  %tiledata.sroa.6.3163.i = phi ptr [ %tiledata.sroa.6.8.i, %for.inc136.i ], [ null, %if.end30.i ]
-  %tiledata.sroa.0.3162.i = phi ptr [ %tiledata.sroa.0.9.i, %for.inc136.i ], [ null, %if.end30.i ]
+  %rv.3156.i = phi i32 [ %rv.7.i, %for.inc136.i ], [ 0, %if.end30.i ]
+  %keepgoing.3155.i = phi i8 [ %keepgoing.4.i, %for.inc136.i ], [ %keepgoing.1163.i, %if.end30.i ]
+  %cury.0154.i = phi i64 [ %add138.i, %for.inc136.i ], [ 0, %if.end30.i ]
+  %ty.0153.i = phi i32 [ %inc139.i, %for.inc136.i ], [ 0, %if.end30.i ]
+  %doread.0152.i = phi i1 [ %doread.4.i, %for.inc136.i ], [ false, %if.end30.i ]
+  %tiledata.sroa.10.3151.i = phi ptr [ %tiledata.sroa.10.8.i, %for.inc136.i ], [ null, %if.end30.i ]
+  %tiledata.sroa.6.3150.i = phi ptr [ %tiledata.sroa.6.8.i, %for.inc136.i ], [ null, %if.end30.i ]
+  %tiledata.sroa.0.3149.i = phi ptr [ %tiledata.sroa.0.9.i, %for.inc136.i ], [ null, %if.end30.i ]
   %35 = load i32, ptr %levw.i, align 4
-  %cmp41116.i = icmp sgt i32 %35, 0
-  br i1 %cmp41116.i, label %for.body43.i, label %for.inc136.i
+  %cmp41103.i = icmp sgt i32 %35, 0
+  br i1 %cmp41103.i, label %for.body43.i, label %for.inc136.i
 
 for.body43.i:                                     ; preds = %for.cond37.preheader.i, %for.inc131.i
-  %curx.0122.i = phi i64 [ %add133.i, %for.inc131.i ], [ 0, %for.cond37.preheader.i ]
-  %tx.0121.i = phi i32 [ %inc134.i, %for.inc131.i ], [ 0, %for.cond37.preheader.i ]
-  %doread.1120.i = phi i1 [ %doread.2.i28, %for.inc131.i ], [ %doread.0165.i, %for.cond37.preheader.i ]
-  %tiledata.sroa.10.4119.i = phi ptr [ %tiledata.sroa.10.5.i, %for.inc131.i ], [ %tiledata.sroa.10.3164.i, %for.cond37.preheader.i ]
-  %tiledata.sroa.6.4118.i = phi ptr [ %tiledata.sroa.6.5.i, %for.inc131.i ], [ %tiledata.sroa.6.3163.i, %for.cond37.preheader.i ]
-  %tiledata.sroa.0.4117.i = phi ptr [ %tiledata.sroa.0.6.i, %for.inc131.i ], [ %tiledata.sroa.0.3162.i, %for.cond37.preheader.i ]
-  %call44.i = invoke i32 @exr_read_tile_chunk_info(ptr noundef %f, i32 noundef %p.098, i32 noundef %tx.0121.i, i32 noundef %ty.0166.i, i32 noundef %xlevel.0180.i, i32 noundef %ylevel.0201.i, ptr noundef nonnull %cinfo.i12)
+  %curx.0109.i = phi i64 [ %add133.i, %for.inc131.i ], [ 0, %for.cond37.preheader.i ]
+  %tx.0108.i = phi i32 [ %inc134.i, %for.inc131.i ], [ 0, %for.cond37.preheader.i ]
+  %doread.1107.i = phi i1 [ %doread.2.i28, %for.inc131.i ], [ %doread.0152.i, %for.cond37.preheader.i ]
+  %tiledata.sroa.10.4106.i = phi ptr [ %tiledata.sroa.10.5.i, %for.inc131.i ], [ %tiledata.sroa.10.3151.i, %for.cond37.preheader.i ]
+  %tiledata.sroa.6.4105.i = phi ptr [ %tiledata.sroa.6.5.i, %for.inc131.i ], [ %tiledata.sroa.6.3150.i, %for.cond37.preheader.i ]
+  %tiledata.sroa.0.4104.i = phi ptr [ %tiledata.sroa.0.6.i, %for.inc131.i ], [ %tiledata.sroa.0.3149.i, %for.cond37.preheader.i ]
+  %call44.i = invoke i32 @exr_read_tile_chunk_info(ptr noundef %f, i32 noundef %p.098, i32 noundef %tx.0108.i, i32 noundef %ty.0153.i, i32 noundef %xlevel.0162.i, i32 noundef %ylevel.0171.i, ptr noundef nonnull %cinfo.i12)
           to label %invoke.cont.i unwind label %lpad.loopexit.i27
 
 invoke.cont.i:                                    ; preds = %for.body43.i
@@ -1782,7 +1782,7 @@ if.then46.i:                                      ; preds = %invoke.cont.i
   br i1 %reduceTime, label %for.inc136.loopexit.i, label %for.inc131.i
 
 lpad.loopexit.i27:                                ; preds = %for.end121.i, %if.else.i31, %if.end78.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i68, %if.then52.i, %for.body43.i
-  %tiledata.sroa.0.5.ph.i = phi ptr [ %tiledata.sroa.0.4117.i, %for.body43.i ], [ %tiledata.sroa.0.4117.i, %if.else.i31 ], [ %tiledata.sroa.0.4117.i, %if.then52.i ], [ %tiledata.sroa.0.4117.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i68 ], [ %tiledata.sroa.0.7.i, %if.end78.i ], [ %tiledata.sroa.0.8.i, %for.end121.i ]
+  %tiledata.sroa.0.5.ph.i = phi ptr [ %tiledata.sroa.0.4104.i, %for.body43.i ], [ %tiledata.sroa.0.4104.i, %if.else.i31 ], [ %tiledata.sroa.0.4104.i, %if.then52.i ], [ %tiledata.sroa.0.4104.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i68 ], [ %tiledata.sroa.0.7.i, %if.end78.i ], [ %tiledata.sroa.0.8.i, %for.end121.i ]
   %lpad.loopexit78.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i21
@@ -1798,7 +1798,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.i:       ; preds = %if.then.i.i.i68.i
   br label %lpad.i21
 
 lpad.i21:                                         ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.i, %lpad.loopexit.i27
-  %tiledata.sroa.0.5.i = phi ptr [ %tiledata.sroa.0.5.ph.i, %lpad.loopexit.i27 ], [ %tiledata.sroa.0.3.lcssa.i, %lpad.loopexit.split-lp.loopexit.i ], [ %tiledata.sroa.0.4117.i, %lpad.loopexit.split-lp.loopexit.split-lp.i ]
+  %tiledata.sroa.0.5.i = phi ptr [ %tiledata.sroa.0.5.ph.i, %lpad.loopexit.i27 ], [ %tiledata.sroa.0.3.lcssa.i, %lpad.loopexit.split-lp.loopexit.i ], [ %tiledata.sroa.0.4104.i, %lpad.loopexit.split-lp.loopexit.split-lp.i ]
   %lpad.phi.i22 = phi { ptr, i32 } [ %lpad.loopexit78.i, %lpad.loopexit.i27 ], [ %lpad.loopexit80.i, %lpad.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp81.i, %lpad.loopexit.split-lp.loopexit.split-lp.i ]
   %tobool.not.i.i.i.i23 = icmp eq ptr %tiledata.sroa.0.5.i, null
   br i1 %tobool.not.i.i.i.i23, label %common.resume, label %common.resume.sink.split
@@ -1818,21 +1818,21 @@ invoke.cont53.i:                                  ; preds = %if.then52.i
 
 for.cond58.preheader.i:                           ; preds = %invoke.cont53.i
   %37 = load i16, ptr %channel_count.i19, align 8
-  %cmp60108.i = icmp sgt i16 %37, 0
-  br i1 %cmp60108.i, label %for.body61.i, label %if.then76.thread.i
+  %cmp6095.i = icmp sgt i16 %37, 0
+  br i1 %cmp6095.i, label %for.body61.i, label %if.then76.thread.i
 
 if.then76.thread.i:                               ; preds = %for.cond58.preheader.i
-  %sub.ptr.lhs.cast.i.i221.i = ptrtoint ptr %tiledata.sroa.6.4118.i to i64
-  %sub.ptr.rhs.cast.i.i222.i = ptrtoint ptr %tiledata.sroa.0.4117.i to i64
-  %sub.ptr.sub.i.i223.i = sub i64 %sub.ptr.lhs.cast.i.i221.i, %sub.ptr.rhs.cast.i.i222.i
+  %sub.ptr.lhs.cast.i.i191.i = ptrtoint ptr %tiledata.sroa.6.4105.i to i64
+  %sub.ptr.rhs.cast.i.i192.i = ptrtoint ptr %tiledata.sroa.0.4104.i to i64
+  %sub.ptr.sub.i.i193.i = sub i64 %sub.ptr.lhs.cast.i.i191.i, %sub.ptr.rhs.cast.i.i192.i
   br label %if.else.i.i33
 
 for.body61.i:                                     ; preds = %for.cond58.preheader.i, %for.body61.i
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i45, %for.body61.i ], [ 0, %for.cond58.preheader.i ]
-  %bytes.0109.i = phi i64 [ %add.i44, %for.body61.i ], [ 0, %for.cond58.preheader.i ]
+  %bytes.096.i = phi i64 [ %add.i44, %for.body61.i ], [ 0, %for.cond58.preheader.i ]
   %38 = load ptr, ptr %decoder.i13, align 8
   %arrayidx.i38 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %38, i64 %indvars.iv.i37
-  %add.ptr.i39 = getelementptr inbounds i8, ptr inttoptr (i64 4096 to ptr), i64 %bytes.0109.i
+  %add.ptr.i39 = getelementptr inbounds i8, ptr inttoptr (i64 4096 to ptr), i64 %bytes.096.i
   %39 = getelementptr inbounds i8, ptr %arrayidx.i38, i64 40
   store ptr %add.ptr.i39, ptr %39, align 8
   %user_bytes_per_element.i40 = getelementptr inbounds i8, ptr %arrayidx.i38, i64 28
@@ -1851,7 +1851,7 @@ for.body61.i:                                     ; preds = %for.cond58.preheade
   %43 = load i32, ptr %curth.i, align 4
   %conv69.i = sext i32 %43 to i64
   %mul70.i = mul i64 %mul68.i, %conv69.i
-  %add.i44 = add i64 %mul70.i, %bytes.0109.i
+  %add.i44 = add i64 %mul70.i, %bytes.096.i
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i37, 1
   %44 = load i16, ptr %channel_count.i19, align 8
   %45 = sext i16 %44 to i64
@@ -1864,15 +1864,15 @@ for.end.i46:                                      ; preds = %for.body61.i
   br i1 %or.cond.not.i47, label %if.end78.i, label %if.then76.i
 
 if.then76.i:                                      ; preds = %for.end.i46
-  %sub.ptr.lhs.cast.i.i.i48 = ptrtoint ptr %tiledata.sroa.6.4118.i to i64
-  %sub.ptr.rhs.cast.i.i.i49 = ptrtoint ptr %tiledata.sroa.0.4117.i to i64
+  %sub.ptr.lhs.cast.i.i.i48 = ptrtoint ptr %tiledata.sroa.6.4105.i to i64
+  %sub.ptr.rhs.cast.i.i.i49 = ptrtoint ptr %tiledata.sroa.0.4104.i to i64
   %sub.ptr.sub.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i48, %sub.ptr.rhs.cast.i.i.i49
   %cmp.i.i51 = icmp ugt i64 %add.i44, %sub.ptr.sub.i.i.i50
   br i1 %cmp.i.i51, label %if.then.i.i52, label %if.else.i.i33
 
 if.then.i.i52:                                    ; preds = %if.then76.i
   %sub.i.i53 = sub nuw i64 %add.i44, %sub.ptr.sub.i.i.i50
-  %sub.ptr.lhs.cast.i8.i.i54 = ptrtoint ptr %tiledata.sroa.10.4119.i to i64
+  %sub.ptr.lhs.cast.i8.i.i54 = ptrtoint ptr %tiledata.sroa.10.4106.i to i64
   %sub.ptr.sub.i9.i.i55 = sub i64 %sub.ptr.lhs.cast.i8.i.i54, %sub.ptr.lhs.cast.i.i.i48
   %cmp4.i.i.i56 = icmp sgt i64 %sub.ptr.sub.i.i.i50, -1
   call void @llvm.assume(i1 %cmp4.i.i.i56)
@@ -1883,14 +1883,14 @@ if.then.i.i52:                                    ; preds = %if.then76.i
   br i1 %cmp8.not.i.i.i59, label %if.else.i.i.i66, label %if.then.i.i.i.i.i.i60
 
 if.then.i.i.i.i.i.i60:                            ; preds = %if.then.i.i52
-  store i8 0, ptr %tiledata.sroa.6.4118.i, align 1
-  %incdec.ptr.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %tiledata.sroa.6.4118.i, i64 1
+  store i8 0, ptr %tiledata.sroa.6.4105.i, align 1
+  %incdec.ptr.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %tiledata.sroa.6.4105.i, i64 1
   %sub.i.i.i.i.i.i62 = add i64 %sub.i.i53, -1
   %cmp.i.i.i.i.i.i.i.i63 = icmp eq i64 %sub.i.i.i.i.i.i62, 0
   br i1 %cmp.i.i.i.i.i.i.i.i63, label %if.end78.i, label %if.then.i.i.i.i.i.i.i.i.i.i64
 
 if.then.i.i.i.i.i.i.i.i.i.i64:                    ; preds = %if.then.i.i.i.i.i.i60
-  %add.ptr.i.i.i.i.i.i.i.i65 = getelementptr i8, ptr %tiledata.sroa.6.4118.i, i64 %sub.i.i53
+  %add.ptr.i.i.i.i.i.i.i.i65 = getelementptr i8, ptr %tiledata.sroa.6.4105.i, i64 %sub.i.i53
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i.i61, i8 0, i64 %sub.i.i.i.i.i.i62, i1 false)
   br label %if.end78.i
 
@@ -1925,19 +1925,19 @@ if.then.i.i.i.i.i.i.i25.i.i.i75:                  ; preds = %call5.i.i.i.i.i.noe
   br label %try.cont.i.i.i77
 
 try.cont.i.i.i77:                                 ; preds = %if.then.i.i.i.i.i.i.i25.i.i.i75, %call5.i.i.i.i.i.noexc.i71
-  %cmp.i.i.i.not.i.i.i78 = icmp eq ptr %tiledata.sroa.6.4118.i, %tiledata.sroa.0.4117.i
+  %cmp.i.i.i.not.i.i.i78 = icmp eq ptr %tiledata.sroa.6.4105.i, %tiledata.sroa.0.4104.i
   br i1 %cmp.i.i.i.not.i.i.i78, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i80, label %if.then.i.i.i30.i.i.i79
 
 if.then.i.i.i30.i.i.i79:                          ; preds = %try.cont.i.i.i77
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i69.i, ptr align 1 %tiledata.sroa.0.4117.i, i64 %sub.ptr.sub.i.i.i50, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i69.i, ptr align 1 %tiledata.sroa.0.4104.i, i64 %sub.ptr.sub.i.i.i50, i1 false)
   br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i80
 
 _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i80: ; preds = %if.then.i.i.i30.i.i.i79, %try.cont.i.i.i77
-  %tobool.not.i31.i.i.i81 = icmp eq ptr %tiledata.sroa.0.4117.i, null
+  %tobool.not.i31.i.i.i81 = icmp eq ptr %tiledata.sroa.0.4104.i, null
   br i1 %tobool.not.i31.i.i.i81, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83, label %if.then.i32.i.i.i82
 
 if.then.i32.i.i.i82:                              ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i80
-  call void @_ZdlPv(ptr noundef nonnull %tiledata.sroa.0.4117.i) #26
+  call void @_ZdlPv(ptr noundef nonnull %tiledata.sroa.0.4104.i) #26
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83: ; preds = %if.then.i32.i.i.i82, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i80
@@ -1946,18 +1946,18 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83: ; preds = %if.the
   br label %if.end78.i
 
 if.else.i.i33:                                    ; preds = %if.then76.i, %if.then76.thread.i
-  %sub.ptr.sub.i.i227.i = phi i64 [ %sub.ptr.sub.i.i223.i, %if.then76.thread.i ], [ %sub.ptr.sub.i.i.i50, %if.then76.i ]
-  %bytes.0.lcssa216226.i = phi i64 [ 0, %if.then76.thread.i ], [ %add.i44, %if.then76.i ]
-  %cmp4.i.i34 = icmp ult i64 %bytes.0.lcssa216226.i, %sub.ptr.sub.i.i227.i
-  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %tiledata.sroa.0.4117.i, i64 %bytes.0.lcssa216226.i
-  %spec.select.i36 = select i1 %cmp4.i.i34, ptr %add.ptr.i.i35, ptr %tiledata.sroa.6.4118.i
+  %sub.ptr.sub.i.i197.i = phi i64 [ %sub.ptr.sub.i.i193.i, %if.then76.thread.i ], [ %sub.ptr.sub.i.i.i50, %if.then76.i ]
+  %bytes.0.lcssa186196.i = phi i64 [ 0, %if.then76.thread.i ], [ %add.i44, %if.then76.i ]
+  %cmp4.i.i34 = icmp ult i64 %bytes.0.lcssa186196.i, %sub.ptr.sub.i.i197.i
+  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %tiledata.sroa.0.4104.i, i64 %bytes.0.lcssa186196.i
+  %spec.select.i36 = select i1 %cmp4.i.i34, ptr %add.ptr.i.i35, ptr %tiledata.sroa.6.4105.i
   br label %if.end78.i
 
 if.end78.i:                                       ; preds = %if.else.i.i33, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83, %if.then.i.i.i.i.i.i.i.i.i.i64, %if.then.i.i.i.i.i.i60, %for.end.i46
-  %or.cond217.i = phi i1 [ false, %for.end.i46 ], [ true, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83 ], [ true, %if.then.i.i.i.i.i.i.i.i.i.i64 ], [ true, %if.then.i.i.i.i.i.i60 ], [ true, %if.else.i.i33 ]
-  %tiledata.sroa.0.7.i = phi ptr [ %tiledata.sroa.0.4117.i, %for.end.i46 ], [ %call5.i.i.i.i.i69.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83 ], [ %tiledata.sroa.0.4117.i, %if.then.i.i.i.i.i.i.i.i.i.i64 ], [ %tiledata.sroa.0.4117.i, %if.then.i.i.i.i.i.i60 ], [ %tiledata.sroa.0.4117.i, %if.else.i.i33 ]
-  %tiledata.sroa.6.6.i = phi ptr [ %tiledata.sroa.6.4118.i, %for.end.i46 ], [ %add.ptr36.i.i.i84, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83 ], [ %add.ptr.i.i.i.i.i.i.i.i65, %if.then.i.i.i.i.i.i.i.i.i.i64 ], [ %incdec.ptr.i.i.i.i.i.i61, %if.then.i.i.i.i.i.i60 ], [ %spec.select.i36, %if.else.i.i33 ]
-  %tiledata.sroa.10.6.i = phi ptr [ %tiledata.sroa.10.4119.i, %for.end.i46 ], [ %add.ptr39.i.i.i85, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83 ], [ %tiledata.sroa.10.4119.i, %if.then.i.i.i.i.i.i.i.i.i.i64 ], [ %tiledata.sroa.10.4119.i, %if.then.i.i.i.i.i.i60 ], [ %tiledata.sroa.10.4119.i, %if.else.i.i33 ]
+  %or.cond187.i = phi i1 [ false, %for.end.i46 ], [ true, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83 ], [ true, %if.then.i.i.i.i.i.i.i.i.i.i64 ], [ true, %if.then.i.i.i.i.i.i60 ], [ true, %if.else.i.i33 ]
+  %tiledata.sroa.0.7.i = phi ptr [ %tiledata.sroa.0.4104.i, %for.end.i46 ], [ %call5.i.i.i.i.i69.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83 ], [ %tiledata.sroa.0.4104.i, %if.then.i.i.i.i.i.i.i.i.i.i64 ], [ %tiledata.sroa.0.4104.i, %if.then.i.i.i.i.i.i60 ], [ %tiledata.sroa.0.4104.i, %if.else.i.i33 ]
+  %tiledata.sroa.6.6.i = phi ptr [ %tiledata.sroa.6.4105.i, %for.end.i46 ], [ %add.ptr36.i.i.i84, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83 ], [ %add.ptr.i.i.i.i.i.i.i.i65, %if.then.i.i.i.i.i.i.i.i.i.i64 ], [ %incdec.ptr.i.i.i.i.i.i61, %if.then.i.i.i.i.i.i60 ], [ %spec.select.i36, %if.else.i.i33 ]
+  %tiledata.sroa.10.6.i = phi ptr [ %tiledata.sroa.10.4106.i, %for.end.i46 ], [ %add.ptr39.i.i.i85, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83 ], [ %tiledata.sroa.10.4106.i, %if.then.i.i.i.i.i.i.i.i.i.i64 ], [ %tiledata.sroa.10.4106.i, %if.then.i.i.i.i.i.i60 ], [ %tiledata.sroa.10.4106.i, %if.else.i.i33 ]
   %call80.i = invoke i32 @exr_decoding_choose_default_routines(ptr noundef %f, i32 noundef %p.098, ptr noundef nonnull %decoder.i13)
           to label %invoke.cont79.i unwind label %lpad.loopexit.i27
 
@@ -1977,24 +1977,24 @@ if.then87.i:                                      ; preds = %invoke.cont84.i
   br i1 %reduceTime, label %for.inc136.loopexit.i, label %for.inc131.i
 
 if.end92.i:                                       ; preds = %invoke.cont84.i, %invoke.cont79.i
-  %tiledata.sroa.0.8.i = phi ptr [ %tiledata.sroa.0.7.i, %invoke.cont79.i ], [ %tiledata.sroa.0.4117.i, %invoke.cont84.i ]
-  %tiledata.sroa.6.7.i = phi ptr [ %tiledata.sroa.6.6.i, %invoke.cont79.i ], [ %tiledata.sroa.6.4118.i, %invoke.cont84.i ]
-  %tiledata.sroa.10.7.i = phi ptr [ %tiledata.sroa.10.6.i, %invoke.cont79.i ], [ %tiledata.sroa.10.4119.i, %invoke.cont84.i ]
-  %doread.3.i = phi i1 [ %or.cond217.i, %invoke.cont79.i ], [ %doread.1120.i, %invoke.cont84.i ]
+  %tiledata.sroa.0.8.i = phi ptr [ %tiledata.sroa.0.7.i, %invoke.cont79.i ], [ %tiledata.sroa.0.4104.i, %invoke.cont84.i ]
+  %tiledata.sroa.6.7.i = phi ptr [ %tiledata.sroa.6.6.i, %invoke.cont79.i ], [ %tiledata.sroa.6.4105.i, %invoke.cont84.i ]
+  %tiledata.sroa.10.7.i = phi ptr [ %tiledata.sroa.10.6.i, %invoke.cont79.i ], [ %tiledata.sroa.10.4106.i, %invoke.cont84.i ]
+  %doread.3.i = phi i1 [ %or.cond187.i, %invoke.cont79.i ], [ %doread.1107.i, %invoke.cont84.i ]
   br i1 %doread.3.i, label %for.cond97.preheader.i, label %for.inc131.i
 
 for.cond97.preheader.i:                           ; preds = %if.end92.i
   %47 = load i16, ptr %channel_count.i19, align 8
-  %cmp100112.i = icmp sgt i16 %47, 0
-  br i1 %cmp100112.i, label %for.body101.i, label %for.end121.i
+  %cmp10099.i = icmp sgt i16 %47, 0
+  br i1 %cmp10099.i, label %for.body101.i, label %for.end121.i
 
 for.body101.i:                                    ; preds = %for.cond97.preheader.i, %for.body101.i
-  %indvars.iv208.i = phi i64 [ %indvars.iv.next209.i, %for.body101.i ], [ 0, %for.cond97.preheader.i ]
-  %dptr.0113.i = phi ptr [ %add.ptr118.i, %for.body101.i ], [ %tiledata.sroa.0.8.i, %for.cond97.preheader.i ]
+  %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %for.body101.i ], [ 0, %for.cond97.preheader.i ]
+  %dptr.0100.i = phi ptr [ %add.ptr118.i, %for.body101.i ], [ %tiledata.sroa.0.8.i, %for.cond97.preheader.i ]
   %48 = load ptr, ptr %decoder.i13, align 8
-  %arrayidx105.i = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %48, i64 %indvars.iv208.i
+  %arrayidx105.i = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %48, i64 %indvars.iv178.i
   %49 = getelementptr inbounds i8, ptr %arrayidx105.i, i64 40
-  store ptr %dptr.0113.i, ptr %49, align 8
+  store ptr %dptr.0100.i, ptr %49, align 8
   %user_bytes_per_element106.i = getelementptr inbounds i8, ptr %arrayidx105.i, i64 28
   %50 = load i16, ptr %user_bytes_per_element106.i, align 4
   %conv107.i = sext i16 %50 to i32
@@ -2011,11 +2011,11 @@ for.body101.i:                                    ; preds = %for.cond97.preheade
   %53 = load i32, ptr %curth.i, align 4
   %conv116.i = sext i32 %53 to i64
   %mul117.i = mul i64 %mul115.i, %conv116.i
-  %add.ptr118.i = getelementptr inbounds i8, ptr %dptr.0113.i, i64 %mul117.i
-  %indvars.iv.next209.i = add nuw nsw i64 %indvars.iv208.i, 1
+  %add.ptr118.i = getelementptr inbounds i8, ptr %dptr.0100.i, i64 %mul117.i
+  %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %54 = load i16, ptr %channel_count.i19, align 8
   %55 = sext i16 %54 to i64
-  %cmp100.i = icmp slt i64 %indvars.iv.next209.i, %55
+  %cmp100.i = icmp slt i64 %indvars.iv.next179.i, %55
   br i1 %cmp100.i, label %for.body101.i, label %for.end121.i, !llvm.loop !9
 
 for.end121.i:                                     ; preds = %for.body101.i, %for.cond97.preheader.i
@@ -2028,42 +2028,42 @@ invoke.cont122.i:                                 ; preds = %for.end121.i
   br i1 %brmerge.not.i32, label %for.inc136.loopexit.i, label %for.inc131.i
 
 for.inc131.i:                                     ; preds = %invoke.cont122.i, %if.end92.i, %if.then87.i, %if.then46.i
-  %tiledata.sroa.0.6.i = phi ptr [ %tiledata.sroa.0.8.i, %invoke.cont122.i ], [ %tiledata.sroa.0.8.i, %if.end92.i ], [ %tiledata.sroa.0.4117.i, %if.then87.i ], [ %tiledata.sroa.0.4117.i, %if.then46.i ]
-  %tiledata.sroa.6.5.i = phi ptr [ %tiledata.sroa.6.7.i, %invoke.cont122.i ], [ %tiledata.sroa.6.7.i, %if.end92.i ], [ %tiledata.sroa.6.4118.i, %if.then87.i ], [ %tiledata.sroa.6.4118.i, %if.then46.i ]
-  %tiledata.sroa.10.5.i = phi ptr [ %tiledata.sroa.10.7.i, %invoke.cont122.i ], [ %tiledata.sroa.10.7.i, %if.end92.i ], [ %tiledata.sroa.10.4119.i, %if.then87.i ], [ %tiledata.sroa.10.4119.i, %if.then46.i ]
-  %doread.2.i28 = phi i1 [ true, %invoke.cont122.i ], [ false, %if.end92.i ], [ %doread.1120.i, %if.then87.i ], [ %doread.1120.i, %if.then46.i ]
+  %tiledata.sroa.0.6.i = phi ptr [ %tiledata.sroa.0.8.i, %invoke.cont122.i ], [ %tiledata.sroa.0.8.i, %if.end92.i ], [ %tiledata.sroa.0.4104.i, %if.then87.i ], [ %tiledata.sroa.0.4104.i, %if.then46.i ]
+  %tiledata.sroa.6.5.i = phi ptr [ %tiledata.sroa.6.7.i, %invoke.cont122.i ], [ %tiledata.sroa.6.7.i, %if.end92.i ], [ %tiledata.sroa.6.4105.i, %if.then87.i ], [ %tiledata.sroa.6.4105.i, %if.then46.i ]
+  %tiledata.sroa.10.5.i = phi ptr [ %tiledata.sroa.10.7.i, %invoke.cont122.i ], [ %tiledata.sroa.10.7.i, %if.end92.i ], [ %tiledata.sroa.10.4106.i, %if.then87.i ], [ %tiledata.sroa.10.4106.i, %if.then46.i ]
+  %doread.2.i28 = phi i1 [ true, %invoke.cont122.i ], [ false, %if.end92.i ], [ %doread.1107.i, %if.then87.i ], [ %doread.1107.i, %if.then46.i ]
   %rv.5.i = phi i32 [ %call123.i, %invoke.cont122.i ], [ 0, %if.end92.i ], [ %call85.i, %if.then87.i ], [ %call44.i, %if.then46.i ]
   %56 = load i32, ptr %curtw.i, align 4
   %conv132.i = sext i32 %56 to i64
-  %add133.i = add nsw i64 %curx.0122.i, %conv132.i
-  %inc134.i = add nuw nsw i32 %tx.0121.i, 1
+  %add133.i = add nsw i64 %curx.0109.i, %conv132.i
+  %inc134.i = add nuw nsw i32 %tx.0108.i, 1
   %57 = load i32, ptr %levw.i, align 4
   %conv40.i29 = sext i32 %57 to i64
   %cmp41.i = icmp slt i64 %add133.i, %conv40.i29
   br i1 %cmp41.i, label %for.body43.i, label %for.inc136.loopexit.i, !llvm.loop !10
 
 for.inc136.loopexit.i:                            ; preds = %for.inc131.i, %invoke.cont122.i, %if.then87.i, %invoke.cont79.i, %invoke.cont53.i, %if.then46.i
-  %tiledata.sroa.0.9.ph.i = phi ptr [ %tiledata.sroa.0.6.i, %for.inc131.i ], [ %tiledata.sroa.0.4117.i, %if.then46.i ], [ %tiledata.sroa.0.4117.i, %invoke.cont53.i ], [ %tiledata.sroa.0.7.i, %invoke.cont79.i ], [ %tiledata.sroa.0.4117.i, %if.then87.i ], [ %tiledata.sroa.0.8.i, %invoke.cont122.i ]
-  %tiledata.sroa.6.8.ph.i = phi ptr [ %tiledata.sroa.6.5.i, %for.inc131.i ], [ %tiledata.sroa.6.4118.i, %if.then46.i ], [ %tiledata.sroa.6.4118.i, %invoke.cont53.i ], [ %tiledata.sroa.6.6.i, %invoke.cont79.i ], [ %tiledata.sroa.6.4118.i, %if.then87.i ], [ %tiledata.sroa.6.7.i, %invoke.cont122.i ]
-  %tiledata.sroa.10.8.ph.i = phi ptr [ %tiledata.sroa.10.5.i, %for.inc131.i ], [ %tiledata.sroa.10.4119.i, %if.then46.i ], [ %tiledata.sroa.10.4119.i, %invoke.cont53.i ], [ %tiledata.sroa.10.6.i, %invoke.cont79.i ], [ %tiledata.sroa.10.4119.i, %if.then87.i ], [ %tiledata.sroa.10.7.i, %invoke.cont122.i ]
-  %doread.4.ph.i = phi i1 [ %doread.2.i28, %for.inc131.i ], [ %doread.1120.i, %if.then46.i ], [ %doread.1120.i, %invoke.cont53.i ], [ %or.cond217.i, %invoke.cont79.i ], [ %doread.1120.i, %if.then87.i ], [ true, %invoke.cont122.i ]
-  %keepgoing.4.ph.i = phi i8 [ %keepgoing.3168.i, %for.inc131.i ], [ 0, %if.then46.i ], [ 0, %invoke.cont53.i ], [ 0, %invoke.cont79.i ], [ 0, %if.then87.i ], [ 0, %invoke.cont122.i ]
+  %tiledata.sroa.0.9.ph.i = phi ptr [ %tiledata.sroa.0.6.i, %for.inc131.i ], [ %tiledata.sroa.0.4104.i, %if.then46.i ], [ %tiledata.sroa.0.4104.i, %invoke.cont53.i ], [ %tiledata.sroa.0.7.i, %invoke.cont79.i ], [ %tiledata.sroa.0.4104.i, %if.then87.i ], [ %tiledata.sroa.0.8.i, %invoke.cont122.i ]
+  %tiledata.sroa.6.8.ph.i = phi ptr [ %tiledata.sroa.6.5.i, %for.inc131.i ], [ %tiledata.sroa.6.4105.i, %if.then46.i ], [ %tiledata.sroa.6.4105.i, %invoke.cont53.i ], [ %tiledata.sroa.6.6.i, %invoke.cont79.i ], [ %tiledata.sroa.6.4105.i, %if.then87.i ], [ %tiledata.sroa.6.7.i, %invoke.cont122.i ]
+  %tiledata.sroa.10.8.ph.i = phi ptr [ %tiledata.sroa.10.5.i, %for.inc131.i ], [ %tiledata.sroa.10.4106.i, %if.then46.i ], [ %tiledata.sroa.10.4106.i, %invoke.cont53.i ], [ %tiledata.sroa.10.6.i, %invoke.cont79.i ], [ %tiledata.sroa.10.4106.i, %if.then87.i ], [ %tiledata.sroa.10.7.i, %invoke.cont122.i ]
+  %doread.4.ph.i = phi i1 [ %doread.2.i28, %for.inc131.i ], [ %doread.1107.i, %if.then46.i ], [ %doread.1107.i, %invoke.cont53.i ], [ %or.cond187.i, %invoke.cont79.i ], [ %doread.1107.i, %if.then87.i ], [ true, %invoke.cont122.i ]
+  %keepgoing.4.ph.i = phi i8 [ %keepgoing.3155.i, %for.inc131.i ], [ 0, %if.then46.i ], [ 0, %invoke.cont53.i ], [ 0, %invoke.cont79.i ], [ 0, %if.then87.i ], [ 0, %invoke.cont122.i ]
   %rv.7.ph.i = phi i32 [ %rv.5.i, %for.inc131.i ], [ %call44.i, %if.then46.i ], [ %call54.i, %invoke.cont53.i ], [ %call80.i, %invoke.cont79.i ], [ %call85.i, %if.then87.i ], [ %call123.i, %invoke.cont122.i ]
   %.pre.i = load i32, ptr %levh.i, align 4
   br label %for.inc136.i
 
 for.inc136.i:                                     ; preds = %for.inc136.loopexit.i, %for.cond37.preheader.i
   %58 = phi i32 [ %34, %for.cond37.preheader.i ], [ %.pre.i, %for.inc136.loopexit.i ]
-  %tiledata.sroa.0.9.i = phi ptr [ %tiledata.sroa.0.3162.i, %for.cond37.preheader.i ], [ %tiledata.sroa.0.9.ph.i, %for.inc136.loopexit.i ]
-  %tiledata.sroa.6.8.i = phi ptr [ %tiledata.sroa.6.3163.i, %for.cond37.preheader.i ], [ %tiledata.sroa.6.8.ph.i, %for.inc136.loopexit.i ]
-  %tiledata.sroa.10.8.i = phi ptr [ %tiledata.sroa.10.3164.i, %for.cond37.preheader.i ], [ %tiledata.sroa.10.8.ph.i, %for.inc136.loopexit.i ]
-  %doread.4.i = phi i1 [ %doread.0165.i, %for.cond37.preheader.i ], [ %doread.4.ph.i, %for.inc136.loopexit.i ]
-  %keepgoing.4.i = phi i8 [ %keepgoing.3168.i, %for.cond37.preheader.i ], [ %keepgoing.4.ph.i, %for.inc136.loopexit.i ]
-  %rv.7.i = phi i32 [ %rv.3169.i, %for.cond37.preheader.i ], [ %rv.7.ph.i, %for.inc136.loopexit.i ]
+  %tiledata.sroa.0.9.i = phi ptr [ %tiledata.sroa.0.3149.i, %for.cond37.preheader.i ], [ %tiledata.sroa.0.9.ph.i, %for.inc136.loopexit.i ]
+  %tiledata.sroa.6.8.i = phi ptr [ %tiledata.sroa.6.3150.i, %for.cond37.preheader.i ], [ %tiledata.sroa.6.8.ph.i, %for.inc136.loopexit.i ]
+  %tiledata.sroa.10.8.i = phi ptr [ %tiledata.sroa.10.3151.i, %for.cond37.preheader.i ], [ %tiledata.sroa.10.8.ph.i, %for.inc136.loopexit.i ]
+  %doread.4.i = phi i1 [ %doread.0152.i, %for.cond37.preheader.i ], [ %doread.4.ph.i, %for.inc136.loopexit.i ]
+  %keepgoing.4.i = phi i8 [ %keepgoing.3155.i, %for.cond37.preheader.i ], [ %keepgoing.4.ph.i, %for.inc136.loopexit.i ]
+  %rv.7.i = phi i32 [ %rv.3156.i, %for.cond37.preheader.i ], [ %rv.7.ph.i, %for.inc136.loopexit.i ]
   %59 = load i32, ptr %curth.i, align 4
   %conv137.i = sext i32 %59 to i64
-  %add138.i = add nsw i64 %cury.0167.i, %conv137.i
-  %inc139.i = add nuw nsw i32 %ty.0166.i, 1
+  %add138.i = add nsw i64 %cury.0154.i, %conv137.i
+  %inc139.i = add nuw nsw i32 %ty.0153.i, 1
   %tobool32.i = trunc nuw i8 %keepgoing.4.i to i1
   %conv.i26 = sext i32 %58 to i64
   %cmp34.i = icmp slt i64 %add138.i, %conv.i26
@@ -2072,7 +2072,7 @@ for.inc136.i:                                     ; preds = %for.inc136.loopexit
 
 for.end140.i:                                     ; preds = %for.inc136.i, %if.end30.i
   %tiledata.sroa.0.3.lcssa.i = phi ptr [ null, %if.end30.i ], [ %tiledata.sroa.0.9.i, %for.inc136.i ]
-  %keepgoing.3.lcssa.i = phi i8 [ %keepgoing.1181.i, %if.end30.i ], [ %keepgoing.4.i, %for.inc136.i ]
+  %keepgoing.3.lcssa.i = phi i8 [ %keepgoing.1163.i, %if.end30.i ], [ %keepgoing.4.i, %for.inc136.i ]
   %rv.3.lcssa.i = phi i32 [ 0, %if.end30.i ], [ %rv.7.i, %for.inc136.i ]
   %call142.i = invoke i32 @exr_decoding_destroy(ptr noundef %f, ptr noundef nonnull %decoder.i13)
           to label %invoke.cont141.i unwind label %lpad.loopexit.split-lp.loopexit.i
@@ -2086,9 +2086,9 @@ if.then.i.i.i72.i:                                ; preds = %invoke.cont141.i
   br label %for.inc143.i
 
 for.inc143.i:                                     ; preds = %if.then.i.i.i72.i, %invoke.cont141.i, %if.then26.i, %if.then19.i
-  %keepgoing.2.i = phi i8 [ %keepgoing.1181.i, %if.then26.i ], [ %keepgoing.1181.i, %if.then19.i ], [ %keepgoing.3.lcssa.i, %invoke.cont141.i ], [ %keepgoing.3.lcssa.i, %if.then.i.i.i72.i ]
-  %rv.2.i20 = phi i32 [ %call24.i, %if.then26.i ], [ %call17.i, %if.then19.i ], [ %rv.3.lcssa.i, %invoke.cont141.i ], [ %rv.3.lcssa.i, %if.then.i.i.i72.i ]
-  %inc144.i = add nuw nsw i32 %xlevel.0180.i, 1
+  %keepgoing.2.i = phi i8 [ %keepgoing.1163.i, %if.then19.i ], [ %keepgoing.1163.i, %if.then26.i ], [ %keepgoing.3.lcssa.i, %invoke.cont141.i ], [ %keepgoing.3.lcssa.i, %if.then.i.i.i72.i ]
+  %rv.2.i20 = phi i32 [ %call17.i, %if.then19.i ], [ %call24.i, %if.then26.i ], [ %rv.3.lcssa.i, %invoke.cont141.i ], [ %rv.3.lcssa.i, %if.then.i.i.i72.i ]
+  %inc144.i = add nuw nsw i32 %xlevel.0162.i, 1
   %tobool12.i = trunc nuw i8 %keepgoing.2.i to i1
   %61 = load i32, ptr %levelsx.i, align 4
   %cmp14.i = icmp slt i32 %inc144.i, %61
@@ -2098,16 +2098,16 @@ for.inc143.i:                                     ; preds = %if.then.i.i.i72.i, 
 for.inc146.loopexit.i:                            ; preds = %for.inc143.i, %if.then26.i, %if.then19.i
   %keepgoing.5.ph.i = phi i8 [ %keepgoing.2.i, %for.inc143.i ], [ 0, %if.then19.i ], [ 0, %if.then26.i ]
   %rv.8.ph.i = phi i32 [ %rv.2.i20, %for.inc143.i ], [ %call17.i, %if.then19.i ], [ %call24.i, %if.then26.i ]
-  %.pre211.i = load i32, ptr %levelsy.i, align 4
-  %.pre212.i = trunc nuw i8 %keepgoing.5.ph.i to i1
+  %.pre181.i = load i32, ptr %levelsy.i, align 4
+  %.pre182.i = trunc nuw i8 %keepgoing.5.ph.i to i1
   br label %for.inc146.i
 
 for.inc146.i:                                     ; preds = %for.inc146.loopexit.i, %for.cond11.preheader.i
-  %tobool.pre-phi.i = phi i1 [ %.pre212.i, %for.inc146.loopexit.i ], [ %tobool12175.i, %for.cond11.preheader.i ]
-  %63 = phi i32 [ %.pre211.i, %for.inc146.loopexit.i ], [ %27, %for.cond11.preheader.i ]
-  %keepgoing.5.i = phi i8 [ %keepgoing.5.ph.i, %for.inc146.loopexit.i ], [ %keepgoing.0202.i, %for.cond11.preheader.i ]
-  %rv.8.i = phi i32 [ %rv.8.ph.i, %for.inc146.loopexit.i ], [ %rv.0203.i, %for.cond11.preheader.i ]
-  %inc147.i = add nuw nsw i32 %ylevel.0201.i, 1
+  %tobool.pre-phi.i = phi i1 [ %.pre182.i, %for.inc146.loopexit.i ], [ %tobool12160.i, %for.cond11.preheader.i ]
+  %63 = phi i32 [ %.pre181.i, %for.inc146.loopexit.i ], [ %27, %for.cond11.preheader.i ]
+  %keepgoing.5.i = phi i8 [ %keepgoing.5.ph.i, %for.inc146.loopexit.i ], [ %keepgoing.0172.i, %for.cond11.preheader.i ]
+  %rv.8.i = phi i32 [ %rv.8.ph.i, %for.inc146.loopexit.i ], [ %rv.0173.i, %for.cond11.preheader.i ]
+  %inc147.i = add nuw nsw i32 %ylevel.0171.i, 1
   %cmp10.i = icmp slt i32 %inc147.i, %63
   %64 = select i1 %tobool.pre-phi.i, i1 %cmp10.i, i1 false
   br i1 %64, label %for.cond11.preheader.i, label %_ZN7Imf_3_212_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb.exit, !llvm.loop !14

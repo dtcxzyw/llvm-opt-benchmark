@@ -4861,9 +4861,9 @@ Abc_Clock.exit132:                                ; preds = %Gia_ManBmcFindFirst
 
 80:                                               ; preds = %79, %75
   %.not103167 = icmp sgt i32 %31, 0
-  br i1 %.not103167, label %.lr.ph170, label %.loopexit153
+  br i1 %.not103167, label %.lr.ph169, label %.loopexit153
 
-.lr.ph170:                                        ; preds = %80
+.lr.ph169:                                        ; preds = %80
   %81 = getelementptr inbounds i8, ptr %14, i64 32
   %82 = getelementptr inbounds i8, ptr %14, i64 48
   %83 = getelementptr inbounds i8, ptr %14, i64 40
@@ -4877,15 +4877,15 @@ Abc_Clock.exit132:                                ; preds = %Gia_ManBmcFindFirst
   %91 = getelementptr inbounds i8, ptr %1, i64 64
   br label %92
 
-92:                                               ; preds = %.lr.ph170, %.thread
-  %.0169 = phi i32 [ 0, %.lr.ph170 ], [ %96, %.thread ]
+92:                                               ; preds = %.lr.ph169, %.thread
+  %.0168 = phi i32 [ 0, %.lr.ph169 ], [ %96, %.thread ]
   %.val121 = load i32, ptr %27, align 8
   %.val122 = load ptr, ptr %28, align 8
   %93 = getelementptr i8, ptr %.val122, i64 4
   %.val122.val = load i32, ptr %93, align 4
   %94 = sub nsw i32 %.val122.val, %.val121
-  %95 = mul nsw i32 %94, %.0169
-  %96 = add nuw nsw i32 %.0169, 1
+  %95 = mul nsw i32 %94, %.0168
+  %96 = add nuw nsw i32 %.0168, 1
   %97 = mul nsw i32 %94, %96
   %98 = icmp slt i32 %95, %97
   br i1 %98, label %.lr.ph.i133, label %.thread
@@ -4937,7 +4937,7 @@ Gia_ManBmcCheckOutputs.exit:                      ; preds = %105
   %123 = getelementptr i8, ptr %.val114, i64 4
   %.val114.val = load i32, ptr %123, align 4
   %124 = sub nsw i32 %.val114.val, %.val113
-  %125 = mul nsw i32 %124, %.0169
+  %125 = mul nsw i32 %124, %.0168
   %126 = mul nsw i32 %124, %96
   %127 = icmp slt i32 %125, %126
   br i1 %127, label %.lr.ph.preheader, label %.loopexit
@@ -4947,8 +4947,8 @@ Gia_ManBmcCheckOutputs.exit:                      ; preds = %105
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %159
-  %.val112184 = phi ptr [ %.val114, %.lr.ph.preheader ], [ %.val112, %159 ]
-  %.val111182 = phi i32 [ %.val113, %.lr.ph.preheader ], [ %.val111, %159 ]
+  %.val112183 = phi ptr [ %.val114, %.lr.ph.preheader ], [ %.val112, %159 ]
+  %.val111181 = phi i32 [ %.val113, %.lr.ph.preheader ], [ %.val111, %159 ]
   %indvars.iv = phi i64 [ %128, %.lr.ph.preheader ], [ %indvars.iv.next, %159 ]
   %129 = load ptr, ptr %14, align 8
   %130 = getelementptr i8, ptr %129, i64 32
@@ -4987,7 +4987,7 @@ Gia_ManBmcCheckOutputs.exit:                      ; preds = %105
   %156 = call i32 @sat_solver_solve(ptr noundef %153, ptr noundef nonnull %7, ptr noundef nonnull %86, i64 noundef %155, i64 noundef 0, i64 noundef 0, i64 noundef 0) #18
   switch i32 %156, label %.loopexit152 [
     i32 -1, label %._crit_edge
-    i32 1, label %.loopexit171
+    i32 1, label %.loopexit170
   ]
 
 ._crit_edge:                                      ; preds = %147
@@ -4998,16 +4998,16 @@ Gia_ManBmcCheckOutputs.exit:                      ; preds = %105
 .loopexit152:                                     ; preds = %147
   %157 = icmp eq i32 %156, 0
   %158 = select i1 %157, i32 -1, i32 -2
-  br label %.loopexit171
+  br label %.loopexit170
 
-.loopexit171:                                     ; preds = %147, %.loopexit152
+.loopexit170:                                     ; preds = %147, %.loopexit152
   %spec.select = phi i32 [ %158, %.loopexit152 ], [ 0, %147 ]
-  %.2166175 = trunc i64 %indvars.iv to i32
+  %.2166174 = trunc i64 %indvars.iv to i32
   br label %.loopexit
 
 159:                                              ; preds = %._crit_edge, %.lr.ph
-  %.val112 = phi ptr [ %.val112.pre, %._crit_edge ], [ %.val112184, %.lr.ph ]
-  %.val111 = phi i32 [ %.val111.pre, %._crit_edge ], [ %.val111182, %.lr.ph ]
+  %.val112 = phi ptr [ %.val112.pre, %._crit_edge ], [ %.val112183, %.lr.ph ]
+  %.val111 = phi i32 [ %.val111.pre, %._crit_edge ], [ %.val111181, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %160 = getelementptr i8, ptr %.val112, i64 4
   %.val112.val = load i32, ptr %160, align 4
@@ -5021,9 +5021,9 @@ Gia_ManBmcCheckOutputs.exit:                      ; preds = %105
   %165 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %Gia_ManBmcCheckOutputs.exit, %.loopexit171
-  %.2156 = phi i32 [ %.2166175, %.loopexit171 ], [ %125, %Gia_ManBmcCheckOutputs.exit ], [ %165, %.loopexit.loopexit ]
-  %.3 = phi i32 [ %spec.select, %.loopexit171 ], [ -2, %Gia_ManBmcCheckOutputs.exit ], [ -2, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %Gia_ManBmcCheckOutputs.exit, %.loopexit170
+  %.2156 = phi i32 [ %.2166174, %.loopexit170 ], [ %125, %Gia_ManBmcCheckOutputs.exit ], [ %165, %.loopexit.loopexit ]
+  %.3 = phi i32 [ %spec.select, %.loopexit170 ], [ -2, %Gia_ManBmcCheckOutputs.exit ], [ -2, %.loopexit.loopexit ]
   %166 = load i32, ptr %32, align 4
   %.not100 = icmp eq i32 %166, 0
   br i1 %.not100, label %207, label %167
@@ -5061,7 +5061,7 @@ Gia_ManBmcCheckOutputs.exit:                      ; preds = %105
   %191 = load ptr, ptr %14, align 8
   %192 = call double @Gia_ManMemory(ptr noundef %191) #18
   %193 = fmul double %192, 0x3EB0000000000000
-  %194 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0169, i32 noundef %172, i32 noundef %180, i32 noundef %182, i32 noundef %.val104, i32 noundef %.val, i32 noundef %188, i32 noundef %190, double noundef %193)
+  %194 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0168, i32 noundef %172, i32 noundef %180, i32 noundef %182, i32 noundef %.val104, i32 noundef %.val, i32 noundef %188, i32 noundef %190, double noundef %193)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %195 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #18
   %196 = icmp slt i32 %195, 0
@@ -5093,7 +5093,7 @@ Abc_Clock.exit140:                                ; preds = %167, %197
   ]
 
 208:                                              ; preds = %207
-  %209 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0169)
+  %209 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0168)
   br label %.loopexit153
 
 210:                                              ; preds = %207
@@ -5115,10 +5115,10 @@ Abc_Clock.exit140:                                ; preds = %167, %197
   %216 = getelementptr i8, ptr %.val110, i64 4
   %.val110.val = load i32, ptr %216, align 4
   %.neg150 = sub i32 %.val109, %.val110.val
-  %.neg151 = mul i32 %.neg150, %.0169
+  %.neg151 = mul i32 %.neg150, %.0168
   %217 = add i32 %.neg151, %.2156
   %.val130 = load ptr, ptr %0, align 8
-  %218 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %217, ptr noundef %.val130, i32 noundef %.0169)
+  %218 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %217, ptr noundef %.val130, i32 noundef %.0168)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %219 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #18
   %220 = icmp slt i32 %219, 0
@@ -5145,7 +5145,7 @@ Abc_Clock.exit142:                                ; preds = %214, %221
   br label %.loopexit153
 
 .thread:                                          ; preds = %104, %92, %207
-  store i32 %.0169, ptr %91, align 8
+  store i32 %.0168, ptr %91, align 8
   %exitcond.not = icmp eq i32 %96, %31
   br i1 %exitcond.not, label %.loopexit153, label %92, !llvm.loop !48
 
@@ -5659,9 +5659,9 @@ Abc_Clock.exit148:                                ; preds = %Gia_ManBmcFindFirst
   %.val142 = load i32, ptr %121, align 8
   call fastcc void @Vec_IntFillExtra(ptr noundef %119, i32 noundef %.val142)
   %.not115188 = icmp sgt i32 %52, 0
-  br i1 %.not115188, label %.lr.ph191, label %.loopexit174
+  br i1 %.not115188, label %.lr.ph190, label %.loopexit174
 
-.lr.ph191:                                        ; preds = %116
+.lr.ph190:                                        ; preds = %116
   %122 = getelementptr inbounds i8, ptr %8, i64 4
   %123 = getelementptr inbounds i8, ptr %1, i64 12
   %124 = getelementptr inbounds i8, ptr %15, i64 64
@@ -5672,15 +5672,15 @@ Abc_Clock.exit148:                                ; preds = %Gia_ManBmcFindFirst
   %129 = getelementptr inbounds i8, ptr %1, i64 64
   br label %130
 
-130:                                              ; preds = %.lr.ph191, %.thread
-  %.0190 = phi i32 [ 0, %.lr.ph191 ], [ %134, %.thread ]
+130:                                              ; preds = %.lr.ph190, %.thread
+  %.0189 = phi i32 [ 0, %.lr.ph190 ], [ %134, %.thread ]
   %.val133 = load i32, ptr %48, align 8
   %.val134 = load ptr, ptr %49, align 8
   %131 = getelementptr i8, ptr %.val134, i64 4
   %.val134.val = load i32, ptr %131, align 4
   %132 = sub nsw i32 %.val134.val, %.val133
-  %133 = mul nsw i32 %132, %.0190
-  %134 = add nuw nsw i32 %.0190, 1
+  %133 = mul nsw i32 %132, %.0189
+  %134 = add nuw nsw i32 %.0189, 1
   %135 = mul nsw i32 %132, %134
   %136 = icmp slt i32 %133, %135
   br i1 %136, label %.lr.ph.i149, label %.thread
@@ -5756,7 +5756,7 @@ Gia_ManBmcAddCnfNew.exit:                         ; preds = %171
   %172 = getelementptr i8, ptr %.val126, i64 4
   %.val126.val = load i32, ptr %172, align 4
   %173 = sub nsw i32 %.val126.val, %.val125
-  %174 = mul nsw i32 %173, %.0190
+  %174 = mul nsw i32 %173, %.0189
   %175 = mul nsw i32 %173, %134
   %176 = icmp slt i32 %174, %175
   br i1 %176, label %.lr.ph.preheader, label %.loopexit
@@ -5816,17 +5816,17 @@ Gia_ManBmcAddCnfNew.exit:                         ; preds = %171
   %213 = call i32 @sat_solver_solve(ptr noundef %210, ptr noundef nonnull %8, ptr noundef nonnull %122, i64 noundef %212, i64 noundef 0, i64 noundef 0, i64 noundef 0) #18
   switch i32 %213, label %.loopexit173 [
     i32 -1, label %216
-    i32 1, label %.loopexit192
+    i32 1, label %.loopexit191
   ]
 
 .loopexit173:                                     ; preds = %204
   %214 = icmp eq i32 %213, 0
   %215 = select i1 %214, i32 -1, i32 -2
-  br label %.loopexit192
+  br label %.loopexit191
 
-.loopexit192:                                     ; preds = %204, %.loopexit173
+.loopexit191:                                     ; preds = %204, %.loopexit173
   %spec.select = phi i32 [ %215, %.loopexit173 ], [ 0, %204 ]
-  %.2187196 = trunc i64 %indvars.iv to i32
+  %.2187195 = trunc i64 %indvars.iv to i32
   br label %.loopexit
 
 216:                                              ; preds = %204, %.lr.ph, %201
@@ -5845,9 +5845,9 @@ Gia_ManBmcAddCnfNew.exit:                         ; preds = %171
   %222 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %Gia_ManBmcAddCnfNew.exit, %.loopexit192
-  %.2177 = phi i32 [ %.2187196, %.loopexit192 ], [ %174, %Gia_ManBmcAddCnfNew.exit ], [ %222, %.loopexit.loopexit ]
-  %.3 = phi i32 [ %spec.select, %.loopexit192 ], [ -2, %Gia_ManBmcAddCnfNew.exit ], [ -2, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %Gia_ManBmcAddCnfNew.exit, %.loopexit191
+  %.2177 = phi i32 [ %.2187195, %.loopexit191 ], [ %174, %Gia_ManBmcAddCnfNew.exit ], [ %222, %.loopexit.loopexit ]
+  %.3 = phi i32 [ %spec.select, %.loopexit191 ], [ -2, %Gia_ManBmcAddCnfNew.exit ], [ -2, %.loopexit.loopexit ]
   %223 = load i32, ptr %53, align 4
   %.not112 = icmp eq i32 %223, 0
   br i1 %.not112, label %264, label %224
@@ -5885,7 +5885,7 @@ Gia_ManBmcAddCnfNew.exit:                         ; preds = %171
   %248 = load ptr, ptr %15, align 8
   %249 = call double @Gia_ManMemory(ptr noundef %248) #18
   %250 = fmul double %249, 0x3EB0000000000000
-  %251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0190, i32 noundef %229, i32 noundef %237, i32 noundef %239, i32 noundef %.val116, i32 noundef %.val, i32 noundef %245, i32 noundef %247, double noundef %250)
+  %251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0189, i32 noundef %229, i32 noundef %237, i32 noundef %239, i32 noundef %.val116, i32 noundef %.val, i32 noundef %245, i32 noundef %247, double noundef %250)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %252 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #18
   %253 = icmp slt i32 %252, 0
@@ -5917,7 +5917,7 @@ Abc_Clock.exit161:                                ; preds = %224, %254
   ]
 
 265:                                              ; preds = %264
-  %266 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0190)
+  %266 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0189)
   br label %.loopexit174
 
 267:                                              ; preds = %264
@@ -5939,10 +5939,10 @@ Abc_Clock.exit161:                                ; preds = %224, %254
   %273 = getelementptr i8, ptr %.val122, i64 4
   %.val122.val = load i32, ptr %273, align 4
   %.neg171 = sub i32 %.val121, %.val122.val
-  %.neg172 = mul i32 %.neg171, %.0190
+  %.neg172 = mul i32 %.neg171, %.0189
   %274 = add i32 %.neg172, %.2177
   %.val143 = load ptr, ptr %0, align 8
-  %275 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %274, ptr noundef %.val143, i32 noundef %.0190)
+  %275 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %274, ptr noundef %.val143, i32 noundef %.0189)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %276 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #18
   %277 = icmp slt i32 %276, 0
@@ -5969,7 +5969,7 @@ Abc_Clock.exit163:                                ; preds = %271, %278
   br label %.loopexit174
 
 .thread:                                          ; preds = %142, %130, %264
-  store i32 %.0190, ptr %129, align 8
+  store i32 %.0189, ptr %129, align 8
   %exitcond.not = icmp eq i32 %134, %52
   br i1 %exitcond.not, label %.loopexit174, label %130, !llvm.loop !53
 

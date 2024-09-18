@@ -18150,16 +18150,13 @@ for.cond.us.i.preheader:                          ; preds = %if.end11.thread49
 
 for.cond.us.i:                                    ; preds = %for.cond.us.i.preheader, %for.inc.us.i
   %what.addr.0.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc.us.i ], [ %incdec.ptr, %for.cond.us.i.preheader ]
-  %status.0.us.i = phi i32 [ %status.1.us.i, %for.inc.us.i ], [ 1, %for.cond.us.i.preheader ]
   %11 = load i8, ptr %what.addr.0.us.i, align 1
-  switch i8 %11, label %sw.default.us.i [
+  switch i8 %11, label %for.inc.us.i [
     i8 0, label %auxgetinfo.exit
     i8 83, label %sw.bb.us.i
     i8 108, label %sw.bb1.us.i
     i8 117, label %sw.bb3.us.i
     i8 110, label %sw.bb5.us.i
-    i8 76, label %for.inc.us.i
-    i8 102, label %for.inc.us.i
   ]
 
 sw.bb5.us.i:                                      ; preds = %for.cond.us.i
@@ -18213,26 +18210,19 @@ funcinfo.exit.us.i:                               ; preds = %if.else.i.us.i, %if
   tail call fastcc void @luaO_chunkid(ptr noundef %short_src.i17.i76, ptr noundef nonnull %20, i64 noundef 60)
   br label %for.inc.us.i
 
-sw.default.us.i:                                  ; preds = %for.cond.us.i
-  br label %for.inc.us.i
-
-for.inc.us.i:                                     ; preds = %sw.default.us.i, %funcinfo.exit.us.i, %sw.bb1.us.i, %sw.bb3.us.i, %sw.bb5.us.i, %for.cond.us.i, %for.cond.us.i
-  %status.1.us.i = phi i32 [ 0, %sw.default.us.i ], [ %status.0.us.i, %sw.bb5.us.i ], [ %status.0.us.i, %sw.bb3.us.i ], [ %status.0.us.i, %sw.bb1.us.i ], [ %status.0.us.i, %funcinfo.exit.us.i ], [ %status.0.us.i, %for.cond.us.i ], [ %status.0.us.i, %for.cond.us.i ]
+for.inc.us.i:                                     ; preds = %for.cond.us.i, %funcinfo.exit.us.i, %sw.bb1.us.i, %sw.bb3.us.i, %sw.bb5.us.i
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %what.addr.0.us.i, i64 1
   br label %for.cond.us.i, !llvm.loop !88
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.inc.i
   %what.addr.0.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %what, %for.cond.i.preheader ]
-  %status.0.i = phi i32 [ %status.1.i, %for.inc.i ], [ 1, %for.cond.i.preheader ]
   %21 = load i8, ptr %what.addr.0.i, align 1
-  switch i8 %21, label %sw.default.i [
+  switch i8 %21, label %for.inc.i [
     i8 0, label %auxgetinfo.exit
     i8 83, label %sw.bb.i
     i8 108, label %sw.bb1.i
     i8 117, label %sw.bb3.i
     i8 110, label %sw.bb5.i
-    i8 76, label %for.inc.i
-    i8 102, label %for.inc.i
   ]
 
 sw.bb.i:                                          ; preds = %for.cond.i
@@ -18344,11 +18334,7 @@ sw.bb5.i:                                         ; preds = %for.cond.i
   store ptr null, ptr %name.i, align 8
   br label %for.inc.i
 
-sw.default.i:                                     ; preds = %for.cond.i
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %sw.default.i, %sw.bb5.i, %sw.bb3.i, %cond.end.i, %funcinfo.exit.i, %for.cond.i, %for.cond.i
-  %status.1.i = phi i32 [ 0, %sw.default.i ], [ %status.0.i, %sw.bb5.i ], [ %status.0.i, %sw.bb3.i ], [ %status.0.i, %cond.end.i ], [ %status.0.i, %funcinfo.exit.i ], [ %status.0.i, %for.cond.i ], [ %status.0.i, %for.cond.i ]
+for.inc.i:                                        ; preds = %for.cond.i, %sw.bb5.i, %sw.bb3.i, %cond.end.i, %funcinfo.exit.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %what.addr.0.i, i64 1
   br label %for.cond.i, !llvm.loop !88
 

@@ -1952,48 +1952,48 @@ cond.end:                                         ; preds = %invoke.cont, %cond.
   %rnd = getelementptr inbounds i8, ptr %options, i64 384
   %tobool62.not = icmp eq ptr %dresultds, null
   %cmp75116 = icmp sgt i32 %nchannels, 0
-  %wide.trip.count144 = zext nneg i32 %nchannels to i64
+  %wide.trip.count138 = zext nneg i32 %nchannels to i64
   br i1 %tobool62.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %cond.end, %for.inc120.us
-  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %for.inc120.us ], [ 0, %cond.end ]
-  %ok.0129.us = phi i8 [ %ok.1.us, %for.inc120.us ], [ 1, %cond.end ]
-  %bit.0128.us = phi i64 [ %shl.us, %for.inc120.us ], [ 1, %cond.end ]
-  %and.us = and i64 %bit.0128.us, %mask
+  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %for.inc120.us ], [ 0, %cond.end ]
+  %ok.0123.us = phi i8 [ %ok.1.us, %for.inc120.us ], [ 1, %cond.end ]
+  %bit.0122.us = phi i64 [ %shl.us, %for.inc120.us ], [ 1, %cond.end ]
+  %and.us = and i64 %bit.0122.us, %mask
   %tobool23.not.us = icmp eq i64 %and.us, 0
   br i1 %tobool23.not.us, label %for.inc120.us, label %if.then.us
 
 if.then.us:                                       ; preds = %for.body.us
-  %arrayidx.us = getelementptr inbounds [16 x float], ptr %options, i64 0, i64 %indvars.iv146
+  %arrayidx.us = getelementptr inbounds [16 x float], ptr %options, i64 0, i64 %indvars.iv140
   %13 = load float, ptr %arrayidx.us, align 4
   store float %13, ptr %sblur.i, align 8
-  %arrayidx26.us = getelementptr inbounds [16 x float], ptr %tblur, i64 0, i64 %indvars.iv146
+  %arrayidx26.us = getelementptr inbounds [16 x float], ptr %tblur, i64 0, i64 %indvars.iv140
   %14 = load float, ptr %arrayidx26.us, align 4
   store float %14, ptr %tblur.i, align 4
-  %arrayidx29.us = getelementptr inbounds [16 x float], ptr %swidth, i64 0, i64 %indvars.iv146
+  %arrayidx29.us = getelementptr inbounds [16 x float], ptr %swidth, i64 0, i64 %indvars.iv140
   %15 = load float, ptr %arrayidx29.us, align 4
   store float %15, ptr %swidth.i, align 8
-  %arrayidx32.us = getelementptr inbounds [16 x float], ptr %twidth, i64 0, i64 %indvars.iv146
+  %arrayidx32.us = getelementptr inbounds [16 x float], ptr %twidth, i64 0, i64 %indvars.iv140
   %16 = load float, ptr %arrayidx32.us, align 4
   store float %16, ptr %twidth.i, align 4
-  %arrayidx35.us = getelementptr inbounds [16 x float], ptr %rnd, i64 0, i64 %indvars.iv146
+  %arrayidx35.us = getelementptr inbounds [16 x float], ptr %rnd, i64 0, i64 %indvars.iv140
   %17 = load float, ptr %arrayidx35.us, align 4
   store float %17, ptr %0, align 4
-  %arrayidx37.us = getelementptr inbounds float, ptr %R, i64 %indvars.iv146
+  %arrayidx37.us = getelementptr inbounds float, ptr %R, i64 %indvars.iv140
   %18 = load float, ptr %arrayidx37.us, align 4
-  %19 = or disjoint i64 %indvars.iv146, 16
+  %19 = or disjoint i64 %indvars.iv140, 16
   %arrayidx39.us = getelementptr inbounds float, ptr %R, i64 %19
   %20 = load float, ptr %arrayidx39.us, align 4
-  %21 = or disjoint i64 %indvars.iv146, 32
+  %21 = or disjoint i64 %indvars.iv140, 32
   %arrayidx42.us = getelementptr inbounds float, ptr %R, i64 %21
   %22 = load float, ptr %arrayidx42.us, align 4
-  %arrayidx45.us = getelementptr inbounds float, ptr %dRdx, i64 %indvars.iv146
+  %arrayidx45.us = getelementptr inbounds float, ptr %dRdx, i64 %indvars.iv140
   %23 = load float, ptr %arrayidx45.us, align 4
   %arrayidx48.us = getelementptr inbounds float, ptr %dRdx, i64 %19
   %24 = load float, ptr %arrayidx48.us, align 4
   %arrayidx51.us = getelementptr inbounds float, ptr %dRdx, i64 %21
   %25 = load float, ptr %arrayidx51.us, align 4
-  %arrayidx54.us = getelementptr inbounds float, ptr %dRdy, i64 %indvars.iv146
+  %arrayidx54.us = getelementptr inbounds float, ptr %dRdy, i64 %indvars.iv140
   %26 = load float, ptr %arrayidx54.us, align 4
   %arrayidx57.us = getelementptr inbounds float, ptr %dRdy, i64 %19
   %27 = load float, ptr %arrayidx57.us, align 4
@@ -2006,73 +2006,73 @@ if.then.us:                                       ; preds = %for.body.us
   %agg.tmp97.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %26, i64 0
   %agg.tmp97.sroa.0.4.vec.insert.us = insertelement <2 x float> %agg.tmp97.sroa.0.0.vec.insert.us, float %27, i64 1
   %call99.us = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl11environmentEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptENS_9Vec3ParamIfEESA_SA_iPfSB_SB_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, <2 x float> %agg.tmp95.sroa.0.4.vec.insert.us, float %22, <2 x float> %agg.tmp96.sroa.0.4.vec.insert.us, float %25, <2 x float> %agg.tmp97.sroa.0.4.vec.insert.us, float %28, i32 noundef %nchannels, ptr noundef %cond, ptr noundef null, ptr noundef null)
-  %29 = and i8 %ok.0129.us, 1
+  %29 = and i8 %ok.0123.us, 1
   %tobool10472.us = icmp ne i8 %29, 0
   %tobool104.us = select i1 %call99.us, i1 %tobool10472.us, i1 false
   %frombool105.us = zext i1 %tobool104.us to i8
   br i1 %cmp75116, label %for.body109.us.preheader, label %for.inc120.us
 
 for.body109.us.preheader:                         ; preds = %if.then.us
-  %invariant.gep = getelementptr inbounds float, ptr %result, i64 %indvars.iv146
+  %invariant.gep = getelementptr inbounds float, ptr %result, i64 %indvars.iv140
   br label %for.body109.us
 
 for.body109.us:                                   ; preds = %for.body109.us.preheader, %for.body109.us
-  %indvars.iv139 = phi i64 [ 0, %for.body109.us.preheader ], [ %indvars.iv.next140, %for.body109.us ]
-  %arrayidx111.us = getelementptr inbounds float, ptr %cond, i64 %indvars.iv139
+  %indvars.iv133 = phi i64 [ 0, %for.body109.us.preheader ], [ %indvars.iv.next134, %for.body109.us ]
+  %arrayidx111.us = getelementptr inbounds float, ptr %cond, i64 %indvars.iv133
   %30 = load float, ptr %arrayidx111.us, align 4
-  %.idx = shl nsw i64 %indvars.iv139, 6
+  %.idx = shl nsw i64 %indvars.iv133, 6
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
   store float %30, ptr %gep, align 4
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond145.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count144
-  br i1 %exitcond145.not, label %for.inc120.us, label %for.body109.us, !llvm.loop !28
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %exitcond139.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count138
+  br i1 %exitcond139.not, label %for.inc120.us, label %for.body109.us, !llvm.loop !28
 
 for.inc120.us:                                    ; preds = %for.body109.us, %if.then.us, %for.body.us
-  %ok.1.us = phi i8 [ %ok.0129.us, %for.body.us ], [ %frombool105.us, %if.then.us ], [ %frombool105.us, %for.body109.us ]
-  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %shl.us = shl i64 %bit.0128.us, 1
-  %exitcond150.not = icmp eq i64 %indvars.iv.next147, 16
-  br i1 %exitcond150.not, label %for.end122, label %for.body.us, !llvm.loop !29
+  %ok.1.us = phi i8 [ %ok.0123.us, %for.body.us ], [ %frombool105.us, %if.then.us ], [ %frombool105.us, %for.body109.us ]
+  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
+  %shl.us = shl i64 %bit.0122.us, 1
+  %exitcond144.not = icmp eq i64 %indvars.iv.next141, 16
+  br i1 %exitcond144.not, label %for.end122, label %for.body.us, !llvm.loop !29
 
 for.body:                                         ; preds = %cond.end, %for.inc120
-  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %for.inc120 ], [ 0, %cond.end ]
-  %ok.0129 = phi i8 [ %ok.1, %for.inc120 ], [ 1, %cond.end ]
-  %bit.0128 = phi i64 [ %shl, %for.inc120 ], [ 1, %cond.end ]
-  %and = and i64 %bit.0128, %mask
+  %indvars.iv128 = phi i64 [ %indvars.iv.next129, %for.inc120 ], [ 0, %cond.end ]
+  %ok.0123 = phi i8 [ %ok.1, %for.inc120 ], [ 1, %cond.end ]
+  %bit.0122 = phi i64 [ %shl, %for.inc120 ], [ 1, %cond.end ]
+  %and = and i64 %bit.0122, %mask
   %tobool23.not = icmp eq i64 %and, 0
   br i1 %tobool23.not, label %for.inc120, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [16 x float], ptr %options, i64 0, i64 %indvars.iv134
+  %arrayidx = getelementptr inbounds [16 x float], ptr %options, i64 0, i64 %indvars.iv128
   %31 = load float, ptr %arrayidx, align 4
   store float %31, ptr %sblur.i, align 8
-  %arrayidx26 = getelementptr inbounds [16 x float], ptr %tblur, i64 0, i64 %indvars.iv134
+  %arrayidx26 = getelementptr inbounds [16 x float], ptr %tblur, i64 0, i64 %indvars.iv128
   %32 = load float, ptr %arrayidx26, align 4
   store float %32, ptr %tblur.i, align 4
-  %arrayidx29 = getelementptr inbounds [16 x float], ptr %swidth, i64 0, i64 %indvars.iv134
+  %arrayidx29 = getelementptr inbounds [16 x float], ptr %swidth, i64 0, i64 %indvars.iv128
   %33 = load float, ptr %arrayidx29, align 4
   store float %33, ptr %swidth.i, align 8
-  %arrayidx32 = getelementptr inbounds [16 x float], ptr %twidth, i64 0, i64 %indvars.iv134
+  %arrayidx32 = getelementptr inbounds [16 x float], ptr %twidth, i64 0, i64 %indvars.iv128
   %34 = load float, ptr %arrayidx32, align 4
   store float %34, ptr %twidth.i, align 4
-  %arrayidx35 = getelementptr inbounds [16 x float], ptr %rnd, i64 0, i64 %indvars.iv134
+  %arrayidx35 = getelementptr inbounds [16 x float], ptr %rnd, i64 0, i64 %indvars.iv128
   %35 = load float, ptr %arrayidx35, align 4
   store float %35, ptr %0, align 4
-  %arrayidx37 = getelementptr inbounds float, ptr %R, i64 %indvars.iv134
+  %arrayidx37 = getelementptr inbounds float, ptr %R, i64 %indvars.iv128
   %36 = load float, ptr %arrayidx37, align 4
-  %37 = or disjoint i64 %indvars.iv134, 16
+  %37 = or disjoint i64 %indvars.iv128, 16
   %arrayidx39 = getelementptr inbounds float, ptr %R, i64 %37
   %38 = load float, ptr %arrayidx39, align 4
-  %39 = or disjoint i64 %indvars.iv134, 32
+  %39 = or disjoint i64 %indvars.iv128, 32
   %arrayidx42 = getelementptr inbounds float, ptr %R, i64 %39
   %40 = load float, ptr %arrayidx42, align 4
-  %arrayidx45 = getelementptr inbounds float, ptr %dRdx, i64 %indvars.iv134
+  %arrayidx45 = getelementptr inbounds float, ptr %dRdx, i64 %indvars.iv128
   %41 = load float, ptr %arrayidx45, align 4
   %arrayidx48 = getelementptr inbounds float, ptr %dRdx, i64 %37
   %42 = load float, ptr %arrayidx48, align 4
   %arrayidx51 = getelementptr inbounds float, ptr %dRdx, i64 %39
   %43 = load float, ptr %arrayidx51, align 4
-  %arrayidx54 = getelementptr inbounds float, ptr %dRdy, i64 %indvars.iv134
+  %arrayidx54 = getelementptr inbounds float, ptr %dRdy, i64 %indvars.iv128
   %44 = load float, ptr %arrayidx54, align 4
   %arrayidx57 = getelementptr inbounds float, ptr %dRdy, i64 %37
   %45 = load float, ptr %arrayidx57, align 4
@@ -2085,7 +2085,7 @@ if.then:                                          ; preds = %for.body
   %agg.tmp65.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %44, i64 0
   %agg.tmp65.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp65.sroa.0.0.vec.insert, float %45, i64 1
   %call67 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl11environmentEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptENS_9Vec3ParamIfEESA_SA_iPfSB_SB_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, <2 x float> %agg.tmp.sroa.0.4.vec.insert, float %40, <2 x float> %agg.tmp64.sroa.0.4.vec.insert, float %43, <2 x float> %agg.tmp65.sroa.0.4.vec.insert, float %46, i32 noundef %nchannels, ptr noundef %cond, ptr noundef %add.ptr, ptr noundef %add.ptr21)
-  %47 = and i8 %ok.0129, 1
+  %47 = and i8 %ok.0123, 1
   %tobool7273 = icmp ne i8 %47, 0
   %tobool72 = select i1 %call67, i1 %tobool7273, i1 false
   %frombool73 = zext i1 %tobool72 to i8
@@ -2096,7 +2096,7 @@ for.body76:                                       ; preds = %if.then, %for.body7
   %arrayidx78 = getelementptr inbounds float, ptr %cond, i64 %indvars.iv
   %48 = load float, ptr %arrayidx78, align 4
   %49 = shl nsw i64 %indvars.iv, 4
-  %50 = add nuw nsw i64 %49, %indvars.iv134
+  %50 = add nuw nsw i64 %49, %indvars.iv128
   %arrayidx82 = getelementptr inbounds float, ptr %result, i64 %50
   store float %48, ptr %arrayidx82, align 4
   %arrayidx84 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv
@@ -2108,15 +2108,15 @@ for.body76:                                       ; preds = %if.then, %for.body7
   %arrayidx94 = getelementptr inbounds float, ptr %dresultdt, i64 %50
   store float %52, ptr %arrayidx94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count144
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count138
   br i1 %exitcond.not, label %for.inc120, label %for.body76, !llvm.loop !30
 
 for.inc120:                                       ; preds = %for.body76, %if.then, %for.body
-  %ok.1 = phi i8 [ %ok.0129, %for.body ], [ %frombool73, %if.then ], [ %frombool73, %for.body76 ]
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %shl = shl i64 %bit.0128, 1
-  %exitcond138.not = icmp eq i64 %indvars.iv.next135, 16
-  br i1 %exitcond138.not, label %for.end122, label %for.body, !llvm.loop !29
+  %ok.1 = phi i8 [ %ok.0123, %for.body ], [ %frombool73, %if.then ], [ %frombool73, %for.body76 ]
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %shl = shl i64 %bit.0122, 1
+  %exitcond132.not = icmp eq i64 %indvars.iv.next129, 16
+  br i1 %exitcond132.not, label %for.end122, label %for.body, !llvm.loop !29
 
 for.end122:                                       ; preds = %for.inc120, %for.inc120.us
   %.us-phi = phi i8 [ %ok.1.us, %for.inc120.us ], [ %ok.1, %for.inc120 ]

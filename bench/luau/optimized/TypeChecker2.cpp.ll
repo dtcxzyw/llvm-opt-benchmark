@@ -6262,10 +6262,10 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker25visitEPNS_12AstStatLo
   %15 = load i64, ptr %12, align 8
   %16 = load i64, ptr %14, align 8
   %17 = tail call i64 @llvm.umax.i64(i64 %15, i64 %16)
-  %.not222 = icmp eq i64 %17, 0
-  br i1 %.not222, label %._crit_edge, label %.lr.ph221
+  %.not219 = icmp eq i64 %17, 0
+  br i1 %.not219, label %._crit_edge, label %.lr.ph218
 
-.lr.ph221:                                        ; preds = %2
+.lr.ph218:                                        ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = getelementptr inbounds i8, ptr %6, i64 8
   %20 = getelementptr inbounds i8, ptr %6, i64 16
@@ -6294,15 +6294,15 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker25visitEPNS_12AstStatLo
   %43 = getelementptr inbounds i8, ptr %9, i64 48
   br label %44
 
-44:                                               ; preds = %.lr.ph221, %_ZN4Luau8TypePackD2Ev.exit92
-  %.0218 = phi i64 [ 0, %.lr.ph221 ], [ %334, %_ZN4Luau8TypePackD2Ev.exit92 ]
+44:                                               ; preds = %.lr.ph218, %_ZN4Luau8TypePackD2Ev.exit92
+  %.0215 = phi i64 [ 0, %.lr.ph218 ], [ %334, %_ZN4Luau8TypePackD2Ev.exit92 ]
   %45 = load i64, ptr %12, align 8
-  %46 = icmp ult i64 %.0218, %45
+  %46 = icmp ult i64 %.0215, %45
   br i1 %46, label %47, label %.thread134
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %11, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %.0218
+  %49 = getelementptr inbounds ptr, ptr %48, i64 %.0215
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %.thread134, label %51
@@ -6318,7 +6318,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker25visitEPNS_12AstStatLo
   call void @_ZN4Luau12TypeChecker25visitEPNS_7AstExprENS_12ValueContextE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef nonnull %50, i32 noundef 1)
   %58 = load i64, ptr %12, align 8
   %59 = add i64 %58, -1
-  %.not76 = icmp ne i64 %.0218, %59
+  %.not76 = icmp ne i64 %.0215, %59
   %brmerge = or i1 %.not161, %.not76
   br i1 %brmerge, label %.thread134, label %78
 
@@ -6326,12 +6326,12 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker25visitEPNS_12AstStatLo
   %.not130133140 = phi i1 [ false, %51 ], [ true, %47 ], [ true, %44 ]
   %60 = phi ptr [ %50, %51 ], [ null, %47 ], [ null, %44 ]
   %61 = load i64, ptr %14, align 8
-  %62 = icmp ult i64 %.0218, %61
+  %62 = icmp ult i64 %.0215, %61
   br i1 %62, label %63, label %_ZN4Luau8TypePackD2Ev.exit92
 
 63:                                               ; preds = %.thread134
   %64 = load ptr, ptr %13, align 8
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %.0218
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %.0215
   %66 = load ptr, ptr %65, align 8
   %.not80 = icmp eq ptr %66, null
   br i1 %.not80, label %_ZN4Luau8TypePackD2Ev.exit92, label %67
@@ -6423,14 +6423,14 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker25visitEPNS_12AstStatLo
 _ZN4Luau12TypeChecker210lookupPackEPNS_7AstExprE.exit: ; preds = %106, %.loopexit.i
   %.0.i = phi ptr [ %109, %106 ], [ %112, %.loopexit.i ]
   %113 = load i64, ptr %14, align 8
-  %114 = icmp ult i64 %.0218, %113
+  %114 = icmp ult i64 %.0215, %113
   br i1 %114, label %115, label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit
 
 115:                                              ; preds = %_ZN4Luau12TypeChecker210lookupPackEPNS_7AstExprE.exit
   %116 = load ptr, ptr %18, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 152
   %.sroa.011.0.copyload = load ptr, ptr %0, align 8
-  %118 = sub nuw i64 %113, %.0218
+  %118 = sub nuw i64 %113, %.0215
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   invoke void @_ZN4Luau14extendTypePackERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_11TypePackVarEmSt6vectorISt8optionalIPKNS_4TypeEESaISD_EE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePack") align 8 %6, ptr noundef nonnull align 8 dereferenceable(88) %117, ptr %.sroa.011.0.copyload, ptr noundef %.0.i, i64 noundef %118, ptr noundef nonnull %7)
           to label %_ZN4Luau8TypePackaSEOS0_.exit unwind label %128
@@ -6473,7 +6473,7 @@ _ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit: ; preds = %123, %_ZN4
   %.sroa.13.1 = phi ptr [ null, %_ZN4Luau12TypeChecker210lookupPackEPNS_7AstExprE.exit ], [ %121, %_ZN4Luau8TypePackaSEOS0_.exit ], [ %121, %123 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %136 = load i64, ptr %14, align 8
-  %137 = icmp ult i64 %.0218, %136
+  %137 = icmp ult i64 %.0215, %136
   %138 = ptrtoint ptr %.sroa.9.1 to i64
   %139 = ptrtoint ptr %.sroa.0.1 to i64
   %140 = sub i64 %138, %139
@@ -6483,13 +6483,13 @@ _ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit: ; preds = %123, %_ZN4
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit
   %142 = getelementptr inbounds i8, ptr %50, i64 12
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 20
-  %143 = add i64 %141, %.0218
+  %143 = add i64 %141, %.0215
   br label %144
 
 144:                                              ; preds = %.lr.ph, %290
   %145 = phi i64 [ %136, %.lr.ph ], [ %291, %290 ]
-  %.068214 = phi i64 [ %.0218, %.lr.ph ], [ %292, %290 ]
-  %146 = sub nuw i64 %.068214, %.0218
+  %.068214 = phi i64 [ %.0215, %.lr.ph ], [ %292, %290 ]
+  %146 = sub nuw i64 %.068214, %.0215
   %exitcond.not = icmp eq i64 %.068214, %143
   %147 = load ptr, ptr %13, align 8
   br i1 %exitcond.not, label %148, label %154
@@ -6861,21 +6861,21 @@ _ZSt8_DestroyIPN4Luau9TypeErrorES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_De
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)
   %289 = load ptr, ptr %157, align 8
   invoke void @_ZN4Luau12TypeChecker25visitEPNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %289)
-          to label %._crit_edge273 unwind label %152
+          to label %._crit_edge270 unwind label %152
 
-._crit_edge273:                                   ; preds = %288
+._crit_edge270:                                   ; preds = %288
   %.pre = load i64, ptr %14, align 8
   br label %290
 
-290:                                              ; preds = %._crit_edge273, %154
-  %291 = phi i64 [ %.pre, %._crit_edge273 ], [ %145, %154 ]
+290:                                              ; preds = %._crit_edge270, %154
+  %291 = phi i64 [ %.pre, %._crit_edge270 ], [ %145, %154 ]
   %292 = add nuw i64 %.068214, 1
   %293 = icmp ult i64 %292, %291
   br i1 %293, label %144, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %290, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit, %148
   %294 = phi i64 [ %145, %148 ], [ %136, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit ], [ %291, %290 ]
-  %295 = sub i64 %294, %.0218
+  %295 = sub i64 %294, %.0215
   %296 = icmp ult i64 %141, %295
   br i1 %296, label %297, label %327
 
@@ -6960,14 +6960,14 @@ _ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86: ; preds = %152, %_Z
   br i1 %.not.i.i.i.i93, label %_ZN4Luau8TypePackD2Ev.exit94, label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86._crit_edge
 
 _ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86._crit_edge: ; preds = %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86
-  %.pre281 = ptrtoint ptr %.sroa.0.1 to i64
+  %.pre278 = ptrtoint ptr %.sroa.0.1 to i64
   br label %331
 
 331:                                              ; preds = %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86._crit_edge, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86.thread150
-  %.pre-phi282 = phi i64 [ %.pre281, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86._crit_edge ], [ %139, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86.thread150 ]
+  %.pre-phi279 = phi i64 [ %.pre278, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86._crit_edge ], [ %139, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86.thread150 ]
   %.pn157 = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86._crit_edge ], [ %.pn.i, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit86.thread150 ]
   %332 = ptrtoint ptr %.sroa.13.1 to i64
-  %333 = sub i64 %332, %.pre-phi282
+  %333 = sub i64 %332, %.pre-phi279
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1, i64 noundef %333) #23
   br label %_ZN4Luau8TypePackD2Ev.exit94
 
@@ -6976,9 +6976,9 @@ _ZN4Luau8TypePackD2Ev.exit94:                     ; preds = %131, %128, %_ZNSt6v
   resume { ptr, i32 } %.pn149
 
 _ZN4Luau8TypePackD2Ev.exit92:                     ; preds = %.thread134, %328, %327, %.thread143, %67, %63
-  %334 = add nuw i64 %.0218, 1
-  %exitcond272.not = icmp eq i64 %334, %17
-  br i1 %exitcond272.not, label %._crit_edge, label %44, !llvm.loop !28
+  %334 = add nuw i64 %.0215, 1
+  %exitcond269.not = icmp eq i64 %334, %17
+  br i1 %exitcond269.not, label %._crit_edge, label %44, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_ZN4Luau8TypePackD2Ev.exit92, %2
   ret void

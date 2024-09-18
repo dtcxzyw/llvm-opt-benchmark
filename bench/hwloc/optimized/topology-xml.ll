@@ -6336,10 +6336,10 @@ hwloc___xml_import_info.exit:                     ; preds = %611, %597
 681:                                              ; preds = %678
   %682 = getelementptr inbounds i8, ptr %24, i64 696
   %683 = load i32, ptr %682, align 8
-  %.not217 = icmp eq i32 %683, 0
-  br i1 %.not217, label %._crit_edge, label %.lr.ph216
+  %.not215 = icmp eq i32 %683, 0
+  br i1 %.not215, label %._crit_edge, label %.lr.ph214
 
-.lr.ph216:                                        ; preds = %681, %.tail.thread
+.lr.ph214:                                        ; preds = %681, %.tail.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.tail.thread ], [ 0, %681 ]
   %684 = load ptr, ptr %102, align 8
   %685 = getelementptr inbounds %struct.hwloc_info_s, ptr %684, i64 %indvars.iv
@@ -6348,7 +6348,7 @@ hwloc___xml_import_info.exit:                     ; preds = %611, %597
   %.not159 = icmp eq i32 %687, 0
   br i1 %.not159, label %688, label %.tail.thread
 
-688:                                              ; preds = %.lr.ph216
+688:                                              ; preds = %.lr.ph214
   %689 = getelementptr inbounds i8, ptr %685, i64 8
   %690 = load ptr, ptr %689, align 8
   %691 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %690, ptr noundef nonnull dereferenceable(5) @.str.70) #22
@@ -6370,61 +6370,61 @@ hwloc___xml_import_info.exit:                     ; preds = %611, %597
 
 698:                                              ; preds = %693
   store i8 0, ptr %36, align 1
-  %.pre227 = load ptr, ptr %102, align 8
-  %.phi.trans.insert = getelementptr inbounds %struct.hwloc_info_s, ptr %.pre227, i64 %indvars.iv, i32 1
-  %.pre228 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre225 = load ptr, ptr %102, align 8
+  %.phi.trans.insert = getelementptr inbounds %struct.hwloc_info_s, ptr %.pre225, i64 %indvars.iv, i32 1
+  %.pre226 = load ptr, ptr %.phi.trans.insert, align 8
   br label %699
 
 699:                                              ; preds = %698, %693
-  %700 = phi ptr [ %.pre228, %698 ], [ %696, %693 ]
+  %700 = phi ptr [ %.pre226, %698 ], [ %696, %693 ]
   %701 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %700, ptr noundef nonnull dereferenceable(5) @.str.73) #22
   %.not162 = icmp eq i32 %701, 0
   br i1 %.not162, label %702, label %703
 
 702:                                              ; preds = %699
   store i8 0, ptr %37, align 2
-  %.pre229 = load ptr, ptr %102, align 8
-  %.phi.trans.insert230 = getelementptr inbounds %struct.hwloc_info_s, ptr %.pre229, i64 %indvars.iv, i32 1
-  %.pre231 = load ptr, ptr %.phi.trans.insert230, align 8
+  %.pre227 = load ptr, ptr %102, align 8
+  %.phi.trans.insert228 = getelementptr inbounds %struct.hwloc_info_s, ptr %.pre227, i64 %indvars.iv, i32 1
+  %.pre229 = load ptr, ptr %.phi.trans.insert228, align 8
   br label %703
 
 703:                                              ; preds = %702, %699
-  %704 = phi ptr [ %.pre231, %702 ], [ %700, %699 ]
+  %704 = phi ptr [ %.pre229, %702 ], [ %700, %699 ]
   %705 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %704, ptr noundef nonnull dereferenceable(10) @.str.74) #22
   %.not163 = icmp eq i32 %705, 0
   br i1 %.not163, label %706, label %707
 
 706:                                              ; preds = %703
   store i8 0, ptr %38, align 1
-  %.pre232 = load ptr, ptr %102, align 8
-  %.phi.trans.insert233 = getelementptr inbounds %struct.hwloc_info_s, ptr %.pre232, i64 %indvars.iv, i32 1
-  %.pre234 = load ptr, ptr %.phi.trans.insert233, align 8
+  %.pre230 = load ptr, ptr %102, align 8
+  %.phi.trans.insert231 = getelementptr inbounds %struct.hwloc_info_s, ptr %.pre230, i64 %indvars.iv, i32 1
+  %.pre232 = load ptr, ptr %.phi.trans.insert231, align 8
   br label %707
 
 707:                                              ; preds = %706, %703
-  %708 = phi ptr [ %.pre234, %706 ], [ %704, %703 ]
+  %708 = phi ptr [ %.pre232, %706 ], [ %704, %703 ]
   %709 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %708, ptr noundef nonnull dereferenceable(7) @.str.72) #22
   %.not164 = icmp eq i32 %709, 0
   br i1 %.not164, label %710, label %sub_0
 
 710:                                              ; preds = %707
   store i8 0, ptr %39, align 4
-  %.pre235 = load ptr, ptr %102, align 8
-  %.phi.trans.insert236 = getelementptr inbounds %struct.hwloc_info_s, ptr %.pre235, i64 %indvars.iv, i32 1
-  %.pre237 = load ptr, ptr %.phi.trans.insert236, align 8
+  %.pre233 = load ptr, ptr %102, align 8
+  %.phi.trans.insert234 = getelementptr inbounds %struct.hwloc_info_s, ptr %.pre233, i64 %indvars.iv, i32 1
+  %.pre235 = load ptr, ptr %.phi.trans.insert234, align 8
   br label %sub_0
 
 sub_0:                                            ; preds = %710, %707
-  %711 = phi ptr [ %.pre237, %710 ], [ %708, %707 ]
+  %711 = phi ptr [ %.pre235, %710 ], [ %708, %707 ]
   %712 = load i8, ptr %711, align 1
-  %.not218 = icmp eq i8 %712, 71
-  br i1 %.not218, label %sub_1, label %.tail.thread
+  %.not216 = icmp eq i8 %712, 71
+  br i1 %.not216, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %713 = getelementptr inbounds i8, ptr %711, i64 1
   %714 = load i8, ptr %713, align 1
-  %.not219 = icmp eq i8 %714, 76
-  br i1 %.not219, label %.tail, label %.tail.thread
+  %.not217 = icmp eq i8 %714, 76
+  br i1 %.not217, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %715 = getelementptr inbounds i8, ptr %711, i64 2
@@ -6436,12 +6436,12 @@ sub_1:                                            ; preds = %sub_0
   store i8 0, ptr %40, align 1
   br label %.tail.thread
 
-.tail.thread:                                     ; preds = %sub_1, %sub_0, %.lr.ph216, %718, %.tail
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.lr.ph214, %718, %.tail
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %719 = load i32, ptr %682, align 8
   %720 = zext i32 %719 to i64
   %721 = icmp ult i64 %indvars.iv.next, %720
-  br i1 %721, label %.lr.ph216, label %._crit_edge, !llvm.loop !32
+  br i1 %721, label %.lr.ph214, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.tail.thread, %681
   %722 = load i8, ptr %35, align 8

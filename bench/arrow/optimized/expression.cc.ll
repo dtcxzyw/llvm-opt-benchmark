@@ -51845,8 +51845,8 @@ lpad3.body.i:                                     ; preds = %lpad243.i.i, %lpad3
 
 while.end8.i:                                     ; preds = %for.inc.i, %call5.i.i.i.i2.i.i12.i.noexc
   %24 = phi ptr [ %22, %call5.i.i.i.i2.i.i12.i.noexc ], [ %297, %for.inc.i ]
-  %i.0566.i = phi i64 [ 0, %call5.i.i.i.i2.i.i12.i.noexc ], [ %inc.i, %for.inc.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %24, i64 %i.0566.i
+  %i.0564.i = phi i64 [ 0, %call5.i.i.i.i2.i.i12.i.noexc ], [ %inc.i, %for.inc.i ]
+  %add.ptr.i.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %24, i64 %i.0564.i
   %25 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !742
   %cmp.i.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.i.not.i.i.i, label %invoke.cont20.i, label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i
@@ -53331,7 +53331,7 @@ invoke.cont15.i:                                  ; preds = %if.else.i.i.i.i.i10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp334.i.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp339.i.sroa.0.i)
   %273 = load ptr, ptr %ref.tmp36, align 8
-  %add.ptr.i58.i = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %273, i64 %i.0566.i
+  %add.ptr.i58.i = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %273, i64 %i.0564.i
   store ptr %ref.tmp14.sroa.40.1.i, ptr %add.ptr.i58.i, align 8, !noalias !742
   %owned_type.i.i = getelementptr inbounds i8, ptr %add.ptr.i58.i, i64 8
   store ptr %ref.tmp14.sroa.40.1.i, ptr %owned_type.i.i, align 8, !noalias !742
@@ -53410,7 +53410,7 @@ return.sink.split.i.i:                            ; preds = %_ZN5arrow7compute11
 invoke.cont20.i:                                  ; preds = %return.sink.split.i.i, %while.end8.i
   %retval.0.i71.i = phi ptr [ %283, %return.sink.split.i.i ], [ null, %while.end8.i ]
   %284 = load ptr, ptr %ref.tmp36, align 8
-  %add.ptr.i75.i = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %284, i64 %i.0566.i
+  %add.ptr.i75.i = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %284, i64 %i.0564.i
   store ptr %retval.0.i71.i, ptr %add.ptr.i75.i, align 8, !noalias !742
   %owned_type.i76.i = getelementptr inbounds i8, ptr %add.ptr.i75.i, i64 8
   store ptr null, ptr %owned_type.i76.i, align 8, !noalias !742
@@ -53473,26 +53473,26 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i98.i: ; preds
 
 for.inc.sink.split.sink.split.i:                  ; preds = %if.then.i.i.i.i.i81.i, %if.then.i.i.i.i.i.i51
   %_M_use_count.i.i.i.i.i.i82.sink.i = phi ptr [ %_M_use_count.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i51 ], [ %_M_use_count.i.i.i.i.i.i82.i, %if.then.i.i.i.i.i81.i ]
-  %.sink575.i = phi ptr [ %274, %if.then.i.i.i.i.i.i51 ], [ %285, %if.then.i.i.i.i.i81.i ]
+  %.sink573.i = phi ptr [ %274, %if.then.i.i.i.i.i.i51 ], [ %285, %if.then.i.i.i.i.i81.i ]
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i82.sink.i, align 8, !noalias !742
-  %_M_weak_count.i.i.i.i.i.i107.i = getelementptr inbounds i8, ptr %.sink575.i, i64 12
+  %_M_weak_count.i.i.i.i.i.i107.i = getelementptr inbounds i8, ptr %.sink573.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i107.i, align 4, !noalias !742
-  %vtable.i.i.i.i.i.i108.i = load ptr, ptr %.sink575.i, align 8, !noalias !742
+  %vtable.i.i.i.i.i.i108.i = load ptr, ptr %.sink573.i, align 8, !noalias !742
   %vfn.i.i.i.i.i.i109.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i108.i, i64 16
   %294 = load ptr, ptr %vfn.i.i.i.i.i.i109.i, align 8, !noalias !742
-  call void %294(ptr noundef nonnull align 8 dereferenceable(16) %.sink575.i) #27, !noalias !742
+  call void %294(ptr noundef nonnull align 8 dereferenceable(16) %.sink573.i) #27, !noalias !742
   br label %for.inc.sink.split.i
 
 for.inc.sink.split.i:                             ; preds = %for.inc.sink.split.sink.split.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i98.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  %.sink572.i = phi ptr [ %274, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i ], [ %285, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i98.i ], [ %.sink575.i, %for.inc.sink.split.sink.split.i ]
-  %vtable2.i.i.i.i.i.i.i.i102.i = load ptr, ptr %.sink572.i, align 8, !noalias !742
+  %.sink570.i = phi ptr [ %274, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i ], [ %285, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i98.i ], [ %.sink573.i, %for.inc.sink.split.sink.split.i ]
+  %vtable2.i.i.i.i.i.i.i.i102.i = load ptr, ptr %.sink570.i, align 8, !noalias !742
   %vfn3.i.i.i.i.i.i.i.i103.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i102.i, i64 24
   %295 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i103.i, align 8, !noalias !742
-  call void %295(ptr noundef nonnull align 8 dereferenceable(16) %.sink572.i) #27, !noalias !742
+  call void %295(ptr noundef nonnull align 8 dereferenceable(16) %.sink570.i) #27, !noalias !742
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i98.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i88.i, %invoke.cont20.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i56, %invoke.cont15.i, %invoke.cont11.i
-  %inc.i = add nuw i64 %i.0566.i, 1
+  %inc.i = add nuw i64 %i.0564.i, 1
   %296 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !742
   %297 = load ptr, ptr %arguments13, align 8, !noalias !742
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %296 to i64

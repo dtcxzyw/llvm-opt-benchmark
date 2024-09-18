@@ -8038,15 +8038,15 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv86 = phi i64 [ %8, %for.body.lr.ph ], [ %indvars.iv.next87, %for.inc ]
+  %indvars.iv84 = phi i64 [ %8, %for.body.lr.ph ], [ %indvars.iv.next85, %for.inc ]
   %indvars.iv = phi i64 [ %7, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %elementZ.084 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %sub15, %for.inc ]
-  %weight.083 = phi float [ 1.000000e+00, %for.body.lr.ph ], [ %weight.172, %for.inc ]
+  %elementZ.082 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %sub15, %for.inc ]
+  %weight.081 = phi float [ 1.000000e+00, %for.body.lr.ph ], [ %weight.172, %for.inc ]
   %9 = load ptr, ptr %ptr.i, align 8
   %arrayidx.i = getelementptr inbounds %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %9, i64 %indvars.iv
   %thickness = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %10 = load float, ptr %thickness, align 4
-  %sub15 = fsub float %elementZ.084, %10
+  %sub15 = fsub float %elementZ.082, %10
   store float 0.000000e+00, ptr %n, align 8
   store float 0.000000e+00, ptr %y.i.i, align 4
   store float 0.000000e+00, ptr %z.i.i, align 8
@@ -8070,13 +8070,13 @@ if.else:                                          ; preds = %for.body
 
 if.else.do.end_crit_edge:                         ; preds = %if.else
   %.pre = load float, ptr %t, align 4
-  %.pre91 = load float, ptr %d.sroa.2.0.d4.sroa_idx.i, align 4
-  %.pre92 = load float, ptr %o.sroa.2.0.o3.sroa_idx.i, align 8
+  %.pre89 = load float, ptr %d.sroa.2.0.d4.sroa_idx.i, align 4
+  %.pre90 = load float, ptr %o.sroa.2.0.o3.sroa_idx.i, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.else.do.end_crit_edge, %if.then
-  %14 = phi float [ %.pre92, %if.else.do.end_crit_edge ], [ %12, %if.then ]
-  %15 = phi float [ %.pre91, %if.else.do.end_crit_edge ], [ %13, %if.then ]
+  %14 = phi float [ %.pre90, %if.else.do.end_crit_edge ], [ %12, %if.then ]
+  %15 = phi float [ %.pre89, %if.else.do.end_crit_edge ], [ %13, %if.then ]
   %16 = phi float [ %.pre, %if.else.do.end_crit_edge ], [ %div, %if.then ]
   %17 = load float, ptr %d4.i, align 4
   %mul.i.i = fmul float %16, %17
@@ -8182,7 +8182,7 @@ if.then67:                                        ; preds = %if.end64
   br i1 %cmp68.not, label %cond.end, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %if.then67
-  %sub71 = add i64 %indvars.iv86, 4294967294
+  %sub71 = add i64 %indvars.iv84, 4294967294
   %conv72 = and i64 %sub71, 4294967295
   %29 = load ptr, ptr %ptr.i, align 8
   %eta74 = getelementptr inbounds %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %29, i64 %conv72, i32 2
@@ -8267,10 +8267,10 @@ if.end94:                                         ; preds = %if.end.i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end64.thread, %if.end64, %if.end94
-  %weight.172 = phi float [ %weight.083, %if.end64 ], [ %weight.083, %if.end94 ], [ %add66.i, %if.end64.thread ]
+  %weight.172 = phi float [ %weight.081, %if.end64 ], [ %weight.081, %if.end94 ], [ %add66.i, %if.end64.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp = icmp sgt i64 %indvars.iv, 0
-  %indvars.iv.next87 = add nsw i64 %indvars.iv86, -1
+  %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !135
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -9128,13 +9128,13 @@ while.end.loopexit.i30:                           ; preds = %while.body.i19
   br label %_ZN4pbrt14RadicalInverseEim.exit34
 
 _ZN4pbrt14RadicalInverseEim.exit34:               ; preds = %for.body, %while.end.loopexit.i30
-  %.sroa.speculated.i136 = phi float [ %.sroa.speculated.i, %while.end.loopexit.i30 ], [ 0.000000e+00, %for.body ]
+  %.sroa.speculated.i135 = phi float [ %.sroa.speculated.i, %while.end.loopexit.i30 ], [ 0.000000e+00, %for.body ]
   %mul12.i31 = phi float [ %14, %while.end.loopexit.i30 ], [ 0.000000e+00, %for.body ]
   %cmp.i.i32 = fcmp ogt float %mul12.i31, 0x3FEFFFFFE0000000
   %.sroa.speculated.i33 = select i1 %cmp.i.i32, float 0x3FEFFFFFE0000000, float %mul12.i31
-  %sub.i35 = fsub float 1.000000e+00, %.sroa.speculated.i136
+  %sub.i35 = fsub float 1.000000e+00, %.sroa.speculated.i135
   %mul.i36 = fmul float %4, %sub.i35
-  %mul1.i37 = fmul float %5, %.sroa.speculated.i136
+  %mul1.i37 = fmul float %5, %.sroa.speculated.i135
   %add.i38 = fadd float %mul1.i37, %mul.i36
   %sub.i39 = fsub float 1.000000e+00, %.sroa.speculated.i33
   %mul.i40 = fmul float %4, %sub.i39

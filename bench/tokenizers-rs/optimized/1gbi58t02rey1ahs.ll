@@ -24748,8 +24748,8 @@ default.unreachable:                              ; preds = %14
   unreachable
 
 14:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.i", %.lr.ph.i
-  %.0123.i = phi i8 [ 2, %.lr.ph.i ], [ %.1.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.i" ]
-  %.050122.i = phi i8 [ 2, %.lr.ph.i ], [ %.151.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.i" ]
+  %.0121.i = phi i8 [ 2, %.lr.ph.i ], [ %.1.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.i" ]
+  %.050120.i = phi i8 [ 2, %.lr.ph.i ], [ %.151.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.i" ]
   %15 = load i8, ptr %13, align 1, !range !5070, !noalias !5067, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !5067
   switch i8 %15, label %default.unreachable [
@@ -24766,15 +24766,15 @@ default.unreachable:                              ; preds = %14
   br label %77
 
 18:                                               ; preds = %14
-  %19 = icmp eq i8 %.0123.i, 2
+  %19 = icmp eq i8 %.0121.i, 2
   br i1 %19, label %57, label %59
 
 20:                                               ; preds = %14
-  %21 = icmp eq i8 %.0123.i, 2
+  %21 = icmp eq i8 %.0121.i, 2
   br i1 %21, label %30, label %28
 
 22:                                               ; preds = %14
-  %23 = icmp eq i8 %.050122.i, 2
+  %23 = icmp eq i8 %.050120.i, 2
   br i1 %23, label %45, label %43
 
 24:                                               ; preds = %14
@@ -24824,14 +24824,14 @@ default.unreachable:                              ; preds = %14
   br label %77
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.sink.split.i": ; preds = %52, %37
-  %.151.ph.i = phi i8 [ %.050122.i, %37 ], [ %54, %52 ]
-  %.1.ph.i = phi i8 [ %39, %37 ], [ %.0123.i, %52 ]
+  %.151.ph.i = phi i8 [ %.050120.i, %37 ], [ %54, %52 ]
+  %.1.ph.i = phi i8 [ %39, %37 ], [ %.0121.i, %52 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !5067
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.i"
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.i": ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.sink.split.i", %24
-  %.151.i = phi i8 [ %.050122.i, %24 ], [ %.151.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.sink.split.i" ]
-  %.1.i = phi i8 [ %.0123.i, %24 ], [ %.1.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.sink.split.i" ]
+  %.151.i = phi i8 [ %.050120.i, %24 ], [ %.151.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.sink.split.i" ]
+  %.1.i = phi i8 [ %.0121.i, %24 ], [ %.1.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc1accd054573414cE.exit.sink.split.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !5067
   call void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h42e78cad9511052eE"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %7), !noalias !5069
   %42 = load i8, ptr %6, align 8, !range !4, !noalias !5067, !noundef !5
@@ -24877,7 +24877,7 @@ default.unreachable:                              ; preds = %14
   br label %77
 
 59:                                               ; preds = %18
-  %60 = icmp eq i8 %.050122.i, 2
+  %60 = icmp eq i8 %.050120.i, 2
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
@@ -24885,8 +24885,8 @@ default.unreachable:                              ; preds = %14
   br label %77
 
 63:                                               ; preds = %59
-  %64 = and i8 %.0123.i, 1
-  %65 = and i8 %.050122.i, 1
+  %64 = and i8 %.0121.i, 1
+  %65 = and i8 %.050120.i, 1
   %.sroa.012.0.copyload = load ptr, ptr %7, align 8
   %.sroa.514.0.copyload = load i64, ptr %11, align 8
   %66 = icmp eq ptr %.sroa.012.0.copyload, null
@@ -27118,13 +27118,13 @@ _ZN5serde2de9MapAccess10next_value17hc37da46f327dc69eE.exit.i.i: ; preds = %97
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h5a7233e08a9bcec9E.exit.i.backedge"
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h5a7233e08a9bcec9E.exit.i.backedge": ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i", %121, %113, %109, %109, %101, %92, %84, %80, %80, %73, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i", %48
-  %.sroa.10200.0.i.be = phi ptr [ %.sroa.10200.4229493.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.sroa.10200.0.i, %101 ], [ %.sroa.10200.0.i, %73 ], [ %.sroa.10200.0.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.sroa.10200.0.i, %84 ], [ %.sroa.10200.0.i, %92 ], [ %.sroa.10200.0.i, %80 ], [ %.sroa.10200.0.i, %80 ], [ %.sroa.10200.0.i, %109 ], [ %.sroa.10200.0.i, %109 ], [ %.sroa.10200.0.i, %121 ], [ %.sroa.10200.0.i, %113 ], [ %.sroa.10200.0.i, %48 ]
-  %.sroa.14.0.i.be = phi i64 [ %.sroa.14.4230492.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.sroa.14.0.i, %101 ], [ %.sroa.14.0.i, %73 ], [ %.sroa.14.0.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.sroa.14.0.i, %84 ], [ %.sroa.14.0.i, %92 ], [ %.sroa.14.0.i, %80 ], [ %.sroa.14.0.i, %80 ], [ %.sroa.14.0.i, %109 ], [ %.sroa.14.0.i, %109 ], [ %.sroa.14.0.i, %121 ], [ %.sroa.14.0.i, %113 ], [ %.sroa.14.0.i, %48 ]
-  %.0132.i.be = phi i8 [ %.0132.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.0132.i, %101 ], [ %.0132.i, %73 ], [ %.0132.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.0132.i, %84 ], [ %.0132.i, %92 ], [ %.0132.i, %80 ], [ %.0132.i, %80 ], [ 2, %109 ], [ 2, %109 ], [ %123, %121 ], [ %115, %113 ], [ %.0132.i, %48 ]
-  %.0130.i.be = phi i8 [ %.0130.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %102, %101 ], [ %.0130.i, %73 ], [ %.0130.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.0130.i, %84 ], [ %.0130.i, %92 ], [ %.0130.i, %80 ], [ %.0130.i, %80 ], [ %.0130.i, %109 ], [ %.0130.i, %109 ], [ %.0130.i, %121 ], [ %.0130.i, %113 ], [ %.0130.i, %48 ]
-  %.0128.i.be = phi i8 [ %.0128.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.0128.i, %101 ], [ %.0128.i, %73 ], [ %.0128.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %86, %84 ], [ %94, %92 ], [ 2, %80 ], [ 2, %80 ], [ %.0128.i, %109 ], [ %.0128.i, %109 ], [ %.0128.i, %121 ], [ %.0128.i, %113 ], [ %.0128.i, %48 ]
-  %.0126.i.be = phi i32 [ %.0126.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.0126.i, %101 ], [ %74, %73 ], [ %.0126.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.0126.i, %84 ], [ %.0126.i, %92 ], [ %.0126.i, %80 ], [ %.0126.i, %80 ], [ %.0126.i, %109 ], [ %.0126.i, %109 ], [ %.0126.i, %121 ], [ %.0126.i, %113 ], [ %.0126.i, %48 ]
-  %.0.i.be = phi i8 [ %.0.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.0.i, %101 ], [ %.0.i, %73 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.0.i, %84 ], [ %.0.i, %92 ], [ %.0.i, %80 ], [ %.0.i, %80 ], [ %.0.i, %109 ], [ %.0.i, %109 ], [ %.0.i, %121 ], [ %.0.i, %113 ], [ %.0.i, %48 ]
+  %.sroa.10200.0.i.be = phi ptr [ %.sroa.10200.4229493.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.sroa.10200.0.i, %101 ], [ %.sroa.10200.0.i, %73 ], [ %.sroa.10200.0.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.sroa.10200.0.i, %84 ], [ %.sroa.10200.0.i, %92 ], [ %.sroa.10200.0.i, %80 ], [ %.sroa.10200.0.i, %80 ], [ %.sroa.10200.0.i, %113 ], [ %.sroa.10200.0.i, %121 ], [ %.sroa.10200.0.i, %109 ], [ %.sroa.10200.0.i, %109 ], [ %.sroa.10200.0.i, %48 ]
+  %.sroa.14.0.i.be = phi i64 [ %.sroa.14.4230492.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.sroa.14.0.i, %101 ], [ %.sroa.14.0.i, %73 ], [ %.sroa.14.0.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.sroa.14.0.i, %84 ], [ %.sroa.14.0.i, %92 ], [ %.sroa.14.0.i, %80 ], [ %.sroa.14.0.i, %80 ], [ %.sroa.14.0.i, %113 ], [ %.sroa.14.0.i, %121 ], [ %.sroa.14.0.i, %109 ], [ %.sroa.14.0.i, %109 ], [ %.sroa.14.0.i, %48 ]
+  %.0132.i.be = phi i8 [ %.0132.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.0132.i, %101 ], [ %.0132.i, %73 ], [ %.0132.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.0132.i, %84 ], [ %.0132.i, %92 ], [ %.0132.i, %80 ], [ %.0132.i, %80 ], [ %115, %113 ], [ %123, %121 ], [ 2, %109 ], [ 2, %109 ], [ %.0132.i, %48 ]
+  %.0130.i.be = phi i8 [ %.0130.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %102, %101 ], [ %.0130.i, %73 ], [ %.0130.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.0130.i, %84 ], [ %.0130.i, %92 ], [ %.0130.i, %80 ], [ %.0130.i, %80 ], [ %.0130.i, %113 ], [ %.0130.i, %121 ], [ %.0130.i, %109 ], [ %.0130.i, %109 ], [ %.0130.i, %48 ]
+  %.0128.i.be = phi i8 [ %.0128.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.0128.i, %101 ], [ %.0128.i, %73 ], [ %.0128.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %86, %84 ], [ %94, %92 ], [ 2, %80 ], [ 2, %80 ], [ %.0128.i, %113 ], [ %.0128.i, %121 ], [ %.0128.i, %109 ], [ %.0128.i, %109 ], [ %.0128.i, %48 ]
+  %.0126.i.be = phi i32 [ %.0126.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.0126.i, %101 ], [ %74, %73 ], [ %.0126.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.0126.i, %84 ], [ %.0126.i, %92 ], [ %.0126.i, %80 ], [ %.0126.i, %80 ], [ %.0126.i, %113 ], [ %.0126.i, %121 ], [ %.0126.i, %109 ], [ %.0126.i, %109 ], [ %.0126.i, %48 ]
+  %.0.i.be = phi i8 [ %.0.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hc3670ff3e35720f0E.exit.i" ], [ %.0.i, %101 ], [ %.0.i, %73 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd49afd98ece2834eE.exit.i" ], [ %.0.i, %84 ], [ %.0.i, %92 ], [ %.0.i, %80 ], [ %.0.i, %80 ], [ %.0.i, %113 ], [ %.0.i, %121 ], [ %.0.i, %109 ], [ %.0.i, %109 ], [ %.0.i, %48 ]
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h5a7233e08a9bcec9E.exit.i"
 
 157:                                              ; preds = %35
@@ -28843,10 +28843,10 @@ default.unreachable:                              ; preds = %14
   unreachable
 
 14:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i", %.lr.ph.i
-  %.0260.i = phi i8 [ 2, %.lr.ph.i ], [ %.1.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i" ]
-  %.087259.i = phi i8 [ 2, %.lr.ph.i ], [ %.188.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i" ]
-  %.089258.i = phi i8 [ 3, %.lr.ph.i ], [ %.190.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i" ]
-  %.091257.i = phi i8 [ 2, %.lr.ph.i ], [ %.192.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i" ]
+  %.0256.i = phi i8 [ 2, %.lr.ph.i ], [ %.1.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i" ]
+  %.087255.i = phi i8 [ 2, %.lr.ph.i ], [ %.188.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i" ]
+  %.089254.i = phi i8 [ 3, %.lr.ph.i ], [ %.190.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i" ]
+  %.091253.i = phi i8 [ 2, %.lr.ph.i ], [ %.192.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i" ]
   %15 = load i8, ptr %13, align 1, !range !5760, !noalias !6060, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !6060
   switch i8 %15, label %default.unreachable [
@@ -28865,23 +28865,23 @@ default.unreachable:                              ; preds = %14
   br label %123
 
 18:                                               ; preds = %14
-  %19 = icmp eq i8 %.0260.i, 2
+  %19 = icmp eq i8 %.0256.i, 2
   br i1 %19, label %98, label %100
 
 20:                                               ; preds = %14
-  %21 = icmp eq i8 %.0260.i, 2
+  %21 = icmp eq i8 %.0256.i, 2
   br i1 %21, label %34, label %32
 
 22:                                               ; preds = %14
-  %23 = icmp eq i8 %.087259.i, 2
+  %23 = icmp eq i8 %.087255.i, 2
   br i1 %23, label %49, label %47
 
 24:                                               ; preds = %14
-  %25 = icmp eq i8 %.089258.i, 3
+  %25 = icmp eq i8 %.089254.i, 3
   br i1 %25, label %63, label %61
 
 26:                                               ; preds = %14
-  %27 = icmp eq i8 %.091257.i, 2
+  %27 = icmp eq i8 %.091253.i, 2
   br i1 %27, label %86, label %84
 
 28:                                               ; preds = %14
@@ -28931,18 +28931,18 @@ default.unreachable:                              ; preds = %14
   br label %123
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i": ; preds = %93, %79, %71, %56, %41
-  %.192.ph.i = phi i8 [ %.091257.i, %79 ], [ %.091257.i, %71 ], [ %.091257.i, %41 ], [ %.091257.i, %56 ], [ %95, %93 ]
-  %.190.ph.i = phi i8 [ %81, %79 ], [ %73, %71 ], [ %.089258.i, %41 ], [ %.089258.i, %56 ], [ %.089258.i, %93 ]
-  %.188.ph.i = phi i8 [ %.087259.i, %79 ], [ %.087259.i, %71 ], [ %.087259.i, %41 ], [ %58, %56 ], [ %.087259.i, %93 ]
-  %.1.ph.i = phi i8 [ %.0260.i, %79 ], [ %.0260.i, %71 ], [ %43, %41 ], [ %.0260.i, %56 ], [ %.0260.i, %93 ]
+  %.192.ph.i = phi i8 [ %.091253.i, %79 ], [ %.091253.i, %71 ], [ %.091253.i, %41 ], [ %.091253.i, %56 ], [ %95, %93 ]
+  %.190.ph.i = phi i8 [ %81, %79 ], [ %73, %71 ], [ %.089254.i, %41 ], [ %.089254.i, %56 ], [ %.089254.i, %93 ]
+  %.188.ph.i = phi i8 [ %.087255.i, %79 ], [ %.087255.i, %71 ], [ %.087255.i, %41 ], [ %58, %56 ], [ %.087255.i, %93 ]
+  %.1.ph.i = phi i8 [ %.0256.i, %79 ], [ %.0256.i, %71 ], [ %43, %41 ], [ %.0256.i, %56 ], [ %.0256.i, %93 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !6060
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i"
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.i": ; preds = %67, %67, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i", %28
-  %.192.i = phi i8 [ %.091257.i, %28 ], [ %.091257.i, %67 ], [ %.091257.i, %67 ], [ %.192.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i" ]
-  %.190.i = phi i8 [ %.089258.i, %28 ], [ 2, %67 ], [ 2, %67 ], [ %.190.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i" ]
-  %.188.i = phi i8 [ %.087259.i, %28 ], [ %.087259.i, %67 ], [ %.087259.i, %67 ], [ %.188.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i" ]
-  %.1.i = phi i8 [ %.0260.i, %28 ], [ %.0260.i, %67 ], [ %.0260.i, %67 ], [ %.1.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i" ]
+  %.192.i = phi i8 [ %.091253.i, %28 ], [ %.091253.i, %67 ], [ %.091253.i, %67 ], [ %.192.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i" ]
+  %.190.i = phi i8 [ %.089254.i, %28 ], [ 2, %67 ], [ 2, %67 ], [ %.190.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i" ]
+  %.188.i = phi i8 [ %.087255.i, %28 ], [ %.087255.i, %67 ], [ %.087255.i, %67 ], [ %.188.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i" ]
+  %.1.i = phi i8 [ %.0256.i, %28 ], [ %.0256.i, %67 ], [ %.0256.i, %67 ], [ %.1.ph.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !6060
   call void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17hb2ad08a99c7b482dE"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %7), !noalias !6062
   %46 = load i8, ptr %6, align 8, !range !4, !noalias !6060, !noundef !5
@@ -29038,8 +29038,8 @@ default.unreachable:                              ; preds = %14
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8331d022f03c7a4eE.exit.sink.split.i"
 
 82:                                               ; preds = %74, %69
-  %.lcssa336.sink.i = phi ptr [ %64, %69 ], [ %76, %74 ]
-  %83 = call noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.lcssa336.sink.i, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.6.llvm.12815775647222681290), !noalias !6148
+  %.lcssa332.sink.i = phi ptr [ %64, %69 ], [ %76, %74 ]
+  %83 = call noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.lcssa332.sink.i, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.6.llvm.12815775647222681290), !noalias !6148
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !6180
   br label %123
 
@@ -29082,7 +29082,7 @@ default.unreachable:                              ; preds = %14
   br label %123
 
 100:                                              ; preds = %18
-  %101 = icmp eq i8 %.087259.i, 2
+  %101 = icmp eq i8 %.087255.i, 2
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %100
@@ -29090,7 +29090,7 @@ default.unreachable:                              ; preds = %14
   br label %123
 
 104:                                              ; preds = %100
-  %105 = icmp eq i8 %.091257.i, 2
+  %105 = icmp eq i8 %.091253.i, 2
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %104
@@ -29098,13 +29098,13 @@ default.unreachable:                              ; preds = %14
   br label %123
 
 108:                                              ; preds = %104
-  %109 = icmp eq i8 %.089258.i, 3
-  %..089.i = select i1 %109, i8 2, i8 %.089258.i
-  %110 = and i8 %.087259.i, 1
-  %111 = and i8 %.091257.i, 1
+  %109 = icmp eq i8 %.089254.i, 3
+  %..089.i = select i1 %109, i8 2, i8 %.089254.i
+  %110 = and i8 %.087255.i, 1
+  %111 = and i8 %.091253.i, 1
   %.sroa.5.2.insert.ext = zext nneg i8 %110 to i32
   %.sroa.5.2.insert.shift = shl nuw nsw i32 %.sroa.5.2.insert.ext, 8
-  %112 = and i8 %.0260.i, 1
+  %112 = and i8 %.0256.i, 1
   %.sroa.5.2.insert.mask = zext nneg i8 %112 to i32
   %.sroa.5.2.insert.insert = or disjoint i32 %.sroa.5.2.insert.shift, %.sroa.5.2.insert.mask
   %.sroa.5.3.insert.ext = zext nneg i8 %111 to i32

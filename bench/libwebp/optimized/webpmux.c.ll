@@ -1360,9 +1360,9 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
 .preheader.i:                                     ; preds = %562
   %565 = load i32, ptr %143, align 8
   %566 = icmp sgt i32 %565, 0
-  br i1 %566, label %.lr.ph333.i, label %._crit_edge334.i
+  br i1 %566, label %.lr.ph332.i, label %._crit_edge333.i
 
-.lr.ph333.i:                                      ; preds = %.preheader.i
+.lr.ph332.i:                                      ; preds = %.preheader.i
   %567 = getelementptr inbounds i8, ptr %43, i64 28
   %568 = getelementptr inbounds i8, ptr %43, i64 24
   %569 = getelementptr inbounds i8, ptr %43, i64 16
@@ -1377,10 +1377,10 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
   %576 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %575, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.75) #16
   br label %Process.exit
 
-577:                                              ; preds = %658, %.lr.ph333.i
-  %indvars.iv354.i = phi i64 [ 0, %.lr.ph333.i ], [ %indvars.iv.next355.i, %658 ]
+577:                                              ; preds = %658, %.lr.ph332.i
+  %indvars.iv353.i = phi i64 [ 0, %.lr.ph332.i ], [ %indvars.iv.next354.i, %658 ]
   %578 = load ptr, ptr %146, align 8
-  %579 = getelementptr inbounds %struct.FeatureArg, ptr %578, i64 %indvars.iv354.i
+  %579 = getelementptr inbounds %struct.FeatureArg, ptr %578, i64 %indvars.iv353.i
   %580 = load i32, ptr %579, align 8
   switch i32 %580, label %655 [
     i32 3, label %581
@@ -1438,7 +1438,7 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
 
 604:                                              ; preds = %577
   store i32 0, ptr %42, align 4
-  %605 = getelementptr inbounds %struct.FeatureArg, ptr %578, i64 %indvars.iv354.i, i32 2
+  %605 = getelementptr inbounds %struct.FeatureArg, ptr %578, i64 %indvars.iv353.i, i32 2
   %606 = load ptr, ptr %605, align 8
   %607 = call i32 @ExUtilGetInt(ptr noundef %606, i32 noundef 10, ptr noundef nonnull %42) #12
   %or.cond.i = icmp ugt i32 %607, 65535
@@ -1460,7 +1460,7 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
 
 614:                                              ; preds = %577
   store i32 3, ptr %567, align 4
-  %615 = getelementptr inbounds %struct.FeatureArg, ptr %578, i64 %indvars.iv354.i, i32 1
+  %615 = getelementptr inbounds %struct.FeatureArg, ptr %578, i64 %indvars.iv353.i, i32 1
   %616 = load ptr, ptr %615, align 8
   %617 = call i32 @ExUtilReadFileToWebPData(ptr noundef %616, ptr noundef nonnull %43) #12
   %.not181.i = icmp eq i32 %617, 0
@@ -1468,7 +1468,7 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
 
 618:                                              ; preds = %614
   %619 = load ptr, ptr %146, align 8
-  %620 = getelementptr inbounds %struct.FeatureArg, ptr %619, i64 %indvars.iv354.i, i32 2
+  %620 = getelementptr inbounds %struct.FeatureArg, ptr %619, i64 %indvars.iv353.i, i32 2
   %621 = load ptr, ptr %620, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
@@ -1553,7 +1553,7 @@ WarnAboutOddOffset.exit.i.i:                      ; preds = %629, %626
   br i1 %.not183.i, label %658, label %647
 
 647:                                              ; preds = %642
-  %648 = trunc nuw nsw i64 %indvars.iv354.i to i32
+  %648 = trunc nuw nsw i64 %indvars.iv353.i to i32
   %649 = load ptr, ptr @stderr, align 8
   %650 = sub nsw i32 0, %645
   %651 = sext i32 %650 to i64
@@ -1568,18 +1568,18 @@ WarnAboutOddOffset.exit.i.i:                      ; preds = %629, %626
   br label %Process.exit
 
 658:                                              ; preds = %642, %613, %597
-  %indvars.iv.next355.i = add nuw nsw i64 %indvars.iv354.i, 1
+  %indvars.iv.next354.i = add nuw nsw i64 %indvars.iv353.i, 1
   %659 = load i32, ptr %143, align 8
   %660 = sext i32 %659 to i64
-  %661 = icmp slt i64 %indvars.iv.next355.i, %660
-  br i1 %661, label %577, label %._crit_edge334.i, !llvm.loop !8
+  %661 = icmp slt i64 %indvars.iv.next354.i, %660
+  br i1 %661, label %577, label %._crit_edge333.i, !llvm.loop !8
 
-._crit_edge334.i:                                 ; preds = %658, %.preheader.i
+._crit_edge333.i:                                 ; preds = %658, %.preheader.i
   %662 = call i32 @WebPMuxSetAnimationParams(ptr noundef nonnull %563, ptr noundef nonnull %41) #12
   %.not180.i = icmp eq i32 %662, 1
   br i1 %.not180.i, label %788, label %663
 
-663:                                              ; preds = %._crit_edge334.i
+663:                                              ; preds = %._crit_edge333.i
   %664 = load ptr, ptr @stderr, align 8
   %665 = sub nsw i32 0, %662
   %666 = sext i32 %665 to i64
@@ -1815,8 +1815,8 @@ CreateMux.exit216.thread.i:                       ; preds = %766, %754
   %787 = call i64 @fwrite(ptr nonnull @.str.56, i64 41, i64 1, ptr %786) #14
   br label %Process.exit
 
-788:                                              ; preds = %775, %726, %683, %._crit_edge334.i
-  %.1272.i = phi ptr [ %764, %775 ], [ %715, %726 ], [ %673, %683 ], [ %563, %._crit_edge334.i ]
+788:                                              ; preds = %775, %726, %683, %._crit_edge333.i
+  %.1272.i = phi ptr [ %764, %775 ], [ %715, %726 ], [ %673, %683 ], [ %563, %._crit_edge333.i ]
   %789 = load ptr, ptr %464, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   %790 = call i32 @WebPMuxAssemble(ptr noundef nonnull %.1272.i, ptr noundef nonnull %20) #12
@@ -2008,9 +2008,9 @@ DuplicateMuxHeader.exit.i:                        ; preds = %853
   br label %904
 
 873:                                              ; preds = %._crit_edge.i, %.lr.ph324.i
-  %indvars.iv348.i = phi i64 [ 0, %.lr.ph324.i ], [ %indvars.iv.next349.i, %._crit_edge.i ]
+  %indvars.iv347.i = phi i64 [ 0, %.lr.ph324.i ], [ %indvars.iv.next348.i, %._crit_edge.i ]
   %874 = load ptr, ptr %146, align 8
-  %875 = getelementptr inbounds %struct.FeatureArg, ptr %874, i64 %indvars.iv348.i, i32 2
+  %875 = getelementptr inbounds %struct.FeatureArg, ptr %874, i64 %indvars.iv347.i, i32 2
   %876 = load ptr, ptr %875, align 8
   %877 = call i32 @ExUtilGetInts(ptr noundef %876, i32 noundef 10, i32 noundef 3, ptr noundef nonnull %48) #12
   %878 = icmp sgt i32 %877, 0
@@ -2060,24 +2060,24 @@ DuplicateMuxHeader.exit.i:                        ; preds = %853
   br label %.lr.ph322.i
 
 .lr.ph322.i:                                      ; preds = %.lr.ph322.i, %.lr.ph322.preheader.i
-  %indvars.iv345.i = phi i64 [ %899, %.lr.ph322.preheader.i ], [ %indvars.iv.next346.i, %.lr.ph322.i ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv345.i
+  %indvars.iv344.i = phi i64 [ %899, %.lr.ph322.preheader.i ], [ %indvars.iv.next345.i, %.lr.ph322.i ]
+  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv344.i
   store i32 %880, ptr %gep.i, align 4
-  %indvars.iv.next346.i = add nsw i64 %indvars.iv345.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next346.i to i32
+  %indvars.iv.next345.i = add nsw i64 %indvars.iv344.i, 1
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next345.i to i32
   %exitcond.not.i = icmp eq i32 %900, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph322.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph322.i, %898
-  %indvars.iv.next349.i = add nuw nsw i64 %indvars.iv348.i, 1
+  %indvars.iv.next348.i = add nuw nsw i64 %indvars.iv347.i, 1
   %901 = load i32, ptr %143, align 8
   %902 = sext i32 %901 to i64
-  %903 = icmp slt i64 %indvars.iv.next349.i, %902
+  %903 = icmp slt i64 %indvars.iv.next348.i, %902
   br i1 %903, label %873, label %.preheader306.loopexit.i, !llvm.loop !12
 
 904:                                              ; preds = %922, %.lr.ph329.i
-  %indvars.iv351.i = phi i64 [ 1, %.lr.ph329.i ], [ %indvars.iv.next352.i, %922 ]
-  %905 = trunc nuw nsw i64 %indvars.iv351.i to i32
+  %indvars.iv350.i = phi i64 [ 1, %.lr.ph329.i ], [ %indvars.iv.next351.i, %922 ]
+  %905 = trunc nuw nsw i64 %indvars.iv350.i to i32
   %906 = call i32 @WebPMuxGetFrame(ptr noundef nonnull %804, i32 noundef %905, ptr noundef nonnull %49) #12
   %907 = icmp ne i32 %906, 1
   %908 = load i32, ptr %871, align 4
@@ -2091,7 +2091,7 @@ DuplicateMuxHeader.exit.i:                        ; preds = %853
   br label %.loopexit308.i
 
 913:                                              ; preds = %904
-  %gep326.i = getelementptr i32, ptr %invariant.gep325.i, i64 %indvars.iv351.i
+  %gep326.i = getelementptr i32, ptr %invariant.gep325.i, i64 %indvars.iv350.i
   %914 = load i32, ptr %gep326.i, align 4
   %915 = icmp sgt i32 %914, -1
   br i1 %915, label %916, label %917
@@ -2114,10 +2114,10 @@ DuplicateMuxHeader.exit.i:                        ; preds = %853
   %923 = load ptr, ptr %49, align 8
   call void @WebPFree(ptr noundef %923) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  %indvars.iv.next352.i = add nuw nsw i64 %indvars.iv351.i, 1
+  %indvars.iv.next351.i = add nuw nsw i64 %indvars.iv350.i, 1
   %924 = load i32, ptr %47, align 4
   %925 = sext i32 %924 to i64
-  %.not171.not.i = icmp slt i64 %indvars.iv351.i, %925
+  %.not171.not.i = icmp slt i64 %indvars.iv350.i, %925
   br i1 %.not171.not.i, label %904, label %._crit_edge330.i, !llvm.loop !13
 
 ._crit_edge330.i:                                 ; preds = %922, %.preheader306.i

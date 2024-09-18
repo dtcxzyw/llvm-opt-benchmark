@@ -8417,77 +8417,71 @@ define internal fastcc noundef zeroext i1 @_het_job_deadlock_test(ptr noundef %0
   %65 = load ptr, ptr @deadlock_global_list, align 8
   %66 = tail call ptr @list_iterator_create(ptr noundef %65) #16
   %67 = tail call ptr @list_next(ptr noundef %66) #16
-  %.not76105117.not = icmp eq ptr %67, null
-  br i1 %.not76105117.not, label %.loopexit, label %.lr.ph107.lr.ph
+  %.not76110.not = icmp eq ptr %67, null
+  br i1 %.not76110.not, label %.loopexit, label %.lr.ph113
 
-.lr.ph107.lr.ph:                                  ; preds = %64
+.lr.ph113:                                        ; preds = %64
   %68 = getelementptr inbounds i8, ptr %.160, i64 8
-  br label %.lr.ph107
+  br label %69
 
-.lr.ph107:                                        ; preds = %.lr.ph107.backedge, %.lr.ph107.lr.ph
-  %69 = phi ptr [ %67, %.lr.ph107.lr.ph ], [ %.be, %.lr.ph107.backedge ]
-  %70 = icmp eq ptr %69, %.15588
-  br i1 %70, label %.critedge.backedge, label %72
+69:                                               ; preds = %.lr.ph113, %.critedge.backedge
+  %70 = phi ptr [ %67, %.lr.ph113 ], [ %72, %.critedge.backedge ]
+  %71 = icmp eq ptr %70, %.15588
+  br i1 %71, label %.critedge.backedge, label %73
 
-.critedge.backedge:                               ; preds = %.lr.ph107, %72
-  %71 = tail call ptr @list_next(ptr noundef %66) #16
-  %.not76.not = icmp eq ptr %71, null
-  br i1 %.not76.not, label %.loopexit, label %.lr.ph107.backedge
+.critedge.backedge:                               ; preds = %69, %73, %._crit_edge108
+  %72 = tail call ptr @list_next(ptr noundef %66) #16
+  %.not76.not = icmp eq ptr %72, null
+  br i1 %.not76.not, label %.loopexit, label %69, !llvm.loop !26
 
-.lr.ph107.backedge:                               ; preds = %.critedge.backedge, %.critedge.outer
-  %.be = phi ptr [ %71, %.critedge.backedge ], [ %95, %.critedge.outer ]
-  br label %.lr.ph107, !llvm.loop !26
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %70, align 8
+  %75 = tail call ptr @list_find_first(ptr noundef %74, ptr noundef nonnull @_deadlock_part_list_srch, ptr noundef %0) #16
+  %.not77 = icmp eq ptr %75, null
+  br i1 %.not77, label %.critedge.backedge, label %76
 
-72:                                               ; preds = %.lr.ph107
-  %73 = load ptr, ptr %69, align 8
-  %74 = tail call ptr @list_find_first(ptr noundef %73, ptr noundef nonnull @_deadlock_part_list_srch, ptr noundef %0) #16
-  %.not77 = icmp eq ptr %74, null
-  br i1 %.not77, label %.critedge.backedge, label %75
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %.15588, align 8
+  %78 = tail call ptr @list_iterator_create(ptr noundef %77) #16
+  %79 = tail call ptr @list_next(ptr noundef %78) #16
+  %.not78105 = icmp eq ptr %79, null
+  br i1 %.not78105, label %._crit_edge108, label %.lr.ph107
 
-75:                                               ; preds = %72
-  %76 = load ptr, ptr %.15588, align 8
-  %77 = tail call ptr @list_iterator_create(ptr noundef %76) #16
-  %78 = tail call ptr @list_next(ptr noundef %77) #16
-  %.not78109 = icmp eq ptr %78, null
-  br i1 %.not78109, label %.critedge.outer, label %.lr.ph112
+.lr.ph107:                                        ; preds = %76, %94
+  %80 = phi ptr [ %95, %94 ], [ %79, %76 ]
+  %81 = load i32, ptr %80, align 8
+  %82 = load i32, ptr %.160, align 8
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %._crit_edge108, label %84
 
-.lr.ph112:                                        ; preds = %75, %93
-  %79 = phi ptr [ %94, %93 ], [ %78, %75 ]
-  %80 = load i32, ptr %79, align 8
-  %81 = load i32, ptr %.160, align 8
-  %82 = icmp eq i32 %80, %81
-  br i1 %82, label %.critedge.outer, label %83
+84:                                               ; preds = %.lr.ph107
+  %85 = load ptr, ptr %70, align 8
+  %86 = tail call ptr @list_find_first(ptr noundef %85, ptr noundef nonnull @_deadlock_part_list_srch2, ptr noundef nonnull %80) #16
+  %.not79 = icmp eq ptr %86, null
+  br i1 %.not79, label %94, label %87
 
-83:                                               ; preds = %.lr.ph112
-  %84 = load ptr, ptr %69, align 8
-  %85 = tail call ptr @list_find_first(ptr noundef %84, ptr noundef nonnull @_deadlock_part_list_srch2, ptr noundef nonnull %79) #16
-  %.not79 = icmp eq ptr %85, null
-  br i1 %.not79, label %93, label %86
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds i8, ptr %86, i64 8
+  %89 = load i64, ptr %88, align 8
+  %90 = load i64, ptr %68, align 8
+  %91 = icmp slt i64 %89, %90
+  br i1 %91, label %.thread90, label %94
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %85, i64 8
-  %88 = load i64, ptr %87, align 8
-  %89 = load i64, ptr %68, align 8
-  %90 = icmp slt i64 %88, %89
-  br i1 %90, label %.thread90, label %93
-
-.thread90:                                        ; preds = %86
-  tail call void @list_iterator_destroy(ptr noundef %77) #16
-  %91 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %92 = and i64 %91, 562949953421312
-  %.not80 = icmp eq i64 %92, 0
+.thread90:                                        ; preds = %87
+  tail call void @list_iterator_destroy(ptr noundef %78) #16
+  %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %93 = and i64 %92, 562949953421312
+  %.not80 = icmp eq i64 %93, 0
   br i1 %.not80, label %.loopexit, label %96, !llvm.loop !26
 
-93:                                               ; preds = %86, %83
-  %94 = tail call ptr @list_next(ptr noundef %77) #16
-  %.not78 = icmp eq ptr %94, null
-  br i1 %.not78, label %.critedge.outer, label %.lr.ph112, !llvm.loop !27
+94:                                               ; preds = %87, %84
+  %95 = tail call ptr @list_next(ptr noundef %78) #16
+  %.not78 = icmp eq ptr %95, null
+  br i1 %.not78, label %._crit_edge108, label %.lr.ph107, !llvm.loop !27
 
-.critedge.outer:                                  ; preds = %93, %.lr.ph112, %75
-  tail call void @list_iterator_destroy(ptr noundef %77) #16
-  %95 = tail call ptr @list_next(ptr noundef %66) #16
-  %.not76105.not = icmp eq ptr %95, null
-  br i1 %.not76105.not, label %.loopexit, label %.lr.ph107.backedge
+._crit_edge108:                                   ; preds = %94, %.lr.ph107, %76
+  tail call void @list_iterator_destroy(ptr noundef %78) #16
+  br label %.critedge.backedge
 
 96:                                               ; preds = %.thread90
   %97 = tail call i32 @get_log_level() #16
@@ -8500,16 +8494,16 @@ define internal fastcc noundef zeroext i1 @_het_job_deadlock_test(ptr noundef %0
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 224
   %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr %85, align 8
-  %106 = getelementptr inbounds i8, ptr %69, i64 8
+  %105 = load i32, ptr %86, align 8
+  %106 = getelementptr inbounds i8, ptr %70, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 224
   %109 = load ptr, ptr %108, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.150, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._het_job_deadlock_test, i32 noundef %100, ptr noundef %104, i32 noundef %105, ptr noundef %109) #16
   br label %.loopexit, !llvm.loop !26
 
-.loopexit:                                        ; preds = %.critedge.outer, %.critedge.backedge, %64, %.thread90, %96, %99
-  %.not7696 = phi i1 [ true, %.thread90 ], [ true, %96 ], [ true, %99 ], [ false, %64 ], [ false, %.critedge.backedge ], [ false, %.critedge.outer ]
+.loopexit:                                        ; preds = %.critedge.backedge, %64, %.thread90, %96, %99
+  %.not7696 = phi i1 [ true, %.thread90 ], [ true, %96 ], [ true, %99 ], [ false, %64 ], [ false, %.critedge.backedge ]
   tail call void @list_iterator_destroy(ptr noundef %66) #16
   br label %110
 

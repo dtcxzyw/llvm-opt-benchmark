@@ -9602,7 +9602,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   br label %271
 
 271:                                              ; preds = %"_ZN15influxdb3_write3wal7WalImpl13segment_files28_$u7b$$u7b$closure$u7d$$u7d$17hc0f83f93eb807378E.exit.i", %331, %304, %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit363.thread187.i, %266
-  %.5.i = phi i8 [ 0, %266 ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit363.thread187.i ], [ 1, %"_ZN15influxdb3_write3wal7WalImpl13segment_files28_$u7b$$u7b$closure$u7d$$u7d$17hc0f83f93eb807378E.exit.i" ], [ 1, %331 ], [ 1, %304 ]
+  %.5.i = phi i8 [ 0, %266 ], [ 1, %"_ZN15influxdb3_write3wal7WalImpl13segment_files28_$u7b$$u7b$closure$u7d$$u7d$17hc0f83f93eb807378E.exit.i" ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit363.thread187.i ], [ 1, %304 ], [ 1, %331 ]
   %272 = load i8, ptr %57, align 8, !range !1673, !alias.scope !1892, !noalias !1833, !noundef !4
   %273 = icmp eq i8 %272, 10
   br i1 %273, label %352, label %274

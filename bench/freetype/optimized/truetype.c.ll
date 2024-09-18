@@ -22111,8 +22111,8 @@ tt_check_trickyness_family.exit.thread:           ; preds = %49, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(124) %2, i8 0, i64 124, i1 false)
   %53 = getelementptr inbounds i8, ptr %0, i64 288
   %54 = load i16, ptr %53, align 8
-  %.not64.i = icmp eq i16 %54, 0
-  br i1 %.not64.i, label %.preheader.split.us.i.preheader, label %.lr.ph.i
+  %.not62.i = icmp eq i16 %54, 0
+  br i1 %.not62.i, label %.preheader.split.us.i.preheader, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %tt_check_trickyness_family.exit.thread
   %55 = getelementptr inbounds i8, ptr %0, i64 296
@@ -22128,17 +22128,17 @@ tt_check_trickyness_family.exit.thread:           ; preds = %49, %3
   br label %.preheader.split.us.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.split.us.i.preheader, %62
-  %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %62 ], [ 0, %.preheader.split.us.i.preheader ]
-  %59 = add nsw i64 %indvars.iv78.i, -16
+  %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %62 ], [ 0, %.preheader.split.us.i.preheader ]
+  %59 = add nsw i64 %indvars.iv76.i, -16
   %.not45.us.i = icmp ult i64 %59, 12
-  %60 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %indvars.iv78.i
+  %60 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %indvars.iv76.i
   %61 = load i32, ptr %60, align 4
   br i1 %.not45.us.i, label %63, label %.preheader.split.us._crit_edge.i
 
 62:                                               ; preds = %.preheader.split.us._crit_edge.i
-  %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
-  %exitcond81.not.i = icmp eq i64 %indvars.iv.next79.i, 31
-  br i1 %exitcond81.not.i, label %tt_check_trickyness_family.exit.sink.split, label %.preheader.split.us.i, !llvm.loop !145
+  %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
+  %exitcond79.not.i = icmp eq i64 %indvars.iv.next77.i, 31
+  br i1 %exitcond79.not.i, label %tt_check_trickyness_family.exit.sink.split, label %.preheader.split.us.i, !llvm.loop !145
 
 63:                                               ; preds = %.preheader.split.us.i
   %64 = add nsw i32 %61, 1
@@ -22152,10 +22152,10 @@ tt_check_trickyness_family.exit.thread:           ; preds = %49, %3
 
 67:                                               ; preds = %.loopexit51.i, %.lr.ph.i
   %68 = phi i16 [ %54, %.lr.ph.i ], [ %139, %.loopexit51.i ]
-  %indvars.iv72.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next73.i, %.loopexit51.i ]
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next71.i, %.loopexit51.i ]
   %.03859.i = phi i8 [ 0, %.lr.ph.i ], [ %.240.i, %.loopexit51.i ]
   %69 = load ptr, ptr %55, align 8
-  %70 = getelementptr inbounds %struct.TT_TableRec_, ptr %69, i64 %indvars.iv72.i
+  %70 = getelementptr inbounds %struct.TT_TableRec_, ptr %69, i64 %indvars.iv70.i
   %71 = load i64, ptr %70, align 8
   switch i64 %71, label %.loopexit51.i [
     i64 1668707360, label %74
@@ -22178,7 +22178,7 @@ tt_check_trickyness_family.exit.thread:           ; preds = %49, %3
   %indvars.iv.i10 = phi i64 [ 0, %74 ], [ %indvars.iv.next.i11, %138 ]
   %.04157.i = phi i64 [ 0, %74 ], [ %.243.i, %138 ]
   %76 = load ptr, ptr %55, align 8
-  %77 = getelementptr inbounds %struct.TT_TableRec_, ptr %76, i64 %indvars.iv72.i, i32 3
+  %77 = getelementptr inbounds %struct.TT_TableRec_, ptr %76, i64 %indvars.iv70.i, i32 3
   %78 = load i64, ptr %77, align 8
   %79 = getelementptr inbounds [31 x [3 x %struct.tt_sfnt_id_rec_]], ptr @tt_check_trickyness_sfnt_ids.sfnt_id, i64 0, i64 %indvars.iv.i10, i64 %.0.i9
   %80 = getelementptr inbounds i8, ptr %79, i64 8
@@ -22196,7 +22196,7 @@ tt_check_trickyness_family.exit.thread:           ; preds = %49, %3
   br i1 %.not.i.i13, label %tt_get_sfnt_checksum.exit.i, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds %struct.TT_TableRec_, ptr %76, i64 %indvars.iv72.i
+  %87 = getelementptr inbounds %struct.TT_TableRec_, ptr %76, i64 %indvars.iv70.i
   %88 = load i64, ptr %87, align 8
   %89 = load ptr, ptr %57, align 8
   %90 = tail call i32 %85(ptr noundef nonnull %0, i64 noundef %88, ptr noundef %89, ptr noundef null) #22
@@ -22206,7 +22206,7 @@ tt_check_trickyness_family.exit.thread:           ; preds = %49, %3
 91:                                               ; preds = %86
   %92 = load ptr, ptr %57, align 8
   %93 = load ptr, ptr %55, align 8
-  %94 = getelementptr inbounds %struct.TT_TableRec_, ptr %93, i64 %indvars.iv72.i, i32 3
+  %94 = getelementptr inbounds %struct.TT_TableRec_, ptr %93, i64 %indvars.iv70.i, i32 3
   %95 = load i64, ptr %94, align 8
   %96 = tail call i32 @FT_Stream_EnterFrame(ptr noundef %92, i64 noundef %95) #22
   %.not.i.i.i = icmp eq i32 %96, 0
@@ -22298,25 +22298,25 @@ tt_get_sfnt_checksum.exit._crit_edge.i:           ; preds = %134, %tt_get_sfnt_c
   br i1 %exitcond.not.i12, label %.loopexit51.loopexit.i, label %75, !llvm.loop !148
 
 .loopexit51.loopexit.i:                           ; preds = %138
-  %.pre82.i = load i16, ptr %53, align 8
+  %.pre80.i = load i16, ptr %53, align 8
   br label %.loopexit51.i
 
 .loopexit51.i:                                    ; preds = %.loopexit51.loopexit.i, %67
-  %139 = phi i16 [ %68, %67 ], [ %.pre82.i, %.loopexit51.loopexit.i ]
+  %139 = phi i16 [ %68, %67 ], [ %.pre80.i, %.loopexit51.loopexit.i ]
   %.240.i = phi i8 [ %.03859.i, %67 ], [ %.139.i, %.loopexit51.loopexit.i ]
-  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %140 = zext i16 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next73.i, %140
+  %141 = icmp ult i64 %indvars.iv.next71.i, %140
   br i1 %141, label %67, label %.preheader.i, !llvm.loop !149
 
 142:                                              ; preds = %.preheader.split.i
-  %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
-  %exitcond77.not.i = icmp eq i64 %indvars.iv.next75.i, 31
-  br i1 %exitcond77.not.i, label %tt_check_trickyness_family.exit.sink.split, label %.preheader.split.i, !llvm.loop !145
+  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
+  %exitcond75.not.i = icmp eq i64 %indvars.iv.next73.i, 31
+  br i1 %exitcond75.not.i, label %tt_check_trickyness_family.exit.sink.split, label %.preheader.split.i, !llvm.loop !145
 
 .preheader.split.i:                               ; preds = %.preheader.i, %142
-  %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %142 ], [ 0, %.preheader.i ]
-  %143 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %indvars.iv74.i
+  %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %142 ], [ 0, %.preheader.i ]
+  %143 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %indvars.iv72.i
   %144 = load i32, ptr %143, align 4
   %145 = icmp eq i32 %144, 3
   br i1 %145, label %tt_check_trickyness_family.exit.sink.split, label %142

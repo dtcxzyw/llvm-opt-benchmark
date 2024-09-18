@@ -1304,94 +1304,94 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @findSafetyFrame(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 408
-  br label %.outer
+  %9 = icmp ugt i32 %8, 9
+  br i1 %9, label %.lr.ph, label %.thread188
 
-.outer:                                           ; preds = %.outer.backedge, %7
-  %.0152 = phi i32 [ %8, %7 ], [ %.0152.be, %.outer.backedge ]
-  %.0136 = phi i32 [ %2, %7 ], [ %.0136.be, %.outer.backedge ]
-  %10 = icmp ugt i32 %.0152, 9
-  br i1 %10, label %11, label %.thread188
+.lr.ph:                                           ; preds = %7
+  %10 = getelementptr inbounds i8, ptr %0, i64 408
+  br label %11
 
-11:                                               ; preds = %.outer
-  %.not = icmp eq i32 %.0136, 0
-  br i1 %.not, label %.loopexit.loopexit, label %12
+11:                                               ; preds = %.lr.ph, %.backedge
+  %.0136196 = phi i32 [ %2, %.lr.ph ], [ %.0136.be, %.backedge ]
+  %.0152195 = phi i32 [ %8, %.lr.ph ], [ %.0152.be, %.backedge ]
+  %.not = icmp eq i32 %.0136196, 0
+  br i1 %.not, label %104, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %.0136, i32 noundef 2) #10
+  %13 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %.0136196, i32 noundef 2) #10
   %.not163 = icmp eq i32 %13, 0
-  br i1 %.not163, label %.loopexit.loopexit, label %14
+  br i1 %.not163, label %104, label %14
 
 14:                                               ; preds = %12
   store i32 0, ptr %5, align 4
   store i32 0, ptr %4, align 4
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0136) #10
+  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0136196) #10
+  %16 = zext i8 %15 to i32
   %.not164 = icmp eq i8 %15, 0
-  br i1 %.not164, label %.loopexit.loopexit, label %16
+  br i1 %.not164, label %104, label %17
 
-16:                                               ; preds = %14
-  %17 = add i32 %.0136, 1
-  %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %17) #10
+17:                                               ; preds = %14
+  %18 = add i32 %.0136196, 1
+  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %18) #10
   %or.cond178 = icmp sgt i8 %15, -2
-  br i1 %or.cond178, label %91, label %19
+  br i1 %or.cond178, label %91, label %20
 
-19:                                               ; preds = %16
-  %20 = zext i8 %15 to i32
-  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0136) #10
-  %22 = zext i8 %18 to i32
+20:                                               ; preds = %17
+  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0136196) #10
+  %22 = zext i8 %19 to i32
   %23 = shl nuw nsw i32 %22, 1
   %24 = add i32 %21, 11
   %25 = icmp ult i32 %23, %24
-  br i1 %25, label %26, label %.loopexit
+  br i1 %25, label %26, label %104
 
-26:                                               ; preds = %19
-  %27 = icmp ugt i8 %18, 8
+26:                                               ; preds = %20
+  %27 = icmp ugt i8 %19, 8
   %.not167 = icmp ult i32 %21, %22
   %or.cond179 = or i1 %27, %.not167
   br i1 %or.cond179, label %28, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %26
-  %.pre224 = add nuw nsw i32 %22, 5
+  %.pre = add nuw nsw i32 %22, 5
   br label %31
 
 28:                                               ; preds = %26
-  %29 = icmp ult i8 %18, 9
+  %29 = icmp ult i8 %19, 9
   %30 = add nuw nsw i32 %22, 5
   %.not168 = icmp ugt i32 %30, %21
   %or.cond180 = select i1 %29, i1 true, i1 %.not168
-  br i1 %or.cond180, label %.loopexit, label %31
+  br i1 %or.cond180, label %104, label %31
 
 31:                                               ; preds = %._crit_edge, %28
-  %.pre-phi225 = phi i32 [ %.pre224, %._crit_edge ], [ %30, %28 ]
-  %32 = add i32 %.0136, -1
-  %33 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %32, i32 noundef %.pre-phi225) #10
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %30, %28 ]
+  %32 = add i32 %.0136196, -1
+  %33 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %32, i32 noundef %.pre-phi) #10
   %.not169 = icmp eq i32 %33, 0
-  br i1 %.not169, label %.loopexit, label %34
+  br i1 %.not169, label %104, label %34
 
 34:                                               ; preds = %31
-  %35 = lshr i32 %20, 4
+  %35 = lshr i32 %16, 4
   switch i32 %35, label %36 [
-    i32 9, label %.loopexit
-    i32 15, label %.loopexit
+    i32 9, label %104
+    i32 15, label %104
   ]
 
 36:                                               ; preds = %34
-  %37 = add i32 %.0136, 3
+  %37 = add i32 %.0136196, 3
   %38 = add i32 %37, %22
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %38) #10
   %40 = zext i8 %39 to i16
-  %41 = add i32 %.0136, 2
+  %41 = add i32 %.0136196, 2
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %41) #10
-  %43 = icmp ne i8 %18, 0
+  %43 = icmp ne i8 %19, 0
   %44 = icmp ne i8 %39, 0
   %or.cond = select i1 %43, i1 true, i1 %44
   %45 = icmp ne i8 %42, 0
   %or.cond5 = select i1 %or.cond, i1 true, i1 %45
-  br i1 %or.cond5, label %46, label %.loopexit
+  br i1 %or.cond5, label %46, label %104
 
 46:                                               ; preds = %36
-  %47 = load ptr, ptr %9, align 8
-  %48 = zext nneg i32 %.pre-phi225 to i64
+  %47 = load ptr, ptr %10, align 8
+  %48 = zext nneg i32 %.pre-phi to i64
   %49 = tail call ptr @tvb_memdup(ptr noundef %47, ptr noundef %1, i32 noundef %32, i64 noundef %48) #10
   br i1 %27, label %50, label %57
 
@@ -1420,27 +1420,27 @@ define internal fastcc range(i32 0, 2) i32 @findSafetyFrame(ptr nocapture nounde
   %.0140 = phi i32 [ 0, %57 ], [ 1, %54 ]
   %.3 = phi i8 [ 1, %57 ], [ %., %54 ]
   %62 = icmp eq i16 %.0151, %.3148
-  br i1 %62, label %.thread, label %.loopexit
+  br i1 %62, label %.thread, label %104
 
 .thread:                                          ; preds = %50, %61
-  %.3232 = phi i8 [ %.3, %61 ], [ 2, %50 ]
-  %.0140231 = phi i32 [ %.0140, %61 ], [ 1, %50 ]
-  %.0151230 = phi i16 [ %.0151, %61 ], [ %51, %50 ]
-  %.mask173 = and i32 %20, 248
+  %.3205 = phi i8 [ %.3, %61 ], [ 2, %50 ]
+  %.0140204 = phi i32 [ %.0140, %61 ], [ 1, %50 ]
+  %.0151203 = phi i16 [ %.0151, %61 ], [ %51, %50 ]
+  %.mask173 = and i32 %16, 248
   %63 = icmp eq i32 %.mask173, 232
   br i1 %63, label %64, label %76
 
 64:                                               ; preds = %.thread
-  %.not175 = icmp eq i8 %18, 0
-  br i1 %.not175, label %.loopexit, label %65
+  %.not175 = icmp eq i8 %19, 0
+  br i1 %.not175, label %104, label %65
 
 65:                                               ; preds = %64
   store i32 %32, ptr %4, align 4
-  %66 = shl nuw nsw i32 %.0140231, 1
+  %66 = shl nuw nsw i32 %.0140204, 1
   %67 = add nuw nsw i32 %22, 11
   %68 = add nuw nsw i32 %67, %66
   store i32 %68, ptr %5, align 4
-  %69 = add i32 %.0136, 8
+  %69 = add i32 %.0136196, 8
   %70 = add i32 %69, %22
   %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %70) #10
   %72 = zext i8 %71 to i16
@@ -1452,27 +1452,27 @@ define internal fastcc range(i32 0, 2) i32 @findSafetyFrame(ptr nocapture nounde
 
 75:                                               ; preds = %73, %65
   %.0149 = phi i16 [ %74, %73 ], [ %72, %65 ]
-  %.not176 = icmp eq i16 %.0151230, %.0149
-  br i1 %.not176, label %.loopexit, label %105
+  %.not176 = icmp eq i16 %.0151203, %.0149
+  br i1 %.not176, label %104, label %108
 
 76:                                               ; preds = %.thread
-  %77 = add nuw nsw i32 %.0140231, %22
+  %77 = add nuw nsw i32 %.0140204, %22
   %78 = shl nuw nsw i32 %77, 1
   %79 = add nuw nsw i32 %78, 11
   store i32 %79, ptr %5, align 4
   store i32 %32, ptr %4, align 4
-  %80 = icmp eq i16 %.0151230, 0
-  br i1 %80, label %81, label %105
+  %80 = icmp eq i16 %.0151203, 0
+  br i1 %80, label %81, label %108
 
 81:                                               ; preds = %76
-  %82 = add i32 %.0136, 9
+  %82 = add i32 %.0136196, 9
   %83 = add i32 %82, %23
   %84 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %83) #10
   %85 = zext i8 %84 to i16
   br i1 %27, label %86, label %90
 
 86:                                               ; preds = %81
-  %87 = add i32 %.0136, 10
+  %87 = add i32 %.0136196, 10
   %88 = add i32 %87, %23
   %89 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %88) #10
   br label %90
@@ -1480,15 +1480,15 @@ define internal fastcc range(i32 0, 2) i32 @findSafetyFrame(ptr nocapture nounde
 90:                                               ; preds = %86, %81
   %.1150 = phi i16 [ %89, %86 ], [ %85, %81 ]
   %.not174 = icmp eq i16 %.1150, 0
-  br i1 %.not174, label %.loopexit, label %105
+  br i1 %.not174, label %104, label %108
 
-91:                                               ; preds = %16
-  %92 = icmp eq i32 %.0152, 11
-  br i1 %92, label %93, label %.loopexit
+91:                                               ; preds = %17
+  %92 = icmp eq i32 %.0152195, 11
+  br i1 %92, label %93, label %104
 
 93:                                               ; preds = %91
-  %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0136) #10
-  %95 = add i32 %.0136, 2
+  %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0136196) #10
+  %95 = add i32 %.0136196, 2
   %96 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %95) #10
   %97 = and i8 %94, -8
   %98 = icmp ne i8 %97, -24
@@ -1498,55 +1498,52 @@ define internal fastcc range(i32 0, 2) i32 @findSafetyFrame(ptr nocapture nounde
   %.sink = shl i8 %96, %101
   %102 = add i8 %100, %.sink
   %103 = icmp eq i8 %102, 11
-  br i1 %103, label %.outer.backedge, label %.loopexit.loopexit
+  br i1 %103, label %.backedge, label %104
 
-.outer.backedge:                                  ; preds = %93, %.loopexit
-  %.0152.be = phi i32 [ 12, %93 ], [ %104, %.loopexit ]
-  %.0136.be = phi i32 [ %17, %93 ], [ %.pre-phi, %.loopexit ]
-  br label %.outer, !llvm.loop !7
+104:                                              ; preds = %34, %34, %14, %91, %93, %20, %31, %36, %75, %64, %90, %61, %28, %12, %11
+  %105 = add i32 %.0136196, 1
+  %106 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %105) #10
+  br label %.backedge
 
-.loopexit.loopexit:                               ; preds = %14, %93, %12, %11
-  %.pre = add i32 %.0136, 1
-  br label %.loopexit
+.backedge:                                        ; preds = %104, %93
+  %.0152.be = phi i32 [ %106, %104 ], [ 12, %93 ]
+  %.0136.be = phi i32 [ %105, %104 ], [ %18, %93 ]
+  %107 = icmp ugt i32 %.0152.be, 9
+  br i1 %107, label %11, label %.thread188, !llvm.loop !7
 
-.loopexit:                                        ; preds = %91, %.loopexit.loopexit, %34, %34, %19, %31, %36, %75, %64, %90, %61, %28
-  %.pre-phi = phi i32 [ %.pre, %.loopexit.loopexit ], [ %17, %34 ], [ %17, %34 ], [ %17, %19 ], [ %17, %31 ], [ %17, %36 ], [ %17, %75 ], [ %17, %64 ], [ %17, %90 ], [ %17, %61 ], [ %17, %28 ], [ %17, %91 ]
-  %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.pre-phi) #10
-  br label %.outer.backedge
-
-105:                                              ; preds = %76, %90, %75
-  %.3148.lcssa = phi i16 [ %.0151230, %76 ], [ 0, %90 ], [ %.0151230, %75 ]
+108:                                              ; preds = %76, %90, %75
+  %.3148.lcssa = phi i16 [ %.0151203, %76 ], [ 0, %90 ], [ %.0151203, %75 ]
   %.not192 = icmp eq ptr %6, null
-  br i1 %.not192, label %113, label %.sink.split
+  br i1 %.not192, label %116, label %.sink.split
 
-.sink.split:                                      ; preds = %105
-  %106 = getelementptr inbounds i8, ptr %6, i64 36
-  store i8 %15, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %6, i64 38
-  store i8 %18, ptr %107, align 2
-  %108 = load i32, ptr %5, align 4
-  %109 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %6, i64 56
-  %111 = getelementptr inbounds i8, ptr %6, i64 58
-  store i16 %.3148.lcssa, ptr %111, align 2
-  store i8 %.3232, ptr %110, align 8
-  %.not177 = icmp ne i8 %.3232, -1
-  %112 = getelementptr inbounds i8, ptr %6, i64 64
-  %.243 = zext i1 %.not177 to i32
-  store i32 %.243, ptr %112, align 8
-  br label %113
+.sink.split:                                      ; preds = %108
+  %109 = getelementptr inbounds i8, ptr %6, i64 36
+  store i8 %15, ptr %109, align 4
+  %110 = getelementptr inbounds i8, ptr %6, i64 38
+  store i8 %19, ptr %110, align 2
+  %111 = load i32, ptr %5, align 4
+  %112 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 %111, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %6, i64 56
+  %114 = getelementptr inbounds i8, ptr %6, i64 58
+  store i16 %.3148.lcssa, ptr %114, align 2
+  store i8 %.3205, ptr %113, align 8
+  %.not177 = icmp ne i8 %.3205, -1
+  %115 = getelementptr inbounds i8, ptr %6, i64 64
+  %.208 = zext i1 %.not177 to i32
+  store i32 %.208, ptr %115, align 8
+  br label %116
 
-113:                                              ; preds = %.sink.split, %105
+116:                                              ; preds = %.sink.split, %108
   %.not193 = icmp eq i32 %3, 0
-  br i1 %.not193, label %.thread188, label %114
+  br i1 %.not193, label %.thread188, label %117
 
-114:                                              ; preds = %113
+117:                                              ; preds = %116
   store i32 %2, ptr %4, align 4
   br label %.thread188
 
-.thread188:                                       ; preds = %.outer, %114, %113
-  %.0187191 = phi i32 [ 1, %114 ], [ 1, %113 ], [ 0, %.outer ]
+.thread188:                                       ; preds = %.backedge, %7, %117, %116
+  %.0187191 = phi i32 [ 1, %117 ], [ 1, %116 ], [ 0, %7 ], [ 0, %.backedge ]
   ret i32 %.0187191
 }
 

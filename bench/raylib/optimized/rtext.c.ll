@@ -6629,34 +6629,34 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
 
 .preheader487.i.i:                                ; preds = %2800, %2205
   %2221 = icmp slt i32 %2207, %2209
-  br i1 %2221, label %.preheader.lr.ph.i.i, label %._crit_edge512.i.i
+  br i1 %2221, label %.preheader.lr.ph.i.i, label %._crit_edge497.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %.preheader487.i.i
   %2222 = icmp slt i32 %2206, %2208
   %wide.trip.count.i.i.i121 = zext i32 %2212 to i64
-  br i1 %2222, label %.preheader.us.preheader.i.i, label %._crit_edge512.i.i
+  br i1 %2222, label %.preheader.us.preheader.i.i, label %._crit_edge497.i.i
 
 .preheader.us.preheader.i.i:                      ; preds = %.preheader.lr.ph.i.i
   %2223 = zext i32 %2206 to i64
   %reass.sub.i.i = sub i32 4, %2198
   br i1 %2219, label %.preheader.us.i.us.i, label %.preheader.us.i.i
 
-.preheader.us.i.us.i:                             ; preds = %.preheader.us.preheader.i.i, %._crit_edge504.us.i.split.us.us.i
-  %.0431511.us.i.us.i = phi i32 [ %2724, %._crit_edge504.us.i.split.us.us.i ], [ %2207, %.preheader.us.preheader.i.i ]
-  %2224 = sitofp i32 %.0431511.us.i.us.i to float
+.preheader.us.i.us.i:                             ; preds = %.preheader.us.preheader.i.i, %._crit_edge495.us.i.split.us.us.i
+  %.0431496.us.i.us.i = phi i32 [ %2724, %._crit_edge495.us.i.split.us.us.i ], [ %2207, %.preheader.us.preheader.i.i ]
+  %2224 = sitofp i32 %.0431496.us.i.us.i to float
   %2225 = fadd float %2224, 5.000000e-01
   %2226 = fdiv float %2225, %842
   %2227 = fpext float %2226 to double
   %2228 = fadd float %2226, 0xBF847AE140000000
   %2229 = fadd float %2226, 0x3F847AE140000000
-  %2230 = sub nsw i32 %.0431511.us.i.us.i, %2207
+  %2230 = sub nsw i32 %.0431496.us.i.us.i, %2207
   %2231 = mul nsw i32 %2230, %2210
   %2232 = add i32 %2231, %reass.sub.i.i
   br label %2233
 
 2233:                                             ; preds = %2719, %.preheader.us.i.us.i
-  %indvars.iv520.i.us.us.i = phi i64 [ %2223, %.preheader.us.i.us.i ], [ %indvars.iv.next521.i.us.us.i, %2719 ]
-  %2234 = trunc i64 %indvars.iv520.i.us.us.i to i32
+  %indvars.iv505.i.us.us.i = phi i64 [ %2223, %.preheader.us.i.us.i ], [ %indvars.iv.next506.i.us.us.i, %2719 ]
+  %2234 = trunc i64 %indvars.iv505.i.us.us.i to i32
   %2235 = sitofp i32 %2234 to float
   %2236 = fadd float %2235, 5.000000e-01
   %2237 = fdiv float %2236, %828
@@ -6946,12 +6946,12 @@ stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i:  ; preds = %2370, %.thread122.i
   %.3.i.us.fr.i.us.us.i = freeze i32 %.3.i.us.i.us.us.i
   %indvars.iv.next.i.us.i.us.us.i = add nuw nsw i64 %indvars.iv.i.us.i.us.us.i, 1
   %exitcond.not.i.us.i.us.us.i = icmp eq i64 %indvars.iv.next.i.us.i.us.us.i, %wide.trip.count.i.i.i121
-  br i1 %exitcond.not.i.us.i.us.us.i, label %.lr.ph495.us.i.us.us.i, label %2248
+  br i1 %exitcond.not.i.us.i.us.us.i, label %.lr.ph492.us.i.us.us.i, label %2248
 
-.lr.ph495.us.i.us.us.i:                           ; preds = %.thread.i.us.i.us.us.i, %.thread.us.i.us.us.i
-  %indvars.iv515.i.us.us.i = phi i64 [ %indvars.iv.next516.i.us.us.i, %.thread.us.i.us.us.i ], [ 0, %.thread.i.us.i.us.us.i ]
-  %.0435493.us.i.us.us.i = phi float [ %.5.us.i.us.us.i, %.thread.us.i.us.us.i ], [ 9.999990e+05, %.thread.i.us.i.us.us.i ]
-  %2426 = getelementptr inbounds %struct.stbtt_vertex, ptr %.pre.pre.i.i, i64 %indvars.iv515.i.us.us.i
+.lr.ph492.us.i.us.us.i:                           ; preds = %.thread.i.us.i.us.us.i, %.thread.us.i.us.us.i
+  %indvars.iv500.i.us.us.i = phi i64 [ %indvars.iv.next501.i.us.us.i, %.thread.us.i.us.us.i ], [ 0, %.thread.i.us.i.us.us.i ]
+  %.0435490.us.i.us.us.i = phi float [ %.5.us.i.us.us.i, %.thread.us.i.us.us.i ], [ 9.999990e+05, %.thread.i.us.i.us.us.i ]
+  %2426 = getelementptr inbounds %struct.stbtt_vertex, ptr %.pre.pre.i.i, i64 %indvars.iv500.i.us.us.i
   %2427 = load i16, ptr %2426, align 2
   %2428 = sitofp i16 %2427 to float
   %2429 = fmul float %828, %2428
@@ -6966,7 +6966,7 @@ stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i:  ; preds = %2370, %.thread122.i
     i8 3, label %2436
   ]
 
-2436:                                             ; preds = %.lr.ph495.us.i.us.us.i
+2436:                                             ; preds = %.lr.ph492.us.i.us.us.i
   %2437 = getelementptr i8, ptr %2426, i64 -14
   %2438 = load i16, ptr %2437, align 2
   %2439 = sitofp i16 %2438 to float
@@ -6997,15 +6997,15 @@ stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i:  ; preds = %2370, %.thread122.i
   %2463 = select i1 %2456, float %2452, float %2433
   %2464 = fcmp olt float %2463, %2444
   %2465 = select i1 %2464, float %2444, float %2463
-  %2466 = fsub float %..us.i.us.us.i, %.0435493.us.i.us.us.i
+  %2466 = fsub float %..us.i.us.us.i, %.0435490.us.i.us.us.i
   %2467 = fcmp ogt float %2236, %2466
-  %2468 = fadd float %.0435493.us.i.us.us.i, %2462
+  %2468 = fadd float %.0435490.us.i.us.us.i, %2462
   %2469 = fcmp olt float %2236, %2468
   %or.cond476.us.i.us.us.i = select i1 %2467, i1 %2469, i1 false
-  %2470 = fsub float %2459, %.0435493.us.i.us.us.i
+  %2470 = fsub float %2459, %.0435490.us.i.us.us.i
   %2471 = fcmp ogt float %2225, %2470
   %or.cond478.us.i.us.us.i = select i1 %or.cond476.us.i.us.us.i, i1 %2471, i1 false
-  %2472 = fadd float %.0435493.us.i.us.us.i, %2465
+  %2472 = fadd float %.0435490.us.i.us.us.i, %2465
   %2473 = fcmp olt float %2225, %2472
   %or.cond480.us.i.us.us.i = select i1 %or.cond478.us.i.us.us.i, i1 %2473, i1 false
   br i1 %or.cond480.us.i.us.us.i, label %2474, label %.thread.us.i.us.us.i
@@ -7019,7 +7019,7 @@ stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i:  ; preds = %2370, %.thread122.i
   %2480 = fadd float %2444, %2479
   %2481 = fsub float %2429, %2236
   %2482 = fsub float %2433, %2225
-  %2483 = getelementptr inbounds float, ptr %2218, i64 %indvars.iv515.i.us.us.i
+  %2483 = getelementptr inbounds float, ptr %2218, i64 %indvars.iv500.i.us.us.i
   %2484 = load float, ptr %2483, align 4
   %2485 = fcmp oeq float %2484, 0.000000e+00
   %2486 = fmul float %2476, %2480
@@ -7181,10 +7181,10 @@ stbtt__solve_cubic.exit.us.i.us.us.i:             ; preds = %2596, %2594, %2587,
   %2601 = phi i1 [ false, %2596 ], [ false, %2594 ], [ false, %2581 ], [ false, %2587 ], [ true, %2546 ], [ false, %stbtt__cuberoot.exit49.i.us.i.us.us.i ]
   %2602 = fmul float %2482, %2482
   %2603 = call float @llvm.fmuladd.f32(float %2481, float %2481, float %2602)
-  %2604 = fmul float %.0435493.us.i.us.us.i, %.0435493.us.i.us.us.i
+  %2604 = fmul float %.0435490.us.i.us.us.i, %.0435490.us.i.us.us.i
   %2605 = fcmp olt float %2603, %2604
   %sqrt483.us.i.us.us.i = call float @llvm.sqrt.f32(float %2603)
-  %.2.us.i.us.us.i = select i1 %2605, float %sqrt483.us.i.us.us.i, float %.0435493.us.i.us.us.i
+  %.2.us.i.us.us.i = select i1 %2605, float %sqrt483.us.i.us.us.i, float %.0435490.us.i.us.us.i
   %2606 = fcmp oge float %.sroa.0.3.us.i.us.us.i, 0.000000e+00
   %2607 = fcmp ole float %.sroa.0.3.us.i.us.us.i, 1.000000e+00
   %2608 = and i1 %2606, %2607
@@ -7279,8 +7279,8 @@ stbtt__solve_cubic.exit.us.i.us.us.i:             ; preds = %2596, %2594, %2587,
   %sqrt486.us.i.us.us.i = call float @llvm.sqrt.f32(float %2670)
   br label %.thread.us.i.us.us.i
 
-2674:                                             ; preds = %.lr.ph495.us.i.us.us.i
-  %2675 = getelementptr inbounds float, ptr %2218, i64 %indvars.iv515.i.us.us.i
+2674:                                             ; preds = %.lr.ph492.us.i.us.us.i
+  %2675 = getelementptr inbounds float, ptr %2218, i64 %indvars.iv500.i.us.us.i
   %2676 = load float, ptr %2675, align 4
   %2677 = fcmp une float %2676, 0.000000e+00
   br i1 %2677, label %2678, label %.thread.us.i.us.us.i
@@ -7298,10 +7298,10 @@ stbtt__solve_cubic.exit.us.i.us.us.i:             ; preds = %2596, %2594, %2587,
   %2688 = fsub float %2433, %2225
   %2689 = fmul float %2688, %2688
   %2690 = call float @llvm.fmuladd.f32(float %2687, float %2687, float %2689)
-  %2691 = fmul float %.0435493.us.i.us.us.i, %.0435493.us.i.us.us.i
+  %2691 = fmul float %.0435490.us.i.us.us.i, %.0435490.us.i.us.us.i
   %2692 = fcmp olt float %2690, %2691
   %sqrt482.us.i.us.us.i = call float @llvm.sqrt.f32(float %2690)
-  %.1436.us.i.us.us.i = select i1 %2692, float %sqrt482.us.i.us.us.i, float %.0435493.us.i.us.us.i
+  %.1436.us.i.us.us.i = select i1 %2692, float %sqrt482.us.i.us.us.i, float %.0435490.us.i.us.us.i
   %2693 = fsub float %2682, %2429
   %2694 = fsub float %2686, %2433
   %2695 = fneg float %2687
@@ -7327,11 +7327,11 @@ stbtt__solve_cubic.exit.us.i.us.us.i:             ; preds = %2596, %2594, %2587,
 2710:                                             ; preds = %2701
   br label %.thread.us.i.us.us.i
 
-.thread.us.i.us.us.i:                             ; preds = %2710, %2701, %2678, %2674, %2673, %2655, %2651, %2436, %.lr.ph495.us.i.us.us.i
-  %.5.us.i.us.us.i = phi float [ %2699, %2710 ], [ %.1436.us.i.us.us.i, %2701 ], [ %.1436.us.i.us.us.i, %2678 ], [ %sqrt486.us.i.us.us.i, %2673 ], [ %.4.us.i.us.us.i, %2655 ], [ %.4.us.i.us.us.i, %2651 ], [ %.0435493.us.i.us.us.i, %2436 ], [ %.0435493.us.i.us.us.i, %2674 ], [ %.0435493.us.i.us.us.i, %.lr.ph495.us.i.us.us.i ]
-  %indvars.iv.next516.i.us.us.i = add nuw nsw i64 %indvars.iv515.i.us.us.i, 1
-  %exitcond519.not.i.us.us.i = icmp eq i64 %indvars.iv.next516.i.us.us.i, %wide.trip.count.i.i.i121
-  br i1 %exitcond519.not.i.us.us.i, label %._crit_edge.us.i.us.us.i, label %.lr.ph495.us.i.us.us.i
+.thread.us.i.us.us.i:                             ; preds = %2710, %2701, %2678, %2674, %2673, %2655, %2651, %2436, %.lr.ph492.us.i.us.us.i
+  %.5.us.i.us.us.i = phi float [ %2699, %2710 ], [ %.1436.us.i.us.us.i, %2701 ], [ %.1436.us.i.us.us.i, %2678 ], [ %sqrt486.us.i.us.us.i, %2673 ], [ %.4.us.i.us.us.i, %2655 ], [ %.4.us.i.us.us.i, %2651 ], [ %.0435490.us.i.us.us.i, %2436 ], [ %.0435490.us.i.us.us.i, %2674 ], [ %.0435490.us.i.us.us.i, %.lr.ph492.us.i.us.us.i ]
+  %indvars.iv.next501.i.us.us.i = add nuw nsw i64 %indvars.iv500.i.us.us.i, 1
+  %exitcond504.not.i.us.us.i = icmp eq i64 %indvars.iv.next501.i.us.us.i, %wide.trip.count.i.i.i121
+  br i1 %exitcond504.not.i.us.us.i, label %._crit_edge.us.i.us.us.i, label %.lr.ph492.us.i.us.us.i
 
 ._crit_edge.us.i.us.us.i:                         ; preds = %.thread.us.i.us.us.i
   %2711 = icmp eq i32 %.3.i.us.fr.i.us.us.i, 0
@@ -7355,44 +7355,44 @@ stbtt__solve_cubic.exit.us.i.us.us.i:             ; preds = %2596, %2594, %2587,
   %2722 = sext i32 %2721 to i64
   %2723 = getelementptr inbounds i8, ptr %2215, i64 %2722
   store i8 %2720, ptr %2723, align 1
-  %indvars.iv.next521.i.us.us.i = add nuw nsw i64 %indvars.iv520.i.us.us.i, 1
-  %lftr.wideiv.i.us.us.i = trunc i64 %indvars.iv.next521.i.us.us.i to i32
-  %exitcond523.not.i.us.us.i = icmp eq i32 %2208, %lftr.wideiv.i.us.us.i
-  br i1 %exitcond523.not.i.us.us.i, label %._crit_edge504.us.i.split.us.us.i, label %2233
+  %indvars.iv.next506.i.us.us.i = add nuw nsw i64 %indvars.iv505.i.us.us.i, 1
+  %lftr.wideiv.i.us.us.i = trunc i64 %indvars.iv.next506.i.us.us.i to i32
+  %exitcond508.not.i.us.us.i = icmp eq i32 %2208, %lftr.wideiv.i.us.us.i
+  br i1 %exitcond508.not.i.us.us.i, label %._crit_edge495.us.i.split.us.us.i, label %2233
 
-._crit_edge504.us.i.split.us.us.i:                ; preds = %2719
-  %2724 = add nsw i32 %.0431511.us.i.us.i, 1
-  %exitcond524.not.i.us.i = icmp eq i32 %2724, %2209
-  br i1 %exitcond524.not.i.us.i, label %._crit_edge512.i.i, label %.preheader.us.i.us.i
+._crit_edge495.us.i.split.us.us.i:                ; preds = %2719
+  %2724 = add nsw i32 %.0431496.us.i.us.i, 1
+  %exitcond509.not.i.us.i = icmp eq i32 %2724, %2209
+  br i1 %exitcond509.not.i.us.i, label %._crit_edge497.i.i, label %.preheader.us.i.us.i
 
-.preheader.us.i.i:                                ; preds = %.preheader.us.preheader.i.i, %._crit_edge504.us.i.split.i
-  %.0431511.us.i.i = phi i32 [ %2737, %._crit_edge504.us.i.split.i ], [ %2207, %.preheader.us.preheader.i.i ]
-  %2725 = sitofp i32 %.0431511.us.i.i to float
+.preheader.us.i.i:                                ; preds = %.preheader.us.preheader.i.i, %._crit_edge495.us.i.split.i
+  %.0431496.us.i.i = phi i32 [ %2737, %._crit_edge495.us.i.split.i ], [ %2207, %.preheader.us.preheader.i.i ]
+  %2725 = sitofp i32 %.0431496.us.i.i to float
   %2726 = fadd float %2725, 5.000000e-01
   %2727 = fdiv float %2726, %842
   %2728 = fpext float %2727 to double
-  %2729 = sub nsw i32 %.0431511.us.i.i, %2207
+  %2729 = sub nsw i32 %.0431496.us.i.i, %2207
   %2730 = mul nsw i32 %2729, %2210
   %2731 = add i32 %2730, %reass.sub.i.i
   br label %._crit_edge.us.thread.i.i
 
 ._crit_edge.us.thread.i.i:                        ; preds = %._crit_edge.us.thread.i.i, %.preheader.us.i.i
-  %indvars.iv520.i.i = phi i64 [ %2223, %.preheader.us.i.i ], [ %indvars.iv.next521.i.i, %._crit_edge.us.thread.i.i ]
-  %2732 = trunc i64 %indvars.iv520.i.i to i32
+  %indvars.iv505.i.i = phi i64 [ %2223, %.preheader.us.i.i ], [ %indvars.iv.next506.i.i, %._crit_edge.us.thread.i.i ]
+  %2732 = trunc i64 %indvars.iv505.i.i to i32
   %2733 = call double @fmod(double noundef %2728, double noundef 1.000000e+00) #42
   %2734 = add i32 %2731, %2732
   %2735 = sext i32 %2734 to i64
   %2736 = getelementptr inbounds i8, ptr %2215, i64 %2735
   store i8 0, ptr %2736, align 1
-  %indvars.iv.next521.i.i = add nuw nsw i64 %indvars.iv520.i.i, 1
-  %lftr.wideiv.i.i = trunc i64 %indvars.iv.next521.i.i to i32
-  %exitcond523.not.i.i = icmp eq i32 %2208, %lftr.wideiv.i.i
-  br i1 %exitcond523.not.i.i, label %._crit_edge504.us.i.split.i, label %._crit_edge.us.thread.i.i
+  %indvars.iv.next506.i.i = add nuw nsw i64 %indvars.iv505.i.i, 1
+  %lftr.wideiv.i.i = trunc i64 %indvars.iv.next506.i.i to i32
+  %exitcond508.not.i.i = icmp eq i32 %2208, %lftr.wideiv.i.i
+  br i1 %exitcond508.not.i.i, label %._crit_edge495.us.i.split.i, label %._crit_edge.us.thread.i.i
 
-._crit_edge504.us.i.split.i:                      ; preds = %._crit_edge.us.thread.i.i
-  %2737 = add nsw i32 %.0431511.us.i.i, 1
-  %exitcond524.not.i.i = icmp eq i32 %2737, %2209
-  br i1 %exitcond524.not.i.i, label %._crit_edge512.i.i, label %.preheader.us.i.i
+._crit_edge495.us.i.split.i:                      ; preds = %._crit_edge.us.thread.i.i
+  %2737 = add nsw i32 %.0431496.us.i.i, 1
+  %exitcond509.not.i.i = icmp eq i32 %2737, %2209
+  br i1 %exitcond509.not.i.i, label %._crit_edge497.i.i, label %.preheader.us.i.i
 
 2738:                                             ; preds = %2800, %.lr.ph.i.i122
   %indvars.iv.i.i124 = phi i64 [ 0, %.lr.ph.i.i122 ], [ %indvars.iv.next.i.i126, %2800 ]
@@ -7479,15 +7479,15 @@ stbtt__solve_cubic.exit.us.i.us.us.i:             ; preds = %2596, %2594, %2587,
   %exitcond.not.i.i127 = icmp eq i64 %indvars.iv.next.i.i126, %wide.trip.count.i.i123
   br i1 %exitcond.not.i.i127, label %.preheader487.i.i, label %2738
 
-._crit_edge512.i.i:                               ; preds = %._crit_edge504.us.i.split.i, %._crit_edge504.us.i.split.us.us.i, %.preheader.lr.ph.i.i, %.preheader487.i.i
+._crit_edge497.i.i:                               ; preds = %._crit_edge495.us.i.split.i, %._crit_edge495.us.i.split.us.us.i, %.preheader.lr.ph.i.i, %.preheader487.i.i
   call void @free(ptr noundef %2218) #42
   call void @free(ptr noundef %.pre.pre.i.i) #42
   br label %stbtt_GetCodepointSDF.exit
 
-stbtt_GetCodepointSDF.exit:                       ; preds = %2194, %2197, %2201, %._crit_edge512.i.i
-  %.2150 = phi i32 [ 0, %2194 ], [ 0, %2197 ], [ 0, %2201 ], [ %2210, %._crit_edge512.i.i ]
-  %.2 = phi i32 [ 0, %2194 ], [ 0, %2197 ], [ 0, %2201 ], [ %2211, %._crit_edge512.i.i ]
-  %.0.i.i120 = phi ptr [ null, %2194 ], [ null, %2197 ], [ null, %2201 ], [ %2215, %._crit_edge512.i.i ]
+stbtt_GetCodepointSDF.exit:                       ; preds = %2194, %2197, %2201, %._crit_edge497.i.i
+  %.2150 = phi i32 [ 0, %2194 ], [ 0, %2197 ], [ 0, %2201 ], [ %2210, %._crit_edge497.i.i ]
+  %.2 = phi i32 [ 0, %2194 ], [ 0, %2197 ], [ 0, %2201 ], [ %2211, %._crit_edge497.i.i ]
+  %.0.i.i120 = phi ptr [ null, %2194 ], [ null, %2197 ], [ null, %2201 ], [ %2215, %._crit_edge497.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)

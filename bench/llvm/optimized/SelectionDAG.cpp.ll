@@ -5775,15 +5775,15 @@ _ZN4llvm11SmallVectorIPNS_6SDNodeELj128EED2Ev.exit: ; preds = %._crit_edge, %54
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12SelectionDAG15RemoveDeadNodesERNS_15SmallVectorImplIPNS_6SDNodeEEE(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  br label %.outer
+  %3 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #32
+  br i1 %3, label %._crit_edge33, label %.lr.ph32
 
-.outer:                                           ; preds = %.outer.backedge, %2
-  %5 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #32
-  br i1 %5, label %54, label %6
+.lr.ph32:                                         ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  br label %6
 
-6:                                                ; preds = %.outer
+6:                                                ; preds = %.lr.ph32, %.backedge
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #32
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
@@ -5795,13 +5795,10 @@ define dso_local void @_ZN4llvm12SelectionDAG15RemoveDeadNodesERNS_15SmallVector
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.outer.backedge, label %17
-
-.outer.backedge:                                  ; preds = %6, %._crit_edge30
-  br label %.outer, !llvm.loop !44
+  br i1 %16, label %.backedge, label %17
 
 17:                                               ; preds = %6
-  %.023 = load ptr, ptr %3, align 8
+  %.023 = load ptr, ptr %4, align 8
   %.not24 = icmp eq ptr %.023, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
@@ -5814,7 +5811,7 @@ define dso_local void @_ZN4llvm12SelectionDAG15RemoveDeadNodesERNS_15SmallVector
   %21 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %.0 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %22 = tail call noundef zeroext i1 @_ZN4llvm12SelectionDAG21RemoveNodeFromCSEMapsEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr noundef nonnull %11)
@@ -5866,7 +5863,7 @@ _ZN4llvm5SDUse3setERKNS_7SDValueE.exit:           ; preds = %.lr.ph29, %31, %36
   br i1 %.not.i.i.i22, label %46, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_6SDNodeELb1EE9push_backES2_.exit
 
 46:                                               ; preds = %42
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %4, i64 noundef %44, i64 noundef 8) #32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %5, i64 noundef %44, i64 noundef 8) #32
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_6SDNodeELb1EE9push_backES2_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_6SDNodeELb1EE9push_backES2_.exit: ; preds = %42, %46
@@ -5882,13 +5879,17 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_6SDNodeELb1EE9push_backES2_.exit: ; preds 
 
 53:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_6SDNodeELb1EE9push_backES2_.exit, %_ZN4llvm5SDUse3setERKNS_7SDValueE.exit
   %.not21 = icmp eq ptr %29, %28
-  br i1 %.not21, label %._crit_edge30, label %.lr.ph29, !llvm.loop !46
+  br i1 %.not21, label %._crit_edge30, label %.lr.ph29, !llvm.loop !45
 
 ._crit_edge30:                                    ; preds = %53, %._crit_edge
   tail call void @_ZN4llvm12SelectionDAG14DeallocateNodeEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr noundef nonnull %11)
-  br label %.outer.backedge
+  br label %.backedge
 
-54:                                               ; preds = %.outer
+.backedge:                                        ; preds = %._crit_edge30, %6
+  %54 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #32
+  br i1 %54, label %._crit_edge33, label %6, !llvm.loop !46
+
+._crit_edge33:                                    ; preds = %.backedge, %2
   ret void
 }
 
