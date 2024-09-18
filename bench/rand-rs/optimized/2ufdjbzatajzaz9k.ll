@@ -70,6 +70,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$L
 8:                                                ; preds = %3
   %9 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %.val1.i, i64 8
   %11 = load i64, ptr %10, align 8, !range !16, !invariant.load !5, !noalias !17
   %12 = getelementptr inbounds i8, ptr %.val1.i, i64 16
@@ -84,6 +85,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$L
   br label %23
 
 16:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %.val1.i, i64 8
   %18 = load i64, ptr %17, align 8, !range !16, !invariant.load !5, !noalias !21
   %19 = getelementptr inbounds i8, ptr %.val1.i, i64 16
@@ -121,6 +123,7 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !16, !invariant.load !5, !noalias !24
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -135,6 +138,7 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb369390aba4bc9e0E.llvm.5924959188710931181.exit"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !16, !invariant.load !5, !noalias !27
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -205,6 +209,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h
 10:                                               ; preds = %5
   %11 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i.i, i64 8) ]
   %12 = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 8
   %13 = load i64, ptr %12, align 8, !range !16, !invariant.load !5, !noalias !51
   %14 = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 16
@@ -219,6 +224,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h
   br label %25
 
 18:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i.i, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 8
   %20 = load i64, ptr %19, align 8, !range !16, !invariant.load !5, !noalias !54
   %21 = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 16
@@ -257,6 +263,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$rand_core..error..Error$GT$1
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !16, !invariant.load !5, !noalias !60
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -271,6 +278,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$rand_core..error..Error$GT$1
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb369390aba4bc9e0E.llvm.5924959188710931181.exit.i"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !16, !invariant.load !5, !noalias !63
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -314,6 +322,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpack
 10:                                               ; preds = %5
   %11 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i, i64 8) ]
   %12 = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 8
   %13 = load i64, ptr %12, align 8, !range !16, !invariant.load !5, !noalias !80
   %14 = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 16
@@ -328,6 +337,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpack
   br label %25
 
 18:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 8
   %20 = load i64, ptr %19, align 8, !range !16, !invariant.load !5, !noalias !83
   %21 = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 16
@@ -372,6 +382,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1, i64 8) ]
   %7 = getelementptr inbounds i8, ptr %.val1, i64 8
   %8 = load i64, ptr %7, align 8, !range !16, !invariant.load !5, !noalias !92
   %9 = getelementptr inbounds i8, ptr %.val1, i64 16
@@ -386,6 +397,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io
   br label %20
 
 13:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1, i64 8) ]
   %14 = getelementptr inbounds i8, ptr %.val1, i64 8
   %15 = load i64, ptr %14, align 8, !range !16, !invariant.load !5, !noalias !95
   %16 = getelementptr inbounds i8, ptr %.val1, i64 16
@@ -433,6 +445,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
 10:                                               ; preds = %5
   %11 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i.i.i, i64 8) ]
   %12 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 8
   %13 = load i64, ptr %12, align 8, !range !16, !invariant.load !5, !noalias !115
   %14 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 16
@@ -447,6 +460,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
   br label %25
 
 18:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i.i.i, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 8
   %20 = load i64, ptr %19, align 8, !range !16, !invariant.load !5, !noalias !118
   %21 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 16
@@ -493,6 +507,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$std..io..Write..write_fmt..A
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i.i.i.i, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i.i, i64 8
   %14 = load i64, ptr %13, align 8, !range !16, !invariant.load !5, !noalias !141
   %15 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i.i, i64 16
@@ -507,6 +522,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$std..io..Write..write_fmt..A
   br label %26
 
 19:                                               ; preds = %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i.i.i.i, i64 8) ]
   %20 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i.i, i64 8
   %21 = load i64, ptr %20, align 8, !range !16, !invariant.load !5, !noalias !144
   %22 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i.i, i64 16
@@ -641,6 +657,7 @@ define hidden void @"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$c
 10:                                               ; preds = %5
   %11 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i, i64 8) ]
   %12 = getelementptr inbounds i8, ptr %.val1.i.i, i64 8
   %13 = load i64, ptr %12, align 8, !range !16, !invariant.load !5, !noalias !158
   %14 = getelementptr inbounds i8, ptr %.val1.i.i, i64 16
@@ -655,6 +672,7 @@ define hidden void @"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$c
   br label %25
 
 18:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %.val1.i.i, i64 8
   %20 = load i64, ptr %19, align 8, !range !16, !invariant.load !5, !noalias !161
   %21 = getelementptr inbounds i8, ptr %.val1.i.i, i64 16

@@ -655,6 +655,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.123119682
   br label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.1231196827938639477.exit.i
 
 _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.1231196827938639477.exit.i: ; preds = %12, %_ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.1231196827938639477.exit.i.i, %7, %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %13 = atomicrmw xchg ptr %2, i32 0 release, align 4, !noalias !122
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3ebbde473d5dbc2E.llvm.1231196827938639477.exit"
@@ -708,7 +709,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Weak$LT$std..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4e8d5493a9e63245E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4e8d5493a9e63245E"(ptr %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h6059b9ddd7672fabE.llvm.1231196827938639477.exit", label %2
 
@@ -725,6 +726,7 @@ define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..result..Resu
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %.8.val, i64 8) ]
   %7 = getelementptr inbounds i8, ptr %.8.val, i64 8
   %8 = load i64, ptr %7, align 8, !range !38, !invariant.load !23, !noalias !140
   %9 = getelementptr inbounds i8, ptr %.8.val, i64 16
@@ -739,6 +741,7 @@ define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..result..Resu
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06dff9543d3f425aE.exit.i"
 
 13:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %.8.val, i64 8) ]
   %14 = getelementptr inbounds i8, ptr %.8.val, i64 8
   %15 = load i64, ptr %14, align 8, !range !38, !invariant.load !23, !noalias !140
   %16 = getelementptr inbounds i8, ptr %.8.val, i64 16
@@ -898,6 +901,7 @@ define hidden void @"_ZN4core3ptr153drop_in_place$LT$core..result..Result$LT$gre
 10:                                               ; preds = %4
   %11 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8, !range !38, !invariant.load !23, !noalias !189
   %14 = getelementptr inbounds i8, ptr %8, i64 16
@@ -912,6 +916,7 @@ define hidden void @"_ZN4core3ptr153drop_in_place$LT$core..result..Result$LT$gre
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06dff9543d3f425aE.exit.i"
 
 18:                                               ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   %20 = load i64, ptr %19, align 8, !range !38, !invariant.load !23, !noalias !189
   %21 = getelementptr inbounds i8, ptr %8, i64 16
@@ -1056,6 +1061,7 @@ define hidden void @"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$cor
 12:                                               ; preds = %6
   %13 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %14 = getelementptr inbounds i8, ptr %10, i64 8
   %15 = load i64, ptr %14, align 8, !range !38, !invariant.load !23, !noalias !234
   %16 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1070,6 +1076,7 @@ define hidden void @"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$cor
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06dff9543d3f425aE.exit.i.i"
 
 20:                                               ; preds = %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %21 = getelementptr inbounds i8, ptr %10, i64 8
   %22 = load i64, ptr %21, align 8, !range !38, !invariant.load !23, !noalias !234
   %23 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1284,6 +1291,7 @@ define hidden void @"_ZN4core3ptr211drop_in_place$LT$core..cell..UnsafeCell$LT$c
 12:                                               ; preds = %6
   %13 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %14 = getelementptr inbounds i8, ptr %10, i64 8
   %15 = load i64, ptr %14, align 8, !range !38, !invariant.load !23, !noalias !279
   %16 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1298,6 +1306,7 @@ define hidden void @"_ZN4core3ptr211drop_in_place$LT$core..cell..UnsafeCell$LT$c
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06dff9543d3f425aE.exit.i.i.i"
 
 20:                                               ; preds = %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %21 = getelementptr inbounds i8, ptr %10, i64 8
   %22 = load i64, ptr %21, align 8, !range !38, !invariant.load !23, !noalias !279
   %23 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1428,6 +1437,7 @@ define hidden void @"_ZN4core3ptr290drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !38, !invariant.load !23, !noalias !322
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1442,6 +1452,7 @@ define hidden void @"_ZN4core3ptr290drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37bcf034ff58237aE.llvm.1231196827938639477.exit"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !38, !invariant.load !23, !noalias !325
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1659,6 +1670,7 @@ define hidden void @"_ZN4core3ptr380drop_in_place$LT$regex_automata..util..pool.
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8, !range !38, !invariant.load !23, !noalias !411
   %11 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1673,6 +1685,7 @@ define hidden void @"_ZN4core3ptr380drop_in_place$LT$regex_automata..util..pool.
   br label %.body
 
 15:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8, !range !38, !invariant.load !23, !noalias !414
   %18 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1792,6 +1805,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$std..thread..Inner$GT$17hd76
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   store i8 0, ptr %3, align 1, !noalias !490
   tail call void @llvm.experimental.noalias.scope.decl(metadata !493)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !496)
@@ -2357,6 +2371,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.123119682
   br label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.1231196827938639477.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.1231196827938639477.exit.i.i: ; preds = %12, %_ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.1231196827938639477.exit.i.i.i, %7, %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %13 = atomicrmw xchg ptr %2, i32 0 release, align 4, !noalias !687
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %"_ZN4core3ptr128drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinRaw$GT$$GT$$GT$17h4bf1be2e32d4c7c2E.llvm.1231196827938639477.exit"
@@ -4956,6 +4971,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$allo
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1890)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   store i8 0, ptr %2, align 1, !noalias !1893
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1896)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1899)
@@ -5195,6 +5211,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$std..thread..Packet$LT$grep_
 31:                                               ; preds = %25
   %32 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %29, i64 8
   %34 = load i64, ptr %33, align 8, !range !38, !invariant.load !23, !noalias !2013
   %35 = getelementptr inbounds i8, ptr %29, i64 16
@@ -5209,6 +5226,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$std..thread..Packet$LT$grep_
   br label %common.resume
 
 39:                                               ; preds = %25
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %29, i64 8
   %41 = load i64, ptr %40, align 8, !range !38, !invariant.load !23, !noalias !2013
   %42 = getelementptr inbounds i8, ptr %29, i64 16
@@ -5578,6 +5596,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !38, !invariant.load !23
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -5592,6 +5611,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06dff9543d3f425aE.exit"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !38, !invariant.load !23
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -5827,6 +5847,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.123119682
   br label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.1231196827938639477.exit.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.1231196827938639477.exit.i.i.i: ; preds = %17, %_ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.1231196827938639477.exit.i.i.i.i, %12, %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17h4294a578be8604ecE.llvm.1231196827938639477.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %18 = atomicrmw xchg ptr %7, i32 0 release, align 4, !noalias !2174
   %19 = icmp eq i32 %18, 2
   br i1 %19, label %20, label %"_ZN4core3ptr46drop_in_place$LT$std..io..stdio..StdinLock$GT$17h63921cb83603315eE.exit"
@@ -7854,6 +7875,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.123119682
   br label %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.1231196827938639477.exit
 
 _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.1231196827938639477.exit: ; preds = %1, %7, %_ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.1231196827938639477.exit.i, %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %13 = atomicrmw xchg ptr %2, i32 0 release, align 4
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %16

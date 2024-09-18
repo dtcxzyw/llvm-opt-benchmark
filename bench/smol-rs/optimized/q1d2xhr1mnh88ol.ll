@@ -79,6 +79,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_canceled17hf07
   br i1 %.not.i.i, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h70373393026de234E.llvm.3826330461689352739.exit", label %32
 
 32:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !14
   %33 = getelementptr inbounds i8, ptr %28, i64 8
@@ -189,6 +190,7 @@ define hidden { ptr, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detach
 32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !30, !invariant.load !4, !noalias !31
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -203,6 +205,7 @@ define hidden { ptr, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detach
   br label %.body
 
 41:                                               ; preds = %29
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %42 = getelementptr inbounds i8, ptr %30, i64 8
   %43 = load i64, ptr %42, align 8, !range !30, !invariant.load !4, !noalias !35
   %44 = getelementptr inbounds i8, ptr %30, i64 16
@@ -295,6 +298,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17hb53b313966
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %.fca.1.extract, i64 8
   %12 = load i64, ptr %11, align 8, !range !30, !invariant.load !4, !noalias !45
   %13 = getelementptr inbounds i8, ptr %.fca.1.extract, i64 16
@@ -309,6 +313,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17hb53b313966
   br label %.body
 
 18:                                               ; preds = %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %.fca.1.extract, i64 8
   %20 = load i64, ptr %19, align 8, !range !30, !invariant.load !4, !noalias !48
   %21 = getelementptr inbounds i8, ptr %.fca.1.extract, i64 16
@@ -549,6 +554,7 @@ common.resume:                                    ; preds = %50, %43
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %14, %16, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit.i", %31, %25, %20
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %48 = getelementptr inbounds i8, ptr %10, i64 8
@@ -979,6 +985,7 @@ define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17he1c2357fed
 61:                                               ; preds = %58
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 8) ]
   %62 = getelementptr inbounds i8, ptr %60, i64 24
   %63 = load ptr, ptr %62, align 8, !noalias !101, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1045,6 +1052,7 @@ define hidden void @"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$cor
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !30, !invariant.load !4, !noalias !115
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1059,6 +1067,7 @@ define hidden void @"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$cor
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17had44902c4d3cf527E.llvm.3826330461689352739.exit.i"
 
 15:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load i64, ptr %16, align 8, !range !30, !invariant.load !4, !noalias !118
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1100,6 +1109,7 @@ define hidden void @"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$cor
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8, !range !30, !invariant.load !4, !noalias !128
   %12 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1114,6 +1124,7 @@ define hidden void @"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$cor
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17had44902c4d3cf527E.llvm.3826330461689352739.exit.i.i"
 
 17:                                               ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load i64, ptr %18, align 8, !range !30, !invariant.load !4, !noalias !131
   %20 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1162,6 +1173,7 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$event_listener..Sta
 6:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !146, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1197,6 +1209,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !30, !invariant.load !4, !noalias !157
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1211,6 +1224,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17had44902c4d3cf527E.llvm.3826330461689352739.exit"
 
 15:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load i64, ptr %16, align 8, !range !30, !invariant.load !4, !noalias !160
   %18 = getelementptr inbounds i8, ptr %4, i64 16

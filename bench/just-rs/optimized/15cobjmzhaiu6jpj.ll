@@ -4845,6 +4845,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %53, align 8, !noalias !252
   %54 = getelementptr inbounds i8, ptr %50, i64 1330
   store i16 0, ptr %54, align 2, !noalias !252
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
   %55 = load i16, ptr %22, align 2, !noalias !259, !noundef !14
   %56 = zext i16 %55 to i64
@@ -5731,6 +5732,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %45, align 8, !noalias !418
   %46 = getelementptr inbounds i8, ptr %42, i64 626
   store i16 0, ptr %46, align 2, !noalias !418
+  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   %47 = load i16, ptr %15, align 2, !noalias !425, !noundef !14
   %48 = zext i16 %47 to i64
@@ -6563,6 +6565,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %54, align 8, !noalias !562
   %55 = getelementptr inbounds i8, ptr %51, i64 5202
   store i16 0, ptr %55, align 2, !noalias !562
+  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !566)
   %56 = load i16, ptr %25, align 2, !noalias !569, !noundef !14
   %57 = zext i16 %56 to i64
@@ -7450,6 +7453,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %53, align 8, !noalias !729
   %54 = getelementptr inbounds i8, ptr %50, i64 1858
   store i16 0, ptr %54, align 2, !noalias !729
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !733)
   %55 = load i16, ptr %22, align 2, !noalias !736, !noundef !14
   %56 = zext i16 %55 to i64
@@ -8327,6 +8331,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %53, align 8, !noalias !899
   %54 = getelementptr inbounds i8, ptr %50, i64 2474
   store i16 0, ptr %54, align 2, !noalias !899
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !903)
   %55 = load i16, ptr %22, align 2, !noalias !906, !noundef !14
   %56 = zext i16 %55 to i64
@@ -9232,6 +9237,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %53, align 8, !noalias !1071
   %54 = getelementptr inbounds i8, ptr %50, i64 450
   store i16 0, ptr %54, align 2, !noalias !1071
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1075)
   %55 = load i16, ptr %22, align 2, !noalias !1078, !noundef !14
   %56 = zext i16 %55 to i64
@@ -10136,6 +10142,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %46, align 8, !noalias !1242
   %49 = getelementptr inbounds i8, ptr %46, i64 538
   store i16 0, ptr %49, align 2, !noalias !1242
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1246)
   %50 = load i16, ptr %20, align 2, !noalias !1249, !noundef !14
   %51 = zext i16 %50 to i64
@@ -10990,6 +10997,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %37, align 8, !noalias !1400
   %40 = getelementptr inbounds i8, ptr %37, i64 274
   store i16 0, ptr %40, align 2, !noalias !1400
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1404)
   %41 = load i16, ptr %14, align 2, !noalias !1407, !noundef !14
   %42 = zext i16 %41 to i64
@@ -11735,6 +11743,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %37, align 8, !noalias !1519
   %40 = getelementptr inbounds i8, ptr %37, i64 274
   store i16 0, ptr %40, align 2, !noalias !1519
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1523)
   %41 = load i16, ptr %14, align 2, !noalias !1526, !noundef !14
   %42 = zext i16 %41 to i64
@@ -12506,6 +12515,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %46, align 8, !noalias !1647
   %49 = getelementptr inbounds i8, ptr %46, i64 538
   store i16 0, ptr %49, align 2, !noalias !1647
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1651)
   %50 = load i16, ptr %20, align 2, !noalias !1654, !noundef !14
   %51 = zext i16 %50 to i64
@@ -13338,6 +13348,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %33, align 8, !noalias !1805
   %34 = getelementptr inbounds i8, ptr %30, i64 186
   store i16 0, ptr %34, align 2, !noalias !1805
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1809)
   %35 = load i16, ptr %8, align 2, !noalias !1812, !noundef !14
   %36 = zext i16 %35 to i64
@@ -13943,6 +13954,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %53, align 8, !noalias !1930
   %54 = getelementptr inbounds i8, ptr %50, i64 2034
   store i16 0, ptr %54, align 2, !noalias !1930
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1934)
   %55 = load i16, ptr %22, align 2, !noalias !1937, !noundef !14
   %56 = zext i16 %55 to i64
@@ -14811,6 +14823,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hb80d69a4eae4a2a0E.exit.i.i: ; 
   store ptr null, ptr %40, align 8, !noalias !2090
   %41 = getelementptr inbounds i8, ptr %37, i64 230
   store i16 0, ptr %41, align 2, !noalias !2090
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2094)
   %42 = load i16, ptr %9, align 2, !noalias !2097, !noundef !14
   %43 = zext i16 %42 to i64
@@ -15445,6 +15458,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %47, align 8, !noalias !2212
   %48 = getelementptr inbounds i8, ptr %44, i64 274
   store i16 0, ptr %48, align 2, !noalias !2212
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2216)
   %49 = load i16, ptr %15, align 2, !noalias !2219, !noundef !14
   %50 = zext i16 %49 to i64
@@ -16239,6 +16253,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %53, align 8, !noalias !2356
   %54 = getelementptr inbounds i8, ptr %50, i64 450
   store i16 0, ptr %54, align 2, !noalias !2356
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2360)
   %55 = load i16, ptr %22, align 2, !noalias !2363, !noundef !14
   %56 = zext i16 %55 to i64
@@ -17144,6 +17159,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %53, align 8, !noalias !2527
   %54 = getelementptr inbounds i8, ptr %50, i64 1330
   store i16 0, ptr %54, align 2, !noalias !2527
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2531)
   %55 = load i16, ptr %22, align 2, !noalias !2534, !noundef !14
   %56 = zext i16 %55 to i64
@@ -18049,6 +18065,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %53, align 8, !noalias !2698
   %54 = getelementptr inbounds i8, ptr %50, i64 3178
   store i16 0, ptr %54, align 2, !noalias !2698
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2702)
   %55 = load i16, ptr %22, align 2, !noalias !2705, !noundef !14
   %56 = zext i16 %55 to i64
@@ -18919,6 +18936,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h27bb6e35c2120148E.exit.i.i: ; 
   store ptr null, ptr %40, align 8, !noalias !2865
   %41 = getelementptr inbounds i8, ptr %37, i64 274
   store i16 0, ptr %41, align 2, !noalias !2865
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2869)
   %42 = load i16, ptr %9, align 2, !noalias !2872, !noundef !14
   %43 = zext i16 %42 to i64
@@ -19557,6 +19575,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %43, align 8, !noalias !3008
   %46 = getelementptr inbounds i8, ptr %43, i64 362
   store i16 0, ptr %46, align 2, !noalias !3008
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3012)
   %47 = load i16, ptr %15, align 2, !noalias !3015, !noundef !14
   %48 = zext i16 %47 to i64
@@ -20337,6 +20356,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %29, align 8, !noalias !3156
   %32 = getelementptr inbounds i8, ptr %29, i64 10
   store i16 0, ptr %32, align 2, !noalias !3156
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3160)
   %33 = load i16, ptr %7, align 2, !noalias !3163, !noundef !14
   %34 = zext i16 %33 to i64

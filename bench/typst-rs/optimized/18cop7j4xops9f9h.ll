@@ -1974,7 +1974,11 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread33: ; preds = %_ZN8unsca
 66:                                               ; preds = %"_ZN8unscanny78_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$RF$str$GT$7matches17hdcfe78689c5b0692E.exit.i"
   %67 = or disjoint i64 %.sroa.12.0, 2
   %68 = icmp eq i64 %.sroa.3.0.i, %67
-  br i1 %68, label %.lr.ph.i.i.preheader, label %.lr.ph.i
+  br i1 %68, label %.thread5.i._crit_edge.i.thread, label %.lr.ph.i
+
+.thread5.i._crit_edge.i.thread:                   ; preds = %66
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 1) ]
+  br label %.lr.ph.i.i.preheader
 
 .lr.ph.i:                                         ; preds = %66, %123
   %69 = phi i64 [ %124, %123 ], [ %67, %66 ]
@@ -2056,10 +2060,11 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread33: ; preds = %_ZN8unsca
 
 .thread5.i._crit_edge.i:                          ; preds = %123, %.thread5.i.i, %96
   %.lcssa.i = phi i64 [ %69, %.thread5.i.i ], [ %69, %96 ], [ %.sroa.3.0.i, %123 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 1) ]
   br i1 %.not.i.i.i, label %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit, label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i.preheader:                             ; preds = %66, %.thread5.i._crit_edge.i
-  %.lcssa.i41 = phi i64 [ %.lcssa.i, %.thread5.i._crit_edge.i ], [ %.sroa.3.0.i, %66 ]
+.lr.ph.i.i.preheader:                             ; preds = %.thread5.i._crit_edge.i.thread, %.thread5.i._crit_edge.i
+  %.lcssa.i41 = phi i64 [ %.sroa.3.0.i, %.thread5.i._crit_edge.i.thread ], [ %.lcssa.i, %.thread5.i._crit_edge.i ]
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %67, i64 %.sroa.3.0.i)
   br label %.lr.ph.i.i
 
@@ -2089,6 +2094,7 @@ _ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit: ; preds = %.lr.ph.i.i, 
   %.lcssa.i42 = phi i64 [ %.lcssa.i, %.thread5.i._crit_edge.i ], [ %.lcssa.i41, %120 ], [ %.lcssa.i41, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ %.lcssa.i41, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ 0, %.thread5.i._crit_edge.i ], [ %.02.i.i, %.lr.ph.i.i ], [ %.02.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ 0, %120 ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.0.lcssa.i.i, i64 %.lcssa.i42)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.i, i64 1) ]
   %126 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.0.sroa.speculated.i.i
   %127 = sub i64 %.lcssa.i42, %.0.sroa.speculated.i.i
   %128 = call i64 @"_ZN4core3num21_$LT$impl$u20$u32$GT$14from_str_radix17h3ad401725cbfa06bE"(ptr noalias noundef nonnull readonly align 1 %126, i64 noundef %127, i32 noundef 16)
@@ -5691,6 +5697,7 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit51.thread: ; preds = %189, %"_Z
 
 .thread5.i._crit_edge.i:                          ; preds = %251, %.thread5.i.i, %223, %194
   %.sroa.21.7 = phi i64 [ %34, %194 ], [ %.sroa.21.6, %223 ], [ %34, %251 ], [ %.sroa.21.6, %.thread5.i.i ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %244 = icmp eq i64 %195, 0
   br i1 %244, label %.loopexit119, label %.lr.ph.i.i56.preheader
 
@@ -5723,6 +5730,7 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit51.thread: ; preds = %189, %"_Z
 .loopexit119:                                     ; preds = %248, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %.lr.ph.i.i56, %.thread5.i._crit_edge.i
   %.0.lcssa.i.i = phi i64 [ 0, %.thread5.i._crit_edge.i ], [ 0, %248 ], [ %.02.i.i, %.lr.ph.i.i56 ], [ %.02.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ]
   %.0.sroa.speculated.i.i57 = call noundef i64 @llvm.umin.i64(i64 %.0.lcssa.i.i, i64 %.sroa.21.7)
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %254 = getelementptr inbounds i8, ptr %26, i64 %.0.sroa.speculated.i.i57
   %255 = sub i64 %.sroa.21.7, %.0.sroa.speculated.i.i57
   %.not.i.i.i60 = icmp eq i64 %34, %.sroa.21.7

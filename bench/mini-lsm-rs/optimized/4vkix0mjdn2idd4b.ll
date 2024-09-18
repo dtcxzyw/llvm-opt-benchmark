@@ -68,6 +68,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.159765099
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i: ; preds = %10, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.1597650999041595525.exit.i.i.i.i, %5, %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 4) ]
   %11 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4, !noalias !13
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %13, label %"_ZN4core3ptr103drop_in_place$LT$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17h763de74d46f79b29E.exit"
@@ -1891,7 +1892,7 @@ _ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h5122f00a1dc8dff4E.exit: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h0abde7c92df55453E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h0abde7c92df55453E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -1922,6 +1923,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   unreachable
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %20, i8 noundef 2)
@@ -1982,7 +1984,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h15b7e0cc621f01a4E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h15b7e0cc621f01a4E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !14
@@ -2018,6 +2020,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %21
 
 22:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %23 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %24 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %23, i64 0, i64 %19
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if28_$u7b$$u7b$closure$u7d$$u7d$17ha99592e198a3818bE.exit"
@@ -2146,7 +2149,7 @@ _ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h19fe4d7b29f3d491E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h19fe4d7b29f3d491E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -2177,6 +2180,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   unreachable
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %20, i8 noundef 2)
@@ -2237,7 +2241,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h1cf155280ea6c026E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h1cf155280ea6c026E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -2268,6 +2272,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   unreachable
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %20, i8 noundef 2)
@@ -2328,7 +2333,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h2a9e62ebb58768bcE.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h2a9e62ebb58768bcE.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !14
@@ -2364,6 +2369,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %21
 
 22:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %23 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %24 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %23, i64 0, i64 %19
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if28_$u7b$$u7b$closure$u7d$$u7d$17h6e06bd25324b9621E.exit"
@@ -2492,7 +2498,7 @@ _ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h30a6a0fd9fa0dc45E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h30a6a0fd9fa0dc45E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -2525,6 +2531,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %18
 
 19:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %20 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %21 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %20, i64 0, i64 %16
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if28_$u7b$$u7b$closure$u7d$$u7d$17h18c55f2c6cd5705dE.exit"
@@ -2616,7 +2623,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h3880ce8808e20ee5E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(24) %3, ptr noalias nocapture readonly align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h3880ce8808e20ee5E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(24) %3, ptr noalias nocapture readonly align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, ptr }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -2654,6 +2661,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %21
 
 22:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %23 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %24 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %23, i64 0, i64 %19
   br label %26
@@ -2830,6 +2838,8 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   br i1 %82, label %83, label %._crit_edge.i
 
 .thread.i:                                        ; preds = %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1050
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17h0f31865b3a521067E.exit"
 
@@ -2845,6 +2855,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   br i1 %switch.i2.i.i, label %91, label %86
 
 86:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17h252132dcc0ce4caeE.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %87 = load i64, ptr %3, align 8, !range !392, !alias.scope !1076, !noalias !1050, !noundef !14
   %88 = icmp eq i64 %87, 4
   br i1 %88, label %.thread73.i, label %89
@@ -2856,11 +2867,13 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 .thread67.i:                                      ; preds = %89
   %90 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   store i64 3, ptr %3, align 8, !noalias !1050
   store i64 %.0.i37.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1050
   br label %common.resume.i
 
 .thread73.i:                                      ; preds = %89, %86
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   store i64 3, ptr %3, align 8, !noalias !1050
   store i64 %.0.i37.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1050
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17h0f31865b3a521067E.exit"
@@ -2886,7 +2899,7 @@ common.resume.i:                                  ; preds = %.thread67.i, %72, %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h4321a597deda52c9E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h4321a597deda52c9E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -2917,6 +2930,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   unreachable
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %20, i8 noundef 2)
@@ -2969,7 +2983,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h4cbdac4911cbbb91E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h4cbdac4911cbbb91E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -3003,6 +3017,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %17
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %15
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if28_$u7b$$u7b$closure$u7d$$u7d$17h2238b2958b412c0dE.exit"
@@ -3075,7 +3090,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h4d5e001ee8bbfbfdE.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h4d5e001ee8bbfbfdE.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -3109,6 +3124,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %17
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %15
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if28_$u7b$$u7b$closure$u7d$$u7d$17h4d196702ee6e8f8dE.exit"
@@ -3189,7 +3205,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h54f5801862e52c77E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h54f5801862e52c77E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -3220,6 +3236,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   unreachable
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %20, i8 noundef 2)
@@ -3272,7 +3289,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h563e971d3dbbdba4E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h563e971d3dbbdba4E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -3306,6 +3323,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %17
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %15
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if28_$u7b$$u7b$closure$u7d$$u7d$17h7ed99bb4f014bf2bE.exit"
@@ -3377,7 +3395,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h686f841b497c3ce7E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h686f841b497c3ce7E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -3408,6 +3426,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   unreachable
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %20, i8 noundef 2)
@@ -3460,7 +3479,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h96339cddee3fd1daE.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h96339cddee3fd1daE.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -3494,6 +3513,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %17
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %15
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if28_$u7b$$u7b$closure$u7d$$u7d$17h19e2ae1098126754E.exit"
@@ -3565,7 +3585,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17hb2fe90a4daff8b36E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17hb2fe90a4daff8b36E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca ptr, align 8
   %7 = alloca { ptr, [7 x i64] }, align 8
@@ -3618,6 +3638,8 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   br i1 %.not849.not, label %.loopexit, label %.lr.ph851
 
 .loopexit22.loopexit:                             ; preds = %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(80) %19, i64 80, i1 false), !noalias !1375
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19), !noalias !1375
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.565.i)
@@ -3643,6 +3665,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %45
 
 46:                                               ; preds = %.lr.ph851
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %47 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %48 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %47, i64 0, i64 %43
   %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %48, i8 noundef 2)
@@ -3962,6 +3985,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
           to label %"_ZN4core3ptr83drop_in_place$LT$moka..common..concurrent..KeyHash$LT$$LP$usize$C$usize$RP$$GT$$GT$17hacbd12bc0d407fb6E.exit.i.i" unwind label %186, !noalias !1387
 
 "_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8f06298e1509bb2E.exit42.i.i": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit.i.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 4) ]
   %166 = load i32, ptr %97, align 4, !noalias !1387, !noundef !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !1387
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !1387
@@ -4016,6 +4040,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 .body.i.i:                                        ; preds = %184, %178
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %185, %184 ], [ %179, %178 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %167, i64 8) ]
   store i64 %84, ptr %167, align 8, !noalias !1387
   %.sroa.55.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %167, i64 8
   store i64 %85, ptr %.sroa.55.0..sroa_idx.i.i, align 8, !noalias !1387
@@ -4029,15 +4054,15 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %167, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.sroa.0.i.i, i64 7, i1 false), !noalias !1387
   %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %167, i64 48
-  store ptr %.val35.i.i, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1387
+  store ptr %.val35.i.i, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !1387
   %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %167, i64 56
-  store i64 %157, ptr %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1387
+  store i64 %157, ptr %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !1387
   %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %167, i64 64
-  store ptr %112, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1387
+  store ptr %112, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !1387
   %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %167, i64 72
-  store i32 %80, ptr %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1387
+  store i32 %80, ptr %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !1387
   %.sroa.10.sroa.9.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %167, i64 76
-  store i32 %166, ptr %.sroa.10.sroa.9.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1387
+  store i32 %166, ptr %.sroa.10.sroa.9.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !1387
   br label %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.llvm.3266194154532769905.exit40.i.i"
 
 186:                                              ; preds = %165, %153, %141
@@ -4055,6 +4080,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 190:                                              ; preds = %"_ZN4core3ptr412drop_in_place$LT$$LP$u8$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$C$$LP$core..option..Option$LT$moka..common..time..Instant$GT$$C$core..option..Option$LT$moka..common..time..Instant$GT$$RP$$C$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$RP$$GT$17hc18086733e04bf5fE.exit.i._ZN4core3ptr440drop_in_place$LT$core..option..Option$LT$$LP$u8$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$C$$LP$core..option..Option$LT$moka..common..time..Instant$GT$$C$core..option..Option$LT$moka..common..time..Instant$GT$$RP$$C$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$RP$$GT$$GT$17hb96539570a1b3bbcE.exit_crit_edge.i.i", %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8f06298e1509bb2E.exit42.i.i"
   %191 = phi ptr [ %.pre.i.i, %"_ZN4core3ptr412drop_in_place$LT$$LP$u8$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$C$$LP$core..option..Option$LT$moka..common..time..Instant$GT$$C$core..option..Option$LT$moka..common..time..Instant$GT$$RP$$C$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$RP$$GT$17hc18086733e04bf5fE.exit.i._ZN4core3ptr440drop_in_place$LT$core..option..Option$LT$$LP$u8$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$C$$LP$core..option..Option$LT$moka..common..time..Instant$GT$$C$core..option..Option$LT$moka..common..time..Instant$GT$$RP$$C$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$RP$$GT$$GT$17hb96539570a1b3bbcE.exit_crit_edge.i.i" ], [ %112, %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8f06298e1509bb2E.exit42.i.i" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %167, i64 8) ]
   store i64 %84, ptr %167, align 8, !noalias !1387
   %.sroa.55.0..sroa_idx6.i.i = getelementptr inbounds i8, ptr %167, i64 8
   store i64 %85, ptr %.sroa.55.0..sroa_idx6.i.i, align 8, !noalias !1387
@@ -4239,6 +4265,7 @@ default.unreachable16.i.i:                        ; preds = %190
 
 "_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$17from_bucket_value17h28506416d8a75049E.exit.i": ; preds = %237, %236
   %storemerge.i.i = phi i64 [ 2, %237 ], [ 1, %236 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %241 = load i64, ptr %24, align 8, !range !266, !alias.scope !1467, !noalias !1375, !noundef !14
   %242 = icmp eq i64 %241, 3
   br i1 %242, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17hdaf9ed580ac1f49dE.exit", label %243
@@ -4250,6 +4277,7 @@ default.unreachable16.i.i:                        ; preds = %190
 .thread92.i:                                      ; preds = %243
   %244 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   store i64 %storemerge.i.i, ptr %24, align 8, !noalias !1375
   store i64 %.1.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.671.0..sroa_idx72.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.565.i, i64 64, i1 false), !noalias !1375
@@ -4353,6 +4381,7 @@ common.resume.i:                                  ; preds = %.thread78.i, %265, 
   br label %.loopexit
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify28_$u7b$$u7b$closure$u7d$$u7d$17hdaf9ed580ac1f49dE.exit": ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$17from_bucket_value17h28506416d8a75049E.exit.i", %243
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   store i64 %storemerge.i.i, ptr %24, align 8, !noalias !1375
   store i64 %.1.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.671.0..sroa_idx72.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.565.i, i64 64, i1 false), !noalias !1375
@@ -4368,7 +4397,7 @@ common.resume.i:                                  ; preds = %.thread78.i, %265, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17hd330a5c52f61992dE.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(40) %3, ptr noalias nocapture readonly align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17hd330a5c52f61992dE.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(40) %3, ptr noalias nocapture readonly align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca { { ptr, i128 }, ptr }, align 8
@@ -4411,6 +4440,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   ret { i64, i64 } %22
 
 23:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %24 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %25 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %24, i64 0, i64 %20
   br label %27
@@ -4580,6 +4610,8 @@ default.unreachable8.i.i:                         ; preds = %37
   br i1 %79, label %80, label %37
 
 .thread.i:                                        ; preds = %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hd2793d92552582e5E.exit.i", %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !noalias !1518
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17h25c6dfc6f4e0edcaE.exit"
 
@@ -4595,6 +4627,7 @@ default.unreachable8.i.i:                         ; preds = %37
   br i1 %switch.i2.i.i, label %88, label %83
 
 83:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17h72a9ad8c67eaf454E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %84 = load i64, ptr %3, align 8, !range !266, !alias.scope !1555, !noalias !1518, !noundef !14
   %85 = icmp eq i64 %84, 3
   br i1 %85, label %.thread71.i, label %86
@@ -4606,11 +4639,13 @@ default.unreachable8.i.i:                         ; preds = %37
 .thread65.i:                                      ; preds = %86
   %87 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   store i64 1, ptr %3, align 8, !noalias !1518
   store i64 %.0.i36.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1518
   br label %common.resume.i
 
 .thread71.i:                                      ; preds = %86, %83
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   store i64 1, ptr %3, align 8, !noalias !1518
   store i64 %.0.i36.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1518
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17h25c6dfc6f4e0edcaE.exit"
@@ -4636,7 +4671,7 @@ common.resume.i:                                  ; preds = %.thread65.i, %64, %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17hd58c3ec1167bcfb1E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17hd58c3ec1167bcfb1E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -4670,6 +4705,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %17
 
 18:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %20 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %19, i64 0, i64 %15
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if28_$u7b$$u7b$closure$u7d$$u7d$17h005ef23940e230e7E.exit"
@@ -4751,7 +4787,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17hed13a76aec9d8eb1E.llvm.3266194154532769905"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17hed13a76aec9d8eb1E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nocapture readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !14
   %7 = add i64 %6, -1
@@ -4784,6 +4820,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   ret { i64, i64 } %18
 
 19:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %20 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %21 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %20, i64 0, i64 %16
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if28_$u7b$$u7b$closure$u7d$$u7d$17h64a3ae440f1502beE.exit"
@@ -5111,7 +5148,7 @@ define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$11with_len
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify17h65bbce7a67b2bec6E"(ptr noalias nocapture noundef writeonly sret({ i64, [17 x i64] }) align 8 dereferenceable(144) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %4, ptr noalias nocapture noundef align 8 dereferenceable(64) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_or_modify17h65bbce7a67b2bec6E"(ptr noalias nocapture noundef writeonly sret({ i64, [17 x i64] }) align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %4, ptr noalias nocapture noundef align 8 dereferenceable(64) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { { i64, [9 x i64] }, { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } }, align 8
   %8 = alloca { ptr, ptr, ptr }, align 8
   %9 = alloca { i64, [9 x i64] }, align 8
@@ -5219,7 +5256,7 @@ define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_o
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present17h71e437c4a6723cd4E"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present17h71e437c4a6723cd4E"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i64, [4 x i64] } }, align 8
   %7 = alloca { i64, [4 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -5295,7 +5332,7 @@ define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present17hb457d833deca7ed3E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present17hb457d833deca7ed3E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i64, [2 x i64] } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -5407,7 +5444,7 @@ define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h2ded04d4667fdb6fE"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h2ded04d4667fdb6fE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !1708, !noundef !14
   %7 = add i64 %6, -1
@@ -5434,6 +5471,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   unreachable
 
 17:                                               ; preds = %10
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %18 = load ptr, ptr %0, align 8, !noalias !1708, !nonnull !14, !align !764, !noundef !14
   %19 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %18, i64 0, i64 %15
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %19, i8 noundef 2), !noalias !1708
@@ -5499,7 +5537,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h368cf663041d5184E"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h368cf663041d5184E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !1751, !noundef !14
   %7 = add i64 %6, -1
@@ -5526,6 +5564,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   unreachable
 
 17:                                               ; preds = %10
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %18 = load ptr, ptr %0, align 8, !noalias !1751, !nonnull !14, !align !764, !noundef !14
   %19 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %18, i64 0, i64 %15
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %19, i8 noundef 2), !noalias !1751
@@ -5591,7 +5630,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h4354d6de2a7b01a5E"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h4354d6de2a7b01a5E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !1794, !noundef !14
   %7 = add i64 %6, -1
@@ -5618,6 +5657,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   unreachable
 
 17:                                               ; preds = %10
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %18 = load ptr, ptr %0, align 8, !noalias !1794, !nonnull !14, !align !764, !noundef !14
   %19 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %18, i64 0, i64 %15
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %19, i8 noundef 2), !noalias !1794
@@ -5683,7 +5723,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h79a7e75f25fe1725E"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h79a7e75f25fe1725E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !1837, !noundef !14
   %7 = add i64 %6, -1
@@ -5710,6 +5750,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   unreachable
 
 17:                                               ; preds = %10
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %18 = load ptr, ptr %0, align 8, !noalias !1837, !nonnull !14, !align !764, !noundef !14
   %19 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %18, i64 0, i64 %15
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %19, i8 noundef 2), !noalias !1837
@@ -5767,7 +5808,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h9e6bf6c53f1a1795E"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17h9e6bf6c53f1a1795E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !1874, !noundef !14
   %7 = add i64 %6, -1
@@ -5794,6 +5835,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   unreachable
 
 17:                                               ; preds = %10
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %18 = load ptr, ptr %0, align 8, !noalias !1874, !nonnull !14, !align !764, !noundef !14
   %19 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %18, i64 0, i64 %15
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %19, i8 noundef 2), !noalias !1874
@@ -5851,7 +5893,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17hd43289dd5a43b823E"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3get17hd43289dd5a43b823E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !1911, !noundef !14
   %7 = add i64 %6, -1
@@ -5878,6 +5920,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   unreachable
 
 17:                                               ; preds = %10
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %18 = load ptr, ptr %0, align 8, !noalias !1911, !nonnull !14, !align !764, !noundef !14
   %19 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %18, i64 0, i64 %15
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %19, i8 noundef 2), !noalias !1911
@@ -6193,6 +6236,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i: ; 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %96, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i, %91, %88
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 4) ]
   %97 = atomicrmw xchg ptr %23, i32 0 release, align 4, !noalias !1966
   %98 = icmp eq i32 %97, 2
   br i1 %98, label %99, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit"
@@ -6578,6 +6622,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i: ; preds = %232, %234, 
   br i1 %.not29.i.us.i, label %.invoke, label %.split.us.us.i, !prof !765
 
 .split.us.us.i:                                   ; preds = %.lr.ph.split.us.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.01516.i, i64 8) ]
   %315 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
   %316 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %315, i64 0, i64 %314
   br label %317
@@ -6602,6 +6647,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i: ; preds = %232, %234, 
   br i1 %325, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.us.us.i", label %326
 
 326:                                              ; preds = %324
+  call void @llvm.assume(i1 true) [ "align"(ptr %130, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2046)
   call void @llvm.experimental.noalias.scope.decl(metadata !2049)
   %.val.i.i.i.us.us.i = load ptr, ptr %323, align 8, !alias.scope !2046, !noalias !2051, !nonnull !14, !noundef !14
@@ -6680,6 +6726,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   br i1 %.not29.i.i, label %.invoke, label %.split.i, !prof !765
 
 .split.i:                                         ; preds = %.lr.ph.split.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.01516.i, i64 8) ]
   %347 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
   %348 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %347, i64 0, i64 %346
   br label %349
@@ -6702,6 +6749,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   br i1 %or.cond.i, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.i", label %357
 
 357:                                              ; preds = %353
+  call void @llvm.assume(i1 true) [ "align"(ptr %130, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2046)
   call void @llvm.experimental.noalias.scope.decl(metadata !2049)
   %.val.i.i.i.i = load ptr, ptr %355, align 8, !alias.scope !2046, !noalias !2051, !nonnull !14, !noundef !14
@@ -6899,6 +6947,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i: 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %419, %.noexc75, %414, %413
+  call void @llvm.assume(i1 true) [ "align"(ptr %384, i64 4) ]
   %420 = atomicrmw xchg ptr %384, i32 0 release, align 4, !noalias !2061
   %421 = icmp eq i32 %420, 2
   br i1 %421, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit.sink.split.i", label %"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hb495ada39c5a94fbE.exit"
@@ -6927,6 +6976,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.159765099
           to label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i unwind label %400
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i: ; preds = %428, %.noexc77, %.noexc76, %422
+  call void @llvm.assume(i1 true) [ "align"(ptr %384, i64 4) ]
   %429 = atomicrmw xchg ptr %384, i32 0 release, align 4, !noalias !2066
   %430 = icmp eq i32 %429, 2
   br i1 %430, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit.sink.split.i", label %"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hb495ada39c5a94fbE.exit"
@@ -6972,6 +7022,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.159765099
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i81
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i81: ; preds = %442, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.1597650999041595525.exit.i.i.i.i.i80, %.noexc82, %434
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val44, i64 4) ]
   %443 = atomicrmw xchg ptr %.val44, i32 0 release, align 4, !noalias !2073
   %444 = icmp eq i32 %443, 2
   br i1 %444, label %445, label %"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17heb705393c49307e6E.exit"
@@ -7014,6 +7065,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i86: 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i87
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i87: ; preds = %454, %.noexc88, %449, %.thread120
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 4) ]
   %455 = atomicrmw xchg ptr %23, i32 0 release, align 4, !noalias !2080
   %456 = icmp eq i32 %455, 2
   br i1 %456, label %457, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit90"
@@ -7280,6 +7332,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i: ; 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %94, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i, %89, %86
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 4) ]
   %95 = atomicrmw xchg ptr %22, i32 0 release, align 4, !noalias !2099
   %96 = icmp eq i32 %95, 2
   br i1 %96, label %97, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit"
@@ -7487,6 +7540,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %94, %_ZN3
   br i1 %.not29.i.us.i, label %.invoke, label %.split.us.us.i, !prof !765
 
 .split.us.us.i:                                   ; preds = %.lr.ph.split.us.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.01516.i, i64 8) ]
   %207 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
   %208 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %207, i64 0, i64 %206
   br label %209
@@ -7511,6 +7565,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %94, %_ZN3
   br i1 %217, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.us.us.i", label %218
 
 218:                                              ; preds = %216
+  call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 8) ]
   %.val.i19.i.us.us.i = load ptr, ptr %215, align 8, !noalias !2145, !nonnull !14, !noundef !14
   %.val14.i.i.us.us.i = load ptr, ptr %128, align 8, !noalias !2145, !nonnull !14, !noundef !14
   %219 = icmp eq ptr %.val.i19.i.us.us.i, %.val14.i.i.us.us.i
@@ -7580,6 +7635,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   br i1 %.not29.i.i, label %.invoke, label %.split.i, !prof !765
 
 .split.i:                                         ; preds = %.lr.ph.split.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.01516.i, i64 8) ]
   %237 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
   %238 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %237, i64 0, i64 %236
   br label %239
@@ -7602,6 +7658,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 246:                                              ; preds = %243
   %247 = inttoptr i64 %244 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 8) ]
   %.val.i19.i.i = load ptr, ptr %247, align 8, !noalias !2145, !nonnull !14, !noundef !14
   %.val14.i.i.i = load ptr, ptr %128, align 8, !noalias !2145, !nonnull !14, !noundef !14
   %248 = icmp eq ptr %.val.i19.i.i, %.val14.i.i.i
@@ -7790,6 +7847,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i: 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %307, %.noexc75, %302, %301
+  call void @llvm.assume(i1 true) [ "align"(ptr %272, i64 4) ]
   %308 = atomicrmw xchg ptr %272, i32 0 release, align 4, !noalias !2153
   %309 = icmp eq i32 %308, 2
   br i1 %309, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit.sink.split.i", label %"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hb495ada39c5a94fbE.exit"
@@ -7818,6 +7876,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.159765099
           to label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i unwind label %288
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i: ; preds = %316, %.noexc77, %.noexc76, %310
+  call void @llvm.assume(i1 true) [ "align"(ptr %272, i64 4) ]
   %317 = atomicrmw xchg ptr %272, i32 0 release, align 4, !noalias !2158
   %318 = icmp eq i32 %317, 2
   br i1 %318, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit.sink.split.i", label %"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hb495ada39c5a94fbE.exit"
@@ -7863,6 +7922,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.159765099
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i81
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i81: ; preds = %330, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.1597650999041595525.exit.i.i.i.i.i80, %.noexc82, %322
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val44, i64 4) ]
   %331 = atomicrmw xchg ptr %.val44, i32 0 release, align 4, !noalias !2165
   %332 = icmp eq i32 %331, 2
   br i1 %332, label %333, label %"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17heb705393c49307e6E.exit"
@@ -7905,6 +7965,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i86: 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i87
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i87: ; preds = %342, %.noexc88, %337, %.thread117
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 4) ]
   %343 = atomicrmw xchg ptr %22, i32 0 release, align 4, !noalias !2172
   %344 = icmp eq i32 %343, 2
   br i1 %344, label %345, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit90"
@@ -8171,6 +8232,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i: ; 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %94, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i, %89, %86
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 4) ]
   %95 = atomicrmw xchg ptr %22, i32 0 release, align 4, !noalias !2191
   %96 = icmp eq i32 %95, 2
   br i1 %96, label %97, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit"
@@ -8378,6 +8440,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %94, %_ZN3
   br i1 %.not29.i.us.i, label %.invoke, label %.split.us.us.i, !prof !765
 
 .split.us.us.i:                                   ; preds = %.lr.ph.split.us.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.01516.i, i64 8) ]
   %207 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
   %208 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %207, i64 0, i64 %206
   br label %209
@@ -8402,6 +8465,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %94, %_ZN3
   br i1 %217, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.us.us.i", label %218
 
 218:                                              ; preds = %216
+  call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 8) ]
   %.val.i19.i.us.us.i = load ptr, ptr %215, align 8, !noalias !2237, !nonnull !14, !noundef !14
   %.val14.i.i.us.us.i = load ptr, ptr %128, align 8, !noalias !2237, !nonnull !14, !noundef !14
   %219 = icmp eq ptr %.val.i19.i.us.us.i, %.val14.i.i.us.us.i
@@ -8471,6 +8535,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
   br i1 %.not29.i.i, label %.invoke, label %.split.i, !prof !765
 
 .split.i:                                         ; preds = %.lr.ph.split.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.01516.i, i64 8) ]
   %237 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
   %238 = getelementptr inbounds [0 x { { i64 }, {} }], ptr %237, i64 0, i64 %236
   br label %239
@@ -8493,6 +8558,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 246:                                              ; preds = %243
   %247 = inttoptr i64 %244 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 8) ]
   %.val.i19.i.i = load ptr, ptr %247, align 8, !noalias !2237, !nonnull !14, !noundef !14
   %.val14.i.i.i = load ptr, ptr %128, align 8, !noalias !2237, !nonnull !14, !noundef !14
   %248 = icmp eq ptr %.val.i19.i.i, %.val14.i.i.i
@@ -8681,6 +8747,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i: 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %307, %.noexc75, %302, %301
+  call void @llvm.assume(i1 true) [ "align"(ptr %272, i64 4) ]
   %308 = atomicrmw xchg ptr %272, i32 0 release, align 4, !noalias !2245
   %309 = icmp eq i32 %308, 2
   br i1 %309, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit.sink.split.i", label %"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hb495ada39c5a94fbE.exit"
@@ -8709,6 +8776,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.159765099
           to label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i unwind label %288
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i: ; preds = %316, %.noexc77, %.noexc76, %310
+  call void @llvm.assume(i1 true) [ "align"(ptr %272, i64 4) ]
   %317 = atomicrmw xchg ptr %272, i32 0 release, align 4, !noalias !2250
   %318 = icmp eq i32 %317, 2
   br i1 %318, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit.sink.split.i", label %"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hb495ada39c5a94fbE.exit"
@@ -8754,6 +8822,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.159765099
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i81
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1597650999041595525.exit.i.i.i.i81: ; preds = %330, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.1597650999041595525.exit.i.i.i.i.i80, %.noexc82, %322
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val44, i64 4) ]
   %331 = atomicrmw xchg ptr %.val44, i32 0 release, align 4, !noalias !2257
   %332 = icmp eq i32 %331, 2
   br i1 %332, label %333, label %"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17heb705393c49307e6E.exit"
@@ -8796,6 +8865,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i86: 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i87
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i87: ; preds = %342, %.noexc88, %337, %.thread117
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 4) ]
   %343 = atomicrmw xchg ptr %22, i32 0 release, align 4, !noalias !2264
   %344 = icmp eq i32 %343, 2
   br i1 %344, label %345, label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h876dd3b97d8b94e6E.exit90"
@@ -8857,7 +8927,7 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN4moka3cht3map6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h0dbd0204b4c439feE"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h0dbd0204b4c439feE"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { ptr, ptr, ptr }, align 8
   %7 = alloca ptr, align 8
@@ -8883,7 +8953,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9r
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h38c20add2f20100dE"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h38c20add2f20100dE"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { ptr, ptr, ptr }, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -8927,7 +8997,7 @@ default.unreachable:                              ; preds = %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h3aa970beb2637998E"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h3aa970beb2637998E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { ptr, ptr, ptr }, align 8
   %7 = alloca ptr, align 8
@@ -8953,7 +9023,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9r
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h52ef515feb87b288E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable(8) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h52ef515feb87b288E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable(8) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { ptr, ptr, ptr }, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -9002,7 +9072,7 @@ default.unreachable:                              ; preds = %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h70646b6e4256b6cbE"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h70646b6e4256b6cbE"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { ptr, ptr, ptr }, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -9046,7 +9116,7 @@ default.unreachable:                              ; preds = %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h865f84fb99d0bfa9E"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h865f84fb99d0bfa9E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { ptr, ptr, ptr }, align 8
   %7 = alloca ptr, align 8
@@ -9072,7 +9142,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9r
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h8814c5c2011e14b4E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable(8) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17h8814c5c2011e14b4E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable(8) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { ptr, ptr, ptr }, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -9121,7 +9191,7 @@ default.unreachable:                              ; preds = %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17ha7a220c7f4b2d67aE"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17ha7a220c7f4b2d67aE"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { ptr, ptr, ptr }, align 8
   %7 = alloca ptr, align 8
@@ -9147,7 +9217,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9r
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17he740ef6fe3b16b2bE"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9remove_if17he740ef6fe3b16b2bE"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { ptr, ptr, ptr }, align 8
   %7 = alloca ptr, align 8
@@ -9752,6 +9822,7 @@ common.resume:                                    ; preds = %55, %"_ZN4core3ptr8
           to label %"_ZN4core3ptr83drop_in_place$LT$moka..common..concurrent..KeyHash$LT$$LP$usize$C$usize$RP$$GT$$GT$17hacbd12bc0d407fb6E.exit" unwind label %79
 
 "_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8f06298e1509bb2E.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %70 = load i32, ptr %15, align 4, !noundef !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %71 = getelementptr inbounds i8, ptr %0, i64 40
@@ -9768,6 +9839,7 @@ common.resume:                                    ; preds = %55, %"_ZN4core3ptr8
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 8) ]
   store i64 1, ptr %72, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 8
   store i8 %46, ptr %.sroa.5.0..sroa_idx, align 8
@@ -9783,6 +9855,7 @@ common.resume:                                    ; preds = %55, %"_ZN4core3ptr8
   br label %"_ZN4core3ptr83drop_in_place$LT$moka..common..concurrent..KeyHash$LT$$LP$usize$C$usize$RP$$GT$$GT$17hacbd12bc0d407fb6E.exit"
 
 "_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$$LP$u8$C$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$RP$$GT$$GT$17hc6aa742cea6f42caE.exit": ; preds = %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8f06298e1509bb2E.exit", %75
+  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 8) ]
   store i64 1, ptr %72, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %72, i64 8
   store i8 %46, ptr %.sroa.5.0..sroa_idx2, align 8

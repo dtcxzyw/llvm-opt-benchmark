@@ -7323,6 +7323,7 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %127)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %126)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %125)
+  call void @llvm.assume(i1 true) [ "align"(ptr %217, i64 8) ]
   %220 = load i64, ptr %217, align 8, !noundef !4
   store ptr @anon.b7a90f88a9691aabfbbf63462cb82c19.75, ptr %125, align 8
   %221 = getelementptr inbounds i8, ptr %125, i64 8
@@ -7363,6 +7364,7 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59)
   %236 = getelementptr inbounds i8, ptr %155, i64 40
   store ptr %236, ptr %59, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %236, i64 8) ]
   %237 = getelementptr i8, ptr %155, i64 16
   %.val225 = load i64, ptr %237, align 8, !noundef !4
   %238 = getelementptr i8, ptr %155, i64 48
@@ -8387,6 +8389,7 @@ switch.lookup253:                                 ; preds = %2
   br label %557
 
 610:                                              ; preds = %605
+  call void @llvm.assume(i1 true) [ "align"(ptr %218, i64 8) ]
   %611 = load ptr, ptr %130, align 8, !nonnull !4, !align !5, !noundef !4
   %612 = load i64, ptr %611, align 8, !noundef !4
   %613 = icmp ult i64 %612, %606
@@ -8394,6 +8397,7 @@ switch.lookup253:                                 ; preds = %2
 
 614:                                              ; preds = %605
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124)
+  call void @llvm.assume(i1 true) [ "align"(ptr %218, i64 8) ]
   store ptr %218, ptr %124, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %123)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
@@ -8430,6 +8434,7 @@ switch.lookup253:                                 ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %117)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %115)
+  call void @llvm.assume(i1 true) [ "align"(ptr %219, i64 8) ]
   store ptr @anon.b7a90f88a9691aabfbbf63462cb82c19.75, ptr %115, align 8
   %626 = getelementptr inbounds i8, ptr %115, i64 8
   store i64 8, ptr %626, align 8
@@ -8461,6 +8466,7 @@ switch.lookup253:                                 ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %120)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %118)
+  call void @llvm.assume(i1 true) [ "align"(ptr %218, i64 8) ]
   store ptr @anon.b7a90f88a9691aabfbbf63462cb82c19.75, ptr %118, align 8
   %637 = getelementptr inbounds i8, ptr %118, i64 8
   store i64 8, ptr %637, align 8
@@ -9123,6 +9129,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   br i1 %36, label %50, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hf70224e998e9586aE.exit.thread"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hf70224e998e9586aE.exit.thread": ; preds = %_ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hf70224e998e9586aE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   br i1 %20, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit.thread.i.i11", label %37
 
 37:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hf70224e998e9586aE.exit.thread"
@@ -9254,6 +9261,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   br i1 %36, label %50, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hf70224e998e9586aE.exit.thread"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hf70224e998e9586aE.exit.thread": ; preds = %_ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hf70224e998e9586aE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   br i1 %20, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit.thread.i.i11", label %37
 
 37:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hf70224e998e9586aE.exit.thread"
@@ -12139,6 +12147,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %.val, i64 3
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
   %34 = getelementptr inbounds i8, ptr %6, i64 8
   %35 = getelementptr inbounds i8, ptr %7, i64 8
   %36 = getelementptr inbounds i8, ptr %7, i64 32
@@ -21416,6 +21425,7 @@ _ZN4just6parser6Parser4next17hed4bfee02818404cE.exit.thread: ; preds = %.lr.ph.i
 
 125:                                              ; preds = %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %118, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %104, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %109
 
@@ -22566,6 +22576,9 @@ define internal fastcc void @_ZN4just6parser6Parser17parse_conditional17he1eebad
 182:                                              ; preds = %176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %177, ptr noundef nonnull align 8 dereferenceable(128) %11, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %147, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %165, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %171, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
@@ -22974,6 +22987,7 @@ _ZN4just6parser6Parser4rest17h648ca49f9737a975E.exit.i: ; preds = %77
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.6.i244.sroa.0)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.i244.sroa.8)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.i244.sroa.12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %74, i64 8) ]
   %108 = icmp eq i64 %71, %70
   br i1 %108, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -23208,6 +23222,7 @@ common.resume:                                    ; preds = %.body, %161, %340, 
 
 167:                                              ; preds = %163
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %25)
+  call void @llvm.assume(i1 true) [ "align"(ptr %154, i64 8) ]
   store i64 10, ptr %0, align 8
   %.sroa.4105.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %154, ptr %.sroa.4105.0..sroa_idx, align 8
@@ -23794,6 +23809,7 @@ _ZN4just6parser6Parser14parse_sequence17h1690f5ca9b86efddE.exit: ; preds = %224
 297:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit7.i.i", %291, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit.thread.i.i"
   %298 = getelementptr inbounds i8, ptr %273, i64 %277
   %..i.i = select i1 %271, i64 3, i64 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %273, i64 1) ]
   br i1 %282, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit.thread.i.i275", label %299
 
 299:                                              ; preds = %297
@@ -24229,6 +24245,7 @@ _ZN4just6parser6Parser6expect17hb45a6509d5178bd7E.exit: ; preds = %16
 
 55:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit7.i.i", %49, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit.thread.i.i"
   %56 = getelementptr inbounds i8, ptr %31, i64 %35
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   br i1 %40, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit.thread.i.i90", label %57
 
 57:                                               ; preds = %55

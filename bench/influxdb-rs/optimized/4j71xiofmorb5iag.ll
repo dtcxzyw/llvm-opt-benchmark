@@ -265,7 +265,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_recor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_record17h6ce42fe9f0540b85E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_record17h6ce42fe9f0540b85E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, i8, [7 x i8], i64 }, align 8
   %4 = load ptr, ptr %1, align 8, !noalias !15, !nonnull !15, !align !54, !noundef !15
   %5 = getelementptr inbounds i8, ptr %4, i64 56
@@ -300,6 +300,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   unreachable
 
 .lr.ph:                                           ; preds = %_ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %4, i64 32
   %18 = getelementptr i8, ptr %4, i64 48
   %19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -336,6 +337,8 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   %36 = getelementptr inbounds [0 x i64], ptr %.val.i, i64 0, i64 %.sroa.8.090
   %37 = load i64, ptr %36, align 8, !noalias !73, !noundef !15
   %38 = add nuw i64 %.sroa.8.090, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %.val4.i = load ptr, ptr %17, align 8, !noalias !73, !nonnull !15, !noundef !15
   %39 = icmp ugt i64 %.sroa.5.089, %37
   br i1 %39, label %42, label %40
@@ -842,7 +845,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_termi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$17write_byte_record17h835c55a83dffa7afE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$17write_byte_record17h835c55a83dffa7afE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [10 x i64] }, align 8
   %4 = alloca { i64, i8, [7 x i8], i64 }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !15, !align !54, !noundef !15
@@ -886,6 +889,8 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   br label %"_ZN3csv6writer15Writer$LT$W$GT$28write_terminator_into_buffer17hbdac3aa81bb379cfE.exit"
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit32": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %21 = getelementptr inbounds i8, ptr %0, i64 320
   %22 = getelementptr inbounds i8, ptr %0, i64 344
   %23 = load i64, ptr %22, align 8, !noundef !15
@@ -913,6 +918,8 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   ret ptr %.0
 
 .lr.ph:                                           ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %0, i64 310
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = getelementptr inbounds i8, ptr %0, i64 309
@@ -949,6 +956,8 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %50 = getelementptr inbounds [0 x i64], ptr %.val.i40, i64 0, i64 %.sroa.8.0188
   %51 = load i64, ptr %50, align 8, !noalias !265, !noundef !15
   %52 = add nuw i64 %.sroa.8.0188, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %.val4.i = load ptr, ptr %6, align 8, !noalias !265, !nonnull !15, !noundef !15
   %53 = icmp ugt i64 %.sroa.5.0187, %51
   br i1 %53, label %56, label %54
@@ -972,6 +981,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit39._crit_edge": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit39"
   %.pre = load i64, ptr %8, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %59 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.pre, ptr %59, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
@@ -1149,6 +1159,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %122 = getelementptr inbounds i8, ptr %.sroa.0.035.i.i, i64 1
   %123 = load i8, ptr %122, align 1, !alias.scope !319, !noalias !320, !noundef !15
   %124 = zext i8 %123 to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %125 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %124
   %126 = load i8, ptr %125, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
   %127 = trunc nuw i8 %126 to i1
@@ -1158,6 +1169,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %129 = getelementptr inbounds i8, ptr %.sroa.0.035.i.i, i64 2
   %130 = load i8, ptr %129, align 1, !alias.scope !319, !noalias !320, !noundef !15
   %131 = zext i8 %130 to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %132 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %131
   %133 = load i8, ptr %132, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
   %134 = trunc nuw i8 %133 to i1
@@ -1167,6 +1179,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %136 = getelementptr inbounds i8, ptr %.sroa.0.035.i.i, i64 3
   %137 = load i8, ptr %136, align 1, !alias.scope !319, !noalias !320, !noundef !15
   %138 = zext i8 %137 to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %139 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %138
   %140 = load i8, ptr %139, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
   %141 = trunc nuw i8 %140 to i1
@@ -1176,6 +1189,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %143 = getelementptr inbounds i8, ptr %.sroa.0.035.i.i, i64 4
   %144 = load i8, ptr %143, align 1, !alias.scope !319, !noalias !320, !noundef !15
   %145 = zext i8 %144 to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %146 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %145
   %147 = load i8, ptr %146, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
   %148 = trunc nuw i8 %147 to i1
@@ -1185,6 +1199,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %150 = getelementptr inbounds i8, ptr %.sroa.0.035.i.i, i64 5
   %151 = load i8, ptr %150, align 1, !alias.scope !319, !noalias !320, !noundef !15
   %152 = zext i8 %151 to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %153 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %152
   %154 = load i8, ptr %153, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
   %155 = trunc nuw i8 %154 to i1
@@ -1194,6 +1209,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %157 = getelementptr inbounds i8, ptr %.sroa.0.035.i.i, i64 6
   %158 = load i8, ptr %157, align 1, !alias.scope !319, !noalias !320, !noundef !15
   %159 = zext i8 %158 to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %160 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
   %162 = trunc nuw i8 %161 to i1
@@ -1203,6 +1219,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %164 = getelementptr inbounds i8, ptr %.sroa.0.035.i.i, i64 7
   %165 = load i8, ptr %164, align 1, !alias.scope !319, !noalias !320, !noundef !15
   %166 = zext i8 %165 to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %167 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %166
   %168 = load i8, ptr %167, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
   %169 = trunc nuw i8 %168 to i1

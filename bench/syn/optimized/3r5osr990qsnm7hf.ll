@@ -771,12 +771,14 @@ define hidden void @"_ZN3syn4data8printing79_$LT$impl$u20$quote..to_tokens..ToTo
   br label %"_ZN3syn4data8printing73_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..data..Field$GT$9to_tokens17h9390baf8c1c0e761E.exit"
 
 38:                                               ; preds = %33
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 4) ], !noalias !116
   %39 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload7.i, i64 292
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.126.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %39, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !170
   br label %"_ZN3syn4data8printing73_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..data..Field$GT$9to_tokens17h9390baf8c1c0e761E.exit"
 
 "_ZN3syn4data8printing73_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..data..Field$GT$9to_tokens17h9390baf8c1c0e761E.exit": ; preds = %"_ZN3syn11restriction8printing85_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..restriction..Visibility$GT$9to_tokens17h14ea11d1bf93a906E.exit", %36, %38
   call void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfe21a6835586d0a0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %.sroa.0.0.copyload7.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !116
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload6.i, i64 4) ]
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload6.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !171
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hbf3d62bf3676a455E.exit.i"
 
@@ -904,12 +906,14 @@ define hidden void @"_ZN3syn4data8printing81_$LT$impl$u20$quote..to_tokens..ToTo
   br label %"_ZN3syn4data8printing73_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..data..Field$GT$9to_tokens17h9390baf8c1c0e761E.exit"
 
 38:                                               ; preds = %33
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 4) ], !noalias !197
   %39 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload7.i, i64 292
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.126.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %39, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !249
   br label %"_ZN3syn4data8printing73_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..data..Field$GT$9to_tokens17h9390baf8c1c0e761E.exit"
 
 "_ZN3syn4data8printing73_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..data..Field$GT$9to_tokens17h9390baf8c1c0e761E.exit": ; preds = %"_ZN3syn11restriction8printing85_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..restriction..Visibility$GT$9to_tokens17h14ea11d1bf93a906E.exit", %36, %38
   call void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfe21a6835586d0a0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %.sroa.0.0.copyload7.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !197
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload6.i, i64 4) ]
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload6.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !250
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hbf3d62bf3676a455E.exit.i"
 
@@ -1010,6 +1014,7 @@ default.unreachable:                              ; preds = %13
   br label %"_ZN3syn4data8printing75_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..data..Variant$GT$9to_tokens17h07f2f0a64cfd7bdcE.exit"
 
 "_ZN3syn4data8printing75_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..data..Variant$GT$9to_tokens17h07f2f0a64cfd7bdcE.exit": ; preds = %"_ZN64_$LT$syn..data..Fields$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc4fd6a8ff762b556E.exit.i", %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload6.i, i64 4) ]
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload6.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !289
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hd194ad1a218f9208E.exit.i"
 
@@ -1069,6 +1074,7 @@ define hidden void @"_ZN3syn4expr8printing76_$LT$impl$u20$quote..to_tokens..ToTo
   %15 = icmp ne ptr %.sroa.0.0.copyload7.i, null
   call void @llvm.assume(i1 %15)
   call void @"_ZN62_$LT$syn..expr..Expr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8a711bcc6b6c7d17E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %.sroa.0.0.copyload7.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !305
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload6.i, i64 4) ]
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload6.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !310
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17he41eef9601720d1dE.exit.i"
 
@@ -1144,6 +1150,7 @@ define hidden void @"_ZN3syn4expr8printing82_$LT$impl$u20$quote..to_tokens..ToTo
   %15 = icmp ne ptr %.sroa.0.0.copyload7.i, null
   call void @llvm.assume(i1 %15)
   call void @"_ZN62_$LT$syn..expr..Expr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8a711bcc6b6c7d17E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %.sroa.0.0.copyload7.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !326
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload6.i, i64 4) ]
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload6.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !331
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17he41eef9601720d1dE.exit.i"
 
@@ -1217,6 +1224,7 @@ define hidden void @"_ZN3syn4expr8printing78_$LT$impl$u20$quote..to_tokens..ToTo
   br i1 %18, label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hb0fd1541688be8f9E.exit.i.i", label %19
 
 19:                                               ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload.i.i, i64 4) ]
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload.i.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !354
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hb0fd1541688be8f9E.exit.i.i"
 
@@ -1249,6 +1257,7 @@ define hidden void @"_ZN3syn4expr8printing78_$LT$impl$u20$quote..to_tokens..ToTo
 
 27:                                               ; preds = %.thread7, %25
   %28 = phi ptr [ %24, %.thread7 ], [ %.pre, %25 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
   call void @"_ZN62_$LT$syn..expr..Expr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8a711bcc6b6c7d17E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %28, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !362
   br label %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h11a66d03bf80d1eaE.exit"
 
@@ -6567,6 +6576,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i.i: ; preds = %26, %
   %.fca.1.extract.i = extractvalue { ptr, ptr } %59, 1
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !1034
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
   %60 = getelementptr inbounds i8, ptr %.fca.1.extract.i, i64 56
   %61 = load ptr, ptr %60, align 8, !invariant.load !5, !nonnull !5
   %62 = invoke noundef align 8 dereferenceable_or_null(96) ptr %61(ptr noundef align 1 %.fca.0.extract.i)
@@ -9045,6 +9055,7 @@ define void @"_ZN3syn8generics8printing80_$LT$impl$u20$quote..to_tokens..ToToken
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
 
 20:                                               ; preds = %15
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 4) ]
   %21 = getelementptr inbounds i8, ptr %0, i64 76
   tail call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.154.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %21, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1279
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
@@ -9095,6 +9106,7 @@ define void @"_ZN3syn8generics8printing80_$LT$impl$u20$quote..to_tokens..ToToken
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %.sroa.618.2.ph, ptr %8, align 8
   store ptr %.sroa.9.2.ph, ptr %.sroa.9.8..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.618.2.ph, i64 8) ]
   %32 = load i64, ptr %.sroa.618.2.ph, align 8, !range !372, !noundef !5
   %33 = icmp eq i64 %32, 17
   br i1 %33, label %56, label %59
@@ -9132,6 +9144,7 @@ define void @"_ZN3syn8generics8printing80_$LT$impl$u20$quote..to_tokens..ToToken
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit"
 
 47:                                               ; preds = %42
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 4) ]
   %48 = getelementptr inbounds i8, ptr %0, i64 84
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.148.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %48, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1284
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit"
@@ -9144,6 +9157,7 @@ define void @"_ZN3syn8generics8printing80_$LT$impl$u20$quote..to_tokens..ToToken
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %.sroa.623.2.ph, ptr %6, align 8
   store ptr %.sroa.924.2.ph, ptr %.sroa.924.8..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.623.2.ph, i64 8) ]
   %50 = load i64, ptr %.sroa.623.2.ph, align 8, !range !372, !noundef !5
   %switch9 = icmp eq i64 %50, 17
   br i1 %switch9, label %51, label %52
@@ -9215,6 +9229,7 @@ define void @"_ZN3syn8generics8printing84_$LT$impl$u20$quote..to_tokens..ToToken
   br i1 %.0.i, label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit", label %28
 
 28:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %22, i64 72
   %30 = load i32, ptr %29, align 8, !range !163, !noalias !1288, !noundef !5
   %trunc.i = trunc nuw i32 %30 to i1
@@ -9229,6 +9244,7 @@ define void @"_ZN3syn8generics8printing84_$LT$impl$u20$quote..to_tokens..ToToken
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
 
 33:                                               ; preds = %28
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 4) ]
   %34 = getelementptr inbounds i8, ptr %22, i64 76
   tail call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.154.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %34, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1292
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
@@ -9265,6 +9281,7 @@ default.unreachable:                              ; preds = %68
   unreachable
 
 43:                                               ; preds = %38
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   call void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17hc1c70268f79f6a90E"(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %22)
   %.sroa.044.0.copyload = load ptr, ptr %19, align 8
   %.sroa.545.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
@@ -9293,6 +9310,7 @@ default.unreachable:                              ; preds = %68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   store ptr %.sroa.643.2.ph, ptr %20, align 8
   store ptr %.sroa.9.2.ph, ptr %.sroa.9.8..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.643.2.ph, i64 8) ]
   %45 = load i64, ptr %.sroa.643.2.ph, align 8, !range !372, !noundef !5
   %46 = icmp eq i64 %45, 17
   br i1 %46, label %150, label %153
@@ -9315,6 +9333,7 @@ default.unreachable:                              ; preds = %68
   br label %62
 
 55:                                               ; preds = %50
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %56 = getelementptr inbounds i8, ptr %22, i64 80
   %57 = load i32, ptr %56, align 8, !range !163, !noalias !1293, !noundef !5
   %trunc.i25 = trunc nuw i32 %57 to i1
@@ -9329,6 +9348,7 @@ default.unreachable:                              ; preds = %68
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit"
 
 60:                                               ; preds = %55
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 4) ]
   %61 = getelementptr inbounds i8, ptr %22, i64 84
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.148.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %61, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1297
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit"
@@ -9338,6 +9358,7 @@ default.unreachable:                              ; preds = %68
   %.sroa.044.1.ph = phi ptr [ %53, %52 ], [ %.sroa.044.0, %50 ]
   %.sroa.7.2.ph = phi ptr [ %.sroa.044.0, %52 ], [ %.sroa.646.0, %50 ]
   %.sroa.10.2.ph = phi ptr [ %54, %52 ], [ null, %50 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.7.2.ph, i64 8) ]
   %63 = load i64, ptr %.sroa.7.2.ph, align 8, !range !372, !noundef !5
   %64 = icmp eq i64 %63, 17
   br i1 %64, label %47, label %65
@@ -9372,6 +9393,7 @@ default.unreachable:                              ; preds = %68
   unreachable
 
 73:                                               ; preds = %68
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.7.2.ph, i64 8) ]
   %74 = getelementptr inbounds i8, ptr %.sroa.7.2.ph, i64 248
   %75 = load ptr, ptr %74, align 8, !nonnull !5, !noundef !5
   %76 = getelementptr inbounds i8, ptr %.sroa.7.2.ph, i64 256
@@ -9476,6 +9498,7 @@ _ZN3syn5token7Bracket8surround17h1c5a0ec9f4d05f43E.exit: ; preds = %"_ZN3syn4att
   br i1 %.0.i27, label %147, label %140
 
 108:                                              ; preds = %68
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.7.2.ph, i64 8) ]
   %109 = getelementptr inbounds i8, ptr %.sroa.7.2.ph, i64 416
   %110 = load ptr, ptr %109, align 8, !nonnull !5, !noundef !5
   %111 = getelementptr inbounds i8, ptr %.sroa.7.2.ph, i64 424
@@ -9565,7 +9588,7 @@ _ZN3syn5token7Bracket8surround17h1c5a0ec9f4d05f43E.exit41: ; preds = %"_ZN3syn4a
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !1333
   %136 = getelementptr inbounds i8, ptr %.sroa.7.2.ph, i64 472
   call void @llvm.experimental.noalias.scope.decl(metadata !1365)
-  %137 = load i32, ptr %136, align 4, !alias.scope !1365, !noalias !1368, !noundef !5
+  %137 = load i32, ptr %136, align 8, !alias.scope !1365, !noalias !1368, !noundef !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !1370
   call void @_ZN11proc_macro25Ident3new17h7da1a03a0b207f4dE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.26.llvm.15435319159651575738, i64 noundef 5, i32 noundef %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0d5d5001281b8245a926393d947a7215.24.llvm.858133952616893155), !noalias !1377
   call void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hb05fa54c9b9cd6f6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %12), !noalias !1378
@@ -9579,7 +9602,7 @@ _ZN3syn5token7Bracket8surround17h1c5a0ec9f4d05f43E.exit41: ; preds = %"_ZN3syn4a
 
 140:                                              ; preds = %"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h461c7d421261f82dE.exit"
   %141 = getelementptr inbounds i8, ptr %.sroa.7.2.ph, i64 328
-  %142 = load i32, ptr %141, align 4, !range !163, !noalias !1379, !noundef !5
+  %142 = load i32, ptr %141, align 8, !range !163, !noalias !1379, !noundef !5
   %trunc.i32 = trunc nuw i32 %142 to i1
   br i1 %trunc.i32, label %145, label %143
 
@@ -9592,6 +9615,7 @@ _ZN3syn5token7Bracket8surround17h1c5a0ec9f4d05f43E.exit41: ; preds = %"_ZN3syn4a
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h72082302ce3812bdE.exit"
 
 145:                                              ; preds = %140
+  call void @llvm.assume(i1 true) [ "align"(ptr %141, i64 4) ]
   %146 = getelementptr inbounds i8, ptr %.sroa.7.2.ph, i64 332
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.126.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %146, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1383
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h72082302ce3812bdE.exit"
@@ -9646,6 +9670,7 @@ define void @"_ZN3syn8generics8printing84_$LT$impl$u20$quote..to_tokens..ToToken
   br i1 %.0.i, label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit", label %16
 
 16:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %10, i64 72
   %18 = load i32, ptr %17, align 8, !range !163, !noalias !1394, !noundef !5
   %trunc.i = trunc nuw i32 %18 to i1
@@ -9660,6 +9685,7 @@ define void @"_ZN3syn8generics8printing84_$LT$impl$u20$quote..to_tokens..ToToken
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
 
 21:                                               ; preds = %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 4) ]
   %22 = getelementptr inbounds i8, ptr %10, i64 76
   tail call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.154.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %22, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1398
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
@@ -9673,17 +9699,17 @@ define void @"_ZN3syn8generics8printing84_$LT$impl$u20$quote..to_tokens..ToToken
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
   %23 = getelementptr inbounds i8, ptr %4, i64 4
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  br label %.outer61
+  br label %.outer62
 
-.outer61:                                         ; preds = %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit25", %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
+.outer62:                                         ; preds = %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit25", %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
   %.sroa.6.0.ph = phi ptr [ %.sroa.6.1.ph, %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit25" ], [ %.sroa.6.0.copyload, %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit" ]
   %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit25" ], [ %.sroa.0.0.copyload, %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit" ]
   %.07.ph = phi i1 [ %73, %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit25" ], [ true, %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit" ]
   br label %24
 
-24:                                               ; preds = %.outer61, %33
-  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %33 ], [ %.sroa.6.0.ph, %.outer61 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %33 ], [ %.sroa.0.0.ph, %.outer61 ]
+24:                                               ; preds = %.outer62, %33
+  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %33 ], [ %.sroa.6.0.ph, %.outer62 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %33 ], [ %.sroa.0.0.ph, %.outer62 ]
   %25 = icmp ne ptr %.sroa.0.0, null
   call void @llvm.assume(i1 %25)
   %26 = icmp eq ptr %.sroa.0.0, %.sroa.5.0.copyload
@@ -9702,6 +9728,7 @@ default.unreachable:                              ; preds = %57
   unreachable
 
 32:                                               ; preds = %27
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   call void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17hc1c70268f79f6a90E"(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10)
   %.sroa.029.0.copyload = load ptr, ptr %8, align 8
   %.sroa.530.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
@@ -9721,6 +9748,7 @@ default.unreachable:                              ; preds = %57
   %.sroa.627.2.ph = phi ptr [ %.sroa.0.0, %29 ], [ %.sroa.6.0, %27 ]
   %.sroa.6.1.ph = phi ptr [ %.sroa.6.0, %29 ], [ null, %27 ]
   %.sroa.0.1.ph = phi ptr [ %30, %29 ], [ %.sroa.0.0, %27 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.627.2.ph, i64 8) ]
   %34 = load i64, ptr %.sroa.627.2.ph, align 8, !range !372, !noundef !5
   %35 = icmp eq i64 %34, 17
   br i1 %35, label %67, label %24
@@ -9743,6 +9771,7 @@ default.unreachable:                              ; preds = %57
   br label %51
 
 44:                                               ; preds = %39
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %45 = getelementptr inbounds i8, ptr %10, i64 80
   %46 = load i32, ptr %45, align 8, !range !163, !noalias !1399, !noundef !5
   %trunc.i22 = trunc nuw i32 %46 to i1
@@ -9757,6 +9786,7 @@ default.unreachable:                              ; preds = %57
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit"
 
 49:                                               ; preds = %44
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 4) ]
   %50 = getelementptr inbounds i8, ptr %10, i64 84
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.148.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %50, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1403
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit"
@@ -9766,6 +9796,7 @@ default.unreachable:                              ; preds = %57
   %.sroa.029.1.ph = phi ptr [ %42, %41 ], [ %.sroa.029.0, %39 ]
   %.sroa.7.2.ph = phi ptr [ %.sroa.029.0, %41 ], [ %.sroa.631.0, %39 ]
   %.sroa.10.2.ph = phi ptr [ %43, %41 ], [ null, %39 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.7.2.ph, i64 8) ]
   %52 = load i64, ptr %.sroa.7.2.ph, align 8, !range !372, !noundef !5
   %53 = icmp eq i64 %52, 17
   br i1 %53, label %36, label %54
@@ -9803,8 +9834,9 @@ default.unreachable:                              ; preds = %57
   br label %63
 
 63:                                               ; preds = %57, %62
-  %.sink60 = phi i64 [ 432, %62 ], [ 296, %57 ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.7.2.ph, i64 %.sink60
+  %.sink61 = phi i64 [ 432, %62 ], [ 296, %57 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.7.2.ph, i64 8) ]
+  %64 = getelementptr inbounds i8, ptr %.sroa.7.2.ph, i64 %.sink61
   call void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h629b5813b48ddffcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %64, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %65 = icmp eq ptr %.sroa.10.2.ph, null
   br i1 %65, label %.outer.backedge, label %66
@@ -9817,6 +9849,7 @@ default.unreachable:                              ; preds = %57
   br label %.outer.backedge
 
 67:                                               ; preds = %33
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.627.2.ph, i64 8) ]
   %68 = getelementptr inbounds i8, ptr %.sroa.627.2.ph, i64 64
   call void @llvm.experimental.noalias.scope.decl(metadata !1411)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
@@ -9840,7 +9873,7 @@ default.unreachable:                              ; preds = %57
 
 "_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit25": ; preds = %67, %72
   %73 = icmp ne ptr %.sroa.9.2.ph, null
-  br label %.outer61
+  br label %.outer62
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9866,6 +9899,7 @@ define void @"_ZN3syn8generics8printing81_$LT$impl$u20$quote..to_tokens..ToToken
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.170.llvm.15435319159651575738, i64 noundef 2, ptr noalias noundef nonnull readonly align 4 %4, i64 noundef 2, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   store ptr %5, ptr %3, align 8
   call void @"_ZN3syn8generics8printing84_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..generics..TypeGenerics$GT$9to_tokens17h7496d7a9bfb88cc5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -9985,6 +10019,7 @@ define void @"_ZN3syn8generics8printing85_$LT$impl$u20$quote..to_tokens..ToToken
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h72082302ce3812bdE.exit"
 
 41:                                               ; preds = %36
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 4) ]
   %42 = getelementptr inbounds i8, ptr %0, i64 100
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.126.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %42, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1477
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h72082302ce3812bdE.exit"
@@ -10111,6 +10146,7 @@ define void @"_ZN3syn8generics8printing81_$LT$impl$u20$quote..to_tokens..ToToken
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h72082302ce3812bdE.exit"
 
 40:                                               ; preds = %35
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 4) ]
   %41 = getelementptr inbounds i8, ptr %0, i64 324
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.126.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %41, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1516
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h72082302ce3812bdE.exit"
@@ -10273,6 +10309,7 @@ define void @"_ZN3syn8generics8printing81_$LT$impl$u20$quote..to_tokens..ToToken
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc2574f535fd5ab36E.exit"
 
 87:                                               ; preds = %82
+  call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 4) ]
   %88 = getelementptr inbounds i8, ptr %0, i64 332
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.140.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %88, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1584
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc2574f535fd5ab36E.exit"
@@ -10371,6 +10408,7 @@ define void @"_ZN3syn8generics8printing82_$LT$impl$u20$quote..to_tokens..ToToken
 
 33:                                               ; preds = %2
   %34 = getelementptr inbounds i8, ptr %0, i64 100
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1612)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !1615
   call void @_ZN11proc_macro211TokenStream3new17hf129cbee95f2c0a5E(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 dereferenceable(32) %10), !noalias !1615
@@ -10600,6 +10638,7 @@ define void @"_ZN3syn8generics8printing82_$LT$impl$u20$quote..to_tokens..ToToken
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc2574f535fd5ab36E.exit"
 
 33:                                               ; preds = %28
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 4) ]
   %34 = getelementptr inbounds i8, ptr %0, i64 468
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.140.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %34, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1700
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc2574f535fd5ab36E.exit"
@@ -10764,6 +10803,7 @@ define void @"_ZN3syn8generics8printing89_$LT$impl$u20$quote..to_tokens..ToToken
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1778
   call void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h629b5813b48ddffcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.0.copyload7, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1783
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !1768
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload6, i64 4) ], !noalias !1767
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.176.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload6, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1784
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17h60e069b04ad14323E.exit"
 
@@ -10860,6 +10900,7 @@ define hidden void @"_ZN3syn4path8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %14 = icmp ne ptr %.sroa.0.0.copyload6, null
   call void @llvm.assume(i1 %14)
   call void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfe21a6835586d0a0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %.sroa.0.0.copyload6, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1821
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload5, i64 4) ], !noalias !1819
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload5, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1826
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17he719d375b06373bbE.exit"
 
@@ -10968,6 +11009,7 @@ define hidden void @"_ZN3syn2ty8printing76_$LT$impl$u20$quote..to_tokens..ToToke
   br i1 %18, label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17ha8f636f012a28e1bE.exit.i.i", label %19
 
 19:                                               ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload.i.i, i64 4) ]
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload.i.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1869
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17ha8f636f012a28e1bE.exit.i.i"
 
@@ -11988,6 +12030,7 @@ define hidden void @_ZN3syn5token5Paren8surround17h9f6e9968a42901b9E(ptr noalias
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %19
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload6.i.i, i64 4) ]
   invoke void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload6.i.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17he41eef9601720d1dE.exit.i.i" unwind label %.loopexit
 
@@ -12370,6 +12413,7 @@ define hidden void @_ZN3syn5token5Paren8surround17hd1120c586b8cc709E(ptr noalias
   br i1 %23, label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17ha8f636f012a28e1bE.exit.i.i", label %24
 
 24:                                               ; preds = %.noexc15
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload.i.i, i64 4) ]
   invoke void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload.i.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
           to label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17ha8f636f012a28e1bE.exit.i.i" unwind label %.loopexit
 
@@ -12528,6 +12572,7 @@ define hidden void @_ZN3syn5token5Paren8surround17hfd1c8dab05f12f04E(ptr noalias
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %19
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5.0.copyload6.i.i, i64 4) ]
   invoke void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.128.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 %.sroa.5.0.copyload6.i.i, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17he41eef9601720d1dE.exit.i.i" unwind label %.loopexit
 
@@ -12866,6 +12911,7 @@ define void @"_ZN76_$LT$syn..generics..TypeParamBound$u20$as$u20$quote..to_token
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 100
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   tail call void @_ZN3syn5token5Paren8surround17h272e609d0cade318E.llvm.3030937435377206352(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %16, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0)
   br label %"_ZN3syn8generics8printing82_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..generics..TraitBound$GT$9to_tokens17h0460fd415cfb93f9E.exit"
 
@@ -13981,6 +14027,7 @@ define void @"_ZN3syn3gen5clone73_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
 
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h01b1c7c8aa77a8f3E.exit.i": ; preds = %.noexc18
   store ptr %39, ptr %4, align 8, !noalias !2409
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3), !noalias !2412
   invoke void @"_ZN3syn3gen5clone78_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..generics..TypeParamBound$GT$5clone17ha3b566f29ed25c7bE"(ptr noalias nocapture noundef nonnull sret({ i64, [14 x i64] }) align 8 dereferenceable(120) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %36)
           to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h66d9f711ad8d40b7E.llvm.14145919710250835280.exit" unwind label %42, !noalias !2409

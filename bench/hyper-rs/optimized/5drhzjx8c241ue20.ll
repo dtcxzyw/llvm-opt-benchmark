@@ -33,6 +33,7 @@ define internal void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !6, !invariant.load !4
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -47,6 +48,7 @@ define internal void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.exit"
 
 15:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load i64, ptr %16, align 8, !range !6, !invariant.load !4
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -411,6 +413,7 @@ define noundef zeroext i1 @"_ZN56_$LT$hyper..error..Error$u20$as$u20$core..fmt..
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %9 = call noundef align 8 dereferenceable(24) ptr @_ZN4core3fmt8builders10DebugTuple5field17h93f7018964b8f2e6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3ec2cf8333d55addd664f7f348231227.8)
   br label %10
 
@@ -433,27 +436,28 @@ define noundef zeroext i1 @"_ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..
   switch i64 %9, label %10 [
     i64 0, label %switch.lookup
     i64 1, label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
-    i64 2, label %11
+    i64 2, label %13
   ]
 
 10:                                               ; preds = %2
   unreachable
 
-11:                                               ; preds = %2
-  br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
-
 switch.lookup:                                    ; preds = %2
-  %12 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E", i64 0, i64 %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 8) ]
+  %11 = zext nneg i8 %4 to i64
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E", i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
-  %13 = zext nneg i8 %4 to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E.5", i64 0, i64 %13
+  %12 = zext nneg i8 %4 to i64
+  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E.5", i64 0, i64 %12
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
 
-_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit: ; preds = %switch.lookup, %2, %11
-  %.sroa.6.0.i = phi i64 [ 22, %11 ], [ 20, %2 ], [ %switch.load, %switch.lookup ]
-  %.sroa.0.0.i = phi ptr [ @anon.3ec2cf8333d55addd664f7f348231227.5, %11 ], [ @anon.3ec2cf8333d55addd664f7f348231227.4, %2 ], [ %switch.load2, %switch.lookup ]
+13:                                               ; preds = %2
+  br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
+
+_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit: ; preds = %switch.lookup, %2, %13
+  %.sroa.6.0.i = phi i64 [ 22, %13 ], [ 20, %2 ], [ %switch.load, %switch.lookup ]
+  %.sroa.0.0.i = phi ptr [ @anon.3ec2cf8333d55addd664f7f348231227.5, %13 ], [ @anon.3ec2cf8333d55addd664f7f348231227.4, %2 ], [ %switch.load2, %switch.lookup ]
   %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.6.0.i)
   ret i1 %14
 }

@@ -512,6 +512,7 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
   %154 = getelementptr inbounds i8, ptr %1, i64 16
   %155 = load ptr, ptr %154, align 8, !nonnull !4, !align !60, !noundef !4
   store i8 1, ptr %155, align 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %145, i64 8) ]
   %156 = load ptr, ptr %145, align 8, !nonnull !4, !align !60, !noundef !4
   %157 = load i64, ptr %146, align 8, !noundef !4
   %158 = icmp ult i64 %157, 2
@@ -533,12 +534,14 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
 
 165:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i"
   %166 = add i64 %157, -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %145, i64 8) ]
   store ptr %161, ptr %145, align 8
   store i64 %166, ptr %146, align 8
   br label %31
 
 167:                                              ; preds = %159
   %168 = getelementptr inbounds i8, ptr %156, i64 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %145, i64 8) ]
   store ptr %168, ptr %145, align 8
   store i64 0, ptr %146, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
@@ -551,6 +554,7 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
 
 170:                                              ; preds = %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %25)
+  call void @llvm.assume(i1 true) [ "align"(ptr %138, i64 8) ]
   %171 = load ptr, ptr %138, align 8, !nonnull !4, !align !60, !noundef !4
   call void @_ZN5ropey4tree9node_text8NodeText16insert_str_split17hc04ccfb521bca14dE(ptr noalias nocapture noundef nonnull sret([1000 x i8]) align 8 dereferenceable(1000) %25, ptr noalias noundef nonnull align 8 dereferenceable(1000) %4, i64 noundef %.sroa.0.4.i, ptr noalias noundef nonnull readonly align 1 %171, i64 noundef %140)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !77
@@ -566,6 +570,7 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
   %178 = getelementptr inbounds i8, ptr %3, i64 24
   %179 = load i64, ptr %178, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
+  call void @llvm.assume(i1 true) [ "align"(ptr %138, i64 8) ]
   %180 = load ptr, ptr %138, align 8, !nonnull !4, !align !60, !noundef !4
   call fastcc void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %26, ptr noalias noundef nonnull readonly align 1 %180, i64 noundef %140)
   %181 = load i64, ptr %26, align 8, !noundef !4
@@ -772,6 +777,7 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
   unreachable
 
 260:                                              ; preds = %255
+  call void @llvm.assume(i1 true) [ "align"(ptr %138, i64 8) ]
   %261 = load i64, ptr %139, align 8, !noundef !4
   %.not37 = icmp eq i64 %261, 0
   br i1 %.not37, label %267, label %262, !prof !71
@@ -841,12 +847,14 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
   unreachable
 
 293:                                              ; preds = %245
+  call void @llvm.assume(i1 true) [ "align"(ptr %138, i64 8) ]
   %.not38 = icmp eq i64 %.pre232, 0
   br i1 %.not38, label %307, label %308
 
 294:                                              ; preds = %319, %308, %245
   %295 = phi i64 [ %.pre232, %308 ], [ %.pre232, %245 ], [ %.pre, %319 ]
   %.sroa.4.2 = phi i64 [ %.sroa.4.0, %308 ], [ %.sroa.4.0, %245 ], [ %spec.select40, %319 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %138, i64 8) ]
   %296 = load ptr, ptr %138, align 8, !nonnull !4, !align !60, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !129
   call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(1000) %4), !noalias !136
@@ -1218,6 +1226,7 @@ define hidden void @_ZN5ropey4tree4node4Node18edit_chunk_at_char17h50076a726acb7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %18 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr %16, ptr %18, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   call fastcc void @"_ZN5ropey4rope4Rope15insert_internal28_$u7b$$u7b$closure$u7d$$u7d$17h3afecddb6d1136f6E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr nonnull %4, ptr noalias nocapture noundef align 8 dereferenceable(32) %13, ptr noalias noundef align 8 dereferenceable(1000) %16)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   br label %186
@@ -1712,6 +1721,7 @@ define hidden void @_ZN5ropey4tree4node4Node18edit_chunk_at_char17haaac91c1d28ae
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %18 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr %16, ptr %18, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   call fastcc void @"_ZN5ropey4rope4Rope15insert_internal28_$u7b$$u7b$closure$u7d$$u7d$17h13f0b719e9c02a1dE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(24) %4, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %13, ptr noalias noundef align 8 dereferenceable(1000) %16)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   br label %186

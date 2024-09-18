@@ -82,6 +82,7 @@ define hidden void @_ZN12aho_corasick9automaton9Automaton25try_find_overlapping_
   br i1 %21, label %26, label %29
 
 22:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %23 = tail call noundef range(i8 0, 3) i8 %15(ptr noundef align 1 %13), !range !22, !noalias !27
   %24 = tail call noundef nonnull align 1 ptr @_ZN12aho_corasick4util5error10MatchError23unsupported_overlapping17hb3bb323cac127fd5E(i8 noundef %23)
   %25 = getelementptr inbounds i8, ptr %0, i64 8
@@ -98,6 +99,7 @@ define hidden void @_ZN12aho_corasick9automaton9Automaton25try_find_overlapping_
 
 29:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %30 = getelementptr inbounds i8, ptr %7, i64 24
   %31 = load ptr, ptr %30, align 8, !invariant.load !4, !noalias !30, !nonnull !4
   call void %31(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %4, ptr noundef align 1 %13, i1 noundef zeroext false), !noalias !34
@@ -1111,6 +1113,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc5
 .lr.ph.i.i:                                       ; preds = %29
   %33 = add i16 %32, -1
   %34 = and i16 %33, %32
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   br label %35
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8545181607a027c6E.exit._crit_edge.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8545181607a027c6E.exit.backedge.i.i", %29
@@ -2368,7 +2371,7 @@ attributes #30 = { cold noreturn nounwind }
 !259 = distinct !{!259, !251, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h053bc5ffc7b12ac8E: argument 0"}
 !260 = distinct !{!260, !251, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h053bc5ffc7b12ac8E: argument 3"}
 !261 = !{!259, !250, !260}
-!262 = !{!263, !259, !253}
+!262 = !{!263, !259}
 !263 = distinct !{!263, !264, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE.llvm.7257343334495624931: argument 0"}
 !264 = distinct !{!264, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE.llvm.7257343334495624931"}
 !265 = !{!266, !268}
@@ -2376,24 +2379,24 @@ attributes #30 = { cold noreturn nounwind }
 !267 = distinct !{!267, !"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h66b5f2af20e0fffdE.llvm.1408189901302408350"}
 !268 = distinct !{!268, !269, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hbe3a1886fba9f2edE: argument 1"}
 !269 = distinct !{!269, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hbe3a1886fba9f2edE"}
-!270 = !{!271, !272, !273, !259, !253}
+!270 = !{!271, !272, !273, !259}
 !271 = distinct !{!271, !267, !"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h66b5f2af20e0fffdE.llvm.1408189901302408350: argument 0"}
 !272 = distinct !{!272, !269, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hbe3a1886fba9f2edE: argument 0"}
 !273 = distinct !{!273, !274, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8545181607a027c6E: argument 0"}
 !274 = distinct !{!274, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8545181607a027c6E"}
-!275 = !{!273, !259, !253}
+!275 = !{!273, !259}
 !276 = !{!277, !279}
 !277 = distinct !{!277, !278, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1c96ba2291ba9fE: argument 0"}
 !278 = distinct !{!278, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1c96ba2291ba9fE"}
 !279 = distinct !{!279, !278, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1c96ba2291ba9fE: argument 1"}
-!280 = !{!281, !283, !284, !286, !273, !259, !253}
+!280 = !{!281, !283, !284, !286, !273, !259}
 !281 = distinct !{!281, !282, !"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h66b5f2af20e0fffdE.llvm.1408189901302408350: argument 0"}
 !282 = distinct !{!282, !"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h66b5f2af20e0fffdE.llvm.1408189901302408350"}
 !283 = distinct !{!283, !282, !"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h66b5f2af20e0fffdE.llvm.1408189901302408350: argument 1"}
 !284 = distinct !{!284, !285, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hbe3a1886fba9f2edE: argument 0"}
 !285 = distinct !{!285, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hbe3a1886fba9f2edE"}
 !286 = distinct !{!286, !285, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hbe3a1886fba9f2edE: argument 1"}
-!287 = !{!288, !259, !253}
+!287 = !{!288, !259}
 !288 = distinct !{!288, !289, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h513238c9fed92de8E: argument 0"}
 !289 = distinct !{!289, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h513238c9fed92de8E"}
 !290 = !{!291, !293}

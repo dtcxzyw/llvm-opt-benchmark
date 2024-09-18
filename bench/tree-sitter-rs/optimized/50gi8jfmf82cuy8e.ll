@@ -1117,6 +1117,8 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2lt17h81ccb7f200419a59
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha96d22c25b003733E.llvm.17454970623020605724.exit"
 
 9:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %10 = load i64, ptr %3, align 8, !alias.scope !136, !noalias !141, !noundef !4
@@ -1884,6 +1886,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd3765fb6a01a46b6E.llvm.17454970623020605724.exit"
 
 16:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !587)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
   %17 = load i64, ptr %8, align 8, !alias.scope !587, !noalias !592, !noundef !4
@@ -2038,6 +2042,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17heb945d05e9a53653E.llvm.17454970623020605724.exit"
 
 16:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !688)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !691)
   %17 = load i64, ptr %8, align 8, !alias.scope !688, !noalias !693, !noundef !4
@@ -2188,7 +2194,9 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %13 = load ptr, ptr %12, align 8, !noalias !786, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %13, i64 0, i64 %7, i32 5
   %15 = load i64, ptr %14, align 8, !noalias !795, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !796)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %16 = load i64, ptr %2, align 8, !alias.scope !799, !noalias !800, !noundef !4
   %17 = icmp ult i64 %16, %9
   br i1 %17, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h799ce3ca2ed26816E.llvm.17454970623020605724.exit", label %18, !prof !539
@@ -3458,6 +3466,7 @@ select.unfold.i.i.i.us:                           ; preds = %.lr.ph, %"_ZN4core4
   br i1 %41, label %"_ZN15tree_sitter_cli8generate6render9Generator4init28_$u7b$$u7b$closure$u7d$$u7d$17hfc50e49324e3efeaE.exit.i.i.us", label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbf3bc9c8a397bc76E.exit.us"
 
 "_ZN15tree_sitter_cli8generate6render9Generator4init28_$u7b$$u7b$closure$u7d$$u7d$17hfc50e49324e3efeaE.exit.i.i.us": ; preds = %"_ZN5alloc6string87_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..string..String$GT$$u20$for$u20$$RF$str$GT$2eq17h3e686b662887900cE.exit.i.i.i.i.i.us"
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %42 = load i8, ptr %32, align 8, !range !163, !alias.scope !1259, !noalias !1249, !noundef !4
   %43 = trunc nuw i8 %42 to i1
   %..i.i.i.i.i.i.us = select i1 %43, i8 3, i8 2
@@ -3614,6 +3623,7 @@ select.unfold.i.i.i.loopexit:                     ; preds = %74
   br i1 %cond.fr5.i.i, label %._crit_edge, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbf3bc9c8a397bc76E.exit"
 
 "_ZN15tree_sitter_cli8generate6render9Generator4init28_$u7b$$u7b$closure$u7d$$u7d$17hfc50e49324e3efeaE.exit.i.i": ; preds = %"_ZN5alloc6string87_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..string..String$GT$$u20$for$u20$$RF$str$GT$2eq17h3e686b662887900cE.exit.i.i.i.i.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %108 = load i8, ptr %32, align 8, !range !163, !alias.scope !1259, !noalias !1249, !noundef !4
   %109 = trunc nuw i8 %108 to i1
   %..i.i.i.i.i.i = select i1 %109, i8 3, i8 2
@@ -4162,7 +4172,9 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   %12 = load ptr, ptr %11, align 8, !noalias !4, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %12, i64 0, i64 %6, i32 5
   %14 = load i64, ptr %13, align 8, !noalias !1582, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1583)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %15 = load i64, ptr %2, align 8, !alias.scope !1583, !noalias !1586, !noundef !4
   %16 = icmp ult i64 %15, %8
   br i1 %16, label %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.llvm.17454970623020605724.exit7", label %17, !prof !539
@@ -4205,6 +4217,8 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br label %_ZN4core3cmp10PartialOrd2lt17h81ccb7f200419a59E.llvm.17454970623020605724.exit
 
 15:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1606)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1609)
   %16 = load i64, ptr %7, align 8, !alias.scope !1606, !noalias !1611, !noundef !4
@@ -4241,6 +4255,8 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br label %_ZN4core3cmp10PartialOrd2lt17h81ccb7f200419a59E.llvm.17454970623020605724.exit
 
 15:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1631)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1634)
   %16 = load i64, ptr %7, align 8, !alias.scope !1631, !noalias !1636, !noundef !4
@@ -6184,6 +6200,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %47, align 8, !noalias !2005
   %48 = getelementptr inbounds i8, ptr %44, i64 450
   store i16 0, ptr %48, align 2, !noalias !2005
+  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2009)
   %49 = load i16, ptr %16, align 2, !noalias !2012, !noundef !4
   %50 = zext i16 %49 to i64
@@ -7090,6 +7107,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %54, align 8, !noalias !2158
   %55 = getelementptr inbounds i8, ptr %51, i64 626
   store i16 0, ptr %55, align 2, !noalias !2158
+  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2162)
   %56 = load i16, ptr %25, align 2, !noalias !2165, !noundef !4
   %57 = zext i16 %56 to i64
@@ -7984,6 +8002,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %53, align 8, !noalias !2325
   %56 = getelementptr inbounds i8, ptr %53, i64 1594
   store i16 0, ptr %56, align 2, !noalias !2325
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2329)
   %57 = load i16, ptr %26, align 2, !noalias !2332, !noundef !4
   %58 = zext i16 %57 to i64
@@ -8859,6 +8878,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %30, align 8, !noalias !2482
   %33 = getelementptr inbounds i8, ptr %30, i64 98
   store i16 0, ptr %33, align 2, !noalias !2482
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2486)
   %34 = load i16, ptr %7, align 2, !noalias !2489, !noundef !4
   %35 = zext i16 %34 to i64
@@ -9439,6 +9459,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %51, align 8, !noalias !2587
   %54 = getelementptr inbounds i8, ptr %51, i64 538
   store i16 0, ptr %54, align 2, !noalias !2587
+  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2591)
   %55 = load i16, ptr %25, align 2, !noalias !2594, !noundef !4
   %56 = zext i16 %55 to i64
@@ -15246,6 +15267,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h337271e7834363
   br i1 %13, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9ff3ce0a8d65b58cE.exit.i.i.i.i.i", label %14
 
 14:                                               ; preds = %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   store i8 0, ptr %12, align 1, !noalias !3320
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb1a3f402aa25b1a2E.llvm.15559585470061597875"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11), !noalias !3312
   br label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9ff3ce0a8d65b58cE.exit.i.i.i.i.i"
@@ -15403,6 +15425,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h71c1dadf76ffcc
   br i1 %13, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9ff3ce0a8d65b58cE.exit.i.i.i.i.i", label %14
 
 14:                                               ; preds = %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   store i8 0, ptr %12, align 1, !noalias !3353
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb1a3f402aa25b1a2E.llvm.15559585470061597875"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11), !noalias !3345
   br label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9ff3ce0a8d65b58cE.exit.i.i.i.i.i"
@@ -15441,6 +15464,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9ff3ce0a8d65b5
   br i1 %6, label %"_ZN4core3ptr39drop_in_place$LT$std..thread..Inner$GT$17h1a1a4fd44ba26455E.exit", label %7
 
 7:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   store i8 0, ptr %5, align 1, !noalias !3365
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb1a3f402aa25b1a2E.llvm.15559585470061597875"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %"_ZN4core3ptr39drop_in_place$LT$std..thread..Inner$GT$17h1a1a4fd44ba26455E.exit"
@@ -16127,6 +16151,8 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN71_$LT$core..option..Option$LT$T$G
   br label %13
 
 10:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3447)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3450)
   %11 = load i64, ptr %3, align 8, !alias.scope !3447, !noalias !3450, !noundef !4
@@ -18285,6 +18311,7 @@ define hidden void @"_ZN93_$LT$tree_sitter_cli..generate..build_tables..item..Pa
   br i1 %.not.i.i, label %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit, label %34
 
 34:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %35 = add nsw i64 %12, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4171)
   %36 = icmp ult i64 %35, %24
@@ -18414,6 +18441,7 @@ _ZN4core4hash6Hasher9write_str17h10d2a89aa8069ae6E.exit.i: ; preds = %84, %83
   br i1 %.not.i.i, label %.thread, label %93
 
 93:                                               ; preds = %"_ZN81_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..hash..Hash$GT$4hash17h3ce846c6885caa4fE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %94 = add nsw i64 %12, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4215)
   %95 = icmp ult i64 %94, %24
@@ -18439,6 +18467,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   %109 = mul i64 %108, 5871781006564002453
   %.promoted = select i1 %101, i64 %109, i64 %105
   store i64 %.promoted, ptr %1, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %110 = icmp ult i64 %24, %12
   br i1 %110, label %116, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit"
 
@@ -18446,6 +18475,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   %111 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 5)
   %112 = mul i64 %111, 5871781006564002453
   store i64 %112, ptr %1, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %113 = icmp ult i64 %24, %12
   br i1 %113, label %116, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread"
 
@@ -18470,6 +18500,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   %120 = phi ptr [ %115, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread" ], [ %118, %395 ]
   %.val127 = phi ptr [ %.val126, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread" ], [ %.val, %395 ]
   %.promoted100 = phi i64 [ %112, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread" ], [ %396, %395 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %121 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %.val127, i64 %24
   %122 = icmp eq i64 %24, %12
   br i1 %122, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d36ba51af05a5c5E.exit29.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d36ba51af05a5c5E.exit29"
@@ -19085,6 +19116,7 @@ define hidden void @"_ZN93_$LT$tree_sitter_cli..generate..build_tables..item..Pa
   br i1 %.not.i.i, label %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit, label %44
 
 44:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %45 = zext i32 %35 to i64
   %46 = add nsw i64 %45, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4396)
@@ -19144,6 +19176,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037
   br i1 %.not.i.i, label %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit, label %65
 
 65:                                               ; preds = %"_ZN81_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..hash..Hash$GT$4hash17h8c7059c09c29fae1E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %66 = zext i32 %35 to i64
   %67 = add nsw i64 %66, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4428)
@@ -19180,6 +19213,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   br label %79
 
 79:                                               ; preds = %77, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %80 = zext i32 %35 to i64
   %81 = icmp ult i64 %40, %80
   br i1 %81, label %82, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit"
@@ -19199,6 +19233,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   br label %88
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h21f0781af3290013E.exit": ; preds = %158, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
   %86 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %.val, i64 %40
   %87 = icmp eq i64 %40, %80
   br i1 %87, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d36ba51af05a5c5E.exit29.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d36ba51af05a5c5E.exit29"
@@ -20282,6 +20317,7 @@ default.unreachable:                              ; preds = %47
   %.019.lcssa.i = phi i64 [ 0, %2 ], [ %58, %.thread45.i ]
   %61 = icmp ule i64 %.019.lcssa.i, %8
   tail call void @llvm.assume(i1 %61)
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4711)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4714)
@@ -20539,6 +20575,7 @@ define hidden noundef align 8 ptr @"_ZN15tree_sitter_cli8generate10node_types1_1
   %44 = load i64, ptr %33, align 8, !alias.scope !4779, !noalias !4786, !noundef !4
   %45 = add i64 %44, 2
   store i64 %45, ptr %33, align 8, !alias.scope !4779, !noalias !4786
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %46 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds i8, ptr %31, i64 8
@@ -20551,6 +20588,7 @@ define hidden noundef align 8 ptr @"_ZN15tree_sitter_cli8generate10node_types1_1
   br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread"
 
 51:                                               ; preds = %39
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %52 = getelementptr inbounds i8, ptr %31, i64 32
   store i8 1, ptr %52, align 8, !alias.scope !4796, !noalias !4799
   %53 = getelementptr inbounds i8, ptr %0, i64 112
@@ -20762,6 +20800,7 @@ define hidden noundef align 8 ptr @"_ZN15tree_sitter_cli8generate10node_types1_1
   %39 = load i64, ptr %28, align 8, !alias.scope !4905, !noalias !4912, !noundef !4
   %40 = add i64 %39, 2
   store i64 %40, ptr %28, align 8, !alias.scope !4905, !noalias !4912
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %41 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds i8, ptr %26, i64 8
@@ -20774,6 +20813,7 @@ define hidden noundef align 8 ptr @"_ZN15tree_sitter_cli8generate10node_types1_1
   br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread"
 
 46:                                               ; preds = %34
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %26, i64 32
   store i8 1, ptr %47, align 8, !alias.scope !4922, !noalias !4925
   %48 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21027,11 +21067,13 @@ define hidden noundef align 8 ptr @"_ZN15tree_sitter_cli8generate10node_types1_1
   %45 = load i64, ptr %34, align 8, !alias.scope !5055, !noalias !5062, !noundef !4
   %46 = add i64 %45, 2
   store i64 %46, ptr %34, align 8, !alias.scope !5055, !noalias !5062
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %47 = call noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17he3dcccb7d1fe93f3E.llvm.13013766950239737229(ptr noalias noundef nonnull align 8 dereferenceable(40) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0), !noalias !5037
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7fdf4d19f5e9161aE.exit.thread"
 
 49:                                               ; preds = %40
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %50 = getelementptr inbounds i8, ptr %32, i64 32
   store i8 1, ptr %50, align 8, !alias.scope !5069, !noalias !5037
   %51 = load ptr, ptr %3, align 8, !nonnull !4, !align !8, !noundef !4

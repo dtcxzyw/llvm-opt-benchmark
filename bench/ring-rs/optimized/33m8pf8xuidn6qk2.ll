@@ -1769,6 +1769,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %.promoted.i.i = load i64, ptr %14, align 8, !alias.scope !171, !noalias !174
   %18 = getelementptr inbounds i8, ptr %0, i64 24
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i, i64 1) ]
   %.promoted31.i.i = load i8, ptr %18, align 8, !alias.scope !171, !noalias !174
   br label %19
 
@@ -1902,6 +1903,7 @@ _ZN4core3str11validations15next_code_point17h2e39fb51dc1742bdE.exit.thread.i.i.i
   %83 = getelementptr inbounds i8, ptr %0, i64 56
   %84 = load i64, ptr %83, align 8, !alias.scope !170, !noalias !164, !noundef !4
   %85 = icmp eq i64 %84, -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i, i64 1) ]
   %86 = getelementptr inbounds i8, ptr %0, i64 88
   %87 = load ptr, ptr %86, align 8, !alias.scope !170, !noalias !164, !nonnull !4, !align !163, !noundef !4
   %88 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2355,78 +2357,82 @@ define hidden void @_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %2, ptr %7, align 8
   %8 = icmp ugt i64 %2, 5
-  br i1 %8, label %14, label %9
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN9untrusted5input5Input8read_all17h62e39d318f3b2ce1E(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 @anon.dba969e7b296abc7f2381ae0fad118ff.12, i64 noundef 15)
   %10 = load ptr, ptr %5, align 8, !noundef !4
   %11 = icmp eq ptr %10, null
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %11, label %16, label %18
+  br i1 %11, label %14, label %18
 
-14:                                               ; preds = %4
+12:                                               ; preds = %4
   store ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %15, align 8
-  br label %34
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 8, ptr %13, align 8
+  br label %36
 
-16:                                               ; preds = %9
-  %17 = icmp eq i64 %13, 0
-  br i1 %17, label %22, label %20
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = load i64, ptr %15, align 8, !noundef !4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %24, label %22
 
 18:                                               ; preds = %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
+  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noundef !4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   store ptr %10, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %13, ptr %19, align 8
-  br label %34
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %20, ptr %21, align 8
+  br label %36
 
-20:                                               ; preds = %16
-  %21 = icmp ult i64 %13, %3
-  br i1 %21, label %25, label %24
+22:                                               ; preds = %14
+  %23 = icmp ult i64 %16, %3
+  br i1 %23, label %27, label %26
 
-22:                                               ; preds = %16
+24:                                               ; preds = %14
   store ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.22.llvm.11656387384687170936, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %23, align 8
-  br label %34
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 8, ptr %25, align 8
+  br label %36
 
-24:                                               ; preds = %20
-  %or.cond = icmp ugt i64 %13, 8589934591
-  br i1 %or.cond, label %28, label %.critedge
+26:                                               ; preds = %22
+  %or.cond = icmp ugt i64 %16, 8589934591
+  br i1 %or.cond, label %30, label %.critedge
 
-25:                                               ; preds = %20
+27:                                               ; preds = %22
   store ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.22.llvm.11656387384687170936, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %26, align 8
-  br label %34
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 8, ptr %28, align 8
+  br label %36
 
-.critedge:                                        ; preds = %24
-  %27 = and i64 %13, 1
-  %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %32, label %30
+.critedge:                                        ; preds = %26
+  %29 = and i64 %16, 1
+  %.not = icmp eq i64 %29, 0
+  br i1 %.not, label %34, label %32
 
-28:                                               ; preds = %24
+30:                                               ; preds = %26
   store ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %29, align 8
-  br label %34
-
-30:                                               ; preds = %.critedge
   %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %13, ptr %31, align 8
-  store ptr null, ptr %0, align 8
-  br label %34
+  store i64 8, ptr %31, align 8
+  br label %36
 
 32:                                               ; preds = %.critedge
-  store ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 16, ptr %33, align 8
-  br label %34
+  store i64 %16, ptr %33, align 8
+  store ptr null, ptr %0, align 8
+  br label %36
 
-34:                                               ; preds = %22, %25, %28, %32, %30, %18, %14
+34:                                               ; preds = %.critedge
+  store ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, ptr %0, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 16, ptr %35, align 8
+  br label %36
+
+36:                                               ; preds = %24, %27, %30, %34, %32, %18, %12
   ret void
 }
 

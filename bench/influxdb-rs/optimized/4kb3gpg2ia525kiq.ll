@@ -437,23 +437,30 @@ common.resume:                                    ; preds = %49, %30
   store ptr %13, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %14, ptr %11, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %37 = getelementptr inbounds i8, ptr %1, i64 56
   %38 = load i64, ptr %37, align 8, !noundef !4
   %.not.i = icmp eq i64 %38, 7
-  br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit", label %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit
+  br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit": ; preds = %36
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %18, ptr noundef nonnull readonly dereferenceable(7) @anon.308865ba680f7ac200acd848c104eb90.18, i64 7), !alias.scope !81
   %39 = icmp eq i32 %bcmp.i, 0
   br i1 %39, label %41, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit25"
 
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit.thread": ; preds = %36
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
+  br label %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit
+
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit25": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %bcmp.i24 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %18, ptr noundef nonnull readonly dereferenceable(7) @anon.308865ba680f7ac200acd848c104eb90.20, i64 7), !alias.scope !85
   %40 = icmp eq i32 %bcmp.i24, 0
   br i1 %40, label %41, label %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit
 
 41:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit25", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.030)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !89
   store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !noalias !89
   %.sroa.4.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %6, i64 8
@@ -507,7 +514,7 @@ common.resume:                                    ; preds = %49, %30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.030)
   br label %58
 
-_ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %36, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit25"
+_ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit25"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %12, ptr %9, align 8
   %55 = getelementptr inbounds i8, ptr %9, i64 8

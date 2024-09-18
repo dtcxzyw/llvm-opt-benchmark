@@ -233,6 +233,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8, !range !27, !invariant.load !5, !noalias !28
   %12 = getelementptr inbounds i8, ptr %6, i64 16
@@ -247,6 +248,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i"
 
 16:                                               ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !range !27, !invariant.load !5, !noalias !32
   %19 = getelementptr inbounds i8, ptr %6, i64 16
@@ -488,6 +490,7 @@ define hidden void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$all
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !113
   store ptr %0, ptr %3, align 8, !noalias !113
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %6 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h9fa2705561b2c7dbE.llvm.6686154611312599027(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..net..socket_addr..SocketAddr$GT$$GT$17hb4937da6b3ae4c0dE.exit" unwind label %7
 
@@ -1037,6 +1040,7 @@ define hidden void @"_ZN4core3ptr215drop_in_place$LT$core..result..Result$LT$cor
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !290
   store ptr %6, ptr %3, align 8, !noalias !290
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %10 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h9fa2705561b2c7dbE.llvm.6686154611312599027(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
           to label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..net..socket_addr..SocketAddr$GT$$GT$17hb4937da6b3ae4c0dE.exit.i" unwind label %11
 
@@ -2244,6 +2248,7 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !717)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !720)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !723, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %2, i64 112
@@ -2263,6 +2268,7 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$alloc..boxed..Box$LT$tokio.
 18:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !734)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !740, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %2, i64 112
@@ -2717,6 +2723,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !27, !invariant.load !5, !noalias !903
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2731,6 +2738,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !27, !invariant.load !5, !noalias !906
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -3729,6 +3737,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %
 12:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !963)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !966)
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8, !noalias !969, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3748,6 +3757,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %
 21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !981)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !984)
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %19, i64 24
   %23 = load ptr, ptr %22, align 8, !noalias !987, !nonnull !5, !noundef !5
   %24 = getelementptr inbounds i8, ptr %0, i64 112
@@ -4566,6 +4576,7 @@ common.resume:                                    ; preds = %_ZN5tokio7runtime4t
 27:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1179)
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %28 = getelementptr inbounds i8, ptr %25, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !1182, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds i8, ptr %0, i64 112
@@ -4585,6 +4596,7 @@ common.resume:                                    ; preds = %_ZN5tokio7runtime4t
 36:                                               ; preds = %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1194)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1197)
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
   %37 = getelementptr inbounds i8, ptr %34, i64 24
   %38 = load ptr, ptr %37, align 8, !noalias !1200, !nonnull !5, !noundef !5
   %39 = getelementptr inbounds i8, ptr %0, i64 112
@@ -5253,6 +5265,8 @@ default.unreachable.i:                            ; preds = %_ZN3std9panicking3t
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1329, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.610.029.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.027.i, i64 8) ]
   br label %24
 
 24:                                               ; preds = %19, %_ZN3std9panicking3try17h667560cdac503ed7E.exit.i
@@ -5295,6 +5309,7 @@ default.unreachable.i:                            ; preds = %_ZN3std9panicking3t
 31:                                               ; preds = %25
   %32 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %29, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !1339
   %35 = getelementptr inbounds i8, ptr %29, i64 16
@@ -5309,6 +5324,7 @@ default.unreachable.i:                            ; preds = %_ZN3std9panicking3t
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 39:                                               ; preds = %25
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %29, i64 8
   %41 = load i64, ptr %40, align 8, !range !27, !invariant.load !5, !noalias !1342
   %42 = getelementptr inbounds i8, ptr %29, i64 16
@@ -5495,6 +5511,8 @@ _ZN3std9panicking3try17hf8d9e7ba487b4c67E.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1353, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17hf8d9e7ba487b4c67E.exit.i
@@ -5540,6 +5558,7 @@ _ZN3std9panicking3try17hf8d9e7ba487b4c67E.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1363
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -5554,6 +5573,7 @@ _ZN3std9panicking3try17hf8d9e7ba487b4c67E.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1366
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -5744,6 +5764,8 @@ _ZN3std9panicking3try17h04222b873a641507E.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1377, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17h04222b873a641507E.exit.i
@@ -5789,6 +5811,7 @@ _ZN3std9panicking3try17h04222b873a641507E.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1387
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -5803,6 +5826,7 @@ _ZN3std9panicking3try17h04222b873a641507E.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1390
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -5993,6 +6017,8 @@ _ZN3std9panicking3try17hffd78d2fefa2b46eE.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1401, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17hffd78d2fefa2b46eE.exit.i
@@ -6038,6 +6064,7 @@ _ZN3std9panicking3try17hffd78d2fefa2b46eE.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1411
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -6052,6 +6079,7 @@ _ZN3std9panicking3try17hffd78d2fefa2b46eE.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1414
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -6242,6 +6270,8 @@ _ZN3std9panicking3try17h1796fd03056f73f3E.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1425, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17h1796fd03056f73f3E.exit.i
@@ -6287,6 +6317,7 @@ _ZN3std9panicking3try17h1796fd03056f73f3E.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1435
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -6301,6 +6332,7 @@ _ZN3std9panicking3try17h1796fd03056f73f3E.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1438
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -6492,6 +6524,8 @@ default.unreachable.i:                            ; preds = %_ZN3std9panicking3t
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1449, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.610.029.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.027.i, i64 8) ]
   br label %24
 
 24:                                               ; preds = %19, %_ZN3std9panicking3try17h9f1e59da756ff864E.exit.i
@@ -6534,6 +6568,7 @@ default.unreachable.i:                            ; preds = %_ZN3std9panicking3t
 31:                                               ; preds = %25
   %32 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %29, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !1459
   %35 = getelementptr inbounds i8, ptr %29, i64 16
@@ -6548,6 +6583,7 @@ default.unreachable.i:                            ; preds = %_ZN3std9panicking3t
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 39:                                               ; preds = %25
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %29, i64 8
   %41 = load i64, ptr %40, align 8, !range !27, !invariant.load !5, !noalias !1462
   %42 = getelementptr inbounds i8, ptr %29, i64 16
@@ -6734,6 +6770,8 @@ _ZN3std9panicking3try17hed825f1e0858821aE.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1473, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17hed825f1e0858821aE.exit.i
@@ -6779,6 +6817,7 @@ _ZN3std9panicking3try17hed825f1e0858821aE.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1483
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -6793,6 +6832,7 @@ _ZN3std9panicking3try17hed825f1e0858821aE.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1486
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -6983,6 +7023,8 @@ _ZN3std9panicking3try17hf115afa5214b36c2E.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1497, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17hf115afa5214b36c2E.exit.i
@@ -7028,6 +7070,7 @@ _ZN3std9panicking3try17hf115afa5214b36c2E.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1507
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -7042,6 +7085,7 @@ _ZN3std9panicking3try17hf115afa5214b36c2E.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1510
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -7255,6 +7299,7 @@ default.unreachable16:                            ; preds = %58, %1
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1531
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -7269,6 +7314,7 @@ default.unreachable16:                            ; preds = %58, %1
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1534
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -7455,6 +7501,8 @@ _ZN3std9panicking3try17h5c408145bb83c7f5E.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1545, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17h5c408145bb83c7f5E.exit.i
@@ -7500,6 +7548,7 @@ _ZN3std9panicking3try17h5c408145bb83c7f5E.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1555
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -7514,6 +7563,7 @@ _ZN3std9panicking3try17h5c408145bb83c7f5E.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1558
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -7708,6 +7758,8 @@ _ZN3std9panicking3try17h8c4b270d7ea52eaeE.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1569, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17h8c4b270d7ea52eaeE.exit.i
@@ -7753,6 +7805,7 @@ _ZN3std9panicking3try17h8c4b270d7ea52eaeE.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1579
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -7767,6 +7820,7 @@ _ZN3std9panicking3try17h8c4b270d7ea52eaeE.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1582
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -7957,6 +8011,8 @@ _ZN3std9panicking3try17h436cd60fd677c145E.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1593, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17h436cd60fd677c145E.exit.i
@@ -8002,6 +8058,7 @@ _ZN3std9panicking3try17h436cd60fd677c145E.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1603
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -8016,6 +8073,7 @@ _ZN3std9panicking3try17h436cd60fd677c145E.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1606
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -8206,6 +8264,8 @@ _ZN3std9panicking3try17h09883a1c032d2004E.exit.i: ; preds = %11
   call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %9, i64 48
   %23 = load i64, ptr %22, align 8, !noalias !1617, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.615.030.i, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.9.028.i, i64 8) ]
   br label %25
 
 24:                                               ; preds = %_ZN3std9panicking3try17h09883a1c032d2004E.exit.i
@@ -8251,6 +8311,7 @@ _ZN3std9panicking3try17h09883a1c032d2004E.exit.i: ; preds = %11
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8, !range !27, !invariant.load !5, !noalias !1627
   %36 = getelementptr inbounds i8, ptr %30, i64 16
@@ -8265,6 +8326,7 @@ _ZN3std9panicking3try17h09883a1c032d2004E.exit.i: ; preds = %11
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i.i"
 
 40:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   %42 = load i64, ptr %41, align 8, !range !27, !invariant.load !5, !noalias !1630
   %43 = getelementptr inbounds i8, ptr %30, i64 16
@@ -9583,6 +9645,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1826)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1829)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !1832, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 112
@@ -9602,6 +9665,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7deallo
 17:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1844)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1847)
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !1850, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %0, i64 112
@@ -11097,6 +11161,7 @@ _ZN3std9panicking3try17heb9336b7c2e72960E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2099
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11111,6 +11176,7 @@ _ZN3std9panicking3try17heb9336b7c2e72960E.exit.thread: ; preds = %12
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca79b9bc899f7a0dE.llvm.4698933542364062918.exit.i.i"
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2102
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11192,6 +11258,7 @@ _ZN3std9panicking3try17h0760c326a2e203aaE.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2113
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11206,6 +11273,7 @@ _ZN3std9panicking3try17h0760c326a2e203aaE.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2116
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11315,6 +11383,7 @@ _ZN3std9panicking3try17h77cb35de3b9536e5E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2136
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11329,6 +11398,7 @@ _ZN3std9panicking3try17h77cb35de3b9536e5E.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2139
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11438,6 +11508,7 @@ _ZN3std9panicking3try17h8bd13776092b883bE.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2159
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11452,6 +11523,7 @@ _ZN3std9panicking3try17h8bd13776092b883bE.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2162
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11561,6 +11633,7 @@ _ZN3std9panicking3try17ha802a56f036280c5E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2182
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11575,6 +11648,7 @@ _ZN3std9panicking3try17ha802a56f036280c5E.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2185
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11684,6 +11758,7 @@ _ZN3std9panicking3try17ha2a01080090643abE.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2205
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11698,6 +11773,7 @@ _ZN3std9panicking3try17ha2a01080090643abE.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2208
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11807,6 +11883,7 @@ _ZN3std9panicking3try17h6784f144db9bfa70E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2228
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11821,6 +11898,7 @@ _ZN3std9panicking3try17h6784f144db9bfa70E.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2231
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11930,6 +12008,7 @@ _ZN3std9panicking3try17h5cd48fa523576d89E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2251
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11944,6 +12023,7 @@ _ZN3std9panicking3try17h5cd48fa523576d89E.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2254
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12053,6 +12133,7 @@ _ZN3std9panicking3try17h9a2f17a2cec4f1d4E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2274
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12067,6 +12148,7 @@ _ZN3std9panicking3try17h9a2f17a2cec4f1d4E.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2277
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12176,6 +12258,7 @@ _ZN3std9panicking3try17h2a43382d5b8e7fc5E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2297
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12190,6 +12273,7 @@ _ZN3std9panicking3try17h2a43382d5b8e7fc5E.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2300
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12299,6 +12383,7 @@ _ZN3std9panicking3try17h2e4da21808e87686E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2320
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12313,6 +12398,7 @@ _ZN3std9panicking3try17h2e4da21808e87686E.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2323
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12422,6 +12508,7 @@ _ZN3std9panicking3try17ha03e97f64a93d851E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2343
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12436,6 +12523,7 @@ _ZN3std9panicking3try17ha03e97f64a93d851E.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2346
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12545,6 +12633,7 @@ _ZN3std9panicking3try17hbb90138e06bb9e02E.exit.thread: ; preds = %12
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !range !27, !invariant.load !5, !noalias !2366
   %24 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12559,6 +12648,7 @@ _ZN3std9panicking3try17hbb90138e06bb9e02E.exit.thread: ; preds = %12
   br label %common.resume
 
 28:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i64, ptr %29, align 8, !range !27, !invariant.load !5, !noalias !2369
   %31 = getelementptr inbounds i8, ptr %18, i64 16
@@ -12668,6 +12758,7 @@ _ZN3std9panicking3try17h4a9aaf33bbc3d560E.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2390
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -12682,6 +12773,7 @@ _ZN3std9panicking3try17h4a9aaf33bbc3d560E.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2393
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -12827,6 +12919,7 @@ _ZN3std9panicking3try17h5a04e6cb3e08acffE.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2423
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -12841,6 +12934,7 @@ _ZN3std9panicking3try17h5a04e6cb3e08acffE.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2426
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -12986,6 +13080,7 @@ _ZN3std9panicking3try17h1eae228917f4f4a8E.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2456
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13000,6 +13095,7 @@ _ZN3std9panicking3try17h1eae228917f4f4a8E.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2459
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13145,6 +13241,7 @@ _ZN3std9panicking3try17h23f2d16eef4aef4cE.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2489
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13159,6 +13256,7 @@ _ZN3std9panicking3try17h23f2d16eef4aef4cE.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2492
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13304,6 +13402,7 @@ _ZN3std9panicking3try17h3db607b4547f35f9E.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2522
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13318,6 +13417,7 @@ _ZN3std9panicking3try17h3db607b4547f35f9E.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2525
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13463,6 +13563,7 @@ _ZN3std9panicking3try17hb4ae129cbfa42cfaE.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2555
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13477,6 +13578,7 @@ _ZN3std9panicking3try17hb4ae129cbfa42cfaE.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2558
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13563,6 +13665,7 @@ _ZN5tokio7runtime4task5state5State22transition_to_terminal17h05f009a0c3771f5dE.e
 64:                                               ; preds = %59
   call void @llvm.experimental.noalias.scope.decl(metadata !2583)
   call void @llvm.experimental.noalias.scope.decl(metadata !2586)
+  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 8) ]
   %65 = getelementptr inbounds i8, ptr %62, i64 24
   %66 = load ptr, ptr %65, align 8, !noalias !2589, !nonnull !5, !noundef !5
   %67 = getelementptr inbounds i8, ptr %57, i64 112
@@ -13582,6 +13685,7 @@ _ZN5tokio7runtime4task5state5State22transition_to_terminal17h05f009a0c3771f5dE.e
 73:                                               ; preds = %69
   call void @llvm.experimental.noalias.scope.decl(metadata !2601)
   call void @llvm.experimental.noalias.scope.decl(metadata !2604)
+  call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 8) ]
   %74 = getelementptr inbounds i8, ptr %71, i64 24
   %75 = load ptr, ptr %74, align 8, !noalias !2607, !nonnull !5, !noundef !5
   %76 = getelementptr inbounds i8, ptr %57, i64 112
@@ -13673,6 +13777,7 @@ _ZN3std9panicking3try17h1036d81cdd52064eE.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2624
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13687,6 +13792,7 @@ _ZN3std9panicking3try17h1036d81cdd52064eE.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2627
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13832,6 +13938,7 @@ _ZN3std9panicking3try17h9c041157f4edb7ebE.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2657
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13846,6 +13953,7 @@ _ZN3std9panicking3try17h9c041157f4edb7ebE.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2660
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13991,6 +14099,7 @@ _ZN3std9panicking3try17hdb3cf5c58cd4327eE.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2690
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -14005,6 +14114,7 @@ _ZN3std9panicking3try17hdb3cf5c58cd4327eE.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2693
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -14150,6 +14260,7 @@ _ZN3std9panicking3try17h74010dcf804764e5E.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2723
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -14164,6 +14275,7 @@ _ZN3std9panicking3try17h74010dcf804764e5E.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2726
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -14309,6 +14421,7 @@ _ZN3std9panicking3try17hb175ec1a27122b01E.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2756
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -14323,6 +14436,7 @@ _ZN3std9panicking3try17hb175ec1a27122b01E.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2759
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -14468,6 +14582,7 @@ _ZN3std9panicking3try17h48310ad935c38f1fE.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2789
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -14482,6 +14597,7 @@ _ZN3std9panicking3try17h48310ad935c38f1fE.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2792
   %35 = getelementptr inbounds i8, ptr %22, i64 16
@@ -14627,6 +14743,7 @@ _ZN3std9panicking3try17hb892c9cfcb92fbacE.exit.thread: ; preds = %_ZN5tokio7runt
 24:                                               ; preds = %18
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i64, ptr %26, align 8, !range !27, !invariant.load !5, !noalias !2822
   %28 = getelementptr inbounds i8, ptr %22, i64 16
@@ -14641,6 +14758,7 @@ _ZN3std9panicking3try17hb892c9cfcb92fbacE.exit.thread: ; preds = %_ZN5tokio7runt
   br label %common.resume
 
 32:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !range !27, !invariant.load !5, !noalias !2825
   %35 = getelementptr inbounds i8, ptr %22, i64 16

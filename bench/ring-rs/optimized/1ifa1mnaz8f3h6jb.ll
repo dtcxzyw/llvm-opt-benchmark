@@ -2220,7 +2220,7 @@ define i40 @_ZN4ring4aead4quic17chacha20_new_mask17hc4295ec86d6d218bE(ptr noalia
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4ring3rsa7padding4mgf117h24b32f1a0b177c23E(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 1 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @_ZN4ring3rsa7padding4mgf117h24b32f1a0b177c23E(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 1 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { {} }, align 1
   %7 = alloca { ptr, { [8 x i64] }, i64 }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -2268,6 +2268,7 @@ define hidden void @_ZN4ring3rsa7padding4mgf117h24b32f1a0b177c23E(ptr noalias no
   %26 = getelementptr inbounds i8, ptr %.sroa.0.045, i64 %.0.sroa.speculated.i.i.i
   %27 = sub nuw i64 %.sroa.515.046, %.0.sroa.speculated.i.i.i
   %28 = add nuw nsw i64 %.sroa.10.047, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.045, i64 1) ]
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !450)
   store ptr %0, ptr %12, align 8, !alias.scope !453, !noalias !450

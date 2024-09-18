@@ -55,6 +55,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h13bc0bb185bac1d6E
   unreachable
 
 "_ZN4ring2ec7suite_b3ops4p38417PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h11b51cb358a6c563E.exit": ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr @_ZN4ring2ec7suite_b3ops4p38410SCALAR_OPS17h5f9125803deed470E, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !noalias !12
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZN4ring2ec7suite_b3ops4p38418PRIVATE_SCALAR_OPS17hcccc24243ed6cd20E, i64 16)), !noalias !18
@@ -969,6 +970,7 @@ common.resume:                                    ; preds = %61, %44
   br i1 %58, label %85, label %59
 
 59:                                               ; preds = %57
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   %60 = invoke noundef i64 @ring_core_0_17_8__LIMBS_are_even(ptr noundef nonnull %50, i64 noundef %51)
           to label %63 unwind label %61
 
@@ -1218,6 +1220,7 @@ common.resume:                                    ; preds = %61, %44
   br i1 %58, label %85, label %59
 
 59:                                               ; preds = %57
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   %60 = invoke noundef i64 @ring_core_0_17_8__LIMBS_are_even(ptr noundef nonnull %50, i64 noundef %51)
           to label %63 unwind label %61
 
@@ -1467,6 +1470,7 @@ common.resume:                                    ; preds = %61, %44
   br i1 %58, label %85, label %59
 
 59:                                               ; preds = %57
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   %60 = invoke noundef i64 @ring_core_0_17_8__LIMBS_are_even(ptr noundef nonnull %50, i64 noundef %51)
           to label %63 unwind label %61
 
@@ -1716,6 +1720,7 @@ common.resume:                                    ; preds = %61, %44
   br i1 %58, label %85, label %59
 
 59:                                               ; preds = %57
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
   %60 = invoke noundef i64 @ring_core_0_17_8__LIMBS_are_even(ptr noundef nonnull %50, i64 noundef %51)
           to label %63 unwind label %61
 
@@ -2079,12 +2084,12 @@ _ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit: ; preds = %12
   %21 = load i64, ptr %20, align 8, !noundef !67
   %22 = sub i64 %17, %21
   %23 = icmp eq i64 %17, %21
-  br i1 %23, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader
+  br i1 %23, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph
 
 .thread:                                          ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit, %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
   ret void
 
-_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
+_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph: ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
   %24 = and i64 %22, 63
   %25 = lshr i64 -1, %24
   %26 = add i64 %2, -1
@@ -2092,10 +2097,11 @@ _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %_
   %28 = load i64, ptr %27, align 8, !noundef !67
   %29 = and i64 %28, %25
   store i64 %29, ptr %27, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   br label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
 
-_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
-  %.sroa.02.010 = phi i64 [ %30, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
+_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
+  %.sroa.02.010 = phi i64 [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph ], [ %30, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ]
   %30 = add nuw i64 %.sroa.02.010, 1
   tail call void @ring_core_0_17_8__LIMBS_shl_mod(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull readonly %13, i64 noundef %2)
   %exitcond.not = icmp eq i64 %30, %22
@@ -2150,12 +2156,12 @@ _ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit: ; preds = %12
   %21 = load i64, ptr %20, align 8, !noundef !67
   %22 = sub i64 %17, %21
   %23 = icmp eq i64 %17, %21
-  br i1 %23, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader
+  br i1 %23, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph
 
 .thread:                                          ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit, %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
   ret void
 
-_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
+_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph: ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
   %24 = and i64 %22, 63
   %25 = lshr i64 -1, %24
   %26 = add i64 %2, -1
@@ -2163,10 +2169,11 @@ _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %_
   %28 = load i64, ptr %27, align 8, !noundef !67
   %29 = and i64 %28, %25
   store i64 %29, ptr %27, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   br label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
 
-_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
-  %.sroa.02.010 = phi i64 [ %30, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
+_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
+  %.sroa.02.010 = phi i64 [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph ], [ %30, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ]
   %30 = add nuw i64 %.sroa.02.010, 1
   tail call void @ring_core_0_17_8__LIMBS_shl_mod(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull readonly %13, i64 noundef %2)
   %exitcond.not = icmp eq i64 %30, %22
@@ -2221,12 +2228,12 @@ _ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit: ; preds = %12
   %21 = load i64, ptr %20, align 8, !noundef !67
   %22 = sub i64 %17, %21
   %23 = icmp eq i64 %17, %21
-  br i1 %23, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader
+  br i1 %23, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph
 
 .thread:                                          ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit, %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
   ret void
 
-_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
+_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph: ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
   %24 = and i64 %22, 63
   %25 = lshr i64 -1, %24
   %26 = add i64 %2, -1
@@ -2234,10 +2241,11 @@ _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %_
   %28 = load i64, ptr %27, align 8, !noundef !67
   %29 = and i64 %28, %25
   store i64 %29, ptr %27, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   br label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
 
-_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
-  %.sroa.02.010 = phi i64 [ %30, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
+_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
+  %.sroa.02.010 = phi i64 [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.lr.ph ], [ %30, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ]
   %30 = add nuw i64 %.sroa.02.010, 1
   tail call void @ring_core_0_17_8__LIMBS_shl_mod(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull readonly %13, i64 noundef %2)
   %exitcond.not = icmp eq i64 %30, %22

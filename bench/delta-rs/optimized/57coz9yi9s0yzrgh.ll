@@ -2061,8 +2061,10 @@ define hidden void @"_ZN12object_store6prefix20PrefixStore$LT$T$GT$12strip_prefi
   resume { ptr, i32 } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN12object_store6prefix20PrefixStore$LT$T$GT$3new17haa555326842a8682E"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr, {} }, i64 } } }, { { { { ptr, ptr } }, {} }, {} } }) align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
@@ -6235,6 +6237,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !544, !invariant.load !5, !noalias !1268
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -6249,6 +6252,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5f1f05099ca4737bE.llvm.7971432176722068333.exit"
 
 15:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load i64, ptr %16, align 8, !range !544, !invariant.load !5, !noalias !1271
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -11419,6 +11423,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %24, align 1
   %25 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 8) ]
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h83abee8b5a0a7a48E(ptr noundef nonnull %25, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %29 unwind label %27
 
@@ -11816,7 +11821,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { cold inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

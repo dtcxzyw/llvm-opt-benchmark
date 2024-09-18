@@ -2144,51 +2144,55 @@ define internal fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(p
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit"
 
 ._crit_edge:                                      ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8", %7
-  %.lcssa = phi i64 [ %29, %7 ], [ %46, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8" ]
+  %.lcssa = phi i64 [ %29, %7 ], [ %47, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8" ]
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.lcssa, i64 noundef 64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46ac70c01d12096318b30cbe23e8e5d5.33) #22, !noalias !269
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit.lr.ph", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8"
-  %32 = phi i64 [ %29, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit.lr.ph" ], [ %46, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8" ]
-  %.012 = phi i32 [ %1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit.lr.ph" ], [ %43, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8" ]
+  %32 = phi i64 [ %29, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit.lr.ph" ], [ %47, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8" ]
+  %33 = phi ptr [ %27, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit.lr.ph" ], [ %45, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8" ]
+  %.012 = phi i32 [ %1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit.lr.ph" ], [ %44, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8" ]
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %6, i64 %32)
   %.not.i.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h84ff889a3bee275bE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit", %.lr.ph.i.i.i
-  %.sroa.01.014.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit" ]
-  %33 = add nuw i64 %.sroa.01.014.i.i.i, 1
-  %34 = getelementptr inbounds i8, ptr %5, i64 %.sroa.01.014.i.i.i
-  %35 = getelementptr inbounds i8, ptr %26, i64 %.sroa.01.014.i.i.i
-  %.val10.i.i.i = load i8, ptr %35, align 1, !noalias !272, !noundef !4
-  %36 = load i8, ptr %34, align 1, !alias.scope !279, !noalias !272, !noundef !4
-  %37 = xor i8 %36, %.val10.i.i.i
-  store i8 %37, ptr %34, align 1, !alias.scope !279, !noalias !272
-  %exitcond.not.i.i.i = icmp eq i64 %33, %.0.sroa.speculated.i.i.i
+  %.sroa.01.014.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit" ]
+  %34 = add nuw i64 %.sroa.01.014.i.i.i, 1
+  %35 = getelementptr inbounds i8, ptr %5, i64 %.sroa.01.014.i.i.i
+  %36 = getelementptr inbounds i8, ptr %26, i64 %.sroa.01.014.i.i.i
+  %.val10.i.i.i = load i8, ptr %36, align 1, !noalias !272, !noundef !4
+  %37 = load i8, ptr %35, align 1, !alias.scope !279, !noalias !272, !noundef !4
+  %38 = xor i8 %37, %.val10.i.i.i
+  store i8 %38, ptr %35, align 1, !alias.scope !279, !noalias !272
+  %exitcond.not.i.i.i = icmp eq i64 %34, %.0.sroa.speculated.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h84ff889a3bee275bE.exit, label %.lr.ph.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h84ff889a3bee275bE.exit: ; preds = %.lr.ph.i.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit"
-  %38 = icmp eq i32 %.012, 1
-  br i1 %38, label %39, label %40
+  %39 = icmp eq i32 %.012, 1
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h84ff889a3bee275bE.exit
+40:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h84ff889a3bee275bE.exit
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %14)
   ret void
 
-40:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h84ff889a3bee275bE.exit
+41:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h84ff889a3bee275bE.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
-  %41 = icmp ugt i64 %32, 64
-  br i1 %41, label %42, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8"
+  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
+  %42 = icmp ugt i64 %32, 64
+  br i1 %42, label %43, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8"
 
-42:                                               ; preds = %40
+43:                                               ; preds = %41
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %32, i64 noundef 64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46ac70c01d12096318b30cbe23e8e5d5.33) #22, !noalias !284
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8": ; preds = %40
-  %43 = add i32 %.012, -1
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit8": ; preds = %41
+  %44 = add i32 %.012, -1
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %9), !noalias !287
   call void @llvm.experimental.noalias.scope.decl(metadata !292)
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   store ptr %18, ptr %9, align 8, !alias.scope !295, !noalias !297
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.42.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %15, i64 64, i1 false), !alias.scope !298, !noalias !299
   store i64 %17, ptr %.sroa.5.0..sroa_idx3.i.i, align 8, !alias.scope !295, !noalias !297
@@ -2204,11 +2208,11 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h84ff889a3bee275bE.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %9), !noalias !287
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
-  %44 = load ptr, ptr %12, align 8, !nonnull !4, !align !5, !noundef !4
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
-  %46 = load i64, ptr %45, align 8, !noundef !4
-  %47 = icmp ugt i64 %46, 64
-  br i1 %47, label %._crit_edge, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit"
+  %45 = load ptr, ptr %12, align 8, !nonnull !4, !align !5, !noundef !4
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8, !noundef !4
+  %48 = icmp ugt i64 %47, 64
+  br i1 %48, label %._crit_edge, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

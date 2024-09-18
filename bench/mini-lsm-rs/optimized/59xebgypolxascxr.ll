@@ -3477,6 +3477,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 43:                                               ; preds = %41
   %44 = inttoptr i64 %42 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %45 = atomicrmw sub ptr %18, i64 1 monotonic, align 8
   %46 = atomicrmw add ptr %31, i64 1 monotonic, align 8
   %47 = getelementptr inbounds i8, ptr %44, i64 32
@@ -3699,6 +3700,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 43:                                               ; preds = %41
   %44 = inttoptr i64 %42 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %45 = atomicrmw sub ptr %18, i64 1 monotonic, align 8
   %46 = atomicrmw add ptr %31, i64 1 monotonic, align 8
   %47 = getelementptr inbounds i8, ptr %44, i64 8
@@ -3940,6 +3942,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 46:                                               ; preds = %.loopexit
   %47 = inttoptr i64 %45 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %48 = atomicrmw sub ptr %19, i64 1 monotonic, align 8
   %49 = atomicrmw add ptr %32, i64 1 monotonic, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 8
@@ -4174,6 +4177,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 46:                                               ; preds = %44
   %47 = inttoptr i64 %45 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %48 = atomicrmw sub ptr %19, i64 1 monotonic, align 8
   %49 = atomicrmw add ptr %32, i64 1 monotonic, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 8
@@ -4402,6 +4406,7 @@ define hidden { ptr, ptr } @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$
 
 44:                                               ; preds = %42
   %45 = inttoptr i64 %43 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %46 = atomicrmw sub ptr %19, i64 1 monotonic, align 8
   %47 = atomicrmw add ptr %32, i64 1 monotonic, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 8
@@ -4648,6 +4653,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 43:                                               ; preds = %41
   %44 = inttoptr i64 %42 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %45 = atomicrmw sub ptr %18, i64 1 monotonic, align 8
   %46 = atomicrmw add ptr %31, i64 1 monotonic, align 8
   %47 = getelementptr inbounds i8, ptr %44, i64 8
@@ -4870,6 +4876,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 43:                                               ; preds = %41
   %44 = inttoptr i64 %42 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %45 = atomicrmw sub ptr %18, i64 1 monotonic, align 8
   %46 = atomicrmw add ptr %31, i64 1 monotonic, align 8
   %47 = getelementptr inbounds i8, ptr %44, i64 8
@@ -5111,6 +5118,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 46:                                               ; preds = %.loopexit
   %47 = inttoptr i64 %45 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %48 = atomicrmw sub ptr %19, i64 1 monotonic, align 8
   %49 = atomicrmw add ptr %32, i64 1 monotonic, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 8
@@ -5345,6 +5353,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 46:                                               ; preds = %44
   %47 = inttoptr i64 %45 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %48 = atomicrmw sub ptr %19, i64 1 monotonic, align 8
   %49 = atomicrmw add ptr %32, i64 1 monotonic, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 8
@@ -5698,6 +5707,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %.val6.pre.i, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.4.0.copyload, i64 8) ]
   %31 = load ptr, ptr %.sroa.4.0.copyload, align 8, !alias.scope !646, !noalias !649, !nonnull !14, !noundef !14
   %32 = invoke noundef zeroext i1 %31(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %30)
           to label %.noexc17 unwind label %.thread.loopexit.split-lp
@@ -6163,6 +6173,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %.val6.pre.i, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.4.0.copyload, i64 8) ]
   %31 = load ptr, ptr %.sroa.4.0.copyload, align 8, !alias.scope !690, !noalias !693, !nonnull !14, !noundef !14
   %32 = invoke noundef zeroext i1 %31(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %30)
           to label %.noexc17 unwind label %.thread.loopexit.split-lp
@@ -6808,6 +6819,7 @@ default.unreachable76:                            ; preds = %42
           to label %89 unwind label %.loopexit
 
 47:                                               ; preds = %42
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %48 = atomicrmw add ptr %22, i64 1 monotonic, align 8
   br label %_ZN4moka3cht3map6bucket20defer_destroy_bucket17h47421f93e1f20969E.exit
 
@@ -6863,6 +6875,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h47421f93e1f20969E.exit: ; preds 
   unreachable
 
 71:                                               ; preds = %49
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %72 = atomicrmw add ptr %22, i64 1 monotonic, align 8
   %73 = icmp ult i64 %51, 8
   br i1 %73, label %.invoke, label %74
@@ -7122,6 +7135,7 @@ default.unreachable76:                            ; preds = %45
           to label %92 unwind label %.loopexit
 
 50:                                               ; preds = %45
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %51 = atomicrmw add ptr %25, i64 1 monotonic, align 8
   br label %_ZN4moka3cht3map6bucket20defer_destroy_bucket17hd2b6c6fda3dfb47dE.exit
 
@@ -7177,6 +7191,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17hd2b6c6fda3dfb47dE.exit: ; preds 
   unreachable
 
 74:                                               ; preds = %52
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   %75 = atomicrmw add ptr %25, i64 1 monotonic, align 8
   %76 = icmp ult i64 %54, 8
   br i1 %76, label %.invoke, label %77
@@ -7387,6 +7402,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
 
 .noexc:                                           ; preds = %17, %9
   %.013 = phi i64 [ %18, %17 ], [ %.sroa.7.0, %9 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %19 = cmpxchg weak ptr %4, i64 0, i64 %.013 acq_rel monotonic, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %19, 1
   br i1 %.sroa.18.0.in.i, label %20, label %5
@@ -7488,6 +7504,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
 
 .noexc:                                           ; preds = %17, %9
   %.013 = phi i64 [ %18, %17 ], [ %.sroa.7.0, %9 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %19 = cmpxchg weak ptr %4, i64 0, i64 %.013 acq_rel monotonic, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %19, 1
   br i1 %.sroa.18.0.in.i, label %20, label %5
@@ -7589,6 +7606,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
 
 .noexc:                                           ; preds = %17, %9
   %.013 = phi i64 [ %18, %17 ], [ %.sroa.7.0, %9 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %19 = cmpxchg weak ptr %4, i64 0, i64 %.013 acq_rel monotonic, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %19, 1
   br i1 %.sroa.18.0.in.i, label %20, label %5
@@ -7655,6 +7673,7 @@ _ZN15crossbeam_epoch6atomic14ensure_aligned17ha7e2ad867cc4d2e1E.exit:
   br i1 %.sroa.18.0.in.i.i.us, label %24, label %17
 
 17:                                               ; preds = %.lr.ph.split.us
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %18 = load atomic i64, ptr %12 acquire, align 8
   %19 = icmp ult i64 %18, 8
   br i1 %19, label %.split.us, label %20
@@ -7716,6 +7735,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17h1731d345d7757375E.exit.us: ; pr
   br label %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h1731d345d7757375E.exit
 
 36:                                               ; preds = %.lr.ph.split
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %37 = load atomic i64, ptr %12 acquire, align 8
   %38 = icmp ult i64 %37, 8
   br i1 %38, label %.split.us, label %41
@@ -7773,6 +7793,7 @@ _ZN15crossbeam_epoch6atomic14ensure_aligned17h80a5cc69983dc1f0E.exit:
   br i1 %.sroa.18.0.in.i.i.us, label %24, label %17
 
 17:                                               ; preds = %.lr.ph.split.us
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %18 = load atomic i64, ptr %12 acquire, align 8
   %19 = icmp ult i64 %18, 8
   br i1 %19, label %.split.us, label %20
@@ -7834,6 +7855,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17h7c06d0bdf3945d07E.exit.us: ; pr
   br label %_ZN4moka3cht3map6bucket21defer_acquire_destroy17h7c06d0bdf3945d07E.exit
 
 36:                                               ; preds = %.lr.ph.split
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %37 = load atomic i64, ptr %12 acquire, align 8
   %38 = icmp ult i64 %37, 8
   br i1 %38, label %.split.us, label %41
@@ -7891,6 +7913,7 @@ _ZN15crossbeam_epoch6atomic14ensure_aligned17h4aa8be36da0f5f5fE.exit:
   br i1 %.sroa.18.0.in.i.i.us, label %24, label %17
 
 17:                                               ; preds = %.lr.ph.split.us
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %18 = load atomic i64, ptr %12 acquire, align 8
   %19 = icmp ult i64 %18, 8
   br i1 %19, label %.split.us, label %20
@@ -7952,6 +7975,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hbec4823cfb688559E.exit.us: ; pr
   br label %_ZN4moka3cht3map6bucket21defer_acquire_destroy17hbec4823cfb688559E.exit
 
 36:                                               ; preds = %.lr.ph.split
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 8) ]
   %37 = load atomic i64, ptr %12 acquire, align 8
   %38 = icmp ult i64 %37, 8
   br i1 %38, label %.split.us, label %41
@@ -8359,6 +8383,7 @@ define hidden { i64, ptr } @"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$35get_or
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr %0, ptr %16, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %19 = invoke noundef ptr @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash17h48c765bda678a1b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noalias noundef align 8 dereferenceable_or_null(8) null)
           to label %20 unwind label %118
 
@@ -8402,6 +8427,7 @@ define hidden { i64, ptr } @"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$35get_or
   store ptr %14, ptr %30, align 8, !noalias !925
   %31 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %13, ptr %31, align 8, !noalias !925
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %32 = getelementptr inbounds i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8, !alias.scope !922, !noalias !927, !nonnull !14, !noundef !14
   %34 = atomicrmw add ptr %29, i64 1 monotonic, align 8, !noalias !925
@@ -8871,6 +8897,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %19
 
 19:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %20 = getelementptr inbounds i8, ptr %0, i64 536
   %21 = load ptr, ptr %20, align 8, !noundef !14
   %.not = icmp eq ptr %21, null
@@ -8937,6 +8964,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %.body unwind label %92, !noalias !999
 
 .noexc8:                                          ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit.thread.i, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
   %49 = getelementptr inbounds i8, ptr %0, i64 560
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1000)
   %50 = load ptr, ptr %49, align 8, !alias.scope !1000, !noalias !1003, !nonnull !14, !noundef !14
@@ -9123,6 +9151,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %18
 
 18:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %0, i64 624
   %20 = load i64, ptr %19, align 8, !range !226, !noundef !14
   %21 = icmp eq i64 %20, 3
@@ -9611,6 +9640,8 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h3dd3b88c499b662dE.exit: ; preds = %66
   store ptr %32, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !1116
   store i64 0, ptr %10, align 8, !noalias !1110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1110
+  call void @llvm.assume(i1 true) [ "align"(ptr %123, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %124, i64 8) ]
   %136 = getelementptr inbounds i8, ptr %8, i64 80
   %.sroa.5124.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.6127.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
@@ -9719,6 +9750,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h3dd3b88c499b662dE.exit: ; preds = %66
   br i1 %163, label %166, label %171
 
 164:                                              ; preds = %156
+  call void @llvm.assume(i1 true) [ "align"(ptr %123, i64 8) ]
   %165 = atomicrmw add ptr %123, i64 1 monotonic, align 8, !noalias !1110
   store ptr null, ptr %9, align 8, !noalias !1110
   br label %_ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i
@@ -9738,6 +9770,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h3dd3b88c499b662dE.exit: ; preds = %66
   unreachable
 
 171:                                              ; preds = %161
+  call void @llvm.assume(i1 true) [ "align"(ptr %123, i64 8) ]
   %172 = atomicrmw add ptr %123, i64 1 monotonic, align 8, !noalias !1110
   br label %173
 
@@ -9969,6 +10002,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
           to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i" unwind label %248
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i": ; preds = %232, %.noexc71
+  call void @llvm.assume(i1 true) [ "align"(ptr %229, i64 8) ]
   %234 = getelementptr inbounds i8, ptr %.sroa.11.0.copyload, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %234, i8 0, i64 16, i1 false)
   %235 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h4108cb4686f8015dE.llvm.5937325364934216154(ptr noundef nonnull %229, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
@@ -10031,6 +10065,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
 
 255:                                              ; preds = %"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$13unset_q_nodes17ha8f9de5a8bb90dc5E.exit"
   %256 = getelementptr inbounds i8, ptr %252, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %250, i64 8) ]
   %257 = load ptr, ptr %33, align 8, !nonnull !14, !noundef !14
   %.val55 = load ptr, ptr %22, align 8
   invoke fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$13notify_upsert17hb1f2bf633ca52f78E"(ptr noundef nonnull align 8 %256, ptr noundef nonnull %257, ptr %.val55, i64 noundef %.sroa.04.0.copyload, i64 %.sroa.5.0.copyload, i64 noundef %.sroa.7.0.copyload, i64 %.sroa.9.0.copyload)
@@ -10175,6 +10210,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
           to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i85" unwind label %320
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i85": ; preds = %312, %.noexc87
+  call void @llvm.assume(i1 true) [ "align"(ptr %309, i64 8) ]
   %314 = getelementptr inbounds i8, ptr %.sroa.11.0.copyload, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %314, i8 0, i64 16, i1 false)
   %315 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h4108cb4686f8015dE.llvm.5937325364934216154(ptr noundef nonnull %309, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
@@ -10213,6 +10249,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
 
 327:                                              ; preds = %"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$13unset_q_nodes17ha8f9de5a8bb90dc5E.exit91"
   %328 = getelementptr inbounds i8, ptr %324, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %322, i64 8) ]
   %329 = load ptr, ptr %33, align 8, !nonnull !14, !noundef !14
   %.val54 = load ptr, ptr %18, align 8
   invoke fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$13notify_upsert17hb1f2bf633ca52f78E"(ptr noundef nonnull align 8 %328, ptr noundef nonnull %329, ptr %.val54, i64 noundef %.sroa.04.0.copyload, i64 %.sroa.5.0.copyload, i64 noundef %.sroa.7.0.copyload, i64 %.sroa.9.0.copyload)

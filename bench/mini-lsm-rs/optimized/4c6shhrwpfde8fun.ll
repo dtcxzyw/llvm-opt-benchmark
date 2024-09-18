@@ -2734,6 +2734,7 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
   call void @llvm.experimental.noalias.scope.decl(metadata !387)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !390
   store ptr %9, ptr %5, align 8, !noalias !390
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %66 = load ptr, ptr %.sroa.5.0..sroa_idx83, align 8, !alias.scope !391, !noundef !4
   %67 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h76fd1158b2dec762E.llvm.7882632941992561125(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)
           to label %70 unwind label %68
@@ -3897,10 +3898,12 @@ common.resume:                                    ; preds = %.body, %426, %.thre
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
   store ptr @anon.4ca6424c5970fe56c18b90431a323fbf.68, ptr %.sroa.47.0..sroa_idx.i, align 8, !noalias !549
   store i64 1, ptr %13, align 8, !noalias !549
+  call void @llvm.assume(i1 true) [ "align"(ptr @anon.4ca6424c5970fe56c18b90431a323fbf.68, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !549
   store ptr %183, ptr %11, align 8, !noalias !564
   %215 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @anon.4ca6424c5970fe56c18b90431a323fbf.68, ptr %215, align 8, !noalias !564
+  call void @llvm.assume(i1 true) [ "align"(ptr @anon.4ca6424c5970fe56c18b90431a323fbf.68, i64 8) ]
   %216 = getelementptr i8, ptr %183, i64 16
   %217 = invoke noundef i128 @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17h09078da7a03ab29cE"(ptr noundef align 1 %216)
           to label %225 unwind label %218, !noalias !568
@@ -4150,6 +4153,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %300 unwind label %.loopexit
 
 300:                                              ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %289, i64 8) ]
   %301 = getelementptr inbounds i8, ptr %288, i64 16
   %302 = load i64, ptr %301, align 8, !range !200, !noundef !4
   %trunc = trunc nuw i64 %302 to i1
@@ -4292,6 +4296,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   store ptr %309, ptr %9, align 8, !noalias !634
   %358 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.val65, ptr %358, align 8, !noalias !634
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val65, i64 8) ]
   %359 = getelementptr inbounds i8, ptr %.val65, i64 16
   %360 = load i64, ptr %359, align 8, !range !334, !invariant.load !4, !alias.scope !631, !noalias !636
   %361 = add i64 %360, -1
@@ -5257,6 +5262,7 @@ define hidden void @"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$13unset
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit": ; preds = %1, %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = cmpxchg ptr %2, i8 1, i8 0 release monotonic, align 1, !noalias !834
@@ -5283,6 +5289,7 @@ define hidden noundef ptr @"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit": ; preds = %1, %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !noundef !4
   %8 = cmpxchg ptr %2, i8 1, i8 0 release monotonic, align 1, !noalias !839
@@ -5309,6 +5316,7 @@ define hidden noundef ptr @"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit": ; preds = %1, %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !noundef !4
   %8 = cmpxchg ptr %2, i8 1, i8 0 release monotonic, align 1, !noalias !844
@@ -5335,6 +5343,7 @@ define hidden void @"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$22set_w
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit": ; preds = %2, %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %7, align 8
   %8 = cmpxchg ptr %3, i8 1, i8 0 release monotonic, align 1, !noalias !849
@@ -5361,6 +5370,7 @@ define hidden void @"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$23set_a
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit": ; preds = %2, %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %7, align 8
   %8 = cmpxchg ptr %3, i8 1, i8 0 release monotonic, align 1, !noalias !854
@@ -5387,6 +5397,7 @@ define hidden noundef ptr @"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit": ; preds = %1, %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !noundef !4
   store ptr null, ptr %6, align 8
@@ -5414,6 +5425,7 @@ define hidden noundef ptr @"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit": ; preds = %1, %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !noundef !4
   store ptr null, ptr %6, align 8
@@ -5471,8 +5483,10 @@ define hidden void @"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$8new_fr
           to label %"_ZN4core3ptr94drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..entry_info..EntryInfo$GT$$GT$17h703fb9bb8e5447c2E.llvm.5937325364934216154.exit" unwind label %29
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit": ; preds = %4, %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %19 = getelementptr inbounds i8, ptr %3, i64 24
   %20 = load ptr, ptr %19, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %21 = getelementptr inbounds i8, ptr %3, i64 32
   %22 = load ptr, ptr %21, align 8, !noundef !4
   %23 = cmpxchg ptr %7, i8 1, i8 0 release monotonic, align 1, !noalias !876
@@ -6278,6 +6292,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %5 = phi i64 [ %7, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd624fe51064bd315E.exit" ], [ %.promoted, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd624fe51064bd315E.exit.preheader" ]
   %6 = phi ptr [ %8, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd624fe51064bd315E.exit" ], [ %.promoted5, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd624fe51064bd315E.exit.preheader" ]
   tail call void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17h5cfe42757bcf4140E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %.0.sroa.speculated.i.i.i9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %7 = sub nuw i64 %5, %.0.sroa.speculated.i.i.i9
   %8 = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i.i.i9
   store ptr %8, ptr %1, align 8, !alias.scope !944, !noalias !947
@@ -7058,6 +7073,7 @@ define noundef ptr @_ZN8mini_lsm3wal3Wal4sync17h9eac0baaabd61ae6E(ptr noalias no
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit": ; preds = %1, %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   %8 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9flush_buf17h672e3a0d376b116bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
           to label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hebe2a8733dafa934E.exit" unwind label %9

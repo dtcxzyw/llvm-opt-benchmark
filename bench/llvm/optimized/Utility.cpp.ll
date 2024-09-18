@@ -717,7 +717,6 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i20: ;
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
-  call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %71, align 1, !noalias !39
   %.not.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %.not.i.i, label %_ZN4llvm5ErrorD2Ev.exit22.thread, label %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getNameEv.exit.i
@@ -1169,7 +1168,6 @@ _ZN4llvm5ErrorD2Ev.exit22.thread48:               ; preds = %200, %_ZN4llvm7msgp
   %213 = phi ptr [ %.pre, %_ZN4llvm5ErrorD2Ev.exit22.thread48 ], [ %71, %_ZN4llvm5ErrorD2Ev.exit22.thread ]
   store ptr null, ptr %19, align 8
   %214 = load i64, ptr %64, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %213, i64 1) ]
   %.0.copyload.i.i.i.i.i23 = load i32, ptr %213, align 1
   %215 = zext i32 %.0.copyload.i.i.i.i.i23 to i64
   %216 = sub i64 0, %214

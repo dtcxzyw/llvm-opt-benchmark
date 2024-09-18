@@ -173,15 +173,17 @@ define hidden void @_ZN3std4sync7condvar7Condvar4wait17ha09c8eaa5d30637bE(ptr no
           to label %16 unwind label %17
 
 10:                                               ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 4) ]
   %11 = getelementptr inbounds i8, ptr %2, i64 4
   %12 = load atomic i8, ptr %11 monotonic, align 4
   %13 = icmp ne i8 %12, 0
-  %spec.select = zext i1 %13 to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 4) ]
+  %. = zext i1 %13 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %7, ptr %15, align 8
-  store i64 %spec.select, ptr %0, align 8
+  store i64 %., ptr %0, align 8
   ret void
 
 16:                                               ; preds = %8
@@ -268,6 +270,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.370793817
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit.i: ; preds = %12, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.3707938170552112821.exit.i.i, %7, %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 4) ]
   %13 = atomicrmw xchg ptr %2, i32 0 release, align 4, !noalias !8
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h949f322efca72823E.llvm.3707938170552112821.exit"
@@ -774,6 +777,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.370793817
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit: ; preds = %1, %7, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.3707938170552112821.exit.i, %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 4) ]
   %13 = atomicrmw xchg ptr %2, i32 0 release, align 4
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %16
@@ -937,8 +941,10 @@ common.resume:                                    ; preds = %37, %30, %18
   unreachable
 
 _ZN3std4sync7condvar7Condvar4wait17ha09c8eaa5d30637bE.exit: ; preds = %29
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
   %34 = load atomic i8, ptr %14 monotonic, align 4, !noalias !29
   %.not16 = icmp eq i8 %34, 0
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %.not16, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit2", label %35
 
@@ -966,6 +972,7 @@ _ZN3std4sync7condvar7Condvar4wait17ha09c8eaa5d30637bE.exit: ; preds = %29
   unreachable
 
 42:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit2"
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
   store i8 0, ptr %24, align 1
   br i1 %23, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit.i.i, label %43
 
@@ -984,6 +991,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.370793817
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit.i.i: ; preds = %48, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.3707938170552112821.exit.i.i.i, %43, %42
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
   %49 = atomicrmw xchg ptr %0, i32 0 release, align 4, !noalias !44
   %50 = icmp eq i32 %49, 2
   br i1 %50, label %51, label %"_ZN4core3ptr61drop_in_place$LT$std..sync..mutex..MutexGuard$LT$bool$GT$$GT$17h037f25805bba7023E.llvm.3707938170552112821.exit"
@@ -1087,8 +1095,10 @@ common.resume:                                    ; preds = %37, %30, %18
   unreachable
 
 _ZN3std4sync7condvar7Condvar4wait17ha09c8eaa5d30637bE.exit: ; preds = %29
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
   %34 = load atomic i8, ptr %14 monotonic, align 4, !noalias !53
   %.not16 = icmp eq i8 %34, 0
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %.not16, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit2", label %35
 
@@ -1133,6 +1143,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.370793817
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit.i.i: ; preds = %48, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.3707938170552112821.exit.i.i.i, %43, %42
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
   %49 = atomicrmw xchg ptr %0, i32 0 release, align 4, !noalias !68
   %50 = icmp eq i32 %49, 2
   br i1 %50, label %51, label %"_ZN4core3ptr61drop_in_place$LT$std..sync..mutex..MutexGuard$LT$bool$GT$$GT$17h037f25805bba7023E.llvm.3707938170552112821.exit"

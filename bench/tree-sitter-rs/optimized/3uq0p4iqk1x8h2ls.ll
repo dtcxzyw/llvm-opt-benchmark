@@ -508,6 +508,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i: ; pr
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i: ; preds = %9, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i, %4, %0
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %10 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4, !noalias !151
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha0285349370b2559E.exit"
@@ -1395,6 +1396,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br i1 %.not.i, label %39, label %36
 
 36:                                               ; preds = %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
   %37 = getelementptr inbounds i8, ptr %34, i64 8
   %..val.i.i = load ptr, ptr %37, align 8, !alias.scope !351, !noalias !348, !nonnull !4
   %38 = getelementptr inbounds i8, ptr %34, i64 16
@@ -1402,6 +1404,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br label %49
 
 39:                                               ; preds = %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %32, i64 96
   %41 = load i64, ptr %40, align 8, !range !182, !alias.scope !354, !noalias !348, !noundef !4
   %42 = icmp eq i64 %41, -9223372036854775808
@@ -1452,6 +1455,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 16
   store i64 %.sroa.567.sroa.0.0.copyload.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !348
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20), !noalias !348
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %56 = getelementptr inbounds i8, ptr %28, i64 16
   %57 = load ptr, ptr %56, align 8, !alias.scope !345, !noalias !350, !nonnull !4, !align !162, !noundef !4
   %58 = load i64, ptr %57, align 8, !range !182, !noalias !348, !noundef !4
@@ -1463,6 +1467,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br label %.sink.split.i
 
 59:                                               ; preds = %55
+  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 8) ]
   %60 = getelementptr inbounds i8, ptr %57, i64 8
   %..val.i145.i = load ptr, ptr %60, align 8, !alias.scope !357, !noalias !348, !nonnull !4
   %61 = getelementptr inbounds i8, ptr %57, i64 16
@@ -1470,6 +1475,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br label %71
 
 62:                                               ; preds = %55
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %63 = getelementptr inbounds i8, ptr %32, i64 120
   %64 = load i64, ptr %63, align 8, !range !182, !alias.scope !360, !noalias !348, !noundef !4
   %65 = icmp eq i64 %64, -9223372036854775808
@@ -1520,6 +1526,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %.sroa.3106.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 16
   store i64 %.sroa.571.sroa.0.0.copyload.i, ptr %.sroa.3106.0..sroa_idx.i, align 8, !noalias !348
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !348
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %78 = getelementptr inbounds i8, ptr %28, i64 24
   %79 = load ptr, ptr %78, align 8, !alias.scope !345, !noalias !350, !nonnull !4, !align !162, !noundef !4
   %80 = load i64, ptr %79, align 8, !range !182, !noalias !348, !noundef !4
@@ -1531,6 +1538,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br label %308
 
 82:                                               ; preds = %77
+  call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 8) ]
   %83 = getelementptr inbounds i8, ptr %79, i64 8
   %..val.i153.i = load ptr, ptr %83, align 8, !alias.scope !363, !noalias !348, !nonnull !4
   %84 = getelementptr inbounds i8, ptr %79, i64 16
@@ -1538,6 +1546,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br label %94
 
 85:                                               ; preds = %77
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %86 = getelementptr inbounds i8, ptr %32, i64 144
   %87 = load i64, ptr %86, align 8, !range !182, !alias.scope !366, !noalias !348, !noundef !4
   %88 = icmp eq i64 %87, -9223372036854775808
@@ -1600,6 +1609,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %15), !noalias !348
   %105 = getelementptr inbounds i8, ptr %28, i64 32
   %106 = load ptr, ptr %105, align 8, !alias.scope !345, !noalias !350, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %107 = getelementptr inbounds i8, ptr %32, i64 48
   %108 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !348, !nonnull !4, !noundef !4
   %109 = load ptr, ptr %.sroa.2105.0..sroa_idx.i, align 8, !noalias !348, !nonnull !4, !noundef !4
@@ -1658,6 +1668,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br i1 %124, label %129, label %125
 
 125:                                              ; preds = %122
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %126 = load i64, ptr %.sroa.3109.0..sroa_idx.i, align 8, !noalias !378, !noundef !4
   %127 = add i64 %126, %123
   %128 = icmp ult i64 %.sroa.2.0.copyload.i.i, %127
@@ -1676,6 +1687,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %131 = load ptr, ptr %130, align 8, !noalias !378, !nonnull !4, !noundef !4
   %132 = getelementptr inbounds i8, ptr %21, i64 16
   %133 = load i64, ptr %132, align 8, !noalias !378, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %134 = load ptr, ptr %.sroa.2105.0..sroa_idx.i, align 8, !noalias !378, !nonnull !4, !noundef !4
   %135 = invoke noundef nonnull ptr @_ZN18tree_sitter_loader21LanguageConfiguration27include_path_in_query_error17h0b788acecdf5d1b0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %12, ptr noalias noundef nonnull readonly align 8 %131, i64 noundef %133, ptr noalias noundef nonnull readonly align 1 %134, i64 noundef %123, i64 noundef 0)
           to label %.noexc161.i unwind label %152, !noalias !348
@@ -1699,6 +1711,8 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %140 = load i64, ptr %139, align 8, !noalias !378, !noundef !4
   %141 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !378, !nonnull !4, !noundef !4
   %142 = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !378, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %143 = invoke noundef nonnull ptr @_ZN18tree_sitter_loader21LanguageConfiguration27include_path_in_query_error17h0b788acecdf5d1b0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %10, ptr noalias noundef nonnull readonly align 8 %138, i64 noundef %140, ptr noalias noundef nonnull readonly align 1 %141, i64 noundef %142, i64 noundef %127)
           to label %.noexc162.i unwind label %152, !noalias !348
 
@@ -1719,7 +1733,9 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %146 = load ptr, ptr %145, align 8, !noalias !378, !nonnull !4, !noundef !4
   %147 = getelementptr inbounds i8, ptr %18, i64 16
   %148 = load i64, ptr %147, align 8, !noalias !378, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %149 = load ptr, ptr %.sroa.2108.0..sroa_idx.i, align 8, !noalias !378, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %150 = invoke noundef nonnull ptr @_ZN18tree_sitter_loader21LanguageConfiguration27include_path_in_query_error17h0b788acecdf5d1b0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %11, ptr noalias noundef nonnull readonly align 8 %146, i64 noundef %148, ptr noalias noundef nonnull readonly align 1 %149, i64 noundef %126, i64 noundef %123)
           to label %.noexc163.i unwind label %152, !noalias !348
 
@@ -1746,6 +1762,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   store i64 %115, ptr %16, align 8, !noalias !348
   %.sroa.453.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %.sroa.5.0.copyload.i, ptr %.sroa.453.0..sroa_idx.i, align 8, !noalias !348
+  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
   %155 = getelementptr inbounds i8, ptr %32, i64 192
   %156 = load ptr, ptr %155, align 8, !noalias !348, !nonnull !4, !align !162, !noundef !4
   %157 = cmpxchg ptr %156, i32 0, i32 1 acquire monotonic, align 4, !noalias !348
@@ -1930,6 +1947,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i: 
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %218, %.noexc168.i, %213, %211
+  call void @llvm.assume(i1 true) [ "align"(ptr %156, i64 8) ]
   %219 = atomicrmw xchg ptr %156, i32 0 release, align 4, !noalias !398
   %220 = icmp eq i32 %219, 2
   br i1 %220, label %221, label %"_ZN4core3ptr101drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hb59a9b2d71e650c1E.exit.i"
@@ -2357,11 +2375,13 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
 24:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.14)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %.sroa.18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   store ptr %1, ptr %17, align 8, !noalias !471
   %25 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %2, ptr %25, align 8, !noalias !471
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !471
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %26 = getelementptr inbounds i8, ptr %1, i64 168
   %27 = load i64, ptr %26, align 8, !range !182, !alias.scope !474, !noalias !471, !noundef !4
   %28 = icmp eq i64 %27, -9223372036854775808
@@ -2553,6 +2573,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %83 = load i64, ptr %82, align 8, !noalias !493, !noundef !4
   %84 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !493, !nonnull !4, !noundef !4
   %85 = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !493, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %86 = invoke noundef nonnull ptr @_ZN18tree_sitter_loader21LanguageConfiguration27include_path_in_query_error17h0b788acecdf5d1b0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %8, ptr noalias noundef nonnull readonly align 8 %81, i64 noundef %83, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %85, i64 noundef %76)
           to label %.noexc48.i unwind label %66, !noalias !471
 
@@ -2573,6 +2594,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %89 = load ptr, ptr %88, align 8, !noalias !493, !nonnull !4, !noundef !4
   %90 = getelementptr inbounds i8, ptr %12, i64 16
   %91 = load i64, ptr %90, align 8, !noalias !493, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %92 = load ptr, ptr %.sroa.232.0..sroa_idx.i, align 8, !noalias !493, !nonnull !4, !noundef !4
   %93 = invoke noundef nonnull ptr @_ZN18tree_sitter_loader21LanguageConfiguration27include_path_in_query_error17h0b788acecdf5d1b0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %9, ptr noalias noundef nonnull readonly align 8 %89, i64 noundef %91, ptr noalias noundef nonnull readonly align 1 %92, i64 noundef %76, i64 noundef 0)
           to label %.noexc49.i unwind label %66, !noalias !471

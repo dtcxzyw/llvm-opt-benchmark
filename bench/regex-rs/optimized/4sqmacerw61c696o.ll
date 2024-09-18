@@ -2621,6 +2621,7 @@ _ZN14regex_automata3nfa8thompson6pikevm9SlotTable9for_state17hfa3384813d106466E.
   %278 = load i32, ptr %277, align 8, !range !539, !noalias !502, !noundef !4
   %279 = getelementptr inbounds i8, ptr %262, i64 4
   %280 = load i32, ptr %279, align 4, !noalias !502, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %85, i64 1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
   switch i32 %278, label %281 [
@@ -3204,6 +3205,7 @@ _ZN14regex_automata3nfa8thompson6pikevm9SlotTable9for_state17hfa3384813d106466E.
   %522 = load i32, ptr %521, align 8, !range !539, !noalias !627, !noundef !4
   %523 = getelementptr inbounds i8, ptr %506, i64 4
   %524 = load i32, ptr %523, align 4, !noalias !627, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %85, i64 1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !663)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !666)
   switch i32 %522, label %525 [
@@ -3840,6 +3842,7 @@ _ZN14regex_automata3nfa8thompson6pikevm9SlotTable9for_state17hfa3384813d106466E.
   %786 = load i32, ptr %785, align 8, !range !539, !noalias !748, !noundef !4
   %787 = getelementptr inbounds i8, ptr %770, i64 4
   %788 = load i32, ptr %787, align 4, !noalias !748, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %85, i64 1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !784)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !787)
   switch i32 %786, label %789 [
@@ -6118,6 +6121,7 @@ _ZN14regex_automata3nfa8thompson6pikevm9SlotTable9for_state17hfa3384813d106466E.
   %506 = load i32, ptr %505, align 8, !range !539, !noalias !1174, !noundef !4
   %507 = getelementptr inbounds i8, ptr %490, i64 4
   %508 = load i32, ptr %507, align 4, !noalias !1174, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1210)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1213)
   switch i32 %506, label %509 [
@@ -6701,6 +6705,7 @@ _ZN14regex_automata3nfa8thompson6pikevm9SlotTable9for_state17hfa3384813d106466E.
   %750 = load i32, ptr %749, align 8, !range !539, !noalias !1295, !noundef !4
   %751 = getelementptr inbounds i8, ptr %734, i64 4
   %752 = load i32, ptr %751, align 4, !noalias !1295, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1331)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1334)
   switch i32 %750, label %753 [
@@ -7337,6 +7342,7 @@ _ZN14regex_automata3nfa8thompson6pikevm9SlotTable9for_state17hfa3384813d106466E.
   %1014 = load i32, ptr %1013, align 8, !range !539, !noalias !1416, !noundef !4
   %1015 = getelementptr inbounds i8, ptr %998, i64 4
   %1016 = load i32, ptr %1015, align 4, !noalias !1416, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1452)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1455)
   switch i32 %1014, label %1017 [
@@ -7707,6 +7713,7 @@ _ZN14regex_automata3nfa8thompson6pikevm6PikeVM23epsilon_closure_explore17ha86869
   %1188 = load i64, ptr %68, align 8, !alias.scope !1504, !noalias !1507, !noundef !4
   %1189 = add i64 %1188, 1
   store i64 %1189, ptr %68, align 8, !alias.scope !1504, !noalias !1507
+  call void @llvm.assume(i1 true) [ "align"(ptr %1183, i64 1) ]
   store i8 1, ptr %1184, align 1, !noalias !1509
   br label %_ZN14regex_automata4util6search10PatternSet10try_insert17h07b16fcdbf8c8494E.exit
 
@@ -11969,6 +11976,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %10
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %15 = sub nuw i64 %5, %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2225)
   %16 = icmp ult i64 %15, 4
@@ -12147,6 +12155,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   br i1 %.not.i, label %_ZN14regex_automata4util11determinize5state7ReprVec23close_match_pattern_ids17h5dceef10fe028796E.llvm.7032729871794229628.exit, label %15
 
 15:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %16 = add i64 %9, -13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !2250
   %17 = and i64 %16, 3
@@ -12171,6 +12180,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
 .split2.i:                                        ; preds = %19
   %22 = lshr exact i64 %16, 2
   %23 = trunc nuw i64 %22 to i32
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %7, i64 9
   store i32 %23, ptr %24, align 1, !alias.scope !2256, !noalias !2262
   br label %_ZN14regex_automata4util11determinize5state7ReprVec23close_match_pattern_ids17h5dceef10fe028796E.llvm.7032729871794229628.exit
@@ -12272,7 +12282,7 @@ _ZN14regex_automata4util4look7LookSet9read_repr17hf7f541bddecd3d6cE.llvm.7032729
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h01c3d2514e7aab6aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h01c3d2514e7aab6aE(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2305, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12297,6 +12307,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h7146e08d6ccb3c35E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2319, !noalias !2318
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12316,7 +12327,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h7146e08d6cc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h0c2c44ee42b47538E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h0c2c44ee42b47538E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2327, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12341,6 +12352,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h3c8749bdd705355dE.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2341, !noalias !2340
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12360,7 +12372,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h3c8749bdd70
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h0e4a826dcd52c70fE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h0e4a826dcd52c70fE(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2349, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12386,6 +12398,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h54a6c4d538e
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2363, !noalias !2362
   %14 = or i32 %13, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
@@ -12404,7 +12417,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h54a6c4d538e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h2304011d04de36b4E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h2304011d04de36b4E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2371, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12429,6 +12442,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h97e52526ca8a0d40E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2385, !noalias !2384
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12448,7 +12462,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h97e52526ca8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h611c6d849a23e934E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h611c6d849a23e934E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2393, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12473,6 +12487,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h491ccad5903f95e2E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2407, !noalias !2406
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12492,7 +12507,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h491ccad5903
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h62f9729761b769b5E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h62f9729761b769b5E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2415, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12517,6 +12532,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h5168d6bd35b58a30E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2429, !noalias !2428
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12536,7 +12552,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h5168d6bd35b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h79ef925a88ca0c65E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h79ef925a88ca0c65E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2437, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12562,6 +12578,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h40c83212c12
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2451, !noalias !2450
   %14 = or i32 %13, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
@@ -12580,7 +12597,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h40c83212c12
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h9385a525291985feE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h9385a525291985feE(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2459, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12605,6 +12622,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h313a2498a66c9cd0E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2473, !noalias !2472
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12624,7 +12642,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h313a2498a66
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h9652e4f8d08ee548E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17h9652e4f8d08ee548E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2481, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12649,6 +12667,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17hf7950188b9ab44e5E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2495, !noalias !2494
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12668,7 +12687,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17hf7950188b9a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17haccd6434d762b726E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17haccd6434d762b726E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2503, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12693,6 +12712,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17hce714eb34becba1aE.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2517, !noalias !2516
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12712,7 +12732,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17hce714eb34be
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hbe419afd539a5ef6E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hbe419afd539a5ef6E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2525, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12738,6 +12758,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17hc156184d889
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2539, !noalias !2538
   %14 = or i32 %13, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
@@ -12756,7 +12777,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17hc156184d889
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hc30de42f917b2b0cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hc30de42f917b2b0cE(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2547, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12782,6 +12803,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h74a962d2da2
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2561, !noalias !2560
   %14 = or i32 %13, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
@@ -12800,7 +12822,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h74a962d2da2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hc4bb049d6863d46cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hc4bb049d6863d46cE(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2569, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12826,6 +12848,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h442d0a293e5
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2583, !noalias !2582
   %14 = or i32 %13, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
@@ -12844,7 +12867,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h442d0a293e5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17he6c90899fbe5ab5eE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17he6c90899fbe5ab5eE(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2591, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12869,6 +12892,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17he7692b0c0004eb7bE.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2605, !noalias !2604
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12888,7 +12912,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17he7692b0c000
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hf73e110ddf569530E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hf73e110ddf569530E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2613, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12913,6 +12937,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h8d57f67a5ec03a8fE.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2627, !noalias !2626
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %13, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %13, 16
@@ -12932,7 +12957,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h8d57f67a5ec
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hf93fd9ff0f49c368E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have17hf93fd9ff0f49c368E(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2635, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12958,6 +12983,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h7e0fbc8c5f9
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2649, !noalias !2648
   %14 = or i32 %13, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
@@ -13082,7 +13108,7 @@ _ZN14regex_automata4util11determinize5state4Repr9look_need17h5f399fe2de221085E.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state15StateBuilderNFA13set_look_have17haa038b6ed339bf55E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state15StateBuilderNFA13set_look_have17haa038b6ed339bf55E(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !2680, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -13105,12 +13131,13 @@ define hidden void @_ZN14regex_automata4util11determinize5state15StateBuilderNFA
 
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h340f8e3032b1e0f3E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   store i32 0, ptr %12, align 1, !noalias !2680
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util11determinize5state15StateBuilderNFA13set_look_need17h29954310d82ac252E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util11determinize5state15StateBuilderNFA13set_look_need17h29954310d82ac252E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2693)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noalias !2696, !nonnull !4, !noundef !4
@@ -13138,6 +13165,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec13set_look_need17ha80641f9f4a
   %14 = load i32, ptr %13, align 1, !alias.scope !2709, !noalias !2708
   %15 = load i32, ptr %1, align 4, !range !539, !alias.scope !2693, !noalias !2714, !noundef !4
   %16 = or i32 %15, %14
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.4.0.extract.shift.i.i = lshr i32 %16, 8
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   %.sroa.5.0.extract.shift.i.i = lshr i32 %16, 16
@@ -13407,6 +13435,7 @@ _ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.ll
   br i1 %.not, label %9, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit
 
 _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit: ; preds = %_ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.llvm.7032729871794229628.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %8 = and i8 %6, 2
   %.not3 = icmp eq i8 %8, 0
   br i1 %.not3, label %9, label %10
@@ -13416,6 +13445,8 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   ret i64 %.0
 
 10:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %11 = icmp ult i64 %3, 13
   br i1 %11, label %12, label %_ZN14regex_automata4util11determinize5state4Repr19encoded_pattern_len17ha4dfc4550e3dc647E.llvm.7032729871794229628.exit
 
@@ -13459,6 +13490,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   ret i32 %.0
 
 14:                                               ; preds = %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %15 = sub nuw i64 %4, %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2775)
   %16 = icmp ult i64 %15, 4
@@ -13502,6 +13534,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   br i1 %.not.i.i, label %_ZN14regex_automata4util11determinize5state4Repr18pattern_offset_end17he4051b6a50310c95E.exit, label %14
 
 14:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %15 = icmp ult i64 %10, 13
   br i1 %15, label %16, label %_ZN14regex_automata4util11determinize5state4Repr19encoded_pattern_len17ha4dfc4550e3dc647E.llvm.7032729871794229628.exit.i
 
@@ -13707,6 +13740,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %9 = icmp ult i64 %3, 13
   br i1 %9, label %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h05367c8bc47ad30aE.llvm.7032729871794229628.exit"
 
@@ -13765,6 +13799,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   br i1 %.not.i.i.i, label %_ZN14regex_automata4util11determinize5state4Repr18pattern_offset_end17he4051b6a50310c95E.exit.i, label %20
 
 20:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 1) ]
   %21 = icmp ult i64 %.val3, 13
   br i1 %21, label %.invoke, label %_ZN14regex_automata4util11determinize5state4Repr19encoded_pattern_len17ha4dfc4550e3dc647E.llvm.7032729871794229628.exit.i.i
 
@@ -13907,6 +13942,7 @@ _ZN14regex_automata4util11determinize5state4Repr18iter_nfa_state_ids17h54cfee130
 
 75:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr18iter_nfa_state_ids17h54cfee1308856a8eE.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 1) ]
   %76 = load i8, ptr %.val, align 1, !noalias !2856, !noundef !4
   %77 = and i8 %76, 1
   store i8 %77, ptr %11, align 1
@@ -13915,6 +13951,7 @@ _ZN14regex_automata4util11determinize5state4Repr18iter_nfa_state_ids17h54cfee130
 
 79:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 1) ]
   %80 = load i8, ptr %.val, align 1, !noalias !2859, !noundef !4
   %81 = lshr i8 %80, 2
   %.lobit = and i8 %81, 1
@@ -13924,6 +13961,7 @@ _ZN14regex_automata4util11determinize5state4Repr18iter_nfa_state_ids17h54cfee130
 
 83:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 1) ]
   %84 = load i8, ptr %.val, align 1, !noalias !2862, !noundef !4
   %85 = lshr i8 %84, 3
   %.lobit25 = and i8 %85, 1
@@ -13933,6 +13971,7 @@ _ZN14regex_automata4util11determinize5state4Repr18iter_nfa_state_ids17h54cfee130
 
 87:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 1) ]
   %88 = icmp ult i64 %.val3, 5
   br i1 %88, label %89, label %91
 
@@ -13949,6 +13988,7 @@ _ZN14regex_automata4util11determinize5state4Repr18iter_nfa_state_ids17h54cfee130
 
 95:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 1) ]
   %96 = add i64 %.val3, -5
   %97 = icmp ult i64 %96, 4
   br i1 %97, label %.invoke, label %98
@@ -13999,6 +14039,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   br label %_ZN14regex_automata4util11determinize5state4Repr22iter_match_pattern_ids17hbe5a42f86677b63bE.exit.i
 
 _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i.i: ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val, i64 1) ]
   %113 = icmp ult i64 %.val3, 13
   br i1 %113, label %.invoke.i, label %_ZN14regex_automata4util11determinize5state4Repr19encoded_pattern_len17ha4dfc4550e3dc647E.llvm.7032729871794229628.exit.i.i.i
 
@@ -14363,6 +14404,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3005, !noalias !3004
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -14406,6 +14448,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   store i32 0, ptr %13, align 1
   ret void
 }
@@ -14437,6 +14480,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3034, !noalias !3033
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -14483,6 +14527,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3053, !noalias !3052
   %15 = or i32 %14, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
@@ -14528,6 +14573,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3072, !noalias !3071
   %15 = or i32 %14, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
@@ -14572,6 +14618,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3091, !noalias !3090
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -14617,6 +14664,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3110, !noalias !3109
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -14663,6 +14711,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3129, !noalias !3128
   %15 = or i32 %14, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
@@ -14707,6 +14756,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3148, !noalias !3147
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -14753,6 +14803,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3167, !noalias !3166
   %15 = or i32 %14, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
@@ -14798,6 +14849,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3186, !noalias !3185
   %15 = or i32 %14, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
@@ -14842,6 +14894,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3205, !noalias !3204
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -14887,6 +14940,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3224, !noalias !3223
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -14933,6 +14987,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3243, !noalias !3242
   %15 = or i32 %14, 81920
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
@@ -14977,6 +15032,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3262, !noalias !3261
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -15022,6 +15078,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3281, !noalias !3280
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -15067,6 +15124,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3300, !noalias !3299
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %14, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %14, 16
@@ -15114,6 +15172,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
   %15 = load i32, ptr %14, align 1, !alias.scope !3319, !noalias !3318
   %16 = load i32, ptr %1, align 4, !range !539, !noalias !3324, !noundef !4
   %17 = or i32 %16, %15
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %.sroa.4.0.extract.shift.i = lshr i32 %17, 8
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %.sroa.5.0.extract.shift.i = lshr i32 %17, 16
@@ -15153,6 +15212,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
 
 11:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit
   %12 = icmp eq i32 %1, 0
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   br i1 %12, label %_ZN14regex_automata4util11determinize5state7ReprVec12set_is_match17h55bdd3642bcceec9E.llvm.7032729871794229628.exit, label %14
 
 _ZN14regex_automata4util11determinize5state7ReprVec12set_is_match17h55bdd3642bcceec9E.llvm.7032729871794229628.exit: ; preds = %11
@@ -15162,6 +15222,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec12set_is_match17h55bdd3642bcc
 
 14:                                               ; preds = %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0fc76ab10ec5af71E.llvm.3371294817895845771"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 4, i8 noundef 0)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3336)
   %15 = load i64, ptr %6, align 8, !alias.scope !3336, !noalias !3339, !noundef !4
   %.not.i7 = icmp eq i64 %15, 0
@@ -15176,6 +15237,7 @@ _ZN14regex_automata4util11determinize5state7ReprVec19set_has_pattern_ids17h2bf34
   %18 = load i8, ptr %17, align 1, !noalias !3346, !noundef !4
   %19 = or i8 %18, 2
   store i8 %19, ptr %17, align 1, !noalias !3346
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %20 = load ptr, ptr %4, align 8, !noalias !4, !nonnull !4, !noundef !4
   %21 = load i64, ptr %6, align 8, !noundef !4
   %.not.i8 = icmp eq i64 %21, 0
@@ -15189,6 +15251,7 @@ _ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.ll
   %23 = load i8, ptr %20, align 1, !noalias !4, !noundef !4
   %24 = and i8 %23, 1
   %.not15 = icmp eq i8 %24, 0
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   br i1 %.not15, label %_ZN14regex_automata4util11determinize5state7ReprVec12set_is_match17h55bdd3642bcceec9E.llvm.7032729871794229628.exit10, label %27
 
 25:                                               ; preds = %_ZN14regex_automata4util11determinize5state9write_u3217h3ed162b25ed1f346E.llvm.7032729871794229628.exit12, %_ZN14regex_automata4util11determinize5state7ReprVec12set_is_match17h55bdd3642bcceec9E.llvm.7032729871794229628.exit
@@ -15227,6 +15290,7 @@ _ZN14regex_automata4util11determinize5state9write_u3217h3ed162b25ed1f346E.llvm.7
   br label %36
 
 36:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit, %_ZN14regex_automata4util11determinize5state7ReprVec12set_is_match17h55bdd3642bcceec9E.llvm.7032729871794229628.exit10, %_ZN14regex_automata4util11determinize5state9write_u3217h3ed162b25ed1f346E.llvm.7032729871794229628.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %37 = load i64, ptr %6, align 8, !alias.scope !3376, !noundef !4
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0fc76ab10ec5af71E.llvm.3371294817895845771"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 4, i8 noundef 0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3379)
@@ -15279,6 +15343,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %14 = add i64 %9, -13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %15 = and i64 %14, 3
@@ -15303,6 +15368,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
 .split2:                                          ; preds = %18
   %21 = lshr exact i64 %14, 2
   %22 = trunc nuw i64 %21 to i32
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %23 = getelementptr inbounds i8, ptr %7, i64 9
   store i32 %22, ptr %23, align 1, !alias.scope !3403, !noalias !3409
   br label %17

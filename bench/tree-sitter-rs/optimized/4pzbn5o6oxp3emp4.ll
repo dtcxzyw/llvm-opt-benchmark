@@ -2285,17 +2285,17 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit.thread: ; preds = %15
+  %27 = ptrtoint ptr %22 to i64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !318
   br label %43
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit: ; preds = %14, %24
-  %27 = phi i64 [ %9, %14 ], [ %25, %24 ]
-  %28 = phi i64 [ %7, %14 ], [ 0, %24 ]
-  %29 = sub nuw i64 %27, %28
-  %30 = getelementptr inbounds i8, ptr %.pre.i, i64 %28
-  %31 = icmp eq ptr %.pre.i, null
-  %32 = inttoptr i64 %29 to ptr
-  br i1 %31, label %43, label %35
+  %28 = phi i64 [ %9, %14 ], [ %25, %24 ]
+  %29 = phi i64 [ %7, %14 ], [ 0, %24 ]
+  %30 = sub nuw i64 %28, %29
+  %31 = getelementptr inbounds i8, ptr %.pre.i, i64 %29
+  %32 = icmp eq ptr %.pre.i, null
+  br i1 %32, label %43, label %35
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds i8, ptr %1, i64 40
@@ -2305,23 +2305,24 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit: ;
   br label %42
 
 35:                                               ; preds = %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !323)
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %3, i64 %29)
+  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %3, i64 %30)
   %36 = icmp eq i64 %.0.sroa.speculated.i.i, 1
   br i1 %36, label %37, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5891a5daa862511eE.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5891a5daa862511eE.exit.i": ; preds = %35
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %30, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !326, !noalias !330
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %31, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !326, !noalias !330
   br label %39
 
 37:                                               ; preds = %35
-  %38 = load i8, ptr %30, align 1, !noalias !334, !noundef !4
+  %38 = load i8, ptr %31, align 1, !noalias !334, !noundef !4
   store i8 %38, ptr %2, align 1, !alias.scope !323, !noalias !335
   br label %39
 
 39:                                               ; preds = %37, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5891a5daa862511eE.exit.i"
-  %40 = add i64 %28, %.0.sroa.speculated.i.i
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %40, i64 %27)
+  %40 = add i64 %29, %.0.sroa.speculated.i.i
+  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %40, i64 %28)
   store i64 %.0.sroa.speculated.i, ptr %6, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.0.sroa.speculated.i.i, ptr %41, align 8
@@ -2331,8 +2332,9 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit: ;
 42:                                               ; preds = %43, %39, %33
   ret void
 
-43:                                               ; preds = %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit.thread
-  %44 = phi ptr [ %22, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit.thread ], [ %32, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit ]
+43:                                               ; preds = %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit.thread, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit
+  %.sroa.5.014 = phi i64 [ %27, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit.thread ], [ %30, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit ]
+  %44 = inttoptr i64 %.sroa.5.014 to ptr
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %44, ptr %45, align 8
   store i64 1, ptr %0, align 8
@@ -2466,6 +2468,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   %46 = add i64 %45, 1
   store i64 %46, ptr %44, align 8, !alias.scope !357, !noalias !360
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !355
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   invoke void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h662a05a46b6c7a74E.llvm.669709109315833292"(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %29)
           to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h36cdbcd77129adabE.exit.i.i" unwind label %.loopexit29, !noalias !356
 

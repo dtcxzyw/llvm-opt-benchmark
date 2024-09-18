@@ -516,7 +516,7 @@ define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$
   %.promoted.i.i = load i64, ptr %8, align 8, !alias.scope !61, !noalias !62
   %12 = icmp ugt i64 %.promoted.i.i, %10
   %or.cond.i43.i.i = or i1 %11, %12
-  br i1 %or.cond.i43.i.i, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h021b17460b78dcf9E.exit.i", label %.lr.ph.i.i
+  br i1 %or.cond.i43.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %5
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 %.promoted.i.i
@@ -584,7 +584,7 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.us.i.i: ; preds = %
   %41 = icmp ugt i64 %38, %10
   %42 = sub nuw i64 %10, %38
   %43 = getelementptr inbounds i8, ptr %.val.i, i64 %38
-  br i1 %41, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h021b17460b78dcf9E.exit.i", label %.lr.ph.split.us.split.i.i
+  br i1 %41, label %.loopexit.i, label %.lr.ph.split.us.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.i.i, %63
   %.49.i.i = phi ptr [ %66, %63 ], [ %13, %.lr.ph.i.i ]
@@ -639,13 +639,13 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i: ; preds = %53,
 
 .split.us.i.i:                                    ; preds = %57, %34
   store i64 %10, ptr %8, align 8, !alias.scope !61, !noalias !62
-  br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h021b17460b78dcf9E.exit.i"
+  br label %.loopexit.i
 
 63:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b61ef629995c499E.exit.i.i", %59
   %64 = icmp ugt i64 %61, %10
   %65 = sub nuw i64 %10, %61
   %66 = getelementptr inbounds i8, ptr %.val.i, i64 %61
-  br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h021b17460b78dcf9E.exit.i", label %.lr.ph.split.split.i.i
+  br i1 %64, label %.loopexit.i, label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b61ef629995c499E.exit.i.i": ; preds = %59
   %67 = sub nuw i64 %61, %17
@@ -658,7 +658,7 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i: ; preds = %53,
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %17, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a78fdcb3df889c3c664b760f5e66c7d.21) #14, !noalias !72
   unreachable
 
-"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h021b17460b78dcf9E.exit.i": ; preds = %63, %40, %.split.us.i.i, %5
+.loopexit.i:                                      ; preds = %63, %40, %.split.us.i.i, %5
   store i8 1, ptr %2, align 1, !alias.scope !75
   %70 = getelementptr inbounds i8, ptr %0, i64 64
   %71 = load i8, ptr %70, align 8, !range !56, !alias.scope !75, !noundef !26
@@ -668,9 +668,12 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i: ; preds = %53,
   %.pre5.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !75
   %.not.i6.i = icmp ne i64 %.pre5.i.i, %.pre.i.i
   %or.cond.not.i.i = select i1 %72, i1 true, i1 %.not.i6.i
+  br i1 %or.cond.not.i.i, label %._crit_edge.i.i, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hbe277d36c6bcc05dE.exit"
+
+._crit_edge.i.i:                                  ; preds = %.loopexit.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i, i64 1) ]
   %73 = getelementptr inbounds i8, ptr %.val.i, i64 %.pre.i.i
   %74 = sub i64 %.pre5.i.i, %.pre.i.i
-  %.sroa.0.0.i.i = select i1 %or.cond.not.i.i, ptr %73, ptr null
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hbe277d36c6bcc05dE.exit"
 
 75:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b61ef629995c499E.exit.i.i"
@@ -680,9 +683,9 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i: ; preds = %53,
   store i64 %61, ptr %0, align 8, !alias.scope !53
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hbe277d36c6bcc05dE.exit"
 
-"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hbe277d36c6bcc05dE.exit": ; preds = %1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h021b17460b78dcf9E.exit.i", %75
-  %.sroa.4.0.i = phi i64 [ undef, %1 ], [ %78, %75 ], [ %74, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h021b17460b78dcf9E.exit.i" ]
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %77, %75 ], [ %.sroa.0.0.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h021b17460b78dcf9E.exit.i" ]
+"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hbe277d36c6bcc05dE.exit": ; preds = %1, %.loopexit.i, %._crit_edge.i.i, %75
+  %.sroa.4.0.i = phi i64 [ undef, %1 ], [ %78, %75 ], [ %74, %._crit_edge.i.i ], [ undef, %.loopexit.i ]
+  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %77, %75 ], [ %73, %._crit_edge.i.i ], [ null, %.loopexit.i ]
   %79 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %80 = insertvalue { ptr, i64 } %79, i64 %.sroa.4.0.i, 1
   ret { ptr, i64 } %80

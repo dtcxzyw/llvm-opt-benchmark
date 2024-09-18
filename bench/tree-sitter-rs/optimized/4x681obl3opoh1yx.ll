@@ -242,38 +242,42 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %13 = icmp ult i64 %.promoted.i, %12
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %4, %18
-  %14 = phi i64 [ %15, %18 ], [ %.promoted.i, %4 ]
-  %15 = add i64 %14, 1
-  store i64 %15, ptr %8, align 8, !alias.scope !44, !noalias !45
+.lr.ph.i:                                         ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
+  br label %14
+
+14:                                               ; preds = %19, %.lr.ph.i
+  %15 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %16, %19 ]
+  %16 = add i64 %15, 1
+  store i64 %16, ptr %8, align 8, !alias.scope !44, !noalias !45
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !46
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !47
-  call void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$closure$u7d$$u7d$17hb985360967183fbdE.llvm.1815467632243914109"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %14), !noalias !47
+  call void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$closure$u7d$$u7d$17hb985360967183fbdE.llvm.1815467632243914109"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %15), !noalias !47
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d87ec298b13173eE.llvm.1815467632243914109"(ptr noalias nocapture noundef nonnull sret({ i32, [11 x i32] }) align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %5), !noalias !51
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !47
-  %16 = load i32, ptr %6, align 8, !range !52, !alias.scope !53, !noalias !46, !noundef !12
-  %17 = icmp eq i32 %16, 3
-  br i1 %17, label %18, label %19
+  %17 = load i32, ptr %6, align 8, !range !52, !alias.scope !53, !noalias !46, !noundef !12
+  %18 = icmp eq i32 %17, 3
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %.lr.ph.i
+19:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !46
-  %exitcond.not.i = icmp eq i64 %15, %12
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  %exitcond.not.i = icmp eq i64 %16, %12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %14
 
-19:                                               ; preds = %.lr.ph.i
+20:                                               ; preds = %14
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds i8, ptr %6, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.2.i, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.7.0..sroa_idx4.i, i64 44, i1 false), !noalias !46
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !46
-  store i32 %16, ptr %0, align 8, !alias.scope !57, !noalias !61
+  store i32 %17, ptr %0, align 8, !alias.scope !57, !noalias !61
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.2.i, i64 44, i1 false), !alias.scope !62, !noalias !61
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4fe123b95e3ec01cE.llvm.1815467632243914109.exit
 
-._crit_edge.i:                                    ; preds = %18, %4
+._crit_edge.i:                                    ; preds = %19, %4
   store i32 3, ptr %0, align 8, !alias.scope !63, !noalias !61
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4fe123b95e3ec01cE.llvm.1815467632243914109.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h4fe123b95e3ec01cE.llvm.1815467632243914109.exit: ; preds = %19, %._crit_edge.i
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h4fe123b95e3ec01cE.llvm.1815467632243914109.exit: ; preds = %20, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.2.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret void
@@ -417,6 +421,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
 51:                                               ; preds = %44, %41, %33, %30, %25, %21
   %52 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   store i64 %7, ptr %14, align 8
   %.sroa.518.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %.sroa.6.sroa.0.0.copyload16, ptr %.sroa.518.0..sroa_idx, align 8
@@ -425,6 +430,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   resume { ptr, i32 } %52
 
 "_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$tree_sitter_tags..Error$GT$$GT$$GT$17h0440f4ca6f746b12E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9db8dfb7e7f48bdE.exit.i.i.i.i", %38, %"_ZN4core3ptr44drop_in_place$LT$tree_sitter..QueryError$GT$17hb2e4dc6a769cedfbE.exit.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9db8dfb7e7f48bdE.exit.i.i.i", %17, %17, %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   store i64 %7, ptr %14, align 8
   %.sroa.518.0..sroa_idx19 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %.sroa.6.sroa.0.0.copyload16, ptr %.sroa.518.0..sroa_idx19, align 8
@@ -1010,6 +1016,7 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee702f925ab486a5E.exit.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit105.thread", %13
   store i8 1, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %23 = invoke { ptr, i64 } @_ZN11tree_sitter5Query17property_settings17hebe827cc356ef0f4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %10, i64 noundef %2)
           to label %24 unwind label %.loopexit.split-lp
 
@@ -1038,8 +1045,10 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
   br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ac13cee5d34ee38E.exit.thread", label %36
 
 36:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ec11819c882a97E.exit.thread"
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 4) ]
   %37 = getelementptr inbounds i8, ptr %34, i64 4
   %38 = load i32, ptr %37, align 4, !noundef !12
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
   %39 = invoke { ptr, i64 } @_ZN11tree_sitter5Query18general_predicates17h034f2e2fc75f3841E(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %10, i64 noundef %2)
           to label %41 unwind label %.loopexit.split-lp
 
@@ -1137,6 +1146,7 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
 
 76:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.assume(i1 true) [ "align"(ptr %75, i64 1) ]
   %77 = getelementptr inbounds i8, ptr %spec.select, i64 8
   %78 = load i64, ptr %77, align 8, !noundef !12
   invoke void @_ZN5regex5regex6string5Regex3new17he028e9b85ae13c03E(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %75, i64 noundef %78)

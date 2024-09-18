@@ -1445,6 +1445,7 @@ define hidden void @_ZN4ring3rsa7keypair7KeyPair15from_der_reader17h69542283ad77
   br i1 %8, label %11, label %15
 
 _ZN4ring2io3der25small_nonnegative_integer17h3d5152be6ad04100E.exit.thread: ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr @anon.459a524322d1240f21a5a0b37f1bf450.23, i64 1) ]
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.459a524322d1240f21a5a0b37f1bf450.23, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1716,6 +1717,7 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
   %67 = getelementptr inbounds i8, ptr %22, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
+  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 8) ]
   %68 = ptrtoint ptr %57 to i64
   %69 = getelementptr inbounds i8, ptr %22, i64 32
   %70 = load i64, ptr %69, align 8, !noundef !7
@@ -2014,6 +2016,7 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
   br i1 %159, label %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387384687170936.exit.i, label %168
 
 _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387384687170936.exit.i: ; preds = %.critedge.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %144, i64 8) ]
   %160 = load ptr, ptr %20, align 8, !alias.scope !283, !noalias !286, !nonnull !7, !align !25, !noundef !7
   %161 = invoke noundef i64 @ring_core_0_17_8__LIMBS_less_than(ptr noundef nonnull readonly %144, ptr noundef nonnull readonly %160, i64 noundef %152)
           to label %.noexc unwind label %162
@@ -2678,6 +2681,8 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   store ptr %112, ptr %23, align 8, !noalias !330
   %114 = getelementptr inbounds i8, ptr %23, i64 8
   store i64 %113, ptr %114, align 8, !noalias !330
+  call void @llvm.assume(i1 true) [ "align"(ptr %112, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract28.i, i64 8) ]
   %115 = load ptr, ptr %30, align 8, !alias.scope !327, !noalias !333, !nonnull !7, !align !25, !noundef !7
   %116 = load i64, ptr %106, align 8, !alias.scope !327, !noalias !333, !noundef !7
   invoke void @ring_core_0_17_8__LIMBS_sub_mod(ptr noundef nonnull %112, ptr noundef nonnull %112, ptr noundef nonnull %.fca.0.extract28.i, ptr noundef nonnull %115, i64 noundef %116)
@@ -2810,6 +2815,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   store ptr %151, ptr %20, align 8, !noalias !358
   %153 = getelementptr inbounds i8, ptr %20, i64 8
   store i64 %152, ptr %153, align 8, !noalias !358
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract45.i, i64 8) ]
   %154 = load ptr, ptr %34, align 8, !alias.scope !355, !noalias !361, !nonnull !7, !align !25, !noundef !7
   invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull %151, ptr noundef nonnull %151, ptr noundef nonnull readonly %.fca.0.extract45.i, ptr noundef nonnull readonly %154, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %74, i64 noundef %152)
           to label %161 unwind label %155, !noalias !362
@@ -2922,6 +2928,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   %.fca.1.extract78.i = extractvalue { ptr, i64 } %184, 1
   %.fca.1.gep79.i = getelementptr inbounds i8, ptr %24, i64 8
   store i64 %.fca.1.extract78.i, ptr %.fca.1.gep79.i, align 8, !noalias !315
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract76.i, i64 8) ]
   %.val123.i = load ptr, ptr %33, align 8, !noalias !315, !nonnull !7, !align !25, !noundef !7
   %.val124.i = load i64, ptr %80, align 8, !noalias !315, !noundef !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !370

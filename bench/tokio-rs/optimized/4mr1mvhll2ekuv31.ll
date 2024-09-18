@@ -120,6 +120,7 @@ define hidden void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A
   %70 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 0, ptr %70, align 8, !noalias !33
   %.not.i4 = icmp ult i64 %69, %27
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   br i1 %.not.i4, label %71, label %82
 
 71:                                               ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7reserve17heb89f89599f0e3dcE.exit"
@@ -133,6 +134,7 @@ define hidden void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A
   br i1 %73, label %78, label %74
 
 74:                                               ; preds = %71
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !49
   store ptr %72, ptr %5, align 8, !noalias !58
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -931,11 +933,11 @@ declare hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..All
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr90drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$tokio_test..io..Action$GT$$GT$17h95837f0a2b10e223E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
@@ -952,8 +954,8 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { noreturn }
 attributes #16 = { cold }

@@ -56,7 +56,9 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit", %21
+  call void @llvm.assume(i1 true) [ "align"(ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8) ]
   %23 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 32), align 8, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8) ]
   %24 = add i64 %23, 1
   store i64 %24, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 32), align 8
   %25 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !alias.scope !16, !noalias !19, !noundef !5
@@ -128,7 +130,7 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #7
+  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #8
   unreachable
 
 "_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit": ; preds = %29, %33
@@ -168,8 +170,11 @@ declare hidden void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.7582899
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f52a86abd221b0fE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -177,8 +182,9 @@ attributes #2 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cp
 attributes #3 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { cold noreturn nounwind }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

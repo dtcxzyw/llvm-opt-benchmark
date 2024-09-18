@@ -109,6 +109,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$core..cell..UnsafeCell$LT$c
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !noalias !24, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -165,6 +166,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !49, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds i8, ptr %0, i64 32
@@ -184,6 +186,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 24:                                               ; preds = %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   %26 = load ptr, ptr %25, align 8, !noalias !66, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds i8, ptr %0, i64 32
@@ -339,6 +342,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$tokio_util..util..maybe_dan
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !119, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -358,6 +362,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$tokio_util..util..maybe_dan
 16:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !136, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds i8, ptr %0, i64 40
@@ -510,6 +515,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.754507539
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit.i: ; preds = %12, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.7545075396174394512.exit.i.i, %7, %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %13 = atomicrmw xchg ptr %2, i32 0 release, align 4, !noalias !176
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0001f82551a5ea21E.llvm.7545075396174394512.exit"
@@ -597,6 +603,7 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$tokio..loom..std..unsafe_ce
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !noalias !210, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -762,7 +769,7 @@ define hidden void @"_ZN4core3ptr132drop_in_place$LT$alloc..raw_vec..RawVec$LT$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr141drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$$GT$17hd7a1ea5a79f49d64E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define hidden void @"_ZN4core3ptr141drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$$GT$17hd7a1ea5a79f49d64E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
   tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8fb6b61e968a9affE.llvm.7545075396174394512"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }
@@ -794,6 +801,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.754507539
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit.i.i: ; preds = %12, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.7545075396174394512.exit.i.i.i, %7, %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %13 = atomicrmw xchg ptr %2, i32 0 release, align 4, !noalias !278
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.7545075396174394512.exit"
@@ -820,6 +828,7 @@ define hidden void @"_ZN4core3ptr195drop_in_place$LT$tokio_util..sync..reusable_
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !290, !invariant.load !4, !noalias !291
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -834,6 +843,7 @@ define hidden void @"_ZN4core3ptr195drop_in_place$LT$tokio_util..sync..reusable_
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96f89a8d3f24d72fE.llvm.7545075396174394512.exit.i.i"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !290, !invariant.load !4, !noalias !295
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -885,6 +895,7 @@ define hidden void @"_ZN4core3ptr248drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !290, !invariant.load !4, !noalias !306
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -899,6 +910,7 @@ define hidden void @"_ZN4core3ptr248drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96f89a8d3f24d72fE.llvm.7545075396174394512.exit"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !290, !invariant.load !4, !noalias !309
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -932,6 +944,7 @@ define hidden void @"_ZN4core3ptr270drop_in_place$LT$core..pin..Pin$LT$alloc..bo
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !290, !invariant.load !4, !noalias !315
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -946,6 +959,7 @@ define hidden void @"_ZN4core3ptr270drop_in_place$LT$core..pin..Pin$LT$alloc..bo
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96f89a8d3f24d72fE.llvm.7545075396174394512.exit.i"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !290, !invariant.load !4, !noalias !318
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -991,6 +1005,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$tokio..sync..notify..Waiter$
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !340, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1021,6 +1036,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notifie
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !357, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1040,6 +1056,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notifie
 16:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !374, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1072,6 +1089,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$tokio..sync..batch_semaphore
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !noalias !391, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1102,6 +1120,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$tokio..sync..batch_semaphore
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !408, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1121,6 +1140,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$tokio..sync..batch_semaphore
 16:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !425, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1208,6 +1228,7 @@ define hidden void @"_ZN4core3ptr665drop_in_place$LT$tokio_util..sync..reusable_
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8, !range !290, !invariant.load !4, !noalias !454
   %11 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1222,6 +1243,7 @@ define hidden void @"_ZN4core3ptr665drop_in_place$LT$tokio_util..sync..reusable_
   br label %.body.i.i.i
 
 15:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8, !range !290, !invariant.load !4, !noalias !457
   %18 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1258,6 +1280,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !466, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1711,6 +1734,7 @@ default.unreachable31:                            ; preds = %3
 41:                                               ; preds = %36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !538)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !541)
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 8) ]
   %42 = getelementptr inbounds i8, ptr %39, i64 24
   %43 = load ptr, ptr %42, align 8, !noalias !544, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1730,6 +1754,7 @@ default.unreachable31:                            ; preds = %3
 50:                                               ; preds = %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !555)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !558)
+  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 8) ]
   %51 = getelementptr inbounds i8, ptr %48, i64 24
   %52 = load ptr, ptr %51, align 8, !noalias !561, !nonnull !4, !noundef !4
   %53 = getelementptr inbounds i8, ptr %1, i64 32
@@ -2033,6 +2058,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.754507539
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit: ; preds = %1, %7, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.7545075396174394512.exit.i, %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %13 = atomicrmw xchg ptr %2, i32 0 release, align 4
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %16
@@ -2046,7 +2072,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8fb6b61e968a9affE.llvm.7545075396174394512"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8fb6b61e968a9affE.llvm.7545075396174394512"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !alias.scope !595, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2175,6 +2202,7 @@ define hidden void @"_ZN10tokio_util4sync12reusable_box26ReusableBoxFuture$LT$T$
 7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8, !range !290, !invariant.load !4, !noalias !650
   %11 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2189,6 +2217,7 @@ define hidden void @"_ZN10tokio_util4sync12reusable_box26ReusableBoxFuture$LT$T$
   br label %.body
 
 15:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8, !range !290, !invariant.load !4, !noalias !653
   %18 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2234,6 +2263,7 @@ define hidden void @"_ZN10tokio_util4sync12reusable_box13reuse_pin_box28_$u7b$$u
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load i64, ptr %13, align 8, !range !290, !invariant.load !4, !noalias !666
   %15 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2248,6 +2278,7 @@ define hidden void @"_ZN10tokio_util4sync12reusable_box13reuse_pin_box28_$u7b$$u
   br label %.body.i
 
 19:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %20 = getelementptr inbounds i8, ptr %9, i64 8
   %21 = load i64, ptr %20, align 8, !range !290, !invariant.load !4, !noalias !669
   %22 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2293,6 +2324,7 @@ define hidden void @"_ZN97_$LT$tokio_util..sync..reusable_box..CallOnDrop$LT$O$C
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8, !range !290, !invariant.load !4, !noalias !686
   %11 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2307,6 +2339,7 @@ define hidden void @"_ZN97_$LT$tokio_util..sync..reusable_box..CallOnDrop$LT$O$C
   br label %.body.i.i
 
 15:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8, !range !290, !invariant.load !4, !noalias !689
   %18 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2350,6 +2383,7 @@ define hidden void @"_ZN98_$LT$tokio_util..util..maybe_dangling..MaybeDangling$L
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !702)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !705)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !708, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2369,6 +2403,7 @@ define hidden void @"_ZN98_$LT$tokio_util..util..maybe_dangling..MaybeDangling$L
 16:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !719)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !722)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !725, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds i8, ptr %0, i64 40

@@ -7128,6 +7128,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h51
 
 21:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he49fb02c5668f0e4E.exit"
   %22 = ptrtoint ptr %.val11.i to i64
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val10.i, i64 8) ]
   store i64 %22, ptr %9, align 8, !alias.scope !1033
   %23 = add i64 %.sroa.01.04, -1
   %.not8.i = icmp eq i64 %23, 0
@@ -10466,6 +10467,7 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
 
 46:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i.i", %64, %38, %._crit_edge.i
   %47 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %.pre20.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i.i" ], [ %.pre20.i, %64 ], [ %.pre20.i, %38 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %48 = icmp eq i8 %47, 6
   br i1 %48, label %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit.i.i.i.i", label %49
 
@@ -10477,6 +10479,7 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   %50 = load i8, ptr %26, align 2, !range !1448, !alias.scope !1442, !noalias !1445, !noundef !17
   %51 = load i8, ptr %20, align 8, !range !1447, !alias.scope !1442, !noalias !1445, !noundef !17
   %52 = load i8, ptr %22, align 1, !range !1447, !alias.scope !1442, !noalias !1445, !noundef !17
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
   %53 = load i8, ptr %25, align 8, !range !1441, !alias.scope !1449, !noalias !1452, !noundef !17
   %54 = icmp eq i8 %53, 6
   br i1 %54, label %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit13.i.i.i.i", label %55

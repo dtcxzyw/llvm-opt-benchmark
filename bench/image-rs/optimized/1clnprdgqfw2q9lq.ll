@@ -241,6 +241,7 @@ define internal fastcc void @"_ZN107_$LT$exr..block..writer..OnProgressChunkWrit
           to label %_ZN4core3ops8function5FnMut8call_mut17h190ac72d6c94f347E.exit unwind label %207
 
 _ZN4core3ops8function5FnMut8call_mut17h190ac72d6c94f347E.exit: ; preds = %47, %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -1030,6 +1031,7 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !236
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %15 = load ptr, ptr %7, align 8, !alias.scope !229, !noalias !232, !nonnull !4, !align !5, !noundef !4
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !243, !nonnull !4
@@ -1040,6 +1042,7 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !236
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %20 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !248, !nonnull !4
   invoke void %20(ptr noundef nonnull align 1 %12)
           to label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc413b70aa89141adE.exit.i.i.i" unwind label %21, !noalias !255
@@ -1129,6 +1132,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h851e124fa84793c1E.exit.threa
 
 44:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h9a685e5abbb64effE.exit.thread.i"
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !287
+  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 1) ]
   %45 = getelementptr inbounds i8, ptr %1, i64 40
   %46 = load ptr, ptr %45, align 8, !alias.scope !285, !noalias !286, !nonnull !4, !align !5, !noundef !4
   %47 = getelementptr inbounds i8, ptr %46, i64 24
@@ -1154,6 +1158,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4a2457fcdc94f3f7E.exit.i9.i: ; preds = 
 
 53:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !287
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   %54 = load ptr, ptr %46, align 8, !invariant.load !4, !noalias !299, !nonnull !4
   invoke void %54(ptr noundef nonnull align 1 %42)
           to label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc413b70aa89141adE.exit.i.i5.i" unwind label %55, !noalias !299
@@ -1293,6 +1298,7 @@ define internal fastcc void @"_ZN114_$LT$exr..block..reader..OnProgressChunksRea
   %35 = alloca { i8, [15 x i8] }, align 8
   %36 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
   %37 = getelementptr inbounds i8, ptr %1, i64 4360
   %38 = load ptr, ptr %37, align 8, !alias.scope !324, !noalias !325, !noundef !4
@@ -2329,6 +2335,7 @@ define internal fastcc void @"_ZN114_$LT$exr..block..reader..OnProgressChunksRea
   %35 = alloca { i8, [15 x i8] }, align 8
   %36 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !542)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !545)
   %37 = getelementptr inbounds i8, ptr %1, i64 4384
   %38 = load ptr, ptr %37, align 8, !alias.scope !548, !noalias !549, !noundef !4
@@ -21685,6 +21692,7 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$13filter_chunks17h235c
 ._crit_edge:                                      ; preds = %203, %152
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !4605
   store ptr %18, ptr %7, align 8, !noalias !4605
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %158 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc88ffe3140898895E.llvm.17224713629878502917(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18)
           to label %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$exr..meta..TileIndices$GT$$GT$17hf91a91f4a80a2087E.llvm.9832446184049035033.exit.i" unwind label %159
 
@@ -21900,6 +21908,7 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$13filter_chunks17h235c
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !4629
   store ptr %18, ptr %6, align 8, !noalias !4629
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %225 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc88ffe3140898895E.llvm.17224713629878502917(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18)
           to label %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$exr..meta..TileIndices$GT$$GT$17hf91a91f4a80a2087E.llvm.9832446184049035033.exit.i176" unwind label %226
 
@@ -22411,6 +22420,7 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$13filter_chunks17h754c
 ._crit_edge:                                      ; preds = %203, %152
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !4686
   store ptr %18, ptr %7, align 8, !noalias !4686
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %158 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc88ffe3140898895E.llvm.17224713629878502917(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18)
           to label %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$exr..meta..TileIndices$GT$$GT$17hf91a91f4a80a2087E.llvm.9832446184049035033.exit.i" unwind label %159
 
@@ -22626,6 +22636,7 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$13filter_chunks17h754c
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !4710
   store ptr %18, ptr %6, align 8, !noalias !4710
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %225 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc88ffe3140898895E.llvm.17224713629878502917(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18)
           to label %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$exr..meta..TileIndices$GT$$GT$17hf91a91f4a80a2087E.llvm.9832446184049035033.exit.i176" unwind label %226
 
@@ -25774,6 +25785,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %31 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 1136
   call void @"_ZN95_$LT$exr..image..Layer$LT$Channels$GT$$u20$as$u20$exr..image..write..layers..WritableLayers$GT$13infer_headers17h8d18ebcabb4d3ca8E"(ptr noalias nocapture noundef nonnull sret({ { i64, [534 x i64] }, i64 }) align 8 dereferenceable(4288) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(1136) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %32)
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %30, i64 4280
   %34 = load i64, ptr %33, align 8, !alias.scope !5233, !noalias !5236, !noundef !4
   %35 = icmp ugt i64 %34, 3
@@ -25856,6 +25868,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   store i64 %53, ptr %23, align 8, !noalias !5241
   %57 = getelementptr inbounds i8, ptr %23, i64 4296
   store ptr %26, ptr %57, align 8, !noalias !5241
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5246)
   call void @llvm.experimental.noalias.scope.decl(metadata !5249)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !5241
@@ -26417,6 +26430,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %32 = getelementptr inbounds i8, ptr %31, i64 1200
   call void @"_ZN95_$LT$exr..image..Layer$LT$Channels$GT$$u20$as$u20$exr..image..write..layers..WritableLayers$GT$13infer_headers17h2bddec133e2cd19aE"(ptr noalias nocapture noundef nonnull sret({ { i64, [534 x i64] }, i64 }) align 8 dereferenceable(4288) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(1200) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %32)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29)
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %33 = getelementptr inbounds i8, ptr %30, i64 4280
   %34 = load i64, ptr %33, align 8, !alias.scope !5327, !noalias !5330, !noundef !4
   %35 = icmp ugt i64 %34, 3
@@ -26485,6 +26499,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   store i64 %50, ptr %23, align 8, !noalias !5335
   %54 = getelementptr inbounds i8, ptr %23, i64 4296
   store ptr %26, ptr %54, align 8, !noalias !5335
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5340)
   call void @llvm.experimental.noalias.scope.decl(metadata !5343)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !5335

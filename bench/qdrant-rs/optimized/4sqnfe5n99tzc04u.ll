@@ -100,7 +100,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h9e088e45b55fd109E
   store ptr @anon.0b932a91149af3a09079bbb4719e0e4a.1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0b932a91149af3a09079bbb4719e0e4a.9) #8
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0b932a91149af3a09079bbb4719e0e4a.9) #9
   unreachable
 
 13:                                               ; preds = %2
@@ -118,7 +118,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h9e088e45b55fd109E
   store ptr @anon.0b932a91149af3a09079bbb4719e0e4a.1, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0b932a91149af3a09079bbb4719e0e4a.12) #8
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0b932a91149af3a09079bbb4719e0e4a.12) #9
   unreachable
 
 20:                                               ; preds = %2
@@ -271,7 +271,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   store ptr @anon.0b932a91149af3a09079bbb4719e0e4a.1, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %51, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0b932a91149af3a09079bbb4719e0e4a.19) #8
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0b932a91149af3a09079bbb4719e0e4a.19) #9
   unreachable
 
 52:                                               ; preds = %13, %12, %11, %10, %9
@@ -285,7 +285,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   store ptr @anon.0b932a91149af3a09079bbb4719e0e4a.1, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 0, ptr %56, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0b932a91149af3a09079bbb4719e0e4a.20) #8
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0b932a91149af3a09079bbb4719e0e4a.20) #9
   unreachable
 }
 
@@ -371,6 +371,7 @@ define void @_ZN6memory7madvise10set_global17h9e3688bc8c069c32E(i8 noundef %0) u
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.exit": ; preds = %1, %3
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16acquire_resource17hb92d6bd747fcfddeE(i64 noundef ptrtoint (ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 to i64))
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16acquire_resource17hb92d6bd747fcfddeE(i64 noundef add (i64 ptrtoint (ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 to i64), i64 1))
+  call void @llvm.assume(i1 true) [ "align"(ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154, i64 8) ]
   store i8 %0, ptr getelementptr inbounds (i8, ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154, i64 8), align 8
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16release_resource17h0567894a011a1744E(i64 noundef ptrtoint (ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 to i64))
   %5 = or disjoint i64 ptrtoint (ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 to i64), 1
@@ -413,6 +414,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h505707fd4e8108c1E
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16acquire_resource17hb92d6bd747fcfddeE(i64 noundef ptrtoint (ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 to i64))
   %10 = or disjoint i64 ptrtoint (ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 to i64), 1
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16acquire_resource17hb92d6bd747fcfddeE(i64 noundef %10)
+  call void @llvm.assume(i1 true) [ "align"(ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154, i64 8) ]
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154, i64 8), align 8, !range !9, !noundef !7
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16release_resource17h0567894a011a1744E(i64 noundef ptrtoint (ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 to i64)), !noalias !10
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16release_resource17h0567894a011a1744E(i64 noundef %10), !noalias !10
@@ -471,8 +473,11 @@ declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 attributes #0 = { alwaysinline mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -481,8 +486,9 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #4 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { noreturn }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

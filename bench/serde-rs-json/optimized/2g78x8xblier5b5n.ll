@@ -598,6 +598,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17he92d1a8df6c1b6b3E(ptr noalias noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [2 x i64] } }, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp eq i64 %5, 0
@@ -607,22 +608,26 @@ define hidden noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_posi
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %8 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h1525e690e63dc1e8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
-          to label %10 unwind label %11
+          to label %11 unwind label %12
 
-9:                                                ; preds = %2, %10
-  %.06 = phi ptr [ %8, %10 ], [ %0, %2 ]
+9:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
+  br label %10
+
+10:                                               ; preds = %9, %11
+  %.06 = phi ptr [ %8, %11 ], [ %0, %9 ]
   ret ptr %.06
 
-10:                                               ; preds = %7
+11:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 40, i64 noundef 8) #14, !noalias !135
-  br label %9
+  br label %10
 
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 40, i64 noundef 8) #14, !noalias !138
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: cold nonlazybind uwtable
@@ -823,6 +828,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN57_$LT$usize$u20$as$
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8, !noundef !4
   store i64 %14, ptr %8, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %15 = load i64, ptr %0, align 8, !noundef !4
   %.not = icmp ult i64 %15, %14
   br i1 %.not, label %32, label %24

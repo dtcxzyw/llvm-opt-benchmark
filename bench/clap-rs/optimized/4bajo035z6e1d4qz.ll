@@ -8746,6 +8746,7 @@ define hidden void @_ZN12clap_builder6parser11arg_matcher10ArgMatcher21fill_in_g
 27:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %28 = getelementptr inbounds i8, ptr %23, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %28, i64 56, i1 false)
   store i64 0, ptr %28, align 8
@@ -9981,7 +9982,9 @@ _ZN12clap_builder7builder10styled_str9StyledStr8write_to17h62d20dc810fce987E.exi
   br i1 %33, label %.noexc, label %"_ZN4core3ptr81drop_in_place$LT$anstream..auto..AutoStream$LT$std..io..stdio..StderrLock$GT$$GT$17h541a8926d68eee9eE.exit"
 
 .noexc:                                           ; preds = %28
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   call void @_ZN4core4sync6atomic12atomic_store17he7b6a1acc015219fE.llvm.13290713768692451428(ptr noundef nonnull %29, i64 noundef 0, i8 noundef 0)
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %29, i64 16
   %35 = atomicrmw xchg ptr %34, i32 0 release, align 4, !noalias !2096
   %36 = icmp eq i32 %35, 2
@@ -10001,7 +10004,9 @@ _ZN12clap_builder7builder10styled_str9StyledStr8write_to17h62d20dc810fce987E.exi
   br i1 %42, label %.noexc11, label %"_ZN4core3ptr81drop_in_place$LT$anstream..auto..AutoStream$LT$std..io..stdio..StderrLock$GT$$GT$17h541a8926d68eee9eE.exit"
 
 .noexc11:                                         ; preds = %37
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   call void @_ZN4core4sync6atomic12atomic_store17he7b6a1acc015219fE.llvm.13290713768692451428(ptr noundef nonnull %38, i64 noundef 0, i8 noundef 0)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   %43 = getelementptr inbounds i8, ptr %38, i64 16
   %44 = atomicrmw xchg ptr %43, i32 0 release, align 4, !noalias !2109
   %45 = icmp eq i32 %44, 2
@@ -10038,7 +10043,9 @@ _ZN12clap_builder7builder10styled_str9StyledStr8write_to17h62d20dc810fce987E.exi
   br i1 %55, label %56, label %"_ZN4core3ptr81drop_in_place$LT$anstream..auto..AutoStream$LT$std..io..stdio..StdoutLock$GT$$GT$17h030c49b74094db73E.exit"
 
 56:                                               ; preds = %50
+  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 8) ]
   call void @_ZN4core4sync6atomic12atomic_store17he7b6a1acc015219fE.llvm.13290713768692451428(ptr noundef nonnull %51, i64 noundef 0, i8 noundef 0), !noalias !2126
+  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 8) ]
   %57 = getelementptr inbounds i8, ptr %51, i64 48
   %58 = atomicrmw xchg ptr %57, i32 0 release, align 4, !noalias !2126
   %59 = icmp eq i32 %58, 2
@@ -10058,7 +10065,9 @@ _ZN12clap_builder7builder10styled_str9StyledStr8write_to17h62d20dc810fce987E.exi
   br i1 %65, label %66, label %"_ZN4core3ptr81drop_in_place$LT$anstream..auto..AutoStream$LT$std..io..stdio..StdoutLock$GT$$GT$17h030c49b74094db73E.exit"
 
 66:                                               ; preds = %60
+  call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 8) ]
   call void @_ZN4core4sync6atomic12atomic_store17he7b6a1acc015219fE.llvm.13290713768692451428(ptr noundef nonnull %61, i64 noundef 0, i8 noundef 0), !noalias !2139
+  call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 8) ]
   %67 = getelementptr inbounds i8, ptr %61, i64 48
   %68 = atomicrmw xchg ptr %67, i32 0 release, align 4, !noalias !2139
   %69 = icmp eq i32 %68, 2

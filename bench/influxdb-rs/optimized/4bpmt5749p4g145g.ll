@@ -316,6 +316,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %13, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   br label %15
 
@@ -837,6 +838,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
 
 .body:                                            ; preds = %42, %51, %169, %182
   %eh.lpad-body = phi { ptr, i32 } [ %183, %182 ], [ %43, %51 ], [ %43, %42 ], [ %170, %169 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   store i64 %18, ptr %25, align 8
   %.sroa.542.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.542.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.542, i64 16, i1 false)
@@ -849,6 +851,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   resume { ptr, i32 } %eh.lpad-body
 
 "_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$arrow_schema..error..ArrowError$GT$$GT$$GT$17h4561032c26b78a28E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4b9a0e8933d096a8E.exit.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit26.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit24.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit22.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit20.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit15.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit13.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit11.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit9.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit7.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit5.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit3.i.i.i", %60, %52, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i.i", %28, %23
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   store i64 %18, ptr %25, align 8
   %.sroa.542.0..sroa_idx43 = getelementptr inbounds i8, ptr %25, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.542.0..sroa_idx43, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.542, i64 16, i1 false)
@@ -1069,6 +1072,7 @@ define hidden noundef ptr @_ZN3std2io16default_read_buf17h9950ed556637bddaE(ptr 
   %13 = getelementptr inbounds i8, ptr %5, i64 %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %12, i1 false)
   store i64 %7, ptr %8, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = icmp ugt i64 %15, %7
@@ -1153,6 +1157,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17hc170afc896360569E(ptr n
   %22 = sub nuw nsw i64 8192, %.sroa.23.083
   %23 = getelementptr inbounds i8, ptr %7, i64 %.sroa.23.083
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %23, i8 0, i64 %22, i1 false), !noalias !282
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   call void @"_ZN86_$LT$parquet..arrow..arrow_writer..ArrowColumnChunkReader$u20$as$u20$std..io..Read$GT$4read17h16b3340e5787aadaE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %7, i64 noundef 8192), !noalias !292
   %24 = load i64, ptr %6, align 8, !range !274, !noalias !282, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %24 to i1
@@ -1166,18 +1171,20 @@ _ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit.i: ; preds = %"_ZN110_$LT$core
 
 27:                                               ; preds = %.lr.ph
   %28 = icmp ugt i64 %.sroa.23.083, 8192
-  br i1 %28, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbba9acfe69a86726E.exit.i.i51.i"
+  br i1 %28, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit.i"
 
 29:                                               ; preds = %27
   call void @_ZN4core5slice5index24slice_end_index_len_fail17he4b3fef0dd07c6e1E(i64 noundef %.sroa.23.083, i64 noundef 8192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9eac952c03a1f862b507c37fd02baf21.16) #27, !noalias !293
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbba9acfe69a86726E.exit.i.i51.i": ; preds = %27
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit.i": ; preds = %27
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %18, i64 %.sroa.23.083)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !296
   %30 = sub nuw nsw i64 %18, %.0.sroa.speculated.i.i
   %31 = getelementptr inbounds i8, ptr %7, i64 %.0.sroa.speculated.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %30, i1 false), !noalias !296
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   call void @"_ZN86_$LT$parquet..arrow..arrow_writer..ArrowColumnChunkReader$u20$as$u20$std..io..Read$GT$4read17h16b3340e5787aadaE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %7, i64 noundef %18), !noalias !303
   %32 = load i64, ptr %5, align 8, !range !274, !noalias !296, !noundef !4
   %trunc.i.i52.i = trunc nuw i64 %32 to i1
@@ -1185,11 +1192,11 @@ _ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit.i: ; preds = %"_ZN110_$LT$core
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !296
   br i1 %trunc.i.i52.i, label %_ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit56.i, label %35
 
-_ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit56.i: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbba9acfe69a86726E.exit.i.i51.i"
+_ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit56.i: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit.i"
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.loopexit.thread123, label %45
 
-35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbba9acfe69a86726E.exit.i.i51.i"
+35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit.i"
   %.cast.i.i53.i = ptrtoint ptr %33 to i64
   %.0.sroa.speculated.i.i.i54.i = call noundef i64 @llvm.umax.i64(i64 %18, i64 %.cast.i.i53.i)
   %36 = icmp ult i64 %18, %.cast.i.i53.i

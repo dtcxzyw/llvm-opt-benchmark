@@ -4533,21 +4533,25 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 50:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %51 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hedba311e0604ac34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %51, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit" unwind label %132
 
 52:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %53 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h981ca64873cc667bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %53, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit" unwind label %132
 
 54:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %55 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6e0c25a8b6b54de9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %55, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit" unwind label %132
 
 56:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %57 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4131e8ea64b24e3cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit" unwind label %132
 
@@ -4559,26 +4563,31 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 62:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %63 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4822b6027852728cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit" unwind label %132
 
 64:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %65 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h2de18326c0360d6cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %65, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit" unwind label %132
 
 66:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %67 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6e6c9f6de2494ec8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %67, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit" unwind label %132
 
 68:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %69 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hf1433f4330b4cddfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %69, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit" unwind label %132
 
 70:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %71 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hdaf216e99a64366cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %71, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc unwind label %132
 
@@ -4588,6 +4597,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
           to label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit" unwind label %132
 
 73:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1025)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1028)
   %74 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4651,6 +4661,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 98:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %99 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1057)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1060)
   %100 = load i64, ptr %99, align 8, !range !33, !alias.scope !1057, !noalias !1060, !noundef !4
@@ -4717,6 +4728,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   br label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit.sink.split"
 
 124:                                              ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1096)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1099)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1101)
@@ -4752,6 +4764,7 @@ _ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.1593
           to label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..codec..LengthPrefixedBuffer$GT$17h727c67671eb7330bE.exit" unwind label %154
 
 134:                                              ; preds = %58
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1121)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1124)
   %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -4779,6 +4792,7 @@ _ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.1593
   br label %"_ZN89_$LT$rustls..msgs..handshake..PresharedKeyOffer$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h737de6631fe29116E.exit.sink.split"
 
 142:                                              ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit, %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %143 = getelementptr inbounds i8, ptr %0, i64 16
   %144 = load ptr, ptr %143, align 8, !nonnull !4, !noundef !4
   %145 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5156,6 +5170,7 @@ define void @"_ZN87_$LT$rustls..msgs..handshake..ClientExtension$u20$as$u20$rust
   br i1 %trunc133, label %145, label %116
 
 _ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit: ; preds = %63
+  call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 1) ]
   store i64 %52, ptr %.sroa.5242.0..sroa_idx, align 8, !alias.scope !1192
   %106 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %52, i1 noundef zeroext false), !noalias !1195
   %107 = extractvalue { i64, ptr } %106, 0
@@ -5166,6 +5181,7 @@ _ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit: ; preds = %63
   br label %116
 
 _ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit191: ; preds = %63
+  call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 1) ]
   store i64 %52, ptr %.sroa.5242.0..sroa_idx, align 8, !alias.scope !1199
   %110 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %52, i1 noundef zeroext false), !noalias !1202
   %111 = extractvalue { i64, ptr } %110, 0
@@ -5256,6 +5272,7 @@ _ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit191: ; preds = %63
   br label %120
 
 _ZN6rustls4msgs4base7Payload10into_owned17hfed84add1aba5080E.exit: ; preds = %88
+  call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 1) ]
   store i64 %52, ptr %.sroa.5242.0..sroa_idx, align 8, !alias.scope !1214, !noalias !1219
   %132 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %52, i1 noundef zeroext false), !noalias !1221
   %133 = extractvalue { i64, ptr } %132, 0
@@ -5697,6 +5714,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 47:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %48 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hedba311e0604ac34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %51 unwind label %114
 
@@ -5713,6 +5731,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   ret void
 
 52:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1299)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1302)
   %53 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5762,17 +5781,20 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 73:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %74 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4822b6027852728cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %51 unwind label %114
 
 75:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %76 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN85_$LT$rustls..msgs..handshake..KeyShareEntry$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17ha466d2c405549721E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %76, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %51 unwind label %114
 
 77:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %78 = getelementptr inbounds i8, ptr %0, i64 2
   %79 = load i16, ptr %78, align 2, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %80 = load i64, ptr %1, align 8, !alias.scope !1321, !noalias !1330, !noundef !4
   %81 = sub i64 %80, %44
   %82 = icmp ult i64 %81, 2
@@ -5788,6 +5810,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 84:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %85 = getelementptr inbounds i8, ptr %0, i64 2
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1337)
   %86 = load i16, ptr %85, align 2, !range !1339, !alias.scope !1334, !noalias !1337, !noundef !4
@@ -5857,6 +5880,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   br label %.sink.split
 
 106:                                              ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1354)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1357)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1359)
@@ -5900,6 +5924,7 @@ _ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.1593
   br label %.sink.split
 
 121:                                              ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit, %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %122 = getelementptr inbounds i8, ptr %0, i64 16
   %123 = load ptr, ptr %122, align 8, !nonnull !4, !noundef !4
   %124 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6172,6 +6197,7 @@ define void @"_ZN87_$LT$rustls..msgs..handshake..ServerExtension$u20$as$u20$rust
   br i1 %81, label %114, label %94
 
 _ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit: ; preds = %58
+  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 1) ]
   store i64 %47, ptr %.sroa.5213.0..sroa_idx, align 8, !alias.scope !1433
   %83 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %47, i1 noundef zeroext false), !noalias !1436
   %84 = extractvalue { i64, ptr } %83, 0
@@ -6196,6 +6222,7 @@ _ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit: ; preds = %58
   br i1 %trunc149, label %116, label %94
 
 _ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit171: ; preds = %58
+  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 1) ]
   store i64 %47, ptr %.sroa.5213.0..sroa_idx, align 8, !alias.scope !1440
   %90 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %47, i1 noundef zeroext false), !noalias !1443
   %91 = extractvalue { i64, ptr } %90, 0
@@ -8551,6 +8578,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 39:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %40 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1892)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1895)
   %41 = load i16, ptr %40, align 8, !range !772, !alias.scope !1892, !noalias !1895, !noundef !4
@@ -8624,6 +8652,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   br label %117
 
 62:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1911)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1914)
   %63 = getelementptr inbounds i8, ptr %0, i64 16
@@ -8675,6 +8704,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 85:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %86 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1943)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1946)
   %87 = load i16, ptr %86, align 8, !range !1339, !alias.scope !1943, !noalias !1946, !noundef !4
@@ -8744,6 +8774,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   br label %117
 
 107:                                              ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1962)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1965)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1967)
@@ -8936,6 +8967,7 @@ define void @"_ZN91_$LT$rustls..msgs..handshake..HelloRetryExtension$u20$as$u20$
   br label %105
 
 .thread:                                          ; preds = %52
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %56 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %41, i1 noundef zeroext false), !noalias !2030
   %57 = extractvalue { i64, ptr } %56, 0
   %58 = extractvalue { i64, ptr } %56, 1
@@ -8952,6 +8984,7 @@ define void @"_ZN91_$LT$rustls..msgs..handshake..HelloRetryExtension$u20$as$u20$
 
 62:                                               ; preds = %60
   store i64 2, ptr %.sroa.5210.0..sroa_idx, align 8, !alias.scope !2049, !noalias !2052
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %63 = load i16, ptr %53, align 1, !noalias !2055
   %64 = tail call i16 @llvm.bswap.i16(i16 %63)
   switch i16 %64, label %92 [
@@ -9019,6 +9052,7 @@ define void @"_ZN91_$LT$rustls..msgs..handshake..HelloRetryExtension$u20$as$u20$
 
 79:                                               ; preds = %77
   store i64 2, ptr %.sroa.5210.0..sroa_idx, align 8, !alias.scope !2062, !noalias !2065
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %80 = load i16, ptr %53, align 1, !noalias !2068
   %81 = tail call i16 @llvm.bswap.i16(i16 %80)
   switch i16 %81, label %102 [
@@ -10760,10 +10794,12 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 35:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN89_$LT$rustls..msgs..handshake..CertificateStatus$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h9dbfc0f8c6e6ec07E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %49 unwind label %47
 
 37:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2507)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2510)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2512)
@@ -10958,6 +10994,7 @@ define void @"_ZN92_$LT$rustls..msgs..handshake..CertificateExtension$u20$as$u20
 
 60:                                               ; preds = %58
   store i64 1, ptr %.sroa.5138.0..sroa_idx, align 8, !alias.scope !2584, !noalias !2587
+  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 1) ]
   %61 = load i8, ptr %54, align 1, !noalias !2591, !noundef !4
   %.not.i = icmp eq i8 %61, 1
   br i1 %.not.i, label %62, label %69
@@ -10979,6 +11016,7 @@ define void @"_ZN92_$LT$rustls..msgs..handshake..CertificateExtension$u20$as$u20
   br i1 %trunc.i, label %69, label %71
 
 .thread:                                          ; preds = %53
+  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 1) ]
   %65 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %42, i1 noundef zeroext false), !noalias !2594
   %66 = extractvalue { i64, ptr } %65, 0
   %67 = extractvalue { i64, ptr } %65, 1
@@ -12528,7 +12566,7 @@ switch.lookup:                                    ; preds = %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %21 = zext nneg i16 %switch.tableidx to i64
   %switch.gep40 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN6rustls4msgs9handshake14ServerDhParams3new17h26560eb7c5028b8bE.llvm.15934541666227088301.11, i64 0, i64 %21
-  %switch.load41 = load ptr, ptr %switch.gep40, align 8
+  %switch.load41 = load ptr, ptr %switch.gep40, align 8, !align !512
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %22 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %switch.load, i1 noundef zeroext false), !noalias !3024
   %23 = extractvalue { i64, ptr } %22, 0
@@ -13971,15 +14009,18 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 
 38:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %39 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6e0c25a8b6b54de9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %54 unwind label %52
 
 40:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %41 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h5bbf6a623937a1adE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %54 unwind label %52
 
 42:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3344)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3347)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3349)
@@ -14175,6 +14216,7 @@ define void @"_ZN88_$LT$rustls..msgs..handshake..CertReqExtension$u20$as$u20$rus
 
 _ZN6rustls4msgs9handshake16UnknownExtension4read17h4408923a8ad8e5a7E.exit: ; preds = %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3412)
+  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 1) ]
   store i64 %43, ptr %.sroa.5127.0..sroa_idx, align 8, !alias.scope !3415, !noalias !3420
   %58 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %43, i1 noundef zeroext false), !noalias !3423
   %59 = extractvalue { i64, ptr } %58, 0
@@ -14857,6 +14899,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 36:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %39 = tail call i32 @llvm.bswap.i32(i32 %38)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3593
   %40 = getelementptr inbounds i8, ptr %3, i64 16
@@ -14868,6 +14911,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
           to label %54 unwind label %52
 
 42:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3597)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3600)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3602)
@@ -16622,6 +16666,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   store i64 2, ptr %3, align 8, !alias.scope !4144, !noalias !4147
   %43 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 -1, ptr %43, align 8, !alias.scope !4144, !noalias !4147
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   invoke void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f79723a6ac02afE.llvm.15934541666227088301(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %46 unwind label %44
 
@@ -16829,6 +16874,7 @@ define hidden void @_ZN6rustls4msgs9handshake23HandshakeMessagePayload12read_ver
   br label %216
 
 _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit: ; preds = %70, %74
+  call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 1) ]
   store i64 %58, ptr %.sroa.5419.0..sroa_idx, align 8, !alias.scope !4180, !noalias !4185
   br label %116
 
@@ -16928,10 +16974,12 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit: ; preds = %70, %74
   br i1 %102, label %208, label %207
 
 _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit367: ; preds = %70
+  call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 1) ]
   store i64 %58, ptr %.sroa.5419.0..sroa_idx, align 8, !alias.scope !4187, !noalias !4192
   br label %116
 
 _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
+  call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 1) ]
   store i64 %58, ptr %.sroa.5419.0..sroa_idx, align 8, !alias.scope !4194, !noalias !4199
   br label %116
 

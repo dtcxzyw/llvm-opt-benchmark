@@ -749,6 +749,7 @@ define void @"_ZN97_$LT$regex_syntax..hir..translate..TranslatorI$u20$as$u20$reg
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6)
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %18 = icmp eq i64 %8, 0
   br i1 %18, label %_ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.17858990074942142107.exit, label %19
 
@@ -1639,6 +1640,7 @@ _ZN12regex_syntax3hir10Properties5empty17heee6dc2d9f67e22bE.exit246: ; preds = %
   br i1 %207, label %212, label %208
 
 208:                                              ; preds = %206
+  call void @llvm.assume(i1 true) [ "align"(ptr %188, i64 8) ]
   %209 = getelementptr inbounds i8, ptr %188, i64 39
   %210 = load i8, ptr %209, align 1, !range !81, !noalias !223, !noundef !5
   %211 = trunc nuw i8 %210 to i1
@@ -2630,15 +2632,18 @@ _ZN12regex_syntax3hir9translate11TranslatorI21ast_literal_to_scalar17hec5dd475a9
 471:                                              ; preds = %_ZN12regex_syntax3hir9translate11TranslatorI21ast_literal_to_scalar17hec5dd475a973da6eE.exit.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.22401)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %139)
+  call void @llvm.assume(i1 true) [ "align"(ptr %187, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %139, ptr noundef nonnull align 8 dereferenceable(48) %187, i64 48, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !523)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !526)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !528)
+  call void @llvm.assume(i1 true) [ "align"(ptr %188, i64 8) ]
   %.sroa.0.0.copyload.i.i263 = load i48, ptr %189, align 8, !noalias !530
   %472 = trunc i48 %.sroa.0.0.copyload.i.i263 to i1
   br i1 %472, label %473, label %602
 
 473:                                              ; preds = %471
+  call void @llvm.assume(i1 true) [ "align"(ptr %188, i64 8) ]
   %.sroa.4100.0.extract.shift.i = lshr i48 %.sroa.0.0.copyload.i.i263, 32
   %.sroa.4100.0.extract.trunc.i = trunc i48 %.sroa.4100.0.extract.shift.i to i8
   %474 = icmp eq i8 %.sroa.4100.0.extract.trunc.i, 2
@@ -2892,6 +2897,7 @@ _ZN12regex_syntax3hir12ClassUnicode20try_case_fold_simple17h45ce72203e73a14cE.ex
 546:                                              ; preds = %_ZN12regex_syntax3hir9translate11TranslatorI21ast_literal_to_scalar17hec5dd475a973da6eE.exit.thread
   %.sroa.211.0.extract.shift = lshr i64 %.sroa.8.0577.ph, 8
   %.sroa.211.0.extract.trunc = trunc i64 %.sroa.211.0.extract.shift to i8
+  call void @llvm.assume(i1 true) [ "align"(ptr %188, i64 8) ]
   %547 = load i64, ptr %188, align 8, !noundef !5
   %548 = icmp eq i64 %547, 0
   br i1 %548, label %549, label %553
@@ -3217,6 +3223,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI9push_byte17hd806cd7816d408a5E.exit:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %121)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %120)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6436)
+  call void @llvm.assume(i1 true) [ "align"(ptr %414, i64 8) ]
   %634 = load i64, ptr %414, align 8, !noalias !607, !noundef !5
   %635 = icmp eq i64 %634, 0
   br i1 %635, label %636, label %640
@@ -3258,6 +3265,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %124)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6426)
+  call void @llvm.assume(i1 true) [ "align"(ptr %414, i64 8) ]
   %650 = load i64, ptr %414, align 8, !noalias !624, !noundef !5
   %651 = icmp eq i64 %650, 0
   br i1 %651, label %652, label %656
@@ -3352,6 +3360,7 @@ _ZN12regex_syntax3hir9translate8HirFrame18unwrap_class_bytes17hca15a41912bcd4a0E
   %683 = trunc nuw i8 %682 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
+  call void @llvm.assume(i1 true) [ "align"(ptr %414, i64 8) ]
   %684 = trunc i48 %.sroa.0.0.copyload.i260 to i1
   br i1 %684, label %685, label %688
 
@@ -3378,6 +3387,7 @@ _ZN12regex_syntax3hir10ClassBytes16case_fold_simple17h5e554b525b87030fE.exit.i: 
   br i1 %683, label %692, label %.noexc277
 
 .noexc277:                                        ; preds = %692, %688
+  call void @llvm.assume(i1 true) [ "align"(ptr %414, i64 8) ]
   %689 = getelementptr inbounds i8, ptr %414, i64 39
   %690 = load i8, ptr %689, align 1, !range !81, !noalias !663, !noundef !5
   %691 = trunc nuw i8 %690 to i1
@@ -3523,6 +3533,7 @@ _ZN12regex_syntax3hir9translate8HirFrame20unwrap_class_unicode17h6d6c76ded120bc9
   %735 = getelementptr inbounds i8, ptr %734, i64 208
   %736 = load i8, ptr %735, align 8, !range !81, !noundef !5
   %737 = trunc nuw i8 %736 to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %414, i64 8) ]
   %738 = trunc i48 %.sroa.0.0.copyload.i260 to i1
   br i1 %738, label %739, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbbb39c25e33eaf7fE.exit.thread.i"
 
@@ -3619,6 +3630,7 @@ _ZN12regex_syntax3hir9translate8HirFrame20unwrap_class_unicode17h6d6c76ded120bc9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %116)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %115)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6450)
+  call void @llvm.assume(i1 true) [ "align"(ptr %419, i64 8) ]
   %762 = load i64, ptr %419, align 8, !noalias !718, !noundef !5
   %763 = icmp eq i64 %762, 0
   br i1 %763, label %764, label %767
@@ -3832,6 +3844,8 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
   store ptr %811, ptr %825, align 8, !noalias !756
   call void @llvm.experimental.noalias.scope.decl(metadata !761)
   call void @llvm.experimental.noalias.scope.decl(metadata !764)
+  call void @llvm.assume(i1 true) [ "align"(ptr %811, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8473.0.copyload, i64 8) ]
   %826 = getelementptr inbounds i8, ptr %.sroa.8473.0.copyload, i64 16
   %827 = load i64, ptr %826, align 8, !range !28, !noalias !766, !noundef !5
   %trunc.i.i291 = trunc nuw i64 %827 to i1
@@ -3954,6 +3968,7 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
   br i1 %.015.i.i, label %860, label %.thread.i.i
 
 860:                                              ; preds = %858
+  call void @llvm.assume(i1 true) [ "align"(ptr %811, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6454, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6465, i64 24, i1 false), !alias.scope !752, !noalias !747
   br label %"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17h2df1c1d625d66ee2E.exit.i.i"
 
@@ -4024,6 +4039,7 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %112)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %111)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6484)
+  call void @llvm.assume(i1 true) [ "align"(ptr %436, i64 8) ]
   %870 = load i64, ptr %436, align 8, !noalias !770, !noundef !5
   %871 = icmp eq i64 %870, 0
   br i1 %871, label %872, label %875
@@ -4119,6 +4135,7 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
 
 898:                                              ; preds = %886
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %111)
+  call void @llvm.assume(i1 true) [ "align"(ptr %436, i64 8) ]
   %899 = getelementptr inbounds i8, ptr %436, i64 32
   store i48 %.sroa.0.0.copyload.i302, ptr %899, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %110)
@@ -4486,6 +4503,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10827.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10827, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %101)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6495)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val235, i64 8) ]
   %989 = load i64, ptr %.val235, align 8, !noalias !869, !noundef !5
   %990 = icmp eq i64 %989, 0
   br i1 %990, label %991, label %994
@@ -5390,6 +5408,7 @@ define void @"_ZN97_$LT$regex_syntax..hir..translate..TranslatorI$u20$as$u20$reg
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %91)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %90)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6438)
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 8) ]
   %132 = load i64, ptr %102, align 8, !noalias !1046, !noundef !5
   %133 = icmp eq i64 %132, 0
   br i1 %133, label %134, label %138
@@ -5431,6 +5450,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %93)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6)
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 8) ]
   %148 = load i64, ptr %102, align 8, !noalias !1063, !noundef !5
   %149 = icmp eq i64 %148, 0
   br i1 %149, label %150, label %154
@@ -5528,6 +5548,7 @@ common.resume:                                    ; preds = %892, %798, %483, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1097)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1099)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1102)
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 8) ]
   %178 = getelementptr inbounds i8, ptr %2, i64 52
   %179 = load i8, ptr %178, align 4, !range !216, !alias.scope !1104, !noalias !1107, !noundef !5
   %180 = icmp ne i8 %179, 4
@@ -5551,6 +5572,7 @@ common.resume:                                    ; preds = %892, %798, %483, %5
   br i1 %189, label %194, label %190
 
 190:                                              ; preds = %188
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 8) ]
   %191 = getelementptr inbounds i8, ptr %102, i64 39
   %192 = load i8, ptr %191, align 1, !range !81, !noalias !1110, !noundef !5
   %193 = trunc nuw i8 %192 to i1
@@ -5788,6 +5810,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI18class_literal_byte17h19ba0aa43906c
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %84)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6453)
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   %256 = load i64, ptr %107, align 8, !noalias !1147, !noundef !5
   %257 = icmp eq i64 %256, 0
   br i1 %257, label %258, label %262
@@ -5829,6 +5852,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %87)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6449)
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   %272 = load i64, ptr %107, align 8, !noalias !1164, !noundef !5
   %273 = icmp eq i64 %272, 0
   br i1 %273, label %274, label %278
@@ -5923,6 +5947,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1198)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1200)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1203)
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   %303 = getelementptr inbounds i8, ptr %2, i64 100
   %304 = load i8, ptr %303, align 4, !range !216, !alias.scope !1205, !noalias !1208, !noundef !5
   %305 = icmp ne i8 %304, 4
@@ -5946,6 +5971,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   br i1 %314, label %319, label %315
 
 315:                                              ; preds = %313
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   %316 = getelementptr inbounds i8, ptr %107, i64 39
   %317 = load i8, ptr %316, align 1, !range !81, !noalias !1211, !noundef !5
   %318 = trunc nuw i8 %317 to i1
@@ -6034,6 +6060,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI18class_literal_byte17h19ba0aa43906c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1220)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1225)
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   %.sroa.0.0.copyload.i.i.i289 = load i48, ptr %108, align 8, !noalias !1227
   %.sroa.413.0.extract.shift.i.i290 = lshr i48 %.sroa.0.0.copyload.i.i.i289, 32
   %.sroa.413.0.extract.trunc.i.i291 = trunc i48 %.sroa.413.0.extract.shift.i.i290 to i8
@@ -6069,6 +6096,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI18class_literal_byte17h19ba0aa43906c
   br i1 %358, label %363, label %359
 
 359:                                              ; preds = %357
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   %360 = getelementptr inbounds i8, ptr %107, i64 39
   %361 = load i8, ptr %360, align 1, !range !81, !noalias !1235, !noundef !5
   %362 = trunc nuw i8 %361 to i1
@@ -6365,6 +6393,7 @@ switch.lookup:                                    ; preds = %111
   %437 = trunc nuw i8 %436 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !1284)
   call void @llvm.experimental.noalias.scope.decl(metadata !1287)
+  call void @llvm.assume(i1 true) [ "align"(ptr %112, i64 8) ]
   %.sroa.0.0.copyload.i.i.i338 = load i48, ptr %113, align 8, !noalias !1289
   %438 = trunc i48 %.sroa.0.0.copyload.i.i.i338 to i1
   br i1 %438, label %439, label %442
@@ -6392,6 +6421,7 @@ _ZN12regex_syntax3hir10ClassBytes16case_fold_simple17h5e554b525b87030fE.exit.i.i
   br i1 %437, label %446, label %.noexc15.i
 
 .noexc15.i:                                       ; preds = %446, %442
+  call void @llvm.assume(i1 true) [ "align"(ptr %112, i64 8) ]
   %443 = getelementptr inbounds i8, ptr %112, i64 39
   %444 = load i8, ptr %443, align 1, !range !81, !noalias !1297, !noundef !5
   %445 = trunc nuw i8 %444 to i1
@@ -6509,6 +6539,7 @@ switch.lookup770:                                 ; preds = %111
   %488 = load i8, ptr %487, align 1, !range !81, !alias.scope !1326, !noalias !1330, !noundef !5
   %489 = trunc nuw i8 %488 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !1334)
+  call void @llvm.assume(i1 true) [ "align"(ptr %112, i64 8) ]
   %.sroa.0.0.copyload.i.i.i343 = load i48, ptr %113, align 8, !noalias !1337
   %490 = trunc i48 %.sroa.0.0.copyload.i.i.i343 to i1
   br i1 %490, label %491, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbbb39c25e33eaf7fE.exit.thread.i.i"
@@ -6590,6 +6621,7 @@ switch.lookup770:                                 ; preds = %111
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %76)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6505)
+  call void @llvm.assume(i1 true) [ "align"(ptr %112, i64 8) ]
   %514 = load i64, ptr %112, align 8, !noalias !1357, !noundef !5
   %515 = icmp eq i64 %514, 0
   br i1 %515, label %516, label %520
@@ -6775,6 +6807,7 @@ _ZN12regex_syntax3hir10ClassBytes5union17h867dc9d150c6118dE.exit: ; preds = %549
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %80)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6491)
+  call void @llvm.assume(i1 true) [ "align"(ptr %112, i64 8) ]
   %563 = load i64, ptr %112, align 8, !noalias !1398, !noundef !5
   %564 = icmp eq i64 %563, 0
   br i1 %564, label %565, label %569
@@ -7130,6 +7163,7 @@ _ZN12regex_syntax3hir12ClassUnicode5union17h95371bea8651628dE.exit372: ; preds =
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6520)
+  call void @llvm.assume(i1 true) [ "align"(ptr %122, i64 8) ]
   %668 = load i64, ptr %122, align 8, !noalias !1483, !noundef !5
   %669 = icmp eq i64 %668, 0
   br i1 %669, label %670, label %674
@@ -7293,6 +7327,7 @@ _ZN12regex_syntax3hir10ClassBytes5union17h867dc9d150c6118dE.exit381: ; preds = %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %66)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6516)
+  call void @llvm.assume(i1 true) [ "align"(ptr %122, i64 8) ]
   %716 = load i64, ptr %122, align 8, !noalias !1523, !noundef !5
   %717 = icmp eq i64 %716, 0
   br i1 %717, label %718, label %722
@@ -7454,6 +7489,7 @@ _ZN12regex_syntax3hir12ClassUnicode5union17h95371bea8651628dE.exit390: ; preds =
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6539)
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
   %764 = load i64, ptr %127, align 8, !noalias !1563, !noundef !5
   %765 = icmp eq i64 %764, 0
   br i1 %765, label %766, label %770
@@ -7495,6 +7531,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6527)
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
   %780 = load i64, ptr %127, align 8, !noalias !1580, !noundef !5
   %781 = icmp eq i64 %780, 0
   br i1 %781, label %782, label %786
@@ -7588,6 +7625,7 @@ _ZN12regex_syntax3hir9translate8HirFrame18unwrap_class_bytes17hca15a41912bcd4a0E
   %812 = trunc nuw i8 %811 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1609)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1612)
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
   %813 = trunc i48 %.sroa.0.0.copyload.i241 to i1
   br i1 %813, label %814, label %817
 
@@ -7614,6 +7652,7 @@ _ZN12regex_syntax3hir10ClassBytes16case_fold_simple17h5e554b525b87030fE.exit.i: 
   br i1 %812, label %821, label %.noexc402
 
 .noexc402:                                        ; preds = %821, %817
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
   %818 = getelementptr inbounds i8, ptr %127, i64 39
   %819 = load i8, ptr %818, align 1, !range !81, !noalias !1619, !noundef !5
   %820 = trunc nuw i8 %819 to i1
@@ -7670,6 +7709,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI21bytes_fold_and_negate17hb8293f1b4a
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6549)
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
   %841 = load i64, ptr %127, align 8, !noalias !1633, !noundef !5
   %842 = icmp eq i64 %841, 0
   br i1 %842, label %843, label %846
@@ -7885,6 +7925,7 @@ _ZN12regex_syntax3hir9translate8HirFrame20unwrap_class_unicode17h6d6c76ded120bc9
   %904 = getelementptr inbounds i8, ptr %903, i64 208
   %905 = load i8, ptr %904, align 8, !range !81, !noundef !5
   %906 = trunc nuw i8 %905 to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
   %907 = trunc i48 %.sroa.0.0.copyload.i241 to i1
   br i1 %907, label %908, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbbb39c25e33eaf7fE.exit.thread.i"
 
@@ -7933,6 +7974,7 @@ _ZN12regex_syntax3hir9translate8HirFrame20unwrap_class_unicode17h6d6c76ded120bc9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %56)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6535)
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
   %921 = load i64, ptr %127, align 8, !noalias !1703, !noundef !5
   %922 = icmp eq i64 %921, 0
   br i1 %922, label %923, label %926
@@ -8402,6 +8444,7 @@ define void @"_ZN97_$LT$regex_syntax..hir..translate..TranslatorI$u20$as$u20$reg
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6134)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   %43 = load i64, ptr %38, align 8, !noalias !1842, !noundef !5
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %49
@@ -8443,6 +8486,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   %59 = load i64, ptr %38, align 8, !noalias !1859, !noundef !5
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %65
@@ -8540,6 +8584,7 @@ common.resume:                                    ; preds = %172, %.body, %.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6138)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   store i64 -1, ptr %38, align 8, !noalias !1888
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1892)
   %89 = icmp eq i64 %51, 0
@@ -8628,6 +8673,7 @@ common.resume:                                    ; preds = %172, %.body, %.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6142)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   store i64 -1, ptr %38, align 8, !noalias !1917
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1921)
   %113 = icmp eq i64 %93, 0
@@ -8715,6 +8761,7 @@ common.resume:                                    ; preds = %172, %.body, %.body
 136:                                              ; preds = %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6142.0..sroa_idx, i64 32, i1 false), !alias.scope !1939
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   %137 = trunc i48 %.sroa.0.0.copyload.i to i1
   br i1 %137, label %138, label %140
 
@@ -8892,6 +8939,7 @@ _ZN12regex_syntax3hir10ClassBytes5union17h867dc9d150c6118dE.exit: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6115)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   store i64 -1, ptr %38, align 8, !noalias !1986
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1990)
   %184 = icmp eq i64 %67, 0
@@ -8977,6 +9025,7 @@ _ZN12regex_syntax3hir10ClassBytes5union17h867dc9d150c6118dE.exit: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6119)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   store i64 -1, ptr %38, align 8, !noalias !2015
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2019)
   %207 = icmp eq i64 %188, 0
@@ -9064,6 +9113,7 @@ _ZN12regex_syntax3hir10ClassBytes5union17h867dc9d150c6118dE.exit: ; preds = %_ZN
 230:                                              ; preds = %216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6119.0..sroa_idx, i64 32, i1 false), !alias.scope !2037
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32)
+  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
   %231 = trunc i48 %.sroa.0.0.copyload.i to i1
   br i1 %231, label %232, label %234
 
@@ -9899,6 +9949,7 @@ switch.lookup:                                    ; preds = %50
   %67 = load i8, ptr %66, align 8, !range !81, !noundef !5
   %68 = trunc nuw i8 %67 to i1
   %69 = getelementptr inbounds i8, ptr %8, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %.sroa.0.0.copyload.i.i = load i48, ptr %10, align 8, !noalias !2237
   %70 = trunc i48 %.sroa.0.0.copyload.i.i to i1
   br i1 %70, label %71, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbbb39c25e33eaf7fE.exit.thread.i"
@@ -10225,6 +10276,7 @@ switch.lookup:                                    ; preds = %3
           to label %51 unwind label %49
 
 20:                                               ; preds = %switch.lookup, %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %21 = getelementptr inbounds i8, ptr %6, i64 39
   %22 = load i8, ptr %21, align 1, !range !81, !noundef !5
   %23 = trunc nuw i8 %22 to i1
@@ -10419,6 +10471,7 @@ define internal fastcc void @_ZN12regex_syntax3hir3Hir7literal17h3432fd53dc077d6
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.fca.1.extract, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2360
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract, i64 1) ]
   invoke void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
           to label %.noexc19 unwind label %18
 

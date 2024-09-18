@@ -1455,7 +1455,7 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance17h3b8409f5266cd40fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define void @"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance17h3b8409f5266cd40fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1729,6 +1729,7 @@ common.resume:                                    ; preds = %.body, %82, %26
 "_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph": ; preds = %.split
   call void @llvm.assume(i1 %12)
   %85 = getelementptr double, ptr %.val, i64 %.sroa.07.037
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i"
 
 "_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph", %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit"
@@ -1785,14 +1786,15 @@ common.resume:                                    ; preds = %.body, %82, %26
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$3pdf17h360fe77dda40ebacE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #7 {
+define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$3pdf17h360fe77dda40ebacE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #7 {
   %3 = tail call noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf17h996ca6699231ece5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   %4 = tail call double @llvm.exp.f64(double %3)
   ret double %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf17h996ca6699231ece5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf17h996ca6699231ece5E"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %.val3 = load i64, ptr %3, align 8, !noundef !7
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1855,7 +1857,6 @@ define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u2
   %32 = phi i64 [ %37, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %.val3, %.lr.ph.i ]
   %33 = phi ptr [ %39, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %7, %.lr.ph.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   %exitcond.not = icmp eq i64 %.sroa.2.031.i.us, %.val3
   br i1 %exitcond.not, label %.split.us, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us"
 
@@ -1871,13 +1872,13 @@ define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u2
   %41 = select i1 %34, ptr %40, ptr %31
   %42 = select i1 %34, ptr %35, ptr %30
   %43 = getelementptr double, ptr %.val1.i.i.i.i, i64 %.sroa.2.031.i.us
-  %44 = load double, ptr %43, align 8, !noalias !245, !noundef !7
-  %.val4.i.i.i.us = load double, ptr %36, align 8, !alias.scope !258, !noalias !259, !noundef !7
+  %44 = load double, ptr %43, align 8, !noalias !242, !noundef !7
+  %.val4.i.i.i.us = load double, ptr %36, align 8, !alias.scope !256, !noalias !258, !noundef !7
   %45 = fadd double %44, -1.000000e+00
   %46 = tail call noundef double @llvm.log.f64(double %.val4.i.i.i.us)
   %47 = fmul double %45, %46
   %48 = fadd double %.sroa.06.029.i.us, %47
-  %49 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %44), !noalias !260
+  %49 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %44), !noalias !259
   %50 = fsub double %48, %49
   %51 = fadd double %.sroa.6.030.i.us, %.val4.i.i.i.us
   %52 = fadd double %.sroa.7.032.i.us, %44
@@ -1885,15 +1886,14 @@ define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u2
   br i1 %38, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit, label %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i8.us"
 
 .split.us:                                        ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i8.us"
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.506cc9156309edb07427fe3f8fdc614f.10, i64 noundef 27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.506cc9156309edb07427fe3f8fdc614f.34) #20, !noalias !245
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.506cc9156309edb07427fe3f8fdc614f.10, i64 noundef 27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.506cc9156309edb07427fe3f8fdc614f.34) #20, !noalias !242
   unreachable
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit.loopexit: ; preds = %.lr.ph.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
-  %54 = load double, ptr %.val1.i.i.i.i, align 8, !noalias !245, !noundef !7
-  %.val4.i.i.i = load double, ptr %7, align 8, !alias.scope !258, !noalias !259, !noundef !7
-  %55 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %54), !noalias !260
+  %54 = load double, ptr %.val1.i.i.i.i, align 8, !noalias !242, !noundef !7
+  %.val4.i.i.i = load double, ptr %7, align 8, !alias.scope !256, !noalias !258, !noundef !7
+  %55 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %54), !noalias !259
   %56 = fadd double %54, 0.000000e+00
   %57 = fadd double %.val4.i.i.i, 0.000000e+00
   %58 = fadd double %54, -1.000000e+00
@@ -1961,7 +1961,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %.val = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %.val3 = load ptr, ptr %5, align 8, !nonnull !7, !noundef !7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !264
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !263
   store ptr @anon.506cc9156309edb07427fe3f8fdc614f.36, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 2, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1971,8 +1971,8 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %6 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !264
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !264
+  %6 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !263
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !263
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %6
 }
@@ -2525,30 +2525,29 @@ attributes #23 = { nounwind }
 !237 = distinct !{!237, !238, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hd4046fddb4bfa20eE: argument 0"}
 !238 = distinct !{!238, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hd4046fddb4bfa20eE"}
 !239 = !{!240}
-!240 = distinct !{!240, !241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 3"}
-!241 = distinct !{!241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E"}
-!242 = !{!243}
-!243 = distinct !{!243, !244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE: argument 2"}
-!244 = distinct !{!244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE"}
-!245 = !{!246, !248, !249, !243, !250, !251, !252, !240, !253, !255, !256, !257}
-!246 = distinct !{!246, !247, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h3359a44b230df696E: argument 0"}
-!247 = distinct !{!247, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h3359a44b230df696E"}
-!248 = distinct !{!248, !244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE: argument 0"}
-!249 = distinct !{!249, !244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE: argument 1"}
-!250 = distinct !{!250, !241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 0"}
-!251 = distinct !{!251, !241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 1"}
-!252 = distinct !{!252, !241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 2"}
-!253 = distinct !{!253, !254, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE: argument 0"}
-!254 = distinct !{!254, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE"}
-!255 = distinct !{!255, !254, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE: argument 1"}
-!256 = distinct !{!256, !254, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE: argument 2"}
-!257 = distinct !{!257, !254, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE: argument 3"}
-!258 = !{!243, !240}
-!259 = !{!248, !249, !250, !251, !252, !253, !255, !256, !257}
-!260 = !{!261, !263, !248, !249, !243, !250, !251, !252, !240, !253, !255, !256, !257}
-!261 = distinct !{!261, !262, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE: argument 0"}
-!262 = distinct !{!262, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE"}
-!263 = distinct !{!263, !262, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE: argument 1"}
-!264 = !{!265}
-!265 = distinct !{!265, !266, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!266 = distinct !{!266, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!240 = distinct !{!240, !241, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE: argument 2"}
+!241 = distinct !{!241, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE"}
+!242 = !{!243, !245, !246, !240, !247, !249, !250, !251, !253, !254, !255}
+!243 = distinct !{!243, !244, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h3359a44b230df696E: argument 0"}
+!244 = distinct !{!244, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h3359a44b230df696E"}
+!245 = distinct !{!245, !241, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE: argument 0"}
+!246 = distinct !{!246, !241, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE: argument 1"}
+!247 = distinct !{!247, !248, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 0"}
+!248 = distinct !{!248, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E"}
+!249 = distinct !{!249, !248, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 1"}
+!250 = distinct !{!250, !248, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 2"}
+!251 = distinct !{!251, !252, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE: argument 0"}
+!252 = distinct !{!252, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE"}
+!253 = distinct !{!253, !252, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE: argument 1"}
+!254 = distinct !{!254, !252, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE: argument 2"}
+!255 = distinct !{!255, !252, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE: argument 3"}
+!256 = !{!240, !257}
+!257 = distinct !{!257, !248, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 3"}
+!258 = !{!245, !246, !247, !249, !250, !251, !253, !254, !255}
+!259 = !{!260, !262, !245, !246, !240, !247, !249, !250, !251, !253, !254, !255}
+!260 = distinct !{!260, !261, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE: argument 0"}
+!261 = distinct !{!261, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE"}
+!262 = distinct !{!262, !261, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE: argument 1"}
+!263 = !{!264}
+!264 = distinct !{!264, !265, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!265 = distinct !{!265, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}

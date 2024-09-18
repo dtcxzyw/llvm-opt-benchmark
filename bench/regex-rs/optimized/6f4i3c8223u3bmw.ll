@@ -5754,6 +5754,7 @@ common.resume:                                    ; preds = %100, %95, %76, %81,
   store ptr %.sroa.0.0, ptr %6, align 8
   %85 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.sroa.10.0, ptr %85, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.10.0, i64 8) ]
   %86 = getelementptr inbounds i8, ptr %.sroa.10.0, i64 16
   %87 = load i64, ptr %86, align 8, !range !649, !invariant.load !5
   %88 = add i64 %87, -1
@@ -7842,6 +7843,7 @@ define noundef zeroext i1 @_ZN14regex_automata4util6search10PatternSet6insert17h
   %14 = load i64, ptr %13, align 8, !alias.scope !1044, !noalias !1047, !noundef !5
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8, !alias.scope !1044, !noalias !1047
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   store i8 1, ptr %9, align 1, !noalias !1049
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7359700134fa3e01E.llvm.4452766663292099101.exit"
 
@@ -7858,7 +7860,7 @@ define noundef zeroext i1 @_ZN14regex_automata4util6search10PatternSet6insert17h
   ret i1 %.sroa.4.0.ph
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN14regex_automata4util6search10PatternSet10try_insert17h07b16fcdbf8c8494E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #14 {
   %4 = zext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7890,6 +7892,7 @@ define void @_ZN14regex_automata4util6search10PatternSet10try_insert17h07b16fcdb
   %19 = load i64, ptr %18, align 8, !noundef !5
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   store i8 1, ptr %12, align 1
   %21 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 1, ptr %21, align 1
@@ -9588,7 +9591,7 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind wil
 attributes #11 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

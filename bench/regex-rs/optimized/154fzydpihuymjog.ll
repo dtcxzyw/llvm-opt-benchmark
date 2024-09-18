@@ -1438,6 +1438,7 @@ define internal fastcc void @_ZN12regex_syntax3hir3Hir7literal17h3432fd53dc077d6
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.fca.1.extract, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !217
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract, i64 1) ]
   invoke void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
           to label %.noexc17 unwind label %21
 
@@ -1810,6 +1811,7 @@ define void @_ZN12regex_syntax3hir3Hir6concat17hb3388b58f0e90524E(ptr noalias no
   %59 = phi ptr [ %.sroa.4198.0.copyload, %2 ], [ %58, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce45373ccf395cd3E.exit.thread.loopexit.split.loop.exit422" ], [ %431, %430 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !271
   store ptr %29, ptr %10, align 8, !noalias !271
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
   %60 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc7bc17a48bee739bE.llvm.14163345723071415371(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %29)
           to label %63 unwind label %61
 
@@ -2069,12 +2071,14 @@ thread-pre-split:                                 ; preds = %67
   unreachable
 
 147:                                              ; preds = %.lr.ph.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
   %148 = getelementptr inbounds i8, ptr %106, i64 76
   %149 = load i8, ptr %148, align 4, !range !301, !noundef !9
   br label %150
 
 150:                                              ; preds = %147, %.lr.ph.i
   %.054.i = phi i8 [ %149, %147 ], [ 0, %.lr.ph.i ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
   %151 = getelementptr inbounds i8, ptr %106, i64 48
   %152 = load i64, ptr %151, align 8, !noundef !9
   %153 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.25.0102.i, i64 %152)
@@ -2097,6 +2101,7 @@ thread-pre-split:                                 ; preds = %67
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %160
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
   %164 = getelementptr inbounds i8, ptr %106, i64 77
   %165 = load i8, ptr %164, align 1, !range !301, !noundef !9
   br label %166
@@ -2107,6 +2112,7 @@ thread-pre-split:                                 ; preds = %67
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %166
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
   %169 = getelementptr inbounds i8, ptr %106, i64 78
   %170 = load i8, ptr %169, align 2, !range !301, !noundef !9
   br label %171
@@ -2117,6 +2123,7 @@ thread-pre-split:                                 ; preds = %67
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %171
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
   %174 = load i64, ptr %106, align 8, !range !16, !noundef !9
   %trunc57.i = trunc nuw i64 %174 to i1
   br i1 %trunc57.i, label %177, label %175
@@ -2134,6 +2141,7 @@ thread-pre-split:                                 ; preds = %67
   br label %175
 
 181:                                              ; preds = %175
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
   %182 = getelementptr inbounds i8, ptr %106, i64 16
   %183 = load i64, ptr %182, align 8, !range !16, !noundef !9
   %trunc58.i = trunc nuw i64 %183 to i1
@@ -2474,6 +2482,7 @@ common.resume:                                    ; preds = %.thread254, %200
   %277 = phi ptr [ %.sroa.2.0.copyload, %268 ], [ %276, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce45373ccf395cd3E.exit134.thread.loopexit.split.loop.exit419" ], [ %388, %387 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !346
   store ptr %24, ptr %5, align 8, !noalias !346
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   %278 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc7bc17a48bee739bE.llvm.14163345723071415371(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %24)
           to label %281 unwind label %279
 
@@ -3186,6 +3195,7 @@ define void @_ZN12regex_syntax3hir3Hir11alternation17h33d54a3cb69fcc54E(ptr noal
   %85 = phi ptr [ %.sroa.4216.0.copyload, %65 ], [ %84, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce45373ccf395cd3E.exit.thread.loopexit.split.loop.exit442" ], [ %617, %616 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47), !noalias !450
   store ptr %59, ptr %47, align 8, !noalias !450
+  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 8) ]
   %86 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc7bc17a48bee739bE.llvm.14163345723071415371(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %59)
           to label %89 unwind label %87
 
@@ -4778,6 +4788,7 @@ _ZN12regex_syntax3hir10Properties11alternation17hd65e7c9478a80268E.exit: ; preds
 592:                                              ; preds = %588
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %54)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %57, i64 40, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %589, i64 8) ]
   store ptr %589, ptr %73, align 8
   %593 = load i64, ptr %69, align 8, !alias.scope !792, !noalias !795, !noundef !9
   %594 = load i64, ptr %60, align 8, !alias.scope !792, !noalias !795, !noundef !9
@@ -6604,6 +6615,7 @@ define noundef zeroext i1 @"_ZN94_$LT$regex_syntax..hir..ClassUnicodeRange$u20$a
   unreachable
 
 _ZN12regex_syntax7unicode16SimpleCaseFolder8overlaps17hc3d01e5086a27cc1E.exit: ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr @anon.ee024262027212e939cdd9996d089225.2935.llvm.16611923841924356903, i64 8) ]
   %10 = call { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903"(ptr noalias noundef nonnull readonly align 8 @anon.ee024262027212e939cdd9996d089225.2935.llvm.16611923841924356903, i64 noundef 2878, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !noalias !1092
   %.fca.0.extract.i = extractvalue { i64, i64 } %10, 0
   %11 = icmp eq i64 %.fca.0.extract.i, 0
@@ -7664,16 +7676,17 @@ define noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties10r
   br i1 %trunc12, label %19, label %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit"
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !range !16, !noundef !9
-  %trunc.i = trunc nuw i64 %21 to i1
-  br i1 %trunc.i, label %22, label %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit"
+  %20 = load i32, ptr %18, align 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
+  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !range !16, !noundef !9
+  %trunc.i = trunc nuw i64 %22 to i1
+  br i1 %trunc.i, label %23, label %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit"
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %18, align 4
+23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %5, i64 24
   %25 = load i64, ptr %24, align 8
-  %26 = zext i32 %23 to i64
+  %26 = zext i32 %20 to i64
   %27 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %25, i64 %26)
   %28 = extractvalue { i64, i1 } %27, 1
   %29 = extractvalue { i64, i1 } %27, 0
@@ -7681,9 +7694,10 @@ define noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties10r
   %spec.select11.i = zext i1 %not..i to i64
   br label %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit"
 
-"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit": ; preds = %22, %19, %16
-  %.sroa.05.0 = phi i64 [ 0, %16 ], [ 0, %19 ], [ %spec.select11.i, %22 ]
-  %.sroa.36.0 = phi i64 [ undef, %16 ], [ undef, %19 ], [ %29, %22 ]
+"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit": ; preds = %23, %19, %16
+  %.sroa.05.0 = phi i64 [ 0, %16 ], [ 0, %19 ], [ %spec.select11.i, %23 ]
+  %.sroa.36.0 = phi i64 [ undef, %16 ], [ undef, %19 ], [ %29, %23 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %30 = getelementptr inbounds i8, ptr %5, i64 56
   %31 = load i32, ptr %30, align 8, !noundef !9
   %32 = getelementptr inbounds i8, ptr %5, i64 68
@@ -7704,6 +7718,7 @@ define noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties10r
   br i1 %.not, label %51, label %46
 
 46:                                               ; preds = %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %47 = getelementptr inbounds i8, ptr %5, i64 60
   %48 = load i32, ptr %47, align 4, !noundef !9
   %49 = getelementptr inbounds i8, ptr %5, i64 64
@@ -8258,8 +8273,10 @@ define internal fastcc noundef zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20
   br i1 %102, label %108, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa9a2cd6c7e29e44E.exit"
 
 103:                                              ; preds = %100
+  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 1) ]
   %104 = getelementptr inbounds i8, ptr %0, i64 24
   %105 = load i64, ptr %104, align 8, !alias.scope !1324, !noalias !1327, !noundef !9
+  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 1) ]
   %106 = getelementptr inbounds i8, ptr %1, i64 24
   %107 = load i64, ptr %106, align 8, !alias.scope !1327, !noalias !1324, !noundef !9
   %.not.i.i = icmp eq i64 %105, %107

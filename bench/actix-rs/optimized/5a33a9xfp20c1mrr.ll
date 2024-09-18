@@ -202,6 +202,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$actix_http..responses..resp
 23:                                               ; preds = %17
   %24 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %25 = getelementptr inbounds i8, ptr %21, i64 8
   %26 = load i64, ptr %25, align 8, !range !53, !invariant.load !12, !noalias !54
   %27 = getelementptr inbounds i8, ptr %21, i64 16
@@ -216,6 +217,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$actix_http..responses..resp
   br label %.body2
 
 31:                                               ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %32 = getelementptr inbounds i8, ptr %21, i64 8
   %33 = load i64, ptr %32, align 8, !range !53, !invariant.load !12, !noalias !58
   %34 = getelementptr inbounds i8, ptr %21, i64 16
@@ -333,6 +335,7 @@ define hidden void @"_ZN4core3ptr173drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !53, !invariant.load !12, !noalias !69
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -347,6 +350,7 @@ define hidden void @"_ZN4core3ptr173drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha28c1cefae9dd037E.llvm.11579535172419908104.exit"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !53, !invariant.load !12, !noalias !72
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -387,6 +391,7 @@ define hidden void @"_ZN4core3ptr195drop_in_place$LT$core..pin..Pin$LT$alloc..bo
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !53, !invariant.load !12, !noalias !78
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -401,6 +406,7 @@ define hidden void @"_ZN4core3ptr195drop_in_place$LT$core..pin..Pin$LT$alloc..bo
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha28c1cefae9dd037E.llvm.11579535172419908104.exit.i"
 
 14:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !range !53, !invariant.load !12, !noalias !81
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -531,6 +537,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderNa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !noalias !146, !nonnull !12, !noundef !12
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -568,6 +575,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..Box
 9:                                                ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8, !range !53, !invariant.load !12, !noalias !157
   %13 = getelementptr inbounds i8, ptr %7, i64 16
@@ -582,6 +590,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..Box
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha28c1cefae9dd037E.llvm.11579535172419908104.exit.i.i.i"
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %7, i64 8
   %19 = load i64, ptr %18, align 8, !range !53, !invariant.load !12, !noalias !160
   %20 = getelementptr inbounds i8, ptr %7, i64 16
@@ -693,6 +702,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$actix_http..body..boxed..Box
 9:                                                ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8, !range !53, !invariant.load !12, !noalias !195
   %13 = getelementptr inbounds i8, ptr %7, i64 16
@@ -707,6 +717,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$actix_http..body..boxed..Box
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha28c1cefae9dd037E.llvm.11579535172419908104.exit.i.i"
 
 17:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %7, i64 8
   %19 = load i64, ptr %18, align 8, !range !53, !invariant.load !12, !noalias !198
   %20 = getelementptr inbounds i8, ptr %7, i64 16
@@ -808,6 +819,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$http..header..name..Repr$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !229, !nonnull !12, !noundef !12
   %8 = getelementptr inbounds i8, ptr %0, i64 24

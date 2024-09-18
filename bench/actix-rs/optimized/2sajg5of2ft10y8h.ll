@@ -155,6 +155,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit
 83:                                               ; preds = %78
   %84 = icmp ne ptr %.sroa.01.sroa.3.0.copyload, null
   call void @llvm.assume(i1 %84)
+  call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 8) ]
   call void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hfc868b4c5f713897E"(ptr nonnull align 8 %.sroa.01.sroa.3.0.copyload, ptr align 8 %79)
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit"
 
@@ -368,6 +369,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit
 79:                                               ; preds = %74
   %80 = icmp ne ptr %.sroa.0.sroa.3.0.copyload, null
   call void @llvm.assume(i1 %80)
+  call void @llvm.assume(i1 true) [ "align"(ptr %75, i64 8) ]
   call void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hfc868b4c5f713897E"(ptr nonnull align 8 %.sroa.0.sroa.3.0.copyload, ptr align 8 %75)
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit"
 
@@ -445,14 +447,14 @@ declare void @_ZN4core9panicking13assert_failed17h1f57358f8ec3e200E(i8, ptr alig
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @_ZN4core4sync6atomic12atomic_store17h8309d489731ae414E(ptr, i64, i8) unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -462,8 +464,8 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { noreturn }
 attributes #11 = { cold }
 attributes #12 = { cold noreturn nounwind }

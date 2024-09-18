@@ -7048,6 +7048,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer14filled_get_mut17h0ea181965779f6c
   %176 = ptrtoint ptr %.sroa.0235.0.copyload to i64
   %177 = sub i64 %176, %175
   %178 = add i64 %177, %.sroa.4236.0.copyload
+  call void @llvm.assume(i1 true) [ "align"(ptr %172, i64 1) ]
   %179 = load i64, ptr %97, align 8, !alias.scope !2409, !noundef !4
   store ptr @anon.c43cdfa0e8c33ad4539906867d1667f9.6, ptr %5, align 8, !alias.scope !2409
   store i64 0, ptr %97, align 8, !alias.scope !2409
@@ -7349,6 +7350,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   %283 = ptrtoint ptr %257 to i64
   %284 = sub i64 %283, %282
   %285 = add i64 %284, %.0192572
+  call void @llvm.assume(i1 true) [ "align"(ptr %279, i64 1) ]
   %286 = load i64, ptr %97, align 8, !alias.scope !2447, !noundef !4
   store ptr @anon.c43cdfa0e8c33ad4539906867d1667f9.6, ptr %5, align 8, !alias.scope !2447
   store i64 0, ptr %97, align 8, !alias.scope !2447
@@ -8088,6 +8090,7 @@ define internal fastcc { ptr, i64 } @_ZN6rustls4msgs8deframer19DeframerSliceBuff
   %8 = ptrtoint ptr %1 to i64
   %9 = sub i64 %8, %7
   %10 = add i64 %9, %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
   store ptr @anon.c43cdfa0e8c33ad4539906867d1667f9.6, ptr %0, align 8
@@ -9768,6 +9771,7 @@ define void @"_ZN95_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigner$u20$as$u20$
 
 switch.lookup:                                    ; preds = %57
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %.sroa.7.sroa.5.i.sroa.7)
+  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 8) ]
   %72 = load ptr, ptr %58, align 8, !noalias !3004, !nonnull !4, !align !396, !noundef !4
   %.val.i = load i8, ptr %72, align 1, !range !3020, !noalias !3004, !noundef !4
   %73 = zext nneg i8 %.val.i to i64
@@ -9866,6 +9870,7 @@ switch.lookup:                                    ; preds = %57
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE.exit.i.i.i": ; preds = %97
   %107 = getelementptr inbounds i8, ptr %98, i64 %101
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %108 = getelementptr inbounds i8, ptr %13, i64 8
   %109 = load ptr, ptr %108, align 8, !noalias !3033, !nonnull !4, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull readonly align 1 %109, i64 %100, i1 false), !alias.scope !3037, !noalias !3041
@@ -9889,6 +9894,7 @@ switch.lookup:                                    ; preds = %57
           to label %84 unwind label %134, !noalias !3025
 
 116:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE.exit.i.i.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %117 = getelementptr inbounds i8, ptr %11, i64 8
   %118 = load ptr, ptr %117, align 8, !noalias !3033, !nonnull !4, !noundef !4
   %119 = getelementptr inbounds i8, ptr %98, i64 %105

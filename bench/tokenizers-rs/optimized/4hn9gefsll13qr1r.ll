@@ -879,6 +879,7 @@ define hidden void @"_ZN106_$LT$rayon..iter..fold..FoldFolder$LT$C$C$ID$C$F$GT$$
   %20 = load i64, ptr %19, align 8, !noalias !265
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !265
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %14, ptr %21, align 8
@@ -3687,6 +3688,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   br i1 %28, label %"_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString13into_encoding28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d6b2915095460cbE.llvm.14172520758739148588.exit", label %29
 
 29:                                               ; preds = %16
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1086
   invoke void @_ZN10tokenizers9tokenizer13pre_tokenizer26BytesToCharOffsetConverter7convert17ha873a3a8d590115fE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %26, i64 noundef %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
           to label %30 unwind label %14, !noalias !1088
@@ -6309,6 +6311,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17he75d7c8df7485aa
   %17 = load i64, ptr %16, align 8, !noalias !1781
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1781
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !1767
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.10.0.copyload, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !1762
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1767
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false), !alias.scope !1795
@@ -23434,7 +23437,7 @@ common.resume:                                    ; preds = %116, %135, %32
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h5c353eec1464086bE(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h5c353eec1464086bE(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -23680,6 +23683,7 @@ common.resume:                                    ; preds = %121, %140, %33
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %46, ptr noundef nonnull align 8 dereferenceable(80) %11, i64 80, i1 false)
   store i64 %54, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %89 = load i8, ptr %49, align 1, !range !3833, !noalias !3834, !noundef !14
   invoke void @_ZN10tokenizers9tokenizer10normalizer16NormalizedString5split17h8939bce199fc4d79E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %48, i8 noundef %89)
           to label %92 unwind label %90
@@ -24625,7 +24629,7 @@ common.resume:                                    ; preds = %116, %135, %32
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h9a0529febc48ad60E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h9a0529febc48ad60E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
@@ -24900,6 +24904,7 @@ default.unreachable:                              ; preds = %109
   unreachable
 
 109:                                              ; preds = %106
+  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 8) ]
   %110 = load i8, ptr %52, align 1, !range !4051, !noalias !4050, !noundef !14
   switch i8 %110, label %default.unreachable [
     i8 0, label %117
@@ -24919,6 +24924,7 @@ default.unreachable:                              ; preds = %109
   br label %.loopexit64
 
 114:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he60618408c05b935E.exit14.i", %.invoke.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he60618408c05b935E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he60618408c05b935E.exit.thread.i", %109
+  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 8) ]
   %115 = load i8, ptr %63, align 4, !range !340, !noalias !4050, !noundef !14
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %221, label %216
@@ -24926,6 +24932,7 @@ default.unreachable:                              ; preds = %109
 117:                                              ; preds = %109
   %118 = load ptr, ptr %53, align 8, !alias.scope !4052, !noalias !4050, !nonnull !14, !noundef !14
   %119 = load i64, ptr %54, align 8, !alias.scope !4052, !noalias !4050, !noundef !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 8) ]
   %120 = load i32, ptr %55, align 8, !range !682, !noalias !4050, !noundef !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !4048
   store i32 0, ptr %4, align 4, !noalias !4048
@@ -25014,6 +25021,7 @@ default.unreachable:                              ; preds = %109
   br i1 %or.cond.i, label %.invoke.i, label %114
 
 .invoke.i:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he60618408c05b935E.exit14.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he60618408c05b935E.exit14.thread.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he60618408c05b935E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he60618408c05b935E.exit.thread.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 8) ]
   %166 = load ptr, ptr %50, align 8, !noalias !4050, !nonnull !14, !noundef !14
   %167 = load i64, ptr %51, align 8, !noalias !4050, !noundef !14
   %168 = invoke noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7prepend17h55c76481609c70aeE(ptr noalias noundef nonnull align 8 dereferenceable(80) %48, ptr noalias noundef nonnull readonly align 1 %166, i64 noundef %167)
@@ -25022,6 +25030,7 @@ default.unreachable:                              ; preds = %109
 169:                                              ; preds = %109
   %170 = load ptr, ptr %53, align 8, !alias.scope !4070, !noalias !4050, !nonnull !14, !noundef !14
   %171 = load i64, ptr %54, align 8, !alias.scope !4070, !noalias !4050, !noundef !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 8) ]
   %172 = load i32, ptr %55, align 8, !range !682, !noalias !4050, !noundef !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !4048
   store i32 0, ptr %5, align 4, !noalias !4048
@@ -25118,6 +25127,8 @@ default.unreachable:                              ; preds = %109
   unreachable
 
 221:                                              ; preds = %114
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 8) ]
   %222 = load i32, ptr %55, align 8, !range !682, !noalias !4050, !noundef !14
   invoke void @_ZN10tokenizers9tokenizer10normalizer16NormalizedString5split17h21c16439b428ae4bE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %48, i32 noundef %222, i8 noundef 3)
           to label %223 unwind label %.loopexit
@@ -25299,7 +25310,7 @@ default.unreachable:                              ; preds = %109
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hb0096316446f32d8E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hb0096316446f32d8E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -25545,6 +25556,7 @@ common.resume:                                    ; preds = %121, %140, %33
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %46, ptr noundef nonnull align 8 dereferenceable(80) %11, i64 80, i1 false)
   store i64 %54, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %89 = load i8, ptr %49, align 1, !range !3833, !noalias !4150, !noundef !14
   invoke void @_ZN10tokenizers9tokenizer10normalizer16NormalizedString5split17hbdc93f8e38e65136E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %48, i8 noundef %89)
           to label %92 unwind label %90
@@ -28888,6 +28900,7 @@ define hidden void @"_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedStrin
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %15
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   invoke void @_ZN10tokenizers9tokenizer13pre_tokenizer26BytesToCharOffsetConverter7convert17ha873a3a8d590115fE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %25, i64 noundef %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)
           to label %47 unwind label %13

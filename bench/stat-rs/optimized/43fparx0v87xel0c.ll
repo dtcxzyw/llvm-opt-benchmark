@@ -127,7 +127,7 @@ define hidden noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr readonly %.0.val, ptr readonly %.8.val, double noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr %.0.val, ptr readonly %.8.val, double noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -177,7 +177,9 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i: ; preds =
   %28 = phi ptr [ %.pre.i, %14 ], [ %10, %2 ]
   %.sroa.0.0.i.i = phi double [ %26, %14 ], [ 0xFFF0000000000000, %2 ]
   %29 = load i64, ptr %28, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %30 = sub i64 %29, %27
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
   %31 = getelementptr inbounds i8, ptr %28, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !4
   %33 = sub i64 %32, %1
@@ -1014,7 +1016,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17h1bae18a4103716ccE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17h1bae18a4103716ccE"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -1024,6 +1026,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %9 = alloca [8 x i8], align 8
   %10 = alloca [8 x i8], align 8
   %11 = alloca [8 x i8], align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1091,14 +1094,14 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
 44:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !191
   store i64 %15, ptr %8, align 8, !noalias !191
-  %45 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8), !noalias !191
+  %45 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8), !noalias !195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !191
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !191
   store i64 %.sroa.0.01016.i, ptr %7, align 8, !noalias !191
   %46 = icmp ult i64 %.sroa.0.01016.i, 171
   %47 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.0.01016.i
   %.sroa.0.0.i.i2.i.i.i = select i1 %46, ptr %47, ptr null
-  %48 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7), !noalias !191
+  %48 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7), !noalias !195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !191
   %49 = fsub double %45, %48
   %50 = sub nuw i64 %15, %.sroa.0.01016.i
@@ -1107,7 +1110,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %51 = icmp ult i64 %50, 171
   %52 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %50
   %.sroa.0.0.i.i3.i.i.i = select i1 %51, ptr %52, ptr null
-  %53 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6), !noalias !191
+  %53 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6), !noalias !195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !191
   %54 = fsub double %49, %53
   br label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
@@ -1121,14 +1124,14 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i: ; preds
 57:                                               ; preds = %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !191
   store i64 %38, ptr %5, align 8, !noalias !191
-  %58 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5), !noalias !191
+  %58 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5), !noalias !195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !191
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !191
   store i64 %55, ptr %4, align 8, !noalias !191
   %59 = icmp ult i64 %55, 171
   %60 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %55
   %.sroa.0.0.i.i2.i2.i.i = select i1 %59, ptr %60, ptr null
-  %61 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i2.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !191
+  %61 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i2.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !191
   %62 = fsub double %58, %61
   %63 = sub nuw i64 %38, %55
@@ -1137,7 +1140,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i: ; preds
   %64 = icmp ult i64 %63, 171
   %65 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %63
   %.sroa.0.0.i.i3.i3.i.i = select i1 %64, ptr %65, ptr null
-  %66 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !191
+  %66 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !191
   %67 = fsub double %62, %66
   br label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i"
@@ -1164,6 +1167,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %6 = alloca [8 x i8], align 8
   %7 = alloca [8 x i8], align 8
   store ptr %0, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1175,12 +1179,14 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   br i1 %15, label %38, label %16
 
 16:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %11, i64 %9)
   %.not = icmp ult i64 %1, %.sroa.0.0.sroa.speculated.i.i
   br i1 %.not, label %17, label %38
 
 17:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %18 = icmp ugt i64 %9, %13
   br i1 %18, label %.preheader.i.i, label %19
 
@@ -1222,13 +1228,13 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %.sroa.01.018.i.i = phi double [ %36, %.lr.ph.i.i ], [ 0.000000e+00, %.preheader.i.i ]
   %34 = phi i64 [ %35, %.lr.ph.i.i ], [ %32, %.preheader.i.i ]
   %35 = add i64 %34, 1
-  %36 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.018.i.i, i64 noundef %34), !noalias !195
+  %36 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.018.i.i, i64 noundef %34), !noalias !196
   %exitcond.not.i.i = icmp eq i64 %35, %.sroa.0.0.sroa.speculated.i.i
   br i1 %exitcond.not.i.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE.exit", label %.lr.ph.i.i
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE.exit": ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.sroa.01.0.lcssa24.i.i = phi double [ 0.000000e+00, %.preheader.i.i ], [ %36, %.lr.ph.i.i ]
-  %37 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.0.lcssa24.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i.i), !noalias !195
+  %37 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.0.lcssa24.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i.i), !noalias !196
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %38
 
@@ -1294,10 +1300,10 @@ define { i64, double } @"_ZN124_$LT$statrs..distribution..hypergeometric..Hyperg
 4:                                                ; preds = %1
   %5 = uitofp i64 %2 to double
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !alias.scope !200, !noalias !203, !noundef !4
+  %7 = load i64, ptr %6, align 8, !alias.scope !201, !noalias !204, !noundef !4
   %8 = uitofp i64 %7 to double
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !200, !noalias !203, !noundef !4
+  %10 = load i64, ptr %9, align 8, !alias.scope !201, !noalias !204, !noundef !4
   %11 = uitofp i64 %10 to double
   %12 = fmul double %8, %11
   %13 = fsub double %5, %11
@@ -1327,10 +1333,10 @@ define { i64, double } @"_ZN124_$LT$statrs..distribution..hypergeometric..Hyperg
 4:                                                ; preds = %1
   %5 = uitofp i64 %2 to double
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !alias.scope !205, !noalias !208, !noundef !4
+  %7 = load i64, ptr %6, align 8, !alias.scope !206, !noalias !209, !noundef !4
   %8 = uitofp i64 %7 to double
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !205, !noalias !208, !noundef !4
+  %10 = load i64, ptr %9, align 8, !alias.scope !206, !noalias !209, !noundef !4
   %11 = uitofp i64 %10 to double
   %12 = fadd double %5, -1.000000e+00
   %13 = tail call double @llvm.sqrt.f64(double %12)
@@ -1364,7 +1370,7 @@ define { i64, i64 } @"_ZN144_$LT$statrs..distribution..hypergeometric..Hypergeom
   %2 = load i64, ptr %0, align 8, !noundef !4
   %3 = add i64 %2, 2
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %15, label %5, !prof !210
+  br i1 %4, label %15, label %5, !prof !211
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1640,8 +1646,8 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit10: ; preds =
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, double } @_ZN6statrs10statistics6traits12Distribution7std_dev17h8dea9ecc39eb5616E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  %2 = load double, ptr %0, align 8, !alias.scope !211, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
+  %2 = load double, ptr %0, align 8, !alias.scope !212, !noundef !4
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp oeq double %3, 0x7FF0000000000000
   br i1 %4, label %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h75fe0b51b46b727aE.exit", label %5
@@ -1653,10 +1659,10 @@ define hidden { i64, double } @_ZN6statrs10statistics6traits12Distribution7std_d
 7:                                                ; preds = %5
   %8 = fadd double %2, 1.000000e+00
   %9 = fmul double %8, 5.000000e-01
-  %10 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %9), !noalias !214
+  %10 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %9), !noalias !215
   %11 = fmul double %10, 0x3FF6A09E667F3BCD
   %12 = fmul double %2, 5.000000e-01
-  %13 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %12), !noalias !214
+  %13 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %12), !noalias !215
   %14 = fdiv double %11, %13
   br label %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i"
 
@@ -2008,25 +2014,26 @@ attributes #25 = { nounwind }
 !192 = distinct !{!192, !193, !"_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE: argument 0"}
 !193 = distinct !{!193, !"_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE"}
 !194 = distinct !{!194, !193, !"_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE: argument 1"}
-!195 = !{!196, !198}
-!196 = distinct !{!196, !197, !"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17hf9485ff6fe8007c4E: argument 0"}
-!197 = distinct !{!197, !"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17hf9485ff6fe8007c4E"}
-!198 = distinct !{!198, !199, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE: argument 0"}
-!199 = distinct !{!199, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE"}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E: argument 1"}
-!202 = distinct !{!202, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E"}
-!203 = !{!204}
-!204 = distinct !{!204, !202, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E: argument 0"}
-!205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E: argument 1"}
-!207 = distinct !{!207, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E"}
-!208 = !{!209}
-!209 = distinct !{!209, !207, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E: argument 0"}
-!210 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h75fe0b51b46b727aE: argument 0"}
-!213 = distinct !{!213, !"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h75fe0b51b46b727aE"}
-!214 = !{!215, !212}
-!215 = distinct !{!215, !216, !"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE: argument 0"}
-!216 = distinct !{!216, !"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE"}
+!195 = !{!194}
+!196 = !{!197, !199}
+!197 = distinct !{!197, !198, !"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17hf9485ff6fe8007c4E: argument 0"}
+!198 = distinct !{!198, !"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17hf9485ff6fe8007c4E"}
+!199 = distinct !{!199, !200, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE: argument 0"}
+!200 = distinct !{!200, !"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE"}
+!201 = !{!202}
+!202 = distinct !{!202, !203, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E: argument 1"}
+!203 = distinct !{!203, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E"}
+!204 = !{!205}
+!205 = distinct !{!205, !203, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E: argument 0"}
+!206 = !{!207}
+!207 = distinct !{!207, !208, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E: argument 1"}
+!208 = distinct !{!208, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E"}
+!209 = !{!210}
+!210 = distinct !{!210, !208, !"_ZN6statrs12distribution14hypergeometric14Hypergeometric10values_f6417hb0f10ff778371da3E: argument 0"}
+!211 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!212 = !{!213}
+!213 = distinct !{!213, !214, !"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h75fe0b51b46b727aE: argument 0"}
+!214 = distinct !{!214, !"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h75fe0b51b46b727aE"}
+!215 = !{!216, !213}
+!216 = distinct !{!216, !217, !"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE: argument 0"}
+!217 = distinct !{!217, !"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE"}

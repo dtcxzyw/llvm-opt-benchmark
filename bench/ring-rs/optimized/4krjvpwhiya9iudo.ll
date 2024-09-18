@@ -122,6 +122,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h16da7085d5ce7fc0E(ptr n
   br i1 %.not.i.not, label %29, label %13
 
 13:                                               ; preds = %3
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   store i64 1, ptr %12, align 8, !alias.scope !19, !noalias !20
   %14 = load i8, ptr %8, align 1, !noalias !23, !noundef !4
   %15 = icmp eq i8 %14, 4
@@ -467,18 +468,18 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i: ; preds = %1
   ret { ptr, i64 } %11
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN9untrusted5input5Input8read_all17h62e39d318f3b2ce1E(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load ptr, ptr %1, align 8, !nonnull !4, !align !12, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !4
   %.not.i.i.not = icmp eq i64 %7, 0
-  br i1 %.not.i.i.not, label %.loopexit, label %8
+  br i1 %.not.i.i.not, label %18, label %8
 
 8:                                                ; preds = %4
   %9 = load i8, ptr %5, align 1, !noalias !66, !noundef !4
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %.loopexit, label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
+  br i1 %10, label %19, label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
 
 _ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i: ; preds = %8, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
   %11 = phi i64 [ %13, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i ], [ 0, %8 ]
@@ -486,25 +487,30 @@ _ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i: ; preds = %8, %_ZN9
   %12 = getelementptr inbounds i8, ptr %5, i64 %11
   %13 = add nuw i64 %11, 1
   %14 = load i8, ptr %12, align 1, !noalias !72, !noundef !4
-  %.sroa.7.8.insert.ext13.i = zext i8 %14 to i64
+  %.sroa.7.8.insert.ext.i = zext i8 %14 to i64
   %15 = shl i64 %.0.i, 8
-  %16 = or disjoint i64 %15, %.sroa.7.8.insert.ext13.i
+  %16 = or disjoint i64 %15, %.sroa.7.8.insert.ext.i
   %17 = icmp eq i64 %13, %7
-  br i1 %17, label %"_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h2ffba84083072211E.exit", label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
+  br i1 %17, label %21, label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
 
-.loopexit:                                        ; preds = %4, %8
+18:                                               ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, i64 1) ]
+  br label %19
+
+19:                                               ; preds = %18, %8
+  call void @llvm.assume(i1 true) [ "align"(ptr @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, i64 1) ]
   store ptr @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 15, ptr %18, align 8
-  br label %20
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 15, ptr %20, align 8
+  br label %23
 
-"_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h2ffba84083072211E.exit": ; preds = %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %16, ptr %19, align 8
+21:                                               ; preds = %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %16, ptr %22, align 8
   store ptr null, ptr %0, align 8
-  br label %20
+  br label %23
 
-20:                                               ; preds = %"_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h2ffba84083072211E.exit", %.loopexit
+23:                                               ; preds = %21, %19
   ret void
 }
 
@@ -1047,6 +1053,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
   %.sroa.8.2 = phi i64 [ %.sroa.8.0, %8 ], [ %13, %._crit_edge.i.loopexit ]
   %.promoted48.i = phi i64 [ %.promoted49.i, %8 ], [ %13, %._crit_edge.i.loopexit ]
   %.016.lcssa.i = phi i64 [ 0, %8 ], [ %25, %._crit_edge.i.loopexit ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.0.copyload, i64 8) ]
   %14 = load i64, ptr %.sroa.06.0.copyload, align 8, !noalias !159, !noundef !4
   %15 = xor i64 %.sroa.01.043.i, -1
   %16 = add i64 %14, %15
@@ -1070,6 +1077,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
 26:                                               ; preds = %._crit_edge.i
   %27 = getelementptr inbounds [0 x i64], ptr %.sroa.57.0.copyload, i64 0, i64 %16
   store i64 %.016.lcssa.i, ptr %27, align 8, !noalias !159
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.4.0.copyload, i64 8) ]
   store i64 8, ptr %.sroa.4.0.copyload, align 8, !noalias !159
   %exitcond57.not.i = icmp eq i64 %10, %6
   br i1 %exitcond57.not.i, label %.loopexit, label %8
@@ -1348,6 +1356,7 @@ define hidden noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_const
 ._crit_edge:                                      ; preds = %27, %15
   %.promoted48 = phi i64 [ %.promoted49, %15 ], [ %30, %27 ]
   %.016.lcssa = phi i64 [ 0, %15 ], [ %34, %27 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %19 = load i64, ptr %3, align 8, !noundef !4
   %20 = xor i64 %.sroa.01.043, -1
   %21 = add i64 %19, %20
@@ -1365,6 +1374,7 @@ define hidden noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_const
 24:                                               ; preds = %._crit_edge
   %25 = getelementptr inbounds [0 x i64], ptr %14, i64 0, i64 %21
   store i64 %.016.lcssa, ptr %25, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   store i64 8, ptr %6, align 8
   %exitcond57.not = icmp eq i64 %17, %4
   br i1 %exitcond57.not, label %.thread, label %15
@@ -1549,7 +1559,7 @@ attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #2 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { nonlazybind "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

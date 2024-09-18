@@ -5446,6 +5446,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.llvm
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !716
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 23, i64 24, i1 false), !noalias !716
   store ptr %20, ptr %21, align 8, !noalias !716
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   %100 = invoke fastcc noundef zeroext i1 @"_ZN73_$LT$arrow_schema..datatype..DataType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5837830048781220E"(ptr noalias noundef readonly align 8 dereferenceable(24) %28, ptr noalias noundef readonly align 8 dereferenceable(24) %20)
           to label %104 unwind label %102, !noalias !711
 
@@ -9690,6 +9691,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN4core6result1
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !4
   store ptr %6, ptr %5, align 8
@@ -12571,6 +12573,7 @@ switch.lookup:                                    ; preds = %3
 
 16:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1966
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %17 = getelementptr inbounds i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !1960, !noalias !1963, !noundef !4
   store ptr %12, ptr %4, align 8, !noalias !1966
@@ -12655,20 +12658,20 @@ define hidden void @_ZN6schema7builder13SchemaBuilder5field17h919f15d59c737b81E.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   invoke fastcc void @"_ZN71_$LT$arrow_schema..datatype..DataType$u20$as$u20$core..clone..Clone$GT$5clone17h65a587e7560324dfE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %3)
-          to label %9 unwind label %37
+          to label %9 unwind label %38
 
 9:                                                ; preds = %4
   invoke void @"_ZN106_$LT$schema..InfluxFieldType$u20$as$u20$core..convert..TryFrom$LT$arrow_schema..datatype..DataType$GT$$GT$8try_from17he39e98747222fc82E"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
-          to label %10 unwind label %37
+          to label %10 unwind label %38
 
 10:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %11 = load ptr, ptr %8, align 8, !alias.scope !1980, !noalias !1983, !noundef !4
   %12 = icmp eq ptr %11, null
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
   br i1 %12, label %.noexc, label %26
 
 .noexc:                                           ; preds = %10
+  %13 = getelementptr inbounds i8, ptr %8, i64 8
   %14 = load i8, ptr %13, align 8, !range !1985, !alias.scope !1980, !noalias !1983, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -12683,7 +12686,7 @@ define hidden void @_ZN6schema7builder13SchemaBuilder5field17h919f15d59c737b81E.
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8, !alias.scope !1992, !noalias !1995, !noundef !4
   %20 = icmp eq i64 %17, %19
-  br i1 %20, label %21, label %29
+  br i1 %20, label %21, label %30
 
 21:                                               ; preds = %.noexc
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h6f77e406b6ac6b65E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %17)
@@ -12691,7 +12694,7 @@ define hidden void @_ZN6schema7builder13SchemaBuilder5field17h919f15d59c737b81E.
 
 ._crit_edge.i.i:                                  ; preds = %21
   %.pre.i.i = load i64, ptr %16, align 8, !alias.scope !1992, !noalias !1995
-  br label %29
+  br label %30
 
 22:                                               ; preds = %21
   %23 = landingpad { ptr, i32 }
@@ -12706,46 +12709,49 @@ define hidden void @_ZN6schema7builder13SchemaBuilder5field17h919f15d59c737b81E.
   unreachable
 
 26:                                               ; preds = %10
-  %27 = load i64, ptr %13, align 8, !alias.scope !1980, !noalias !1983, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
+  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = load i64, ptr %27, align 8, !alias.scope !1980, !noalias !1983, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   store ptr %11, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %28, ptr %29, align 8
   tail call fastcc void @"_ZN4core3ptr53drop_in_place$LT$arrow_schema..datatype..DataType$GT$17haee2fa9cdffbc63eE"(ptr noalias noundef align 8 dereferenceable(24) %3)
-  br label %36
+  br label %37
 
-29:                                               ; preds = %._crit_edge.i.i, %.noexc
-  %30 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %17, %.noexc ]
-  %31 = load ptr, ptr %1, align 8, !alias.scope !1992, !noalias !1995, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, { { { ptr, i64 }, i64 } }, { i8, [23 x i8] }, i8, i8, [6 x i8] }, i8, [7 x i8] }, ptr %31, i64 %30
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %32, ptr noundef nonnull align 8 dereferenceable(120) %5, i64 120, i1 false), !noalias !1998
-  %33 = load i64, ptr %16, align 8, !alias.scope !1992, !noalias !1995, !noundef !4
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %16, align 8, !alias.scope !1992, !noalias !1995
+30:                                               ; preds = %._crit_edge.i.i, %.noexc
+  %31 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %17, %.noexc ]
+  %32 = load ptr, ptr %1, align 8, !alias.scope !1992, !noalias !1995, !nonnull !4, !noundef !4
+  %33 = getelementptr inbounds { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, { { { ptr, i64 }, i64 } }, { i8, [23 x i8] }, i8, i8, [6 x i8] }, i8, [7 x i8] }, ptr %32, i64 %31
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %33, ptr noundef nonnull align 8 dereferenceable(120) %5, i64 120, i1 false), !noalias !1998
+  %34 = load i64, ptr %16, align 8, !alias.scope !1992, !noalias !1995, !noundef !4
+  %35 = add i64 %34, 1
+  store i64 %35, ptr %16, align 8, !alias.scope !1992, !noalias !1995
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5), !noalias !1989
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %36, align 8
   store ptr null, ptr %0, align 8
-  br label %36
+  br label %37
 
-36:                                               ; preds = %26, %29
+37:                                               ; preds = %26, %30
   ret void
 
-37:                                               ; preds = %9, %4
+38:                                               ; preds = %9, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$arrow_schema..datatype..DataType$GT$17haee2fa9cdffbc63eE"(ptr noalias noundef align 8 dereferenceable(24) %3) #29
-          to label %.body.thread unwind label %38
+          to label %.body.thread unwind label %39
 
-38:                                               ; preds = %37
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %38
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #30
   unreachable
 
-.body.thread:                                     ; preds = %22, %37
-  %eh.lpad-body10 = phi { ptr, i32 } [ %lpad.thr_comm, %37 ], [ %23, %22 ]
+.body.thread:                                     ; preds = %22, %38
+  %eh.lpad-body10 = phi { ptr, i32 } [ %lpad.thr_comm, %38 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body10
 }
 
@@ -13186,6 +13192,7 @@ common.resume:                                    ; preds = %.body, %98
 150:                                              ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !2009
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2009
+  call void @llvm.assume(i1 true) [ "align"(ptr %93, i64 8) ]
   %151 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %93, ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %0, i64 16
@@ -13939,7 +13946,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h0ad51fa5e3ea2718E"(ptr readonly %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h0ad51fa5e3ea2718E"(ptr %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { i32, i32 }, i32 }, {} }, align 4
   %5 = alloca { { { { i16, [3 x i16] } }, i32 }, { { i32, i32 }, i32 } }, align 4
@@ -14068,6 +14075,8 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %220
 
 81:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 8) ]
   %82 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %82)
   %83 = getelementptr i8, ptr %.8.val, i64 32
@@ -14580,7 +14589,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h0c99b4574276d051E"(ptr readonly %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h0c99b4574276d051E"(ptr %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [23 x i8] }, align 8
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { i8, [23 x i8] }, align 8
@@ -14690,6 +14699,8 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %142
 
 63:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %64 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %64)
   %65 = getelementptr i8, ptr %.8.val, i64 40
@@ -14988,7 +14999,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h2e93c3d05107c380E"(ptr readonly %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h2e93c3d05107c380E"(ptr %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [23 x i8] }, align 8
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { i8, [23 x i8] }, align 8
@@ -15098,6 +15109,8 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %152
 
 63:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %64 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %64)
   %65 = getelementptr i8, ptr %.8.val, i64 32
@@ -15428,7 +15441,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h3df6b4964a960ccdE"(ptr readonly %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h3df6b4964a960ccdE"(ptr %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [23 x i8] }, align 8
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { i8, [23 x i8] }, align 8
@@ -15538,6 +15551,8 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %143
 
 63:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %64 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %64)
   %65 = getelementptr i8, ptr %.8.val, i64 40
@@ -15837,7 +15852,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17hf9471ed60cb615f6E"(ptr readonly %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17hf9471ed60cb615f6E"(ptr %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.32.val, i64 %.40.val, i64 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca i64, align 8
   %4 = alloca [2 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -15897,6 +15912,8 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   ret i1 %24
 
 25:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.val, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %26 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr i8, ptr %.8.val, i64 32

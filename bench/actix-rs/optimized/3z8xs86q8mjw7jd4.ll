@@ -936,6 +936,7 @@ define { ptr, ptr } @_ZN15actix_multipart4form4text10TextConfig9map_error17hb2fe
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %8, i64 40
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !nonnull !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %18 = call { ptr, ptr } %17(ptr noundef align 1 %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   %19 = extractvalue { ptr, ptr } %18, 0
   %20 = extractvalue { ptr, ptr } %18, 1

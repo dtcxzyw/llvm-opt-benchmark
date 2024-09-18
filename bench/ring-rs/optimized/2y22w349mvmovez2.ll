@@ -1064,6 +1064,7 @@ define hidden void @_ZN4ring6digest12BlockContext6finish17h89987615cfa882f5E.llv
   %21 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %4
   store i8 -128, ptr %21, align 1
   %22 = add nuw i64 %4, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %23 = getelementptr inbounds i8, ptr %11, i64 40
   %24 = load i64, ptr %23, align 8, !noundef !16
   %25 = sub i64 %3, %24
@@ -1303,6 +1304,7 @@ define void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noun
 41:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.12309478120345669377.exit44"
   %42 = udiv i64 %12, %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !188
+  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 8) ]
   %43 = mul i64 %42, %39
   store i64 %43, ptr %9, align 8, !noalias !188
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !188
@@ -1387,6 +1389,7 @@ define void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noun
   %75 = phi i64 [ %12, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.12309478120345669377.exit46.thread" ], [ %.pre58, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.12309478120345669377.exit46" ]
   %76 = udiv i64 %72, %75
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !200
+  call void @llvm.assume(i1 true) [ "align"(ptr %74, i64 8) ]
   %77 = mul i64 %76, %75
   store i64 %77, ptr %6, align 8, !noalias !200
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !200
@@ -1992,6 +1995,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %18
   unreachable
 
 39:                                               ; preds = %._crit_edge
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2), !noalias !433
   %41 = icmp ult i8 %40, 4
   call void @llvm.assume(i1 %41)
@@ -2042,6 +2046,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %18
 60:                                               ; preds = %._crit_edge45
   %61 = udiv i64 %17, %58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !444
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
   %62 = mul i64 %61, %58
   store i64 %62, ptr %7, align 8, !noalias !444
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !444

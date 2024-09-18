@@ -88,6 +88,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   br i1 %.not.i.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i.i.thread", label %.thread5.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i.i.thread": ; preds = %39
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val12.pre.i.i, i64 1) ]
   %50 = icmp ne ptr %17, %9
   tail call void @llvm.assume(i1 %50)
   %51 = getelementptr inbounds i8, ptr %13, i64 2
@@ -113,6 +114,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
 
 55:                                               ; preds = %.thread5.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val12.pre.i.i, i64 1) ]
   br i1 %16, label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i.i.i": ; preds = %55
@@ -188,15 +190,21 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i: ; preds = %_ZN8unscanny7S
   %82 = phi i64 [ %62, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i.i.i ], [ %80, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i.i.i ]
   %83 = phi i64 [ %11, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i.i.i ], [ %81, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i.i.i ]
   %84 = icmp eq i64 %83, %7
-  br i1 %84, label %"_ZN12typst_syntax6source10lines_from28_$u7b$$u7b$closure$u7d$$u7d$17h196b5759909aedf3E.exit", label %10
+  br i1 %84, label %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i.thread, label %10
+
+_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i.thread: ; preds = %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val12.pre.i.i, i64 1) ]
+  br label %"_ZN12typst_syntax6source10lines_from28_$u7b$$u7b$closure$u7d$$u7d$17h196b5759909aedf3E.exit"
 
 _ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i: ; preds = %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %2
   %85 = phi i64 [ %5, %2 ], [ %11, %.thread5.i.i.i ], [ %11, %.thread5.i.i.i ], [ %11, %.thread5.i.i.i ], [ %11, %.thread5.i.i.i ], [ %11, %.thread5.i.i.i ], [ %11, %.thread5.i.i.i ], [ %11, %.thread5.i.i.i ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val12.pre.i.i, i64 1) ]
   %86 = icmp eq i64 %85, %7
   br i1 %86, label %"_ZN12typst_syntax6source10lines_from28_$u7b$$u7b$closure$u7d$$u7d$17h196b5759909aedf3E.exit", label %87
 
 87:                                               ; preds = %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val12.pre.i.i, i64 1) ]
   %88 = getelementptr inbounds i8, ptr %.val12.pre.i.i, i64 %85
   %89 = getelementptr inbounds i8, ptr %.val12.pre.i.i, i64 %7
   %90 = load i8, ptr %88, align 1, !noalias !37, !noundef !14
@@ -277,6 +285,7 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i: ; preds = %_ZN8unscanny7Sca
   br i1 %.not.i.i.i6.i, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.i, label %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit.i.i"
 
 "_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit.i.i": ; preds = %131
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val12.pre.i.i, i64 1) ]
   %132 = getelementptr inbounds i8, ptr %.val12.pre.i.i, i64 %129
   %rhsc.i.i = load i8, ptr %132, align 1, !noalias !46
   %rhsc.fr.i.i = freeze i8 %rhsc.i.i
@@ -303,8 +312,8 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.i: ; preds = %141, %"_Z
   store i64 %144, ptr %3, align 8, !alias.scope !7, !noalias !4
   br label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.i
 
-"_ZN12typst_syntax6source10lines_from28_$u7b$$u7b$closure$u7d$$u7d$17h196b5759909aedf3E.exit": ; preds = %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i, %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.i
-  %storemerge.i = phi i64 [ 1, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.i ], [ 0, %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i ], [ 0, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i ]
+"_ZN12typst_syntax6source10lines_from28_$u7b$$u7b$closure$u7d$$u7d$17h196b5759909aedf3E.exit": ; preds = %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i.thread, %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.i
+  %storemerge.i = phi i64 [ 1, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.i ], [ 0, %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i ], [ 0, %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i.thread ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !4, !noalias !7
   ret void
 }
@@ -1349,6 +1358,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @"_ZN114_
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !345
   store ptr %0, ptr %7, align 8, !noalias !345
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %18 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h665dc601502283e2E.llvm.4539678417929093038(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..ast..Ident$GT$$GT$17hee2104c84893e4eeE.exit.i.i.i" unwind label %19
 
@@ -1469,6 +1479,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc736427ccb2182f2E.exit.i4.i: ; preds = 
 51:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !400
   store ptr %40, ptr %3, align 8, !noalias !400
+  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 8) ]
   %52 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h665dc601502283e2E.llvm.4539678417929093038(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %40)
           to label %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..ast..Ident$GT$$GT$17hee2104c84893e4eeE.exit.i.i8.i" unwind label %53
 
@@ -1515,6 +1526,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc736427ccb2182f2E.exit.i4.i: ; preds = 
 64:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !411
   store ptr %0, ptr %2, align 8, !noalias !411
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %65 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h665dc601502283e2E.llvm.4539678417929093038(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..ast..Ident$GT$$GT$17hee2104c84893e4eeE.exit.i.i" unwind label %66
 

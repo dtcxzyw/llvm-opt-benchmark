@@ -5182,6 +5182,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h218f3424de
 21:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !2430
   store ptr %14, ptr %5, align 8, !noalias !2430
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %22 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hdaab69651da5994cE.llvm.12273313129313454071(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14)
           to label %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..id..Id$GT$$GT$17hb543d1402a7b80e5E.exit.i.i.i" unwind label %23, !noalias !2429
 
@@ -7388,6 +7389,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !3368
   store ptr %8, ptr %5, align 8, !noalias !3368
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %13 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hdaab69651da5994cE.llvm.12273313129313454071(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
           to label %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..id..Id$GT$$GT$17hb543d1402a7b80e5E.exit.i.i" unwind label %14, !noalias !3362
 
@@ -9369,6 +9371,7 @@ define hidden void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$co
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
   %46 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { i64, [2 x i64] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, ptr, i32, i32, i32, i8, [3 x i8] }, ptr %1, i64 %.0
   store ptr %46, ptr %26, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4140)
   call void @llvm.experimental.noalias.scope.decl(metadata !4143)
   call void @llvm.experimental.noalias.scope.decl(metadata !4145)
@@ -9766,6 +9769,7 @@ define hidden void @"_ZN12clap_builder6parser9validator9Validator18build_conflic
 
 24:                                               ; preds = %"_ZN12clap_builder7builder7command7Command10find_group28_$u7b$$u7b$closure$u7d$$u7d$17hc4040ea4df24f5aeE.llvm.5455346206542766164.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !4296
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   call void @_ZN12clap_builder7builder7command7Command20unroll_args_in_group17h4fe64f8497e67d0fE(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   br label %35
 

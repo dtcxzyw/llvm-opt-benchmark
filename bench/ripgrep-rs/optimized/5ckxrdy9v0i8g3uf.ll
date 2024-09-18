@@ -128,6 +128,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core4cell4on
   br i1 %13, label %"_ZN4core3ptr269drop_in_place$LT$core..result..Result$LT$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$$GT$17h544b8d1467184fcfE.exit", label %14
 
 "_ZN4core3ptr269drop_in_place$LT$core..result..Result$LT$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$$GT$17h544b8d1467184fcfE.exit": ; preds = %"_ZN4core4cell4once17OnceCell$LT$T$GT$10try_insert17h2f1b10eaab8d55cfE.exit.thread", %"_ZN4core4cell4once17OnceCell$LT$T$GT$10try_insert17h2f1b10eaab8d55cfE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %19
 
@@ -339,7 +340,7 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %12 = icmp eq i32 %10, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %12, i64 %9, i64 %11
   %13 = icmp eq i64 %spec.store.select.i.i.i.i.i.i, 0
-  br i1 %13, label %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i", label %14
+  br i1 %13, label %21, label %14
 
 14:                                               ; preds = %3
   %15 = icmp sgt i64 %spec.store.select.i.i.i.i.i.i, 0
@@ -349,26 +350,26 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %.022.i.i = select i1 %16, i64 %17, i64 %.01927.i.i
   %18 = sub i64 %.021.i.i, %.022.i.i
   %19 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %19, label %3, label %24
+  br i1 %19, label %3, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit.thread"
 
-"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i": ; preds = %3
-  %20 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 0, i64 %5, i32 1
-  %21 = load ptr, ptr %20, align 8, !noalias !82, !nonnull !5, !align !29, !noundef !5
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
-  %23 = load i64, ptr %22, align 8, !noalias !82, !noundef !5
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit"
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit.thread": ; preds = %14
+  %20 = icmp ult i64 %.022.i.i, 11
+  tail call void @llvm.assume(i1 %20)
+  br label %26
 
-24:                                               ; preds = %14
-  %25 = icmp ult i64 %.022.i.i, 11
-  tail call void @llvm.assume(i1 %25)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit"
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 0, i64 %5, i32 1
+  %23 = load ptr, ptr %22, align 8, !noalias !82, !nonnull !5, !align !29, !noundef !5
+  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = load i64, ptr %24, align 8, !noalias !82, !noundef !5
+  br label %26
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit": ; preds = %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i", %24
-  %.sroa.01.0 = phi ptr [ %21, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i" ], [ null, %24 ]
-  %.sroa.5.0 = phi i64 [ %23, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i" ], [ %.022.i.i, %24 ]
-  %26 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.0, 0
-  %27 = insertvalue { ptr, i64 } %26, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %27
+26:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit.thread", %21
+  %.sroa.5.08 = phi i64 [ %25, %21 ], [ %.022.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit.thread" ]
+  %.sroa.0.0 = phi ptr [ %23, %21 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit.thread" ]
+  %27 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %28 = insertvalue { ptr, i64 } %27, i64 %.sroa.5.08, 1
+  ret { ptr, i64 } %28
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
