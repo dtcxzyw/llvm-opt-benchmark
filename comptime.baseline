@@ -8746,7 +8746,7 @@ gromacs/kernel_ElecEwTwinCut_VdwLJCombLB_VgrpF.cpp.ll 1641978839
 gromacs/kernel_ElecEwTwinCut_VdwLJEwCombGeom_F.cpp.ll 1357759083
 gromacs/kernel_ElecEwTwinCut_VdwLJEwCombGeom_VF.cpp.ll 1747365409
 gromacs/kernel_ElecEwTwinCut_VdwLJEwCombGeom_VgrpF.cpp.ll 1859302823
-gromacs/kernel_ElecEwTwinCut_VdwLJFSw_F.cpp.ll 1225241247
+gromacs/kernel_ElecEwTwinCut_VdwLJFSw_F.cpp.ll 1224015793
 gromacs/kernel_ElecEwTwinCut_VdwLJFSw_VF.cpp.ll 1588594697
 gromacs/kernel_ElecEwTwinCut_VdwLJFSw_VgrpF.cpp.ll 1698558203
 gromacs/kernel_ElecEwTwinCut_VdwLJPSw_F.cpp.ll 1349847331
@@ -10728,7 +10728,7 @@ icu/curramt.ll 57558138
 icu/currfmt.ll 48505751
 icu/currpinf.ll 309586570
 icu/currunit.ll 125304895
-icu/dangical.ll 156349221
+icu/dangical.ll 156192424
 icu/datamap.ll 162022038
 icu/date.ll 215379086
 icu/datefmt.ll 339146359
@@ -25724,7 +25724,7 @@ openmpi/libmpi_c_profile_la-comm_split.ll 82542095
 openmpi/libmpi_c_profile_la-comm_split_type.ll 95820567
 openmpi/libmpi_c_profile_la-comm_test_inter.ll 49178668
 openmpi/libmpi_c_profile_la-compare_and_swap.ll 86830834
-openmpi/libmpi_c_profile_la-dims_create.ll 164478617
+openmpi/libmpi_c_profile_la-dims_create.ll 164314048
 openmpi/libmpi_c_profile_la-dist_graph_create.ll 138823945
 openmpi/libmpi_c_profile_la-dist_graph_create_adjacent.ll 130736995
 openmpi/libmpi_c_profile_la-dist_graph_neighbors.ll 78170810
@@ -25802,7 +25802,7 @@ openmpi/libmpi_c_profile_la-get_accumulate.ll 111709061
 openmpi/libmpi_c_profile_la-get_count.ll 53660461
 openmpi/libmpi_c_profile_la-get_elements.ll 52960645
 openmpi/libmpi_c_profile_la-graph_create.ll 94966265
-openmpi/libmpi_c_profile_la-graph_get.ll 76502274
+openmpi/libmpi_c_profile_la-graph_get.ll 76425768
 openmpi/libmpi_c_profile_la-graph_map.ll 78729484
 openmpi/libmpi_c_profile_la-graph_neighbors.ll 80327531
 openmpi/libmpi_c_profile_la-graph_neighbors_count.ll 79039483
