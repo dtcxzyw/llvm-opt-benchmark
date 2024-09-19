@@ -35138,19 +35138,18 @@ land.rhs:                                         ; preds = %for.cond57.preheade
   %fraction.2747 = phi i64 [ %fraction.3, %for.body63 ], [ 0, %for.cond57.preheader ]
   %arrayidx59 = getelementptr inbounds i8, ptr %str, i64 %pos.4749
   %15 = load i8, ptr %arrayidx59, align 1, !tbaa !116
-  %16 = add i8 %15, -48
+  %.fr = freeze i8 %15
+  %16 = add i8 %.fr, -48
   %17 = icmp ult i8 %16, 10
   br i1 %17, label %for.body63, label %cleanup80
 
 for.body63:                                       ; preds = %land.rhs
-  %cmp64 = icmp sgt i32 %mult.0748, 0
-  %conv67 = zext nneg i8 %15 to i32
+  %conv67 = zext nneg i8 %.fr to i32
   %sub68 = add nsw i32 %conv67, -48
-  %mul = mul nsw i32 %sub68, %mult.0748
-  %narrow = select i1 %cmp64, i32 %mul, i32 0
-  %add = sext i32 %narrow to i64
-  %fraction.3 = add nsw i64 %fraction.2747, %add
-  %div = sdiv i32 %mult.0748, 10
+  %mul = mul nuw nsw i32 %sub68, %mult.0748
+  %add = zext nneg i32 %mul to i64
+  %fraction.3 = add nuw nsw i64 %fraction.2747, %add
+  %div = udiv i32 %mult.0748, 10
   %pos.4 = add nuw i64 %pos.4749, 1
   %cmp58 = icmp ult i64 %pos.4, %len
   br i1 %cmp58, label %land.rhs, label %cleanup80.thread, !llvm.loop !796
@@ -45901,20 +45900,19 @@ land.rhs57:                                       ; preds = %if.then53, %for.bod
   %46 = phi i64 [ %inc71, %for.body61 ], [ %inc54, %if.then53 ]
   %arrayidx58 = getelementptr inbounds i8, ptr %buf, i64 %46
   %47 = load i8, ptr %arrayidx58, align 1, !tbaa !116
-  %48 = add i8 %47, -48
+  %.fr = freeze i8 %47
+  %48 = add i8 %.fr, -48
   %49 = icmp ult i8 %48, 10
   br i1 %49, label %for.body61, label %if.end73.loopexit
 
 for.body61:                                       ; preds = %land.rhs57
-  %cmp62 = icmp sgt i32 %mult.0183, 0
-  %conv65 = zext nneg i8 %47 to i32
+  %conv65 = zext nneg i8 %.fr to i32
   %sub66 = add nsw i32 %conv65, -48
-  %mul67 = mul nsw i32 %sub66, %mult.0183
-  %add68 = select i1 %cmp62, i32 %mul67, i32 0
-  %micros.1 = add nsw i32 %add68, %micros.0182
+  %mul67 = mul nuw nsw i32 %sub66, %mult.0183
+  %micros.1 = add nuw nsw i32 %mul67, %micros.0182
   %inc71 = add i64 %46, 1
   store i64 %inc71, ptr %pos, align 8, !tbaa !87
-  %div = sdiv i32 %mult.0183, 10
+  %div = udiv i32 %mult.0183, 10
   %exitcond195.not = icmp eq i64 %inc71, %len
   br i1 %exitcond195.not, label %if.end73.loopexit, label %land.rhs57, !llvm.loop !929
 

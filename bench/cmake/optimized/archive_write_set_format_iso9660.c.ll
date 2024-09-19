@@ -14373,23 +14373,13 @@ set_digit.exit23:                                 ; preds = %50
 
 set_digit.exit27:                                 ; preds = %59
   %66 = getelementptr inbounds i8, ptr %0, i64 14
-  br label %67
-
-67:                                               ; preds = %67, %set_digit.exit27
-  %.045.i29 = phi i64 [ 2, %set_digit.exit27 ], [ %68, %67 ]
-  %68 = add nsw i64 %.045.i29, -1
-  %69 = getelementptr inbounds i8, ptr %66, i64 %68
-  store i8 48, ptr %69, align 1
-  %.not.i30 = icmp eq i64 %68, 0
-  br i1 %.not.i30, label %set_digit.exit31, label %67, !llvm.loop !101
-
-set_digit.exit31:                                 ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
-  %71 = getelementptr inbounds i8, ptr %4, i64 40
-  %72 = load i64, ptr %71, align 8
-  %73 = sdiv i64 %72, 900
-  %74 = trunc i64 %73 to i8
-  store i8 %74, ptr %70, align 1
+  store i16 12336, ptr %66, align 1
+  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds i8, ptr %4, i64 40
+  %69 = load i64, ptr %68, align 8
+  %70 = sdiv i64 %69, 900
+  %71 = trunc i64 %70 to i8
+  store i8 %71, ptr %67, align 1
   ret void
 }
 

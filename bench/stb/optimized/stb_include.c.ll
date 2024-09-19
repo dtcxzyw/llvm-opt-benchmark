@@ -419,9 +419,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp70.not = icmp eq ptr %filename, null
   %cond = select i1 %cmp70.not, ptr @.str.10, ptr %filename
   %wide.trip.count = zext nneg i32 %call to i64
-  br label %stb_include_itoa.exit
+  br label %for.body
 
-stb_include_itoa.exit:                            ; preds = %stb_include_itoa.exit70, %for.body.lr.ph
+for.body:                                         ; preds = %for.body.lr.ph, %stb_include_itoa.exit70
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %stb_include_itoa.exit70 ]
   %last.0112 = phi i64 [ 0, %for.body.lr.ph ], [ %conv79, %stb_include_itoa.exit70 ]
   %text.0111 = phi ptr [ null, %for.body.lr.ph ], [ %call.i72, %stb_include_itoa.exit70 ]
@@ -449,11 +449,11 @@ stb_include_itoa.exit:                            ; preds = %stb_include_itoa.ex
   %cmp13 = icmp eq ptr %1, null
   br i1 %cmp13, label %if.end, label %if.else
 
-if.else:                                          ; preds = %stb_include_itoa.exit
+if.else:                                          ; preds = %for.body
   %call21 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %temp, ptr noundef nonnull dereferenceable(1) %1) #16
   br label %if.end
 
-if.end:                                           ; preds = %stb_include_itoa.exit, %if.else
+if.end:                                           ; preds = %for.body, %if.else
   %strlen33 = call i64 @strlen(ptr nonnull dereferenceable(1) %temp)
   %endptr34 = getelementptr inbounds i8, ptr %temp, i64 %strlen33
   store i16 34, ptr %endptr34, align 1
@@ -572,7 +572,7 @@ stb_include_itoa.exit70:                          ; preds = %for.body5.i58
   %conv79 = sext i32 %6 to i64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %stb_include_itoa.exit, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %stb_include_itoa.exit70, %entry
   %textlen.0.lcssa = phi i64 [ 0, %entry ], [ %add.i71, %stb_include_itoa.exit70 ]

@@ -10920,8 +10920,8 @@ for.body1426:                                     ; preds = %for.body1426.prehea
   %temp.01180 = phi i32 [ %215, %for.body1426.preheader ], [ %div1438, %for.body1426 ]
   %indvars.iv.next1350 = add nsw i64 %indvars.iv1349, -1
   %conv1428 = zext i8 %216 to i32
-  %rem1429 = srem i32 %temp.01180, %conv1428
-  %conv1430 = trunc i32 %rem1429 to i8
+  %rem1429 = urem i32 %temp.01180, %conv1428
+  %conv1430 = trunc nuw i32 %rem1429 to i8
   %217 = load ptr, ptr %classdata, align 8
   %arrayidx1433 = getelementptr inbounds ptr, ptr %217, i64 %indvars.iv1352
   %218 = load ptr, ptr %arrayidx1433, align 8
@@ -10929,7 +10929,7 @@ for.body1426:                                     ; preds = %for.body1426.prehea
   store i8 %conv1430, ptr %arrayidx1435, align 1
   %219 = load i8, ptr %classifications, align 4
   %conv1437 = zext i8 %219 to i32
-  %div1438 = sdiv i32 %temp.01180, %conv1437
+  %div1438 = udiv i32 %temp.01180, %conv1437
   %cmp1424 = icmp ugt i64 %indvars.iv1349, 1
   br i1 %cmp1424, label %for.body1426, label %for.inc1441, !llvm.loop !115
 

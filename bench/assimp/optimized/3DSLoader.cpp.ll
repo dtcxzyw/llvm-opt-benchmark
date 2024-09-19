@@ -2641,7 +2641,7 @@ if.end15.i.i:                                     ; preds = %if.then6.i.i, %whil
   %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.119.i.i, %while.body.i.i ]
   %written.3.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.120.i.i, %while.body.i.i ]
   %out.addr.3.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.123.i.i, %while.body.i.i ]
-  %div16.i.i = sdiv i32 %cur.021.i.i, 10
+  %div16.i.i = udiv i32 %cur.021.i.i, 10
   %cmp2.i.i = icmp ult i32 %written.3.i.i, 10
   br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, !llvm.loop !19
 

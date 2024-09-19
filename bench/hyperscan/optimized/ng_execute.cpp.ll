@@ -630,19 +630,19 @@ cond.true.i:                                      ; preds = %if.end.i
 while.body.i.i.i.i:                               ; preds = %cond.true.i, %while.body.i.i.i.i
   %x.addr.012.i.i.i.i = phi i64 [ %spec.select8.i.i.i.i, %while.body.i.i.i.i ], [ %sub1.i.i, %cond.true.i ]
   %result.011.i.i.i.i = phi i32 [ %spec.select7.i.i.i.i, %while.body.i.i.i.i ], [ 0, %cond.true.i ]
-  %n.addr.010.i.i.i.i = phi i32 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ 32, %cond.true.i ]
+  %n.addr.010.i.i.i.i = phi i32 [ %div.i1.i.i.i, %while.body.i.i.i.i ], [ 32, %cond.true.i ]
   %sh_prom.i.i.i.i = zext nneg i32 %n.addr.010.i.i.i.i to i64
   %shr.i.i.i.i = lshr i64 %x.addr.012.i.i.i.i, %sh_prom.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %shr.i.i.i.i, 0
-  %div.i.i.i.i = sdiv i32 %n.addr.010.i.i.i.i, 2
+  %div.i1.i.i.i = lshr i32 %n.addr.010.i.i.i.i, 1
   %add.i.i.i.i = select i1 %tobool.not.i.i.i.i, i32 0, i32 %n.addr.010.i.i.i.i
-  %spec.select7.i.i.i.i = add nsw i32 %add.i.i.i.i, %result.011.i.i.i.i
+  %spec.select7.i.i.i.i = add nuw nsw i32 %add.i.i.i.i, %result.011.i.i.i.i
   %spec.select8.i.i.i.i = select i1 %tobool.not.i.i.i.i, i64 %x.addr.012.i.i.i.i, i64 %shr.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %spec.select8.i.i.i.i, 1
   br i1 %cmp.not.i.i.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i, label %while.body.i.i.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i: ; preds = %while.body.i.i.i.i
-  %4 = sext i32 %spec.select7.i.i.i.i to i64
+  %4 = zext nneg i32 %spec.select7.i.i.i.i to i64
   br label %_ZN5boost6detail10lowest_bitImEEiT_.exit.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.i:       ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i, %cond.true.i
@@ -2676,19 +2676,19 @@ if.end.i875.i.i:                                  ; preds = %_ZSt7find_ifIN9__gn
 while.body.i.i.i.i881.i.i:                        ; preds = %if.end.i875.i.i, %while.body.i.i.i.i881.i.i
   %x.addr.012.i.i.i.i882.i.i = phi i64 [ %spec.select8.i.i.i.i891.i.i, %while.body.i.i.i.i881.i.i ], [ %sub1.i.i879.i.i, %if.end.i875.i.i ]
   %result.011.i.i.i.i883.i.i = phi i32 [ %spec.select7.i.i.i.i890.i.i, %while.body.i.i.i.i881.i.i ], [ 0, %if.end.i875.i.i ]
-  %n.addr.010.i.i.i.i884.i.i = phi i32 [ %div.i.i.i.i888.i.i, %while.body.i.i.i.i881.i.i ], [ 32, %if.end.i875.i.i ]
+  %n.addr.010.i.i.i.i884.i.i = phi i32 [ %div.i1.i.i.i888.i.i, %while.body.i.i.i.i881.i.i ], [ 32, %if.end.i875.i.i ]
   %sh_prom.i.i.i.i885.i.i = zext nneg i32 %n.addr.010.i.i.i.i884.i.i to i64
   %shr.i.i.i4.i886.i.i = lshr i64 %x.addr.012.i.i.i.i882.i.i, %sh_prom.i.i.i.i885.i.i
   %tobool.not.i.i.i.i887.i.i = icmp eq i64 %shr.i.i.i4.i886.i.i, 0
-  %div.i.i.i.i888.i.i = sdiv i32 %n.addr.010.i.i.i.i884.i.i, 2
+  %div.i1.i.i.i888.i.i = lshr i32 %n.addr.010.i.i.i.i884.i.i, 1
   %add.i.i.i.i889.i.i = select i1 %tobool.not.i.i.i.i887.i.i, i32 0, i32 %n.addr.010.i.i.i.i884.i.i
-  %spec.select7.i.i.i.i890.i.i = add nsw i32 %add.i.i.i.i889.i.i, %result.011.i.i.i.i883.i.i
+  %spec.select7.i.i.i.i890.i.i = add nuw nsw i32 %add.i.i.i.i889.i.i, %result.011.i.i.i.i883.i.i
   %spec.select8.i.i.i.i891.i.i = select i1 %tobool.not.i.i.i.i887.i.i, i64 %x.addr.012.i.i.i.i882.i.i, i64 %shr.i.i.i4.i886.i.i
   %cmp.not.i.i.i.i892.i.i = icmp eq i64 %spec.select8.i.i.i.i891.i.i, 1
   br i1 %cmp.not.i.i.i.i892.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i893.i.i, label %while.body.i.i.i.i881.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i893.i.i: ; preds = %while.body.i.i.i.i881.i.i
-  %135 = sext i32 %spec.select7.i.i.i.i890.i.i to i64
+  %135 = zext nneg i32 %spec.select7.i.i.i.i890.i.i to i64
   br label %call.i.i.noexc672.i.i
 
 call.i.i.noexc672.i.i:                            ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i893.i.i, %if.end.i875.i.i
@@ -2752,19 +2752,19 @@ cond.true.i.i647.i.i:                             ; preds = %if.end.i.i642.i.i
 while.body.i.i.i.i.i651.i.i:                      ; preds = %cond.true.i.i647.i.i, %while.body.i.i.i.i.i651.i.i
   %x.addr.012.i.i.i.i.i652.i.i = phi i64 [ %spec.select8.i.i.i.i.i661.i.i, %while.body.i.i.i.i.i651.i.i ], [ %sub1.i.i.i649.i.i, %cond.true.i.i647.i.i ]
   %result.011.i.i.i.i.i653.i.i = phi i32 [ %spec.select7.i.i.i.i.i660.i.i, %while.body.i.i.i.i.i651.i.i ], [ 0, %cond.true.i.i647.i.i ]
-  %n.addr.010.i.i.i.i.i654.i.i = phi i32 [ %div.i.i.i.i.i658.i.i, %while.body.i.i.i.i.i651.i.i ], [ 32, %cond.true.i.i647.i.i ]
+  %n.addr.010.i.i.i.i.i654.i.i = phi i32 [ %div.i1.i.i.i.i658.i.i, %while.body.i.i.i.i.i651.i.i ], [ 32, %cond.true.i.i647.i.i ]
   %sh_prom.i.i.i.i.i655.i.i = zext nneg i32 %n.addr.010.i.i.i.i.i654.i.i to i64
   %shr.i.i.i.i.i656.i.i = lshr i64 %x.addr.012.i.i.i.i.i652.i.i, %sh_prom.i.i.i.i.i655.i.i
   %tobool.not.i.i.i.i.i657.i.i = icmp eq i64 %shr.i.i.i.i.i656.i.i, 0
-  %div.i.i.i.i.i658.i.i = sdiv i32 %n.addr.010.i.i.i.i.i654.i.i, 2
+  %div.i1.i.i.i.i658.i.i = lshr i32 %n.addr.010.i.i.i.i.i654.i.i, 1
   %add.i.i.i.i.i659.i.i = select i1 %tobool.not.i.i.i.i.i657.i.i, i32 0, i32 %n.addr.010.i.i.i.i.i654.i.i
-  %spec.select7.i.i.i.i.i660.i.i = add nsw i32 %add.i.i.i.i.i659.i.i, %result.011.i.i.i.i.i653.i.i
+  %spec.select7.i.i.i.i.i660.i.i = add nuw nsw i32 %add.i.i.i.i.i659.i.i, %result.011.i.i.i.i.i653.i.i
   %spec.select8.i.i.i.i.i661.i.i = select i1 %tobool.not.i.i.i.i.i657.i.i, i64 %x.addr.012.i.i.i.i.i652.i.i, i64 %shr.i.i.i.i.i656.i.i
   %cmp.not.i.i.i.i.i662.i.i = icmp eq i64 %spec.select8.i.i.i.i.i661.i.i, 1
   br i1 %cmp.not.i.i.i.i.i662.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i.i663.i.i, label %while.body.i.i.i.i.i651.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i.i663.i.i: ; preds = %while.body.i.i.i.i.i651.i.i
-  %143 = sext i32 %spec.select7.i.i.i.i.i660.i.i to i64
+  %143 = zext nneg i32 %spec.select7.i.i.i.i.i660.i.i to i64
   br label %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i664.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.i.i664.i.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i.i663.i.i, %cond.true.i.i647.i.i
@@ -2887,19 +2887,19 @@ if.end.i794.i.i:                                  ; preds = %_ZSt7find_ifIN9__gn
 while.body.i.i.i.i800.i.i:                        ; preds = %if.end.i794.i.i, %while.body.i.i.i.i800.i.i
   %x.addr.012.i.i.i.i801.i.i = phi i64 [ %spec.select8.i.i.i.i810.i.i, %while.body.i.i.i.i800.i.i ], [ %sub1.i.i798.i.i, %if.end.i794.i.i ]
   %result.011.i.i.i.i802.i.i = phi i32 [ %spec.select7.i.i.i.i809.i.i, %while.body.i.i.i.i800.i.i ], [ 0, %if.end.i794.i.i ]
-  %n.addr.010.i.i.i.i803.i.i = phi i32 [ %div.i.i.i.i807.i.i, %while.body.i.i.i.i800.i.i ], [ 32, %if.end.i794.i.i ]
+  %n.addr.010.i.i.i.i803.i.i = phi i32 [ %div.i1.i.i.i807.i.i, %while.body.i.i.i.i800.i.i ], [ 32, %if.end.i794.i.i ]
   %sh_prom.i.i.i.i804.i.i = zext nneg i32 %n.addr.010.i.i.i.i803.i.i to i64
   %shr.i.i.i4.i805.i.i = lshr i64 %x.addr.012.i.i.i.i801.i.i, %sh_prom.i.i.i.i804.i.i
   %tobool.not.i.i.i.i806.i.i = icmp eq i64 %shr.i.i.i4.i805.i.i, 0
-  %div.i.i.i.i807.i.i = sdiv i32 %n.addr.010.i.i.i.i803.i.i, 2
+  %div.i1.i.i.i807.i.i = lshr i32 %n.addr.010.i.i.i.i803.i.i, 1
   %add.i.i.i.i808.i.i = select i1 %tobool.not.i.i.i.i806.i.i, i32 0, i32 %n.addr.010.i.i.i.i803.i.i
-  %spec.select7.i.i.i.i809.i.i = add nsw i32 %add.i.i.i.i808.i.i, %result.011.i.i.i.i802.i.i
+  %spec.select7.i.i.i.i809.i.i = add nuw nsw i32 %add.i.i.i.i808.i.i, %result.011.i.i.i.i802.i.i
   %spec.select8.i.i.i.i810.i.i = select i1 %tobool.not.i.i.i.i806.i.i, i64 %x.addr.012.i.i.i.i801.i.i, i64 %shr.i.i.i4.i805.i.i
   %cmp.not.i.i.i.i811.i.i = icmp eq i64 %spec.select8.i.i.i.i810.i.i, 1
   br i1 %cmp.not.i.i.i.i811.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i812.i.i, label %while.body.i.i.i.i800.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i812.i.i: ; preds = %while.body.i.i.i.i800.i.i
-  %153 = sext i32 %spec.select7.i.i.i.i809.i.i to i64
+  %153 = zext nneg i32 %spec.select7.i.i.i.i809.i.i to i64
   br label %_ZN5boost6detail10lowest_bitImEEiT_.exit.i813.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.i813.i.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i812.i.i, %if.end.i794.i.i
@@ -3016,19 +3016,19 @@ if.end.i713.i.i:                                  ; preds = %_ZSt7find_ifIN9__gn
 while.body.i.i.i.i719.i.i:                        ; preds = %if.end.i713.i.i, %while.body.i.i.i.i719.i.i
   %x.addr.012.i.i.i.i720.i.i = phi i64 [ %spec.select8.i.i.i.i729.i.i, %while.body.i.i.i.i719.i.i ], [ %sub1.i.i717.i.i, %if.end.i713.i.i ]
   %result.011.i.i.i.i721.i.i = phi i32 [ %spec.select7.i.i.i.i728.i.i, %while.body.i.i.i.i719.i.i ], [ 0, %if.end.i713.i.i ]
-  %n.addr.010.i.i.i.i722.i.i = phi i32 [ %div.i.i.i.i726.i.i, %while.body.i.i.i.i719.i.i ], [ 32, %if.end.i713.i.i ]
+  %n.addr.010.i.i.i.i722.i.i = phi i32 [ %div.i1.i.i.i726.i.i, %while.body.i.i.i.i719.i.i ], [ 32, %if.end.i713.i.i ]
   %sh_prom.i.i.i.i723.i.i = zext nneg i32 %n.addr.010.i.i.i.i722.i.i to i64
   %shr.i.i.i4.i724.i.i = lshr i64 %x.addr.012.i.i.i.i720.i.i, %sh_prom.i.i.i.i723.i.i
   %tobool.not.i.i.i.i725.i.i = icmp eq i64 %shr.i.i.i4.i724.i.i, 0
-  %div.i.i.i.i726.i.i = sdiv i32 %n.addr.010.i.i.i.i722.i.i, 2
+  %div.i1.i.i.i726.i.i = lshr i32 %n.addr.010.i.i.i.i722.i.i, 1
   %add.i.i.i.i727.i.i = select i1 %tobool.not.i.i.i.i725.i.i, i32 0, i32 %n.addr.010.i.i.i.i722.i.i
-  %spec.select7.i.i.i.i728.i.i = add nsw i32 %add.i.i.i.i727.i.i, %result.011.i.i.i.i721.i.i
+  %spec.select7.i.i.i.i728.i.i = add nuw nsw i32 %add.i.i.i.i727.i.i, %result.011.i.i.i.i721.i.i
   %spec.select8.i.i.i.i729.i.i = select i1 %tobool.not.i.i.i.i725.i.i, i64 %x.addr.012.i.i.i.i720.i.i, i64 %shr.i.i.i4.i724.i.i
   %cmp.not.i.i.i.i730.i.i = icmp eq i64 %spec.select8.i.i.i.i729.i.i, 1
   br i1 %cmp.not.i.i.i.i730.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i731.i.i, label %while.body.i.i.i.i719.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i731.i.i: ; preds = %while.body.i.i.i.i719.i.i
-  %162 = sext i32 %spec.select7.i.i.i.i728.i.i to i64
+  %162 = zext nneg i32 %spec.select7.i.i.i.i728.i.i to i64
   br label %call.i.i.noexc.i.i
 
 call.i.i.noexc.i.i:                               ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i731.i.i, %if.end.i713.i.i
@@ -3161,19 +3161,19 @@ cond.true.i.i612.i.i:                             ; preds = %if.end.i.i608.i.i
 while.body.i.i.i.i.i613.i.i:                      ; preds = %cond.true.i.i612.i.i, %while.body.i.i.i.i.i613.i.i
   %x.addr.012.i.i.i.i.i.i.i = phi i64 [ %spec.select8.i.i.i.i.i.i.i, %while.body.i.i.i.i.i613.i.i ], [ %sub1.i.i.i.i.i, %cond.true.i.i612.i.i ]
   %result.011.i.i.i.i.i.i.i = phi i32 [ %spec.select7.i.i.i.i.i.i.i, %while.body.i.i.i.i.i613.i.i ], [ 0, %cond.true.i.i612.i.i ]
-  %n.addr.010.i.i.i.i.i.i.i = phi i32 [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i613.i.i ], [ 32, %cond.true.i.i612.i.i ]
+  %n.addr.010.i.i.i.i.i.i.i = phi i32 [ %div.i1.i.i.i.i.i.i, %while.body.i.i.i.i.i613.i.i ], [ 32, %cond.true.i.i612.i.i ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %n.addr.010.i.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %x.addr.012.i.i.i.i.i.i.i, %sh_prom.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i614.i.i = icmp eq i64 %shr.i.i.i.i.i.i.i, 0
-  %div.i.i.i.i.i.i.i = sdiv i32 %n.addr.010.i.i.i.i.i.i.i, 2
+  %div.i1.i.i.i.i.i.i = lshr i32 %n.addr.010.i.i.i.i.i.i.i, 1
   %add.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i614.i.i, i32 0, i32 %n.addr.010.i.i.i.i.i.i.i
-  %spec.select7.i.i.i.i.i.i.i = add nsw i32 %add.i.i.i.i.i.i.i, %result.011.i.i.i.i.i.i.i
+  %spec.select7.i.i.i.i.i.i.i = add nuw nsw i32 %add.i.i.i.i.i.i.i, %result.011.i.i.i.i.i.i.i
   %spec.select8.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i614.i.i, i64 %x.addr.012.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i
   %cmp.not.i.i.i.i.i615.i.i = icmp eq i64 %spec.select8.i.i.i.i.i.i.i, 1
   br i1 %cmp.not.i.i.i.i.i615.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i.i.i.i, label %while.body.i.i.i.i.i613.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i.i.i.i: ; preds = %while.body.i.i.i.i.i613.i.i
-  %186 = sext i32 %spec.select7.i.i.i.i.i.i.i to i64
+  %186 = zext nneg i32 %spec.select7.i.i.i.i.i.i.i to i64
   br label %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.i.i.i.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i.i.i.i, %cond.true.i.i612.i.i
@@ -3292,19 +3292,19 @@ if.end.i.i.i:                                     ; preds = %_ZSt7find_ifIN9__gn
 while.body.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i, %while.body.i.i.i.i.i.i
   %x.addr.012.i.i.i.i.i.i = phi i64 [ %spec.select8.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %sub1.i.i.i.i, %if.end.i.i.i ]
   %result.011.i.i.i.i.i.i = phi i32 [ %spec.select7.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %if.end.i.i.i ]
-  %n.addr.010.i.i.i.i.i.i = phi i32 [ %div.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 32, %if.end.i.i.i ]
+  %n.addr.010.i.i.i.i.i.i = phi i32 [ %div.i1.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 32, %if.end.i.i.i ]
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %n.addr.010.i.i.i.i.i.i to i64
   %shr.i.i.i4.i.i.i = lshr i64 %x.addr.012.i.i.i.i.i.i, %sh_prom.i.i.i.i.i.i
   %tobool.not.i.i.i.i686.i.i = icmp eq i64 %shr.i.i.i4.i.i.i, 0
-  %div.i.i.i.i.i.i = sdiv i32 %n.addr.010.i.i.i.i.i.i, 2
+  %div.i1.i.i.i.i.i = lshr i32 %n.addr.010.i.i.i.i.i.i, 1
   %add.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i686.i.i, i32 0, i32 %n.addr.010.i.i.i.i.i.i
-  %spec.select7.i.i.i.i.i.i = add nsw i32 %add.i.i.i.i.i.i, %result.011.i.i.i.i.i.i
+  %spec.select7.i.i.i.i.i.i = add nuw nsw i32 %add.i.i.i.i.i.i, %result.011.i.i.i.i.i.i
   %spec.select8.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i686.i.i, i64 %x.addr.012.i.i.i.i.i.i, i64 %shr.i.i.i4.i.i.i
   %cmp.not.i.i.i.i687.i.i = icmp eq i64 %spec.select8.i.i.i.i.i.i, 1
   br i1 %cmp.not.i.i.i.i687.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i.i.i, label %while.body.i.i.i.i.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i.i.i: ; preds = %while.body.i.i.i.i.i.i
-  %195 = sext i32 %spec.select7.i.i.i.i.i.i to i64
+  %195 = zext nneg i32 %spec.select7.i.i.i.i.i.i to i64
   br label %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.i.i.i:   ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i.i.i, %if.end.i.i.i
@@ -5490,19 +5490,19 @@ if.end:                                           ; preds = %_ZSt7find_ifIN9__gn
 while.body.i.i.i:                                 ; preds = %if.end, %while.body.i.i.i
   %x.addr.012.i.i.i = phi i64 [ %spec.select8.i.i.i, %while.body.i.i.i ], [ %sub1.i, %if.end ]
   %result.011.i.i.i = phi i32 [ %spec.select7.i.i.i, %while.body.i.i.i ], [ 0, %if.end ]
-  %n.addr.010.i.i.i = phi i32 [ %div.i.i.i, %while.body.i.i.i ], [ 32, %if.end ]
+  %n.addr.010.i.i.i = phi i32 [ %div.i1.i.i, %while.body.i.i.i ], [ 32, %if.end ]
   %sh_prom.i.i.i = zext nneg i32 %n.addr.010.i.i.i to i64
   %shr.i.i.i4 = lshr i64 %x.addr.012.i.i.i, %sh_prom.i.i.i
   %tobool.not.i.i.i = icmp eq i64 %shr.i.i.i4, 0
-  %div.i.i.i = sdiv i32 %n.addr.010.i.i.i, 2
+  %div.i1.i.i = lshr i32 %n.addr.010.i.i.i, 1
   %add.i.i.i = select i1 %tobool.not.i.i.i, i32 0, i32 %n.addr.010.i.i.i
-  %spec.select7.i.i.i = add nsw i32 %add.i.i.i, %result.011.i.i.i
+  %spec.select7.i.i.i = add nuw nsw i32 %add.i.i.i, %result.011.i.i.i
   %spec.select8.i.i.i = select i1 %tobool.not.i.i.i, i64 %x.addr.012.i.i.i, i64 %shr.i.i.i4
   %cmp.not.i.i.i = icmp eq i64 %spec.select8.i.i.i, 1
   br i1 %cmp.not.i.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit, label %while.body.i.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit: ; preds = %while.body.i.i.i
-  %10 = sext i32 %spec.select7.i.i.i to i64
+  %10 = zext nneg i32 %spec.select7.i.i.i to i64
   br label %_ZN5boost6detail10lowest_bitImEEiT_.exit
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit:         ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit, %if.end
@@ -5985,19 +5985,19 @@ cond.true.i:                                      ; preds = %if.end.i
 while.body.i.i.i.i:                               ; preds = %cond.true.i, %while.body.i.i.i.i
   %x.addr.012.i.i.i.i = phi i64 [ %spec.select8.i.i.i.i, %while.body.i.i.i.i ], [ %sub1.i.i, %cond.true.i ]
   %result.011.i.i.i.i = phi i32 [ %spec.select7.i.i.i.i, %while.body.i.i.i.i ], [ 0, %cond.true.i ]
-  %n.addr.010.i.i.i.i = phi i32 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ 32, %cond.true.i ]
+  %n.addr.010.i.i.i.i = phi i32 [ %div.i1.i.i.i, %while.body.i.i.i.i ], [ 32, %cond.true.i ]
   %sh_prom.i.i.i.i = zext nneg i32 %n.addr.010.i.i.i.i to i64
   %shr.i.i.i.i = lshr i64 %x.addr.012.i.i.i.i, %sh_prom.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %shr.i.i.i.i, 0
-  %div.i.i.i.i = sdiv i32 %n.addr.010.i.i.i.i, 2
+  %div.i1.i.i.i = lshr i32 %n.addr.010.i.i.i.i, 1
   %add.i.i.i.i = select i1 %tobool.not.i.i.i.i, i32 0, i32 %n.addr.010.i.i.i.i
-  %spec.select7.i.i.i.i = add nsw i32 %add.i.i.i.i, %result.011.i.i.i.i
+  %spec.select7.i.i.i.i = add nuw nsw i32 %add.i.i.i.i, %result.011.i.i.i.i
   %spec.select8.i.i.i.i = select i1 %tobool.not.i.i.i.i, i64 %x.addr.012.i.i.i.i, i64 %shr.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %spec.select8.i.i.i.i, 1
   br i1 %cmp.not.i.i.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i, label %while.body.i.i.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i: ; preds = %while.body.i.i.i.i
-  %13 = sext i32 %spec.select7.i.i.i.i to i64
+  %13 = zext nneg i32 %spec.select7.i.i.i.i to i64
   br label %_ZN5boost6detail10lowest_bitImEEiT_.exit.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.i:       ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i, %cond.true.i
@@ -6114,19 +6114,19 @@ cond.true.i:                                      ; preds = %if.end.i
 while.body.i.i.i.i:                               ; preds = %cond.true.i, %while.body.i.i.i.i
   %x.addr.012.i.i.i.i = phi i64 [ %spec.select8.i.i.i.i, %while.body.i.i.i.i ], [ %sub1.i.i, %cond.true.i ]
   %result.011.i.i.i.i = phi i32 [ %spec.select7.i.i.i.i, %while.body.i.i.i.i ], [ 0, %cond.true.i ]
-  %n.addr.010.i.i.i.i = phi i32 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ 32, %cond.true.i ]
+  %n.addr.010.i.i.i.i = phi i32 [ %div.i1.i.i.i, %while.body.i.i.i.i ], [ 32, %cond.true.i ]
   %sh_prom.i.i.i.i = zext nneg i32 %n.addr.010.i.i.i.i to i64
   %shr.i.i.i.i = lshr i64 %x.addr.012.i.i.i.i, %sh_prom.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %shr.i.i.i.i, 0
-  %div.i.i.i.i = sdiv i32 %n.addr.010.i.i.i.i, 2
+  %div.i1.i.i.i = lshr i32 %n.addr.010.i.i.i.i, 1
   %add.i.i.i.i = select i1 %tobool.not.i.i.i.i, i32 0, i32 %n.addr.010.i.i.i.i
-  %spec.select7.i.i.i.i = add nsw i32 %add.i.i.i.i, %result.011.i.i.i.i
+  %spec.select7.i.i.i.i = add nuw nsw i32 %add.i.i.i.i, %result.011.i.i.i.i
   %spec.select8.i.i.i.i = select i1 %tobool.not.i.i.i.i, i64 %x.addr.012.i.i.i.i, i64 %shr.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %spec.select8.i.i.i.i, 1
   br i1 %cmp.not.i.i.i.i, label %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i, label %while.body.i.i.i.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i: ; preds = %while.body.i.i.i.i
-  %15 = sext i32 %spec.select7.i.i.i.i to i64
+  %15 = zext nneg i32 %spec.select7.i.i.i.i to i64
   br label %_ZN5boost6detail10lowest_bitImEEiT_.exit.i
 
 _ZN5boost6detail10lowest_bitImEEiT_.exit.i:       ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.loopexit.i, %cond.true.i

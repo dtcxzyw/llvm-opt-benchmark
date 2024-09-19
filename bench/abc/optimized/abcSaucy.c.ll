@@ -8383,19 +8383,19 @@ define internal fastcc void @introsort_loop(ptr nocapture noundef %0, i32 nounde
 
 9:                                                ; preds = %14, %7
   %.0.i.i = phi i32 [ %8, %7 ], [ %10, %14 ]
-  %10 = sdiv i32 %.0.i.i, 2
-  %11 = sext i32 %10 to i64
+  %10 = lshr i32 %.0.i.i, 1
+  %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %invariant.gep, i64 %11
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp sgt i32 %.pre.i.i, %13
   br i1 %.not.i.i, label %14, label %sift_up.exit.i
 
 14:                                               ; preds = %9
-  %15 = sext i32 %.0.i.i to i64
+  %15 = zext nneg i32 %.0.i.i to i64
   %16 = getelementptr inbounds i32, ptr %invariant.gep, i64 %15
   store i32 %13, ptr %16, align 4
   store i32 %.pre.i.i, ptr %12, align 4
-  %17 = icmp sgt i32 %.0.i.i, 3
+  %17 = icmp ugt i32 %.0.i.i, 3
   br i1 %17, label %9, label %sift_up.exit.i, !llvm.loop !108
 
 sift_up.exit.i:                                   ; preds = %14, %9

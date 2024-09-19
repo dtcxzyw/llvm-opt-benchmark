@@ -1277,20 +1277,19 @@ land.rhs56:                                       ; preds = %if.then53, %for.bod
   %17 = phi i64 [ %inc65, %for.body ], [ %inc54, %if.then53 ]
   %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 %17
   %18 = load i8, ptr %arrayidx57, align 1
-  %19 = add i8 %18, -48
+  %.fr = freeze i8 %18
+  %19 = add i8 %.fr, -48
   %20 = icmp ult i8 %19, 10
   br i1 %20, label %for.body, label %if.end66.loopexit
 
 for.body:                                         ; preds = %land.rhs56
-  %cmp60 = icmp sgt i32 %mult.076, 0
-  %conv63 = zext nneg i8 %18 to i32
+  %conv63 = zext nneg i8 %.fr to i32
   %sub = add nsw i32 %conv63, -48
-  %mul = mul nsw i32 %sub, %mult.076
-  %add = select i1 %cmp60, i32 %mul, i32 0
-  %micros.2 = add nsw i32 %add, %micros.175
+  %mul = mul nuw nsw i32 %sub, %mult.076
+  %micros.2 = add nuw nsw i32 %mul, %micros.175
   %inc65 = add i64 %17, 1
   store i64 %inc65, ptr %pos, align 8
-  %div = sdiv i32 %mult.076, 10
+  %div = udiv i32 %mult.076, 10
   %exitcond84.not = icmp eq i64 %inc65, %len
   br i1 %exitcond84.not, label %if.end66.loopexit, label %land.rhs56, !llvm.loop !9
 

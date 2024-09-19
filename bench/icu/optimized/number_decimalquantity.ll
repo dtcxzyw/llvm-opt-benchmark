@@ -3377,15 +3377,14 @@ _ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit: ; preds = %if.th
 for.body:                                         ; preds = %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit, %for.body
   %indvars.iv = phi i64 [ 0, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit ], [ %indvars.iv.next, %for.body ]
   %n.addr.017 = phi i64 [ %n, %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit ], [ %div, %for.body ]
-  %rem = srem i64 %n.addr.017, 10
-  %conv = trunc nsw i64 %rem to i8
+  %rem = urem i64 %n.addr.017, 10
+  %conv = trunc nuw nsw i64 %rem to i8
   %3 = load ptr, ptr %fBCD, align 8
   %arrayidx = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx, align 1
-  %div = sdiv i64 %n.addr.017, 10
+  %div = udiv i64 %n.addr.017, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %n.addr.017.off = add i64 %n.addr.017, 9
-  %cmp2.not = icmp ult i64 %n.addr.017.off, 19
+  %cmp2.not = icmp ult i64 %n.addr.017, 10
   br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body

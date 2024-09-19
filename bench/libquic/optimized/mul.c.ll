@@ -333,27 +333,27 @@ if.then132:                                       ; preds = %if.else123
   br label %if.end174
 
 for.cond:                                         ; preds = %if.else123, %if.else154
-  %i.0 = phi i32 [ %div140248, %if.else154 ], [ %div242, %if.else123 ]
-  %div140248 = lshr i32 %i.0, 1
-  %or.cond243 = icmp slt i32 %div140248, %tna.tnb
-  br i1 %or.cond243, label %if.then145, label %if.else154
+  %i.0 = phi i32 [ %div140243, %if.else154 ], [ %div242, %if.else123 ]
+  %div140243 = lshr i32 %i.0, 1
+  %or.cond244 = icmp slt i32 %div140243, %tna.tnb
+  br i1 %or.cond244, label %if.then145, label %if.else154
 
 if.then145:                                       ; preds = %for.cond
-  %sub152 = sub nsw i32 %tna, %div140248
-  %sub153 = sub nsw i32 %tnb, %div140248
-  tail call fastcc void @bn_mul_part_recursive(ptr noundef nonnull %arrayidx108, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx3, i32 noundef %div140248, i32 noundef %sub152, i32 noundef %sub153, ptr noundef nonnull %arrayidx72)
+  %sub152 = sub nsw i32 %tna, %div140243
+  %sub153 = sub nsw i32 %tnb, %div140243
+  tail call fastcc void @bn_mul_part_recursive(ptr noundef nonnull %arrayidx108, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx3, i32 noundef %div140243, i32 noundef %sub152, i32 noundef %sub153, ptr noundef nonnull %arrayidx72)
   br label %if.end174
 
 if.else154:                                       ; preds = %for.cond
-  %cmp155 = icmp eq i32 %div140248, %tna
-  %cmp158 = icmp eq i32 %div140248, %tnb
-  %or.cond244 = or i1 %cmp155, %cmp158
-  br i1 %or.cond244, label %if.then160, label %for.cond
+  %cmp155 = icmp eq i32 %div140243, %tna
+  %cmp158 = icmp eq i32 %div140243, %tnb
+  %or.cond245 = or i1 %cmp155, %cmp158
+  br i1 %or.cond245, label %if.then160, label %for.cond
 
 if.then160:                                       ; preds = %if.else154
-  %sub167 = sub nsw i32 %tna, %div140248
-  %sub168 = sub nsw i32 %tnb, %div140248
-  tail call fastcc void @bn_mul_recursive(ptr noundef nonnull %arrayidx108, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx3, i32 noundef %div140248, i32 noundef %sub167, i32 noundef %sub168, ptr noundef nonnull %arrayidx72)
+  %sub167 = sub nsw i32 %tna, %div140243
+  %sub168 = sub nsw i32 %tnb, %div140243
+  tail call fastcc void @bn_mul_recursive(ptr noundef nonnull %arrayidx108, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx3, i32 noundef %div140243, i32 noundef %sub167, i32 noundef %sub168, ptr noundef nonnull %arrayidx72)
   br label %if.end174
 
 if.end174:                                        ; preds = %if.then86, %if.then132, %if.then160, %if.then145, %if.then106, %if.then52

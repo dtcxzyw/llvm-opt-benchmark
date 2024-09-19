@@ -1521,13 +1521,13 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %116, %123, %121, %1
   %161 = or disjoint i32 %160, 1
   %162 = add nsw i32 %158, %131
   %163 = select i1 %159, i32 %161, i32 %162
-  %164 = sdiv i32 %.0212319, 2
+  %164 = lshr i32 %.0212319, 1
   %165 = and i32 %.0217317, %.0211
   %166 = icmp eq i32 %165, 0
-  %167 = add nsw i32 %164, %.0213318
+  %167 = add nuw nsw i32 %164, %.0213318
   %.1216 = select i1 %166, i32 %.0213318, i32 %167
   %.1214 = select i1 %166, i32 %167, i32 %.0213318
-  %168 = add nsw i32 %.1214, %164
+  %168 = add nuw nsw i32 %.1214, %164
   %.not299 = icmp sgt i32 %131, %.1214
   br i1 %.not299, label %169, label %ompi_range_sum.exit
 
@@ -1536,7 +1536,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %116, %123, %121, %1
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %169
-  %172 = shl nsw i32 %164, 1
+  %172 = and i32 %.0212319, 2147483646
   br label %ompi_range_sum.exit
 
 173:                                              ; preds = %169
@@ -1551,7 +1551,7 @@ ompi_range_sum.exit:                              ; preds = %157, %171, %173
   %.0.i280 = phi i32 [ %172, %171 ], [ %177, %173 ], [ %164, %157 ]
   %178 = sext i32 %.0.i280 to i64
   %179 = mul nsw i64 %178, %16
-  %180 = add nsw i32 %.1216, %164
+  %180 = add nuw nsw i32 %.1216, %164
   %.not300 = icmp sgt i32 %131, %.1216
   br i1 %.not300, label %181, label %ompi_range_sum.exit283
 
@@ -1560,7 +1560,7 @@ ompi_range_sum.exit:                              ; preds = %157, %171, %173
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %181
-  %184 = shl nsw i32 %164, 1
+  %184 = and i32 %.0212319, 2147483646
   br label %ompi_range_sum.exit283
 
 185:                                              ; preds = %181
@@ -1575,11 +1575,11 @@ ompi_range_sum.exit283:                           ; preds = %ompi_range_sum.exit
   %.0.i281 = phi i32 [ %184, %183 ], [ %189, %185 ], [ %164, %ompi_range_sum.exit ]
   %190 = sext i32 %.0.i281 to i64
   %191 = mul nsw i64 %190, %16
-  %192 = shl nsw i32 %.1214, 1
+  %192 = shl nuw nsw i32 %.1214, 1
   %193 = add nsw i32 %.1214, %131
   %194 = select i1 %.not299, i32 %192, i32 %193
   %195 = sext i32 %194 to i64
-  %196 = shl nsw i32 %.1216, 1
+  %196 = shl nuw nsw i32 %.1216, 1
   %197 = add nsw i32 %.1216, %131
   %198 = select i1 %.not300, i32 %196, i32 %197
   %199 = sext i32 %198 to i64
@@ -1637,13 +1637,13 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %205, %209
   br i1 %220, label %225, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = shl nsw i32 %.0213.lcssa, 1
+  %.pre = shl nuw nsw i32 %.0213.lcssa, 1
   %.pre338 = add nsw i32 %.0213.lcssa, %131
   br label %235
 
 225:                                              ; preds = %._crit_edge
   %.not247.not = icmp slt i32 %.0213.lcssa, %131
-  %226 = shl nsw i32 %.0213.lcssa, 1
+  %226 = shl nuw nsw i32 %.0213.lcssa, 1
   %227 = add nsw i32 %.0213.lcssa, %131
   %228 = select i1 %.not247.not, i32 %226, i32 %227
   %229 = sext i32 %228 to i64
